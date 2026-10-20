@@ -1,0 +1,12 @@
+{
+  "command": [
+    "C:\\msys64\\ucrt64\\bin\\python.exe",
+    "-X",
+    "utf8",
+    "tools/bridge.py"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\Inter-universal Teichmüller Theory\\tools\\bridge.py\", line 232, in <module>\n    sys.exit(main())\n             ~~~~^^\n  File \"D:\\Inter-universal Teichmüller Theory\\tools\\bridge.py\", line 90, in main\n    bodies = {project: definition_bodies(PROJECTS[project]) for project in ('main', 'bridge')}\n                       ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Inter-universal Teichmüller Theory\\tools\\semantic_lock.py\", line 49, in definition_bodies\n    assert_equal(before, module.snapshot(), 'definition exporter inputs')\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Inter-universal Teichmüller Theory\\tools\\freshness.py\", line 31, in assert_equal\n    raise RuntimeError(f'{label}: stale or incomplete snapshot: {changed[:20]}')\nRuntimeError: definition exporter inputs: stale or incomplete snapshot: ['@workspace/tools/git_bytes.py']\n",
+  "seconds": 193.62959361076355
+}

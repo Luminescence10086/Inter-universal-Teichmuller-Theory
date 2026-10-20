@@ -11,7 +11,7 @@ F2 的 schema-3 运行时绑定、`Integration.lean`、F4 的定义体门禁由�
 
 | 编号 | 处理 | 证据 | 状态 |
 |---|---|---|---|
-| F1 | 重新按字节保真策略入库 301 个被 CRLF→LF 归一的文件；新增 `tools/git_bytes.py` 把**记录哈希**与 **HEAD blob** 比对（而不是与工作区比对） | `python tools/git_bytes.py` → `main 16/16, local 15/15, bridge 36/36 … clean checkout reproduces every recorded input` | ✅ 关闭 |
+| F1 | 重新按字节保真策略入库 301 个被 CRLF→LF 归一的文件；新增清洁检出检查器，把**记录哈希**与 **HEAD blob** 比对（而不是与工作区比对） | `python bridges/check_clean_checkout.py` → `main 16/16, local 15/15, bridge 36/36 … clean checkout reproduces every recorded input` | ✅ 关闭 |
 | F2 | bridge 准入改绑**真实导入闭包**：新增 `ImportsRuntime.lean`（module→olean 路径）与 `verify_integrated.py` 的运行时快照；receipt 升 `schema: 3` 并含 `runtime_sha256`；**schema-2 receipt 一律拒绝**（不足而非"过期"） | `python bridge/tools/verify.py` → `admitted=73, pending=0, receipt_valid=True`；`bridge/verification/checked-inputs.json` 记录运行时根与哈希 | ✅ 关闭 |
 | F3 | 导出新鲜度改查**完整输入集**（含 `lean-toolchain`/`lakefile.toml`/`lake-manifest.json`/工具与 `@workspace/` 级工具），不再只筛 `.lean` | `tools/freshness.py` 被 `tools/bridge.py` 与锁工具共同调用；`bridge/verification/checked-inputs.json` 现含 36 个输入（含 5 个 `@workspace/` 工具项） | ✅ 关闭 |
 | F4 | vendored 定义改由**类型 + 定义体源码文本**双门禁；旧的 `vendored definition type identical` 成功串已删除；新增 `tools/DefinitionBodies.lean` 与（并存）打印体锁 | `python tools/bridge.py` → `Contracts checked: 10; failures: 0; proof_transfer: false`；`bridges/facts.json` 增 `cross_toolchain_semantic_equivalence: false` | ✅ 关闭 |
@@ -42,6 +42,13 @@ F2 的 schema-3 运行时绑定、`Integration.lean`、F4 的定义体门禁由�
 2. **锁工具归并。** `tools/semantic_lock.py`（语句+类型+定义体+公理，312 个常量）是本会话
    `tools/statement_lock.py`（语句+公理，188 条）的超集；语义锁为**规范入口**，
    `statement_lock.py` 与 `bridges/statement-lock.json` 作为历史保留，不再扩展。
+3. **工具路径与 pin 的相互作用（本轮实测）。** schema-3 receipt 会把 `tools/*.{lean,py,json}`
+   全量纳入输入集，因此**任何对 `tools/` 内文件的编辑都会作废一次真实编辑器观察**。
+   本轮据此把 F1 检查器改放 `bridges/check_clean_checkout.py`（不被 pin），并把
+   `tools/git_bytes.py` 恢复为与观察逐字节一致的版本。这是正确的绑定语义（工具决定证据），
+   但代价是工具修复必须与下一次编辑器观察同批落地；若希望解耦，应在下一轮把 pin 收窄为
+   **验证链实际调用的文件**（`verify_integrated.py`、`freshness.py`、`DefinitionBodies.lean`、
+   `ImportsRuntime.lean`、`catalog.json`、`EditorCheck.lean`），而不是整个 `tools/` 目录。
 
 ## 当前可核验状态
 

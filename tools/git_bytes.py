@@ -43,30 +43,13 @@ def repo_prefix(project_dir: Path) -> str:
     return git(['rev-parse', '--show-prefix'], project_dir).decode().strip()
 
 
-def blob_sha(rel_from_repo_root: str) -> str | None:
-    """SHA-256 of the blob stored at HEAD for a repository-root-relative path."""
-    result = subprocess.run(['git', '-C', str(ROOT), 'show', f'HEAD:{rel_from_repo_root}'],
+def blob_sha(project_dir: Path, prefix: str, rel: str) -> str | None:
+    spec = f'HEAD:{prefix}{rel}'
+    result = subprocess.run(['git', '-C', str(project_dir), 'show', spec],
                             capture_output=True)
     if result.returncode != 0:
         return None
     return sha256_bytes(result.stdout)
-
-
-WORKSPACE_PREFIX = '@workspace/'
-
-
-def resolve_input(project_dir: Path, prefix: str, key: str):
-    """Map a recorded input key to (worktree path, repository-root-relative path).
-
-    Two key spaces exist. A plain key is relative to its own project directory. The
-    ``@workspace/`` prefix (used when a verifier also pins the cross-project tooling it
-    depends on) is relative to the repository root, because those tools live outside any
-    single project.
-    """
-    if key.startswith(WORKSPACE_PREFIX):
-        rel = key[len(WORKSPACE_PREFIX):]
-        return ROOT / rel, rel
-    return project_dir / key, f'{prefix}{key}'
 
 
 def main(argv) -> int:
@@ -79,12 +62,12 @@ def main(argv) -> int:
                             .read_text(encoding='utf-8'))
         prefix = repo_prefix(project_dir)
         bad = []
-        for key, expected in record['input_sha256'].items():
-            path, rel_from_root = resolve_input(project_dir, prefix, key)
-            head = blob_sha(rel_from_root)
+        for rel, expected in record['input_sha256'].items():
+            head = blob_sha(project_dir, prefix, rel)
+            path = project_dir / rel
             work = sha256_bytes(path.read_bytes()) if path.exists() else None
             if head != expected:
-                bad.append((key, 'head', head, expected, work))
+                bad.append((rel, 'head', head, expected, work))
         report.append((name, len(record['input_sha256']), bad))
         mismatches += len(bad)
 
