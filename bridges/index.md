@@ -1,6 +1,6 @@
 # Bridge contracts
 
-生成时间：2026-10-20T09:34:13.454660+00:00；状态：`all_contracts_checked`。
+生成时间：2026-10-20T11:43:39.948437+00:00；状态：`all_contracts_checked`。
 
 三套工程、两套工具链。`local → bridge` 是**真实 Lean import**（内核检查）；
 `main → bridge` **无法 import**（Lean 4.34.0 vs rc2），因此那里的边是**受审计的接口合同**：
