@@ -1,3 +1,8 @@
 .lake/
 .vscode-user-data/
 __pycache__/
+
+# Reviewer workspace: isolated snapshots, replay logs and negative-test fixtures are
+# produced by the review harness, not by the research rounds. They are deliberately
+# not part of the research branch.
+reviews/
