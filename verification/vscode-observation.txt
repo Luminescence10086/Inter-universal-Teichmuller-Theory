@@ -1,0 +1,19 @@
+Window: "EditorCheck.lean - Inter-universal Teichmüller Theory - Visual Studio Code", App: Code.exe.
+													2404 树项目 (selectable) 信息: 行 7 和字符 1 处的 IUTAudit.Scale.scale_composition (k l x : Nat) : IUTAudit.Scale.scaled k (IUTAudit.Scale.scaled l x) = IUTAudit.Scale.scaled (k * l) x。Lean 4 生成的 ID: list_id_9_1
+													2408 树项目 (selectable) 信息: 行 8 和字符 1 处的 IUTAudit.Scale.normalization_at_unit (k : Nat) (h : IUTAudit.Scale.scaled k 1 = 1) : k = 1。Lean 4 生成的 ID: list_id_9_2
+													2411 树项目 (selectable) 信息: 行 9 和字符 1 处的 IUTAudit.Scale.normalized_scale_preserves (k : Nat) (h : IUTAudit.Scale.scaled k 1 = 1) (x : Nat) : IUTAudit.Scale.scaled k x = x。Lean 4 生成的 ID: list_id_9_3
+													2415 树项目 (selectable) 信息: 行 10 和字符 1 处的 IUTAudit.Scale.no_uniform_bound : ¬∃ B, ∀ (k : Nat), IUTAudit.Scale.scaled k 1 ≤ B。Lean 4 生成的 ID: list_id_9_4
+													2418 树项目 (selectable) 信息: 行 11 和字符 1 处的 IUTAudit.Scale.scale_two_not_identity : IUTAudit.Scale.scaled 2 1 ≠ 1。Lean 4 生成的 ID: list_id_9_5
+													2421 树项目 (selectable) 信息: 行 12 和字符 1 处的 IUTAudit.Scale.weighted_comparison_forces_bound (d q : Int) (h : -2 * q ≤ 3 * d - 5 * q) : q ≤ d。Lean 4 生成的 ID: list_id_9_6
+													2424 树项目 (selectable) 信息: 行 13 和字符 1 处的 IUTAudit.Scale.erased_comparison_iff (d q : Int) : -2 * q ≤ 3 * d - 2 * q ↔ 0 ≤ d。Lean 4 生成的 ID: list_id_9_7
+													2427 树项目 (selectable) 信息: 行 14 和字符 1 处的 IUTAudit.Scale.erased_comparison_unbounded (d : Int) (hd : 0 ≤ d) (B : Int) : ∃ q, B < q ∧ -2 * q ≤ 3 * d - 2 * q。Lean 4 生成的 ID: list_id_9_8
+													2430 树项目 (selectable) 信息: 行 15 和字符 1 处的 IUTAudit.Descent.invariant_of_descends.{u, v} {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (h : IUTAudit.Descent.Descends f q) : IUTAudit.Descent.FiberInvariant f q。Lean 4 生成的 ID: list_id_9_9
+													2434 树项目 (selectable) 信息: 行 16 和字符 1 处的 IUTAudit.Descent.descends_of_section.{u, v} {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (s : Y → X) (hs : ∀ (y : Y), f (s y) = y) (h : IUTAudit.Descent.FiberInvariant f q) : IUTAudit.Descent.Descends f q。Lean 4 生成的 ID: list_id_9_10
+													2438 树项目 (selectable) 信息: 行 17 和字符 1 处的 IUTAudit.Descent.descends_iff_invariant_of_section.{u, v} {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (s : Y → X) (hs : ∀ (y : Y), f (s y) = y) : IUTAudit.Descent.Descends f q ↔ IUTAudit.Descent.FiberInvariant f q。Lean 4 生成的 ID: list_id_9_11
+													2442 树项目 (selectable) 信息: 行 18 和字符 1 处的 IUTAudit.Descent.boolean_quantity_does_not_descend : ¬IUTAudit.Descent.Descends (fun x => ()) fun b => if b = true then 1 else 0。Lean 4 生成的 ID: list_id_9_12
+													218 组 信息: 24 条 ID: status.problems
+																				819 开合三角标记 EditorCheck.lean:32:0   
+																					820 文本 EditorCheck.lean:32:0
+																				828 开合三角标记 All Messages (  24)  
+																					829 文本 All Messages
+																						832 链接  Description: Pause 'All Messages'

@@ -1,0 +1,374 @@
+
+===== PDF PAGE 1 =====
+A LOCAL NON-CONT AINMENT IN STEP (V) OF IUT IV,
+THEOREM 1.10
+TOSHIHISA URAHIGASHI
+Abstract. Step (v) of the proof of Theorem 1.10 in the fourth paper of Mochizuki’s series on
+inter-universal Teichm¨ uller theory estimates, prime by prime, the log-volume of the holomorphic
+hull of the union of possible images of a Θ-pilot object defined in Corollary 3.12 of the third
+paper. For each tuple of places it bounds the log-volume of the component of this hull by that
+of an explicit module, which depends on the order of the q-parameter at the place carrying the
+label j. We give an explicit initial Θ-datum, with two places of multiplicative reduction above
+the prime 30965771, and an element of the projection of the union to one summand, obtained
+from a theta value by a permutation of labels allowed by the indeterminacy (Ind1), that does
+not lie in this module; the corresponding component of the hull has larger log-volume than the
+bound obtained in Step (v). No assertion is made here about Corollary 3.12 itself, the final
+global inequality of Theorem 1.10, or the abc conjecture.
+1. The statement of Step (v)
+We use the notation of [IUT1, IUT3, IUT4]; page numbers refer to the versions listed at the
+end, and we omit some decorations such as n,◦. For a finite extension k of Qp we write Ok for
+its ring of integers, ek for its ramification index, ord for the valuation on an algebraic closure
+of Qp with ord(p) = 1, and dk for the order of a generator of the different of Ok over Zp. For
+finitely many such fields ( ki)i∈I we write, as in [IUT4, Props. 1.1, 1.2, pp. 9–10],
+kI =N
+i∈I ki, R I =N
+i∈I Oki, logp(R×
+I ) =N
+i∈I logp(O×
+ki), dI =P
+i∈I dki,
+the tensor products being over Qp, respectively Zp, and ( RI)∼ for the normalization of RI.
+The ring kI is a finite product of fields L, and ( RI)∼ is the product of their rings of integers.
+We use the log-volume µlog of [IUT4, Prop. 1.4(i), p. 13], normalized by µlog((RI)∼) = 0 and
+µlog(p · (RI)∼) = − log p, and three elementary facts.
+(1.1) In every factor L of kI, the component of a pure tensor y = ⊗izi, zi ̸= 0, has ord
+equal to c = P
+i ord(zi). Hence ( RI)∼ · y = {z ∈ kI : ord( zL) ≥ c for every L} and
+µlog((RI)∼ · y) = −c log p.
+(1.2) If p is odd and ek ≤ p − 2, then logp(O×
+k ) = {z ∈ k : ord(z) ≥ 1/ek} [IUT4, Prop. 1.2(i),
+p. 10]; so for z ∈ k× and n ∈ Z we have z ∈ pn logp(O×
+k ) if and only if n < ord(z).
+(1.3) Write A(k) for the group of Qp-linear automorphisms of k that map log p(O×
+k ) onto
+itself, equivalently the log-shell p−1 logp(O×
+k ) (p odd) [IUT3, Rem. 1.2.2(i), p. 36]. Un-
+der the hypothesis of (1.2), every ψ ∈ A (k) maps each pn logp(O×
+k ) onto itself, hence
+⌈ord ψ(z)⌉ = ⌈ord z⌉; in particular ord ψ(z) ≤ ⌈ord z⌉.
+Fix an initial Θ-datum [IUT1, Def. 3.1, pp. 61–63] that satisfies the hypotheses of [IUT4,
+Thm. 1.10, pp. 22–23], a prime number p that ramifies in K, and j ∈ { 1, . . . , ℓ∗}, where
+ℓ∗ = (ℓ − 1)/2; write S±
+j+1 = {0, 1, . . . , j} [IUT4, p. 27]. For a place v of Fmod above p let v ∈ V
+be the corresponding element [IUT1, Def. 3.1(e)]; we write kv = Kv, qv = qv for the 2 ℓ-th root
+of the q-parameter [IUT1, Ex. 3.2(iv), p. 71], and ρ(v) = ord p(qv). The packet I Q(S±
+j+1; D⊢
+p )
+is the tensor product, over the labels in S±
+j+1, of the direct sum over the places v | p of the
+Q-spans of the log-shells [IUT4, p. 27], [IUT3, Prop. 3.2, pp. 97–98]. Identifying the Q-span of
+Date: Draft, 5 October 2026.
+1
+
+===== PDF PAGE 2 =====
+2 TOSHIHISA URAHIGASHI
+the log-shell at v with kv [IUT3, Rem. 3.1.1(i), p. 93; Prop. 3.2(i)], we get
+I Q(S±
+j+1; D⊢
+p ) =
+M
+v
+kv, k v = kv0 ⊗ kv1 ⊗ · · · ⊗ kvj ,
+the sum running over the tuples v = (v0, . . . , vj) of places of Fmod above p; the factor of kv with
+label i is kvi. Write pr v for the projection to kv, Uj for the union of the possible images of a
+Θ-pilot object, subject to the indeterminacies (Ind1), (Ind2), (Ind3), that is formed in the proof
+of [IUT3, Cor. 3.12] (denoted there Uj,vQ, with vQ = p; p. 174), and U j for its holomorphic hull
+[IUT3, Rem. 3.9.5(i), p. 127].
+For a tuple v, Step (v) [IUT4, pp. 27–28] applies [IUT4, Prop. 1.4(iii), p. 13] with I = S±
+j+1,
+ki = kvi, I ∗ = {i : ekvi > p − 2}, i† = j, and λ = ord( q j2
+vj ) = j2ρ(vj) if vj ∈ Vbad (λ = 0
+otherwise). From the inclusion ϕ(pλ · (RI)∼) ⊆ Cv of that proposition, where
+Cv = p⌊λ−dI −aI ⌋ · logp(R×
+I ) ⊆ Mv = p⌊λ−dI −aI ⌋−bI · (RI)∼
+and aI , bI are as in [IUT4, Prop. 1.2], it concludes that a suitable multiple of log p(R×
+I ) contains
+the union of possible images, 1 and that an upper bound for the component at v of the log-
+volume of the holomorphic hull may be obtained from an upper bound for the log-volume of
+Mv [IUT4, p. 28]. If I ∗ = ∅, the latter is
+(1) µlog(Mv) ≤ (−λ + dI + 1) · log p
+[IUT4, Prop. 1.4(iii)]. This is the bound that we test.
+Lemma 1. The union of possible images whose holomorphic hull Step (v) estimates is Uj, and
+its component at the tuple v is prv(Uj).
+Proof. Step (v) states that the container “contains the ‘union of possible images of a Θ-pilot
+object’ discussed in Step (iv)” [IUT4, p. 27]. Step (iv) introduces this union “according to
+the various definitions given in the statement of [IUTchIII], Corollary 3.12” [IUT4, p. 26],
+and estimates, for fixed vQ and j, its component in I Q(S±
+j+1; D⊢
+vQ) and then the component
+corresponding to each tuple {vi} [IUT4, p. 27]. In the proof of [IUT3, Cor. 3.12] this union is
+the subset Uj,vQ ⊆ I Q(S±
+j+1; D⊢
+vQ), formed before its holomorphic hull is taken [IUT3, p. 174].
+For vQ = p, its component at the tuple v is prv(Uj). □
+2. The datum D2
+Let F0 = Q(
+√
+5), ℓ = 7, and
+π = 14164 + 5825
+√
+5, p = NF0/Q(π) = 30965771, a = π¯π 6,
+where the bar denotes the conjugation of F0. Let E0 : y2 = x(x − 1)(x − a) over F0, F =
+F0(√−1, E0[15]), K = F (E0[7]), XF the curve E0 ×F0 F minus its origin, and Vbad
+mod the set of
+places v of F0 with v ∤ 14 and ord v(j(E0)) < 0.
+Proposition 2. These data extend to an initial Θ-datum D2 = (F /F, XF , ℓ, CK, V, Vbad
+mod, ϵ) in
+the sense of [IUT1, Def. 3.1] that satisfies the hypotheses of [IUT4, Thm. 1.10], with Fmod = F0.
+The number p is prime and splits in F0; the two places b1 = vπ and b2 = v¯π above p lie in Vbad
+mod,
+have [(Fmod)bi : Qp] = 1, and have the local data of Table 1. Moreover p > e ∗
+mod · ℓ = 7741440.
+Proof of Proposition 2, except Table 1. The integer p is prime, p ≡ 1 (mod 5) and p ≡ 3
+(mod 4). So p = π¯π splits in F0, both places above it have [( F0)bi : Qp] = 1, and Qp(√−1) is
+unramified over Qp.
+The integer N(1 − a). We have N(1 − a) = p7 − p Tr(π5) + 1 = 22 · 112 · R, where
+R = 56406340220143710508313748934073550973772664592051
+1In the words of [IUT4, p. 27], the inclusion “implies that the result of multiplying p⌊λ⌋−|I| · 2−|I| · logp(R×
+I )
+by a suitable nonpositive [. . . ] integer power of pvQ contains the ‘union of possible images of a Θ-pilot object’
+discussed in Step (iv)”. Which power is meant plays no role below: Theorem 5 concerns Mv and the bound (1).
+
+===== PDF PAGE 3 =====
+A LOCAL NON-CONTAINMENT IN STEP (V) OF IUT IV, THEOREM 1.10 3
+place v ordv(a) ord p(qv) ekv different exponent dkv ρ(v)
+b1 1 2 105 104 104 /105 1 /7
+b2 6 12 35 34 34 /35 6 /7
+Table 1. The places of D2 above p = 30965771; kv = Kv and ρ(v) = ordp(qv).
+is prime. Hence no prime divides N(1 − a) to the seventh power, ord v(1 − a) ≤ 6 at every place
+v of F0, and ord2(1 − a) = 1 at the place above 2, which is inert. Neither N( a) = p7 nor N(1 − a)
+is divisible by 7.
+The curve. We have j = j(E0) = 28(a2 − a + 1)3/(a2(a − 1)2) and a ∈ O F0. At an odd place
+v with ordv(a) > 0 or ordv(1 − a) > 0 the element a2 − a + 1 is a unit, so ord v(j) = −2 ordv(a),
+respectively −2 ordv(1 − a); at the other odd places the discriminant 16 a2(a − 1)2 is a unit. At
+b1 and b2, 1 − a is a unit, so ord b1(j) = −2 and ord b2(j) = −12. A rational j would have equal
+orders at the two places above p; hence j /∈ Q and Fmod = Q(j) = F0 [IUT4, Prop. 1.8(ii),
+p. 19]. At the place above 2, a is a unit and ord 2(j) = 8 − 2 = 6 ≥ 0.
+Conditions (a), (b) of [IUT1, Def. 3.1] . We have √−1 ∈ F . As E0[2] is rational over F0,
+F = F0(√−1, E0[30]); it is Galois over F0, its Galois group embeds in Z/2×GL2(Z/15Z), whose
+order is 210 ·32 ·5, so [F : F0] is prime to 7; and EF [6] is rational over F . By [IUT4, Prop. 1.8(v),
+p. 19], applied with the primes 3 and 5,EF has semistable reduction at every finite place ofF ; so
+its reduction is multiplicative where ord( j) < 0 and good where ord( j) ≥ 0 [Sil, Props. VII.5.1,
+VII.5.5]. By the previous paragraph, the places of multiplicative reduction are exactly the places
+above Vbad
+mod; this set is nonempty ( b1, b2 ∈ Vbad
+mod), its residue characteristics are odd, and EF
+has good reduction at every other place not dividing 2 · 7, which is the reduction hypothesis of
+[IUT4, Thm. 1.10]. The field F has the form required there: Ftpd = Fmod(E[2]) = F0, E0 is in
+Legendre form, and F = Ftpd(√−1, E0[3 · 5]).
+Condition (c). The prime ℓ = 7 is not a residue characteristic of Vbad
+mod. At a place w of
+F above v ∈ Vbad
+mod the q-parameter has order − ordw(j) = 2 e(w|v) r, where r = ord v(a) or
+ordv(1 − a) lies in {1, . . . ,6} (a vanishes only at b1 and b2, to the orders 1 and 6) and e(w|v)
+divides [ F : F0]; so these orders are prime to 7. At such a place w the Legendre equation
+is minimal, as c4 = 16( a2 − a + 1) is a unit [Sil, § VII.1], and its reduction has a node, at
+(0, 0) with tangents y = ±√−1 x if a ≡ 0 and at (1 , 0) with tangents y = ±(x − 1) if a ≡ 1,
+rational over the residue field; so EF has split multiplicative reduction and EF ∼= Eq over Fw
+[Sil, App. C, Thm. 14.1]. For the image of GF in GL( E0[7]) ∼= GL2(F7): above b1, a ≡ 0
+and ord w(q) = 2 e(w|b1) is prime to 7. As q1/7 generates a ramified extension of the maximal
+unramified extension of Fw, which contains µ7, an element of inertia acts on E0[7] ∼= ⟨ζ7, q1/7⟩
+by a nontrivial transvection t. At the place of F0 of degree one above 19 at which
+√
+5 ≡ 9,
+E0 has good reduction, a ≡ 15 and a19 = 19 + 1 − # ˜E0(F19) = −4; the Frobenius g acts on
+E0[7] ∼= ˜E0[7] [Sil, Prop. VII.3.1] and satisfies g2+4g+19 = 0 [Sil, Thm. V.2.3.1]; as X2+4X +5
+is irreducible over F7 (its discriminant 3 is not a square), g fixes no line. The image H of GF is
+normal in the image of GF0, so it contains t and gtg−1, transvections with distinct fixed lines,
+which generate SL2(F7).
+Conditions (d)–(f). We do not invoke [IUT4, Cor. 2.2] forD2: its condition (P1) [IUT4, p. 45]
+contains the inequality h1/2 ≤ ℓ for the height h defined in its proof (p. 44), and here h > ℓ 2.
+We construct the data directly; as noted on p. 46, the essential input for V and ϵ is the property,
+shown above, that the image of GF contains SL2(Fℓ). Since j /∈ Q, j is none of 2 14 · 313 · 5−3,
+22 ·733 ·3−4, 1728, 0, so XF admits an F -core [MFHMP, Prop. 2.1]. Hence XF is not arithmetic
+[CanLift, Prop. 2.3(i)], nor is its finite ´ etale quotient CF = [ XF /{±1}], a punctured hemi-
+elliptic orbicurve, which is therefore an F -core [CanLift, Prop. 2.7]; so CF = [XF /{±1}] and
+CK = CF ×F K are an F -core and a K-core [CanLift, Prop. 2.3(i)]. The group E0[7] is rational
+over K. Fix a line W ⊂ E0[7] and 0 ̸= ξ ∈ E0[7]/W ; let α: EK → E′ = EK/W be the quotient
+and β : E′ → EK the isogeny with βα = [7]. The finite ´ etale coverβ : X K = E′ \ ker β → XK
+has group ker β = α(E0[7]) ∼= E0[7]/W , corresponds to the quotient E0[7] → E0[7]/W of the
+
+===== PDF PAGE 4 =====
+4 TOSHIHISA URAHIGASHI
+maximal abelian quotient modulo 7 of the geometric fundamental group of XK, and has its
+cusps, the points of ker β, rational over K; so CK = [ X K/{±1}], formed with the cusp 0 as
+origin, is of type (1 , 7-tors)± [EtTh, Def. 2.1], and, being finite ´ etale over the K-core CK, it
+has K-core CK, as required in (d). Let ϵ be the cusp of CK given by ±ξ, as in (f). At a
+place w of K above an element of Vbad
+mod, the Tate uniformization of E0 over Kw, which exists
+by the paragraph on (c), gives a line µ7 ⊂ E0[7] and a generator ±1, canonical up to sign, of
+E0[7]/µ7 ∼= Z/7Z; if (W, ±ξ) is this pair, then CK is of type (1, Z/7Z)± at w [EtTh, Def. 2.5(i)]
+and ϵw is the cusp of ±1, as required in (e), (f). The group SL 2(F7) acts transitively on the
+pairs (L, ±η) of a line L ⊂ E0[7] and 0 ̸= η ∈ E0[7]/L (it sends any basis of determinant 1 to
+any other), and it lies in the image of Gal( K/F ). Since E0 and its Tate parameter are defined
+over the completion of F below w, an element γ ∈ Gal(K/F ) carries the pair at w to the pair
+at γ(w), and we may choose γ so that the latter is ( W, ±ξ). Choosing such a place over each
+element of Vbad
+mod, and any place over the others, gives V.
+The threshold. Fmod = Q(
+√
+5) has emod = 2, so e∗
+mod · ℓ = 212 · 33 · 5 · 2 · 7 = 7741440 < p
+[IUT4, p. 22]. □
+3. The places above p
+Proof of Table 1. Let b ∈ { b1, b2} and m = − ordb(j), so m = 2 at b1 and m = 12 at b2; let
+k0 = (F0)b(√−1) = Qp(√−1). As in the previous proof, E0 has split multiplicative reduction
+over k0, so E0 ∼= Eq over k0 with ord p(q) = m, and for n prime to p the field k0(E0[n]) is
+k0(µn, q1/n) [Sil, App. C, Thm. 14.1, and the expansion j = q−1 + 744 + · · · on p. 444]. Write
+q = u pm with u ∈ O ×
+k0. The field k0(µn, u1/n) is unramified over Qp, and adjoining to it an
+n-th root of pm gives a totally ramified extension of degree n/ gcd(n, m). Hence k0(E0[n]) is
+tamely ramified over Qp, with ramification index n/ gcd(n, m). For v ∈ V above b we have
+kv = Kv = k0(E0[105]), so ekv = 105/ gcd(105, m), which is 105 at b1 and 35 at b2. Since kv is
+tame over Qp, its different has exponent ekv − 1, that is dkv = (ekv − 1)/ekv [IUT4, Prop. 1.3(i),
+pp. 11–12]. Finally qv = q1/2ℓ [IUT1, Ex. 3.2(iv), p. 71], so ρ(v) = m/14, which is 1/7 at b1 and
+6/7 at b2. Both ekv are at most p − 2. □
+The integer calculations of §§ 2–3 were independently checked by two implementations.
+4. Two elements of the union
+Lemma 3. Let v be a tuple with vj ∈ Vbad, and let θ ∈ kvj be a generator of the component
+labelled j at vj of the splitting monoid, that is, the theta value q j2
+vj up to a root of unity [IUT3,
+p. 11]; so ord(θ) = j2ρ(vj). Let x ∈ kv be the pure tensor with θ at the factor of label j and 1
+at the other factors. Then Uj contains an element X with prv(X) = χ(x) for some χ = ⊗iχi,
+χi ∈ A(kvi).
+Proof. The Θ-pilot object is determined by generators, at the places of Vbad, of the monoids of
+[IUT3, Def. 3.8(i), p. 112], and it is constructed from the local fractional ideals generated by
+elements of these monoids [IUT3, Prop. 3.7(v), p. 112]. At v ∈ Vbad the component labelled j
+of these monoids is a subset of the part of the packet whose factor of label j is the summand
+at v, and it acts on this part multiplicatively [IUT3, Prop. 3.4(ii), pp. 102–103]; it lies there
+through the natural homomorphism of [IUT3, Prop. 3.4(i)], that is, by tensoring with 1 in the
+factors of the other labels [IUT3, Prop. 3.1(ii), p. 93]. A fractional ideal generated by an element
+contains that element. The possible images of [IUT3, Cor. 3.12] are the images of the Θ-pilot
+object relative to the Kummer isomorphisms of [IUT3, Thm. 3.11(ii), p. 155], which include
+isomorphisms of these splitting monoids and of the parts of the packets just described, in the
+multiradial representation of [IUT3, Thm. 3.11(i)], subject to (Ind1), (Ind2), (Ind3), and Uj is
+their union [IUT3, pp. 173–174]. Let g be the element with θ in the factor of label j and 1 in
+the other factors, in the packet of the Hodge theater in which the Θ-pilot object is formed. By
+the above it lies in the corresponding region of the Θ-pilot object, so Uj contains X = κ(g),
+where κ is the Kummer isomorphism of packets onto I Q(S±
+j+1; D⊢
+p ) of [IUT3, Thm. 3.11(ii)(a)],
+
+===== PDF PAGE 5 =====
+A LOCAL NON-CONTAINMENT IN STEP (V) OF IUT IV, THEOREM 1.10 5
+built place by place from isomorphisms of log-shells [IUT3, Prop. 3.2]. In that Hodge theater
+the Q-spans of the log-shells are the fields kv themselves, and the component of g at v is x.
+For I Q(S±
+j+1; D⊢
+p ) the identifications of the Q-spans of the log-shells with the fields kv, used in
+§ 1, form an Ism-orbit compatible with the log-shells [IUT3, Prop. 1.2(vi), p. 32]. Read through
+them, κ maps each summand kw to itself by a tensor product of automorphisms that preserve
+the log-shells, so
+prv(X) = prv(κ(g)) = χ
+ 
+prv(g)
+
+= χ(x), χ = ⊗iχi, χ i ∈ A(kvi).
+□
+For a permutation σ of S±
+j+1 and a tuple v, let σ∗ : kv → kv◦σ−1 send the factor of label i to
+the factor of label σ(i): σ∗(⊗izi) = ⊗izσ−1(i).
+Lemma 4. Let σ be a permutation of S±
+j+1 with σ(0) = 0 , let X ∈ Uj, let v be a tuple, and
+put w = v ◦ σ−1. The images of X under the indeterminacy (Ind1) attached to σ, followed by
+(Ind2), exist and lie in Uj, and the component at w of each of them has the form ψ(σ∗(prv X))
+with ψ = ⊗iψi, ψi ∈ A(kwi). In particular ψ(σ∗(prv X)) ∈ prw(Uj).
+Proof. A morphism of processions consists of an order-preserving injection of the stages and, at
+each stage, a capsule-full poly-morphism, with no condition relating the stages [IUT1, Def. 4.10,
+p. 120]; a capsule-full poly-isomorphism over a bijection of index sets is the set of all collections
+of isomorphisms between the corresponding members [IUT1, § 0, p. 34]. So σ at the stage
+with index set S±
+j+1, together with the identity at the other stages, is an automorphism of the
+procession of [IUT3, Thm. 3.11(i)], whose index sets the source regards as “subject to arbitrary
+permutation automorphisms” [IUT3, p. 10]; cf. [IUT1, Prop. 6.9(i), p. 169]. (Ind1) consists of
+the indeterminacies induced by such automorphisms, and (Ind2) of the action of independent
+copies of Ism on the direct summands of the factors [IUT3, Thm. 3.11(i), p. 154]; the images
+of possible images under them are possible images. The packet is a tensor product over the
+labels of direct sums over the places [IUT3, Prop. 3.2], and a morphism of D⊢-prime-strips is a
+collection of morphisms indexed by the places [IUT1, Def. 4.1(iv), p. 96]; so a member of the
+poly-isomorphism over σ maps each summand kv to kv◦σ−1, sending the factor of label i to that
+of label σ(i) by the map induced by its component at i, and the component at w of the image
+of X is the image of prv(X). Such members exist, the members of the capsule being isomorphic
+[IUT1, Def. 4.1(iii)]. The log-shells are constructed functorially from the prime-strips, and the
+identifications of their Q-spans with the fields kv form an Ism-orbit compatible with the log-
+shells [IUT3, Prop. 1.2(vi), p. 32]. Hence each member, followed by any element of (Ind2), maps
+prv(X) to ψ(σ∗(prv X)) with ψi ∈ A(kwi); that is, the images of X are R(X) for maps R of the
+packet with prw ◦R = ψ ◦ σ∗ ◦ prv. □
+5. The non-containment
+Let D2 be as in Proposition 2 and j = 3, so S±
+4 = {0, 1, 2, 3}. Let u = (b1, b1, b2, b1), whose
+factor of label 3 lies over b1, let θ and x = 1 ⊗ 1 ⊗ 1 ⊗ θ ∈ ku be as in Lemma 3, with
+ord(θ) = 9 · 1
+7 = 9
+7, and let X ∈ U3 be the element given there, so that pr u(X) = χ(x). For
+σ = (2 3) put v = u ◦ σ−1 = (b1, b1, b1, b2) and
+y = σ∗(x) = 1 ⊗ 1 ⊗ θ ⊗ 1 ∈ kb1 ⊗ kb1 ⊗ kb1 ⊗ kb2.
+By Lemma 4, pr v(U3) contains an element ψ(σ∗(χ(x))) = ψ′(y), where ψ′ = ⊗iψ′
+i with ψ′
+i =
+ψi ◦ χσ−1(i) ∈ A(kvi), since σ∗ ◦ χ = (⊗iχσ−1(i)) ◦ σ∗.
+Theorem 5. For the initial Θ-datum D2, j = 3 and v = (b1, b1, b1, b2), the projection prv(U3)
+of the union of possible images of [IUT3, Cor. 3.12] is not contained in the module Mv from
+which [IUT4, Thm. 1.10, Step (v)] obtains its bound for this component. More precisely, no
+element ψ(y) with ψ = ⊗iψi, ψi ∈ A(kvi), lies in Mv. Consequently the component prv(U 3) of
+the holomorphic hull has log-volume at least −2 logp (possibly +∞), whereas the bound (1) for
+it is − 97
+35 log p.
+
+===== PDF PAGE 6 =====
+6 TOSHIHISA URAHIGASHI
+Proof. Step (v) takes i† = 3, whose factor lies over b2, so by Table 1
+λ = 9 · 6
+7 = 54
+7 , dI = 3 · 104
+105 + 34
+35 = 138
+35 , I ∗ = ∅,
+and (1) gives µlog(Mv) ≤ (− 54
+7 + 138
+35 + 1) logp = − 97
+35 log p. By (1.3), ord ψ2(θ) ≤ ⌈ 9
+7 ⌉ = 2 and
+ord ψi(1) ≤ 0 for i ̸= 2; so by (1.1) every component of ψ(y) has ord ≤ 2, and ( RI)∼ · ψ(y) ⊇
+p2 · (RI)∼. If ψ(y) ∈ Mv, then, Mv being an ( RI)∼-module,
+− 97
+35 log p ≥ µlog(Mv) ≥ µlog(p2 · (RI)∼) = −2 logp,
+which is false: − 97
+35 < −2, with margin 27
+35 log p. As pr v(U3) contains an element of this form,
+it is not contained in Mv. For the hull: if U3 is not relatively compact, its holomorphic hull is
+the whole packet [IUT3, Rem. 3.9.5(i)], of log-volume + ∞. Otherwise the hull is η · O for an
+element η with nonzero components [IUT3, ibid.], so pr v(U 3) is an ( RI)∼-module containing
+ψ(y), hence p2 · (RI)∼, and its log-volume is at least µlog(p2 · (RI)∼) = −2 logp. □
+Thus, for the union of possible images and its holomorphic hull as defined in [IUT3, Cor. 3.12],
+the bound that Step (v) obtains for the component at the tuple v does not hold. It is noted in
+[DH, § 6.2, footnote 7] that (Ind1) contains permutations between different tensor factors, which
+the automorphisms used there to estimate the hull do not include.
+The example above concerns the local containment and the local upper bound used in Step (v)
+for a single component. It does not by itself decide the global inequality obtained later in
+Theorem 1.10 after summing over all places. No assertion is made here concerning Corollary 3.12
+itself or the abc conjecture.
+Use of AI tools. Generative AI tools (large language models: Claude by Anthropic, and
+ChatGPT and Codex by OpenAI) were used extensively in this work, under the author’s direc-
+tion, in finding the example and its proofs, in the computations and in the writing. The author
+takes full responsibility for the contents of this note.
+References
+[CanLift] Shinichi Mochizuki, The absolute anabelian geometry of canonical curves , Doc. Math. Extra V ol.
+(2003), 609–640.
+[DH] Taylor Dupuy and Anton Hilado, Probabilistic Szpiro, baby Szpiro, and explicit Szpiro from Mochizuki’s
+Corollary 3.12, 2020, arXiv:2004.13108v2 [math.NT].
+[EtTh] Shinichi Mochizuki, The ´ etale theta function and its Frobenioid-theoretic manifestations, Publ. Res.
+Inst. Math. Sci. 45 (2009), no. 1, 227–349.
+[IUT1] , Inter-universal Teichm¨ uller theory I: construction of Hodge theaters, Publ. Res. Inst. Math.
+Sci. 57 (2021), 3–207, page numbers refer to the preprint version of May 2020.
+[IUT3] , Inter-universal Teichm¨ uller theory III: canonical splittings of the log-theta-lattice, Publ. Res.
+Inst. Math. Sci. 57 (2021), 403–626, page numbers refer to the preprint version of May 2020.
+[IUT4] , Inter-universal Teichm¨ uller theory IV: log-volume computations and set-theoretic foundations,
+Publ. Res. Inst. Math. Sci. 57 (2021), 627–723, page numbers refer to the preprint version of April
+2020.
+[MFHMP] Shinichi Mochizuki, Ivan Fesenko, Yuichiro Hoshi, Arata Minamide, and Wojciech Porowski, Explicit
+estimates in inter-universal Teichm¨ uller theory, Kodai Math. J. 45 (2022), no. 2, 175–236, numbering
+as in the accepted manuscript of May 2022.
+[Sil] Joseph H. Silverman, The arithmetic of elliptic curves , second ed., Graduate Texts in Mathematics,
+vol. 106, Springer, Dordrecht, 2009.
+Email address: 123026.urahigashi.toshihisa@gmail.com

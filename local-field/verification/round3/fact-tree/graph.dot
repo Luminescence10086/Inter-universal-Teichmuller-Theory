@@ -1,0 +1,12 @@
+digraph facts {
+  rankdir=LR;
+  "LocalFieldAudit.Shell.image_scalar_layer";
+  "LocalFieldAudit.Shell.padic_threshold_iff";
+  "LocalFieldAudit.Shell.padic_unitBall_layer_membership_iff";
+  "LocalFieldAudit.Shell.scalar_layer_membership_iff";
+  "LocalFieldAudit.Shell.threshold_iff_of_layers";
+  "LocalFieldAudit.Shell.threshold_iff_of_layers" -> "LocalFieldAudit.Shell.padic_threshold_iff";
+  "LocalFieldAudit.Shell.scalar_layer_membership_iff" -> "LocalFieldAudit.Shell.padic_unitBall_layer_membership_iff";
+  "LocalFieldAudit.Shell.image_scalar_layer" -> "LocalFieldAudit.Shell.scalar_layer_membership_iff";
+  "LocalFieldAudit.Shell.scalar_layer_membership_iff" -> "LocalFieldAudit.Shell.threshold_iff_of_layers";
+}

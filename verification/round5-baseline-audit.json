@@ -1,0 +1,167 @@
+{
+  "audit": "round5-fourth-round-baseline-repeatability",
+  "result": "PASS",
+  "scope": "Read-only repeatability audit before fifth-round source creation; no full verify.py and no new VS Code observation.",
+  "queries": {
+    "core": "python tools/query.py --deep",
+    "local_field": "python local-field/tools/query.py --deep",
+    "exit_codes": {
+      "core": 0,
+      "local_field": 0
+    }
+  },
+  "projects": [
+    {
+      "project": "core",
+      "deep_query_exit_code": 0,
+      "fact_tree": {
+        "schema": 2,
+        "status": "checked",
+        "nodes": 38,
+        "edges": 14,
+        "expected_counts_match": true
+      },
+      "axioms_found": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "axiom_whitelist": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "axioms_within_whitelist": true,
+      "receipt": {
+        "path": "verification\\round4\\vscode-receipt.json",
+        "observation": "verification/vscode-observation-round3.txt",
+        "observation_sha256_matches": true,
+        "observation_round": 3,
+        "observed_at": "2026-10-19T06:20:34.001639+00:00",
+        "checked_targets": 38,
+        "input_count": 16,
+        "input_hashes_match": true,
+        "source_file_diagnostics": {
+          "IUTAudit/Descent.lean": {
+            "lean_server_checked": true,
+            "errors": 0,
+            "warnings": 0,
+            "receipt_sha256_matches_current": true
+          },
+          "IUTAudit/LocalNumerics.lean": {
+            "lean_server_checked": true,
+            "errors": 0,
+            "warnings": 0,
+            "receipt_sha256_matches_current": true
+          },
+          "IUTAudit/Orbit.lean": {
+            "lean_server_checked": true,
+            "errors": 0,
+            "warnings": 0,
+            "receipt_sha256_matches_current": true
+          },
+          "IUTAudit/Scale.lean": {
+            "lean_server_checked": true,
+            "errors": 0,
+            "warnings": 0,
+            "receipt_sha256_matches_current": true
+          },
+          "IUTAudit/Transport.lean": {
+            "lean_server_checked": true,
+            "errors": 0,
+            "warnings": 0,
+            "receipt_sha256_matches_current": true
+          }
+        }
+      }
+    },
+    {
+      "project": "local-field",
+      "deep_query_exit_code": 0,
+      "fact_tree": {
+        "schema": 2,
+        "status": "checked",
+        "nodes": 19,
+        "edges": 21,
+        "expected_counts_match": true
+      },
+      "axioms_found": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "axiom_whitelist": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "axioms_within_whitelist": true,
+      "receipt": {
+        "path": "local-field\\verification\\round4\\vscode-receipt.json",
+        "observation": "verification/vscode-observation-round4.txt",
+        "observation_sha256_matches": true,
+        "observation_round": 4,
+        "observed_at": "2026-10-19T09:58:08.835038+00:00",
+        "checked_targets": 19,
+        "input_count": 14,
+        "input_hashes_match": true,
+        "source_file_diagnostics": {
+          "LocalFieldAudit/Filtration.lean": {
+            "lean_server_checked": true,
+            "errors": 0,
+            "warnings": 0,
+            "receipt_sha256_matches_current": true
+          },
+          "LocalFieldAudit/Shell.lean": {
+            "lean_server_checked": true,
+            "errors": 0,
+            "warnings": 0,
+            "receipt_sha256_matches_current": true
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "nodes": 57,
+    "edges": 35
+  },
+  "open_items": {
+    "GAP.md": {
+      "count": 6,
+      "ids": [
+        "G01",
+        "G02",
+        "G03",
+        "G04",
+        "G05",
+        "G06"
+      ],
+      "all_open": true
+    },
+    "research/round3-realization-obligations.md": {
+      "heading_count": 8,
+      "open_status_count": 8,
+      "ids": [
+        "RI-01",
+        "RI-02",
+        "RI-03",
+        "RI-04",
+        "RI-05",
+        "RI-06",
+        "RI-07",
+        "RI-08"
+      ]
+    }
+  },
+  "environment": {
+    "core_lean": "4.34.0",
+    "local_field_lean": "4.34.0-rc2",
+    "mathlib_path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+    "mathlib_commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "expected_mathlib_commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "mathlib_commit_matches": true
+  },
+  "interpretation": "VS Code observations and source diagnostics are taken from bound fourth-round receipts (core observation round 3, local-field observation round 4); CLI queries are recorded only as CLI checks. Receipts are observations, not anti-forgery certificates.",
+  "checks_pass": true
+}

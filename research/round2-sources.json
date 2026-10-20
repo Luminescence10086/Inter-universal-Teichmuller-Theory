@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "retrieved_at": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "audit": "round2_G03_membership_transport",
+  "formal_status": "source_audit_only_no_new_Lean_proof",
+  "decision": "G03 remains open",
+  "cache_directory": "D:/Inter-universal Teichmüller Theory/research/round2-source-cache",
+  "sources": [
+    {
+      "id": "U-v0.8.0",
+      "author": "Toshihisa Urahigashi",
+      "title": "A local non-containment in Step (v) of IUT IV, Theorem 1.10",
+      "source_url": "https://raw.githubusercontent.com/turahigashi/iut-explicit-initial-theta/v0.8.0/stepv-local-noncontainment/paper/stepv_local_noncontainment.tex",
+      "download_method": "fixed tag zip fetched from codeload into memory; only text and PDF entries extracted",
+      "archive_url": "https://codeload.github.com/turahigashi/iut-explicit-initial-theta/zip/refs/tags/v0.8.0",
+      "repository_tag": "v0.8.0",
+      "paper_version": "1.0.0 per bundled README",
+      "document_date": "2026-10-05",
+      "pdf_pages": 6,
+      "doi_version_lead": "10.5281/zenodo.23166433",
+      "doi_metadata_status": "not retrieved in previous audit; no new claim of independent DOI metadata confirmation",
+      "read_scope": [
+        "complete TeX sections 1-5",
+        "PDF pages 1,4,5,6 emphasis",
+        "visual review PDF page 5"
+      ],
+      "locators": [
+        {
+          "id": "M",
+          "name": "Lemma 3",
+          "label": "l:member",
+          "pdf_pages": [
+            4,
+            5
+          ],
+          "cached_tex_start_line": 282
+        },
+        {
+          "id": "T",
+          "name": "Lemma 4",
+          "label": "l:transport",
+          "pdf_pages": [
+            5
+          ],
+          "cached_tex_start_line": 320
+        },
+        {
+          "id": "main",
+          "name": "Theorem 5",
+          "label": "t:main",
+          "pdf_pages": [
+            5,
+            6
+          ],
+          "cached_tex_start_line": 363
+        }
+      ],
+      "files": [
+        {
+          "name": "urahigashi-v0.8.0.tex",
+          "sha256": "41ae83d7fbac75604b894de9ba4e357740af20dda1d8c05139ff891415162aa0"
+        },
+        {
+          "name": "urahigashi-v0.8.0.pdf",
+          "sha256": "d23d2eb4f867fda35198a3358d9e26550fd761f1a18bdd2a2d37dc35f2de25fe"
+        },
+        {
+          "name": "urahigashi-v0.8.0-readme.md",
+          "sha256": "4a76bc6aaac31dfd8c93fb5a012bf60e2b1d9053161394d083c2b2f0e79d55cc"
+        },
+        {
+          "name": "urahigashi-v0.8.0-sha256sums.txt",
+          "sha256": "54dfaa4a0a3908d00a353bdcf661bca6ce648aeb73e2da8ff639aeadadf3f199"
+        }
+      ],
+      "bundled_checksums_match": true,
+      "mathematics_verified": false
+    },
+    {
+      "id": "IUT-I",
+      "author": "Shinichi Mochizuki",
+      "source_url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20I.pdf",
+      "download_method": "direct official author website",
+      "cover_version": "May 2020",
+      "pdf_pages": 186,
+      "cache_pdf": "iut-I-official-retrieved-2026-10-16.pdf",
+      "sha256": "7360e3ed27c235b5497a0743d3ed1646fbb97688547d16b7c784fc7f127f1f03",
+      "read_printed_pages": [
+        34,
+        96,
+        119,
+        120,
+        121,
+        169
+      ],
+      "locators": [
+        "section 0 capsule-full poly-morphisms",
+        "Definition 4.1(iii),(iv)",
+        "Definition 4.10",
+        "Proposition 4.11",
+        "Proposition 6.9"
+      ],
+      "source_support": [
+        "stagewise capsule-full poly-morphisms",
+        "prime-strip morphisms indexed by places",
+        "procession automorphisms"
+      ],
+      "proofs_formalized": false
+    },
+    {
+      "id": "IUT-III",
+      "author": "Shinichi Mochizuki",
+      "source_url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20III.pdf",
+      "download_method": "direct official author website",
+      "cover_version": "May 2020",
+      "pdf_pages": 199,
+      "cache_pdf": "iut-III-official-retrieved-2026-10-16.pdf",
+      "sha256": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9",
+      "read_printed_pages": [
+        10,
+        11,
+        32,
+        36,
+        93,
+        97,
+        98,
+        99,
+        102,
+        103,
+        112,
+        127,
+        128,
+        153,
+        154,
+        155,
+        156,
+        173,
+        174,
+        175
+      ],
+      "locators": [
+        "Proposition 1.2(vi)",
+        "Remark 1.2.2(i)",
+        "Propositions 3.1(ii),3.2(i)(ii),3.4(ii),3.7(v)",
+        "Definition 3.8(i)",
+        "Remark 3.9.5(i)(ii)",
+        "Theorem 3.11(i)(ii)",
+        "Corollary 3.12"
+      ],
+      "source_support": [
+        "tensor with 1 embedding",
+        "splitting monoid action on partial packet",
+        "Ism log-shell compatibility",
+        "Ind1/Ind2 declarations",
+        "possible images union and holomorphic hull"
+      ],
+      "proofs_formalized": false
+    },
+    {
+      "id": "IUT-IV",
+      "author": "Shinichi Mochizuki",
+      "source_url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20IV.pdf",
+      "download_method": "direct official author website",
+      "cover_version": "April 2020",
+      "pdf_pages": 87,
+      "cache_pdf": "iut-IV-official-retrieved-2026-10-16.pdf",
+      "sha256": "5bf4b1e0a8c2686562a6859e5009d301335044cfb5efec5d3a9edf764e4af87f",
+      "read_printed_pages": [
+        9,
+        10,
+        13,
+        27,
+        28
+      ],
+      "visual_review_printed_pages": [
+        27
+      ],
+      "locators": [
+        "Proposition 1.1",
+        "Proposition 1.2",
+        "Proposition 1.4(iii)",
+        "Theorem 1.10 proof Steps(iv),(v)"
+      ],
+      "source_support": [
+        "fixed-packet Qp-linear automorphism preserving tensor log-lattice",
+        "i-dagger=j and lambda from q at last slot",
+        "subsequent symmetrization and weighted averages"
+      ],
+      "proofs_formalized": false
+    }
+  ],
+  "derived_texts": [
+    {
+      "file": "iut-I-official-retrieved-2026-10-16.txt",
+      "sha256": "5acfb4aec6fcb42264c4e41dd5739024ef8f56f3b279e8dbb358a61c1c1167c6"
+    },
+    {
+      "file": "iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
+      "file": "iut-IV-official-retrieved-2026-10-16.txt",
+      "sha256": "97033613e950d48c4af493403d730f43e1493713cc1fbaadf35746df981c5ef2"
+    },
+    {
+      "file": "urahigashi-v0.8.0.txt",
+      "sha256": "f9d7e923cc1c9615389e5f8ef5a235c633fd54648d310cae664fd35d525bb750"
+    }
+  ],
+  "extraction": {
+    "tool": "bundled Python pypdf PdfReader.extract_text",
+    "page_markers": "PDF PAGE n",
+    "rendering": "Poppler pdftoppm; original IV p27 and U p5 viewed as PNG; temporary generated PNGs removed from cache",
+    "limitations": "text extraction does not prove commutativity, admissibility or correctness"
+  },
+  "bridge_status": [
+    {
+      "id": "M1",
+      "status": "source-supported description; concrete field and root realization pending"
+    },
+    {
+      "id": "M2",
+      "status": "source-supported embedding and action; coordinate realization pending"
+    },
+    {
+      "id": "M3",
+      "status": "author bridge from pilot objects to a specific subset region; pending"
+    },
+    {
+      "id": "M4",
+      "status": "source-supported Kummer and Ism compatibility; fixed finite coordinate formula pending"
+    },
+    {
+      "id": "M5",
+      "status": "membership in precise original admissible family pending"
+    },
+    {
+      "id": "T1",
+      "status": "direct textual support for stagewise procession maps"
+    },
+    {
+      "id": "T2",
+      "status": "direct textual support connecting procession automorphisms to Ind1"
+    },
+    {
+      "id": "T3",
+      "status": "source-supported place indexing; tensor/projection transport proof pending"
+    },
+    {
+      "id": "T4",
+      "status": "Ind2 source support; finite Qp coordinate action proof pending"
+    },
+    {
+      "id": "T5",
+      "status": "orbit/composition closure of actual possible-images family pending"
+    }
+  ],
+  "candidate_repairs": [
+    {
+      "id": "R1",
+      "description": "prove exact source tracking for all admitted outputs and explain which alleged path is excluded",
+      "verified": false
+    },
+    {
+      "id": "R2",
+      "description": "replace local lambda by minimum over actual source orbit, enlarge container, redo all global estimates",
+      "verified": false
+    },
+    {
+      "id": "R3",
+      "description": "prove global orbit/hull bound without replacing union by average",
+      "verified": false
+    },
+    {
+      "id": "R4",
+      "description": "restrict admissible family only with reproof of multiradiality and coverage",
+      "verified": false
+    }
+  ],
+  "not_done": [
+    "no execution of downloaded repository code",
+    "no full verification of initial theta datum global hypotheses",
+    "no reconstruction of IUT II and AbsTopIII dependency proofs",
+    "no certification of actual IUT non-containment",
+    "no proof or disproof of Corollary 3.12, global Theorem 1.10 or abc"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "generated_utc": "2026-10-16T09:19:20.741186+00:00",
+  "lean": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "context_sha256": {
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "b240c6166ebe3b48bc52797bff0821f7ea06f0c26616368c062e4fdd8c3f3409",
+    "lake-manifest.json": "3fcd65f82977ffdcb4918a9e0c769674bff83db40f4cbcf36098c6b241c991f6",
+    "IUTAudit.lean": "0ac3a3b7ee79650487aedae800c8b09304b23a7b5e0fa58665bbadedc8c51802",
+    "tools/EditorCheck.lean": "2b2a1189bc0ab1f13b7a3721a3234324e21994f06e8cfcc6725200ca16cddca0"
+  },
+  "trust": "Lean kernel plus audited standard axioms; UI receipt is an observation",
+  "scope": "Project theorem DAG. Imported library constants are metadata, not admitted nodes.",
+  "iut_cor312_proved": false,
+  "abc_proved": false,
+  "nodes": [
+    {
+      "axioms": [],
+      "constants": [
+        "True",
+        "PLift.down",
+        "IUTAudit.Descent.hiddenHelper"
+      ],
+      "id": "IUTAudit.Descent.visible",
+      "statement": "True",
+      "source": "IUTAudit/Descent.lean",
+      "sha256": "843754dee40a6844988d379ae18e8ca71fc58c2d4a6f950a46732d71fe97af2d",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "True",
+        "True.intro"
+      ],
+      "id": "IUTAudit.Scale.hidden_base",
+      "statement": "True",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "67defe54ca1232a141766629ddd863b2d414cdc71c041c9458c86af36da3d4da",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "pending_vscode"
+    }
+  ]
+}

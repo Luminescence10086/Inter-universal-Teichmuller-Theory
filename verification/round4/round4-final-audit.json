@@ -1,0 +1,71 @@
+{
+  "checked_utc": "2026-10-19T10:03:35.872487+00:00",
+  "projects": [
+    {
+      "project": "core",
+      "nodes": 38,
+      "edges": 14,
+      "pending": 0,
+      "acyclic": true,
+      "receipt_valid": true,
+      "editor_observation_round": 3,
+      "source_check_round": 3,
+      "source_checks_empty": [
+        "IUTAudit.lean",
+        "IUTAudit/Descent.lean",
+        "IUTAudit/LocalNumerics.lean",
+        "IUTAudit/Orbit.lean",
+        "IUTAudit/Scale.lean",
+        "IUTAudit/Transport.lean"
+      ],
+      "information_messages": 76,
+      "input_count": 16,
+      "runtime_artifacts": 7076,
+      "facts_sha256": "a94243eaeafbaf8161a2f2737965c01c5d05da6455a25cc1dbaa1e4aac7730e9"
+    },
+    {
+      "project": "local-field",
+      "nodes": 19,
+      "edges": 21,
+      "pending": 0,
+      "acyclic": true,
+      "receipt_valid": true,
+      "editor_observation_round": 4,
+      "source_check_round": 4,
+      "source_checks_empty": [
+        "LocalFieldAudit.lean",
+        "LocalFieldAudit/Filtration.lean",
+        "LocalFieldAudit/Shell.lean"
+      ],
+      "information_messages": 38,
+      "input_count": 14,
+      "runtime_artifacts": 13007,
+      "facts_sha256": "b8f55ede28d849a30e2f7fbf4a3917524f6b971080307c9e5c479be20ad61cd5"
+    }
+  ],
+  "new_theorem_count": 14,
+  "new_theorems": [
+    "LocalFieldAudit.Filtration.integerIdealImage_eq_pow_ball",
+    "LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_le_valuation",
+    "LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_norm_le",
+    "LocalFieldAudit.Filtration.mem_smul_ball_iff_norm_le",
+    "LocalFieldAudit.Filtration.mem_zpow_ball_iff_le_valuation",
+    "LocalFieldAudit.Filtration.mem_zpow_ball_iff_norm_le",
+    "LocalFieldAudit.Filtration.mem_zpow_maximalIdealImage_iff_lt_valuation",
+    "LocalFieldAudit.Filtration.p_scaling_strict_ball_contraction",
+    "LocalFieldAudit.Filtration.preserves_ball_norm",
+    "LocalFieldAudit.Filtration.preserves_ball_valuation",
+    "LocalFieldAudit.Filtration.preserves_integerIdealImages",
+    "LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball",
+    "LocalFieldAudit.Filtration.preserves_maximalIdealImage_norm",
+    "LocalFieldAudit.Filtration.preserves_maximalIdealImage_strict_threshold"
+  ],
+  "total_nodes": 57,
+  "total_edges": 35,
+  "source_cache_hashes_verified": 8,
+  "open_mathematical_gaps": 6,
+  "open_realization_obligations": 8,
+  "abc_proved": false,
+  "iut_cor312_proved": false,
+  "trust": "Installed Lean checks, dependency hashes, and actual editor observation receipts; not an anti-forgery certificate. Core round3 proofs retained by deep equality; local-field round4 checked anew."
+}

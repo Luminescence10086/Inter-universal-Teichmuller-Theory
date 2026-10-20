@@ -1,0 +1,88 @@
+Actual VS Code accessibility observations, 2026-10-19. Filtered to proof file, InfoView and global Problems.
+Expected information messages:76; global status contains information only. Each source final proof displayed No goals with matching filename.
+
+FILE tools/EditorCheck.lean
+TIME 2026-10-19T06:12:36.873Z
+	0 窗口 EditorCheck.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													242 树项目 (selectable) 信息: 行 4 和字符 1 处的 IUTAudit.Descent.invariant_of_descends.{u, v} {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (h : IUTAudit.Descent.Descends f q) : IUTAudit.Descent.FiberInvariant f q。Lean 4 生成的 ID: list_id_1_1
+													246 树项目 (selectable) 信息: 行 5 和字符 1 处的 'IUTAudit.Descent.invariant_of_descends' does not depend on any axioms。Lean 4 生成的 ID: list_id_1_2
+													249 树项目 (selectable) 信息: 行 7 和字符 1 处的 IUTAudit.Descent.descends_of_section.{u, v} {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (s : Y → X) (hs : ∀ (y : Y), f (s y) = y) (h : IUTAudit.Descent.FiberInvariant f q) : IUTAudit.Descent.Descends f q。Lean 4 生成的 ID: list_id_1_3
+													253 树项目 (selectable) 信息: 行 8 和字符 1 处的 'IUTAudit.Descent.descends_of_section' does not depend on any axioms。Lean 4 生成的 ID: list_id_1_4
+													329 组 信息: 76 条 ID: status.problems
+														330 按钮 信息: 76 条
+																				362 开合三角标记 EditorCheck.lean:1:0   
+																					363 文本 EditorCheck.lean:1:0
+																				371 开合三角标记 All Messages (  76)  
+																					372 文本 All Messages
+																					375 文本 76
+																						379 链接  Description: Pause 'All Messages'
+
+FILE IUTAudit/Transport.lean
+TIME 2026-10-19T06:13:54.408Z
+	0 窗口 Transport.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													329 组 信息: 76 条 ID: status.problems
+														330 按钮 信息: 76 条
+																				362 开合三角标记 Transport.lean:158:18   
+																					363 文本 Transport.lean:158:18
+																					1059 文本 No goals
+																						1101 开合三角标记 Transport.lean:143:0 
+																							1102 文本 Transport.lean:143:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+
+FILE IUTAudit/Scale.lean
+TIME 2026-10-19T06:15:27.238Z
+	0 窗口 Scale.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													329 组 信息: 76 条 ID: status.problems
+														330 按钮 信息: 76 条
+																				362 开合三角标记 Scale.lean:56:48   
+																					363 文本 Scale.lean:56:48
+																					1059 文本 No goals
+																						1360 开合三角标记 Scale.lean:52:0 
+																							1361 文本 Scale.lean:52:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+
+FILE IUTAudit/Descent.lean
+TIME 2026-10-19T06:17:16.880Z
+	0 窗口 Descent.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													329 组 信息: 76 条 ID: status.problems
+														330 按钮 信息: 76 条
+																				362 开合三角标记 Descent.lean:60:14   
+																					363 文本 Descent.lean:60:14
+																					1059 文本 No goals
+																						1954 开合三角标记 Descent.lean:54:0 
+																							1955 文本 Descent.lean:54:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+
+FILE IUTAudit/Orbit.lean
+TIME 2026-10-19T06:18:45.518Z
+	0 窗口 Orbit.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													329 组 信息: 76 条 ID: status.problems
+														330 按钮 信息: 76 条
+																				362 开合三角标记 Orbit.lean:129:68   
+																					363 文本 Orbit.lean:129:68
+																					1059 文本 No goals
+																						2378 开合三角标记 Orbit.lean:128:0 
+																							2379 文本 Orbit.lean:128:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+
+FILE IUTAudit/LocalNumerics.lean
+TIME 2026-10-19T06:20:31.917Z
+	0 窗口 LocalNumerics.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													329 组 信息: 76 条 ID: status.problems
+														330 按钮 信息: 76 条
+																				362 开合三角标记 LocalNumerics.lean:174:8   
+																					363 文本 LocalNumerics.lean:174:8
+																					1059 文本 No goals
+																						3022 开合三角标记 LocalNumerics.lean:165:0 
+																							3023 文本 LocalNumerics.lean:165:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'

@@ -1,0 +1,4 @@
+{
+  "files.associations": { "*.lean": "lean4" },
+  "editor.unicodeHighlight.ambiguousCharacters": false
+}

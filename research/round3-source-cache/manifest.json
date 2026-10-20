@@ -1,0 +1,45 @@
+{
+  "scope": "Source-only read-only audit cache; not compiled or VS Code admitted here",
+  "mathlib_commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+  "mathlib_local_root": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "lean_commit": "6a10ac8c22beadecabdbb0919c2b50214762f91d",
+  "sources": [
+    {
+      "path": "Mathlib/Algebra/Group/Pointwise/Set/Scalar.lean",
+      "cache": "research/round3-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Group/Pointwise/Set/Scalar.lean",
+      "sha256": "0ccfa9c7d34552e465dce82ec03eba714dc1fef9373499b93f5576775ff18000",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Group/Pointwise/Set/Scalar.lean"
+    },
+    {
+      "path": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+      "cache": "research/round3-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/LinearMap/Defs.lean",
+      "sha256": "71361438072eea20766d5e12bc90be9864c3abab806f3fc876725de357ce1e7c",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/LinearMap/Defs.lean"
+    },
+    {
+      "path": "Mathlib/Algebra/Module/Submodule/Map.lean",
+      "cache": "research/round3-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Submodule/Map.lean",
+      "sha256": "c5243ac7256bed95d65807434395302274450c6f423c0e32507c5233de2253e3",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Submodule/Map.lean"
+    },
+    {
+      "path": "Mathlib/Algebra/Module/Submodule/Pointwise.lean",
+      "cache": "research/round3-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Submodule/Pointwise.lean",
+      "sha256": "af372a588c2d0122514bf3d85c079c0a448d706cec3fa008fc8465273592401c",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Submodule/Pointwise.lean"
+    },
+    {
+      "path": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+      "cache": "research/round3-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+      "sha256": "76bb429e939d643ee6148b68e3eee499983c5f358dde98f8a5179ec2ac544ce8",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicIntegers.lean"
+    },
+    {
+      "path": "Mathlib/NumberTheory/LocalField/Basic.lean",
+      "cache": "research/round3-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/LocalField/Basic.lean",
+      "sha256": "0140ac1cc3a624d8fe733a67def42860cba2801f7d766b0705a04ea22a4eb82a",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/LocalField/Basic.lean"
+    }
+  ]
+}

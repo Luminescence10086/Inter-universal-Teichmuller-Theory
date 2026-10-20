@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "LocalFieldAudit/Filtration.lean"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"caption\":\"\",\"data\":\"Tactic `rewrite` failed: Did not find an occurrence of the pattern\\n  ?m.63 ∈ Ideal.span {?m.64}\\nin the target expression\\n  y ∈ ↑(Ideal.span {↑p ^ n})\\n\\ncase mp\\np : ℕ\\nhp : Fact (Nat.Prime p)\\nn : ℕ\\ny : { x // ‖x‖ ≤ 1 }\\nhy : y ∈ ↑(Ideal.span {↑p ^ n})\\n⊢ ↑y ∈ ↑p ^ n • ball p\\n\\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\\nFull error:\\n  Application type mismatch: The argument\\n    ↑(Ideal.span {↑p ^ n})\\n  has type\\n    Set ℤ_[p]\\n  but is expected to have type\\n    Set { x // ‖x‖ ≤ 1 }\\n  in the application\\n    Membership.mem ↑(Ideal.span {↑p ^ n})\",\"endPos\":{\"column\":30,\"line\":86},\"fileName\":\"LocalFieldAudit/Filtration.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":6,\"line\":86},\"severity\":\"error\"}\n{\"caption\":\"\",\"data\":\"Tactic `rewrite` failed: Did not find an occurrence of the pattern\\n  ?m.112 ∈ Ideal.span {?m.113}\\nin the target expression\\n  ↑p ^ n * z ∈ ↑(Ideal.span {↑p ^ n})\\n\\ncase mpr.refine_1\\np : ℕ\\nhp : Fact (Nat.Prime p)\\nn : ℕ\\nx y : ℚ_[p]\\nhy : y ∈ ball p\\nhxy : (fun x => ↑p ^ n • x) y = x\\nz : ℤ_[p] := ⟨y, hy⟩\\n⊢ ↑p ^ n * z ∈ ↑(Ideal.span {↑p ^ n})\\n\\nNote: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.\\nFull error:\\n  Application type mismatch: The argument\\n    ↑(Ideal.span {↑p ^ n})\\n  has type\\n    Set ℤ_[p]\\n  but is expected to have type\\n    Set { x // ‖x‖ ≤ 1 }\\n  in the application\\n    Membership.mem ↑(Ideal.span {↑p ^ n})\",\"endPos\":{\"column\":32,\"line\":95},\"fileName\":\"LocalFieldAudit/Filtration.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":8,\"line\":95},\"severity\":\"error\"}\n",
+  "stderr": ""
+}

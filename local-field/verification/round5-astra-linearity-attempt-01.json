@@ -1,0 +1,9 @@
+{
+  "command": "lake env lean --json -DwarningAsError=true LocalFieldAudit/ContinuousLinearity.lean",
+  "exitCode": 0,
+  "stdout": "",
+  "stderr": "",
+  "sourceSHA256": "D88BB28CB8D9B6114B0F71FF51EC74E478485543E39C3FE60D19C640A05D114E",
+  "recordedAt": "2026-10-20T10:28:52.8442484+08:00",
+  "status": "CLI only; no editor admission claimed"
+}

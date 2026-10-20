@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "retrieved_at": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "status": "literature_audit_only_not_lean_certified",
+  "exhaustion_claim": false,
+  "sources": [
+    {
+      "id": "SS2018",
+      "authors": [
+        "Peter Scholze",
+        "Jakob Stix"
+      ],
+      "title": "Why abc is still a conjecture",
+      "url": "https://www.math.uni-bonn.de/people/scholze/WhyABCisStillaConjecture.pdf",
+      "version_note": "Currently served 10-page PDF; header date July 16 2018; compare official May/August archive before historical quotations.",
+      "read_scope": [
+        "section 1.3 pp.3-4",
+        "sections 2.1.8-2.2 pp.8-10",
+        "section 2.1 simplification discussion"
+      ],
+      "stance": "critical_of_original_proof",
+      "claim_ids": [
+        "C01"
+      ],
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "MochizukiCmt2018Aug",
+      "authors": [
+        "Shinichi Mochizuki"
+      ],
+      "title": "Comments on the manuscript (2018-08 version) by Scholze-Stix concerning Inter-universal Teichmuller Theory",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Cmt2018-08.pdf",
+      "read_scope": [
+        "C1-C14, especially C10-C14 pp.3-4"
+      ],
+      "stance": "defends_IUT_and_challenges_SS_simplification",
+      "claim_ids": [
+        "C02"
+      ],
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "MochizukiCmt2018May",
+      "authors": [
+        "Shinichi Mochizuki"
+      ],
+      "title": "Comments on the manuscript (2018-05 version) by Scholze-Stix",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Cmt2018-05.pdf",
+      "read_scope": [
+        "metadata and indexed passages only"
+      ],
+      "stance": "defends_IUT",
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "DiscussionArchive",
+      "authors": [
+        "Shinichi Mochizuki"
+      ],
+      "title": "March 2018 Discussions on IUTeich",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/IUTch-discussions-2018-03.html",
+      "read_scope": [
+        "archive index and version links"
+      ],
+      "stance": "author_hosted_archive",
+      "formal_status": "not_applicable"
+    },
+    {
+      "id": "Rpt2018",
+      "authors": [
+        "Shinichi Mochizuki"
+      ],
+      "title": "Report on Discussions Held During March 15-20, 2018",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Rpt2018.pdf",
+      "read_scope": [
+        "PDF metadata; section locators cross-referenced by Cmt2018-08; not full proof audit"
+      ],
+      "locators": [
+        "section 10",
+        "section 12",
+        "SSIdFs",
+        "SSIdEx",
+        "MlLV",
+        "LVEx"
+      ],
+      "stance": "defends_IUT",
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "IUTIII2020",
+      "authors": [
+        "Shinichi Mochizuki"
+      ],
+      "title": "Inter-universal Teichmuller Theory III: Canonical Splittings of the Log-theta-lattice",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20III.pdf",
+      "version_note": "Official author-hosted 2020 preprint; PDF 199 pages; do not mix preprint and journal page numbering.",
+      "read_scope": [
+        "Introduction pp.16-19",
+        "indexed passages at Theorem 3.11, Corollary 3.12 and Remarks 3.11.1,3.12.1-4"
+      ],
+      "stance": "original_IUT_source",
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "DHInitialV1",
+      "authors": [
+        "Taylor Dupuy",
+        "Anton Hilado"
+      ],
+      "title": "The Statement of Mochizuki's Corollary 3.12, Initial Theta Data, and the First Two Indeterminacies",
+      "url": "https://arxiv.org/pdf/2004.13228v1",
+      "version": "v1 2020-04-28",
+      "read_scope": [
+        "abstract and introduction",
+        "indexed normalization passages"
+      ],
+      "stance": "expository_explicitly_not_a_proof_of_Cor312",
+      "claim_ids": [
+        "C05"
+      ],
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "DHInitialV2",
+      "authors": [
+        "Taylor Dupuy",
+        "Anton Hilado"
+      ],
+      "title": "The Statement of Mochizuki's Corollary 3.12: Initial Theta Data",
+      "url": "https://arxiv.org/abs/2004.13228v2",
+      "version": "v2 2025-06-19",
+      "read_scope": [
+        "abstract and submission/version history"
+      ],
+      "stance": "expository_initial_theta_data",
+      "formal_status": "not_verified",
+      "related_doi": "10.1007/s11139-025-01100-y"
+    },
+    {
+      "id": "DHSzpiro",
+      "authors": [
+        "Taylor Dupuy",
+        "Anton Hilado"
+      ],
+      "title": "Probabilistic Szpiro, Baby Szpiro, and Explicit Szpiro from Mochizuki's Corollary 3.12",
+      "url": "https://arxiv.org/pdf/2004.13108v2",
+      "version": "v2 2020-04-29",
+      "read_scope": [
+        "Theorems 1.0.3-1.0.5",
+        "Claim 5.0.1",
+        "section 6.2 footnote 7",
+        "section 7.5"
+      ],
+      "stance": "conditional_consequences_of_Cor312_and_Claim501",
+      "claim_ids": [
+        "C05"
+      ],
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "JoshiFinal2025",
+      "authors": [
+        "Kirti Joshi"
+      ],
+      "title": "Final Report on the Mochizuki-Scholze-Stix Controversy",
+      "url": "https://arxiv.org/html/2505.10568v1",
+      "version": "arXiv v1 submitted 2025-04-29; document dated March 12 2025",
+      "read_scope": [
+        "sections 1.1-1.4"
+      ],
+      "stance": "disputes_SS_but_also_calls_Mochizuki_proof_incomplete_and_advocates_own_framework",
+      "claim_ids": [
+        "C04"
+      ],
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "Mochizuki2025Report",
+      "authors": [
+        "Shinichi Mochizuki"
+      ],
+      "title": "Report on the current situation surrounding inter-universal Teichmuller theory (IUT)",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/IUT-report-2025-10.pdf",
+      "version": "October 2025",
+      "read_scope": [
+        "section 2.1-2.2 indexed passages",
+        "section 3.2 indexed passages"
+      ],
+      "stance": "defends_IUT_and_promotes_Lean_communication",
+      "formal_status": "not_verified"
+    },
+    {
+      "id": "MochizukiFormal2026",
+      "authors": [
+        "Shinichi Mochizuki"
+      ],
+      "title": "On the Formalization of IUT: A Preliminary Progress Report",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Formalization%20of%20IUT%20(2026-04).pdf",
+      "version": "April 2026",
+      "read_scope": [
+        "sections 1-2 pp.2-5",
+        "section 4 pp.9-11"
+      ],
+      "stance": "IUT_author_progress_report",
+      "formal_status": "skeletal_code_described_not_public_full_verification",
+      "key_locators": [
+        "p.3 code not yet ready for public release",
+        "p.4 early skeletal Stage 1",
+        "p.11 3.11.5 APT IPL SHE decomposition"
+      ]
+    },
+    {
+      "id": "LANA2026Report",
+      "authors": [
+        "LANA Project"
+      ],
+      "title": "Project LANA Interim Report on IUT Theory",
+      "url": "https://raw.githubusercontent.com/katobungen/LANA_report_202607/main/LANA_report_202607.tex",
+      "repository": "https://github.com/katobungen/LANA_report_202607",
+      "pdf_locator": "https://github.com/katobungen/LANA_report_202607/blob/pdf/LANA_report_202607.pdf",
+      "version_note": "Read mutable main branch on 2026-10-16; use section labels; PDF direct extraction failed.",
+      "read_scope": [
+        "historical overview",
+        "sub:IPLSHEAPTPrecise",
+        "sec:pointsToClarify",
+        "sub:theMainGoal",
+        "sec:ScholzeStixExamination"
+      ],
+      "stance": "reserves_judgment_has_no_proof_of_eta_goal",
+      "claim_ids": [
+        "C03"
+      ],
+      "formal_status": "not_verified",
+      "key_locators": [
+        "eqn:SSEtaGoal",
+        "sub:SSAssessmentNew"
+      ]
+    },
+    {
+      "id": "ZENLANA2026",
+      "authors": [
+        "ZEN University"
+      ],
+      "title": "Project LANA Interim Report July 2026 announcement",
+      "url": "https://zen.ac.jp/news/zmcpostevent0717e",
+      "publication_date": "2026-07-17",
+      "read_scope": [
+        "report summary and project position"
+      ],
+      "stance": "institutional_primary_announcement_of_neutral_project",
+      "formal_status": "not_applicable"
+    },
+    {
+      "id": "Urahigashi2026",
+      "authors": [
+        "Toshihisa Urahigashi"
+      ],
+      "title": "A local non-containment in Step (v) of IUT IV, Theorem 1.10",
+      "url": "https://raw.githubusercontent.com/turahigashi/iut-explicit-initial-theta/v0.8.0/stepv-local-noncontainment/paper/stepv_local_noncontainment.tex",
+      "repository": "https://github.com/turahigashi/iut-explicit-initial-theta",
+      "tag": "v0.8.0",
+      "paper_version": "1.0.0 per README",
+      "document_date": "2026-10-05",
+      "page_count_per_readme": 6,
+      "doi_version_lead": "10.5281/zenodo.23166433",
+      "doi_all_versions_per_readme": "10.5281/zenodo.23166432",
+      "doi_access_status": "web retrieval failed; DOI metadata not independently verified",
+      "read_scope": [
+        "TeX sections 1-5 including source interpretation lemmas and main theorem",
+        "README and SHA256SUMS fetched from tag zip in memory"
+      ],
+      "stance": "local_Step_v_objection_only_no_claim_on_Cor312_global_Theorem110_or_abc",
+      "claim_ids": [
+        "C06"
+      ],
+      "formal_status": "not_verified_not_executed",
+      "byte_identity_check": {
+        "method": "downloaded public tag zip into memory and SHA256 hashed entries; exact matches to bundled SHA256SUMS",
+        "tex_sha256": "41ae83d7fbac75604b894de9ba4e357740af20dda1d8c05139ff891415162aa0",
+        "pdf_sha256": "d23d2eb4f867fda35198a3358d9e26550fd761f1a18bdd2a2d37dc35f2de25fe"
+      },
+      "required_checks": [
+        "initial theta datum global hypotheses",
+        "actual Ind1 allowed permutation action",
+        "Kummer and Ism source compatibility",
+        "local hull and module interpretation",
+        "global effect and repair error budget"
+      ]
+    }
+  ],
+  "unreviewed_leads": [
+    {
+      "title": "Mochizuki Essential Logical Structure",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Essential%20Logical%20Structure%20of%20Inter-universal%20Teichmuller%20Theory.pdf",
+      "status": "located_not_read"
+    },
+    {
+      "title": "Roberts Comments on Mochizuki's 2018 Report",
+      "url": "https://adelaide.figshare.com/articles/journal_contribution/Comments_on_Mochizuki_s_2018_Report/7692368",
+      "status": "located_not_read"
+    },
+    {
+      "title": "Joshi Arithmetic Teichmuller Spaces III",
+      "url": "https://arxiv.org/abs/2401.13508",
+      "status": "metadata_only"
+    },
+    {
+      "title": "lana-agents/iut",
+      "url": "https://github.com/lana-agents/iut",
+      "status": "search_result_only_no_code_executed"
+    }
+  ]
+}

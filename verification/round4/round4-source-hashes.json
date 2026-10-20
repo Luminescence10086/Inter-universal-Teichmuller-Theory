@@ -1,0 +1,14 @@
+{
+  "result": "all hashes match",
+  "count": 8,
+  "files": [
+    "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+    "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+    "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Equiv/Basic.lean",
+    "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Group/Pointwise/Set/Scalar.lean",
+    "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/RingTheory/Ideal/Span.lean",
+    "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Data/Set/Image.lean",
+    "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.pdf",
+    "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt"
+  ]
+}

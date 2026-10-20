@@ -1,0 +1,22 @@
+[
+  {
+    "id": "LocalFieldAudit.Shell.image_scalar_layer",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.scalar_layer_membership_iff",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.threshold_iff_of_layers",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.padic_threshold_iff",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.padic_unitBall_layer_membership_iff",
+    "source": "LocalFieldAudit/Shell.lean"
+  }
+]

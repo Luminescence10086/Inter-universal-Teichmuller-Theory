@@ -1,0 +1,4 @@
+digraph facts {
+  rankdir=LR;
+  "IUTAudit.Descent.visible";
+}

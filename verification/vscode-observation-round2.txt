@@ -1,0 +1,82 @@
+Actual VS Code UI accessibility observations, 2026-10-16. Filtered to proof window, theorem checks, InfoView and Problems state.
+Every source ended at the final proof with No goals; global Problems status contained information:64 only.
+The persistent Updating tooltip is also present on completed No goals states; it is not used as a completion certificate.
+
+FILE tools/EditorCheck.lean
+TIME 2026-10-16T12:36:01.191Z
+	0 窗口 EditorCheck.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													150 树项目 (selectable) IUTAudit.lean ID: list_id_5_22
+														151 组 D:\Inter-universal Teichmüller Theory\IUTAudit.lean
+															195 编辑器 (settable, string) EditorCheck.lean, 编辑器组1 Value: import IUTAudit /- All catalog theorems: expected 64 information messages, zero errors/warnings. -/ #check IUTAudit.Descent.invariant_of_descends #print axioms IUTAudit.Descent.invariant_of_descends #check IUTAudit.Descent.descends_of_section #print axioms IUTAudit.Descent.descends_of_section #check IUTAudit.Descent.descends_iff_invariant_of_section #print axioms IUTAudit.Descent.descends_iff_invariant_of_section #check IUTAudit.Descent.boolean_quantity_does_not_descend #print axioms IUTAudit.Descent.boolean_quantity_does_not_descend #check IUTAudit.LocalNumerics.layer_preserves_upper #print axioms IUTAudit.LocalNumerics.layer_preserves_upper #check IUTAudit.LocalNumerics.layer_preserves_band #print axioms IUTAudit.LocalNumerics.layer_preserves_band #check IUTAudit.LocalNumerics.datum_integer_checks #print axioms IUTAudit.LocalNumerics.datum_integer_checks #check IUTAudit.LocalNumerics.local_integer_checks #print axioms IUTAudit.LocalNumerics.local_integer_checks #check IUTAudit.LocalNumerics.repaired_cut_and_cost #print axioms IUTAudit.LocalNumerics.repaired_cut_and_cost #check IUTAudit.LocalNumerics.transformed_sum_excludes_cut #print axioms IUTAudit.LocalNumerics.transformed_sum_excludes_cut #check IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut #print axioms IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut #check IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise #print axioms IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise #check IUTAudit.LocalNumerics.swap23_tuple_and_theta #print axioms IUTAudit.LocalNumerics.swap23_tuple_and_theta #check IUTAudit.LocalNumerics.swap23_rho_positions #print axioms IUTAudit.LocalNumerics.swap23_rho_positions #check IUTAudit.Orbit.image_mem_envelope #print axioms IUTAudit.Orbit.image_mem_envelope #check IUTAudit.Orbit.envelope_covers #print axioms IUTAudit.Orbit.envelope_covers #check IUTAudit.Orbit.envelope_minimal #print axioms IUTAudit.Orbit.envelope_minimal #check IUTAudit.Orbit.envelope_minimal_closed #print axioms IUTAudit.Orbit.envelope_minimal_closed #check IUTAudit.Orbit.envelope_closed #print axioms IUTAudit.Orbit.envelope_closed #check IUTAudit.Orbit.envelope_idempotent #print axioms IUTAudit.Orbit.envelope_idempotent #check IUTAudit.Orbit.swapAction_witnesses #print axioms IUTAudit.Orbit.swapAction_witnesses #check IUTAudit.Orbit.fixedLabel_not_closed #print axioms IUTAudit.Orbit.fixedLabel_not_closed #check IUTAudit.Orbit.fixedLabel_envelope_full #print axioms IUTAudit.Orbit.fixedLabel_envelope_full #check IUTAudit.Orbit.fixedLabel_envelope_closed #print axioms IUTAudit.Orbit.fixedLabel_envelope_closed #check IUTAudit.Scale.scale_composition #print axioms IUTAudit.Scale.scale_composition #check IUTAudit.Scale.normalization_at_unit #print axioms IUTAudit.Scale.normalization_at_unit #check IUTAudit.Scale.normalized_scale_preserves #print axioms IUTAudit.Scale.normalized_scale_preserves #check IUTAudit.Scale.no_uniform_bound #print axioms IUTAudit.Scale.no_uniform_bound #check IUTAudit.Scale.scale_two_not_identity #print axioms IUTAudit.Scale.scale_two_not_identity #check IUTAudit.Scale.weighted_comparison_forces_bound #print axioms IUTAudit.Scale.weighted_comparison_forces_bound #check IUTAudit.Scale.erased_comparison_iff #print axioms IUTAudit.Scale.erased_comparison_iff #check IUTAudit.Scale.erased_comparison_unbounded #print axioms IUTAudit.Scale.erased_comparison_unbounded
+																196 文本 import IUTAudit /- All catalog theorems: expected 64 information messages, zero errors/warnings. -/ #check IUTAudit.Descent.invariant_of_descends #print axioms IUTAudit.Descent.invariant_of_descends #check IUTAudit.Descent.descends_of_section #print axioms IUTAudit.Descent.descends_of_section #check IUTAudit.Descent.descends_iff_invariant_of_section #print axioms IUTAudit.Descent.descends_iff_invariant_of_section #check IUTAudit.Descent.boolean_quantity_does_not_descend #print axioms IUTAudit.Descent.boolean_quantity_does_not_descend #check IUTAudit.LocalNumerics.layer_preserves_upper #print axioms IUTAudit.LocalNumerics.layer_preserves_upper #check IUTAudit.LocalNumerics.layer_preserves_band #print axioms IUTAudit.LocalNumerics.layer_preserves_band #check IUTAudit.LocalNumerics.datum_integer_checks #print axioms IUTAudit.LocalNumerics.datum_integer_checks #check IUTAudit.LocalNumerics.local_integer_checks #print axioms IUTAudit.LocalNumerics.local_integer_checks #check IUTAudit.LocalNumerics.repaired_cut_and_cost #print axioms IUTAudit.LocalNumerics.repaired_cut_and_cost #check IUTAudit.LocalNumerics.transformed_sum_excludes_cut #print axioms IUTAudit.LocalNumerics.transformed_sum_excludes_cut #check IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut #print axioms IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut #check IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise #print axioms IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise #check IUTAudit.LocalNumerics.swap23_tuple_and_theta #print axioms IUTAudit.LocalNumerics.swap23_tuple_and_theta #check IUTAudit.LocalNumerics.swap23_rho_positions #print axioms IUTAudit.LocalNumerics.swap23_rho_positions #check IUTAudit.Orbit.image_mem_envelope #print axioms IUTAudit.Orbit.image_mem_envelope #check IUTAudit.Orbit.envelope_covers #print axioms IUTAudit.Orbit.envelope_covers #check IUTAudit.Orbit.envelope_minimal #print axioms IUTAudit.Orbit.envelope_minimal #check IUTAudit.Orbit.envelope_minimal_closed #print axioms IUTAudit.Orbit.envelope_minimal_closed #check IUTAudit.Orbit.envelope_closed #print axioms IUTAudit.Orbit.envelope_closed #check IUTAudit.Orbit.envelope_idempotent #print axioms IUTAudit.Orbit.envelope_idempotent #check IUTAudit.Orbit.swapAction_witnesses #print axioms IUTAudit.Orbit.swapAction_witnesses #check IUTAudit.Orbit.fixedLabel_not_closed #print axioms IUTAudit.Orbit.fixedLabel_not_closed #check IUTAudit.Orbit.fixedLabel_envelope_full #print axioms IUTAudit.Orbit.fixedLabel_envelope_full #check IUTAudit.Orbit.fixedLabel_envelope_closed #print axioms IUTAudit.Orbit.fixedLabel_envelope_closed #check IUTAudit.Scale.scale_composition #print axioms IUTAudit.Scale.scale_composition #check IUTAudit.Scale.normalization_at_unit #print axioms IUTAudit.Scale.normalization_at_unit #check IUTAudit.Scale.normalized_scale_preserves #print axioms IUTAudit.Scale.normalized_scale_preserves #check IUTAudit.Scale.no_uniform_bound #print axioms IUTAudit.Scale.no_uniform_bound #check IUTAudit.Scale.scale_two_not_identity #print axioms IUTAudit.Scale.scale_two_not_identity #check IUTAudit.Scale.weighted_comparison_forces_bound #print axioms IUTAudit.Scale.weighted_comparison_forces_bound #check IUTAudit.Scale.erased_comparison_iff #print axioms IUTAudit.Scale.erased_comparison_iff #check IUTAudit.Scale.erased_comparison_unbounded #print axioms IUTAudit.Scale.erased_comparison_unbounded
+													240 树项目 (selectable) 信息: 行 4 和字符 1 处的 IUTAudit.Descent.invariant_of_descends.{u, v} {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (h : IUTAudit.Descent.Descends f q) : IUTAudit.Descent.FiberInvariant f q。Lean 4 生成的 ID: list_id_1_1
+													244 树项目 (selectable) 信息: 行 5 和字符 1 处的 'IUTAudit.Descent.invariant_of_descends' does not depend on any axioms。Lean 4 生成的 ID: list_id_1_2
+													249 树项目 (selectable) 信息: 行 7 和字符 1 处的 IUTAudit.Descent.descends_of_section.{u, v} {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (s : Y → X) (hs : ∀ (y : Y), f (s y) = y) (h : IUTAudit.Descent.FiberInvariant f q) : IUTAudit.Descent.Descends f q。Lean 4 生成的 ID: list_id_1_3
+													253 树项目 (selectable) 信息: 行 8 和字符 1 处的 'IUTAudit.Descent.descends_of_section' does not depend on any axioms。Lean 4 生成的 ID: list_id_1_4
+													327 组 信息: 64 条 ID: status.problems
+														328 按钮 信息: 64 条
+																				371 开合三角标记 All Messages (  64)  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+																			380 按钮 Restart File Description: Restarts this file, rebuilding all of its outdated dependencies.
+												381 工具提示 'IUTAudit.Descent.invariant_of_descends' does not depend on any axioms
+
+FILE IUTAudit/LocalNumerics.lean
+TIME 2026-10-16T12:37:26.097Z
+	0 窗口 LocalNumerics.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													327 组 信息: 64 条 ID: status.problems
+														328 按钮 信息: 64 条
+																				362 开合三角标记 LocalNumerics.lean:174:8   
+																					363 文本 LocalNumerics.lean:174:8
+																					762 文本 No goals
+																						771 开合三角标记 LocalNumerics.lean:165:0 
+																							772 文本 LocalNumerics.lean:165:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+																			380 按钮 Restart File Description: Restarts this file, rebuilding all of its outdated dependencies.
+
+FILE IUTAudit/Orbit.lean
+TIME 2026-10-16T12:38:18.103Z
+	0 窗口 Orbit.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													327 组 信息: 64 条 ID: status.problems
+														328 按钮 信息: 64 条
+																				362 开合三角标记 Orbit.lean:129:68   
+																					363 文本 Orbit.lean:129:68
+																					762 文本 No goals
+																						962 开合三角标记 Orbit.lean:128:0 
+																							963 文本 Orbit.lean:128:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+																			380 按钮 Restart File Description: Restarts this file, rebuilding all of its outdated dependencies.
+
+FILE IUTAudit/Scale.lean
+TIME 2026-10-16T12:39:00.460Z
+	0 窗口 Scale.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													327 组 信息: 64 条 ID: status.problems
+														328 按钮 信息: 64 条
+																				362 开合三角标记 Scale.lean:56:48   
+																					363 文本 Scale.lean:56:48
+																					762 文本 No goals
+																						1201 开合三角标记 Scale.lean:52:0 
+																							1202 文本 Scale.lean:52:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+																			380 按钮 Restart File Description: Restarts this file, rebuilding all of its outdated dependencies.
+
+FILE IUTAudit/Descent.lean
+TIME 2026-10-16T12:41:04.500Z
+	0 窗口 Descent.lean - Inter-universal Teichmüller Theory - Visual Studio Code Secondary Actions: Raise
+													327 组 信息: 64 条 ID: status.problems
+														328 按钮 信息: 64 条
+																				362 开合三角标记 Descent.lean:60:14   
+																					363 文本 Descent.lean:60:14
+																					762 文本 No goals
+																						1527 开合三角标记 Descent.lean:54:0 
+																							1528 文本 Descent.lean:54:0
+																				371 开合三角标记 All Messages  
+																					372 文本 All Messages
+																						379 链接  Description: Pause 'All Messages'
+																			380 按钮 Restart File Description: Restarts this file, rebuilding all of its outdated dependencies.

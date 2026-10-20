@@ -1,0 +1,13 @@
+{
+  "checked_utc": "2026-10-19T06:52:17.732581+00:00",
+  "command": [
+    "python",
+    "tools/query.py",
+    "__ROUND4_RETAIN_CORE__",
+    "--deep"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "scope": "Round3 core proof sources, imported runtime and recorded editor admission remain unchanged; no new core theorems or new core editor observation."
+}

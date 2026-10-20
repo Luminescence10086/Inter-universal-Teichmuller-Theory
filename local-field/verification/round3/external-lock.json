@@ -1,0 +1,68 @@
+{
+  "note": "Existing installed source checkout identities; imported compiled artifacts are separately hashed. No external modules are fact-tree nodes.",
+  "packages": [
+    {
+      "name": "plausible",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\plausible",
+      "commit": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+      "tracked_changes": "",
+      "config_sha256": "85c33758dd29fa99019da4e1a8ec715ec1c7990a2fb78ea9fbca17860416ee34"
+    },
+    {
+      "name": "LeanSearchClient",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\LeanSearchClient",
+      "commit": "ba67e212be1197b84c1f1f6299488a10a3002713",
+      "tracked_changes": "",
+      "config_sha256": "63288e427e133525dbebac3efe152b43068c0230646794b2ca9d94c1b4d582cf"
+    },
+    {
+      "name": "importGraph",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\importGraph",
+      "commit": "d8823026ac7ef130c253089d95685f9877b95323",
+      "tracked_changes": "",
+      "config_sha256": "946fe0c6739f36a6bb2406001a219e6f988b0fb3dc8b8b2222206cb01f369753"
+    },
+    {
+      "name": "proofwidgets",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\proofwidgets",
+      "commit": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+      "tracked_changes": "",
+      "config_sha256": "efea927be0f87ecc4a91e69d099f3f24ad3b151f7c5c043dbf07998b6a3e9584"
+    },
+    {
+      "name": "aesop",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\aesop",
+      "commit": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+      "tracked_changes": "",
+      "config_sha256": "19bb7bac9edf3c995c6b8f85bc807fe49fab0a0a8fa1749980af394bc5499248"
+    },
+    {
+      "name": "Qq",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\Qq",
+      "commit": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+      "tracked_changes": "",
+      "config_sha256": "2876172ef2890390b2cb1d1a587c11b697bbdf23a3436ca47479256998ecca5a"
+    },
+    {
+      "name": "batteries",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\batteries",
+      "commit": "d54dddc581e08be364c278052863524bff7a99a9",
+      "tracked_changes": "",
+      "config_sha256": "57aef8d54820bffda8a8907ed3d05a6747554bb822015c61db57f943352146b5"
+    },
+    {
+      "name": "Cli",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\Cli",
+      "commit": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+      "tracked_changes": "",
+      "config_sha256": "73da3f992cad49c6d97e62e94851c11bcb14a926bbbe68d473cb1bc63def1918"
+    },
+    {
+      "name": "mathlib",
+      "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+      "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+      "tracked_changes": "",
+      "config_sha256": "347f30b4e7e0958940dbb18eb3a3c88c2da4089afd476c1e7d561fd70124c319"
+    }
+  ]
+}

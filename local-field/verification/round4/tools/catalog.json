@@ -1,0 +1,78 @@
+[
+  {
+    "id": "LocalFieldAudit.Shell.image_scalar_layer",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.scalar_layer_membership_iff",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.threshold_iff_of_layers",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.padic_threshold_iff",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Shell.padic_unitBall_layer_membership_iff",
+    "source": "LocalFieldAudit/Shell.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.mem_smul_ball_iff_norm_le",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.mem_zpow_ball_iff_norm_le",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.mem_zpow_ball_iff_le_valuation",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_norm_le",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_le_valuation",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.integerIdealImage_eq_pow_ball",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.mem_zpow_maximalIdealImage_iff_lt_valuation",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.preserves_integerIdealImages",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.preserves_ball_valuation",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.preserves_ball_norm",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.preserves_maximalIdealImage_norm",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.preserves_maximalIdealImage_strict_threshold",
+    "source": "LocalFieldAudit/Filtration.lean"
+  },
+  {
+    "id": "LocalFieldAudit.Filtration.p_scaling_strict_ball_contraction",
+    "source": "LocalFieldAudit/Filtration.lean"
+  }
+]

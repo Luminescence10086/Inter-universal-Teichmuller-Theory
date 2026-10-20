@@ -1,0 +1,14 @@
+{
+  "command": "lake --no-cache --wfail build LocalFieldAudit",
+  "argv": [
+    "lake",
+    "--no-cache",
+    "--wfail",
+    "build",
+    "LocalFieldAudit"
+  ],
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\local-field",
+  "exit_code": 0,
+  "stdout": "✔ [1996/1998] Built LocalFieldAudit.ContinuousLinearity (12s)\n✔ [1997/1998] Built LocalFieldAudit (11s)\nBuild completed successfully (1998 jobs).\n",
+  "stderr": ""
+}

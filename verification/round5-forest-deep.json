@@ -1,0 +1,14 @@
+{
+  "command": "python -X utf8 tools/forest.py refresh --deep",
+  "cwd": "D:\\Inter-universal Teichmüller Theory",
+  "exit_code": 0,
+  "stdout": "Checked forest: 62 nodes, 45 edges, 2 toolchains.\n",
+  "stderr": "",
+  "result": "PASS",
+  "deep_query_projects": [
+    "core",
+    "local-field"
+  ],
+  "recorded_utc": "2026-10-20T03:13:08.7979143Z",
+  "timing_note": "This timestamp records when the already-observed command result was written to this log; it is not asserted as the command execution time."
+}

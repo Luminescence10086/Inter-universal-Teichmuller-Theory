@@ -1,0 +1,12 @@
+{
+  "command": [
+    "lake",
+    "--no-cache",
+    "--wfail",
+    "build",
+    "LocalFieldAudit"
+  ],
+  "exit_code": 0,
+  "stdout": "✔ [1995/1997] Built LocalFieldAudit.Filtration (12s)\n✔ [1996/1997] Built LocalFieldAudit (11s)\nBuild completed successfully (1997 jobs).\n",
+  "stderr": ""
+}

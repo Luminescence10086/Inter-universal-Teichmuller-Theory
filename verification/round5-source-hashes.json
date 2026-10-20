@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "audit": "round5-mathlib-source-cache-hashes",
+  "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+  "checked_files": [
+    {
+      "path": "Mathlib/Algebra/Module/Rat.lean",
+      "sha256": "cbfd1f4e1bdd219bdff0ecd615a8605691d5d9c96525abb61444de6d2e445343",
+      "source_sha256": "cbfd1f4e1bdd219bdff0ecd615a8605691d5d9c96525abb61444de6d2e445343",
+      "cached_sha256": "cbfd1f4e1bdd219bdff0ecd615a8605691d5d9c96525abb61444de6d2e445343",
+      "hashes_match": true,
+      "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Rat.lean"
+    },
+    {
+      "path": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+      "sha256": "b8aa1c90a618b6cab529496f46096f99053f8b0fe13732b31b31ef8703fe3f11",
+      "source_sha256": "b8aa1c90a618b6cab529496f46096f99053f8b0fe13732b31b31ef8703fe3f11",
+      "cached_sha256": "b8aa1c90a618b6cab529496f46096f99053f8b0fe13732b31b31ef8703fe3f11",
+      "hashes_match": true,
+      "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicNumbers.lean"
+    },
+    {
+      "path": "Mathlib/Topology/DenseEmbedding.lean",
+      "sha256": "8ef1b8c672b9f16792b4297dad3b29082247ae12f958ccd185b38c49fb839d8a",
+      "source_sha256": "8ef1b8c672b9f16792b4297dad3b29082247ae12f958ccd185b38c49fb839d8a",
+      "cached_sha256": "8ef1b8c672b9f16792b4297dad3b29082247ae12f958ccd185b38c49fb839d8a",
+      "hashes_match": true,
+      "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/DenseEmbedding.lean"
+    },
+    {
+      "path": "Mathlib/Topology/Instances/RealVectorSpace.lean",
+      "sha256": "671e442142557c3903c66cab199196ced294bf77be16a48b7bff97667c2e5cdb",
+      "source_sha256": "671e442142557c3903c66cab199196ced294bf77be16a48b7bff97667c2e5cdb",
+      "cached_sha256": "671e442142557c3903c66cab199196ced294bf77be16a48b7bff97667c2e5cdb",
+      "hashes_match": true,
+      "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Instances/RealVectorSpace.lean"
+    }
+  ],
+  "all_hashes_match": true,
+  "source_only_non_fact_nodes": true
+}

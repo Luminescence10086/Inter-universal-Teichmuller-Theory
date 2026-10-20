@@ -1,0 +1,12 @@
+{
+  "command": [
+    "lake",
+    "--no-cache",
+    "--wfail",
+    "build",
+    "LocalFieldAudit"
+  ],
+  "exit_code": 0,
+  "stdout": "Build completed successfully (1753 jobs).\n",
+  "stderr": ""
+}

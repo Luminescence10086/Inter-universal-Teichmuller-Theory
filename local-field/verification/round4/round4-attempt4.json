@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "LocalFieldAudit/Filtration.lean"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"caption\":\"\",\"data\":\"failed to synthesize instance of type class\\n  CommSemiring { x // ‖x‖ ≤ 1 }\\n\\nHint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.\",\"endPos\":{\"column\":57,\"line\":88},\"fileName\":\"LocalFieldAudit/Filtration.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"lean.synthInstanceFailed._namedError\",\"pos\":{\"column\":22,\"line\":88},\"severity\":\"error\"}\n{\"caption\":\"\",\"data\":\"Type mismatch: After simplification, term\\n  congrArg (fun t => ↑t) (Eq.symm hz)\\n has type\\n  @Eq ℚ_[p] ↑(↑p ^ n * z) ↑y\\nbut is expected to have type\\n  @Eq ℚ_[p] (↑p ^ n * ↑z) ↑y\",\"endPos\":{\"column\":57,\"line\":94},\"fileName\":\"LocalFieldAudit/Filtration.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":8,\"line\":93},\"severity\":\"error\"}\n",
+  "stderr": ""
+}

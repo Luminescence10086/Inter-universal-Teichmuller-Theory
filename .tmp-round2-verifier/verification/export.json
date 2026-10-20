@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "tools/Export.lean"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"caption\":\"\",\"data\":\"[{\\\"axioms\\\":[],\\\"constants\\\":[\\\"True\\\",\\\"True.intro\\\"],\\\"id\\\":\\\"IUTAudit.Scale.hidden_base\\\",\\\"statement\\\":\\\"True\\\"},{\\\"axioms\\\":[],\\\"constants\\\":[\\\"True\\\",\\\"PLift.down\\\",\\\"IUTAudit.Descent.hiddenHelper\\\"],\\\"id\\\":\\\"IUTAudit.Descent.visible\\\",\\\"statement\\\":\\\"True\\\"}]\",\"endPos\":{\"column\":7,\"line\":7},\"fileName\":\"tools/Export.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":7},\"severity\":\"information\"}\n",
+  "stderr": ""
+}

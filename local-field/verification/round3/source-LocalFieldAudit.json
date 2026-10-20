@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "LocalFieldAudit.lean"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

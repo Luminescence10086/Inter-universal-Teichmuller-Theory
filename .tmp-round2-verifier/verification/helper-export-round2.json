@@ -1,0 +1,14 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "tools/Export.lean"
+  ],
+  "working_directory": "D:\\Inter-universal Teichmüller Theory\\.tmp-round2-verifier",
+  "exit_code": 0,
+  "stdout": "{\"caption\":\"\",\"data\":\"[{\\\"axioms\\\":[],\\\"constants\\\":[\\\"True\\\",\\\"True.intro\\\"],\\\"id\\\":\\\"IUTAudit.Scale.hidden_base\\\",\\\"kind\\\":\\\"theorem\\\",\\\"module\\\":\\\"IUTAudit.Scale\\\",\\\"statement\\\":\\\"True\\\"},{\\\"axioms\\\":[],\\\"constants\\\":[\\\"PLift\\\",\\\"True\\\",\\\"PLift.up\\\",\\\"IUTAudit.Scale.hidden_base\\\"],\\\"id\\\":\\\"IUTAudit.Descent.hiddenHelper\\\",\\\"kind\\\":\\\"definition\\\",\\\"module\\\":\\\"IUTAudit.Descent\\\",\\\"statement\\\":\\\"PLift True\\\"},{\\\"axioms\\\":[],\\\"constants\\\":[\\\"True\\\",\\\"PLift.down\\\",\\\"IUTAudit.Descent.hiddenHelper\\\"],\\\"id\\\":\\\"IUTAudit.Descent.visible\\\",\\\"kind\\\":\\\"theorem\\\",\\\"module\\\":\\\"IUTAudit.Descent\\\",\\\"statement\\\":\\\"True\\\"}]\",\"endPos\":{\"column\":7,\"line\":8},\"fileName\":\"tools/Export.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":8},\"severity\":\"information\"}\n",
+  "stderr": ""
+}

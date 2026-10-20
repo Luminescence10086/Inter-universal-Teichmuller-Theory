@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "audit": "round3_G03_semantics",
+  "retrieved_at": "2026-10-16",
+  "timezone": "Asia/Shanghai",
+  "formal_status": "unformalized_source_audit_hypotheses_only",
+  "lean_files_modified": false,
+  "validators_modified": false,
+  "new_sources": [
+    {
+      "id": "IUTII",
+      "author": "Shinichi Mochizuki",
+      "title": "Inter-universal Teichmuller Theory II: Hodge-Arakelov-theoretic Evaluation",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20II.pdf",
+      "cover_version": "December 2020",
+      "pdf_pages": 174,
+      "cache_pdf": "research/round3-source-cache/iut-II-official-retrieved-2026-10-16.pdf",
+      "pdf_sha256": "180bfa6aaddc4ae37af37acaad51f61e0a47b33b8255ad3169e28a970ae39b7c",
+      "cache_text": "research/round3-source-cache/iut-II-official-retrieved-2026-10-16.txt",
+      "text_sha256": "be7518a09ab8d16ad891476e888cd8c3ec33d956efca796aa2f5d5bafc9f7f43",
+      "read_printed_pages": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        39,
+        131,
+        132,
+        137,
+        138,
+        139,
+        154
+      ],
+      "visual_review_printed_pages": [
+        39
+      ],
+      "locators": [
+        {
+          "passage": "Example 1.7",
+          "pages": [
+            32,
+            33,
+            34,
+            35
+          ],
+          "use": "radial/coric groupoids, fullness, lift of isomorphisms"
+        },
+        {
+          "passage": "Example 1.8(iv)",
+          "pages": [
+            39
+          ],
+          "use": "Ism quantified over all open subgroups H and their image lattices"
+        },
+        {
+          "passage": "Corollaries 4.5,4.6",
+          "pages": [
+            131,
+            132,
+            137,
+            138,
+            139
+          ],
+          "use": "local Galois monoids, labels, synchronized Kummer/evaluation maps"
+        },
+        {
+          "passage": "Definition 4.9(i)",
+          "pages": [
+            154
+          ],
+          "use": "x-mu Kummer structures explicitly defined as Ism-orbits and characterized by H-lattice images"
+        }
+      ],
+      "proofs_reconstructed": false
+    },
+    {
+      "id": "AbsTopIII",
+      "author": "Shinichi Mochizuki",
+      "title": "Topics in Absolute Anabelian Geometry III: Global Reconstruction Algorithms",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Topics%20in%20Absolute%20Anabelian%20Geometry%20III.pdf",
+      "cover_version": "November 2015",
+      "pdf_pages": 164,
+      "cache_pdf": "research/round3-source-cache/abstop-III-official-retrieved-2026-10-16.pdf",
+      "pdf_sha256": "e8115df30a86dea26e2ebf60cb333558ff28fe3e4d57017a80421787b53421a9",
+      "cache_text": "research/round3-source-cache/abstop-III-official-retrieved-2026-10-16.txt",
+      "text_sha256": "0e22ac2ae8df52299ec974d4c3e2d0eaaa218bf8a951b0ee60f3692c6bc1d3ea",
+      "read_printed_pages": [
+        137,
+        138,
+        139,
+        140
+      ],
+      "visual_review_printed_pages": [
+        139
+      ],
+      "locators": [
+        {
+          "passage": "Proposition 5.7",
+          "pages": [
+            137,
+            138,
+            139
+          ],
+          "use": "local Haar/log-volume and scalar scaling"
+        },
+        {
+          "passage": "Proposition 5.8(i)-(iii)",
+          "pages": [
+            139,
+            140
+          ],
+          "use": "mono-analytic reconstruction of local invariants, additive log-shell, and log-volume without reconstructing field structure"
+        }
+      ],
+      "additional_indexed_only": [
+        "Remark 5.8.1",
+        "Corollary 5.10"
+      ],
+      "proofs_reconstructed": false
+    }
+  ],
+  "reused_sources": [
+    {
+      "id": "IUTIII",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20III.pdf",
+      "cache_pdf": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.pdf",
+      "sha256": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9",
+      "read_printed_pages": [
+        26,
+        27,
+        28,
+        32,
+        36,
+        97,
+        98,
+        99,
+        131,
+        134,
+        140,
+        141,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        173,
+        174,
+        175
+      ],
+      "use": [
+        "finite log/Kummer data",
+        "possible-region families and hull",
+        "Ind1/Ind2 and functoriality",
+        "Ind3 inclusions/surjections",
+        "APT scope"
+      ]
+    },
+    {
+      "id": "IUTIV",
+      "url": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20IV.pdf",
+      "cache_pdf": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.pdf",
+      "sha256": "5bf4b1e0a8c2686562a6859e5009d301335044cfb5efec5d3a9edf764e4af87f",
+      "read_printed_pages": [
+        10,
+        13,
+        26,
+        27,
+        28
+      ],
+      "use": [
+        "log-lattice versus valuation ball under small ramification",
+        "fixed-packet phi and source parameter",
+        "different and normalized tensor estimates"
+      ]
+    },
+    {
+      "id": "Urahigashi",
+      "url": "https://raw.githubusercontent.com/turahigashi/iut-explicit-initial-theta/v0.8.0/stepv-local-noncontainment/paper/stepv_local_noncontainment.tex",
+      "cache_tex": "research/round2-source-cache/urahigashi-v0.8.0.tex",
+      "sha256": "41ae83d7fbac75604b894de9ba4e357740af20dda1d8c05139ff891415162aa0",
+      "read_scope": [
+        "section 1 lattice/valuation conditions",
+        "section 4 Lemmas 3-4"
+      ],
+      "status": "author_claims_not_formally_verified"
+    }
+  ],
+  "semantic_findings": [
+    {
+      "id": "SF1",
+      "status": "textual_source_support",
+      "claim": "Ism preserves all open-H image lattices, stronger data than a finite base-field lattice automorphism"
+    },
+    {
+      "id": "SF2",
+      "status": "textual_source_support",
+      "claim": "Kummer x-mu structure is explicitly an Ism-orbit; do not claim orbit data absent"
+    },
+    {
+      "id": "SF3",
+      "status": "textual_source_support",
+      "claim": "Ind3 is described by upper-semi-compatible inclusions/surjections and is not assumed to be a group action"
+    },
+    {
+      "id": "SF4",
+      "status": "unformalized_hypothesis",
+      "claim": "actual finite Ism restrictions land in A(k) after log and invariant realization; no reverse extension theorem supplied"
+    },
+    {
+      "id": "SF5",
+      "status": "unformalized_interface_reduction",
+      "claim": "specific G03 witness requires only one actual admissible seed/transport path, not universal closure of all Ind1/2/3"
+    },
+    {
+      "id": "SF6",
+      "status": "bounded_search_observation",
+      "claim": "no single fully explicit joint admissible-choice index type extracted from the read passages; not a claim that original theory lacks all compatibility statements"
+    }
+  ],
+  "candidate_lemmas": [
+    {
+      "id": "LP0",
+      "statement": "Qp-linear equivalence preserving a Zp-lattice preserves every p^n lattice for n in Z",
+      "requires": [
+        "nonzero scalar p",
+        "linearity",
+        "equality of image lattice"
+      ],
+      "lean_verified": false
+    },
+    {
+      "id": "LP1",
+      "statement": "small-ramification log-image identification plus discrete valuation group yields preserved ceil(ord)",
+      "requires": [
+        "finite local field",
+        "p odd",
+        "e<=p-2",
+        "ord(p)=1",
+        "value group=(1/e)Z",
+        "log(units)=maximal ideal"
+      ],
+      "lean_verified": false
+    },
+    {
+      "id": "LP2",
+      "statement": "candidate k=Q5(sqrt5), swap generators pi and 5 of maximal ideal: finite log-lattice preserving but not exact valuation preserving",
+      "counterexample_scope": "finite A(k) only; extension to actual Ism not proved",
+      "lean_verified": false
+    },
+    {
+      "id": "LP3",
+      "statement": "candidate arbitrary lattice Z5 + Z5*(5^N*pi): generator swap need not preserve ceil valuation",
+      "counterexample_scope": "arbitrary lattice, not a claim about genuine large-ramification log-image",
+      "lean_verified": false
+    },
+    {
+      "id": "LP4",
+      "statement": "lattice sandwich controls valuation by lattice-gauge interval",
+      "requires": [
+        "full lattice",
+        "nonzero element",
+        "gauge max exists",
+        "fractional ideals defined"
+      ],
+      "lean_verified": false
+    }
+  ],
+  "minimal_witness_obligations": [
+    "actual initial datum",
+    "actual seed in pilot-region",
+    "actual Kummer choice",
+    "finite coordinate equation",
+    "specific Ind1 representative with permutation (2 3)",
+    "joint-data admissibility after composition",
+    "output membership",
+    "coarse valuation comparison",
+    "normalization/hull compatibility"
+  ],
+  "not_claimed": [
+    "actual IUT counterexample",
+    "proof or disproof of Corollary 3.12",
+    "failure of final global Theorem 1.10 inequality",
+    "proof or disproof of abc",
+    "all finite A(k) automorphisms extend to Ism",
+    "precise valuation preservation from finite lattice preservation"
+  ],
+  "cache_processing": "only PDF/text downloaded; pypdf extraction; temporary Poppler review PNGs removed; no downloaded code executed"
+}

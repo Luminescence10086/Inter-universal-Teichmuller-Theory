@@ -1,0 +1,340 @@
+{
+  "checked_utc": "2026-10-20T03:14:47.62211Z",
+  "audit": "round5-final-repeatability-audit",
+  "result": "PASS",
+  "projects": [
+    {
+      "acyclic": true,
+      "pending": 0,
+      "edge_endpoints_closed": true,
+      "project": "core",
+      "input_count": 16,
+      "editor_observation_round": 3,
+      "receipt_valid": true,
+      "facts_sha256": "a94243eaeafbaf8161a2f2737965c01c5d05da6455a25cc1dbaa1e4aac7730e9",
+      "edges": 14,
+      "nodes": 38,
+      "source_check_round": 3,
+      "runtime_artifacts": 7076,
+      "information_messages": 76,
+      "source_checks_empty": [
+        "IUTAudit.lean",
+        "IUTAudit/Descent.lean",
+        "IUTAudit/LocalNumerics.lean",
+        "IUTAudit/Orbit.lean",
+        "IUTAudit/Scale.lean",
+        "IUTAudit/Transport.lean"
+      ]
+    },
+    {
+      "acyclic": true,
+      "pending": 0,
+      "edge_endpoints_closed": true,
+      "project": "local-field",
+      "input_count": 15,
+      "editor_observation_round": 5,
+      "receipt_valid": true,
+      "facts_sha256": "84af39856c7ff2e88ec4100c6e00636dfb824a142f2cd081b2ada5c95928843b",
+      "edges": 31,
+      "nodes": 24,
+      "source_check_round": 5,
+      "runtime_artifacts": 13008,
+      "information_messages": 48,
+      "source_checks_empty": [
+        "LocalFieldAudit.lean",
+        "LocalFieldAudit/Filtration.lean",
+        "LocalFieldAudit/Shell.lean",
+        "LocalFieldAudit/ContinuousLinearity.lean"
+      ]
+    }
+  ],
+  "total_nodes": 62,
+  "total_edges": 45,
+  "pending": 0,
+  "aggregate": {
+    "projects": [
+      {
+        "receipt_checked_targets": 38,
+        "evidence_hash_matches": true,
+        "receipt_input_hashes_match_facts": true,
+        "receipt_runtime_hashes_match_facts": true,
+        "project": "core",
+        "input_count": 16,
+        "evidence": "verification/vscode-observation-round3.txt",
+        "receipt_valid": true,
+        "current_input_hashes_match": true,
+        "information_messages": 76,
+        "runtime_artifacts": 7076,
+        "evidence_sha256": "b69f388de1a388625f3bcc7dba090d302e47562c9e3f23a676f5d97a7bb17c41",
+        "receipt_diagnostic_sources_verified": 5
+      },
+      {
+        "receipt_checked_targets": 24,
+        "evidence_hash_matches": true,
+        "receipt_input_hashes_match_facts": true,
+        "receipt_runtime_hashes_match_facts": true,
+        "project": "local-field",
+        "input_count": 15,
+        "evidence": "verification/vscode-observation-round5.txt",
+        "receipt_valid": true,
+        "current_input_hashes_match": true,
+        "information_messages": 48,
+        "runtime_artifacts": 13008,
+        "evidence_sha256": "58a6e74ff9f61ea4e26e01ab87b90a15fc36c6bf0f4acd475be0e4149060156a",
+        "receipt_diagnostic_sources_verified": 3
+      }
+    ],
+    "edge_endpoints_closed": true,
+    "axioms_found": [
+      "Classical.choice",
+      "propext",
+      "Quot.sound"
+    ],
+    "toolchains": {
+      "core": "Lean 4.34.0",
+      "independent": true,
+      "local_field": "Lean 4.34.0-rc2"
+    },
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "receipts_and_evidence_valid": true,
+    "acyclic": true,
+    "axioms_within_whitelist": true,
+    "registry_hashes_match_authoritative_facts": true,
+    "no_cross_edges": true
+  },
+  "new_theorem_count": 5,
+  "new_theorems": [
+    "LocalFieldAudit.ContinuousLinearity.image_scalar_layer",
+    "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+    "LocalFieldAudit.ContinuousLinearity.preserves_integerIdealImages",
+    "LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_norm",
+    "LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_valuation"
+  ],
+  "new_theorem_dependencies": [
+    {
+      "depends_on": [
+        "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+        "LocalFieldAudit.Shell.image_scalar_layer"
+      ],
+      "id": "LocalFieldAudit.ContinuousLinearity.image_scalar_layer"
+    },
+    {
+      "depends_on": [],
+      "id": "LocalFieldAudit.ContinuousLinearity.map_padic_smul"
+    },
+    {
+      "depends_on": [
+        "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+        "LocalFieldAudit.Filtration.preserves_integerIdealImages",
+        "LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball"
+      ],
+      "id": "LocalFieldAudit.ContinuousLinearity.preserves_integerIdealImages"
+    },
+    {
+      "depends_on": [
+        "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+        "LocalFieldAudit.Filtration.preserves_maximalIdealImage_norm"
+      ],
+      "id": "LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_norm"
+    },
+    {
+      "depends_on": [
+        "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+        "LocalFieldAudit.Filtration.preserves_ball_valuation",
+        "LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball"
+      ],
+      "id": "LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_valuation"
+    }
+  ],
+  "new_theorem_kinds": [
+    "theorem",
+    "theorem",
+    "theorem",
+    "theorem",
+    "theorem"
+  ],
+  "new_theorem_nodes_only": true,
+  "source_checks": {
+    "all_exit0_empty_stdout_stderr": true,
+    "core_round3_retained": true,
+    "local_field_round5": [
+      {
+        "exit_code": 0,
+        "project": "local-field",
+        "round": 5,
+        "stdout": "",
+        "command": [
+          "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+          "env",
+          "lean",
+          "--json",
+          "-DwarningAsError=true",
+          "LocalFieldAudit.lean"
+        ],
+        "stderr": "",
+        "file": "LocalFieldAudit.lean"
+      },
+      {
+        "exit_code": 0,
+        "project": "local-field",
+        "round": 5,
+        "stdout": "",
+        "command": [
+          "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+          "env",
+          "lean",
+          "--json",
+          "-DwarningAsError=true",
+          "LocalFieldAudit/Filtration.lean"
+        ],
+        "stderr": "",
+        "file": "LocalFieldAudit/Filtration.lean"
+      },
+      {
+        "exit_code": 0,
+        "project": "local-field",
+        "round": 5,
+        "stdout": "",
+        "command": [
+          "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+          "env",
+          "lean",
+          "--json",
+          "-DwarningAsError=true",
+          "LocalFieldAudit/Shell.lean"
+        ],
+        "stderr": "",
+        "file": "LocalFieldAudit/Shell.lean"
+      },
+      {
+        "exit_code": 0,
+        "project": "local-field",
+        "round": 5,
+        "stdout": "",
+        "command": [
+          "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+          "env",
+          "lean",
+          "--json",
+          "-DwarningAsError=true",
+          "LocalFieldAudit/ContinuousLinearity.lean"
+        ],
+        "stderr": "",
+        "file": "LocalFieldAudit/ContinuousLinearity.lean"
+      }
+    ]
+  },
+  "editor": {
+    "local_field_checked_targets": 24,
+    "core_information_messages": 76,
+    "local_field_runtime_artifacts": 13008,
+    "local_field_information_messages": 48,
+    "local_field_input_count": 15,
+    "local_field_snapshot_unchanged": true
+  },
+  "commands": {
+    "local_field_full_verifier": {
+      "checked_utc": "2026-10-20T03:13:08.7244706Z",
+      "command": "python -X utf8 tools/verify.py",
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\local-field",
+      "exit_code": 0,
+      "stdout": "Zero-diagnostic source checks passed. Admitted=24, pending=0, edges=31.\n",
+      "stderr": "",
+      "result": "PASS",
+      "note": "Recorded from the actual authorized execution; full verifier was not rerun for log creation."
+    },
+    "query_smoke": "verification/round5-query-smoke.json",
+    "forest_deep": {
+      "checked_utc": "2026-10-20T03:13:08.7979143Z",
+      "command": "python -X utf8 tools/forest.py refresh --deep",
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "stdout": "Checked forest: 62 nodes, 45 edges, 2 toolchains.\n",
+      "stderr": "",
+      "result": "PASS",
+      "deep_query_projects": [
+        "core",
+        "local-field"
+      ]
+    }
+  },
+  "source_cache": {
+    "verified_files": [
+      {
+        "path": "Mathlib/Algebra/Module/Rat.lean",
+        "sha256": "cbfd1f4e1bdd219bdff0ecd615a8605691d5d9c96525abb61444de6d2e445343",
+        "source_sha256": "cbfd1f4e1bdd219bdff0ecd615a8605691d5d9c96525abb61444de6d2e445343",
+        "cached_sha256": "cbfd1f4e1bdd219bdff0ecd615a8605691d5d9c96525abb61444de6d2e445343",
+        "hashes_match": true,
+        "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Rat.lean"
+      },
+      {
+        "path": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "sha256": "b8aa1c90a618b6cab529496f46096f99053f8b0fe13732b31b31ef8703fe3f11",
+        "source_sha256": "b8aa1c90a618b6cab529496f46096f99053f8b0fe13732b31b31ef8703fe3f11",
+        "cached_sha256": "b8aa1c90a618b6cab529496f46096f99053f8b0fe13732b31b31ef8703fe3f11",
+        "hashes_match": true,
+        "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicNumbers.lean"
+      },
+      {
+        "path": "Mathlib/Topology/DenseEmbedding.lean",
+        "sha256": "8ef1b8c672b9f16792b4297dad3b29082247ae12f958ccd185b38c49fb839d8a",
+        "source_sha256": "8ef1b8c672b9f16792b4297dad3b29082247ae12f958ccd185b38c49fb839d8a",
+        "cached_sha256": "8ef1b8c672b9f16792b4297dad3b29082247ae12f958ccd185b38c49fb839d8a",
+        "hashes_match": true,
+        "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/DenseEmbedding.lean"
+      },
+      {
+        "path": "Mathlib/Topology/Instances/RealVectorSpace.lean",
+        "sha256": "671e442142557c3903c66cab199196ced294bf77be16a48b7bff97667c2e5cdb",
+        "source_sha256": "671e442142557c3903c66cab199196ced294bf77be16a48b7bff97667c2e5cdb",
+        "cached_sha256": "671e442142557c3903c66cab199196ced294bf77be16a48b7bff97667c2e5cdb",
+        "hashes_match": true,
+        "github_blob_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Instances/RealVectorSpace.lean"
+      }
+    ],
+    "all_hashes_match": true,
+    "count": 4,
+    "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "source_only_non_fact_nodes": true
+  },
+  "open_mathematical_gaps": {
+    "file": "GAP.md",
+    "all_open": true,
+    "count": 6,
+    "ids": [
+      "G01",
+      "G02",
+      "G03",
+      "G04",
+      "G05",
+      "G06"
+    ]
+  },
+  "open_realization_obligations": {
+    "file": "research/round3-realization-obligations.md",
+    "open_status_count": 8,
+    "all_open": true,
+    "count": 8,
+    "ids": [
+      "RI-01",
+      "RI-02",
+      "RI-03",
+      "RI-04",
+      "RI-05",
+      "RI-06",
+      "RI-07",
+      "RI-08"
+    ]
+  },
+  "abc_proved": false,
+  "iut_cor312_proved": false,
+  "checks_pass": true,
+  "four_corollaries_depend_on_map_padic_smul": true,
+  "parent_reviewed_utc": "2026-10-20T03:17:25.602019+00:00",
+  "parent_review": "Reviewed exact five elaborated theorem statements, allowed axioms and helper-mediated edges; final facts, input and evidence hashes match. Four corollaries are theorem nodes; two bundled constructors are helper definitions. No IUT realization or abc claim."
+}

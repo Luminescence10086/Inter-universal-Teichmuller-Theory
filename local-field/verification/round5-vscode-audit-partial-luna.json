@@ -1,0 +1,56 @@
+{
+  "status": "in_progress",
+  "completed_observations": 2,
+  "required_observations": 4,
+  "evidence_file": "local-field/verification/vscode-observation-round5.txt",
+  "evidence_sha256": "13569c8c03cddc1c3c9a76cba7e1ec7955faed054589f30815ceb364d26a737b",
+  "recorded_at_utc": "2026-10-20T02:55:00Z",
+  "actual_global_diagnostics": {
+    "information": 48,
+    "warnings": 0,
+    "errors": 0,
+    "source": "VS Code status bar screenshot; UIA exposes Information:48"
+  },
+  "observations": [
+    {
+      "file": "tools/EditorCheck.lean",
+      "kind": "editor-entry",
+      "status": "passed",
+      "uia_raw": [
+        "All Messages (48)",
+        "236 组 信息: 48 条 ID: status.problems"
+      ],
+      "screenshot_read": "0 errors, 0 warnings, 48 information"
+    },
+    {
+      "file": "LocalFieldAudit/ContinuousLinearity.lean",
+      "kind": "source-proof",
+      "status": "passed",
+      "cursor": "line 86, column 87",
+      "screenshot_read": [
+        "ContinuousLinearity.lean:86:86",
+        "Tactic state",
+        "No goals",
+        "Messages (1)",
+        "ContinuousLinearity.lean:83:0",
+        "Goals accomplished!"
+      ],
+      "uia_exposes_infoview_text": false
+    },
+    {
+      "file": "LocalFieldAudit/Filtration.lean",
+      "kind": "source-proof",
+      "status": "incomplete",
+      "cursor": "line 215, column 39",
+      "uia_raw": "第 215 行，第 1 列: exact ne_of_lt Padic.norm_p_lt_one",
+      "screenshot_read": "final exact visible; no matching InfoView confirmation",
+      "blocker": "Blank Paperproof tab was loading; parent agent resumes InfoView recovery"
+    },
+    {
+      "file": "LocalFieldAudit/Shell.lean",
+      "kind": "source-proof",
+      "status": "not_observed"
+    }
+  ],
+  "receipt_created": false
+}

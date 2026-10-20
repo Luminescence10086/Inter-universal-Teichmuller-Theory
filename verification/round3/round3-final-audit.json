@@ -1,0 +1,50 @@
+{
+  "checked_utc": "2026-10-19T06:36:24.089408+00:00",
+  "projects": [
+    {
+      "project": "core",
+      "nodes": 38,
+      "edges": 14,
+      "pending": 0,
+      "acyclic": true,
+      "receipt_valid": true,
+      "source_checks_empty": [
+        "IUTAudit.lean",
+        "IUTAudit/Descent.lean",
+        "IUTAudit/LocalNumerics.lean",
+        "IUTAudit/Orbit.lean",
+        "IUTAudit/Scale.lean",
+        "IUTAudit/Transport.lean"
+      ],
+      "information_messages": 76,
+      "input_count": 16,
+      "runtime_artifacts": 7076,
+      "facts_sha256": "a94243eaeafbaf8161a2f2737965c01c5d05da6455a25cc1dbaa1e4aac7730e9"
+    },
+    {
+      "project": "local-field",
+      "nodes": 5,
+      "edges": 4,
+      "pending": 0,
+      "acyclic": true,
+      "receipt_valid": true,
+      "source_checks_empty": [
+        "LocalFieldAudit.lean",
+        "LocalFieldAudit/Shell.lean"
+      ],
+      "information_messages": 10,
+      "input_count": 13,
+      "runtime_artifacts": 12277,
+      "facts_sha256": "7123a118c0652cf372aa02b213ede474a25b648259dacfc273b11f650cb55d2f"
+    }
+  ],
+  "nodes": 43,
+  "edges": 18,
+  "source_cache_hashes_verified": 10,
+  "python_regression_tests": 36,
+  "abc_proved": false,
+  "iut_cor312_proved": false,
+  "open_mathematical_gaps": 6,
+  "open_realization_obligations": 8,
+  "trust": "Engineering audit of installed Lean checks and observed editor receipts; not an independent proof kernel or anti-forgery certificate."
+}

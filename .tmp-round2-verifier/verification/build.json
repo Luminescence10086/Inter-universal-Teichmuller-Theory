@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "build"
+  ],
+  "exit_code": 0,
+  "stdout": "✔ [3/5] Built IUTAudit.Descent (2.0s)\n✔ [4/5] Built IUTAudit (1.0s)\nBuild completed successfully (5 jobs).\n",
+  "stderr": ""
+}

@@ -1,0 +1,459 @@
+\documentclass[11pt]{amsart}
+\usepackage[a4paper,margin=1in]{geometry}
+\raggedbottom
+\usepackage[bottom]{footmisc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={A local non-containment in Step (v) of IUT IV, Theorem 1.10},
+  pdfauthor={Toshihisa Urahigashi}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Qp}{\mathbb Q_p}
+\newcommand{\Zp}{\mathbb Z_p}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\dd}{\mathfrak d}
+\newcommand{\qq}{\underline{\underline{q}}{}}
+\newcommand{\Fmod}{F_{\mathrm{mod}}}
+\newcommand{\VV}{\underline{\mathbb V}}
+\newcommand{\Vbadmod}{\mathbb V^{\mathrm{bad}}_{\mathrm{mod}}}
+\newcommand{\Vbad}{\underline{\mathbb V}^{\mathrm{bad}}}
+\newcommand{\mulog}{\mu^{\log}}
+\newcommand{\RIt}{(R_I)^{\sim}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\Nm}{\operatorname{N}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Sj}{\mathbb S^{\pm}_{j+1}}
+\newcommand{\Dp}{\mathcal D^{\vdash}_{p}}
+\newcommand{\bv}{\mathbf v}
+\newcommand{\bw}{\mathbf w}
+\newcommand{\bu}{\mathbf u}
+
+\begin{document}
+
+\title{A local non-containment in Step~(v) of IUT~IV, Theorem~1.10}
+\author{Toshihisa Urahigashi}
+\email{123026.urahigashi.toshihisa@gmail.com}
+\date{Draft, 5 October 2026}
+
+\begin{abstract}
+Step~(v) of the proof of Theorem~1.10 in the fourth paper of Mochizuki's series on inter-universal
+Teichm\"uller theory estimates, prime by prime, the log-volume of the holomorphic hull of the union of
+possible images of a $\Theta$-pilot object defined in Corollary~3.12 of the third paper. For each tuple of
+places it bounds the log-volume of the component of this hull by that of an explicit module, which depends on the
+order of the $q$-parameter at the place carrying the label $j$. We give an explicit initial $\Theta$-datum, with
+two places of multiplicative reduction above the prime $30965771$, and an element of the projection of the union
+to one summand, obtained from a theta value by a permutation of labels allowed by the indeterminacy (Ind1), that
+does not lie in this module; the corresponding component of the hull has larger log-volume than the bound obtained
+in Step~(v).  No assertion is made here about Corollary 3.12 itself, the final global inequality of Theorem 1.10, or the
+abc conjecture.
+\end{abstract}
+
+\maketitle
+
+\section{The statement of Step (v)}\label{s:source}
+
+We use the notation of \cite{IUT1,IUT3,IUT4}; page numbers refer to the versions listed at the end, and we
+omit some decorations such as ${}^{n,\circ}$. For a finite extension $k$ of $\Qp$ we write $\cO_k$ for its ring
+of integers, $e_k$ for its ramification index, $\operatorname{ord}$ for the valuation on an algebraic closure of
+$\Qp$ with $\operatorname{ord}(p)=1$, and $\dd_k$ for the order of a generator of the different of $\cO_k$ over
+$\Zp$. For finitely many such fields $(k_i)_{i\in I}$ we write, as in \cite[Props.~1.1, 1.2, pp.~9--10]{IUT4},
+\[
+k_I=\textstyle\bigotimes_{i\in I}k_i,\qquad R_I=\bigotimes_{i\in I}\cO_{k_i},\qquad
+\log_p(R_I^\times)=\bigotimes_{i\in I}\log_p(\cO_{k_i}^\times),\qquad \dd_I=\sum_{i\in I}\dd_{k_i},
+\]
+the tensor products being over $\Qp$, respectively $\Zp$, and $\RIt$ for the normalization of $R_I$. The ring
+$k_I$ is a finite product of fields $L$, and $\RIt$ is the product of their rings of integers. We use the
+log-volume $\mulog$ of \cite[Prop.~1.4(i), p.~13]{IUT4}, normalized by $\mulog(\RIt)=0$ and
+$\mulog(p\cdot\RIt)=-\log p$, and three elementary facts.
+\begin{enumerate}
+\item[(1.1)] In every factor $L$ of $k_I$, the component of a pure tensor $y=\otimes_i z_i$, $z_i\ne0$, has
+  $\operatorname{ord}$ equal to $c=\sum_i\operatorname{ord}(z_i)$. Hence
+  $\RIt\cdot y=\{z\in k_I:\operatorname{ord}(z_L)\ge c\text{ for every }L\}$ and $\mulog(\RIt\cdot y)=-c\log p$.
+\item[(1.2)] If $p$ is odd and $e_k\le p-2$, then $\log_p(\cO_k^\times)=\{z\in k:\operatorname{ord}(z)\ge 1/e_k\}$
+  \cite[Prop.~1.2(i), p.~10]{IUT4}; so for $z\in k^\times$ and $n\in\Z$ we have
+  $z\in p^n\log_p(\cO_k^\times)$ if and only if $n<\operatorname{ord}(z)$.
+\item[(1.3)] Write $\cA(k)$ for the group of $\Qp$-linear automorphisms of $k$ that map
+  $\log_p(\cO_k^\times)$ onto itself, equivalently the log-shell $p^{-1}\log_p(\cO_k^\times)$ ($p$ odd)
+  \cite[Rem.~1.2.2(i), p.~36]{IUT3}. Under the hypothesis of (1.2), every $\psi\in\cA(k)$ maps each
+  $p^n\log_p(\cO_k^\times)$ onto itself, hence $\lceil\operatorname{ord}\psi(z)\rceil=\lceil\operatorname{ord} z\rceil$;
+  in particular $\operatorname{ord}\psi(z)\le\lceil\operatorname{ord} z\rceil$.
+\end{enumerate}
+
+Fix an initial $\Theta$-datum \cite[Def.~3.1, pp.~61--63]{IUT1} that satisfies the hypotheses of
+\cite[Thm.~1.10, pp.~22--23]{IUT4}, a prime number $p$ that ramifies in $K$, and $j\in\{1,\dots,\ell^*\}$, where
+$\ell^*=(\ell-1)/2$; write $\Sj=\{0,1,\dots,j\}$ \cite[p.~27]{IUT4}. For a place $v$ of $\Fmod$ above $p$ let $\underline v\in\VV$ be the corresponding element
+\cite[Def.~3.1(e)]{IUT1}; we write $k_v=K_{\underline v}$, $\qq_v=\qq_{\underline v}$ for the $2\ell$-th root of
+the $q$-parameter \cite[Ex.~3.2(iv), p.~71]{IUT1}, and $\rho(v)=\operatorname{ord}_p(\qq_v)$. The packet
+$\cI^{\Q}(\Sj;\Dp)$ is the tensor product, over the labels in $\Sj$, of the direct sum over the places $v\mid p$ of
+the $\Q$-spans of the log-shells \cite[p.~27]{IUT4}, \cite[Prop.~3.2, pp.~97--98]{IUT3}. Identifying the $\Q$-span
+of the log-shell at $v$ with $k_v$ \cite[Rem.~3.1.1(i), p.~93; Prop.~3.2(i)]{IUT3}, we get
+\[
+\cI^{\Q}(\Sj;\Dp)=\bigoplus_{\bv}k_{\bv},\qquad k_{\bv}=k_{v_0}\otimes k_{v_1}\otimes\cdots\otimes k_{v_j},
+\]
+the sum running over the tuples $\bv=(v_0,\dots,v_j)$ of places of $\Fmod$ above $p$; the factor of $k_{\bv}$ with
+label $i$ is $k_{v_i}$. Write $\pr_{\bv}$ for the projection to $k_{\bv}$, $U_j$ for the union of the possible
+images of a $\Theta$-pilot object, subject to the indeterminacies (Ind1), (Ind2), (Ind3), that is formed in the
+proof of \cite[Cor.~3.12]{IUT3} (denoted there $\cU_{j,v_{\Q}}$, with $v_{\Q}=p$; p.~174), and $\overline U_j$ for its
+holomorphic hull \cite[Rem.~3.9.5(i), p.~127]{IUT3}.
+
+For a tuple $\bv$, Step~(v) \cite[pp.~27--28]{IUT4} applies \cite[Prop.~1.4(iii), p.~13]{IUT4} with
+$I=\Sj$, $k_i=k_{v_i}$, $I^*=\{i:e_{k_{v_i}}>p-2\}$, $i^\dagger=j$, and $\lambda=\operatorname{ord}(\qq_{v_j}^{\,j^2})
+=j^2\rho(v_j)$ if $\underline v_j\in\Vbad$ ($\lambda=0$ otherwise). From the
+inclusion $\phi(p^\lambda\cdot\RIt)\subseteq C_{\bv}$ of that proposition, where
+\[
+C_{\bv}=p^{\lfloor\lambda-\dd_I-a_I\rfloor}\cdot\log_p(R_I^\times)\ \subseteq\
+M_{\bv}=p^{\lfloor\lambda-\dd_I-a_I\rfloor-b_I}\cdot\RIt
+\]
+and $a_I,b_I$ are as in \cite[Prop.~1.2]{IUT4}, it concludes that a suitable multiple of $\log_p(R_I^\times)$
+contains the union of possible images,\footnote{In the words of \cite[p.~27]{IUT4}, the inclusion ``implies that
+the result of multiplying $p^{\lfloor\lambda\rfloor-|I|}\cdot2^{-|I|}\cdot\log_p(R_I^\times)$ by a suitable nonpositive
+[\dots] integer power of $p_{v_{\Q}}$ contains the `union of possible images of a $\Theta$-pilot object' discussed in
+Step~(iv)''. Which power is meant plays no role below: Theorem~\ref{t:main} concerns $M_{\bv}$ and the
+bound~\eqref{eq:bound}.} and that an upper bound for the component at $\bv$ of the log-volume of the holomorphic
+hull may be obtained from an upper bound for the log-volume of $M_{\bv}$ \cite[p.~28]{IUT4}. If $I^*=\emptyset$, the
+latter is
+\begin{equation}\label{eq:bound}
+\mulog(M_{\bv})\le(-\lambda+\dd_I+1)\cdot\log p
+\end{equation}
+\cite[Prop.~1.4(iii)]{IUT4}. This is the bound that we test.
+
+\begin{lemma}\label{l:object}
+The union of possible images whose holomorphic hull Step~(v) estimates is $U_j$, and its component at the
+tuple $\bv$ is $\pr_{\bv}(U_j)$.
+\end{lemma}
+
+\begin{proof}
+Step~(v) states that the container ``contains the `union of possible images of a $\Theta$-pilot object'
+discussed in Step~(iv)'' \cite[p.~27]{IUT4}. Step~(iv) introduces this union ``according to the various
+definitions given in the statement of [IUTchIII], Corollary~3.12'' \cite[p.~26]{IUT4}, and estimates, for fixed
+$v_{\Q}$ and $j$, its component in $\cI^{\Q}(\Sj;\mathcal D^{\vdash}_{v_{\Q}})$ and then the component
+corresponding to each tuple $\{v_i\}$ \cite[p.~27]{IUT4}. In the proof of \cite[Cor.~3.12]{IUT3} this union is the
+subset $\cU_{j,v_{\Q}}\subseteq\cI^{\Q}(\Sj;\mathcal D^{\vdash}_{v_{\Q}})$, formed before its holomorphic hull is
+taken \cite[p.~174]{IUT3}. For $v_{\Q}=p$, its component at the tuple $\bv$ is $\pr_{\bv}(U_j)$.
+\end{proof}
+
+\section{The datum \texorpdfstring{$D_2$}{D2}}\label{s:datum}
+
+Let $F_0=\Q(\sqrt5)$, $\ell=7$, and
+\[
+\pi=14164+5825\sqrt5,\qquad p=\Nm_{F_0/\Q}(\pi)=30965771,\qquad a=\pi\bar\pi^{\,6},
+\]
+where the bar denotes the conjugation of $F_0$. Let $E_0\colon y^2=x(x-1)(x-a)$ over $F_0$,
+$F=F_0(\sqrt{-1},E_0[15])$, $K=F(E_0[7])$, $X_F$ the curve $E_0\times_{F_0}F$ minus its origin, and $\Vbadmod$ the
+set of places $v$ of $F_0$ with $v\nmid 14$ and $\operatorname{ord}_v(j(E_0))<0$.
+
+\begin{proposition}\label{p:datum}
+These data extend to an initial $\Theta$-datum
+$D_2=(\overline F/F,X_F,\ell,\underline C_K,\VV,\Vbadmod,\underline\epsilon)$ in the sense of
+\cite[Def.~3.1]{IUT1} that satisfies the hypotheses of \cite[Thm.~1.10]{IUT4}, with $\Fmod=F_0$. The number $p$ is
+prime and splits in $F_0$; the two places $b_1=v_\pi$ and $b_2=v_{\bar\pi}$ above $p$ lie in $\Vbadmod$, have
+$[(\Fmod)_{b_i}:\Qp]=1$, and have the local data of Table~\ref{tab:D2}. Moreover
+$p>e^*_{\mathrm{mod}}\cdot\ell=7741440$.
+\end{proposition}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+place $v$ & $\operatorname{ord}_v(a)$ & $\operatorname{ord}_p(q_v)$ & $e_{k_v}$ & different exponent & $\dd_{k_v}$
+  & $\rho(v)$\\
+\midrule
+$b_1$ & $1$ & $2$ & $105$ & $104$ & $104/105$ & $1/7$\\
+$b_2$ & $6$ & $12$ & $35$ & $34$ & $34/35$ & $6/7$\\
+\bottomrule
+\end{tabular}
+\caption{The places of $D_2$ above $p=30965771$; $k_v=K_{\underline v}$ and $\rho(v)=\operatorname{ord}_p(\qq_v)$.}\label{tab:D2}
+\end{table}
+
+\begin{proof}[Proof of Proposition~\ref{p:datum}, except Table~\ref{tab:D2}]
+The integer $p$ is prime, $p\equiv1\pmod5$ and $p\equiv3\pmod4$. So $p=\pi\bar\pi$ splits in $F_0$, both places
+above it have $[(F_0)_{b_i}:\Qp]=1$, and $\Qp(\sqrt{-1})$ is unramified over $\Qp$.
+
+\emph{The integer $\Nm(1-a)$.} We have $\Nm(1-a)=p^7-p\Tr(\pi^5)+1=2^2\cdot11^2\cdot R$, where
+\[
+R=56406340220143710508313748934073550973772664592051
+\]
+is prime. Hence no prime divides $\Nm(1-a)$ to the seventh power, $\operatorname{ord}_v(1-a)\le6$ at every place $v$ of $F_0$,
+and $\operatorname{ord}_2(1-a)=1$ at the place above $2$, which is inert. Neither $\Nm(a)=p^7$ nor $\Nm(1-a)$ is
+divisible by $7$.
+
+\emph{The curve.} We have $j=j(E_0)=2^8(a^2-a+1)^3/(a^2(a-1)^2)$ and $a\in\cO_{F_0}$. At an odd place $v$ with
+$\operatorname{ord}_v(a)>0$ or $\operatorname{ord}_v(1-a)>0$ the element $a^2-a+1$ is a unit, so
+$\operatorname{ord}_v(j)=-2\operatorname{ord}_v(a)$, respectively $-2\operatorname{ord}_v(1-a)$; at the other odd
+places the discriminant $16a^2(a-1)^2$ is a unit. At $b_1$ and $b_2$, $1-a$ is a unit, so
+$\operatorname{ord}_{b_1}(j)=-2$ and $\operatorname{ord}_{b_2}(j)=-12$. A rational $j$ would have equal orders at the
+two places above $p$; hence $j\notin\Q$ and $\Fmod=\Q(j)=F_0$ \cite[Prop.~1.8(ii), p.~19]{IUT4}. At the place above
+$2$, $a$ is a unit and $\operatorname{ord}_2(j)=8-2=6\ge0$.
+
+\emph{Conditions (a), (b) of \cite[Def.~3.1]{IUT1}.} We have $\sqrt{-1}\in F$. As $E_0[2]$ is rational over $F_0$,
+$F=F_0(\sqrt{-1},E_0[30])$; it is Galois over $F_0$, its Galois group embeds in $\Z/2\times\mathrm{GL}_2(\Z/15\Z)$,
+whose order is $2^{10}\cdot3^2\cdot5$, so $[F:F_0]$ is prime to $7$; and $E_F[6]$ is rational over $F$. By \cite[Prop.~1.8(v), p.~19]{IUT4},
+applied with the primes $3$ and $5$, $E_F$ has semistable reduction at every finite place of $F$; so its reduction
+is multiplicative where $\operatorname{ord}(j)<0$ and good where $\operatorname{ord}(j)\ge0$
+\cite[Props.~VII.5.1, VII.5.5]{Sil}. By the previous paragraph, the places of multiplicative reduction are exactly
+the places above $\Vbadmod$; this set is nonempty ($b_1,b_2\in\Vbadmod$), its residue characteristics are odd, and
+$E_F$ has good reduction at every other place not dividing $2\cdot7$, which is the reduction hypothesis of
+\cite[Thm.~1.10]{IUT4}. The field $F$ has the form required there: $F_{\mathrm{tpd}}=\Fmod(E[2])=F_0$, $E_0$ is in
+Legendre form, and $F=F_{\mathrm{tpd}}(\sqrt{-1},E_0[3\cdot5])$.
+
+\emph{Condition (c).} The prime $\ell=7$ is not a residue characteristic of $\Vbadmod$. At a place $w$ of $F$ above
+$v\in\Vbadmod$ the $q$-parameter has order $-\operatorname{ord}_w(j)=2\,e(w|v)\,r$, where
+$r=\operatorname{ord}_v(a)$ or $\operatorname{ord}_v(1-a)$ lies in $\{1,\dots,6\}$ ($a$ vanishes only at $b_1$ and
+$b_2$, to the orders $1$ and $6$) and $e(w|v)$ divides $[F:F_0]$; so these orders are prime to $7$. At such a
+place $w$ the Legendre equation is minimal, as $c_4=16(a^2-a+1)$ is a unit \cite[\S VII.1]{Sil}, and its reduction
+has a node, at $(0,0)$ with tangents $y=\pm\sqrt{-1}\,x$ if $a\equiv0$ and at $(1,0)$ with tangents $y=\pm(x-1)$ if
+$a\equiv1$, rational over the residue field; so $E_F$ has split multiplicative reduction and $E_F\cong E_q$ over
+$F_w$ \cite[App.~C, Thm.~14.1]{Sil}. For the image of $G_F$ in $\mathrm{GL}(E_0[7])\cong\mathrm{GL}_2(\F_7)$: above
+$b_1$, $a\equiv0$ and $\operatorname{ord}_w(q)=2e(w|b_1)$ is prime to $7$. As
+$q^{1/7}$ generates a ramified extension of the maximal unramified extension of $F_w$, which contains $\mu_7$, an
+element of inertia acts on $E_0[7]\cong\langle\zeta_7,q^{1/7}\rangle$ by a nontrivial transvection $t$. At the
+place of $F_0$ of degree one above $19$ at which $\sqrt5\equiv9$, $E_0$ has good reduction, $a\equiv15$ and
+$a_{19}=19+1-\#\tilde E_0(\F_{19})=-4$; the Frobenius $g$ acts on $E_0[7]\cong\tilde E_0[7]$
+\cite[Prop.~VII.3.1]{Sil} and satisfies $g^2+4g+19=0$ \cite[Thm.~V.2.3.1]{Sil}; as $X^2+4X+5$ is irreducible over
+$\F_7$ (its discriminant $3$ is not a square), $g$ fixes no line. The image $H$ of $G_F$ is normal in the image of
+$G_{F_0}$, so it contains $t$ and $gtg^{-1}$, transvections with distinct fixed lines, which generate
+$\mathrm{SL}_2(\F_7)$.
+
+\emph{Conditions (d)--(f).} We do not invoke \cite[Cor.~2.2]{IUT4} for $D_2$: its condition (P1)
+\cite[p.~45]{IUT4} contains the inequality $h^{1/2}\le\ell$ for the height $h$ defined in its proof (p.~44), and here
+$h>\ell^2$. We construct the data directly; as noted on p.~46, the essential input for $\VV$ and
+$\underline\epsilon$ is the property, shown above, that the image of $G_F$ contains $\mathrm{SL}_2(\F_\ell)$. Since
+$j\notin\Q$, $j$ is none of $2^{14}\cdot31^{3}\cdot5^{-3}$, $2^{2}\cdot73^{3}\cdot3^{-4}$, $1728$, $0$, so $X_F$ admits an
+$F$-core \cite[Prop.~2.1]{MFHMP}. Hence $X_{\overline F}$ is not arithmetic \cite[Prop.~2.3(i)]{CanLift}, nor is its
+finite \'etale quotient $C_{\overline F}=[X_{\overline F}/\{\pm1\}]$, a punctured hemi-elliptic orbicurve, which is
+therefore an $\overline F$-core \cite[Prop.~2.7]{CanLift}; so $C_F=[X_F/\{\pm1\}]$ and $C_K=C_F\times_FK$ are an
+$F$-core and a $K$-core \cite[Prop.~2.3(i)]{CanLift}. The group $E_0[7]$ is rational over $K$. Fix a line
+$W\subset E_0[7]$ and $0\ne\xi\in E_0[7]/W$; let $\alpha\colon E_K\to E'=E_K/W$ be the quotient and
+$\beta\colon E'\to E_K$ the isogeny with $\beta\alpha=[7]$. The finite \'etale cover
+$\beta\colon\underline X_K=E'\setminus\ker\beta\to X_K$ has group $\ker\beta=\alpha(E_0[7])\cong E_0[7]/W$,
+corresponds to the quotient $E_0[7]\to E_0[7]/W$ of the maximal abelian quotient modulo~$7$ of the geometric
+fundamental group of $X_K$, and has its cusps, the points of $\ker\beta$, rational over $K$; so
+$\underline C_K=[\underline X_K/\{\pm1\}]$, formed with the cusp $0$ as origin, is of type $(1,7\text{-tors})^{\pm}$
+\cite[Def.~2.1]{EtTh}, and, being finite \'etale over the $K$-core $C_K$, it has $K$-core $C_K$, as required in (d).
+Let $\underline\epsilon$ be the cusp of $\underline C_K$ given by $\pm\xi$, as in (f). At a place $w$ of $K$ above an
+element of $\Vbadmod$, the Tate uniformization of $E_0$ over $K_w$, which exists by the paragraph on (c), gives a line
+$\mu_7\subset E_0[7]$ and a generator $\pm1$, canonical up to sign, of $E_0[7]/\mu_7\cong\Z/7\Z$; if $(W,\pm\xi)$ is
+this pair, then $\underline C_K$ is of type $(1,\Z/7\Z)^{\pm}$ at $w$ \cite[Def.~2.5(i)]{EtTh} and
+$\underline\epsilon_w$ is the cusp of $\pm1$, as required in (e), (f). The group $\mathrm{SL}_2(\F_7)$ acts
+transitively on the pairs $(L,\pm\eta)$ of a line $L\subset E_0[7]$ and $0\ne\eta\in E_0[7]/L$ (it sends any basis of
+determinant $1$ to any other), and it lies in the image of $\mathrm{Gal}(K/F)$. Since $E_0$ and its Tate parameter are
+defined over the completion of $F$ below $w$, an element $\gamma\in\mathrm{Gal}(K/F)$ carries the pair at $w$ to the
+pair at $\gamma(w)$, and we may choose $\gamma$ so that the latter is $(W,\pm\xi)$. Choosing such a place over each element of
+$\Vbadmod$, and any place over the others, gives $\VV$.
+
+\emph{The threshold.} $\Fmod=\Q(\sqrt5)$ has $e_{\mathrm{mod}}=2$, so
+$e^*_{\mathrm{mod}}\cdot\ell=2^{12}\cdot3^3\cdot5\cdot2\cdot7=7741440<p$ \cite[p.~22]{IUT4}.
+\end{proof}
+
+\section{The places above \texorpdfstring{$p$}{p}}\label{s:local}
+
+\begin{proof}[Proof of Table~\ref{tab:D2}]
+Let $b\in\{b_1,b_2\}$ and $m=-\operatorname{ord}_b(j)$, so $m=2$ at $b_1$ and $m=12$ at $b_2$; let
+$k_0=(F_0)_b(\sqrt{-1})=\Qp(\sqrt{-1})$. As in the previous proof, $E_0$ has split multiplicative reduction over
+$k_0$, so $E_0\cong E_q$ over $k_0$ with $\operatorname{ord}_p(q)=m$, and for $n$ prime to $p$ the field
+$k_0(E_0[n])$ is $k_0(\mu_n,q^{1/n})$ \cite[App.~C, Thm.~14.1, and the expansion $j=q^{-1}+744+\cdots$ on
+p.~444]{Sil}. Write $q=u\,p^m$ with $u\in\cO_{k_0}^\times$. The field $k_0(\mu_n,u^{1/n})$ is unramified over
+$\Qp$, and adjoining to it an $n$-th root of $p^m$ gives a totally ramified extension of degree $n/\gcd(n,m)$.
+Hence $k_0(E_0[n])$ is tamely ramified over $\Qp$, with ramification index $n/\gcd(n,m)$. For $\underline v\in\VV$
+above $b$ we have $k_v=K_{\underline v}=k_0(E_0[105])$, so $e_{k_v}=105/\gcd(105,m)$, which is $105$ at $b_1$ and
+$35$ at $b_2$. Since $k_v$ is tame over $\Qp$, its different has exponent $e_{k_v}-1$, that is
+$\dd_{k_v}=(e_{k_v}-1)/e_{k_v}$ \cite[Prop.~1.3(i), pp.~11--12]{IUT4}. Finally
+$\qq_v=q^{1/2\ell}$ \cite[Ex.~3.2(iv), p.~71]{IUT1}, so $\rho(v)=m/14$, which is $1/7$ at $b_1$ and $6/7$ at
+$b_2$. Both $e_{k_v}$ are at
+most $p-2$.
+\end{proof}
+
+The integer calculations of \S\S\ref{s:datum}--\ref{s:local} were independently checked by two implementations.
+
+\section{Two elements of the union}\label{s:union}
+
+\begin{lemma}\label{l:member}
+Let $\bv$ be a tuple with $\underline v_j\in\Vbad$, and let $\theta\in k_{v_j}$ be a generator of the component
+labelled $j$ at $\underline v_j$ of the splitting monoid, that is, the theta value $\qq_{v_j}^{\,j^2}$ up to a root
+of unity \cite[p.~11]{IUT3}; so $\operatorname{ord}(\theta)=j^2\rho(v_j)$. Let $x\in k_{\bv}$ be the pure tensor
+with $\theta$ at the factor of label $j$ and $1$ at the other factors. Then $U_j$ contains an element $X$ with
+$\pr_{\bv}(X)=\chi(x)$ for some $\chi=\otimes_i\chi_i$, $\chi_i\in\cA(k_{v_i})$.
+\end{lemma}
+
+\begin{proof}
+The $\Theta$-pilot object is determined by generators, at the places of $\Vbad$, of the monoids of
+\cite[Def.~3.8(i), p.~112]{IUT3}, and it is constructed from the local fractional ideals generated by elements of
+these monoids \cite[Prop.~3.7(v), p.~112]{IUT3}. At $\underline v\in\Vbad$ the component labelled $j$ of these
+monoids is a subset of the part of the packet whose factor of label $j$ is the summand at $\underline v$, and it acts
+on this part multiplicatively \cite[Prop.~3.4(ii), pp.~102--103]{IUT3}; it lies there through the natural
+homomorphism of \cite[Prop.~3.4(i)]{IUT3}, that is, by tensoring with $1$ in the factors of the other labels
+\cite[Prop.~3.1(ii), p.~93]{IUT3}. A fractional ideal generated by an element contains that element. The possible
+images of \cite[Cor.~3.12]{IUT3} are the images of the $\Theta$-pilot object relative to the Kummer isomorphisms of
+\cite[Thm.~3.11(ii), p.~155]{IUT3}, which include isomorphisms of these splitting monoids and of the parts of the
+packets just described, in the multiradial representation of \cite[Thm.~3.11(i)]{IUT3}, subject to (Ind1), (Ind2),
+(Ind3), and $U_j$ is their union \cite[pp.~173--174]{IUT3}. Let $g$ be the element with $\theta$ in the factor of
+label $j$ and $1$ in the other factors, in the packet of the Hodge theater in which the $\Theta$-pilot object is
+formed. By the above it lies in the corresponding region of the $\Theta$-pilot object, so $U_j$ contains
+$X=\kappa(g)$, where $\kappa$ is the Kummer isomorphism of packets onto $\cI^{\Q}(\Sj;\Dp)$ of
+\cite[Thm.~3.11(ii)(a)]{IUT3}, built place by place from isomorphisms of log-shells \cite[Prop.~3.2]{IUT3}. In that
+Hodge theater the $\Q$-spans of the log-shells are the fields $k_v$ themselves, and the component of $g$ at $\bv$ is
+$x$. For $\cI^{\Q}(\Sj;\Dp)$ the identifications of the $\Q$-spans of the log-shells with the fields $k_v$, used in
+\S\ref{s:source}, form an $\mathrm{Ism}$-orbit compatible with the log-shells \cite[Prop.~1.2(vi), p.~32]{IUT3}. Read
+through them, $\kappa$ maps each summand $k_{\bw}$ to itself by a tensor product of automorphisms that preserve the
+log-shells, so
+\[
+\pr_{\bv}(X)=\pr_{\bv}(\kappa(g))=\chi\bigl(\pr_{\bv}(g)\bigr)=\chi(x),\qquad\chi=\otimes_i\chi_i,\quad
+\chi_i\in\cA(k_{v_i}).
+\]
+\end{proof}
+
+For a permutation $\sigma$ of $\Sj$ and a tuple $\bv$, let $\sigma_*\colon k_{\bv}\to k_{\bv\circ\sigma^{-1}}$ send the
+factor of label $i$ to the factor of label $\sigma(i)$: $\sigma_*(\otimes_i z_i)=\otimes_i z_{\sigma^{-1}(i)}$.
+
+\begin{lemma}\label{l:transport}
+Let $\sigma$ be a permutation of $\Sj$ with $\sigma(0)=0$, let $X\in U_j$, let $\bv$ be a tuple, and put
+$\bw=\bv\circ\sigma^{-1}$. The images of $X$ under the indeterminacy (Ind1) attached to $\sigma$, followed by (Ind2),
+exist and lie in $U_j$, and the component at $\bw$ of each of them has the form $\psi(\sigma_*(\pr_{\bv}X))$ with
+$\psi=\otimes_i\psi_i$, $\psi_i\in\cA(k_{w_i})$. In particular $\psi(\sigma_*(\pr_{\bv}X))\in\pr_{\bw}(U_j)$.
+\end{lemma}
+
+\begin{proof}
+A morphism of processions consists of an order-preserving injection of the stages and, at each stage, a
+capsule-full poly-morphism, with no condition relating the stages \cite[Def.~4.10, p.~120]{IUT1}; a capsule-full
+poly-isomorphism over a bijection of index sets is the set of all collections of isomorphisms between the
+corresponding members \cite[\S0, p.~34]{IUT1}. So $\sigma$ at the stage with index set $\Sj$, together with the
+identity at the other stages, is an automorphism of the procession of \cite[Thm.~3.11(i)]{IUT3}, whose index sets
+the source regards as ``subject to arbitrary permutation automorphisms'' \cite[p.~10]{IUT3}; cf.\
+\cite[Prop.~6.9(i), p.~169]{IUT1}. (Ind1) consists of the indeterminacies induced by such automorphisms, and
+(Ind2) of the action of independent copies of $\mathrm{Ism}$ on the direct summands of the factors
+\cite[Thm.~3.11(i), p.~154]{IUT3}; the images of possible images under them are possible images. The packet is a
+tensor product over the labels of direct sums over the places \cite[Prop.~3.2]{IUT3}, and a morphism of
+$\mathcal D^{\vdash}$-prime-strips is a collection of morphisms indexed by the places \cite[Def.~4.1(iv),
+p.~96]{IUT1}; so a member of the poly-isomorphism over $\sigma$ maps each summand $k_{\bv}$ to
+$k_{\bv\circ\sigma^{-1}}$, sending the factor of label $i$ to that of label $\sigma(i)$ by the map induced by its
+component at $i$, and the component at $\bw$ of the image of $X$ is the image of $\pr_{\bv}(X)$. Such members exist,
+the members of the capsule being isomorphic \cite[Def.~4.1(iii)]{IUT1}. The log-shells are constructed functorially
+from the prime-strips, and the identifications of their $\Q$-spans with the fields $k_v$ form an $\mathrm{Ism}$-orbit
+compatible with the log-shells \cite[Prop.~1.2(vi), p.~32]{IUT3}. Hence each member, followed by any element of
+(Ind2), maps $\pr_{\bv}(X)$ to $\psi(\sigma_*(\pr_{\bv}X))$ with $\psi_i\in\cA(k_{w_i})$; that is, the images of $X$
+are $R(X)$ for maps $R$ of the packet with $\pr_{\bw}\circ R=\psi\circ\sigma_*\circ\pr_{\bv}$.
+\end{proof}
+
+\section{The non-containment}\label{s:main}
+
+Let $D_2$ be as in Proposition~\ref{p:datum} and $j=3$, so $\mathbb S^\pm_4=\{0,1,2,3\}$. Let
+$\bu=(b_1,b_1,b_2,b_1)$, whose factor of label $3$ lies over $b_1$, let $\theta$ and $x=1\otimes1\otimes1\otimes\theta
+\in k_{\bu}$ be as in Lemma~\ref{l:member}, with $\operatorname{ord}(\theta)=9\cdot\tfrac17=\tfrac97$, and let $X\in U_3$
+be the element given there, so that $\pr_{\bu}(X)=\chi(x)$. For $\sigma=(2\,3)$ put $\bv=\bu\circ\sigma^{-1}
+=(b_1,b_1,b_1,b_2)$ and
+\[
+y=\sigma_*(x)=1\otimes1\otimes\theta\otimes1\ \in\ k_{b_1}\otimes k_{b_1}\otimes k_{b_1}\otimes k_{b_2}.
+\]
+By Lemma~\ref{l:transport}, $\pr_{\bv}(U_3)$ contains an element $\psi(\sigma_*(\chi(x)))=\psi'(y)$, where
+$\psi'=\otimes_i\psi'_i$ with $\psi'_i=\psi_i\circ\chi_{\sigma^{-1}(i)}\in\cA(k_{v_i})$, since
+$\sigma_*\circ\chi=(\otimes_i\chi_{\sigma^{-1}(i)})\circ\sigma_*$.
+
+\begin{theorem}\label{t:main}
+For the initial $\Theta$-datum $D_2$, $j=3$ and $\bv=(b_1,b_1,b_1,b_2)$, the projection $\pr_{\bv}(U_3)$ of the
+union of possible images of \cite[Cor.~3.12]{IUT3} is not contained in the module $M_{\bv}$ from which
+\cite[Thm.~1.10, Step~(v)]{IUT4} obtains its bound for this component. More precisely, no element $\psi(y)$ with
+$\psi=\otimes_i\psi_i$, $\psi_i\in\cA(k_{v_i})$, lies in $M_{\bv}$. Consequently the component
+$\pr_{\bv}(\overline U_3)$ of the holomorphic hull has log-volume at least $-2\log p$ (possibly $+\infty$), whereas
+the bound~\eqref{eq:bound} for it is $-\tfrac{97}{35}\log p$.
+\end{theorem}
+
+\begin{proof}
+Step~(v) takes $i^\dagger=3$, whose factor lies over $b_2$, so by Table~\ref{tab:D2}
+\[
+\lambda=9\cdot\tfrac67=\tfrac{54}7,\qquad \dd_I=3\cdot\tfrac{104}{105}+\tfrac{34}{35}=\tfrac{138}{35},\qquad
+I^*=\emptyset,
+\]
+and \eqref{eq:bound} gives $\mulog(M_{\bv})\le(-\tfrac{54}7+\tfrac{138}{35}+1)\log p=-\tfrac{97}{35}\log p$. By (1.3),
+$\operatorname{ord}\psi_2(\theta)\le\lceil\tfrac97\rceil=2$ and $\operatorname{ord}\psi_i(1)\le0$ for $i\ne2$; so by
+(1.1) every component of $\psi(y)$ has $\operatorname{ord}\le2$, and $\RIt\cdot\psi(y)\supseteq p^2\cdot\RIt$. If
+$\psi(y)\in M_{\bv}$, then, $M_{\bv}$ being an $\RIt$-module,
+\[
+-\tfrac{97}{35}\log p\ \ge\ \mulog(M_{\bv})\ \ge\ \mulog(p^2\cdot\RIt)=-2\log p,
+\]
+which is false: $-\tfrac{97}{35}<-2$, with margin $\tfrac{27}{35}\log p$. As $\pr_{\bv}(U_3)$ contains an element of
+this form, it is not contained in $M_{\bv}$. For the hull: if $U_3$ is not relatively compact, its holomorphic hull
+is the whole packet \cite[Rem.~3.9.5(i)]{IUT3}, of log-volume $+\infty$. Otherwise the hull is $\eta\cdot\cO$ for an
+element $\eta$ with nonzero components \cite[ibid.]{IUT3}, so $\pr_{\bv}(\overline U_3)$ is an $\RIt$-module
+containing $\psi(y)$, hence $p^2\cdot\RIt$, and its log-volume is at least $\mulog(p^2\cdot\RIt)=-2\log p$.
+\end{proof}
+
+Thus, for the union of possible images and its holomorphic hull as defined in \cite[Cor.~3.12]{IUT3}, the bound that
+Step~(v) obtains for the component at the tuple $\bv$ does not hold. It is noted in \cite[\S6.2, footnote~7]{DH} that
+(Ind1) contains permutations between different tensor factors, which the automorphisms used there to estimate the
+hull do not include.
+
+The example above concerns the local containment and the local upper bound used in Step~(v) for a single
+component. It does not by itself decide the global
+inequality obtained later in Theorem~1.10 after summing over all places. No assertion is made here concerning
+Corollary~3.12 itself or the abc conjecture.
+
+\subsection*{Use of AI tools}
+Generative AI tools (large language models: \mbox{Claude} by \mbox{Anthropic}, and \mbox{ChatGPT} and \mbox{Codex} by \mbox{OpenAI}) were used
+extensively in this work, under the author's direction, in
+finding the example and its proofs, in the computations and in the writing. The author takes full responsibility for
+the contents of this note.
+
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{MFHMP}
+
+\bibitem[CanLift]{CanLift}
+Shinichi Mochizuki, \emph{The absolute anabelian geometry of canonical curves},
+  Doc. Math. \textbf{Extra Vol.} (2003), 609--640.
+
+\bibitem[DH]{DH}
+Taylor Dupuy and Anton Hilado, \emph{Probabilistic {S}zpiro, baby {S}zpiro, and
+  explicit {S}zpiro from {M}ochizuki's {C}orollary 3.12}, 2020,
+  arXiv:2004.13108v2 [math.NT].
+
+\bibitem[EtTh]{EtTh}
+Shinichi Mochizuki, \emph{The \'etale theta function and its
+  {F}robenioid-theoretic manifestations}, Publ. Res. Inst. Math. Sci.
+  \textbf{45} (2009), no.~1, 227--349.
+
+\bibitem[IUT1]{IUT1}
+\bysame, \emph{Inter-universal {T}eichm\"uller theory {I}: construction of
+  {H}odge theaters}, Publ. Res. Inst. Math. Sci. \textbf{57} (2021), 3--207,
+  page numbers refer to the preprint version of May 2020.
+
+\bibitem[IUT3]{IUT3}
+\bysame, \emph{Inter-universal {T}eichm\"uller theory {III}: canonical
+  splittings of the log-theta-lattice}, Publ. Res. Inst. Math. Sci. \textbf{57}
+  (2021), 403--626, page numbers refer to the preprint version of May 2020.
+
+\bibitem[IUT4]{IUT4}
+\bysame, \emph{Inter-universal {T}eichm\"uller theory {IV}: log-volume
+  computations and set-theoretic foundations}, Publ. Res. Inst. Math. Sci.
+  \textbf{57} (2021), 627--723, page numbers refer to the preprint version of
+  April 2020.
+
+\bibitem[MFHMP]{MFHMP}
+Shinichi Mochizuki, Ivan Fesenko, Yuichiro Hoshi, Arata Minamide, and Wojciech
+  Porowski, \emph{Explicit estimates in inter-universal {T}eichm\"uller
+  theory}, Kodai Math. J. \textbf{45} (2022), no.~2, 175--236, numbering as in
+  the accepted manuscript of May 2022.
+
+\bibitem[Sil]{Sil}
+Joseph~H. Silverman, \emph{The arithmetic of elliptic curves}, second ed.,
+  Graduate Texts in Mathematics, vol. 106, Springer, Dordrecht, 2009.
+
+\end{thebibliography}
+
+\end{document}

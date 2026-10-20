@@ -1,0 +1,68 @@
+{
+  "retrieved_at": "2026-10-19",
+  "mathlib_commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "scope": "Pinned existing Mathlib source audit; only project catalog theorems may be VS Code admitted. Rolling web docs used for discovery only.",
+  "sources": [
+    {
+      "path": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+      "cache": "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicIntegers.lean",
+      "sha256": "76bb429e939d643ee6148b68e3eee499983c5f358dde98f8a5179ec2ac544ce8",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicIntegers.lean"
+    },
+    {
+      "path": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+      "cache": "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+      "sha256": "b8aa1c90a618b6cab529496f46096f99053f8b0fe13732b31b31ef8703fe3f11",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/NumberTheory/Padics/PadicNumbers.lean"
+    },
+    {
+      "path": "Mathlib/Algebra/Module/Equiv/Basic.lean",
+      "cache": "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Equiv/Basic.lean",
+      "sha256": "82f641a33f584f945bfa0693d3c84a2484ed6255dd4011f161f2df8a7b69aaa7",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Module/Equiv/Basic.lean"
+    },
+    {
+      "path": "Mathlib/Algebra/Group/Pointwise/Set/Scalar.lean",
+      "cache": "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Group/Pointwise/Set/Scalar.lean",
+      "sha256": "0ccfa9c7d34552e465dce82ec03eba714dc1fef9373499b93f5576775ff18000",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Algebra/Group/Pointwise/Set/Scalar.lean"
+    },
+    {
+      "path": "Mathlib/RingTheory/Ideal/Span.lean",
+      "cache": "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/RingTheory/Ideal/Span.lean",
+      "sha256": "e0f9914bb2129aae1d5cdb7d727f1403f732f4e06962c535ea10147395596aac",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/RingTheory/Ideal/Span.lean"
+    },
+    {
+      "path": "Mathlib/Data/Set/Image.lean",
+      "cache": "research/round4-source-cache/mathlib-85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Data/Set/Image.lean",
+      "sha256": "1132eab6c7426c4929a33932bdd0bbe35c17c49933b6270c9804eaa857c2956a",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Data/Set/Image.lean"
+    }
+  ],
+  "rolling_docs": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/Padics/PadicIntegers.html",
+  "iut_reference": "https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20IV.pdf",
+  "iut_read_printed_pages": [
+    9,
+    10,
+    11
+  ],
+  "reused_iut_source": {
+    "id": "IUT-IV",
+    "cover_version": "April 2020",
+    "cache_pdf": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.pdf",
+    "pdf_sha256": "5bf4b1e0a8c2686562a6859e5009d301335044cfb5efec5d3a9edf764e4af87f",
+    "cache_text": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt",
+    "text_sha256": "97033613e950d48c4af493403d730f43e1493713cc1fbaadf35746df981c5ef2",
+    "read_printed_pages": [
+      9,
+      10,
+      11
+    ],
+    "proofs_formalized": false,
+    "web_opened_at": "2026-10-19",
+    "web_pdf_pages": 87,
+    "web_bytes_identity_checked": false
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "checked_utc": "2026-10-20T03:12:33.6393873Z",
+  "queries": [
+    {
+      "stderr": "",
+      "command": "python -X utf8 tools/forest.py query map_padic_smul",
+      "stdout": "[local-field]\nLocalFieldAudit.ContinuousLinearity.map_padic_smul\n  ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] {E : Type u} [inst_1 : AddCommGroup E] [inst_2 : _root_.Module ℚ_[p] E]\n    [inst_3 : TopologicalSpace E] [ContinuousSMul ℚ_[p] E] {F : Type v} [inst_5 : AddCommGroup F]\n    [inst_6 : _root_.Module ℚ_[p] F] [inst_7 : TopologicalSpace F] [ContinuousSMul ℚ_[p] F] [T2Space F] (f : E →+ F),\n    Continuous ⇑f → ∀ (a : ℚ_[p]) (x : E), f (a • x) = a • f x\n  dependencies: none\n  axioms: propext, Classical.choice, Quot.sound",
+      "exit_code": 0
+    },
+    {
+      "stderr": "",
+      "command": "python -X utf8 tools/forest.py query ContinuousLinearity",
+      "stdout": "[local-field]\nLocalFieldAudit.ContinuousLinearity.image_scalar_layer\n  ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] {E : Type u} [inst_1 : AddCommGroup E] [inst_2 : _root_.Module ℚ_[p] E]\n    [inst_3 : TopologicalSpace E] [ContinuousSMul ℚ_[p] E] [T2Space E] (e : E ≃+ E),\n    Continuous ⇑e → ∀ (L : Set E), ⇑e '' L = L → ∀ (a : ℚ_[p]), ⇑e '' (a • L) = a • L\n  dependencies: LocalFieldAudit.ContinuousLinearity.map_padic_smul, LocalFieldAudit.Shell.image_scalar_layer\n  axioms: propext, Classical.choice, Quot.sound\nLocalFieldAudit.ContinuousLinearity.map_padic_smul\n  ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] {E : Type u} [inst_1 : AddCommGroup E] [inst_2 : _root_.Module ℚ_[p] E]\n    [inst_3 : TopologicalSpace E] [ContinuousSMul ℚ_[p] E] {F : Type v} [inst_5 : AddCommGroup F]\n    [inst_6 : _root_.Module ℚ_[p] F] [inst_7 : TopologicalSpace F] [ContinuousSMul ℚ_[p] F] [T2Space F] (f : E →+ F),\n    Continuous ⇑f → ∀ (a : ℚ_[p]) (x : E), f (a • x) = a • f x\n  dependencies: none\n  axioms: propext, Classical.choice, Quot.sound\nLocalFieldAudit.ContinuousLinearity.preserves_integerIdealImages\n  ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (e : ℚ_[p] ≃+ ℚ_[p]),\n    Continuous ⇑e →\n      ⇑e '' LocalFieldAudit.Filtration.integerIdealImage p 1 = LocalFieldAudit.Filtration.integerIdealImage p 1 →\n        ∀ (n : ℕ),\n          ⇑e '' LocalFieldAudit.Filtration.integerIdealImage p n = LocalFieldAudit.Filtration.integerIdealImage p n\n  dependencies: LocalFieldAudit.ContinuousLinearity.map_padic_smul, LocalFieldAudit.Filtration.preserves_integerIdealImages, LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball\n  axioms: propext, Classical.choice, Quot.sound\nLocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_norm\n  ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (e : ℚ_[p] ≃+ ℚ_[p]),\n    Continuous ⇑e →\n      ⇑e '' LocalFieldAudit.Filtration.integerIdealImage p 1 = LocalFieldAudit.Filtration.integerIdealImage p 1 →\n        ∀ (x : ℚ_[p]), ‖e x‖ = ‖x‖\n  dependencies: LocalFieldAudit.ContinuousLinearity.map_padic_smul, LocalFieldAudit.Filtration.preserves_maximalIdealImage_norm\n  axioms: propext, Classical.choice, Quot.sound\nLocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_valuation\n  ∀ (p : ℕ) [inst : Fact (Nat.Prime p)] (e : ℚ_[p] ≃+ ℚ_[p]),\n    Continuous ⇑e →\n      ⇑e '' LocalFieldAudit.Filtration.integerIdealImage p 1 = LocalFieldAudit.Filtration.integerIdealImage p 1 →\n        ∀ (x : ℚ_[p]), x ≠ 0 → (e x).valuation = x.valuation\n  dependencies: LocalFieldAudit.ContinuousLinearity.map_padic_smul, LocalFieldAudit.Filtration.preserves_ball_valuation, LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball\n  axioms: propext, Classical.choice, Quot.sound",
+      "exit_code": 0
+    }
+  ],
+  "result": "PASS"
+}

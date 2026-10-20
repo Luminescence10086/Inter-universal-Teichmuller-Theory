@@ -1,0 +1,17 @@
+{
+  "verified_files": [
+    "urahigashi-v0.8.0.tex",
+    "urahigashi-v0.8.0.pdf",
+    "urahigashi-v0.8.0-readme.md",
+    "urahigashi-v0.8.0-sha256sums.txt",
+    "iut-I-official-retrieved-2026-10-16.pdf",
+    "iut-III-official-retrieved-2026-10-16.pdf",
+    "iut-IV-official-retrieved-2026-10-16.pdf",
+    "iut-I-official-retrieved-2026-10-16.txt",
+    "iut-III-official-retrieved-2026-10-16.txt",
+    "iut-IV-official-retrieved-2026-10-16.txt",
+    "urahigashi-v0.8.0.txt"
+  ],
+  "count": 11,
+  "result": "all hashes match"
+}

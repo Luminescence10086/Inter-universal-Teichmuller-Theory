@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "generated_utc": "2026-10-16T12:42:25.768066+00:00",
+  "purpose": "Actual Lean elaboration regression for helper dependency compression and admission closure",
+  "status": "passed",
+  "scope": "Verification engineering only; not an IUT theorem or VS Code admission",
+  "synthetic_receipt_notice": "The temporary workspace contains an earlier SYNTHETIC TEST ONLY receipt. It was not used by this regression and is never formal VS Code evidence.",
+  "production_receipt_modified": false,
+  "old_failure_evidence": {
+    "path": ".tmp-round2-verifier\\fact-tree\\facts.json",
+    "sha256": "25496faf32c414a55611d2e7b3405a54c3b1899a26b25a25410b62c8bbe775ed",
+    "preserved": true,
+    "admitted_ids": [
+      "IUTAudit.Descent.visible"
+    ],
+    "edges": [],
+    "pending_count": 1
+  },
+  "implementation_sha256": {
+    "tools/verify.py": "f9a5733e2feb294164714d9cdf937044a9fcab8efc6cb065c479fd62e7200957",
+    "tools/Export.lean": "66fc924119fa91fc0905f572c8f03b5e8ac1b4a3c7b374f6659eeafc2d64b094"
+  },
+  "temporary_source_sha256": {
+    "IUTAudit/Scale.lean": "67defe54ca1232a141766629ddd863b2d414cdc71c041c9458c86af36da3d4da",
+    "IUTAudit/Descent.lean": "843754dee40a6844988d379ae18e8ca71fc58c2d4a6f950a46732d71fe97af2d",
+    "IUTAudit.lean": "0ac3a3b7ee79650487aedae800c8b09304b23a7b5e0fa58665bbadedc8c51802"
+  },
+  "process": {
+    "command": [
+      "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+      "env",
+      "lean",
+      "--json",
+      "-DwarningAsError=true",
+      "tools/Export.lean"
+    ],
+    "working_directory": "D:\\Inter-universal Teichmüller Theory\\.tmp-round2-verifier",
+    "exit_code": 0,
+    "stdout": "{\"caption\":\"\",\"data\":\"[{\\\"axioms\\\":[],\\\"constants\\\":[\\\"True\\\",\\\"True.intro\\\"],\\\"id\\\":\\\"IUTAudit.Scale.hidden_base\\\",\\\"kind\\\":\\\"theorem\\\",\\\"module\\\":\\\"IUTAudit.Scale\\\",\\\"statement\\\":\\\"True\\\"},{\\\"axioms\\\":[],\\\"constants\\\":[\\\"PLift\\\",\\\"True\\\",\\\"PLift.up\\\",\\\"IUTAudit.Scale.hidden_base\\\"],\\\"id\\\":\\\"IUTAudit.Descent.hiddenHelper\\\",\\\"kind\\\":\\\"definition\\\",\\\"module\\\":\\\"IUTAudit.Descent\\\",\\\"statement\\\":\\\"PLift True\\\"},{\\\"axioms\\\":[],\\\"constants\\\":[\\\"True\\\",\\\"PLift.down\\\",\\\"IUTAudit.Descent.hiddenHelper\\\"],\\\"id\\\":\\\"IUTAudit.Descent.visible\\\",\\\"kind\\\":\\\"theorem\\\",\\\"module\\\":\\\"IUTAudit.Descent\\\",\\\"statement\\\":\\\"True\\\"}]\",\"endPos\":{\"column\":7,\"line\":8},\"fileName\":\"tools/Export.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":8},\"severity\":\"information\"}\n",
+    "stderr": ""
+  },
+  "actual_elaborated_rows": [
+    {
+      "axioms": [],
+      "constants": [
+        "True",
+        "True.intro"
+      ],
+      "id": "IUTAudit.Scale.hidden_base",
+      "kind": "theorem",
+      "module": "IUTAudit.Scale",
+      "statement": "True"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "PLift",
+        "True",
+        "PLift.up",
+        "IUTAudit.Scale.hidden_base"
+      ],
+      "id": "IUTAudit.Descent.hiddenHelper",
+      "kind": "definition",
+      "module": "IUTAudit.Descent",
+      "statement": "PLift True"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "True",
+        "PLift.down",
+        "IUTAudit.Descent.hiddenHelper"
+      ],
+      "id": "IUTAudit.Descent.visible",
+      "kind": "theorem",
+      "module": "IUTAudit.Descent",
+      "statement": "True"
+    }
+  ],
+  "dependency_path": [
+    "IUTAudit.Descent.visible",
+    "IUTAudit.Descent.hiddenHelper",
+    "IUTAudit.Scale.hidden_base"
+  ],
+  "compressed_edge": {
+    "from": "IUTAudit.Scale.hidden_base",
+    "to": "IUTAudit.Descent.visible"
+  },
+  "nearest_catalog_dependencies": {
+    "IUTAudit.Descent.visible": [
+      "IUTAudit.Scale.hidden_base"
+    ],
+    "IUTAudit.Scale.hidden_base": []
+  },
+  "eligible_only_visible": [
+    "IUTAudit.Descent.visible"
+  ],
+  "admitted_only_visible": [],
+  "eligible_both": [
+    "IUTAudit.Descent.visible",
+    "IUTAudit.Scale.hidden_base"
+  ],
+  "admitted_both": [
+    "IUTAudit.Descent.visible",
+    "IUTAudit.Scale.hidden_base"
+  ]
+}

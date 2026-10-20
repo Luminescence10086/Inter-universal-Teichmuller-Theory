@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "-o",
+    "D:\\Inter-universal Teichmüller Theory\\local-field\\.lake\\build\\lib\\lean\\LocalFieldAudit.olean",
+    "LocalFieldAudit.lean"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

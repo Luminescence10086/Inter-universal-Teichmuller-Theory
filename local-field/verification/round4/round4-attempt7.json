@@ -1,0 +1,13 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "LocalFieldAudit/Filtration.lean"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

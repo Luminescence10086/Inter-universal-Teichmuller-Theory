@@ -1,0 +1,368 @@
+{
+  "generated_utc": "2026-10-16T09:11:40.589601+00:00",
+  "lean": "Lean (version 4.34.0, x86_64-w64-windows-gnu, commit 293d5d0c0c3f3dded4688b3ccd6a33939ac5102b, Release)",
+  "context_sha256": {
+    "lean-toolchain": "8733782dc070a99b312039cda424f601b80f3be6f6f512627da5ba25adc27632",
+    "lakefile.toml": "b240c6166ebe3b48bc52797bff0821f7ea06f0c26616368c062e4fdd8c3f3409",
+    "lake-manifest.json": "3fcd65f82977ffdcb4918a9e0c769674bff83db40f4cbcf36098c6b241c991f6",
+    "IUTAudit.lean": "0ac3a3b7ee79650487aedae800c8b09304b23a7b5e0fa58665bbadedc8c51802",
+    "tools/EditorCheck.lean": "ef4f92f4212a6ec8e17ceafef894874ae48b24e021c0b94e84317e303ab98c03"
+  },
+  "trust": "Lean kernel plus audited standard axioms; UI receipt is an observation",
+  "scope": "Project theorem DAG. Imported library constants are metadata, not admitted nodes.",
+  "iut_cor312_proved": false,
+  "abc_proved": false,
+  "nodes": [
+    {
+      "axioms": [
+        "propext"
+      ],
+      "constants": [
+        "Not",
+        "IUTAudit.Descent.Descends",
+        "Bool",
+        "Unit",
+        "Unit.unit",
+        "ite",
+        "Nat",
+        "Eq",
+        "Bool.true",
+        "instDecidableEqBool",
+        "OfNat.ofNat",
+        "instOfNatNat",
+        "IUTAudit.Descent.FiberInvariant",
+        "IUTAudit.Descent.invariant_of_descends",
+        "Bool.false",
+        "rfl",
+        "False.elim",
+        "False",
+        "Eq.mp",
+        "Eq.trans",
+        "congr",
+        "congrArg",
+        "ite_eq_right_of_eq_false",
+        "Bool.false_eq_true",
+        "ite_eq_left_of_eq_true",
+        "eq_self",
+        "Nat.zero_ne_one._simp_1"
+      ],
+      "id": "IUTAudit.Descent.boolean_quantity_does_not_descend",
+      "statement": "¬IUTAudit.Descent.Descends (fun x => ()) fun b => if b = true then 1 else 0",
+      "source": "IUTAudit/Descent.lean",
+      "sha256": "9930106ed40351e1384acbfa2d76bcfd84aea78462702bb026cd8490b1d0381f",
+      "scope": "generic_mechanism_model",
+      "depends_on": [
+        "IUTAudit.Descent.invariant_of_descends"
+      ],
+      "status": "admitted"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "Nat",
+        "Eq",
+        "Iff",
+        "IUTAudit.Descent.Descends",
+        "IUTAudit.Descent.FiberInvariant",
+        "Iff.intro",
+        "IUTAudit.Descent.invariant_of_descends",
+        "IUTAudit.Descent.descends_of_section"
+      ],
+      "id": "IUTAudit.Descent.descends_iff_invariant_of_section",
+      "statement": "∀ {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (s : Y → X),\n  (∀ (y : Y), f (s y) = y) → (IUTAudit.Descent.Descends f q ↔ IUTAudit.Descent.FiberInvariant f q)",
+      "source": "IUTAudit/Descent.lean",
+      "sha256": "9930106ed40351e1384acbfa2d76bcfd84aea78462702bb026cd8490b1d0381f",
+      "scope": "generic_mechanism_model",
+      "depends_on": [
+        "IUTAudit.Descent.descends_of_section",
+        "IUTAudit.Descent.invariant_of_descends"
+      ],
+      "status": "admitted"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "Nat",
+        "Eq",
+        "IUTAudit.Descent.FiberInvariant",
+        "IUTAudit.Descent.Descends",
+        "Exists.intro"
+      ],
+      "id": "IUTAudit.Descent.descends_of_section",
+      "statement": "∀ {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat) (s : Y → X),\n  (∀ (y : Y), f (s y) = y) → IUTAudit.Descent.FiberInvariant f q → IUTAudit.Descent.Descends f q",
+      "source": "IUTAudit/Descent.lean",
+      "sha256": "9930106ed40351e1384acbfa2d76bcfd84aea78462702bb026cd8490b1d0381f",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "Nat",
+        "IUTAudit.Descent.Descends",
+        "IUTAudit.Descent.FiberInvariant",
+        "Exists.casesOn",
+        "Eq",
+        "Eq.mpr",
+        "id",
+        "congrArg",
+        "Eq.symm",
+        "Eq.refl"
+      ],
+      "id": "IUTAudit.Descent.invariant_of_descends",
+      "statement": "∀ {X : Type u} {Y : Type v} (f : X → Y) (q : X → Nat),\n  IUTAudit.Descent.Descends f q → IUTAudit.Descent.FiberInvariant f q",
+      "source": "IUTAudit/Descent.lean",
+      "sha256": "9930106ed40351e1384acbfa2d76bcfd84aea78462702bb026cd8490b1d0381f",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "constants": [
+        "Int",
+        "Iff",
+        "LE.le",
+        "Int.instLEInt",
+        "HMul.hMul",
+        "instHMul",
+        "Int.instMul",
+        "Neg.neg",
+        "Int.instNegInt",
+        "OfNat.ofNat",
+        "instOfNat",
+        "HSub.hSub",
+        "instHSub",
+        "Int.instSub",
+        "Decidable.byContradiction",
+        "instDecidableIff",
+        "Int.decLe",
+        "Not",
+        "IUTAudit.Scale.erased_comparison_iff._proof_1_1"
+      ],
+      "id": "IUTAudit.Scale.erased_comparison_iff",
+      "statement": "∀ (d q : Int), -2 * q ≤ 3 * d - 2 * q ↔ 0 ≤ d",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "constants": [
+        "Int",
+        "LE.le",
+        "Int.instLEInt",
+        "OfNat.ofNat",
+        "instOfNat",
+        "Exists",
+        "And",
+        "LT.lt",
+        "Int.instLTInt",
+        "HMul.hMul",
+        "instHMul",
+        "Int.instMul",
+        "Neg.neg",
+        "Int.instNegInt",
+        "HSub.hSub",
+        "instHSub",
+        "Int.instSub",
+        "Exists.intro",
+        "HAdd.hAdd",
+        "instHAdd",
+        "Int.instAdd",
+        "And.intro",
+        "Decidable.byContradiction",
+        "Int.decLt",
+        "Not",
+        "IUTAudit.Scale.erased_comparison_unbounded._proof_1_1",
+        "Iff.mpr",
+        "IUTAudit.Scale.erased_comparison_iff"
+      ],
+      "id": "IUTAudit.Scale.erased_comparison_unbounded",
+      "statement": "∀ (d : Int), 0 ≤ d → ∀ (B : Int), ∃ q, B < q ∧ -2 * q ≤ 3 * d - 2 * q",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [
+        "IUTAudit.Scale.erased_comparison_iff"
+      ],
+      "status": "admitted"
+    },
+    {
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "constants": [
+        "Not",
+        "Exists",
+        "Nat",
+        "LE.le",
+        "instLENat",
+        "IUTAudit.Scale.scaled",
+        "OfNat.ofNat",
+        "instOfNatNat",
+        "IUTAudit.Scale.no_uniform_bound.match_1_1",
+        "False",
+        "HAdd.hAdd",
+        "instHAdd",
+        "instAddNat",
+        "IUTAudit.Scale.no_uniform_bound._proof_1_4",
+        "Eq.mp",
+        "congrFun'",
+        "congrArg",
+        "Nat.mul_one"
+      ],
+      "id": "IUTAudit.Scale.no_uniform_bound",
+      "statement": "¬∃ B, ∀ (k : Nat), IUTAudit.Scale.scaled k 1 ≤ B",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "Nat",
+        "Eq",
+        "IUTAudit.Scale.scaled",
+        "OfNat.ofNat",
+        "instOfNatNat",
+        "Eq.mp",
+        "congrFun'",
+        "congrArg",
+        "Nat.mul_one"
+      ],
+      "id": "IUTAudit.Scale.normalization_at_unit",
+      "statement": "∀ (k : Nat), IUTAudit.Scale.scaled k 1 = 1 → k = 1",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [
+        "propext"
+      ],
+      "constants": [
+        "Nat",
+        "Eq",
+        "IUTAudit.Scale.scaled",
+        "OfNat.ofNat",
+        "instOfNatNat",
+        "Eq.mpr",
+        "id",
+        "congrArg",
+        "IUTAudit.Scale.normalization_at_unit",
+        "of_eq_true",
+        "Eq.trans",
+        "True",
+        "congrFun'",
+        "Nat.one_mul",
+        "eq_self"
+      ],
+      "id": "IUTAudit.Scale.normalized_scale_preserves",
+      "statement": "∀ (k : Nat), IUTAudit.Scale.scaled k 1 = 1 → ∀ (x : Nat), IUTAudit.Scale.scaled k x = x",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [
+        "IUTAudit.Scale.normalization_at_unit"
+      ],
+      "status": "admitted"
+    },
+    {
+      "axioms": [
+        "propext"
+      ],
+      "constants": [
+        "Nat",
+        "Eq",
+        "IUTAudit.Scale.scaled",
+        "HMul.hMul",
+        "instHMul",
+        "instMulNat",
+        "Eq.symm",
+        "Nat.mul_assoc"
+      ],
+      "id": "IUTAudit.Scale.scale_composition",
+      "statement": "∀ (k l x : Nat), IUTAudit.Scale.scaled k (IUTAudit.Scale.scaled l x) = IUTAudit.Scale.scaled (k * l) x",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [],
+      "constants": [
+        "Ne",
+        "Nat",
+        "IUTAudit.Scale.scaled",
+        "OfNat.ofNat",
+        "instOfNatNat",
+        "of_decide_eq_true",
+        "instDecidableNot",
+        "Eq",
+        "instDecidableEqNat",
+        "id",
+        "Bool",
+        "Decidable.decide",
+        "Bool.true",
+        "Eq.refl"
+      ],
+      "id": "IUTAudit.Scale.scale_two_not_identity",
+      "statement": "IUTAudit.Scale.scaled 2 1 ≠ 1",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    },
+    {
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "constants": [
+        "Int",
+        "LE.le",
+        "Int.instLEInt",
+        "HMul.hMul",
+        "instHMul",
+        "Int.instMul",
+        "Neg.neg",
+        "Int.instNegInt",
+        "OfNat.ofNat",
+        "instOfNat",
+        "HSub.hSub",
+        "instHSub",
+        "Int.instSub",
+        "Decidable.byContradiction",
+        "Int.decLe",
+        "Not",
+        "IUTAudit.Scale.weighted_comparison_forces_bound._proof_1_1"
+      ],
+      "id": "IUTAudit.Scale.weighted_comparison_forces_bound",
+      "statement": "∀ (d q : Int), -2 * q ≤ 3 * d - 5 * q → q ≤ d",
+      "source": "IUTAudit/Scale.lean",
+      "sha256": "6756e9ac404e3ccc372b916f8a3447d5c22654b5122e4b1032d52a59ffeea728",
+      "scope": "generic_mechanism_model",
+      "depends_on": [],
+      "status": "admitted"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.lean": "lean4"
+  },
+  "lean4.automaticallyBuildDependencies": false
+}

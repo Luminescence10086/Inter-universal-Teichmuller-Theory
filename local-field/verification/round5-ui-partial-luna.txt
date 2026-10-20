@@ -1,0 +1,91 @@
+Round 5 VS Code observation record — incremental
+Record saved: 2026-10-20T02:55:00Z. The @oai/sky snapshots do not carry an acquisition timestamp; this is the time at which their retained text and screenshot identifiers were recorded. All captures target Microsoft.VisualStudioCode window id 1573094; screenshot id screenshot-0 (1447x904, origin 200,126).
+Completed: 2/4 required observations. The Filtration source-location snapshot below is partial and does not count as a proof pass. UI control is being handed back to the parent agent for InfoView recovery. No receipt created.
+
+1) EditorCheck entry — PASSED
+Snapshot window title: Lean InfoView - local-field - Visual Studio Code.
+UIA tree excerpt (verbatim lines from the retained snapshot):
+  236 组 信息: 48 条 ID: status.problems
+  237 按钮 信息: 48 条
+  5532 文本 EditorCheck.lean:76:0
+  5538 文本 No info found.
+  5541 文本 All Messages
+  EditorCheck.lean:76:0
+  No info found.
+  All Messages (48)
+  EditorCheck.lean:75:0
+  EditorCheck.lean:74:0
+  EditorCheck.lean:72:0
+  EditorCheck.lean:71:0
+  EditorCheck.lean:69:0
+  EditorCheck.lean:68:0
+  EditorCheck.lean:66:0
+  EditorCheck.lean:65:0
+  EditorCheck.lean:63:0
+  EditorCheck.lean:62:0
+  EditorCheck.lean:60:0
+  EditorCheck.lean:59:0
+  EditorCheck.lean:57:0
+  EditorCheck.lean:56:0
+  EditorCheck.lean:54:0
+  EditorCheck.lean:53:0
+  EditorCheck.lean:51:0
+  EditorCheck.lean:50:0
+  EditorCheck.lean:48:0
+  EditorCheck.lean:47:0
+  EditorCheck.lean:45:0
+  EditorCheck.lean:44:0
+  EditorCheck.lean:42:0
+  EditorCheck.lean:41:0
+  EditorCheck.lean:39:0
+  EditorCheck.lean:38:0
+  EditorCheck.lean:36:0
+  EditorCheck.lean:35:0
+  EditorCheck.lean:33:0
+  EditorCheck.lean:32:0
+  EditorCheck.lean:30:0
+  EditorCheck.lean:29:0
+  EditorCheck.lean:27:0
+  EditorCheck.lean:26:0
+  EditorCheck.lean:24:0
+  EditorCheck.lean:23:0
+  EditorCheck.lean:21:0
+  EditorCheck.lean:20:0
+  EditorCheck.lean:18:0
+  EditorCheck.lean:17:0
+  EditorCheck.lean:15:0
+  EditorCheck.lean:14:0
+  EditorCheck.lean:12:0
+  EditorCheck.lean:11:0
+  EditorCheck.lean:9:0
+  EditorCheck.lean:8:0
+  EditorCheck.lean:6:0
+  EditorCheck.lean:5:0
+Screenshot-only text read from this same actual VS Code capture: All Messages (48); bottom status icons showed 0 errors, 0 warnings, 48 information. The blank-line InfoView itself says No info found; this was not treated as a failure because All Messages contains 48.
+
+2) ContinuousLinearity final proof — PASSED
+Snapshot window title: Lean InfoView - local-field - Visual Studio Code; selected source: D:\Inter-universal Teichmüller Theory\local-field\LocalFieldAudit\ContinuousLinearity.lean.
+UIA tree excerpt (verbatim):
+  Window: "ContinuousLinearity.lean - local-field - Visual Studio Code", App: Code.exe.
+  3850 组 D:\Inter-universal Teichmüller Theory\local-field\LocalFieldAudit\ContinuousLinearity.lean
+  3852 文本 ContinuousLinearity.lean
+  236 组 信息: 48 条 ID: status.problems
+  237 按钮 信息: 48 条
+  4295 组 行 86，列 87 ID: status.editor.selection
+  4296 按钮 行 86，列 87
+UIA returned the editor accessibility fallback verbatim: “现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1”. The InfoView is an embedded frame whose text was not exposed in this snapshot tree.
+Screenshot-only text read from the retained actual VS Code capture: ContinuousLinearity.lean:86:86; Tactic state; No goals; Messages (1); ContinuousLinearity.lean:83:0; Goals accomplished! Bottom status showed 0 errors, 0 warnings, 48 information.
+
+3) Filtration final proof — INCOMPLETE (not a pass)
+Snapshot window title: Filtration.lean - local-field - Visual Studio Code; selected source: D:\Inter-universal Teichmüller Theory\local-field\LocalFieldAudit\Filtration.lean.
+UIA tree excerpt (verbatim):
+  Window: "Filtration.lean - local-field - Visual Studio Code", App: Code.exe.
+  5202 组 D:\Inter-universal Teichmüller Theory\local-field\LocalFieldAudit\Filtration.lean
+  5237 文本 Filtration.lean
+  5206 选项卡项目 (selectable) Filtration.lean, 编辑器组2
+  5229 组 Filtration.lean, 编辑器组2
+  236 组 信息: 48 条 ID: status.problems
+  5319 文本 第 215 行，第 1 列: exact ne_of_lt Padic.norm_p_lt_one
+  Screenshot showed the final exact at line 215; UIA status showed 行 215，列 39. The standard InfoView had not yet shown a matching Filtration proof result. During recovery a blank Paperproof tab showed “Loading proof”; it is not accepted as Lean InfoView evidence. Parent agent is taking over UI recovery.
+
+4) Shell final proof — NOT YET OBSERVED.

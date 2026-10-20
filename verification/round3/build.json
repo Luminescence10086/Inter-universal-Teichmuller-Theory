@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "build"
+  ],
+  "exit_code": 0,
+  "stdout": "Build completed successfully (8 jobs).\n",
+  "stderr": ""
+}

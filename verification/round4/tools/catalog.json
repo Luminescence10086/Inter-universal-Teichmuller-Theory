@@ -1,0 +1,154 @@
+[
+  {
+    "id": "IUTAudit.Descent.invariant_of_descends",
+    "source": "IUTAudit/Descent.lean"
+  },
+  {
+    "id": "IUTAudit.Descent.descends_of_section",
+    "source": "IUTAudit/Descent.lean"
+  },
+  {
+    "id": "IUTAudit.Descent.descends_iff_invariant_of_section",
+    "source": "IUTAudit/Descent.lean"
+  },
+  {
+    "id": "IUTAudit.Descent.boolean_quantity_does_not_descend",
+    "source": "IUTAudit/Descent.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.layer_preserves_upper",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.layer_preserves_band",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.datum_integer_checks",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.local_integer_checks",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.repaired_cut_and_cost",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.transformed_sum_excludes_cut",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.swap23_tuple_and_theta",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.LocalNumerics.swap23_rho_positions",
+    "source": "IUTAudit/LocalNumerics.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.image_mem_envelope",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.envelope_covers",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.envelope_minimal",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.envelope_minimal_closed",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.envelope_closed",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.envelope_idempotent",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.swapAction_witnesses",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.fixedLabel_not_closed",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.fixedLabel_envelope_full",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Orbit.fixedLabel_envelope_closed",
+    "source": "IUTAudit/Orbit.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.scale_composition",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.normalization_at_unit",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.normalized_scale_preserves",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.no_uniform_bound",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.scale_two_not_identity",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.weighted_comparison_forces_bound",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.erased_comparison_iff",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Scale.erased_comparison_unbounded",
+    "source": "IUTAudit/Scale.lean"
+  },
+  {
+    "id": "IUTAudit.Transport.transport_projection",
+    "source": "IUTAudit/Transport.lean"
+  },
+  {
+    "id": "IUTAudit.Transport.transport_comp",
+    "source": "IUTAudit/Transport.lean"
+  },
+  {
+    "id": "IUTAudit.Transport.rho_follows_place",
+    "source": "IUTAudit/Transport.lean"
+  },
+  {
+    "id": "IUTAudit.Transport.familyImage_bound_iff",
+    "source": "IUTAudit/Transport.lean"
+  },
+  {
+    "id": "IUTAudit.Transport.rectangular_iff_product",
+    "source": "IUTAudit/Transport.lean"
+  },
+  {
+    "id": "IUTAudit.Transport.coupled_choice_counterexample",
+    "source": "IUTAudit/Transport.lean"
+  }
+]
