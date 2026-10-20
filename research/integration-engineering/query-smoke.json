@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\msys64\\ucrt64\\bin\\python.exe",
+    "-X",
+    "utf8",
+    "tools/forest.py",
+    "query",
+    "rectangular_nonempty_unique_layer"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Exception in thread Thread-6 (_readerthread):\nTraceback (most recent call last):\n  File \"C:\\msys64\\ucrt64\\lib\\python3.14\\threading.py\", line 1082, in _bootstrap_inner\n    self._context.run(self.run)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^\n  File \"C:\\msys64\\ucrt64\\lib\\python3.14\\threading.py\", line 1024, in run\n    self._target(*self._args, **self._kwargs)\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\msys64\\ucrt64\\lib\\python3.14\\subprocess.py\", line 1614, in _readerthread\n    buffer.append(fh.read())\n                  ~~~~~~~^^\n  File \"<frozen codecs>\", line 325, in decode\nUnicodeDecodeError: 'utf-8' codec can't decode byte 0xa8 in position 69: invalid start byte\nTraceback (most recent call last):\n  File \"D:\\Inter-universal Teichmüller Theory\\tools\\forest.py\", line 106, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\Inter-universal Teichmüller Theory\\tools\\forest.py\", line 100, in main\n    results = checked(args.query, args.deep)\n  File \"D:\\Inter-universal Teichmüller Theory\\tools\\forest.py\", line 24, in checked\n    raise RuntimeError(f'{label} is not currently verified: {result.stdout}\\n{result.stderr}')\nRuntimeError: bridge is not currently verified: \nNone\n"
+}
