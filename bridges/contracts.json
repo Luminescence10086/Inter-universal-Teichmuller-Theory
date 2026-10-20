@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "purpose": "Machine-checkable bridge contracts between the three verification projects of this repository. Main project uses Lean 4.34.0 (no Mathlib); local-field and bridge use Lean 4.34.0-rc2 (Mathlib). A proof cannot be imported across those toolchains, so a main-to-bridge edge is NOT a kernel-checked dependency: it is an audited contract, pinned by elaborated statement text and vendored definition types. The local-field-to-bridge edge is a real Lean import and needs no contract.",
+  "purpose": "Textual correspondence audits between three admitted projects on two Lean toolchains. Full source/config/runtime freshness is required. Local-field to bridge is an actual same-toolchain import; core to bridge contracts are not proof transfer.",
   "edge_strength": {
     "local_to_bridge": "kernel_checked_import",
     "main_to_bridge": "audited_statement_contract_no_proof_transfer"
@@ -85,7 +85,7 @@
     {
       "id": "BR-03",
       "kind": "statement_identity",
-      "claim": "The rectangularity interface (LeftAllowed, RightAllowed, IsRectangular) and the equivalence 'rectangular iff the joint relation is the product of its marginals' are the same proposition in both toolchains.",
+      "claim": "The rectangularity interface (LeftAllowed, RightAllowed, IsRectangular) and the equivalence 'rectangular iff the joint relation is the product of its marginals' are carried over to the second toolchain: the elaborated statements agree after namespace normalisation, the elaborated types of the three vendored definitions agree, and their full diagnostic printed definition bodies is checked for identity by the auditor. This is an interface-identity audit, NOT a kernel-level proof transfer and NOT a claim of semantic equivalence across toolchains.",
       "abstract": {
         "project": "main",
         "theorem": "IUTAudit.Transport.rectangular_iff_product"
@@ -117,7 +117,7 @@
         "procession automorphism",
         "Kummer isomorphism"
       ],
-      "notes": "This is the only contract whose elaborated statements must agree verbatim after prefix normalisation; the auditor enforces that. Body text of the vendored definitions was copied, and the auditor compares their elaborated types."
+      "notes": "Both types and freshly exported printed definition bodies must match after declared namespace normalization. This is a textual correspondence check, not cross-kernel semantic equivalence."
     },
     {
       "id": "BR-04",
@@ -157,7 +157,7 @@
     {
       "id": "BR-05",
       "kind": "new_result",
-      "claim": "In the base field, moving the ladder container from one layer to another costs exactly the exponent difference and nothing else, and the ladder is a strictly increasing infinite filtration. This supplies the exact price of a container-widening repair at the level of base-field lattices, without any claim about IUT volumes.",
+      "claim": "In the base field the ladder is strictly *antitone* — a larger index is a smaller ball, so `k ≤ m` gives `layer m ⊆ layer k` and widening goes towards smaller indices. Moving from `layer k` to `layer m` is realised by the single dilation of signed exponent `m - k`. This is an identity between sets of p-adic numbers; it defines no measure, no volume, no log-volume and no optimal price, and must not be read as a quantitative cost formula.",
       "abstract": null,
       "concrete": [
         {
@@ -180,7 +180,7 @@
         "tensor normalisation",
         "global error budget"
       ],
-      "notes": "The repository records that enlarging a container is only a repair if the added volume cost still meets the target estimate. This contract supplies the base-field cost formula, not the IUT-level estimate."
+      "notes": "The repository records that enlarging a container is only a repair if the added volume cost still meets the target estimate. This contract supplies only the layer-move identity; the volume estimate itself is not formalised, and no cost function is defined here."
     },
     {
       "id": "BR-06",
@@ -247,6 +247,104 @@
         "tensor packet"
       ],
       "notes": "Slot set is an abstract Fin n with an explicit permutation, not the slot set of a real Hodge theater. The result answers only the toy form of the round-5 question on label-independent synchronization."
+    },
+    {
+      "id": "BR-08",
+      "kind": "instantiation",
+      "claim": "Arbitrary integer-weighted valuation ledgers on actual p-adic tuples have exact slotwise scaling and relabelling formulas. Preservation under all relabelled tuples is equivalent to invariant weights. Separately, on coordinatewise nonzero tuples, the product of element norms equals p raised to the negative UNWEIGHTED total ledger. The hand-chosen vector (1,1,2,1) is a test example only.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.weighted_comparison_forces_bound"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.weightedLedger_slotwise"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.weightedLedger_invariant_iff"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.pilotLedger_not_invariant"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.totalLedger_relabel"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger"
+        }
+      ],
+      "external_anchors": [
+        "Padic.norm_eq_zpow_neg_valuation",
+        "Padic.valuation_mul"
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "pilot weight realisation from real theta data",
+        "holomorphic hull",
+        "tensor normalisation",
+        "global error budget"
+      ],
+      "notes": "The weights are arbitrary integers chosen by hand; the pilot pattern (1,1,2,1) is used only as a concrete non-uniform example. No claim is made that it is the weight vector of the real pilot."
+    },
+    {
+      "id": "BR-09",
+      "kind": "new_result",
+      "claim": "For coordinatewise nonzero scalars, scaling followed by relabelling preserves the weighted ledger on every coordinatewise nonzero tuple iff the weights are invariant and the total weighted valuation budget is zero. On all tuples including zeros, each slot budget must vanish separately. The support formula records the difference of domains.",
+      "abstract": null,
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Integration.weightedLedger_relabel_slotwise"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Integration.weightedLedger_combined_invariant_iff"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Integration.weightedLedger_relabel_slotwise_support"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Integration.weightedLedger_combined_invariant_all_iff"
+        }
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "actual admissible input region and its probe tuples",
+        "real pilot weights",
+        "Ism action identification",
+        "measure or volume bound"
+      ],
+      "notes": "Elementary Q_p criteria for a specified diagonal-permutation action. Necessity on a restricted IUT region requires further realization proofs."
+    },
+    {
+      "id": "BR-10",
+      "kind": "new_result",
+      "claim": "For every fixed integer c the frozen target-layer relation has marginal exactly {c}. A nonempty rectangular subrelation of lattice admissibility realizes exactly one layer; the nonempty witness is explicit.",
+      "abstract": null,
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Integration.frozen_sigma_marginal_iff"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Integration.rectangular_nonempty_unique_layer"
+        }
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "actual IUT joint admissibility relation",
+        "seed-region witness",
+        "joint Ism/Kummer realization"
+      ],
+      "notes": "Freezing the image of the unit ball at layer c does not assert that every map preserves layer c."
     }
   ]
 }

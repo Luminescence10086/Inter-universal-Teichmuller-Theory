@@ -41,12 +41,12 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
 |---|---|
 | `mem_layer_iff_norm_le` | 层的范数刻画，含 0 |
 | `mem_layer_iff_le_valuation` | 层 ↔ 估值刻画（显式非零前提） |
-| `zero_mem_layer` / `layer_subset_of_le` / `layer_ssubset_of_lt` / `layer_injective` | 梯是严格递增的无限过滤，层由指标唯一决定 |
+| `zero_mem_layer` / `layer_subset_of_le` / `layer_ssubset_of_lt` / `layer_injective` | 梯是严格**反单调**的无限过滤（指标越大球越小，`k ≤ m ⇒ layer m ⊆ layer k`），层由指标唯一决定 |
 | `shift_apply` / `shift_comp_apply` / `shift_ne_zero` | 缩放的底层函数、迭代相加、保非零 |
 | `norm_shift` / `norm_factor_composition` / `norm_factor_pow` | **范数账本乘性**：复合因子 = 两因子之积 = `p^(-(n+m))` |
 | `valuation_shift` / `valuation_ledger_composition` | **估值账本加性**：`v(shift n (shift m x)) = n + m + v x` |
 | `layer_image_shift` | `shift n '' layer k = layer (k+n)`：缩放只搬梯，不改梯形 |
-| `cost_exact` | **容器加宽代价**：从 `layer k` 到 `layer m` 恰由指数 `m-k` 的单一伸缩实现 |
+| `cost_exact` | **层间搬运恒等式**：`shift (m-k)  layer k = layer m`（带符号指数差；未定义测度、体积或代价最优性） |
 | `map_one_determines` / `image_ball_eq_layer` / `existsUnique_layer_of_auto` | 自同构由 `e 1` 决定；球像的层索引唯一 = 联合数据是**图** |
 | `composeShift_apply` / `composeShift_eq_shift_sum` | 列表复合缩放 = 指数求和（望远镜、路径无关） |
 
@@ -77,7 +77,7 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
 
 | 定理 | 内容 |
 |---|---|
-| `relabel_injective` / `relabel_trans` | 重标不丢/不重槽位；重标复合反变 |
+| `relabel_injective` / `relabel_trans` | 重标不丢/不重槽位；重标复合（先 `τ` 后 `σ` 等于 `τ.trans σ`，`Equiv.trans` 先作用左参数） |
 | `relabel_slotwise` | **投影公式（玩具版）**：`relabel σ (slotwise a x) = slotwise (a ∘ σ⁻¹) (relabel σ x)` |
 | `valuation_relabel_slotwise` | 运输后逐槽估值记账（显式非零前提） |
 | `slotwise_commutes_of_invariant` | 标量族 `σ`-不变 ⇒ 与重标交换 |
@@ -99,9 +99,9 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
 
 路径 C 的证据是编译级而非文献级：`#check @Padic.log / @Padic.exp / @Padic.logP /
 @Padic.pow / @Padic.LubinTate` 全部 `unknownIdentifier`；`Mathlib/NumberTheory/Padics/`
-下 16 个源文件（`AddChar`、`Hensel`、`PadicIntegers`、`WithVal` …）无对数模块；全仓
+下 12 个源文件（`AddChar`、`Hensel`、`PadicIntegers`、`WithVal` …）无对数模块；全仓
 `grep "Padic\.log|padicLog|pAdicLog"` 零命中（`log` 命中均为 `Nat.log` / 实数对数的引理）。
-因此 RI-06 的 log-image 身份在当前 pin 上**无法形式化**，必须先实现
+因此本 pin 上**没有找到可直接调用的** p-adic log 接口；本轮未形式化该像身份，下一步需实现或定位所需定义与性质，在此之前须实现
 `log_p : ℤ_[p]^× → ℚ_[p]`（含收敛域与同态性）。这是一条下一步该先建的基础设施，
 而不是再写一条条件式桥接定理。
 

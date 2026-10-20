@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "verified_at_utc": "2026-10-20T09:22:12Z",
+  "head": "4e3f01c307d67ae2c0b1b1ce9723afda39376f4d",
+  "query": {
+    "command": "python -X utf8 tools/query.py __NO_MATCH__ --deep",
+    "exit_code": 0,
+    "stdout": "",
+    "meaning": "Both checked fact trees passed freshness, graph-integrity, and deep runtime rehash checks; the sentinel matched no node."
+  },
+  "projects": {
+    "root": {
+      "checked_inputs": 16,
+      "input_head_working_mismatches": 0,
+      "mismatches": [],
+      "runtime_artifacts": 7076,
+      "checked_targets": 38,
+      "fact_tree_status": "checked",
+      "fact_tree_nodes": 38,
+      "pending_nodes": 0,
+      "edges": 14
+    },
+    "local-field": {
+      "checked_inputs": 15,
+      "input_head_working_mismatches": 0,
+      "mismatches": [],
+      "runtime_artifacts": 13008,
+      "checked_targets": 24,
+      "fact_tree_status": "checked",
+      "fact_tree_nodes": 24,
+      "pending_nodes": 0,
+      "edges": 31
+    }
+  },
+  "conclusion": "All checked input SHA-256 values match both HEAD bytes and working-tree bytes in both projects; the previously observed 14-byte drift is absent from the checked input sets."
+}

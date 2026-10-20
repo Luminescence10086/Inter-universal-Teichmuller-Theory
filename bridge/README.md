@@ -1,72 +1,42 @@
-# 第三套工程：基域 `Q_p` 的桥接验证
+# 基域 Q_p 工具与整合接口
 
-本目录是本仓库的**第三套独立验证工程**，2026-10-20 第六轮新建。它不修改主工程
-`IUTAudit`（Lean `4.34.0`，无 Mathlib）与 `local-field`（Lean `4.34.0-rc2`，Mathlib）
-中的任何文件，只通过 Lake 路径依赖**读取**后者。
+本工程整合 73 条目录声明：层梯 21、联合可容许性 14、槽位作用 15、加权账本 14、组合接口 9。实际 IUT 对象尚未实现，Corollary 3.12 与 abc 尚未证明。
 
-```text
-main        Lean 4.34.0      no Mathlib   抽象离散模型（Scale / Transport / Orbit …）
-local       Lean 4.34.0-rc2  Mathlib      已验收的真实 Q_p 过滤（Shell / Filtration / ContinuousLinearity）
-bridge      Lean 4.34.0-rc2  Mathlib      本目录：基域实现 + 跨工具链接口合同
-```
+`Integration.lean` 的两个保账 iff 区分“每个坐标非零”与“允许零坐标”：前者要求权重不变和总估值预算为零，后者要求每槽加权预算为零。另补完整的逐槽交换判据、固定层边际 iff，以及明确假设非空的唯一层定理。详细前提与筛选依据见 [整合报告](../research/round8-integration.md)。
 
-`bridge → local` 是**真实 Lean import**，依赖由内核检查。`main → bridge` **不能**
-import（两套工具链的编译产物互不通用），因此那里的对应关系不是证明转移，而是根目录
-`bridges/contracts.json` 中登记的**受审计接口合同**，由 `tools/bridge.py` 机械核对：
-规范化后的 elaborated statement 文本必须相同、vendored 定义的类型必须相同。
-
-## 内容
-
-- `IUTBridge/ScaleLedger.lean`：实际 `Q_p` 的整数范数层梯 `layer`、缩放自同构
-  `shift`，以及两本账：**范数账本乘性**（`‖shift n (shift m x)‖ = p^(-(n+m))·‖x‖`）
-  与**估值账本加性**（`(shift n (shift m x)).valuation = n + m + v x`）。列表复合的
-  望远镜等于指数求和（路径无关），容器加宽的代价精确等于指数差。
-- `IUTBridge/Admissibility.lean`：把主工程的矩形性接口**逐字 vendor**过来，先在一般
-  层面证出**图障碍**（联合关系若是图且出现两个不同值，则矩形性必然失败），再在真实
-  `Q_p` 上实例化：`LatticeAdmissible p e k` 表示 `e '' ball = layer p k`。两侧边际都全、
-  关系是图、因此不矩形；而**正规化子关系**（把层冻结在 `0`）是矩形的。最后一击：
-  任何矩形的联合子关系都把层冻结 —— 想要"分别验 Kappa 与 Sigma"就必须先放弃缩放自由度。
-- `IUTBridge/Slots.lean`：实际 `Q_p` 元组上的槽位重标 `relabel` 与逐槽标量作用 `slotwise`。
-  重标把标量族**共轭**过去，因此逐槽作用与重标交换**当且仅当**标量族在该置换下不变；
-  均匀缩放与任意重标交换。这是第五轮"每个 place 的同步条件如何与 label 无关"的玩具版回答：
-  同步性 = 标量族的不变性，不是逐 label 的巧合。
-
-## 验收状态：CLI 已核验，**尚未准入**
+## 调用
 
 ```powershell
-lake build                 # 依赖 ../local-field 与外部 Mathlib（只读复用）
-python tools/verify.py     # 零诊断 + 公理白名单 + 假设审计 + 目录核对
+python -X utf8 tools/verify.py
+python -X utf8 tools/query_integrated.py combined
+python -X utf8 tools/query_integrated.py combined --deep
 ```
 
-`tools/verify.py` 与另外两套工程的验证器同构，但多两项检查：
+从仓库根目录调用统一入口：
 
-1. **假设审计**（`tools/Binders.lean`）：对每个目录定理机械剥出*语法* forall 望远镜，
-   任何显式、非类型类的 `Prop` 绑定都必须先在 `tools/catalog.json` 的 `hypotheses`
-   里申报。悄悄多出一个前提的定理会直接验证失败。剥离**不做 reduction**，
-   否则 `¬ P` 会被展开成 `P → False`，把否命题误算成前提。
-2. **依赖身份**：记录 `../local-field` 证明源码与配置的哈希，桥接结论只能对
-   核对过的依赖成立。
+```powershell
+python -X utf8 tools/forest.py query combined
+python -X utf8 tools/forest.py refresh --deep
+python -X utf8 tools/bridge.py
+python -X utf8 tools/semantic_lock.py
+```
 
-当前输出：`Zero-diagnostic source checks passed; hypotheses audited for 42 theorems.
-Admitted=0, pending=42, edges=0.`
+事实树的机器入口是 `fact-tree/facts.json`；全局入口为上级的 `fact-tree/catalogue.md`。`local-field → bridge` 使用实际同工具链 import。与主工程的合同仅比较接口，不转移证明。
 
-`Admitted=0` 是**如实状态而非失败**：仓库的准入规则要求实际编辑器观察（`No goals` +
-入口零 error/零 warning）并绑定 receipt。本工程还没有这份 receipt，因此
-`fact-tree/facts.json` 为空、42 条全部标记 `cli_verified_awaiting_editor`。
-CLI 全绿是必要条件，不是准入凭据。
+## 验证
 
-## 已知受阻路径：p-adic 对数
+标准 `tools/verify.py` 委托 `verify_integrated.py`，保持原输出目录。schema-3 收据绑定源码/配置/验证工具集合、local-field 源码与外部 checkout 身份、实际导入编译产物与现存 sidecar、Lean/Lake 程序，以及每份源文件和 EditorCheck 的真实观察。完整检查期间输入变化则拒绝准入；原工程的 schema-2 收据不适用于本工程。
 
-RI-06 真正缺的是 `log_p(O^×)` 的像身份。本 pin 的 Mathlib **没有** p-adic 对数：
-`#check @Padic.log / @Padic.exp / @Padic.logP / @Padic.pow / @Padic.LubinTate` 全部
-`unknownIdentifier`，`Mathlib/NumberTheory/Padics/` 的 16 个源文件里没有对数模块，
-全仓 grep `Padic\.log|padicLog|pAdicLog` 零命中。因此 log-image 类桥接必须先自建
-`log_p`（含收敛域与同态性），本轮不把它伪装成"再加一条条件式定理"。
+实际 VS Code 第八轮观察包括五份源文件匹配位置的 `No goals`，以及入口的 146 条 information、0 error、0 warning。证据见 `verification/vscode-observation-round8.txt` 与收据；最终准入状态由完整 verifier 产出的 facts.json 核定。CLI 成功本身不能替代编辑器验收。
 
-## 与外部依赖的关系
+显式、非类型类的 Prop 前提由 `tools/Binders.lean` 报告并与目录核对。允许的传递公理仅 `propext`、`Classical.choice`、`Quot.sound`。输入/运行快照发现普通漂移；收据不是防伪证明。
 
-- Lean `leanprover/lean4:v4.34.0-rc2`；Mathlib commit
-  `85e3a25e006c35636f0e53b0e9296caca2685bc0`（路径见 `lakefile.toml`，实测该 checkout 无改动）。
-- `lake-manifest.json` 全量固定为 `path` 类型，避免 Lake 联网解析（本机 git 取不到 GitHub 凭证）。
-- 本工程**不**声称实现 IUT 对象：没有 Θ-link、Ism 元素、Kummer 表示、seed 区域成员资格、
-  log 像身份、holomorphic hull 或 Arakelov 体积；对 Corollary 3.12 与 abc 不下任何结论。
+## 范围
+
+- 层梯随指标严格反单调；`cost_exact` 仅证明集合像等式，没有体积或代价函数。
+- 固定任意目标层都可矩形化；不等于证明映射保持该目标层本身。
+- 逐槽交换判据不排除混槽映射。已给出可逆、非对角且与交换置换相容的实例，但未证明它保持其他区域或账本。
+- 权重 `(1,1,2,1)` 是手选测试数据；范数乘积身份只涉及无权总账本，未定义测度或 Arakelov 量。
+- 当前检索未定位可直接调用的 p-adic log 接口；这不构成无法实现该接口的证明。实际 log-image 身份仍是开放工作。
+
+Lean 使用 `leanprover/lean4:v4.34.0-rc2`；固定 Mathlib commit `85e3a25e006c35636f0e53b0e9296caca2685bc0`。路径依赖由 manifest 和 local-field/external-lock.json 指定。主工程 Lean 4.34.0 的证明不跨版本导入。

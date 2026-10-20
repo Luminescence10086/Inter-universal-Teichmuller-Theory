@@ -6,3 +6,8 @@ __pycache__/
 # produced by the review harness, not by the research rounds. They are deliberately
 # not part of the research branch.
 reviews/
+
+# Scratch working notes (design specs, claim audits) produced while a round is in
+# flight. Their conclusions are committed in research/; the raw notes are not.
+.agent-notes/
+.tmp_*.py

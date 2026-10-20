@@ -1,0 +1,29 @@
+{
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "--json",
+    "-DwarningAsError=true",
+    "D:\\Inter-universal Teichmüller Theory\\reviews\\78bc059b5b42\\negative-tests\\SemanticBody.lean"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"caption\":\"\",\"data\":\"[{\\\"body\\\":\\\"fun {K} {S} A k => ∃ s, A k s\\\",\\\"id\\\":\\\"IUTAudit.Transport.LeftAllowed\\\",\\\"statement\\\":\\\"{K : Type u} → {S : Type v} → (K → S → Prop) → K → Prop\\\"},{\\\"body\\\":\\\"fun {K} {S} A s => ∃ k, A k s\\\",\\\"id\\\":\\\"IUTAudit.Transport.RightAllowed\\\",\\\"statement\\\":\\\"{K : Type u} → {S : Type v} → (K → S → Prop) → S → Prop\\\"},{\\\"body\\\":\\\"fun {K} {S} A => ∀ (k1 k2 : K) (s1 s2 : S), A k1 s1 → A k2 s2 → A k1 s2\\\",\\\"id\\\":\\\"IUTAudit.Transport.IsRectangular\\\",\\\"statement\\\":\\\"{K : Type u} → {S : Type v} → (K → S → Prop) → Prop\\\"},{\\\"body\\\":\\\"fun {K} {S} A =>\\\\n  {\\\\n    mp := fun hr k s =>\\\\n      { mp := fun h => ⟨Exists.intro s h, Exists.intro k h⟩,\\\\n        mpr := fun a =>\\\\n          And.casesOn a fun left right =>\\\\n            Exists.casesOn left fun s1 h1 => Exists.casesOn right fun k2 h2 => hr k k2 s1 s h1 h2 },\\\\n    mpr := fun h k1 k2 s1 s2 h1 h2 => (h k1 s2).mpr ⟨Exists.intro s1 h1, Exists.intro k2 h2⟩ }\\\",\\\"id\\\":\\\"IUTAudit.Transport.rectangular_iff_product\\\",\\\"statement\\\":\\\"∀ {K : Type u} {S : Type v} (A : K → S → Prop),\\\\n  IUTAudit.Transport.IsRectangular A ↔\\\\n    ∀ (k : K) (s : S), A k s ↔ IUTAudit.Transport.LeftAllowed A k ∧ IUTAudit.Transport.RightAllowed A s\\\"},{\\\"body\\\":\\\"fun {K} {S} A k => (∃ s, A k s) ∧ False\\\",\\\"id\\\":\\\"IUTBridge.Admissibility.LeftAllowed\\\",\\\"statement\\\":\\\"{K : Type u} → {S : Type v} → (K → S → Prop) → K → Prop\\\"},{\\\"body\\\":\\\"fun {K} {S} A s => (∃ k, A k s) ∧ False\\\",\\\"id\\\":\\\"IUTBridge.Admissibility.RightAllowed\\\",\\\"statement\\\":\\\"{K : Type u} → {S : Type v} → (K → S → Prop) → S → Prop\\\"},{\\\"body\\\":\\\"fun {K} {S} A => ∀ (k : K) (s : S), ¬A k s\\\",\\\"id\\\":\\\"IUTBridge.Admissibility.IsRectangular\\\",\\\"statement\\\":\\\"{K : Type u} → {S : Type v} → (K → S → Prop) → Prop\\\"},{\\\"body\\\":\\\"fun {K} {S} A =>\\\\n  { mp := fun h k s => { mp := fun ha => False.elim (h k s ha), mpr := fun hf => False.elim hf.left.right },\\\\n    mpr := fun h k s ha => ((h k s).mp ha).left.right }\\\",\\\"id\\\":\\\"IUTBridge.Admissibility.rectangular_iff_product\\\",\\\"statement\\\":\\\"∀ {K : Type u} {S : Type v} (A : K → S → Prop),\\\\n  IUTBridge.Admissibility.IsRectangular A ↔\\\\n    ∀ (k : K) (s : S), A k s ↔ IUTBridge.Admissibility.LeftAllowed A k ∧ IUTBridge.Admissibility.RightAllowed A s\\\"}]\",\"endPos\":{\"column\":7,\"line\":62},\"fileName\":\"D:\\\\Inter-universal Teichmüller Theory\\\\reviews\\\\78bc059b5b42\\\\negative-tests\\\\SemanticBody.lean\",\"isSilent\":false,\"keepFullRange\":false,\"kind\":\"[anonymous]\",\"pos\":{\"column\":0,\"line\":62},\"severity\":\"information\"}\n",
+  "stderr": "",
+  "synthetic_fixture": true,
+  "admitted": false,
+  "comparisons": {
+    "LeftAllowed": [
+      true,
+      false
+    ],
+    "RightAllowed": [
+      true,
+      false
+    ],
+    "IsRectangular": [
+      true,
+      false
+    ]
+  }
+}

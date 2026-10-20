@@ -16,8 +16,13 @@ actions:
 Main result: relabelling conjugates a slotwise scalar family. Consequently a
 slotwise action is `σ`-equivariant **iff** the scalar family is invariant under `σ`.
 So "synchronization" is exactly invariance of a scalar family, not a label-by-label
-coincidence, and it is decidable at the level of the family. A slot-mixing action has
-no such property, which is why the commutativity argument cannot be reused for it.
+coincidence, and it is decidable at the level of the family.
+
+The criterion is deliberately restricted to **slotwise (diagonal)** actions. It is
+*not* a proof that non-diagonal actions cannot be equivariant: `mixingMap` below is a
+genuinely slot-mixing `Q_p`-linear automorphism of two slots that **does** commute
+with the slot swap, because it is symmetric. Equivariance of a mixing action has to be
+checked separately; the diagonal criterion says nothing about it.
 
 Scope. These are tuples of p-adic numbers with explicit permutation and scalar
 actions. There is no IUT packet, no Kummer isomorphism, no seed region and no
@@ -52,8 +57,9 @@ theorem relabel_injective {n : Nat} (σ : Equiv.Perm (Fin n)) :
   have := congrFun h (σ i)
   simpa [relabel] using this
 
-/-- Relabellings compose contravariantly: relabelling by `σ` then `τ` relabels by
-`τ.trans σ` in the direction that keeps the projection formula clean. -/
+/-- Relabellings compose: applying `τ` first and then `σ` is relabelling by
+`τ.trans σ`, since `Equiv.trans` applies its left argument first. No contravariance
+is claimed beyond this writing convention. -/
 theorem relabel_trans {n : Nat} (σ τ : Equiv.Perm (Fin n)) (x : Tuple p n) :
     relabel p σ (relabel p τ x) = relabel p (τ.trans σ) x := by
   funext j
@@ -119,6 +125,76 @@ theorem swap23_fixes_low_slots (x : Tuple p 4) :
 theorem swap23_exchanges_high_slots (x : Tuple p 4) :
     relabel p swap23 x 2 = x 3 ∧ relabel p swap23 x 3 = x 2 := by
   constructor <;> rfl
+
+/-! ## A mixing action that *is* equivariant
+
+The diagonal criterion above must not be read as "only diagonal actions can be
+equivariant". The symmetric two-slot map `(x₀, x₁) ↦ (2x₀ + x₁, x₀ + 2x₁)` mixes the
+slots, is a genuine `Q_p`-linear automorphism (its matrix has determinant `3 ≠ 0` in
+characteristic zero), and commutes with the slot swap. -/
+
+/-- The slot-mixing map `(x₀, x₁) ↦ (2x₀ + x₁, x₀ + 2x₁)` on two slots. -/
+def mixingMap : Tuple p 2 → Tuple p 2 :=
+  fun x j => if j = 0 then 2 * x 0 + x 1 else x 0 + 2 * x 1
+
+/-- Its inverse, `(1/3)·(2x₀ - x₁, -x₀ + 2x₁)`. -/
+def mixingInv : Tuple p 2 → Tuple p 2 :=
+  fun x j =>
+    if j = 0 then (1 / 3) * (2 * x 0 - x 1) else (1 / 3) * (-x 0 + 2 * x 1)
+
+/-- The mixing map is additive. -/
+theorem mixingMap_add (x y : Tuple p 2) : mixingMap p (x + y) = mixingMap p x + mixingMap p y := by
+  funext j
+  fin_cases j <;> simp [mixingMap] <;> ring
+
+/-- The mixing map is `Q_p`-homogeneous. -/
+theorem mixingMap_smul (c : ℚ_[p]) (x : Tuple p 2) :
+    mixingMap p (c • x) = c • mixingMap p x := by
+  funext j
+  fin_cases j <;> simp [mixingMap] <;> ring
+
+/-- Left inverse law, using that `3` is invertible in `Q_p` (characteristic zero). -/
+theorem mixingInv_left (x : Tuple p 2) : mixingInv p (mixingMap p x) = x := by
+  have h3 : (3 : ℚ_[p]) ≠ 0 := by norm_num
+  funext j
+  fin_cases j <;>
+    simp [mixingMap, mixingInv] <;>
+    field_simp <;> ring
+
+/-- Right inverse law. -/
+theorem mixingInv_right (x : Tuple p 2) : mixingMap p (mixingInv p x) = x := by
+  have h3 : (3 : ℚ_[p]) ≠ 0 := by norm_num
+  funext j
+  fin_cases j <;>
+    simp [mixingMap, mixingInv] <;>
+    field_simp <;> ring
+
+/-- **A genuine `Q_p`-linear automorphism of two slots that mixes them.** -/
+def mixingEquiv : Tuple p 2 ≃ₗ[ℚ_[p]] Tuple p 2 where
+  toFun := mixingMap p
+  map_add' := mixingMap_add p
+  map_smul' := mixingMap_smul p
+  invFun := mixingInv p
+  left_inv := mixingInv_left p
+  right_inv := mixingInv_right p
+
+/-- **The mixing automorphism commutes with the slot swap.** So equivariance is not a
+prerogative of diagonal actions, and the diagonal criterion above cannot be used to
+rule out a mixing repair. -/
+theorem mixingEquiv_commutes_swap (x : Tuple p 2) :
+    relabel p (Equiv.swap 0 1) (mixingEquiv p x) =
+      mixingEquiv p (relabel p (Equiv.swap 0 1) x) := by
+  funext j
+  fin_cases j <;>
+    simp [mixingEquiv, mixingMap, relabel] <;> ring
+
+/-- The mixing map is **not** a slotwise scalar action: the second component of the
+image of the first basis tuple is nonzero, while any slotwise action would give zero. -/
+theorem mixingMap_not_slotwise :
+    ¬ ∃ a : Fin 2 → ℚ_[p], ∀ x : Tuple p 2, mixingMap p x = slotwise p a x := by
+  rintro ⟨a, ha⟩
+  have h := congrFun (ha (fun j => if j = 0 then (1 : ℚ_[p]) else 0)) 1
+  simp [mixingMap, slotwise] at h
 
 end
 

@@ -1,0 +1,1674 @@
+{
+  "schema": 1,
+  "projects": {
+    "main": {
+      "IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_3": {
+        "sha256": "f0f627775ef183502ff7bdbfa1e5ee186bcab60a1b50ca5dca14cba18f6af34e",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.swap23_tuple_and_theta._proof_1_1": {
+        "sha256": "ef1c53935bce564c72bb48b82218189cc23e5f024640100a9c66957206284408",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.swap23_rho_positions": {
+        "sha256": "47225178ef19dd66e8cd6e8b1aaf6fee7aa1c754874c92f9f807833aad47bce9",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_2": {
+        "sha256": "eed63da93ce44e786685d77d169490a3bf2775a71b0a1bf43d67b7cb82b4429f",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Orbit.envelope_minimal": {
+        "sha256": "862d3755d9552a4124ee0727ef9b1e96732be179cf6db31e7f2bddfb874a8173",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.Orbit.envelope_closed": {
+        "sha256": "06f7d10e4dfa92af1c6270dc8efc7d11f0ddfec47f4ca949b611a6c679101b41",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.Orbit.fixedLabel_not_closed": {
+        "sha256": "809329cb78b7491822c9faca28a34415e39739e6de34f032ea9310a03aa60424",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.Scale.weighted_comparison_forces_bound._proof_1_1": {
+        "sha256": "197d121c32c4192367bb7733fa6752ea980884ca55d6d6a6c61ea8f7c9be9eaf",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_excludes_cut": {
+        "sha256": "d6de327352a5875e14f063a0779f601609a8c285cef9b8ee0244263ddb3615d8",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.swap23._proof_1": {
+        "sha256": "a9990f845592853b00e00448af1de31643f806d242f3fc9b41c9bae838251b28",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTAudit.Descent.boolean_quantity_does_not_descend": {
+        "sha256": "6c14fd3642e181a06f674cd37127e2ce6589fd914a17205561f57c12d5eb91be",
+        "module": "IUTAudit.Descent",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTAudit.Descent.descends_iff_invariant_of_section": {
+        "sha256": "d466f14a78d89e9954d779988cbec86b76cd0c2445cfb780f19a948eb10da63f",
+        "module": "IUTAudit.Descent",
+        "axioms": []
+      },
+      "IUTAudit.Scale.weighted_comparison_forces_bound": {
+        "sha256": "cdb4cc6c6ef79632b0f47d7bffb63553cfbc5c91265a18f65e6a81b2dbd2741a",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Scale.normalization_at_unit": {
+        "sha256": "c15dd2cc15af9a635b4a10369da7ac0b58446db9c49da0f32b34964594c2e873",
+        "module": "IUTAudit.Scale",
+        "axioms": []
+      },
+      "IUTAudit.Transport.SeededFamily.mk.injEq": {
+        "sha256": "6a0b2e7a94413a0881f3853484e499bd078e45b15e542f2f0facae26414c8257",
+        "module": "IUTAudit.Transport",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.repaired_cut_and_cost": {
+        "sha256": "0713cc9ab90db16380487714964db6be5c122ac2832861e47c2c41ddde649089",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_4": {
+        "sha256": "d58ed526a424743a3b462df870aa1a39f154d2c0a6912bede35c0796219f4976",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Scale.no_uniform_bound._proof_1_4": {
+        "sha256": "571e98dff5dd6eafd14390d194629dbbfaa21ed1da95c28315475a85fe0e1f02",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.local_integer_checks": {
+        "sha256": "ff1fe2eafebf9c1984936ac60a178cacb7f7bfaf63f8af33c06c1e7365041cdc",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.Transport.Reindexing.mk.inj": {
+        "sha256": "582eb2d3ff97a89900b8bdfb3a7fb6330bd53a77ee0524903b1ffcd8de4b3244",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.layer_preserves_upper._proof_1_2": {
+        "sha256": "0d503768181cd3d536b10323eec1736dfb663fbae204de620807f220192d5a6b",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.transport_comp": {
+        "sha256": "214599271e0fda4b5a04067ee392f4b74a8b824e7498eec01d5614362fee9d8b",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.layer_preserves_band": {
+        "sha256": "d45bdb2faea582cf3f9c7641a7faa79c6e162d9ee676dfc9828c60f681e1ff10",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.rho_follows_place": {
+        "sha256": "90e757495e18227b6656f1e7d11cffbf1696d41177df5c51e08d3c13c11d1056",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.swap23_tuple_and_theta": {
+        "sha256": "b8e1571a4e9c16324269c551f54ddcb8b298d1afc811f7ef0a45efd435844a41",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.Reindexing.comp._proof_1": {
+        "sha256": "5e25c9992718991448f0bc90807e5d9f705b33b23e5d35cde4b9100721e46bba",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.Scale.erased_comparison_iff._proof_1_1": {
+        "sha256": "990c6182674238b149289bdc981580afcc6fbacb5113a0e317241d7e03465225",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.SeededFamily.mk.sizeOf_spec": {
+        "sha256": "ad8c9d4066aec8a65aecdc39929ea07ab542dfe15afca4c52104747fa1841d8f",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut": {
+        "sha256": "5379dc2aceaf4d761cb4da7a2fdff24603d7e5070c957d72404fb44bb5b26254",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Orbit.envelope_idempotent": {
+        "sha256": "69f726f0ecf630e6882c340b9645bb9e7e1ef08f3ae9b72928255610132e0b24",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_5": {
+        "sha256": "c80b1a758780b52f403c49c35e204aa2eb8443e99f8358cde34bca8fe2a41693",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Scale.no_uniform_bound": {
+        "sha256": "b94b3d0c830f06b48761ab60fcfc865e2f7f582adb15f34d5392ddbe22c4f12b",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_5": {
+        "sha256": "ead74a777c2f43488ab5da78e853c1b51a4bf620b1c9df440fe8fa98c62eaec0",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.SeededFamily.mk.inj": {
+        "sha256": "82a65fdc7ee0fedc35b6cc7ddd1498d371324cfb4a92c4e974bde1e9702e0d0d",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.Orbit.image_mem_envelope": {
+        "sha256": "e9828dc26e1d725cae16e72f5ca3c12ec8fcd5ff33a66c9326de99ec37a93492",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.instDecidableEqPlace._proof_2": {
+        "sha256": "461c9f19ac93f3334b5b88ce46eab6f6cf718fab964312149782facf0d7e830f",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.Transport.Reindexing.left_inv": {
+        "sha256": "936f2d5217c3efa050ad00fd9326cac09f8f89ea60a189ca0d8427a10af07ee5",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.Orbit.swapAction_witnesses": {
+        "sha256": "e735579ad03bf513e4cae5186c3a5fa305ae4f46c5844513fdbc690a03b74922",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.Scale.erased_comparison_unbounded": {
+        "sha256": "73fb3a8ff0c22e117a9b0c380c0131909e94646c0064a462721973bcd0542910",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.Reindexing.comp._proof_2": {
+        "sha256": "833b89cf2ea8582c865d460a7d86647d10b3fa12191849f08150b1096499e981",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.datum_integer_checks": {
+        "sha256": "fe4ba49bf7fe0876436746108b150d1ed0ed05fdf481cfd053f5deea1fd2bf49",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.Place.b2.sizeOf_spec": {
+        "sha256": "0da0947730f5e6aff3176a0587d81eceb0ebe2d2239470bb261972d6bfa5fae8",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.Scale.normalized_scale_preserves": {
+        "sha256": "77c0e8d5554eb29a9342be84eacfbc8778bd2e060727349bece4bb4a12fb5439",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.layer_preserves_upper._proof_1_1": {
+        "sha256": "0ee7d1027571fb9f69895baf2c606b16d4bcb0bf5913b241b12ede96a39fcf06",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Orbit.envelope_minimal_closed": {
+        "sha256": "d7e7f14a5c294bbed42ed12f467b1abc6bae52dd5d52fc668ac88656a2871578",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.Transport.Reindexing.right_inv": {
+        "sha256": "ad063b1247cf08871eb8ee39e297abc7028384d463a49f078643ce1af2711d12",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_3": {
+        "sha256": "a08946cc02b79e47793a05f357324a9e5c2d1899232cbbd9e8b0fff815b208c0",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_4": {
+        "sha256": "1f62728f723c7cc08324e8f81e6750da1e5f34172bed6c359946397517226f89",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.familyImage_bound_iff": {
+        "sha256": "ea84ed6c1c19a9e77d50c9f78ebd09751c9547537f5305e202a2601419c725a7",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.Transport.transport_projection": {
+        "sha256": "04db5f2312240ffcc46477a1d62fc1aa90a53f968b6e5e3a088b024a20ad0432",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.Transport.Reindexing.mk.injEq": {
+        "sha256": "eb6ff5c2959f6f83ab20e0268b33d065af35c10897a44db8d1dd27ed6a7dca41",
+        "module": "IUTAudit.Transport",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTAudit.Orbit.fixedLabel_envelope_full": {
+        "sha256": "52cc2ece199fddcfeaaa015114140bdb1a14d958b48577c4bf12c0944ea07329",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_1": {
+        "sha256": "0702c0e48dad3098ac8b476e6d1c07777e1990839385fd3c5dd1ddca24590813",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_1": {
+        "sha256": "0c973508ad6e6f327dfc9b571803e951a12c235b2ce2cfce03a8b71d2e7b96b6",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise": {
+        "sha256": "014a106565b1e0f8205bfe1e3f3616c2cc54222cb7ce1183328f1d5b3219ae77",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Orbit.fixedLabel_envelope_closed": {
+        "sha256": "ae5364017a37260075767310a5e4f2a9bcbf5b259cb9f43d682ce5d66bc15fde",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.layer_preserves_upper": {
+        "sha256": "e85ffd7234a27649deb514ed13499f665d0e694c39af8799ee82641cf80d92fa",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise._proof_1_1": {
+        "sha256": "086a4d0f5a8d6c5f52562219c3051df4456b79ece6adcbe6cda0aeac32848279",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Scale.scaled.eq_1": {
+        "sha256": "61d8f3b65da87a0780faa09cd037ada13dccde6e3c38df9cca39053403b31c55",
+        "module": "IUTAudit.Scale",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.instDecidableEqPlace._proof_1": {
+        "sha256": "5a5ea9de62f360c34f03c652d2dcc3a5f8e8b2cfc95e558c79df4553c257cc80",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.Descent.invariant_of_descends": {
+        "sha256": "0aa1fb3ecbb9179b7e5275e20ab10b620f4240d7f0ea955e3a9a778904a9fa3d",
+        "module": "IUTAudit.Descent",
+        "axioms": []
+      },
+      "IUTAudit.Descent.descends_of_section": {
+        "sha256": "4b9d026d351da1ba284ad9ea1a913eeb99e33c45a8c82cce1161e1e712ba67dd",
+        "module": "IUTAudit.Descent",
+        "axioms": []
+      },
+      "IUTAudit.Transport.Reindexing.mk.sizeOf_spec": {
+        "sha256": "37c1de91cbc6947f4fee27071faeed89bfdae5cff4301ba5d7d16f6471ad3402",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.Scale.erased_comparison_iff": {
+        "sha256": "3a78278f150058adc4af013fb703cad44946d2860ddf35f3f7c28c7a1840b7be",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Scale.scale_composition": {
+        "sha256": "d8f1fc05c0d21860d682070bf7fc373813be37c97dd9d82e3efc783c7c9a3ea9",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTAudit.LocalNumerics.Place.b1.sizeOf_spec": {
+        "sha256": "78a70a5ebe0e1be86d3ac115a25afbffab42942b691c6580b8b6722e8dde4800",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.Orbit.envelope_covers": {
+        "sha256": "30107eb20edaf7ff69b348b2bb9157a184f83ef713e6b01f66796162abd03439",
+        "module": "IUTAudit.Orbit",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.Place.ofNat_ctorIdx": {
+        "sha256": "182e452ab8ee2d7140fad45da4562a305d39ec80a21f6db91c28fb1a379ffa66",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": []
+      },
+      "IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_2": {
+        "sha256": "be1e41ede0919870cb3954acaa92364ef0e60ac2ac31af3588d21d3b757625cc",
+        "module": "IUTAudit.LocalNumerics",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.coupled_choice_counterexample": {
+        "sha256": "ca1f91a9d352e89d6739accabd453891bb301b75bab6b14c600cfa403bf9aefa",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      },
+      "IUTAudit.Scale.scale_two_not_identity": {
+        "sha256": "c52bbe267110bbb480c5f0ec06bace0b165abd3a1993e84627ebd727f2fc6df2",
+        "module": "IUTAudit.Scale",
+        "axioms": []
+      },
+      "IUTAudit.Scale.erased_comparison_unbounded._proof_1_1": {
+        "sha256": "03d5c7835df6bcd3833aaeb799a8e390fcff62315a9d9a3f377d650be7803255",
+        "module": "IUTAudit.Scale",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTAudit.Transport.rectangular_iff_product": {
+        "sha256": "bfe4474134ad4abfbe32643f08be84f09f135fdb81ed700f6e58ac72c140c626",
+        "module": "IUTAudit.Transport",
+        "axioms": []
+      }
+    },
+    "local": {
+      "LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_norm_le": {
+        "sha256": "636cc67471b7e127ae3f1424e74c7bc0682d087a83ec057e9706d69cfd83229c",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_5": {
+        "sha256": "d04bfeda03d7245b5081024576a6c98b77bfe15e7e091918569d9326929f5c36",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": []
+      },
+      "LocalFieldAudit.Filtration.integerIdealImage._proof_1": {
+        "sha256": "61aec5ad89c3315f92fa44b8083ce5c05b5ace5b6f9fdc56fd820e27a8cb9a18",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Shell.threshold_iff_of_layers": {
+        "sha256": "8aba1e2029a396d0596913655edd9b3a83f29cf084011454e156c37e921cbddd",
+        "module": "LocalFieldAudit.Shell",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.mem_zpow_ball_iff_norm_le": {
+        "sha256": "e428fa7c8b2c502f9689e0312bc4c6ffccaab650d74916dcf459ebcdc9e5b9a8",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.mem_smul_ball_iff_norm_le": {
+        "sha256": "14ce9ad759d9c585fb70a81cf38c1e23ed1ad061c5fef9df112985afdb02e8e9",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.mem_zpow_maximalIdealImage_iff_lt_valuation": {
+        "sha256": "afa44ae455ce432a2c4b953123ffbab2588f4cade27215b713b3198654ad81ea",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.integerIdealImage_eq_pow_ball": {
+        "sha256": "5b913d39bef295fca8453c1164e7d4df44c64b69e6da210aa75d9142d73896d3",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_norm": {
+        "sha256": "d44a1b7d1fc5c5e976c83c724618a80d044259050dd9cb70ea117623f8066603",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball": {
+        "sha256": "ac7e47618d8c7790a5b23edc8167b43314b0445db185e2315160bb2afbbf611f",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_valuation": {
+        "sha256": "76fc553bf0e6fc0bde190a15667b27ad0038bdf586e47c25e21e8096b685fd19",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_le_valuation": {
+        "sha256": "b15850bde6ea42f1bbe0b21f9e38450aa52c0d7829131057669d83561d3bcdeb",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Shell.padic_threshold_iff": {
+        "sha256": "9e574c9ea5f4ddd164220762cb7cfd11b8ac1a1ccdcfb03b821484319f676665",
+        "module": "LocalFieldAudit.Shell",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.image_scalar_layer": {
+        "sha256": "3b2fe1a377a9b06c7cce7239f88305aff477d46a7d30d8ae69ef46d143579732",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.preserves_ball_norm": {
+        "sha256": "64eb5c35a2130b500bd134eba10b1252e307009732044052418cf02a0ca6afdd",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Shell.padic_unitBall_layer_membership_iff": {
+        "sha256": "1bf90ee8c2ce6f7afe091ad1da19e1ed47ef202114998edc908b9da00eb0682b",
+        "module": "LocalFieldAudit.Shell",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_1": {
+        "sha256": "c30d6a02a962ef8a7e613751d9fd37c567a7fa94b168242a5e38b36a43482e5f",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Shell.image_scalar_layer": {
+        "sha256": "ba24cf0bc6cb95d7bc1aceced2f9d51849960bb9f56a6b4aa4165893a0d23159",
+        "module": "LocalFieldAudit.Shell",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.toPadicContinuousLinearMap._proof_1": {
+        "sha256": "7fc00746850e8f122a3f1217798341e29175f3eff11d59304bcc8f83d83141dd",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": []
+      },
+      "LocalFieldAudit.Shell.scalar_layer_membership_iff": {
+        "sha256": "9fca37436019e5ddacc197635794c5556b0115c1477b96fdf6c1b90418cb15dc",
+        "module": "LocalFieldAudit.Shell",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.preserves_ball_valuation": {
+        "sha256": "d160b5e20270f6a954d12cb5270e597537c4d7651cbfb37e22f75d229875c558",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_2": {
+        "sha256": "95d8ec6203323f0e7a930593f2b0b05a8a1dead6e058a1b8e559a25d2170a1a4",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": []
+      },
+      "LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_3": {
+        "sha256": "da92f8aa4ba0f2dc5c859071af3f2b5b828766c82bef6ae0320b217208d60217",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.preserves_maximalIdealImage_strict_threshold": {
+        "sha256": "959ebec98f3f05cf42a0d2aac978485b63e50b587572f061a469e656c8c5b0dd",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.mem_zpow_ball_iff_le_valuation": {
+        "sha256": "ce1c7e343acb21fa316b402f9b5b832d065feee291f0d037eb8cf36981c3a210",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.p_scaling_strict_ball_contraction": {
+        "sha256": "721739da123aff8994c21d35f8f0be1a53c7b116aef5e9cd7256d4ca2b993793",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.map_padic_smul": {
+        "sha256": "b98dc7557547d3f4120b04a43c1cbde632b5473373abb878bcc4568b429f6c69",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_4": {
+        "sha256": "31c6d9ca92585b2b3986cd021794cff75c2f63584fb18390717bab74d6ba1082",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": []
+      },
+      "LocalFieldAudit.Filtration.preserves_integerIdealImages": {
+        "sha256": "4b92dfe7a41d98514edfff2ef3799177e7b836aa906fc757bc6d87a930e7ad56",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.Filtration.preserves_maximalIdealImage_norm": {
+        "sha256": "9406deee9f54c77f9338d9ae304abbf2878a1668477e243d5850aa16d7d6a563",
+        "module": "LocalFieldAudit.Filtration",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "LocalFieldAudit.ContinuousLinearity.preserves_integerIdealImages": {
+        "sha256": "49b5e2b44531a5738e6fe467978a5168b149384c7add4044ea831def04a56670",
+        "module": "LocalFieldAudit.ContinuousLinearity",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    },
+    "bridge": {
+      "IUTBridge.WeightedLedger.vprofile_delta": {
+        "sha256": "8a9733e9534eb1c634c4a3dee1d5325d49408f7a5f4bd2e1c67f5131405d619b",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.latticeAdmissible_refl": {
+        "sha256": "57590bab6befcc62824f2c3d4ac7c8b5e5f7fd77661781ea2692e4a884634618",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.composeShift._proof_2": {
+        "sha256": "8302f37f18ec60aff4acb57037ba9e501bdd9eacd54e3b3bb4f7340515494cc2",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger": {
+        "sha256": "a047f2cf475a388748917a23efcd03677cbaa02783419a884ad6c130b8cda489",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.relabel_injective": {
+        "sha256": "0a2f3b1e40a6ce03c5193cbf94279993996bb72cf6185f5c694cbbc68877fe64",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.cost_exact": {
+        "sha256": "861e722159f1c84efe2140168a70e87ddeb5cbfcc601608e742657ee835b9849",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.marginals_total": {
+        "sha256": "0076c7b4cf969b1737cf1bb24dfeab3cb92536f3cd03e1ca926f9e1e00bd71ca",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.norm_factor_pow": {
+        "sha256": "1c9351c9fc0ab8b6e2080926bcc89d980c05383db7b81e6aff828a89b9b49b5b",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.valuation_ledger_composition._proof_1_1": {
+        "sha256": "c9f04e2ea341a71da17789557dde794ed5794ddd91a70e4a845b7270698f0ffa",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.layer_image_shift": {
+        "sha256": "ef2df081b33cd49f9fb0bea5559bb446871ff7e90e9dd55a15b69d520a438ef2",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.totalLedger.eq_1": {
+        "sha256": "8eb95efcb8eda67b5158a149613d24526e4712eeed5274ac457cf58591684a91",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.p_ne_zero": {
+        "sha256": "00aa6de595976ff3b9d33e7479064f38bd6b50d29ebf7295a3136c631d6f2049",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.slotwise_not_commutes_of_witness": {
+        "sha256": "0228054a6b9a3828b5ff826d5919bb61f3ae5eea360d349ce257ff9099b73aa6",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.weightedLedger_invariant_of_symm": {
+        "sha256": "4319428ca267ecdae10739edc0065d593eaf94a76d29afc0a25b6710d6d61bec",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.pR_ne_zero": {
+        "sha256": "00aa6de595976ff3b9d33e7479064f38bd6b50d29ebf7295a3136c631d6f2049",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.weightedLedger.eq_1": {
+        "sha256": "8509ec5f3273672f93c5dad717f4e2d08d99820eac550623f49caf6a4706e207",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.pilotLedger_not_invariant": {
+        "sha256": "9f93c31d486724ca13937123ed305972b2a6f7870c532d45fec0f13211d1c256",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.shift_apply": {
+        "sha256": "69d4cc50fa01286aa3e5d17cc0603c15d080b37dfc8e9877e5b1280091d7a28e",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.vprofile.eq_1": {
+        "sha256": "9d6446e2764eeed80174378f3b3241602c9801949ac6ca778c0643a2fb3736f2",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.relabel.eq_1": {
+        "sha256": "f927c2e3881ae5490741b986cb3193d8626703193d86e249445994d2e008a350",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.vprofile_relabel": {
+        "sha256": "26e5c17bda7a9b6c56bc04ccb4299b551efaebb1f60eb0e44ebcbdeb5f31f43b",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.LatticeAdmissible._proof_1": {
+        "sha256": "383496f7a24b415df76779d8c9c462319fb7ed4bf3be2b43994554d4446ba2b5",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.weightedLedger_invariant_iff": {
+        "sha256": "9ca1c50466457251a714780becc2905b76a56f2f3d887732c3161645f9fd0ffb",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.normalised_isRectangular": {
+        "sha256": "0d220b1e560e747c8b542ef7bb6136905fcd85f8fef01af6606b8ed773d37070",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.valuation_shift": {
+        "sha256": "c3167bc1bd73a68a842b162231cfc86dc3cb0fc380d3e7854ff9ac0704f44cf1",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.relabel_slotwise": {
+        "sha256": "b5bb6a1b7023b3bb6fdf707f13c42c589e142038fcde24d756496d981331d4c2",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "_private.IUTBridge.ScaleLedger.0.IUTBridge.ScaleLedger.composeShift.match_1.eq_2": {
+        "sha256": "8370bb275e1df2efad668d284ff817e963591fd4980519c2090bef628f6636bd",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": []
+      },
+      "IUTBridge.Slots.uniform_scale_commutes": {
+        "sha256": "bbdd8654a5080a2610f6a2e1ced296effc352dfe1d7a57290f0832ec7b267d56",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.weightedLedger_uniform": {
+        "sha256": "da941005391063bcbf2e65214ca0a5aed5f6eb969f59623f2a6c7200858d3952",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer": {
+        "sha256": "c242dad2d255ef8a9bcdbe22409b04fb8bf9325ad207bb234b42069a78cf65c4",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.weightedLedger_delta": {
+        "sha256": "161dbfe4fb32518f6076714ab5ea51a6be6578474f1148bb6447b4b9d743778a",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.normalised_sigma_marginal": {
+        "sha256": "797400ae8f6bfb6ef5d63df31447adf7b99484b2d26a8d53a5b13df76919f21b",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.sum_perm": {
+        "sha256": "aebecfb71af6ffaf347a73cd4a8bda931dca1810e1946a32b9907254b59e6d3f",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.zero_mem_layer": {
+        "sha256": "5771a9ec8ecd3f54494650faa096d65e8ceb88e844e94691d35f7265ba8cde06",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.shift_comp_apply": {
+        "sha256": "0d55cf95c54320d034aed2fe412eb1c3001ff3dfa248006c5f9a51b60f702a71",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.vprofile_slotwise": {
+        "sha256": "a153c13888614043ae571527bb12178190470f32a4533b3702464e0e6dc4d056",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.composeShift.eq_2": {
+        "sha256": "b9a43d859e6b1c9712a7c593a5a4a820d1e864e7d8188bc31d6e1331801a0fe9",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.layer_subset_of_le._proof_1_1": {
+        "sha256": "73b9386f62b404368e97ece10ad7c7a6b0ebf8562f287f6d458a6ba2e9a28330",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.mem_layer_iff_norm_le": {
+        "sha256": "6b40e8ec3810612ddd8d0d1d0ee2f7b470f258c227b11355eb05045195c688cf",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.pR_pos": {
+        "sha256": "341f6cffcc174800b64b27db5d6d9b09efb699edf403ea9ec9e88017f63b203e",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.layer_image_shift._proof_1_1": {
+        "sha256": "9ce1b63ecf4594c179ac18ae0478448e98b501fc3b619db4ced68aa66b452d81",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.deltaTuple.eq_1": {
+        "sha256": "704759f71f26016acaabaf1bf64164cb6402b6c6d1a70c30f9b57e3cf5819a92",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.slotwise_commutes_of_invariant": {
+        "sha256": "ff05016ac27d0f3a046abfb7baf56a27e33c554eae171af72802e1f8f9a34917",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.swap23._proof_1": {
+        "sha256": "a9990f845592853b00e00448af1de31643f806d242f3fc9b41c9bae838251b28",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.weightedLedger_relabel": {
+        "sha256": "27abb7313f4b6d17162efb89e2ed230ae4007c7363f17150f87bc358a1565665",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.swap23_exchanges_high_slots": {
+        "sha256": "ae26006293aa3763334a86146ea71343762139be52f2c5a2ed0bb32eb62465fa",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.marginals_insufficient_of_graph": {
+        "sha256": "41cac8c65759061299892294c8ed202b148952fda8cb726d27aff30dc80129cc",
+        "module": "IUTBridge.Admissibility",
+        "axioms": []
+      },
+      "IUTBridge.ScaleLedger.layer_subset_of_le": {
+        "sha256": "def17de3d8e70b9a3a41a58c9bc432d67622a7dd4edab46a00b01b7cc77c24d7",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.totalLedger_relabel": {
+        "sha256": "6181f2f240ca44358b44a1c977c3c78243399f21e35691506ca835cb563ae5f4",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.rectangular_iff_product": {
+        "sha256": "bfe4474134ad4abfbe32643f08be84f09f135fdb81ed700f6e58ac72c140c626",
+        "module": "IUTBridge.Admissibility",
+        "axioms": []
+      },
+      "IUTBridge.Admissibility.latticeAdmissible_attained": {
+        "sha256": "be24f4a18f2a8c31f59129f01beb5df99b66974d4b26be4a88f161dbd20c6a78",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.norm_shift": {
+        "sha256": "cd788492efe105affd48d8cd40bdf1e80e224d4fb355da6623091930f7714354",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.pilotWeights._proof_1": {
+        "sha256": "a9990f845592853b00e00448af1de31643f806d242f3fc9b41c9bae838251b28",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.shift_ne_zero": {
+        "sha256": "f9b8263627dbde5c735ec4d9abb9a2608f1355a7a4d557d36f38dc69e11e3e3c",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.norm_factor_composition": {
+        "sha256": "e847781854226f63f030b204cea997e556fbef5f75d8029e6732ea3691e6a040",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.layer_ssubset_of_lt._proof_1_1": {
+        "sha256": "b091f0259c77848df1464c618c6698eda18525bbcef6e3746de012f9ba7640f8",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.not_rectangular_of_graph": {
+        "sha256": "76887bfd79425e9eff0d779dc89e5744b788cc6449bef8423306d126a3a83cf3",
+        "module": "IUTBridge.Admissibility",
+        "axioms": []
+      },
+      "IUTBridge.Admissibility.marginals_do_not_force_joint": {
+        "sha256": "16b671c52f6e97e646a754e69037497fcd49513ea91a04393c804a8c683a8458",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.composeShift.eq_def": {
+        "sha256": "7182da97353897775073669be93dfadf2fc8233ea0c4e1994e89a2ad62b9bb65",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.latticeAdmissible_unique": {
+        "sha256": "f906afae397be3b949f78e9e74bfbb85daf266e30a1090c04c88b5aa4872f070",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.LatticeAdmissible.eq_1": {
+        "sha256": "1d598b34abfa9cbc602e7c96c6eac9456a1c603b81b1582ac63999f030875bcf",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.composeShift_apply": {
+        "sha256": "5d0c6fef81c388da96658462bd3044bd72be4c65d9025d9edf229ec945e1522f",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.relabel_trans": {
+        "sha256": "5528c7bd22ebe20f8d2cf3c28c41704e9ebe50f2bf23e81d2bbbd0e2aa71939f",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.swap23_fixes_low_slots": {
+        "sha256": "365cfb0f2f5a2dcb4280ae45da2554aec15986f1947adb2ff066ee9aa3dba382",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.mem_layer_iff_le_valuation": {
+        "sha256": "33a6a24e8f4eb8bfb730122e3698307d92cabb5a3c51cab3135f242e27a21afc",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.map_one_determines": {
+        "sha256": "b76518f702ed8ac401b31f4f1675068bb1b477133569ba14b39e54dffd9fb344",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.valuation_ledger_composition": {
+        "sha256": "bf3a1e975e9a9ee30bc74524a3ead3a49736dffc659176fc91026fcea3e01a13",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.shift._proof_1": {
+        "sha256": "b584d172f72f230ea48c0250c8a85a4ade017f79ed38f4598b65d05ee1624c7d",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Admissibility.latticeAdmissible_not_rectangular": {
+        "sha256": "e390c5b81bbae0adf7fc70493dd3a58afa8dc8f85febbb362d22531f3b9d39df",
+        "module": "IUTBridge.Admissibility",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.cost_exact._proof_1_1": {
+        "sha256": "334b69d5ceddeb52f6e7201c9ee2e9256ed757b94d26b2fedf1bb5c7744dda1d",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.pilotWeights_not_invariant": {
+        "sha256": "488768794507dcfa9ff2da64dedc69282117e4f748c8e9ebdf4ed2ba4c9a75cc",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.composeShift._proof_1": {
+        "sha256": "383496f7a24b415df76779d8c9c462319fb7ed4bf3be2b43994554d4446ba2b5",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.WeightedLedger.weightedLedger_slotwise": {
+        "sha256": "a3e79088667ad61c3e0f76e56efa1c6764c7905ff8986dbca6fe9292a6e74afa",
+        "module": "IUTBridge.WeightedLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "_private.IUTBridge.ScaleLedger.0.IUTBridge.ScaleLedger.composeShift.match_1.eq_1": {
+        "sha256": "a1b02c1857454d0d04fc628af6fe867dabbc0c4682f6ffda6387e7ca71fd6db9",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": []
+      },
+      "IUTBridge.ScaleLedger.layer_injective": {
+        "sha256": "467f7e94c75a7131ca88046d481f58b712159c73e823dbed64993badedb19d84",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.composeShift_eq_shift_sum": {
+        "sha256": "e699c6f63bf2db729513a31934c5603af1c23efd160d0a437f6e626ec6f63167",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.existsUnique_layer_of_auto": {
+        "sha256": "ed3d0f7479e04ea6ad19ef1f88b994a92527aa559e9d2e9a727798cc596b4fda",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.layer_image_shift._proof_1_2": {
+        "sha256": "7435af80a82002e38e557095da90f47ca0961d9ed0d3d5dff5c0114d690b71cc",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.valuation_relabel_slotwise": {
+        "sha256": "ed1d5ce70b985327c57bd3954f991d200b45cc1b76b07993ec434a9ebdd8b171",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.composeShift.eq_1": {
+        "sha256": "1db3248ebfe42f0209d3b531489fba987c0ef8bbcf3ee34997aca4530bcbec58",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.layer_ssubset_of_lt": {
+        "sha256": "e610290b33b286bfb54543664aceae568dc292ddb7d6dfdbcd779dc3e98927b4",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.one_lt_pR": {
+        "sha256": "93a67b876c4f2453ac29a422cce47be86f6c76233c964f778d0663487d4207a4",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.Slots.slotwise.eq_1": {
+        "sha256": "5e77ead21ca217a4077356cbcea9b1f4294969ef56b897835da8463ea3f18d12",
+        "module": "IUTBridge.Slots",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "IUTBridge.ScaleLedger.image_ball_eq_layer": {
+        "sha256": "9857449d1dcaadab85e3f177194124b5746fb2a368879d6f6e22db08f39be3ad",
+        "module": "IUTBridge.ScaleLedger",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      }
+    }
+  },
+  "history": [
+    {
+      "utc": "2026-10-20T08:40:15.621791+00:00",
+      "note": "round 7: weighted ledger + statement lock introduced",
+      "theorems": 188,
+      "changed": [],
+      "removed": [],
+      "added": [
+        "bridge:IUTBridge.Admissibility.LatticeAdmissible._proof_1",
+        "bridge:IUTBridge.Admissibility.LatticeAdmissible.eq_1",
+        "bridge:IUTBridge.Admissibility.latticeAdmissible_attained",
+        "bridge:IUTBridge.Admissibility.latticeAdmissible_not_rectangular",
+        "bridge:IUTBridge.Admissibility.latticeAdmissible_refl",
+        "bridge:IUTBridge.Admissibility.latticeAdmissible_unique",
+        "bridge:IUTBridge.Admissibility.marginals_do_not_force_joint",
+        "bridge:IUTBridge.Admissibility.marginals_insufficient_of_graph",
+        "bridge:IUTBridge.Admissibility.marginals_total",
+        "bridge:IUTBridge.Admissibility.normalised_isRectangular",
+        "bridge:IUTBridge.Admissibility.normalised_sigma_marginal",
+        "bridge:IUTBridge.Admissibility.not_rectangular_of_graph",
+        "bridge:IUTBridge.Admissibility.rectangular_iff_product",
+        "bridge:IUTBridge.Admissibility.rectangular_subrelation_freezes_layer",
+        "bridge:IUTBridge.ScaleLedger.composeShift._proof_1",
+        "bridge:IUTBridge.ScaleLedger.composeShift._proof_2",
+        "bridge:IUTBridge.ScaleLedger.composeShift.eq_1",
+        "bridge:IUTBridge.ScaleLedger.composeShift.eq_2",
+        "bridge:IUTBridge.ScaleLedger.composeShift.eq_def",
+        "bridge:IUTBridge.ScaleLedger.composeShift_apply",
+        "bridge:IUTBridge.ScaleLedger.composeShift_eq_shift_sum",
+        "bridge:IUTBridge.ScaleLedger.cost_exact",
+        "bridge:IUTBridge.ScaleLedger.cost_exact._proof_1_1",
+        "bridge:IUTBridge.ScaleLedger.existsUnique_layer_of_auto",
+        "bridge:IUTBridge.ScaleLedger.image_ball_eq_layer",
+        "bridge:IUTBridge.ScaleLedger.layer_image_shift",
+        "bridge:IUTBridge.ScaleLedger.layer_image_shift._proof_1_1",
+        "bridge:IUTBridge.ScaleLedger.layer_image_shift._proof_1_2",
+        "bridge:IUTBridge.ScaleLedger.layer_injective",
+        "bridge:IUTBridge.ScaleLedger.layer_ssubset_of_lt",
+        "bridge:IUTBridge.ScaleLedger.layer_ssubset_of_lt._proof_1_1",
+        "bridge:IUTBridge.ScaleLedger.layer_subset_of_le",
+        "bridge:IUTBridge.ScaleLedger.layer_subset_of_le._proof_1_1",
+        "bridge:IUTBridge.ScaleLedger.map_one_determines",
+        "bridge:IUTBridge.ScaleLedger.mem_layer_iff_le_valuation",
+        "bridge:IUTBridge.ScaleLedger.mem_layer_iff_norm_le",
+        "bridge:IUTBridge.ScaleLedger.norm_factor_composition",
+        "bridge:IUTBridge.ScaleLedger.norm_factor_pow",
+        "bridge:IUTBridge.ScaleLedger.norm_shift",
+        "bridge:IUTBridge.ScaleLedger.one_lt_pR",
+        "bridge:IUTBridge.ScaleLedger.pR_ne_zero",
+        "bridge:IUTBridge.ScaleLedger.pR_pos",
+        "bridge:IUTBridge.ScaleLedger.p_ne_zero",
+        "bridge:IUTBridge.ScaleLedger.shift._proof_1",
+        "bridge:IUTBridge.ScaleLedger.shift_apply",
+        "bridge:IUTBridge.ScaleLedger.shift_comp_apply",
+        "bridge:IUTBridge.ScaleLedger.shift_ne_zero",
+        "bridge:IUTBridge.ScaleLedger.valuation_ledger_composition",
+        "bridge:IUTBridge.ScaleLedger.valuation_ledger_composition._proof_1_1",
+        "bridge:IUTBridge.ScaleLedger.valuation_shift",
+        "bridge:IUTBridge.ScaleLedger.zero_mem_layer",
+        "bridge:IUTBridge.Slots.relabel.eq_1",
+        "bridge:IUTBridge.Slots.relabel_injective",
+        "bridge:IUTBridge.Slots.relabel_slotwise",
+        "bridge:IUTBridge.Slots.relabel_trans",
+        "bridge:IUTBridge.Slots.slotwise.eq_1",
+        "bridge:IUTBridge.Slots.slotwise_commutes_of_invariant",
+        "bridge:IUTBridge.Slots.slotwise_not_commutes_of_witness",
+        "bridge:IUTBridge.Slots.swap23._proof_1",
+        "bridge:IUTBridge.Slots.swap23_exchanges_high_slots",
+        "bridge:IUTBridge.Slots.swap23_fixes_low_slots",
+        "bridge:IUTBridge.Slots.uniform_scale_commutes",
+        "bridge:IUTBridge.Slots.valuation_relabel_slotwise",
+        "bridge:IUTBridge.WeightedLedger.deltaTuple.eq_1",
+        "bridge:IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger",
+        "bridge:IUTBridge.WeightedLedger.pilotLedger_not_invariant",
+        "bridge:IUTBridge.WeightedLedger.pilotWeights._proof_1",
+        "bridge:IUTBridge.WeightedLedger.pilotWeights_not_invariant",
+        "bridge:IUTBridge.WeightedLedger.sum_perm",
+        "bridge:IUTBridge.WeightedLedger.totalLedger.eq_1",
+        "bridge:IUTBridge.WeightedLedger.totalLedger_relabel",
+        "bridge:IUTBridge.WeightedLedger.vprofile.eq_1",
+        "bridge:IUTBridge.WeightedLedger.vprofile_delta",
+        "bridge:IUTBridge.WeightedLedger.vprofile_relabel",
+        "bridge:IUTBridge.WeightedLedger.vprofile_slotwise",
+        "bridge:IUTBridge.WeightedLedger.weightedLedger.eq_1",
+        "bridge:IUTBridge.WeightedLedger.weightedLedger_delta",
+        "bridge:IUTBridge.WeightedLedger.weightedLedger_invariant_iff",
+        "bridge:IUTBridge.WeightedLedger.weightedLedger_invariant_of_symm",
+        "bridge:IUTBridge.WeightedLedger.weightedLedger_relabel",
+        "bridge:IUTBridge.WeightedLedger.weightedLedger_slotwise",
+        "bridge:IUTBridge.WeightedLedger.weightedLedger_uniform",
+        "bridge:_private.IUTBridge.ScaleLedger.0.IUTBridge.ScaleLedger.composeShift.match_1.eq_1",
+        "bridge:_private.IUTBridge.ScaleLedger.0.IUTBridge.ScaleLedger.composeShift.match_1.eq_2",
+        "local:LocalFieldAudit.ContinuousLinearity.image_scalar_layer",
+        "local:LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+        "local:LocalFieldAudit.ContinuousLinearity.preserves_integerIdealImages",
+        "local:LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_norm",
+        "local:LocalFieldAudit.ContinuousLinearity.preserves_maximalIdealImage_valuation",
+        "local:LocalFieldAudit.ContinuousLinearity.toPadicContinuousLinearMap._proof_1",
+        "local:LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_1",
+        "local:LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_2",
+        "local:LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_3",
+        "local:LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_4",
+        "local:LocalFieldAudit.ContinuousLinearity.toPadicLinearEquiv._proof_5",
+        "local:LocalFieldAudit.Filtration.integerIdealImage._proof_1",
+        "local:LocalFieldAudit.Filtration.integerIdealImage_eq_pow_ball",
+        "local:LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_le_valuation",
+        "local:LocalFieldAudit.Filtration.mem_maximalIdeal_pow_iff_norm_le",
+        "local:LocalFieldAudit.Filtration.mem_smul_ball_iff_norm_le",
+        "local:LocalFieldAudit.Filtration.mem_zpow_ball_iff_le_valuation",
+        "local:LocalFieldAudit.Filtration.mem_zpow_ball_iff_norm_le",
+        "local:LocalFieldAudit.Filtration.mem_zpow_maximalIdealImage_iff_lt_valuation",
+        "local:LocalFieldAudit.Filtration.p_scaling_strict_ball_contraction",
+        "local:LocalFieldAudit.Filtration.preserves_ball_norm",
+        "local:LocalFieldAudit.Filtration.preserves_ball_valuation",
+        "local:LocalFieldAudit.Filtration.preserves_integerIdealImages",
+        "local:LocalFieldAudit.Filtration.preserves_maximalIdealImage_iff_ball",
+        "local:LocalFieldAudit.Filtration.preserves_maximalIdealImage_norm",
+        "local:LocalFieldAudit.Filtration.preserves_maximalIdealImage_strict_threshold",
+        "local:LocalFieldAudit.Shell.image_scalar_layer",
+        "local:LocalFieldAudit.Shell.padic_threshold_iff",
+        "local:LocalFieldAudit.Shell.padic_unitBall_layer_membership_iff",
+        "local:LocalFieldAudit.Shell.scalar_layer_membership_iff",
+        "local:LocalFieldAudit.Shell.threshold_iff_of_layers",
+        "main:IUTAudit.Descent.boolean_quantity_does_not_descend",
+        "main:IUTAudit.Descent.descends_iff_invariant_of_section",
+        "main:IUTAudit.Descent.descends_of_section",
+        "main:IUTAudit.Descent.invariant_of_descends",
+        "main:IUTAudit.LocalNumerics.Place.b1.sizeOf_spec",
+        "main:IUTAudit.LocalNumerics.Place.b2.sizeOf_spec",
+        "main:IUTAudit.LocalNumerics.Place.ofNat_ctorIdx",
+        "main:IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise",
+        "main:IUTAudit.LocalNumerics.aggregate_bound_does_not_imply_componentwise._proof_1_1",
+        "main:IUTAudit.LocalNumerics.datum_integer_checks",
+        "main:IUTAudit.LocalNumerics.instDecidableEqPlace._proof_1",
+        "main:IUTAudit.LocalNumerics.instDecidableEqPlace._proof_2",
+        "main:IUTAudit.LocalNumerics.layer_preserves_band",
+        "main:IUTAudit.LocalNumerics.layer_preserves_upper",
+        "main:IUTAudit.LocalNumerics.layer_preserves_upper._proof_1_1",
+        "main:IUTAudit.LocalNumerics.layer_preserves_upper._proof_1_2",
+        "main:IUTAudit.LocalNumerics.local_integer_checks",
+        "main:IUTAudit.LocalNumerics.repaired_cut_and_cost",
+        "main:IUTAudit.LocalNumerics.swap23._proof_1",
+        "main:IUTAudit.LocalNumerics.swap23_rho_positions",
+        "main:IUTAudit.LocalNumerics.swap23_tuple_and_theta",
+        "main:IUTAudit.LocalNumerics.swap23_tuple_and_theta._proof_1_1",
+        "main:IUTAudit.LocalNumerics.transformed_sum_excludes_cut",
+        "main:IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_1",
+        "main:IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_2",
+        "main:IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_3",
+        "main:IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_4",
+        "main:IUTAudit.LocalNumerics.transformed_sum_excludes_cut._proof_1_5",
+        "main:IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut",
+        "main:IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_1",
+        "main:IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_2",
+        "main:IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_3",
+        "main:IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_4",
+        "main:IUTAudit.LocalNumerics.transformed_sum_inside_repaired_cut._proof_1_5",
+        "main:IUTAudit.Orbit.envelope_closed",
+        "main:IUTAudit.Orbit.envelope_covers",
+        "main:IUTAudit.Orbit.envelope_idempotent",
+        "main:IUTAudit.Orbit.envelope_minimal",
+        "main:IUTAudit.Orbit.envelope_minimal_closed",
+        "main:IUTAudit.Orbit.fixedLabel_envelope_closed",
+        "main:IUTAudit.Orbit.fixedLabel_envelope_full",
+        "main:IUTAudit.Orbit.fixedLabel_not_closed",
+        "main:IUTAudit.Orbit.image_mem_envelope",
+        "main:IUTAudit.Orbit.swapAction_witnesses",
+        "main:IUTAudit.Scale.erased_comparison_iff",
+        "main:IUTAudit.Scale.erased_comparison_iff._proof_1_1",
+        "main:IUTAudit.Scale.erased_comparison_unbounded",
+        "main:IUTAudit.Scale.erased_comparison_unbounded._proof_1_1",
+        "main:IUTAudit.Scale.no_uniform_bound",
+        "main:IUTAudit.Scale.no_uniform_bound._proof_1_4",
+        "main:IUTAudit.Scale.normalization_at_unit",
+        "main:IUTAudit.Scale.normalized_scale_preserves",
+        "main:IUTAudit.Scale.scale_composition",
+        "main:IUTAudit.Scale.scale_two_not_identity",
+        "main:IUTAudit.Scale.scaled.eq_1",
+        "main:IUTAudit.Scale.weighted_comparison_forces_bound",
+        "main:IUTAudit.Scale.weighted_comparison_forces_bound._proof_1_1",
+        "main:IUTAudit.Transport.Reindexing.comp._proof_1",
+        "main:IUTAudit.Transport.Reindexing.comp._proof_2",
+        "main:IUTAudit.Transport.Reindexing.left_inv",
+        "main:IUTAudit.Transport.Reindexing.mk.inj",
+        "main:IUTAudit.Transport.Reindexing.mk.injEq",
+        "main:IUTAudit.Transport.Reindexing.mk.sizeOf_spec",
+        "main:IUTAudit.Transport.Reindexing.right_inv",
+        "main:IUTAudit.Transport.SeededFamily.mk.inj",
+        "main:IUTAudit.Transport.SeededFamily.mk.injEq",
+        "main:IUTAudit.Transport.SeededFamily.mk.sizeOf_spec",
+        "main:IUTAudit.Transport.coupled_choice_counterexample",
+        "main:IUTAudit.Transport.familyImage_bound_iff",
+        "main:IUTAudit.Transport.rectangular_iff_product",
+        "main:IUTAudit.Transport.rho_follows_place",
+        "main:IUTAudit.Transport.transport_comp",
+        "main:IUTAudit.Transport.transport_projection"
+      ]
+    }
+  ],
+  "generated_utc": "2026-10-20T08:40:15.621817+00:00",
+  "scope": "Normalised elaborated statements plus axiom sets of every theorem in the three verification projects. Not a proof certificate: it pins meaning, not truth."
+}

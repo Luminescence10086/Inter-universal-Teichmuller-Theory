@@ -1,11 +1,12 @@
 {
   "command": [
     "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "--no-cache",
     "--wfail",
     "build",
     "IUTBridge"
   ],
   "exit_code": 0,
-  "stdout": "Build completed successfully (2001 jobs).\n",
+  "stdout": "Build completed successfully (2003 jobs).\n",
   "stderr": ""
 }

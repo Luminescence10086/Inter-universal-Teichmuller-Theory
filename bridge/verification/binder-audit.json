@@ -1,46 +1,16 @@
 {
-  "generated_utc": "2026-10-20T07:56:35.367999+00:00",
+  "generated_utc": "2026-10-20T09:30:41.631538+00:00",
   "declared_hypotheses": {
-    "IUTBridge.ScaleLedger.mem_layer_iff_norm_le": [],
-    "IUTBridge.ScaleLedger.mem_layer_iff_le_valuation": [
-      "hx"
+    "IUTBridge.Admissibility.frozen_isRectangular": [],
+    "IUTBridge.Admissibility.frozen_sigma_marginal": [],
+    "IUTBridge.Admissibility.latticeAdmissible_attained": [],
+    "IUTBridge.Admissibility.latticeAdmissible_not_rectangular": [],
+    "IUTBridge.Admissibility.latticeAdmissible_refl": [],
+    "IUTBridge.Admissibility.latticeAdmissible_unique": [
+      "hk",
+      "hm"
     ],
-    "IUTBridge.ScaleLedger.zero_mem_layer": [],
-    "IUTBridge.ScaleLedger.shift_apply": [],
-    "IUTBridge.ScaleLedger.shift_comp_apply": [],
-    "IUTBridge.ScaleLedger.norm_shift": [],
-    "IUTBridge.ScaleLedger.norm_factor_composition": [],
-    "IUTBridge.ScaleLedger.norm_factor_pow": [],
-    "IUTBridge.ScaleLedger.valuation_shift": [
-      "hx"
-    ],
-    "IUTBridge.ScaleLedger.shift_ne_zero": [
-      "hx"
-    ],
-    "IUTBridge.ScaleLedger.valuation_ledger_composition": [
-      "hx"
-    ],
-    "IUTBridge.ScaleLedger.layer_image_shift": [],
-    "IUTBridge.ScaleLedger.layer_subset_of_le": [
-      "h"
-    ],
-    "IUTBridge.ScaleLedger.layer_ssubset_of_lt": [
-      "h"
-    ],
-    "IUTBridge.ScaleLedger.layer_injective": [],
-    "IUTBridge.ScaleLedger.cost_exact": [],
-    "IUTBridge.ScaleLedger.map_one_determines": [],
-    "IUTBridge.ScaleLedger.image_ball_eq_layer": [],
-    "IUTBridge.ScaleLedger.existsUnique_layer_of_auto": [],
-    "IUTBridge.ScaleLedger.composeShift_apply": [],
-    "IUTBridge.ScaleLedger.composeShift_eq_shift_sum": [],
-    "IUTBridge.Admissibility.rectangular_iff_product": [],
-    "IUTBridge.Admissibility.not_rectangular_of_graph": [
-      "h1",
-      "h2",
-      "hne",
-      "hun"
-    ],
+    "IUTBridge.Admissibility.marginals_do_not_force_joint": [],
     "IUTBridge.Admissibility.marginals_insufficient_of_graph": [
       "h1",
       "h2",
@@ -49,41 +19,1186 @@
       "hright",
       "hun"
     ],
-    "IUTBridge.Admissibility.latticeAdmissible_unique": [
-      "hk",
-      "hm"
-    ],
-    "IUTBridge.Admissibility.latticeAdmissible_attained": [],
-    "IUTBridge.Admissibility.latticeAdmissible_refl": [],
     "IUTBridge.Admissibility.marginals_total": [],
-    "IUTBridge.Admissibility.latticeAdmissible_not_rectangular": [],
-    "IUTBridge.Admissibility.marginals_do_not_force_joint": [],
     "IUTBridge.Admissibility.normalised_isRectangular": [],
     "IUTBridge.Admissibility.normalised_sigma_marginal": [],
+    "IUTBridge.Admissibility.not_rectangular_of_graph": [
+      "h1",
+      "h2",
+      "hne",
+      "hun"
+    ],
+    "IUTBridge.Admissibility.rectangular_iff_product": [],
     "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer": [
       "h1",
       "h2",
       "hrect",
       "hsub"
     ],
-    "IUTBridge.Slots.relabel_injective": [],
-    "IUTBridge.Slots.relabel_trans": [],
-    "IUTBridge.Slots.relabel_slotwise": [],
-    "IUTBridge.Slots.valuation_relabel_slotwise": [
+    "IUTBridge.Integration.deltaTuple_ne_zero": [],
+    "IUTBridge.Integration.exists_combined_ledger_failure": [
+      "ha",
+      "hfailure"
+    ],
+    "IUTBridge.Integration.frozen_sigma_marginal_iff": [],
+    "IUTBridge.Integration.rectangular_nonempty_unique_layer": [
+      "hne",
+      "hrect",
+      "hsub"
+    ],
+    "IUTBridge.Integration.slotwise_commutes_iff": [],
+    "IUTBridge.Integration.weightedLedger_combined_invariant_all_iff": [
+      "ha"
+    ],
+    "IUTBridge.Integration.weightedLedger_combined_invariant_iff": [
+      "ha"
+    ],
+    "IUTBridge.Integration.weightedLedger_relabel_slotwise": [
       "ha",
       "hx"
     ],
+    "IUTBridge.Integration.weightedLedger_relabel_slotwise_support": [
+      "ha"
+    ],
+    "IUTBridge.ScaleLedger.composeShift_apply": [],
+    "IUTBridge.ScaleLedger.composeShift_eq_shift_sum": [],
+    "IUTBridge.ScaleLedger.cost_exact": [],
+    "IUTBridge.ScaleLedger.existsUnique_layer_of_auto": [],
+    "IUTBridge.ScaleLedger.image_ball_eq_layer": [],
+    "IUTBridge.ScaleLedger.layer_image_shift": [],
+    "IUTBridge.ScaleLedger.layer_injective": [],
+    "IUTBridge.ScaleLedger.layer_ssubset_of_lt": [
+      "h"
+    ],
+    "IUTBridge.ScaleLedger.layer_subset_of_le": [
+      "h"
+    ],
+    "IUTBridge.ScaleLedger.map_one_determines": [],
+    "IUTBridge.ScaleLedger.mem_layer_iff_le_valuation": [
+      "hx"
+    ],
+    "IUTBridge.ScaleLedger.mem_layer_iff_norm_le": [],
+    "IUTBridge.ScaleLedger.norm_factor_composition": [],
+    "IUTBridge.ScaleLedger.norm_factor_pow": [],
+    "IUTBridge.ScaleLedger.norm_shift": [],
+    "IUTBridge.ScaleLedger.shift_apply": [],
+    "IUTBridge.ScaleLedger.shift_comp_apply": [],
+    "IUTBridge.ScaleLedger.shift_ne_zero": [
+      "hx"
+    ],
+    "IUTBridge.ScaleLedger.valuation_ledger_composition": [
+      "hx"
+    ],
+    "IUTBridge.ScaleLedger.valuation_shift": [
+      "hx"
+    ],
+    "IUTBridge.ScaleLedger.zero_mem_layer": [],
+    "IUTBridge.Slots.mixingEquiv_commutes_swap": [],
+    "IUTBridge.Slots.mixingInv_left": [],
+    "IUTBridge.Slots.mixingInv_right": [],
+    "IUTBridge.Slots.mixingMap_add": [],
+    "IUTBridge.Slots.mixingMap_not_slotwise": [],
+    "IUTBridge.Slots.mixingMap_smul": [],
+    "IUTBridge.Slots.relabel_injective": [],
+    "IUTBridge.Slots.relabel_slotwise": [],
+    "IUTBridge.Slots.relabel_trans": [],
     "IUTBridge.Slots.slotwise_commutes_of_invariant": [
       "h"
     ],
     "IUTBridge.Slots.slotwise_not_commutes_of_witness": [
       "h"
     ],
-    "IUTBridge.Slots.uniform_scale_commutes": [],
+    "IUTBridge.Slots.swap23_exchanges_high_slots": [],
     "IUTBridge.Slots.swap23_fixes_low_slots": [],
-    "IUTBridge.Slots.swap23_exchanges_high_slots": []
+    "IUTBridge.Slots.uniform_scale_commutes": [],
+    "IUTBridge.Slots.valuation_relabel_slotwise": [
+      "ha",
+      "hx"
+    ],
+    "IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger": [
+      "hx"
+    ],
+    "IUTBridge.WeightedLedger.pilotLedger_not_invariant": [],
+    "IUTBridge.WeightedLedger.pilotWeights_not_invariant": [],
+    "IUTBridge.WeightedLedger.sum_perm": [],
+    "IUTBridge.WeightedLedger.totalLedger_relabel": [],
+    "IUTBridge.WeightedLedger.vprofile_delta": [],
+    "IUTBridge.WeightedLedger.vprofile_relabel": [],
+    "IUTBridge.WeightedLedger.vprofile_slotwise": [
+      "ha",
+      "hx"
+    ],
+    "IUTBridge.WeightedLedger.weightedLedger_delta": [],
+    "IUTBridge.WeightedLedger.weightedLedger_invariant_iff": [],
+    "IUTBridge.WeightedLedger.weightedLedger_invariant_of_symm": [
+      "hw"
+    ],
+    "IUTBridge.WeightedLedger.weightedLedger_relabel": [],
+    "IUTBridge.WeightedLedger.weightedLedger_slotwise": [
+      "ha",
+      "hx"
+    ],
+    "IUTBridge.WeightedLedger.weightedLedger_uniform": [
+      "hx"
+    ]
   },
   "rows": [
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "c",
+          "type": "ℤ"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.frozen_isRectangular"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "c",
+          "type": "ℤ"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.frozen_sigma_marginal"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.latticeAdmissible_attained"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.latticeAdmissible_not_rectangular"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.latticeAdmissible_refl"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "e",
+          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "m",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hk",
+          "type": "IUTBridge.Admissibility.LatticeAdmissible p e k"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hm",
+          "type": "IUTBridge.Admissibility.LatticeAdmissible p e m"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.latticeAdmissible_unique"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.marginals_do_not_force_joint"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "K",
+          "type": "Type u"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "S",
+          "type": "Type v"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "A",
+          "type": "K → S → Prop"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hun",
+          "type": "∀ (k : K) (s s' : S), A k s → A k s' → s = s'"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hleft",
+          "type": "∀ (k : K), IUTBridge.Admissibility.LeftAllowed A k"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hright",
+          "type": "∀ (s : S), IUTBridge.Admissibility.RightAllowed A s"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k1",
+          "type": "K"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k2",
+          "type": "K"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "s1",
+          "type": "S"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "s2",
+          "type": "S"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h1",
+          "type": "A k1 s1"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h2",
+          "type": "A k2 s2"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hne",
+          "type": "s1 ≠ s2"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.marginals_insufficient_of_graph"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.marginals_total"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.normalised_isRectangular"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.normalised_sigma_marginal"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "K",
+          "type": "Type u"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "S",
+          "type": "Type v"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "A",
+          "type": "K → S → Prop"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hun",
+          "type": "∀ (k : K) (s s' : S), A k s → A k s' → s = s'"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k1",
+          "type": "K"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k2",
+          "type": "K"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "s1",
+          "type": "S"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "s2",
+          "type": "S"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h1",
+          "type": "A k1 s1"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h2",
+          "type": "A k2 s2"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hne",
+          "type": "s1 ≠ s2"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.not_rectangular_of_graph"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "K",
+          "type": "Type u"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "S",
+          "type": "Type v"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "A",
+          "type": "K → S → Prop"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.rectangular_iff_product"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "R",
+          "type": "(ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) → ℤ → Prop"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hsub",
+          "type": "∀ (e : ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) (k : ℤ), R e k → IUTBridge.Admissibility.LatticeAdmissible p e k"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hrect",
+          "type": "IUTBridge.Admissibility.IsRectangular R"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "e1",
+          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "e2",
+          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k1",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k2",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h1",
+          "type": "R e1 k1"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h2",
+          "type": "R e2 k2"
+        }
+      ],
+      "id": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "i",
+          "type": "Fin n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "j",
+          "type": "Fin n"
+        }
+      ],
+      "id": "IUTBridge.Integration.deltaTuple_ne_zero"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "∀ (j : Fin n), a j ≠ 0"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hfailure",
+          "type": "(∃ j, w (σ j) ≠ w j) ∨ ∑ j, w j * (a j).valuation ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.Integration.exists_combined_ledger_failure"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "c",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        }
+      ],
+      "id": "IUTBridge.Integration.frozen_sigma_marginal_iff"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "R",
+          "type": "(ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) → ℤ → Prop"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hsub",
+          "type": "∀ (e : ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) (k : ℤ), R e k → IUTBridge.Admissibility.LatticeAdmissible p e k"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hrect",
+          "type": "IUTBridge.Admissibility.IsRectangular R"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hne",
+          "type": "∃ e k, R e k"
+        }
+      ],
+      "id": "IUTBridge.Integration.rectangular_nonempty_unique_layer"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        }
+      ],
+      "id": "IUTBridge.Integration.slotwise_commutes_iff"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "∀ (j : Fin n), a j ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.Integration.weightedLedger_combined_invariant_all_iff"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "∀ (j : Fin n), a j ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.Integration.weightedLedger_combined_invariant_iff"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "∀ (j : Fin n), a j ≠ 0"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "∀ (j : Fin n), x j ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.Integration.weightedLedger_relabel_slotwise"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "∀ (j : Fin n), a j ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.Integration.weightedLedger_relabel_slotwise_support"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "l",
+          "type": "List ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "ℚ_[p]"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.composeShift_apply"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "l",
+          "type": "List ℤ"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.composeShift_eq_shift_sum"
+    },
     {
       "binders": [
         {
@@ -111,11 +1226,228 @@
           "isExplicit": true,
           "isInstance": false,
           "isProp": false,
+          "name": "m",
+          "type": "ℤ"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.cost_exact"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "e",
+          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.existsUnique_layer_of_auto"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "e",
+          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.image_ball_eq_layer"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.layer_image_shift"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.layer_injective"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "m",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h",
+          "type": "k < m"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.layer_ssubset_of_lt"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "m",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h",
+          "type": "k ≤ m"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.layer_subset_of_le"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "e",
+          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
           "name": "x",
           "type": "ℚ_[p]"
         }
       ],
-      "id": "IUTBridge.ScaleLedger.mem_layer_iff_norm_le"
+      "id": "IUTBridge.ScaleLedger.map_one_determines"
     },
     {
       "binders": [
@@ -179,32 +1511,6 @@
           "isProp": false,
           "name": "k",
           "type": "ℤ"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.zero_mem_layer"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "n",
-          "type": "ℤ"
         },
         {
           "isExplicit": true,
@@ -214,80 +1520,7 @@
           "type": "ℚ_[p]"
         }
       ],
-      "id": "IUTBridge.ScaleLedger.shift_apply"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "n",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "m",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "x",
-          "type": "ℚ_[p]"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.shift_comp_apply"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "n",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "x",
-          "type": "ℚ_[p]"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.norm_shift"
+      "id": "IUTBridge.ScaleLedger.mem_layer_iff_norm_le"
     },
     {
       "binders": [
@@ -398,16 +1631,82 @@
           "isProp": false,
           "name": "x",
           "type": "ℚ_[p]"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.norm_shift"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
         },
         {
           "isExplicit": true,
           "isInstance": false,
-          "isProp": true,
-          "name": "hx",
-          "type": "x ≠ 0"
+          "isProp": false,
+          "name": "n",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "ℚ_[p]"
         }
       ],
-      "id": "IUTBridge.ScaleLedger.valuation_shift"
+      "id": "IUTBridge.ScaleLedger.shift_apply"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "m",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "ℚ_[p]"
+        }
+      ],
+      "id": "IUTBridge.ScaleLedger.shift_comp_apply"
     },
     {
       "binders": [
@@ -523,110 +1822,18 @@
           "isExplicit": true,
           "isInstance": false,
           "isProp": false,
-          "name": "k",
-          "type": "ℤ"
+          "name": "x",
+          "type": "ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "x ≠ 0"
         }
       ],
-      "id": "IUTBridge.ScaleLedger.layer_image_shift"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "m",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h",
-          "type": "k ≤ m"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.layer_subset_of_le"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "m",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h",
-          "type": "k < m"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.layer_ssubset_of_lt"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.layer_injective"
+      "id": "IUTBridge.ScaleLedger.valuation_shift"
     },
     {
       "binders": [
@@ -650,16 +1857,9 @@
           "isProp": false,
           "name": "k",
           "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "m",
-          "type": "ℤ"
         }
       ],
-      "id": "IUTBridge.ScaleLedger.cost_exact"
+      "id": "IUTBridge.ScaleLedger.zero_mem_layer"
     },
     {
       "binders": [
@@ -676,23 +1876,16 @@
           "isProp": true,
           "name": "hp",
           "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "e",
-          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
         },
         {
           "isExplicit": true,
           "isInstance": false,
           "isProp": false,
           "name": "x",
-          "type": "ℚ_[p]"
+          "type": "IUTBridge.Slots.Tuple p 2"
         }
       ],
-      "id": "IUTBridge.ScaleLedger.map_one_determines"
+      "id": "IUTBridge.Slots.mixingEquiv_commutes_swap"
     },
     {
       "binders": [
@@ -709,588 +1902,127 @@
           "isProp": true,
           "name": "hp",
           "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "e",
-          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.image_ball_eq_layer"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "e",
-          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.existsUnique_layer_of_auto"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "l",
-          "type": "List ℤ"
         },
         {
           "isExplicit": true,
           "isInstance": false,
           "isProp": false,
           "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 2"
+        }
+      ],
+      "id": "IUTBridge.Slots.mixingInv_left"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 2"
+        }
+      ],
+      "id": "IUTBridge.Slots.mixingInv_right"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 2"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "y",
+          "type": "IUTBridge.Slots.Tuple p 2"
+        }
+      ],
+      "id": "IUTBridge.Slots.mixingMap_add"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.Slots.mixingMap_not_slotwise"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "c",
           "type": "ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 2"
         }
       ],
-      "id": "IUTBridge.ScaleLedger.composeShift_apply"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "l",
-          "type": "List ℤ"
-        }
-      ],
-      "id": "IUTBridge.ScaleLedger.composeShift_eq_shift_sum"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "K",
-          "type": "Type u"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "S",
-          "type": "Type v"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "A",
-          "type": "K → S → Prop"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.rectangular_iff_product"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "K",
-          "type": "Type u"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "S",
-          "type": "Type v"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "A",
-          "type": "K → S → Prop"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hun",
-          "type": "∀ (k : K) (s s' : S), A k s → A k s' → s = s'"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k1",
-          "type": "K"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k2",
-          "type": "K"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "s1",
-          "type": "S"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "s2",
-          "type": "S"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h1",
-          "type": "A k1 s1"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h2",
-          "type": "A k2 s2"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hne",
-          "type": "s1 ≠ s2"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.not_rectangular_of_graph"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "K",
-          "type": "Type u"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "S",
-          "type": "Type v"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "A",
-          "type": "K → S → Prop"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hun",
-          "type": "∀ (k : K) (s s' : S), A k s → A k s' → s = s'"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hleft",
-          "type": "∀ (k : K), IUTBridge.Admissibility.LeftAllowed A k"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hright",
-          "type": "∀ (s : S), IUTBridge.Admissibility.RightAllowed A s"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k1",
-          "type": "K"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k2",
-          "type": "K"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "s1",
-          "type": "S"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "s2",
-          "type": "S"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h1",
-          "type": "A k1 s1"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h2",
-          "type": "A k2 s2"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hne",
-          "type": "s1 ≠ s2"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.marginals_insufficient_of_graph"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "e",
-          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "m",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hk",
-          "type": "IUTBridge.Admissibility.LatticeAdmissible p e k"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hm",
-          "type": "IUTBridge.Admissibility.LatticeAdmissible p e m"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.latticeAdmissible_unique"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k",
-          "type": "ℤ"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.latticeAdmissible_attained"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.latticeAdmissible_refl"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.marginals_total"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.latticeAdmissible_not_rectangular"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.marginals_do_not_force_joint"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.normalised_isRectangular"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k",
-          "type": "ℤ"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.normalised_sigma_marginal"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "R",
-          "type": "(ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) → ℤ → Prop"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hsub",
-          "type": "∀ (e : ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) (k : ℤ), R e k → IUTBridge.Admissibility.LatticeAdmissible p e k"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hrect",
-          "type": "IUTBridge.Admissibility.IsRectangular R"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "e1",
-          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "e2",
-          "type": "ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k1",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "k2",
-          "type": "ℤ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h1",
-          "type": "R e1 k1"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "h2",
-          "type": "R e2 k2"
-        }
-      ],
-      "id": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer"
+      "id": "IUTBridge.Slots.mixingMap_smul"
     },
     {
       "binders": [
@@ -1324,53 +2056,6 @@
         }
       ],
       "id": "IUTBridge.Slots.relabel_injective"
-    },
-    {
-      "binders": [
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "p",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": true,
-          "isProp": true,
-          "name": "hp",
-          "type": "Fact (Nat.Prime p)"
-        },
-        {
-          "isExplicit": false,
-          "isInstance": false,
-          "isProp": false,
-          "name": "n",
-          "type": "ℕ"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "σ",
-          "type": "Equiv.Perm (Fin n)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "τ",
-          "type": "Equiv.Perm (Fin n)"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "x",
-          "type": "IUTBridge.Slots.Tuple p n"
-        }
-      ],
-      "id": "IUTBridge.Slots.relabel_trans"
     },
     {
       "binders": [
@@ -1453,8 +2138,8 @@
           "isExplicit": true,
           "isInstance": false,
           "isProp": false,
-          "name": "a",
-          "type": "Fin n → ℚ_[p]"
+          "name": "τ",
+          "type": "Equiv.Perm (Fin n)"
         },
         {
           "isExplicit": true,
@@ -1462,30 +2147,9 @@
           "isProp": false,
           "name": "x",
           "type": "IUTBridge.Slots.Tuple p n"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": false,
-          "name": "j",
-          "type": "Fin n"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "ha",
-          "type": "a ((Equiv.symm σ) j) ≠ 0"
-        },
-        {
-          "isExplicit": true,
-          "isInstance": false,
-          "isProp": true,
-          "name": "hx",
-          "type": "x ((Equiv.symm σ) j) ≠ 0"
         }
       ],
-      "id": "IUTBridge.Slots.valuation_relabel_slotwise"
+      "id": "IUTBridge.Slots.relabel_trans"
     },
     {
       "binders": [
@@ -1612,6 +2276,58 @@
           "type": "Fact (Nat.Prime p)"
         },
         {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 4"
+        }
+      ],
+      "id": "IUTBridge.Slots.swap23_exchanges_high_slots"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 4"
+        }
+      ],
+      "id": "IUTBridge.Slots.swap23_fixes_low_slots"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
           "isExplicit": false,
           "isInstance": false,
           "isProp": false,
@@ -1659,14 +2375,56 @@
           "type": "Fact (Nat.Prime p)"
         },
         {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
           "isExplicit": true,
           "isInstance": false,
           "isProp": false,
           "name": "x",
-          "type": "IUTBridge.Slots.Tuple p 4"
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "j",
+          "type": "Fin n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "a ((Equiv.symm σ) j) ≠ 0"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "x ((Equiv.symm σ) j) ≠ 0"
         }
       ],
-      "id": "IUTBridge.Slots.swap23_fixes_low_slots"
+      "id": "IUTBridge.Slots.valuation_relabel_slotwise"
     },
     {
       "binders": [
@@ -1685,14 +2443,554 @@
           "type": "Fact (Nat.Prime p)"
         },
         {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
           "isExplicit": true,
           "isInstance": false,
           "isProp": false,
           "name": "x",
-          "type": "IUTBridge.Slots.Tuple p 4"
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "∀ (j : Fin n), x j ≠ 0"
         }
       ],
-      "id": "IUTBridge.Slots.swap23_exchanges_high_slots"
+      "id": "IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.pilotLedger_not_invariant"
+    },
+    {
+      "binders": [],
+      "id": "IUTBridge.WeightedLedger.pilotWeights_not_invariant"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "f",
+          "type": "Fin n → ℤ"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.sum_perm"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.totalLedger_relabel"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "i",
+          "type": "Fin n"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.vprofile_delta"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "j",
+          "type": "Fin n"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.vprofile_relabel"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "j",
+          "type": "Fin n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "a j ≠ 0"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "x j ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.vprofile_slotwise"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "i",
+          "type": "Fin n"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.weightedLedger_delta"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.weightedLedger_invariant_iff"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hw",
+          "type": "∀ (j : Fin n), w (σ j) = w j"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.weightedLedger_invariant_of_symm"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.weightedLedger_relabel"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "∀ (j : Fin n), a j ≠ 0"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "∀ (j : Fin n), x j ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.weightedLedger_slotwise"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "w",
+          "type": "Fin n → ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "k",
+          "type": "ℤ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "∀ (j : Fin n), x j ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.WeightedLedger.weightedLedger_uniform"
     }
   ]
 }

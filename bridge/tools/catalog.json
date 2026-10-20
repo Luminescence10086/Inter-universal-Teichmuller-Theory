@@ -1,6 +1,206 @@
 [
   {
-    "id": "IUTBridge.ScaleLedger.mem_layer_iff_norm_le",
+    "id": "IUTBridge.Admissibility.frozen_isRectangular",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.frozen_sigma_marginal",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_attained",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_not_rectangular",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_refl",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_unique",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hk",
+      "hm"
+    ]
+  },
+  {
+    "id": "IUTBridge.Admissibility.marginals_do_not_force_joint",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.marginals_insufficient_of_graph",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hun",
+      "hleft",
+      "hright",
+      "h1",
+      "h2",
+      "hne"
+    ]
+  },
+  {
+    "id": "IUTBridge.Admissibility.marginals_total",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.normalised_isRectangular",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.normalised_sigma_marginal",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.not_rectangular_of_graph",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hun",
+      "h1",
+      "h2",
+      "hne"
+    ]
+  },
+  {
+    "id": "IUTBridge.Admissibility.rectangular_iff_product",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hsub",
+      "hrect",
+      "h1",
+      "h2"
+    ]
+  },
+  {
+    "id": "IUTBridge.Integration.deltaTuple_ne_zero",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Integration.exists_combined_ledger_failure",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": [
+      "ha",
+      "hfailure"
+    ]
+  },
+  {
+    "id": "IUTBridge.Integration.frozen_sigma_marginal_iff",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Integration.rectangular_nonempty_unique_layer",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": [
+      "hsub",
+      "hrect",
+      "hne"
+    ]
+  },
+  {
+    "id": "IUTBridge.Integration.slotwise_commutes_iff",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Integration.weightedLedger_combined_invariant_all_iff",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": [
+      "ha"
+    ]
+  },
+  {
+    "id": "IUTBridge.Integration.weightedLedger_combined_invariant_iff",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": [
+      "ha"
+    ]
+  },
+  {
+    "id": "IUTBridge.Integration.weightedLedger_relabel_slotwise",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": [
+      "ha",
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.Integration.weightedLedger_relabel_slotwise_support",
+    "source": "IUTBridge/Integration.lean",
+    "hypotheses": [
+      "ha"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.composeShift_apply",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.composeShift_eq_shift_sum",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.cost_exact",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.existsUnique_layer_of_auto",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.image_ball_eq_layer",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_image_shift",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_injective",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_ssubset_of_lt",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "h"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_subset_of_le",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "h"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.map_one_determines",
     "source": "IUTBridge/ScaleLedger.lean",
     "hypotheses": []
   },
@@ -12,22 +212,7 @@
     ]
   },
   {
-    "id": "IUTBridge.ScaleLedger.zero_mem_layer",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.shift_apply",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.shift_comp_apply",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.norm_shift",
+    "id": "IUTBridge.ScaleLedger.mem_layer_iff_norm_le",
     "source": "IUTBridge/ScaleLedger.lean",
     "hypotheses": []
   },
@@ -42,11 +227,19 @@
     "hypotheses": []
   },
   {
-    "id": "IUTBridge.ScaleLedger.valuation_shift",
+    "id": "IUTBridge.ScaleLedger.norm_shift",
     "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": [
-      "hx"
-    ]
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.shift_apply",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.shift_comp_apply",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
   },
   {
     "id": "IUTBridge.ScaleLedger.shift_ne_zero",
@@ -63,146 +256,49 @@
     ]
   },
   {
-    "id": "IUTBridge.ScaleLedger.layer_image_shift",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.layer_subset_of_le",
+    "id": "IUTBridge.ScaleLedger.valuation_shift",
     "source": "IUTBridge/ScaleLedger.lean",
     "hypotheses": [
-      "h"
+      "hx"
     ]
   },
   {
-    "id": "IUTBridge.ScaleLedger.layer_ssubset_of_lt",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": [
-      "h"
-    ]
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.layer_injective",
+    "id": "IUTBridge.ScaleLedger.zero_mem_layer",
     "source": "IUTBridge/ScaleLedger.lean",
     "hypotheses": []
   },
   {
-    "id": "IUTBridge.ScaleLedger.cost_exact",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.map_one_determines",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.image_ball_eq_layer",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.existsUnique_layer_of_auto",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.composeShift_apply",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.ScaleLedger.composeShift_eq_shift_sum",
-    "source": "IUTBridge/ScaleLedger.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.rectangular_iff_product",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.not_rectangular_of_graph",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": [
-      "hun",
-      "h1",
-      "h2",
-      "hne"
-    ]
-  },
-  {
-    "id": "IUTBridge.Admissibility.marginals_insufficient_of_graph",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": [
-      "hun",
-      "hleft",
-      "hright",
-      "h1",
-      "h2",
-      "hne"
-    ]
-  },
-  {
-    "id": "IUTBridge.Admissibility.latticeAdmissible_unique",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": [
-      "hk",
-      "hm"
-    ]
-  },
-  {
-    "id": "IUTBridge.Admissibility.latticeAdmissible_attained",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.latticeAdmissible_refl",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.marginals_total",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.latticeAdmissible_not_rectangular",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.marginals_do_not_force_joint",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.normalised_isRectangular",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.normalised_sigma_marginal",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": []
-  },
-  {
-    "id": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer",
-    "source": "IUTBridge/Admissibility.lean",
-    "hypotheses": [
-      "hsub",
-      "hrect",
-      "h1",
-      "h2"
-    ]
-  },
-  {
-    "id": "IUTBridge.Slots.relabel_injective",
+    "id": "IUTBridge.Slots.mixingEquiv_commutes_swap",
     "source": "IUTBridge/Slots.lean",
     "hypotheses": []
   },
   {
-    "id": "IUTBridge.Slots.relabel_trans",
+    "id": "IUTBridge.Slots.mixingInv_left",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.mixingInv_right",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.mixingMap_add",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.mixingMap_not_slotwise",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.mixingMap_smul",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.relabel_injective",
     "source": "IUTBridge/Slots.lean",
     "hypotheses": []
   },
@@ -212,12 +308,9 @@
     "hypotheses": []
   },
   {
-    "id": "IUTBridge.Slots.valuation_relabel_slotwise",
+    "id": "IUTBridge.Slots.relabel_trans",
     "source": "IUTBridge/Slots.lean",
-    "hypotheses": [
-      "ha",
-      "hx"
-    ]
+    "hypotheses": []
   },
   {
     "id": "IUTBridge.Slots.slotwise_commutes_of_invariant",
@@ -234,7 +327,7 @@
     ]
   },
   {
-    "id": "IUTBridge.Slots.uniform_scale_commutes",
+    "id": "IUTBridge.Slots.swap23_exchanges_high_slots",
     "source": "IUTBridge/Slots.lean",
     "hypotheses": []
   },
@@ -244,8 +337,98 @@
     "hypotheses": []
   },
   {
-    "id": "IUTBridge.Slots.swap23_exchanges_high_slots",
+    "id": "IUTBridge.Slots.uniform_scale_commutes",
     "source": "IUTBridge/Slots.lean",
     "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.valuation_relabel_slotwise",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": [
+      "ha",
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": [
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.pilotLedger_not_invariant",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.pilotWeights_not_invariant",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.sum_perm",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.totalLedger_relabel",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.vprofile_delta",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.vprofile_relabel",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.vprofile_slotwise",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": [
+      "ha",
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.weightedLedger_delta",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.weightedLedger_invariant_iff",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.weightedLedger_invariant_of_symm",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": [
+      "hw"
+    ]
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.weightedLedger_relabel",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.weightedLedger_slotwise",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": [
+      "ha",
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.WeightedLedger.weightedLedger_uniform",
+    "source": "IUTBridge/WeightedLedger.lean",
+    "hypotheses": [
+      "hx"
+    ]
   }
 ]

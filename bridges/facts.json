@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_utc": "2026-10-20T07:46:41.942874+00:00",
+  "generated_utc": "2026-10-20T09:34:13.454660+00:00",
   "projects": {
     "main": ".",
     "local": "local-field",
@@ -70,7 +70,7 @@
     {
       "id": "BR-03",
       "kind": "statement_identity",
-      "claim": "The rectangularity interface (LeftAllowed, RightAllowed, IsRectangular) and the equivalence 'rectangular iff the joint relation is the product of its marginals' are the same proposition in both toolchains.",
+      "claim": "The rectangularity interface (LeftAllowed, RightAllowed, IsRectangular) and the equivalence 'rectangular iff the joint relation is the product of its marginals' are carried over to the second toolchain: the elaborated statements agree after namespace normalisation, the elaborated types of the three vendored definitions agree, and their full diagnostic printed definition bodies is checked for identity by the auditor. This is an interface-identity audit, NOT a kernel-level proof transfer and NOT a claim of semantic equivalence across toolchains.",
       "abstract": {
         "project": "main",
         "theorem": "IUTAudit.Transport.rectangular_iff_product"
@@ -89,8 +89,11 @@
         "1 concrete endpoint(s) elaborated, axioms approved",
         "elaborated statements identical after prefix normalisation",
         "vendored definition type identical: LeftAllowed",
+        "vendored definition body text identical: LeftAllowed",
         "vendored definition type identical: RightAllowed",
+        "vendored definition body text identical: RightAllowed",
         "vendored definition type identical: IsRectangular",
+        "vendored definition body text identical: IsRectangular",
         "contract declares no IUT object constructed"
       ],
       "proof_transfer": false,
@@ -130,7 +133,7 @@
     {
       "id": "BR-05",
       "kind": "new_result",
-      "claim": "In the base field, moving the ladder container from one layer to another costs exactly the exponent difference and nothing else, and the ladder is a strictly increasing infinite filtration. This supplies the exact price of a container-widening repair at the level of base-field lattices, without any claim about IUT volumes.",
+      "claim": "In the base field the ladder is strictly *antitone* — a larger index is a smaller ball, so `k ≤ m` gives `layer m ⊆ layer k` and widening goes towards smaller indices. Moving from `layer k` to `layer m` is realised by the single dilation of signed exponent `m - k`. This is an identity between sets of p-adic numbers; it defines no measure, no volume, no log-volume and no optimal price, and must not be read as a quantitative cost formula.",
       "abstract": null,
       "concrete": [
         "IUTBridge.ScaleLedger.cost_exact",
@@ -202,6 +205,90 @@
         "abstract endpoint elaborated: IUTAudit.LocalNumerics.swap23_tuple_and_theta",
         "5 concrete endpoint(s) elaborated, axioms approved",
         "instantiation edge: statements differ by design, no identity claimed",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-08",
+      "kind": "instantiation",
+      "claim": "Arbitrary integer-weighted valuation ledgers on actual p-adic tuples have exact slotwise scaling and relabelling formulas. Preservation under all relabelled tuples is equivalent to invariant weights. Separately, on coordinatewise nonzero tuples, the product of element norms equals p raised to the negative UNWEIGHTED total ledger. The hand-chosen vector (1,1,2,1) is a test example only.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.weighted_comparison_forces_bound"
+      },
+      "concrete": [
+        "IUTBridge.WeightedLedger.weightedLedger_slotwise",
+        "IUTBridge.WeightedLedger.weightedLedger_invariant_iff",
+        "IUTBridge.WeightedLedger.pilotLedger_not_invariant",
+        "IUTBridge.WeightedLedger.totalLedger_relabel",
+        "IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger"
+      ],
+      "external_anchors": [
+        "Padic.norm_eq_zpow_neg_valuation",
+        "Padic.valuation_mul"
+      ],
+      "not_constructed": [
+        "pilot weight realisation from real theta data",
+        "holomorphic hull",
+        "tensor normalisation",
+        "global error budget"
+      ],
+      "checks": [
+        "abstract endpoint elaborated: IUTAudit.Scale.weighted_comparison_forces_bound",
+        "5 concrete endpoint(s) elaborated, axioms approved",
+        "instantiation edge: statements differ by design, no identity claimed",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-09",
+      "kind": "new_result",
+      "claim": "For coordinatewise nonzero scalars, scaling followed by relabelling preserves the weighted ledger on every coordinatewise nonzero tuple iff the weights are invariant and the total weighted valuation budget is zero. On all tuples including zeros, each slot budget must vanish separately. The support formula records the difference of domains.",
+      "abstract": null,
+      "concrete": [
+        "IUTBridge.Integration.weightedLedger_relabel_slotwise",
+        "IUTBridge.Integration.weightedLedger_combined_invariant_iff",
+        "IUTBridge.Integration.weightedLedger_relabel_slotwise_support",
+        "IUTBridge.Integration.weightedLedger_combined_invariant_all_iff"
+      ],
+      "external_anchors": [],
+      "not_constructed": [
+        "actual admissible input region and its probe tuples",
+        "real pilot weights",
+        "Ism action identification",
+        "measure or volume bound"
+      ],
+      "checks": [
+        "4 concrete endpoint(s) elaborated, axioms approved",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-10",
+      "kind": "new_result",
+      "claim": "For every fixed integer c the frozen target-layer relation has marginal exactly {c}. A nonempty rectangular subrelation of lattice admissibility realizes exactly one layer; the nonempty witness is explicit.",
+      "abstract": null,
+      "concrete": [
+        "IUTBridge.Integration.frozen_sigma_marginal_iff",
+        "IUTBridge.Integration.rectangular_nonempty_unique_layer"
+      ],
+      "external_anchors": [],
+      "not_constructed": [
+        "actual IUT joint admissibility relation",
+        "seed-region witness",
+        "joint Ism/Kummer realization"
+      ],
+      "checks": [
+        "2 concrete endpoint(s) elaborated, axioms approved",
         "contract declares no IUT object constructed"
       ],
       "proof_transfer": false,

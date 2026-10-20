@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:\\msys64\\ucrt64\\bin\\python.exe",
+    "-X",
+    "utf8",
+    "tools/semantic_lock.py",
+    "--accept",
+    "--note",
+    "Round 8: reviewed initial statement and definition fingerprint baseline after kernel, axiom, binder and actual VS Code acceptance; no semantic equivalence or novelty claim."
+  ],
+  "exit_code": 0,
+  "stdout": "Change ledger: 312 constants; changed=0, removed=0, added=312; baseline_recorded=True\n",
+  "stderr": "",
+  "seconds": 318.9196717739105
+}

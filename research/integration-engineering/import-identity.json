@@ -1,0 +1,10 @@
+{
+  "shared_runtime_artifacts": 13006,
+  "mismatches": [],
+  "imported_local_artifacts": {
+    "D:\\Inter-universal Teichmüller Theory\\local-field\\.lake\\build\\lib\\lean\\LocalFieldAudit\\Filtration.olean": "5a92731af7dac9aea3c99c4cb3ae280dd7fd816331332a8c25655f9b6fd1d3d1",
+    "D:\\Inter-universal Teichmüller Theory\\local-field\\.lake\\build\\lib\\lean\\LocalFieldAudit\\Shell.olean": "057284a67c77e26dd694d6c22bfa1166abc8a747956ebe47dd314cb1fd0591b3"
+  },
+  "kernel_import_identity_checked": true,
+  "note": "New bridge also pins .olean.hash build metadata; old local-field receipt does not include those optional hash files. Shared .olean kernel artifacts agree."
+}

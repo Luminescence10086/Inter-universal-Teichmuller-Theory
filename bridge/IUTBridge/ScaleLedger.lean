@@ -21,9 +21,10 @@ computed for the same object:
 * the **valuation ledger** is additive: `(shift n (shift m x)).valuation = n + m + x.valuation`.
 
 Telescoping over a list of exponents is then path independent: the composite
-rescaling equals the rescaling by the list sum. This is the exact integer
-bookkeeping that the abstract model only assumes, and it is what a discrete
-"container widening" costs in the base field.
+rescaling equals the rescaling by the list sum. This is the integer index bookkeeping
+that the abstract model only assumes. It is *not* a volume or cost estimate: no
+measure is defined here, and `cost_exact` records only the signed index difference of
+a ladder move.
 
 Scope. Everything here is the **base field** `Q_p` of Mathlib, with finite
 valuation on nonzero elements. No ramified extension, no normalization of a
@@ -65,9 +66,9 @@ theorem mem_layer_iff_norm_le (k : Int) (x : ℚ_[p]) :
     x ∈ layer p k ↔ ‖x‖ ≤ (p : ℝ) ^ (-k) :=
   LocalFieldAudit.Filtration.mem_zpow_ball_iff_norm_le p k x
 
-/-- Valuation reading of a layer. The finite valuation is only defined on
-nonzero elements, so the zero element is excluded here on purpose. Larger index
-means a strictly smaller set: `layer k = {x | k ≤ v x}`. -/
+/-- Valuation reading away from zero. Mathlib sets `valuation 0 = 0`;
+the nonzero premise is needed for this membership equivalence. Larger index
+means a smaller layer, with membership characterized here by `k ≤ v x`. -/
 theorem mem_layer_iff_le_valuation (k : Int) (x : ℚ_[p]) (hx : x ≠ 0) :
     x ∈ layer p k ↔ k ≤ x.valuation :=
   LocalFieldAudit.Filtration.mem_zpow_ball_iff_le_valuation p k x hx
@@ -162,7 +163,7 @@ theorem layer_subset_of_le {k m : Int} (h : k ≤ m) : layer p m ⊆ layer p k :
   rw [mem_layer_iff_norm_le] at hx ⊢
   exact hx.trans ((zpow_le_zpow_iff_right₀ (one_lt_pR p)).mpr (by omega))
 
-/-- **Strict monotonicity.** Distinct indices give genuinely different balls, so
+/-- **Strict antitonicity.** Distinct indices give genuinely different balls, so
 the ladder is an infinite filtration and not one repeated set. -/
 theorem layer_ssubset_of_lt {k m : Int} (h : k < m) : layer p m ⊂ layer p k := by
   refine ⟨layer_subset_of_le p h.le, ?_⟩
@@ -187,10 +188,12 @@ theorem layer_injective : Function.Injective (layer p) := by
     rw [h] at this
     exact this.2 subset_rfl
 
-/-- **Exact container-widening cost.** Moving the ladder container from `layer k`
-to `layer m` is realized by the single dilation of exponent `m - k`; in the base
-field the cost of widening is therefore exactly that exponent difference and
-nothing else. -/
+/-- **The layer-move identity.** The image of `layer k` under the dilation of exponent
+`m - k` is exactly `layer m`. This is an identity between sets of p-adic numbers: it
+records the *signed index difference* of a ladder move. No measure, volume,
+log-volume, or optimality of a "cost" is defined or proved here, so the statement must
+not be read as a quantitative cost formula. Note also that the ladder is antitone, so
+`m < k` is the widening direction. -/
 theorem cost_exact (k m : Int) : shift p (m - k) '' layer p k = layer p m := by
   rw [layer_image_shift, show k + (m - k) = m by omega]
 

@@ -19,10 +19,11 @@ automorphism `e` sends the actual unit ball onto the actual integer layer
 * therefore the relation is **not rectangular**, and separate marginal
   admissibility does not produce a joint witness.
 
-The contrast is made precise as well: on the *normalised* sub-relation, which
-fixes the layer at `0`, rectangularity holds. Independent marginal reasoning is
-legitimate exactly in the normalised case; the unrestricted rescaling freedom of
-the ladder is what destroys the product structure.
+The contrast is made precise as well: freezing the layer makes the relation
+rectangular. Fixing the layer at `0` is one such choice, and `frozen_isRectangular`
+proves that **any** fixed integer `c` works equally — so the necessary condition is
+"at most one layer is realised", not "the layer is `0`". What destroys the product
+structure is the freedom to realise several layers at once.
 
 Scope. `layer` is a set of p-adic numbers, never a `Q_p`-subspace, and `e` ranges
 over `Q_p`-linear automorphisms of the base field, not over any Ism group. No
@@ -165,11 +166,10 @@ theorem marginals_do_not_force_joint :
         ¬ IsRectangular (LatticeAdmissible p) :=
   ⟨(marginals_total p).1, (marginals_total p).2, latticeAdmissible_not_rectangular p⟩
 
-/-- **Where marginal reasoning is legitimate.** On the normalised sub-relation —
-the one that fixes the frozen layer at `0` — rectangularity holds. Independent
-choice is therefore sound exactly when the lattice direction is frozen, and it is
-the unrestricted rescaling freedom of the ladder that destroys the product
-structure. -/
+/-- **Where marginal reasoning is legitimate.** On the sub-relation that freezes the
+layer at `0`, rectangularity holds. Freezing the lattice direction is what makes
+independent choice sound; `0` here is a choice, not the only possible one (see
+`frozen_isRectangular`). -/
 theorem normalised_isRectangular :
     IsRectangular (fun (e : ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) (k : Int) =>
       LatticeAdmissible p e k ∧ k = 0) := by
@@ -177,6 +177,25 @@ theorem normalised_isRectangular :
   obtain ⟨h1A, h1k⟩ := h1
   obtain ⟨-, h2k⟩ := h2
   exact ⟨(h1k.trans h2k.symm) ▸ h1A, h2k⟩
+
+/-- **Any fixed layer is rectangular.** Freezing the ladder at an arbitrary integer
+`c` — not only at `0` — also makes independent marginal reasoning sound. The
+necessary condition is therefore "at most one layer is realised", and the choice of
+which layer is free. -/
+theorem frozen_isRectangular (c : Int) :
+    IsRectangular (fun (e : ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) (k : Int) =>
+      LatticeAdmissible p e k ∧ k = c) := by
+  intro e1 e2 k1 k2 h1 h2
+  obtain ⟨h1A, h1k⟩ := h1
+  obtain ⟨-, h2k⟩ := h2
+  exact ⟨(h1k.trans h2k.symm) ▸ h1A, h2k⟩
+
+/-- The frozen relation at `c` has an admissible witness at `c`.
+`Integration.frozen_sigma_marginal_iff` gives the full singleton characterization. -/
+theorem frozen_sigma_marginal (c : Int) :
+    RightAllowed (fun (e : ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]) (k : Int) =>
+      LatticeAdmissible p e k ∧ k = c) c :=
+  ⟨IUTBridge.ScaleLedger.shift p c, latticeAdmissible_attained p c, rfl⟩
 
 /-- The normalised relation has no admissible pair at a nonzero layer, so its
 sigma-marginal is exactly `{0}`: freezing the lattice is a real restriction and

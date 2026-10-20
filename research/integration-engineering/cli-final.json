@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\msys64\\ucrt64\\bin\\python.exe",
+    "-X",
+    "utf8",
+    "tools/verify.py"
+  ],
+  "cwd": "bridge",
+  "exit_code": 0,
+  "stdout": "Integrated CLI checks passed; admitted=73, pending=0, receipt_valid=True.\n",
+  "stderr": "",
+  "seconds": 430.27507400512695
+}

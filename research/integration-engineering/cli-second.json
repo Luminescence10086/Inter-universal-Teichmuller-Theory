@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\msys64\\ucrt64\\bin\\python.exe",
+    "-X",
+    "utf8",
+    "tools/verify.py"
+  ],
+  "cwd": "bridge",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\Inter-universal Teichmüller Theory\\bridge\\tools\\verify.py\", line 8, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\Inter-universal Teichmüller Theory\\bridge\\tools\\verify_integrated.py\", line 316, in main\n    raise RuntimeError('Project inputs changed during/after checking')\nRuntimeError: Project inputs changed during/after checking\n",
+  "seconds": 657.6361243724823
+}

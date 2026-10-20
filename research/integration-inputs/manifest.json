@@ -1,0 +1,9 @@
+{
+  "bridge/IUTBridge/ScaleLedger.lean": "aa2a7bf3816b4c16e1e36fad3f07b89e200ee395946d1beb56c1fad785435935",
+  "bridge/IUTBridge/Admissibility.lean": "49da4236f1e8953aefe46a087284725050ec244b66ed148cff4c41a6ea90c5b2",
+  "bridge/IUTBridge/Slots.lean": "cf11025da52c013a4c623fe86c7f3dcfd3cb467ef6f5dbda1cb0f9dbe694d9a8",
+  "bridge/IUTBridge/WeightedLedger.lean": "951d88c7cc06b39c51d552f6f7b4fd231c78d158d4906b23a8ddaaa60949ee47",
+  "bridge/tools/catalog.json": "a8072f0f0d8ea490052ab673ca6cc59d119175ba5378bb57ddc8d7cb10aa60bb",
+  "tools/statement_lock.py": "bc5bfc62f82d261cf283546bdc404422a8137445b80c3f9e2ef224c2233ed40b",
+  "bridges/contracts.json": "bd92ad7791e854efcd6f54a2b084d3d87fbc59729d9575791426763f89e32dc0"
+}

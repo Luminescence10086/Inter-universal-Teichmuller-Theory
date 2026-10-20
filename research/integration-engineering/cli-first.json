@@ -1,0 +1,13 @@
+{
+  "command": [
+    "C:\\msys64\\ucrt64\\bin\\python.exe",
+    "-X",
+    "utf8",
+    "tools/verify.py"
+  ],
+  "cwd": "bridge",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"D:\\Inter-universal Teichmüller Theory\\bridge\\tools\\verify.py\", line 8, in <module>\n    main()\n    ~~~~^^\n  File \"D:\\Inter-universal Teichmüller Theory\\bridge\\tools\\verify_integrated.py\", line 250, in main\n    deps_before = dependency_snapshot()\n  File \"D:\\Inter-universal Teichmüller Theory\\bridge\\tools\\verify_integrated.py\", line 94, in dependency_snapshot\n    identity = external_git_identity(dep / 'external-lock.json')\n  File \"D:\\Inter-universal Teichmüller Theory\\bridge\\tools\\verify_integrated.py\", line 78, in external_git_identity\n    raise RuntimeError('External package config changed: ' + package['name'])\nRuntimeError: External package config changed: proofwidgets\n",
+  "seconds": 1.1646809577941895
+}

@@ -10,12 +10,11 @@ The repository now has three verification projects on two Lean toolchains:
 can be imported from `main` into `bridge` (different toolchain), so every
 main-to-bridge edge is an *audited contract* instead: the elaborated statements
 are compared as text after namespace normalisation, and vendored definitions are
-compared by their elaborated types. This tool performs exactly that audit and
+compared by their elaborated types AND diagnostic definition-body text. This tool performs that audit and
 refuses to describe it as a proof transfer.
 
-What it does NOT do: it does not prove the bridge. Statement-text equality plus
-definition-type equality is strong evidence that the two projects talk about the
-same proposition, but only a same-toolchain import is kernel-checked. Every
+What it does NOT do: it does not prove the bridge. Text comparisons are conservative
+change/correspondence checks, not a proof of semantic equivalence. Every
 result records `proof_transfer: false`.
 
 Exit code is non-zero on any inconsistency, including a stale export.
@@ -26,6 +25,8 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from freshness import validate_project
+from semantic_lock import definition_bodies
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACTS = ROOT / 'bridges' / 'contracts.json'
@@ -46,6 +47,13 @@ def norm_statement(text, prefixes):
     return re.sub(r'\s+', ' ', text).strip()
 
 
+def vendored_matches(left, right, left_body, right_body, prefixes):
+    """Two distinct textual checks; neither is cross-kernel proof transfer."""
+    return (norm_statement(left['statement'], prefixes) ==
+            norm_statement(right['statement'], prefixes),
+            norm_statement(left_body, prefixes) == norm_statement(right_body, prefixes))
+
+
 def project_constants(project):
     """Load a project's exported constants, refusing a stale export."""
     base = PROJECTS[project]
@@ -56,26 +64,9 @@ def project_constants(project):
                            f'run the project verifier first')
     if not check_path.exists():
         raise RuntimeError(f'{project}: missing verification/checked-inputs.json')
-    rows = load_json(const_path)
-    checked = load_json(check_path)
-    recorded = checked.get('input_sha256', {})
-    rows_by_id = {row['id']: row for row in rows}
-    # Freshness: every proof source named by the export must still hash as recorded.
-    import hashlib
-    stale = []
-    for rel, expected in recorded.items():
-        if not rel.endswith('.lean'):
-            continue
-        path = base / rel
-        if not path.exists():
-            stale.append(rel + ' (missing)')
-            continue
-        actual = hashlib.file_digest(path.open('rb'), 'sha256').hexdigest()
-        if actual != expected:
-            stale.append(rel)
-    if stale:
-        raise RuntimeError(f'{project}: stale export, rerun that project\'s verifier: {stale}')
-    return rows_by_id, checked
+    # Recompute complete source/config/tool input sets, dependency identity and
+    # actual imported runtime. Pending CLI candidates cannot certify contracts.
+    return validate_project(base, deep=True)
 
 
 def require_theorem(project, name, rows_by_id):
@@ -96,6 +87,7 @@ def main():
     rows = {}
     for project in PROJECTS:
         rows[project], _ = project_constants(project)
+    bodies = {project: definition_bodies(PROJECTS[project]) for project in ('main', 'bridge')}
 
     results = []
     failures = []
@@ -135,11 +127,19 @@ def main():
             right = rows['bridge'][vendored['bridge']]
             lnorm = norm_statement(left['statement'], prefixes)
             rnorm = norm_statement(right['statement'], prefixes)
-            if lnorm != rnorm:
+            type_match, body_match = vendored_matches(left, right,
+                bodies['main'][vendored['main']], bodies['bridge'][vendored['bridge']], prefixes)
+            if not type_match:
                 failures.append(f'{cid}: vendored type mismatch for {vendored["main"]}: '
                                 f'{lnorm} vs {rnorm}')
             else:
                 checks.append(f'vendored definition type identical: {vendored["main"].split(".")[-1]}')
+            lbody = norm_statement(bodies['main'][vendored['main']], prefixes)
+            rbody = norm_statement(bodies['bridge'][vendored['bridge']], prefixes)
+            if not body_match:
+                failures.append(f'{cid}: vendored definition body mismatch: {vendored["main"]}')
+            else:
+                checks.append(f'vendored definition body text identical: {vendored["main"].split(".")[-1]}')
 
         if not contract.get('iut_objects_constructed'):
             checks.append('contract declares no IUT object constructed')
@@ -199,7 +199,7 @@ def main():
              f'生成时间：{summary["generated_utc"]}；状态：`{summary["status"]}`。', '',
              '三套工程、两套工具链。`local → bridge` 是**真实 Lean import**（内核检查）；',
              '`main → bridge` **无法 import**（Lean 4.34.0 vs rc2），因此那里的边是**受审计的接口合同**：',
-             '比较规范化后的 elaborated statement 文本与 vendored 定义的类型，**不是**证明转移。', '',
+             '完整检查准入、源/配置/依赖/运行产物，再比较陈述及指定定义体文本；**不是**证明转移。', '',
              '| 合同 | 类型 | 抽象端 | 具体端 | 结论 |', '|---|---|---|---|---|']
     for r in results:
         abstract = r['abstract']['theorem'] if r['abstract'] else '—（新结果）'

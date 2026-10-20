@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "env",
+    "lean",
+    "--print-prefix"
+  ],
+  "exit_code": 0,
+  "stdout": "c:\\Users\\18746\\.elan\\toolchains\\leanprover--lean4---v4.34.0-rc2\n",
+  "stderr": ""
+}

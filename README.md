@@ -12,7 +12,8 @@
 - [第三轮结果](research/round3-results.md)、[真实接口台账](research/round3-realization-obligations.md)：联合选择、实际 ℚ_p 层接口及八项尚未实现的语义义务。
 - [第四轮结果](research/round4-results.md)：实际 ℤ_p 最大理想过滤、严格估值层、范数保持与单向包含的反例。
 - [第五轮结果与验收状态](research/round5-results.md)：连续加法作用的 ℚ_p 线性、实际过滤推论及联合见证候选；[模型分工](research/round5-delegation.md)。
-- [两工具链总入口](fact-tree/catalogue.md)：分别验收的主工程与局部域工程；统一查询但不跨版本导入证明。
+- [探索成果整合与形式化](research/round8-integration.md)：筛选层梯、联合关系、槽位与加权账本；新增九条组合接口，bridge 完成 73 条声明的 CLI 与实际 VS Code 验收。
+- [三工程、两工具链总入口](fact-tree/catalogue.md)：135 个节点、115 条边；跨版本只记录合同，同版本实际 import 单独标记。
 - [开放 gap](GAP.md)：六项开放义务及恢复目标；有 gap 就不宣称解决。
 - [fact-tree](fact-tree/index.md)：只收已通过本机 Lean 与 VS Code 验收的项目定理。
 
@@ -22,7 +23,9 @@
 
 第四轮 `local-field/LocalFieldAudit/Filtration.lean` 新增 14 项实际基域理想/范数/估值接口，完成 CLI 与 VS Code 零错误、零告警验收；当时局部域工程为 19 个节点、21 条边，两工程合计 57 个节点、35 条边。
 
-第五轮 `local-field/LocalFieldAudit/ContinuousLinearity.lean` 新增五条定理：在准确拓扑假设下，证明连续加法作用的 ℚ_p 线性，并导出显式保集合条件下的层、理想幂像、非零估值及范数保持。五条均通过 CLI 与实际 VS Code 零错误、零告警验收；局部域工程为 24 个节点、31 条边。主工程深查未变，保留 38 个节点、14 条边。当前总入口合计 **62 个准入节点、45 条边、0 个待验收目标**。真实 IUT 的 log-shell、Ism/Kummer 实现和八项接口义务继续开放。
+第五轮 `local-field/LocalFieldAudit/ContinuousLinearity.lean` 新增五条定理：在准确拓扑假设下，证明连续加法作用的 ℚ_p 线性，并导出显式保集合条件下的层、理想幂像、非零估值及范数保持。五条均通过 CLI 与实际 VS Code 零错误、零告警验收；局部域工程为 24 个节点、31 条边。主工程保留 38 个节点、14 条边；第五轮当时合计 **62 个准入节点、45 条边**。
+
+探索整合轮保留上述两树并完成 `bridge/` 的 73 个节点、67 条内部边，新增 3 条 `local-field → bridge` 实际导入边。当前总入口为 **135 个准入节点、115 条边、0 个待验收目标**。bridge 的五份证明源文件及 146 条信息入口均通过实际 VS Code 零错误、零告警观察；schema-3 收据绑定完整输入、依赖与运行产物。真实 IUT 的 log-shell、Ism/Kummer 实现、六项数学 gap 和八项接口义务继续开放。
 
 它们没有定义真实 Hodge theater、Θ-link、anabelian 重建或 Arakelov 体积，因而既不是 IUT 的证明，也不是 IUT 的反证。特别是 `weighted_comparison_forces_bound` 中的前提只是假设的整数不等式；将它连接到真实 IUT 恰是 G01/G02 的工作。
 

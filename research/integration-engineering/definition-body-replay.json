@@ -1,0 +1,13 @@
+{
+  "local": {
+    "definitions": 4
+  },
+  "bridge": {
+    "definitions": 24
+  },
+  "vendored_definition_bodies": {
+    "LeftAllowed": true,
+    "RightAllowed": true,
+    "IsRectangular": true
+  }
+}

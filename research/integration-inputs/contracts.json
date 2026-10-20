@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "purpose": "Machine-checkable bridge contracts between the three verification projects of this repository. Main project uses Lean 4.34.0 (no Mathlib); local-field and bridge use Lean 4.34.0-rc2 (Mathlib). A proof cannot be imported across those toolchains, so a main-to-bridge edge is NOT a kernel-checked dependency: it is an audited contract, pinned by elaborated statement text and vendored definition types. The local-field-to-bridge edge is a real Lean import and needs no contract.",
+  "edge_strength": {
+    "local_to_bridge": "kernel_checked_import",
+    "main_to_bridge": "audited_statement_contract_no_proof_transfer"
+  },
+  "normalisation": {
+    "strip_prefixes": [
+      "IUTAudit.Transport.",
+      "IUTAudit.Scale.",
+      "IUTAudit.Descent.",
+      "IUTAudit.Orbit.",
+      "IUTAudit.LocalNumerics.",
+      "IUTBridge.Admissibility.",
+      "IUTBridge.ScaleLedger.",
+      "LocalFieldAudit.Filtration.",
+      "LocalFieldAudit.Shell.",
+      "LocalFieldAudit.ContinuousLinearity."
+    ],
+    "note": "Whitespace is collapsed after prefix stripping. Equality of the remaining text is a property of the two elaborated types, not of the source files."
+  },
+  "contracts": [
+    {
+      "id": "BR-01",
+      "kind": "instantiation",
+      "claim": "The abstract discrete scale model composes multiplicatively. On actual Q_p the multiplicative coordinate is the norm scale factor, and the additive coordinate is the valuation; both are proved to have exactly the predicted composition law, and iterated rescaling telescopes to the sum of exponents.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.scale_composition"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.norm_factor_pow"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.valuation_ledger_composition"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.composeShift_eq_shift_sum"
+        }
+      ],
+      "external_anchors": [
+        "Padic.norm_eq_zpow_neg_valuation",
+        "Padic.norm_p_zpow"
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "Theta-link",
+        "Ism element",
+        "Arakelov log-volume"
+      ],
+      "notes": "The model uses Nat scales; the arithmetic statement uses Int exponents. This is an instantiation, not a statement identity: the model's product of scales corresponds to the sum of valuation exponents."
+    },
+    {
+      "id": "BR-02",
+      "kind": "instantiation",
+      "claim": "The abstract model proves that a scale is determined by its value on the unit. On actual Q_p the corresponding statement is that the value at 1 determines the automorphism, hence determines exactly one lattice layer of the ball image: the joint data is a graph.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.normalization_at_unit"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.map_one_determines"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.existsUnique_layer_of_auto"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "Ism group",
+        "finite H-invariant module",
+        "log coordinate"
+      ],
+      "notes": "Uniqueness of the layer index is what converts the abstract normalisation statement into the non-rectangularity obstruction of BR-03/BR-04."
+    },
+    {
+      "id": "BR-03",
+      "kind": "statement_identity",
+      "claim": "The rectangularity interface (LeftAllowed, RightAllowed, IsRectangular) and the equivalence 'rectangular iff the joint relation is the product of its marginals' are carried over to the second toolchain: the elaborated statements agree after namespace normalisation, the elaborated types of the three vendored definitions agree, and their definition-body source text is checked for identity by the auditor. This is an interface-identity audit, NOT a kernel-level proof transfer and NOT a claim of semantic equivalence across toolchains.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Transport.rectangular_iff_product"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.rectangular_iff_product"
+        }
+      ],
+      "vendored": [
+        {
+          "main": "IUTAudit.Transport.LeftAllowed",
+          "bridge": "IUTBridge.Admissibility.LeftAllowed"
+        },
+        {
+          "main": "IUTAudit.Transport.RightAllowed",
+          "bridge": "IUTBridge.Admissibility.RightAllowed"
+        },
+        {
+          "main": "IUTAudit.Transport.IsRectangular",
+          "bridge": "IUTBridge.Admissibility.IsRectangular"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "Ind1 operation",
+        "procession automorphism",
+        "Kummer isomorphism"
+      ],
+      "notes": "Comparing elaborated types alone cannot distinguish two predicates with the same type but different bodies, so the auditor also compares definition-body source text. Cross-toolchain kernel comparison is impossible here because the two projects use different Lean versions."
+    },
+    {
+      "id": "BR-04",
+      "kind": "instantiation",
+      "claim": "The abstract Boolean counterexample showing that separate kappa- and sigma-admissibility does not entail joint admissibility is realized on actual arithmetic data: automorphisms of Q_p versus integer layers of the unit ball. Both marginals are total and the relation is not rectangular, because the relation is a graph over an infinite ladder. A general graph obstruction is isolated, and the normalised sub-relation is proved rectangular, so the failure is exactly the rescaling freedom.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Transport.coupled_choice_counterexample"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.not_rectangular_of_graph"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.marginals_do_not_force_joint"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.normalised_isRectangular"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.normalised_sigma_marginal"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "SeedRegion membership",
+        "possible-images family",
+        "joint (kappa, sigma) lift"
+      ],
+      "notes": "Still a base-field statement. It does not assert that any Step (v) objection is correct or incorrect."
+    },
+    {
+      "id": "BR-05",
+      "kind": "new_result",
+      "claim": "In the base field the ladder is strictly *antitone* — a larger index is a smaller ball, so `k ≤ m` gives `layer m ⊆ layer k` and widening goes towards smaller indices. Moving from `layer k` to `layer m` is realised by the single dilation of signed exponent `m - k`. This is an identity between sets of p-adic numbers; it defines no measure, no volume, no log-volume and no optimal price, and must not be read as a quantitative cost formula.",
+      "abstract": null,
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.cost_exact"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.layer_image_shift"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.layer_ssubset_of_lt"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "holomorphic hull",
+        "tensor normalisation",
+        "global error budget"
+      ],
+      "notes": "The repository records that enlarging a container is only a repair if the added volume cost still meets the target estimate. This contract supplies only the layer-move identity; the volume estimate itself is not formalised, and no cost function is defined here."
+    },
+    {
+      "id": "BR-06",
+      "kind": "new_result",
+      "claim": "Any rectangular repair freezes the lattice layer. If a sub-relation of the joint lattice relation admits independent marginal reasoning (is rectangular), then all of its admissible pairs share one layer: independent marginal reasoning is available only after the rescaling freedom has been given up. This converts the BR-04 obstruction from a counterexample into a design constraint on any repair attempt.",
+      "abstract": null,
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.normalised_isRectangular"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "joint (kappa, sigma) lift",
+        "seed-region membership",
+        "hull bound"
+      ],
+      "notes": "Base-field lattice statement. It constrains what a repair may assume, and says nothing about whether the actual IUT Step (v) objection is correct."
+    },
+    {
+      "id": "BR-07",
+      "kind": "instantiation",
+      "claim": "The integer slot model of the label action is realized on actual p-adic tuples. Relabelling by a permutation conjugates a slotwise scalar family, so a slotwise action is sigma-equivariant exactly when the family is sigma-invariant; it moves components but preserves each component's valuation data. The main project's swap23 model is a generic-type reindexing with no scalar action, so the conjugation statement is new to this toolchain.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.LocalNumerics.swap23_tuple_and_theta"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.relabel_slotwise"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.valuation_relabel_slotwise"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.slotwise_commutes_of_invariant"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.slotwise_not_commutes_of_witness"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.swap23_exchanges_high_slots"
+        }
+      ],
+      "external_anchors": [
+        "Equiv.swap",
+        "Equiv.symm_apply_apply"
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "real Hodge theater slot set",
+        "procession automorphism",
+        "tensor packet"
+      ],
+      "notes": "Slot set is an abstract Fin n with an explicit permutation, not the slot set of a real Hodge theater. The result answers only the toy form of the round-5 question on label-independent synchronization."
+    },
+    {
+      "id": "BR-08",
+      "kind": "instantiation",
+      "claim": "The abstract integer weighted comparison is realized as an actual weighted valuation ledger on p-adic tuples. The ledger shifts by exactly the weighted sum of scalar valuations, the norm product is its exponential, and the ledger is invariant under a label action for every tuple if and only if the weight vector is invariant under that action. The pilot-style weights (1,1,2,1) therefore fail invariance under the swap 2<->3, with a concrete witnessing tuple, while the unweighted total is invariant under every label action.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.weighted_comparison_forces_bound"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.weightedLedger_slotwise"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.weightedLedger_invariant_iff"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.pilotLedger_not_invariant"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.totalLedger_relabel"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.WeightedLedger.norm_prod_eq_zpow_totalLedger"
+        }
+      ],
+      "external_anchors": [
+        "Padic.norm_eq_zpow_neg_valuation",
+        "Padic.valuation_mul"
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "pilot weight realisation from real theta data",
+        "holomorphic hull",
+        "tensor normalisation",
+        "global error budget"
+      ],
+      "notes": "The weights are arbitrary integers chosen by hand; the pilot pattern (1,1,2,1) is used only as a concrete non-uniform example. No claim is made that it is the weight vector of the real pilot."
+    }
+  ]
+}
