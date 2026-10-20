@@ -182,6 +182,9 @@ python tools/bridge.py
 - Lean `4.34.0`（main）与 `4.34.0-rc2`（local / bridge）；Mathlib
   `85e3a25e006c35636f0e53b0e9296caca2685bc0`。
 - 用户提供的远端 `https://github.com/Luminescence10086/Inter-universal-Teichmuller-Theory`
-  已登记为 `origin`，但本沙箱内 git 取不到 TLS 凭证
-  （`schannel: AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS`），`git ls-remote`
-  以 128 退出，因此本轮**未能推送**；分支仅存在于本地。
+  已登记为 `origin`。初次 `git ls-remote` 因 schannel 取不到凭证失败
+  （`AcquireCredentialsHandle failed: SEC_E_NO_CREDENTIALS`，退出 128）；改用
+  `git config http.sslBackend openssl` 后连接正常（读、写两侧均可用）。
+- 远端建仓时为空（GitHub API：`size=0`、无 commits、无 branches）。因此以本地既有状态
+  建立 `main` 主线（原样快照），本轮工作留在 `research/round6-bridge` 分支并推送；
+  按约定**不并入 main**，等待 Astra 核验。
