@@ -195,5 +195,57 @@
       "h1",
       "h2"
     ]
+  },
+  {
+    "id": "IUTBridge.Slots.relabel_injective",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.relabel_trans",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.relabel_slotwise",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.valuation_relabel_slotwise",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": [
+      "ha",
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.Slots.slotwise_commutes_of_invariant",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": [
+      "h"
+    ]
+  },
+  {
+    "id": "IUTBridge.Slots.slotwise_not_commutes_of_witness",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": [
+      "h"
+    ]
+  },
+  {
+    "id": "IUTBridge.Slots.uniform_scale_commutes",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.swap23_fixes_low_slots",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Slots.swap23_exchanges_high_slots",
+    "source": "IUTBridge/Slots.lean",
+    "hypotheses": []
   }
 ]

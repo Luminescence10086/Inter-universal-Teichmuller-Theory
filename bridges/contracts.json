@@ -205,6 +205,48 @@
         "hull bound"
       ],
       "notes": "Base-field lattice statement. It constrains what a repair may assume, and says nothing about whether the actual IUT Step (v) objection is correct."
+    },
+    {
+      "id": "BR-07",
+      "kind": "instantiation",
+      "claim": "The integer slot model of the label action is realized on actual p-adic tuples. Relabelling by a permutation conjugates a slotwise scalar family, so a slotwise action is sigma-equivariant exactly when the family is sigma-invariant; it moves components but preserves each component's valuation data. The main project's swap23 model is a generic-type reindexing with no scalar action, so the conjugation statement is new to this toolchain.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.LocalNumerics.swap23_tuple_and_theta"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.relabel_slotwise"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.valuation_relabel_slotwise"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.slotwise_commutes_of_invariant"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.slotwise_not_commutes_of_witness"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Slots.swap23_exchanges_high_slots"
+        }
+      ],
+      "external_anchors": [
+        "Equiv.swap",
+        "Equiv.symm_apply_apply"
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "real Hodge theater slot set",
+        "procession automorphism",
+        "tensor packet"
+      ],
+      "notes": "Slot set is an abstract Fin n with an explicit permutation, not the slot set of a real Hodge theater. The result answers only the toy form of the round-5 question on label-independent synchronization."
     }
   ]
 }

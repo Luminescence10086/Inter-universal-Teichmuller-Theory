@@ -1,6 +1,6 @@
 import IUTBridge
 
-/- Catalog checks; 66 information messages expected, no errors or warnings. -/
+/- Catalog checks; 84 information messages expected, no errors or warnings. -/
 #check IUTBridge.ScaleLedger.mem_layer_iff_norm_le
 #print axioms IUTBridge.ScaleLedger.mem_layer_iff_norm_le
 
@@ -99,4 +99,31 @@ import IUTBridge
 
 #check IUTBridge.Admissibility.rectangular_subrelation_freezes_layer
 #print axioms IUTBridge.Admissibility.rectangular_subrelation_freezes_layer
+
+#check IUTBridge.Slots.relabel_injective
+#print axioms IUTBridge.Slots.relabel_injective
+
+#check IUTBridge.Slots.relabel_trans
+#print axioms IUTBridge.Slots.relabel_trans
+
+#check IUTBridge.Slots.relabel_slotwise
+#print axioms IUTBridge.Slots.relabel_slotwise
+
+#check IUTBridge.Slots.valuation_relabel_slotwise
+#print axioms IUTBridge.Slots.valuation_relabel_slotwise
+
+#check IUTBridge.Slots.slotwise_commutes_of_invariant
+#print axioms IUTBridge.Slots.slotwise_commutes_of_invariant
+
+#check IUTBridge.Slots.slotwise_not_commutes_of_witness
+#print axioms IUTBridge.Slots.slotwise_not_commutes_of_witness
+
+#check IUTBridge.Slots.uniform_scale_commutes
+#print axioms IUTBridge.Slots.uniform_scale_commutes
+
+#check IUTBridge.Slots.swap23_fixes_low_slots
+#print axioms IUTBridge.Slots.swap23_fixes_low_slots
+
+#check IUTBridge.Slots.swap23_exchanges_high_slots
+#print axioms IUTBridge.Slots.swap23_exchanges_high_slots
 

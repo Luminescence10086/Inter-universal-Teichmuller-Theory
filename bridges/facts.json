@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_utc": "2026-10-20T07:30:01.695263+00:00",
+  "generated_utc": "2026-10-20T07:46:41.942874+00:00",
   "projects": {
     "main": ".",
     "local": "local-field",
@@ -168,6 +168,40 @@
       ],
       "checks": [
         "2 concrete endpoint(s) elaborated, axioms approved",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-07",
+      "kind": "instantiation",
+      "claim": "The integer slot model of the label action is realized on actual p-adic tuples. Relabelling by a permutation conjugates a slotwise scalar family, so a slotwise action is sigma-equivariant exactly when the family is sigma-invariant; it moves components but preserves each component's valuation data. The main project's swap23 model is a generic-type reindexing with no scalar action, so the conjugation statement is new to this toolchain.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.LocalNumerics.swap23_tuple_and_theta"
+      },
+      "concrete": [
+        "IUTBridge.Slots.relabel_slotwise",
+        "IUTBridge.Slots.valuation_relabel_slotwise",
+        "IUTBridge.Slots.slotwise_commutes_of_invariant",
+        "IUTBridge.Slots.slotwise_not_commutes_of_witness",
+        "IUTBridge.Slots.swap23_exchanges_high_slots"
+      ],
+      "external_anchors": [
+        "Equiv.swap",
+        "Equiv.symm_apply_apply"
+      ],
+      "not_constructed": [
+        "real Hodge theater slot set",
+        "procession automorphism",
+        "tensor packet"
+      ],
+      "checks": [
+        "abstract endpoint elaborated: IUTAudit.LocalNumerics.swap23_tuple_and_theta",
+        "5 concrete endpoint(s) elaborated, axioms approved",
+        "instantiation edge: statements differ by design, no identity claimed",
         "contract declares no IUT object constructed"
       ],
       "proof_transfer": false,

@@ -6,6 +6,6 @@
     "IUTBridge"
   ],
   "exit_code": 0,
-  "stdout": "✔ [1998/2000] Built IUTBridge.Admissibility (17s)\n✔ [1999/2000] Built IUTBridge (17s)\nBuild completed successfully (2000 jobs).\n",
+  "stdout": "Build completed successfully (2001 jobs).\n",
   "stderr": ""
 }

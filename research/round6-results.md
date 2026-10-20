@@ -30,7 +30,7 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
   两者的对应关系由 `tools/bridge.py` 机械核对，并显式记录 `proof_transfer: false`。
   不把"文本相同"说成"证明转移"，是本轮工具设计的底线。
 
-## 数学内容（33 条目录定理，两个模块）
+## 数学内容（42 条目录定理，三个模块）
 
 ### `IUTBridge/ScaleLedger.lean`（21 条）
 
@@ -69,6 +69,43 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
 若原论证依赖缩放自由度，则该替代不成立。**这不裁决 G03 Step (v)**，只是给出该替代路线的
 可失败判据。
 
+### `IUTBridge/Slots.lean`（9 条，第二轮尝试产物）
+
+实际 `Q_p` 元组上的两种作用：槽位重标 `relabel`（按置换 `σ`）与逐槽标量作用 `slotwise`
+（第 `j` 槽乘 `a j`）。核心结论：**重标把逐槽标量族共轭过去**，因此逐槽作用与重标交换
+**当且仅当**标量族在 `σ` 下不变。
+
+| 定理 | 内容 |
+|---|---|
+| `relabel_injective` / `relabel_trans` | 重标不丢/不重槽位；重标复合反变 |
+| `relabel_slotwise` | **投影公式（玩具版）**：`relabel σ (slotwise a x) = slotwise (a ∘ σ⁻¹) (relabel σ x)` |
+| `valuation_relabel_slotwise` | 运输后逐槽估值记账（显式非零前提） |
+| `slotwise_commutes_of_invariant` | 标量族 `σ`-不变 ⇒ 与重标交换 |
+| `slotwise_not_commutes_of_witness` | 存在槽位受不同标量 ⇒ 不交换（常 1 元组作见证） |
+| `uniform_scale_commutes` | 单一标量（均匀缩放）与**任意**重标交换 |
+| `swap23_fixes_low_slots` / `swap23_exchanges_high_slots` | 具体 `σ=(2 3)`：低槽不动、高槽互换 |
+
+这条把第五轮留下的问题——"每个 place 的同步条件如何与 label 无关"——回答了
+**玩具形式**：同步性等价于标量族的 `σ`-不变性，而不是逐 label 的巧合。仍无任何 IUT 对象。
+
+## 第二轮尝试：三条候选路径的成败
+
+| 路径 | 内容 | 结果 |
+|---|---|---|
+| A | 标度/估值双账本（`ScaleLedger`） | ✅ 成功，21 条 |
+| B | 联合可容许性与矩形性（`Admissibility`） | ✅ 成功，12 条 |
+| C | 真实 `log_p(O×)` 像身份（RI-06 真正缺的那块） | ❌ **受阻**：本 Mathlib pin 无 p-adic 对数 |
+| D | 槽位重标 × 逐槽标量作用（`Slots`） | ✅ 成功，9 条 |
+
+路径 C 的证据是编译级而非文献级：`#check @Padic.log / @Padic.exp / @Padic.logP /
+@Padic.pow / @Padic.LubinTate` 全部 `unknownIdentifier`；`Mathlib/NumberTheory/Padics/`
+下 16 个源文件（`AddChar`、`Hensel`、`PadicIntegers`、`WithVal` …）无对数模块；全仓
+`grep "Padic\.log|padicLog|pAdicLog"` 零命中（`log` 命中均为 `Nat.log` / 实数对数的引理）。
+因此 RI-06 的 log-image 身份在当前 pin 上**无法形式化**，必须先实现
+`log_p : ℤ_[p]^× → ℚ_[p]`（含收敛域与同态性）。这是一条下一步该先建的基础设施，
+而不是再写一条条件式桥接定理。
+
+
 ## 新工具
 
 ### 1. `bridge/tools/verify.py` + `tools/Binders.lean`：假设审计
@@ -80,7 +117,7 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
 
 ### 2. `tools/bridge.py` + `bridges/contracts.json`：跨工具链合同审计
 
-六条合同（`BR-01`–`BR-06`），每条核对：端点定理真实 elaborated、类型是 theorem、
+七条合同（`BR-01`–`BR-07`），每条核对：端点定理真实 elaborated、类型是 theorem、
 公理在白名单内、导出未过期（源码哈希比对）；`statement_identity` 类还要求规范化后
 的 statement 文本**逐字相同**，并对 vendored 定义比对 elaborated 类型；每条合同
 必须申报"未构造哪些 IUT 对象"，申报为空即失败。
@@ -97,12 +134,12 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
 
 | 项目 | 状态 |
 |---|---|
-| `lake build`（bridge） | 成功，2000 jobs，零 warning（`--wfail`） |
-| 两份源码 `lean --json -DwarningAsError=true` | stdout/stderr 为空 |
-| 目录定理 | 33 条全部 elaborated；公理 ⊆ `propext` / `Classical.choice` / `Quot.sound`（44 条用 `Classical.choice`，5 条零公理，4 条仅 `propext`+`Quot.sound`） |
-| 入口 CLI | `2 × 33 = 66` 条 information，0 error / 0 warning |
-| 假设审计 | 33 条全部与内核一致 |
-| 合同审计 | 6 条全通过，`proof_transfer: false` |
+| `lake build`（bridge） | 成功，零 warning（`--wfail`） |
+| 三份源码 `lean --json -DwarningAsError=true` | stdout/stderr 为空 |
+| 目录定理 | 42 条全部 elaborated；公理 ⊆ `propext` / `Classical.choice` / `Quot.sound`。本工程共 65 条 theorem / 16 个定义，其中 55 条用 `Classical.choice`，5 条零公理，4 条仅 `propext`+`Quot.sound`，1 条仅 `propext` |
+| 入口 CLI | `2 × 42 = 84` 条 information，0 error / 0 warning |
+| 假设审计 | 42 条全部与内核一致 |
+| 合同审计 | 7 条全通过，`proof_transfer: false` |
 | **编辑器准入** | **0 条**：尚无实际 VS Code 观察与 receipt，故全部 `cli_verified_awaiting_editor` |
 
 必须说清楚：本轮**没有**取得编辑器验收，因此按仓库规则这些定理**都还不能算已准入**。
@@ -112,7 +149,7 @@ main   --(合同：受审计，非证明转移)-->  bridge   <--(真实 import�
 ## 交接给 Astra 的清单
 
 1. 在 VS Code 打开 `bridge/`（使用 `4.34.0-rc2`），确认两份源文件末尾证明 `No goals`。
-2. 打开 `bridge/tools/EditorCheck.lean`，展开 All Messages 应有 66 条 information、
+2. 打开 `bridge/tools/EditorCheck.lean`，展开 All Messages 应有 84 条 information、
    状态栏 0 error / 0 warning。
 3. 按第五轮格式写 `bridge/verification/vscode-observation-round6.txt`，再生成
    `bridge/verification/vscode-receipt.json`（`schema: 2`，需含 `dependency_sha256`），

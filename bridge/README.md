@@ -26,6 +26,10 @@ import（两套工具链的编译产物互不通用），因此那里的对应�
   `Q_p` 上实例化：`LatticeAdmissible p e k` 表示 `e '' ball = layer p k`。两侧边际都全、
   关系是图、因此不矩形；而**正规化子关系**（把层冻结在 `0`）是矩形的。最后一击：
   任何矩形的联合子关系都把层冻结 —— 想要"分别验 Kappa 与 Sigma"就必须先放弃缩放自由度。
+- `IUTBridge/Slots.lean`：实际 `Q_p` 元组上的槽位重标 `relabel` 与逐槽标量作用 `slotwise`。
+  重标把标量族**共轭**过去，因此逐槽作用与重标交换**当且仅当**标量族在该置换下不变；
+  均匀缩放与任意重标交换。这是第五轮"每个 place 的同步条件如何与 label 无关"的玩具版回答：
+  同步性 = 标量族的不变性，不是逐 label 的巧合。
 
 ## 验收状态：CLI 已核验，**尚未准入**
 
@@ -43,13 +47,21 @@ python tools/verify.py     # 零诊断 + 公理白名单 + 假设审计 + 目录
 2. **依赖身份**：记录 `../local-field` 证明源码与配置的哈希，桥接结论只能对
    核对过的依赖成立。
 
-当前输出：`Zero-diagnostic source checks passed; hypotheses audited for 33 theorems.
-Admitted=0, pending=33, edges=0.`
+当前输出：`Zero-diagnostic source checks passed; hypotheses audited for 42 theorems.
+Admitted=0, pending=42, edges=0.`
 
 `Admitted=0` 是**如实状态而非失败**：仓库的准入规则要求实际编辑器观察（`No goals` +
 入口零 error/零 warning）并绑定 receipt。本工程还没有这份 receipt，因此
-`fact-tree/facts.json` 为空、33 条全部标记 `cli_verified_awaiting_editor`。
+`fact-tree/facts.json` 为空、42 条全部标记 `cli_verified_awaiting_editor`。
 CLI 全绿是必要条件，不是准入凭据。
+
+## 已知受阻路径：p-adic 对数
+
+RI-06 真正缺的是 `log_p(O^×)` 的像身份。本 pin 的 Mathlib **没有** p-adic 对数：
+`#check @Padic.log / @Padic.exp / @Padic.logP / @Padic.pow / @Padic.LubinTate` 全部
+`unknownIdentifier`，`Mathlib/NumberTheory/Padics/` 的 16 个源文件里没有对数模块，
+全仓 grep `Padic\.log|padicLog|pAdicLog` 零命中。因此 log-image 类桥接必须先自建
+`log_p`（含收敛域与同态性），本轮不把它伪装成"再加一条条件式定理"。
 
 ## 与外部依赖的关系
 

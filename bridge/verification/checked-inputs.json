@@ -1,20 +1,21 @@
 {
   "schema": 2,
-  "generated_utc": "2026-10-20T07:29:50.232767+00:00",
+  "generated_utc": "2026-10-20T07:56:35.367999+00:00",
   "lean": "Lean (version 4.34.0-rc2, x86_64-w64-windows-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
   "input_sha256": {
     "lean-toolchain": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88",
     "lakefile.toml": "edc290bf4ff2d30052b44c38ff734a90cf15dd5b77e2c67722cc738cdd2ab07e",
     "lake-manifest.json": "c9192ad87ca0a58a52fd4b7afc9ef0bbb8b4bd307f4bda236230dc0777c66090",
-    "IUTBridge.lean": "6946081a7f2da679e2f165fe9a59588f5d52ae7b6b63d41923d6e3ed0411d769",
+    "IUTBridge.lean": "95086eed0627d052fc72b5181e383d7a7625ef6ac5df17418d7d93f561315c48",
     "tools/verify.py": "933d2f19f007b1520e2454d6502ccb93bf4347b9a74e997a3e979bb8aaba00d0",
-    "tools/catalog.json": "73783570e661c7dc0d5b743b9946690c05bfff9d83c1d259cee9147a4864629c",
+    "tools/catalog.json": "3989a19d22968df7956809839098bcc1a9e37c6a5355d9b6669e0472863b26e3",
     "tools/Export.lean": "b4803ffdb1ff6445a16f0bcbc0fac695fc79b8b8c74acbc9d8f4435667a3c18c",
     "tools/Imports.lean": "ba00f081f73a0b66b154e281b11c51e33a0c3e049bf51683246eb65805062b85",
-    "tools/EditorCheck.lean": "183af355364f8aaba47e62fe01b0a8389a3fa474fc93028e36fabdf072a4ecd8",
+    "tools/EditorCheck.lean": "c306eca7cd786415e0f2a2cd8e661d91a3dd57052fb61f9f85be05a563a8adda",
     "tools/Binders.lean": "f267f614a4747ae66009f6c4e68cf99e213a3c7e117cbab1e95f5a0f075a472e",
     "IUTBridge/Admissibility.lean": "9b9e50a1dd8d12e18f9730fb8af66d269ab62c7cce41d3ff720aa3dd9d6f07d4",
-    "IUTBridge/ScaleLedger.lean": "4e958a2dd533c77b092354c68158e2d1cce244e3a78de21f6225edb57065261f"
+    "IUTBridge/ScaleLedger.lean": "4e958a2dd533c77b092354c68158e2d1cce244e3a78de21f6225edb57065261f",
+    "IUTBridge/Slots.lean": "90a1c1b2f24a37e3c01314a866e3bf2940467d0e1db1bef8fa1c4ba73fe21c71"
   },
   "dependency_sha256": {
     "local-field/lean-toolchain": "b563246bde88bad741a3fe1c6b126ad8dab470340d55ac3e97cca9b3f200878b",
@@ -65,10 +66,20 @@
     "IUTBridge.ScaleLedger.shift_ne_zero",
     "IUTBridge.ScaleLedger.valuation_ledger_composition",
     "IUTBridge.ScaleLedger.valuation_shift",
-    "IUTBridge.ScaleLedger.zero_mem_layer"
+    "IUTBridge.ScaleLedger.zero_mem_layer",
+    "IUTBridge.Slots.relabel_injective",
+    "IUTBridge.Slots.relabel_slotwise",
+    "IUTBridge.Slots.relabel_trans",
+    "IUTBridge.Slots.slotwise_commutes_of_invariant",
+    "IUTBridge.Slots.slotwise_not_commutes_of_witness",
+    "IUTBridge.Slots.swap23_exchanges_high_slots",
+    "IUTBridge.Slots.swap23_fixes_low_slots",
+    "IUTBridge.Slots.uniform_scale_commutes",
+    "IUTBridge.Slots.valuation_relabel_slotwise"
   ],
   "sources": [
     "IUTBridge/Admissibility.lean",
-    "IUTBridge/ScaleLedger.lean"
+    "IUTBridge/ScaleLedger.lean",
+    "IUTBridge/Slots.lean"
   ]
 }

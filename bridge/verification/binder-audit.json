@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-20T07:29:50.232767+00:00",
+  "generated_utc": "2026-10-20T07:56:35.367999+00:00",
   "declared_hypotheses": {
     "IUTBridge.ScaleLedger.mem_layer_iff_norm_le": [],
     "IUTBridge.ScaleLedger.mem_layer_iff_le_valuation": [
@@ -65,7 +65,23 @@
       "h2",
       "hrect",
       "hsub"
-    ]
+    ],
+    "IUTBridge.Slots.relabel_injective": [],
+    "IUTBridge.Slots.relabel_trans": [],
+    "IUTBridge.Slots.relabel_slotwise": [],
+    "IUTBridge.Slots.valuation_relabel_slotwise": [
+      "ha",
+      "hx"
+    ],
+    "IUTBridge.Slots.slotwise_commutes_of_invariant": [
+      "h"
+    ],
+    "IUTBridge.Slots.slotwise_not_commutes_of_witness": [
+      "h"
+    ],
+    "IUTBridge.Slots.uniform_scale_commutes": [],
+    "IUTBridge.Slots.swap23_fixes_low_slots": [],
+    "IUTBridge.Slots.swap23_exchanges_high_slots": []
   },
   "rows": [
     {
@@ -1275,6 +1291,408 @@
         }
       ],
       "id": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        }
+      ],
+      "id": "IUTBridge.Slots.relabel_injective"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "τ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        }
+      ],
+      "id": "IUTBridge.Slots.relabel_trans"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        }
+      ],
+      "id": "IUTBridge.Slots.relabel_slotwise"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "j",
+          "type": "Fin n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "ha",
+          "type": "a ((Equiv.symm σ) j) ≠ 0"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "hx",
+          "type": "x ((Equiv.symm σ) j) ≠ 0"
+        }
+      ],
+      "id": "IUTBridge.Slots.valuation_relabel_slotwise"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h",
+          "type": "∀ (j : Fin n), a ((Equiv.symm σ) j) = a j"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        }
+      ],
+      "id": "IUTBridge.Slots.slotwise_commutes_of_invariant"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "a",
+          "type": "Fin n → ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "j",
+          "type": "Fin n"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": true,
+          "name": "h",
+          "type": "a ((Equiv.symm σ) j) ≠ a j"
+        }
+      ],
+      "id": "IUTBridge.Slots.slotwise_not_commutes_of_witness"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": false,
+          "isProp": false,
+          "name": "n",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "σ",
+          "type": "Equiv.Perm (Fin n)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "c",
+          "type": "ℚ_[p]"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p n"
+        }
+      ],
+      "id": "IUTBridge.Slots.uniform_scale_commutes"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 4"
+        }
+      ],
+      "id": "IUTBridge.Slots.swap23_fixes_low_slots"
+    },
+    {
+      "binders": [
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "p",
+          "type": "ℕ"
+        },
+        {
+          "isExplicit": false,
+          "isInstance": true,
+          "isProp": true,
+          "name": "hp",
+          "type": "Fact (Nat.Prime p)"
+        },
+        {
+          "isExplicit": true,
+          "isInstance": false,
+          "isProp": false,
+          "name": "x",
+          "type": "IUTBridge.Slots.Tuple p 4"
+        }
+      ],
+      "id": "IUTBridge.Slots.swap23_exchanges_high_slots"
     }
   ]
 }

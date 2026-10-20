@@ -80,6 +80,40 @@
     "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)], RingHomCompTriple (RingHom.id ℚ_[p]) (RingHom.id ℚ_[p]) (RingHom.id ℚ_[p])"
   },
   {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "Function.Injective",
+      "IUTBridge.Slots.Tuple",
+      "IUTBridge.Slots.relabel",
+      "Eq",
+      "funext",
+      "Padic",
+      "DFunLike.coe",
+      "EquivLike.toFunLike",
+      "Equiv.instEquivLike",
+      "congrFun",
+      "Eq.mp",
+      "congr",
+      "congrArg",
+      "Equiv",
+      "Equiv.symm",
+      "Equiv.symm_apply_apply"
+    ],
+    "id": "IUTBridge.Slots.relabel_injective",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ : Equiv.Perm (Fin n)), Function.Injective (IUTBridge.Slots.relabel p σ)"
+  },
+  {
     "axioms": [],
     "constants": [
       "List",
@@ -580,6 +614,51 @@
       "Nat",
       "Fact",
       "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "Padic",
+      "Ne",
+      "DFunLike.coe",
+      "Equiv",
+      "EquivLike.toFunLike",
+      "Equiv.instEquivLike",
+      "Equiv.symm",
+      "Exists",
+      "IUTBridge.Slots.Tuple",
+      "IUTBridge.Slots.relabel",
+      "IUTBridge.Slots.slotwise",
+      "Exists.intro",
+      "OfNat.ofNat",
+      "One.toOfNat1",
+      "instOnePadic",
+      "Eq",
+      "congrFun",
+      "Eq.mp",
+      "congr",
+      "congrArg",
+      "mul_one",
+      "MulZeroOneClass.toMulOneClass",
+      "instMulZeroOneClassOfSemiring",
+      "DivisionSemiring.toSemiring",
+      "Semifield.toDivisionSemiring",
+      "Field.toSemifield",
+      "instFieldPadic"
+    ],
+    "id": "IUTBridge.Slots.slotwise_not_commutes_of_witness",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]) (j : Fin n),\n  a ((Equiv.symm σ) j) ≠ a j →\n    ∃ x,\n      IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x) ≠\n        IUTBridge.Slots.slotwise p a (IUTBridge.Slots.relabel p σ x)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
       "Ne",
       "Real",
       "Nat.cast",
@@ -665,6 +744,34 @@
     "kind": "theorem",
     "module": "IUTBridge.ScaleLedger",
     "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] (n : ℤ) (x : ℚ_[p]), (IUTBridge.ScaleLedger.shift p n) x = ↑p ^ n * x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "IUTBridge.Slots.Tuple",
+      "Eq",
+      "Padic",
+      "IUTBridge.Slots.relabel",
+      "DFunLike.coe",
+      "Equiv",
+      "EquivLike.toFunLike",
+      "Equiv.instEquivLike",
+      "Equiv.symm",
+      "Eq.refl"
+    ],
+    "id": "IUTBridge.Slots.relabel.eq_1",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ : Equiv.Perm (Fin n)) (x : IUTBridge.Slots.Tuple p n) (j : Fin n),\n  IUTBridge.Slots.relabel p σ x j = x ((Equiv.symm σ) j)"
   },
   {
     "axioms": [
@@ -816,6 +923,36 @@
     "statement": "{K : Type u} → {S : Type v} → (K → S → Prop) → Prop"
   },
   {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "Padic",
+      "IUTBridge.Slots.Tuple",
+      "Eq",
+      "IUTBridge.Slots.relabel",
+      "IUTBridge.Slots.slotwise",
+      "DFunLike.coe",
+      "Equiv",
+      "EquivLike.toFunLike",
+      "Equiv.instEquivLike",
+      "Equiv.symm",
+      "funext",
+      "Eq.refl"
+    ],
+    "id": "IUTBridge.Slots.relabel_slotwise",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p])\n  (x : IUTBridge.Slots.Tuple p n),\n  IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x) =\n    IUTBridge.Slots.slotwise p (fun j => a ((Equiv.symm σ) j)) (IUTBridge.Slots.relabel p σ x)"
+  },
+  {
     "axioms": [],
     "constants": [
       "List",
@@ -841,6 +978,31 @@
     "kind": "definition",
     "module": "IUTBridge.Admissibility",
     "statement": "{K : Type u} → {S : Type v} → (K → S → Prop) → S → Prop"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "Padic",
+      "IUTBridge.Slots.Tuple",
+      "Eq",
+      "IUTBridge.Slots.relabel",
+      "IUTBridge.Slots.slotwise",
+      "IUTBridge.Slots.slotwise_commutes_of_invariant",
+      "rfl"
+    ],
+    "id": "IUTBridge.Slots.uniform_scale_commutes",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ : Equiv.Perm (Fin n)) (c : ℚ_[p]) (x : IUTBridge.Slots.Tuple p n),\n  IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p (fun x => c) x) =\n    IUTBridge.Slots.slotwise p (fun x => c) (IUTBridge.Slots.relabel p σ x)"
   },
   {
     "axioms": [
@@ -1151,6 +1313,46 @@
   {
     "axioms": [
       "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Fin",
+      "Padic"
+    ],
+    "id": "IUTBridge.Slots.Tuple",
+    "kind": "definition",
+    "module": "IUTBridge.Slots",
+    "statement": "(p : ℕ) → [hp : Fact (Nat.Prime p)] → ℕ → Type"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Equiv.Perm",
+      "Fin",
+      "OfNat.ofNat",
+      "Nat",
+      "instOfNatNat",
+      "Equiv.swap",
+      "instDecidableEqFin",
+      "Fin.instOfNat",
+      "IUTBridge.Slots.swap23._proof_1"
+    ],
+    "id": "IUTBridge.Slots.swap23",
+    "kind": "definition",
+    "module": "IUTBridge.Slots",
+    "statement": "Equiv.Perm (Fin 4)"
+  },
+  {
+    "axioms": [
+      "propext",
       "Quot.sound"
     ],
     "constants": [
@@ -1409,6 +1611,64 @@
       "Nat",
       "Fact",
       "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "Padic",
+      "Eq",
+      "DFunLike.coe",
+      "Equiv",
+      "EquivLike.toFunLike",
+      "Equiv.instEquivLike",
+      "Equiv.symm",
+      "IUTBridge.Slots.Tuple",
+      "IUTBridge.Slots.relabel",
+      "IUTBridge.Slots.slotwise",
+      "funext",
+      "of_eq_true",
+      "HMul.hMul",
+      "instHMul",
+      "instMulPadic",
+      "Eq.trans",
+      "True",
+      "congrFun'",
+      "congrArg",
+      "eq_self"
+    ],
+    "id": "IUTBridge.Slots.slotwise_commutes_of_invariant",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]),\n  (∀ (j : Fin n), a ((Equiv.symm σ) j) = a j) →\n    ∀ (x : IUTBridge.Slots.Tuple p n),\n      IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x) =\n        IUTBridge.Slots.slotwise p a (IUTBridge.Slots.relabel p σ x)"
+  },
+  {
+    "axioms": [
+      "propext"
+    ],
+    "constants": [
+      "NeZero",
+      "Nat",
+      "Zero.ofOfNat0",
+      "instOfNatNat",
+      "HAdd.hAdd",
+      "instHAdd",
+      "instAddNat",
+      "OfNat.ofNat",
+      "Nat.instNeZeroSucc"
+    ],
+    "id": "IUTBridge.Slots.swap23._proof_1",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "NeZero (3 + 1)"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
       "List",
       "Int",
       "LinearEquiv",
@@ -1432,6 +1692,35 @@
     "statement": "(p : ℕ) → [hp : Fact (Nat.Prime p)] → List ℤ → ℚ_[p] ≃ₗ[ℚ_[p]] ℚ_[p]"
   },
   {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "IUTBridge.Slots.Tuple",
+      "OfNat.ofNat",
+      "instOfNatNat",
+      "And",
+      "Eq",
+      "Padic",
+      "IUTBridge.Slots.relabel",
+      "IUTBridge.Slots.swap23",
+      "Fin",
+      "Fin.instOfNat",
+      "Nat.instNeZeroSucc",
+      "And.intro",
+      "Eq.refl"
+    ],
+    "id": "IUTBridge.Slots.swap23_exchanges_high_slots",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] (x : IUTBridge.Slots.Tuple p 4),\n  IUTBridge.Slots.relabel p IUTBridge.Slots.swap23 x 2 = x 3 ∧\n    IUTBridge.Slots.relabel p IUTBridge.Slots.swap23 x 3 = x 2"
+  },
+  {
     "axioms": [],
     "constants": [
       "Eq",
@@ -1448,6 +1737,30 @@
     "kind": "theorem",
     "module": "IUTBridge.Admissibility",
     "statement": "∀ {K : Type u} {S : Type v} {A : K → S → Prop},\n  (∀ (k : K) (s s' : S), A k s → A k s' → s = s') →\n    (∀ (k : K), IUTBridge.Admissibility.LeftAllowed A k) →\n      (∀ (s : S), IUTBridge.Admissibility.RightAllowed A s) →\n        ∀ {k1 k2 : K} {s1 s2 : S},\n          A k1 s1 →\n            A k2 s2 →\n              s1 ≠ s2 →\n                (∀ (k : K), IUTBridge.Admissibility.LeftAllowed A k) ∧\n                  (∀ (s : S), IUTBridge.Admissibility.RightAllowed A s) ∧ ¬IUTBridge.Admissibility.IsRectangular A"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "IUTBridge.Slots.Tuple",
+      "DFunLike.coe",
+      "Equiv",
+      "EquivLike.toFunLike",
+      "Equiv.instEquivLike",
+      "Equiv.symm"
+    ],
+    "id": "IUTBridge.Slots.relabel",
+    "kind": "definition",
+    "module": "IUTBridge.Slots",
+    "statement": "(p : ℕ) →\n  [hp : Fact (Nat.Prime p)] → {n : ℕ} → Equiv.Perm (Fin n) → IUTBridge.Slots.Tuple p n → IUTBridge.Slots.Tuple p n"
   },
   {
     "axioms": [
@@ -1681,6 +1994,28 @@
     "kind": "theorem",
     "module": "IUTBridge.ScaleLedger",
     "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] (n : ℤ) (x : ℚ_[p]), ‖(IUTBridge.ScaleLedger.shift p n) x‖ = ↑p ^ (-n) * ‖x‖"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Fin",
+      "Padic",
+      "IUTBridge.Slots.Tuple",
+      "HMul.hMul",
+      "instHMul",
+      "instMulPadic"
+    ],
+    "id": "IUTBridge.Slots.slotwise",
+    "kind": "definition",
+    "module": "IUTBridge.Slots",
+    "statement": "(p : ℕ) → [hp : Fact (Nat.Prime p)] → {n : ℕ} → (Fin n → ℚ_[p]) → IUTBridge.Slots.Tuple p n → IUTBridge.Slots.Tuple p n"
   },
   {
     "axioms": [
@@ -2210,6 +2545,60 @@
     "kind": "theorem",
     "module": "IUTBridge.ScaleLedger",
     "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] (l : List ℤ) (x : ℚ_[p]),\n  (IUTBridge.ScaleLedger.composeShift p l) x = ↑p ^ l.sum * x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "IUTBridge.Slots.Tuple",
+      "Eq",
+      "IUTBridge.Slots.relabel",
+      "Equiv.trans",
+      "funext",
+      "Padic",
+      "Eq.refl"
+    ],
+    "id": "IUTBridge.Slots.relabel_trans",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (x : IUTBridge.Slots.Tuple p n),\n  IUTBridge.Slots.relabel p σ (IUTBridge.Slots.relabel p τ x) = IUTBridge.Slots.relabel p (Equiv.trans τ σ) x"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "IUTBridge.Slots.Tuple",
+      "OfNat.ofNat",
+      "instOfNatNat",
+      "And",
+      "Eq",
+      "Padic",
+      "IUTBridge.Slots.relabel",
+      "IUTBridge.Slots.swap23",
+      "Fin",
+      "Fin.instOfNat",
+      "Nat.instNeZeroSucc",
+      "And.intro",
+      "Eq.refl"
+    ],
+    "id": "IUTBridge.Slots.swap23_fixes_low_slots",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] (x : IUTBridge.Slots.Tuple p 4),\n  IUTBridge.Slots.relabel p IUTBridge.Slots.swap23 x 0 = x 0 ∧\n    IUTBridge.Slots.relabel p IUTBridge.Slots.swap23 x 1 = x 1"
   },
   {
     "axioms": [
@@ -2904,6 +3293,45 @@
       "Nat",
       "Fact",
       "Nat.Prime",
+      "Equiv.Perm",
+      "Fin",
+      "Padic",
+      "IUTBridge.Slots.Tuple",
+      "Ne",
+      "DFunLike.coe",
+      "Equiv",
+      "EquivLike.toFunLike",
+      "Equiv.instEquivLike",
+      "Equiv.symm",
+      "OfNat.ofNat",
+      "Zero.toOfNat0",
+      "instZeroPadic",
+      "Eq",
+      "Int",
+      "Padic.valuation",
+      "IUTBridge.Slots.relabel",
+      "IUTBridge.Slots.slotwise",
+      "HAdd.hAdd",
+      "instHAdd",
+      "Int.instAdd",
+      "id",
+      "Padic.valuation_mul"
+    ],
+    "id": "IUTBridge.Slots.valuation_relabel_slotwise",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]) (x : IUTBridge.Slots.Tuple p n)\n  (j : Fin n),\n  a ((Equiv.symm σ) j) ≠ 0 →\n    x ((Equiv.symm σ) j) ≠ 0 →\n      (IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x) j).valuation =\n        (a ((Equiv.symm σ) j)).valuation + (x ((Equiv.symm σ) j)).valuation"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
       "Eq",
       "LinearEquiv",
       "Padic",
@@ -3063,6 +3491,31 @@
     "kind": "theorem",
     "module": "IUTBridge.ScaleLedger",
     "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)], 1 < ↑p"
+  },
+  {
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "constants": [
+      "Nat",
+      "Fact",
+      "Nat.Prime",
+      "Fin",
+      "Padic",
+      "IUTBridge.Slots.Tuple",
+      "Eq",
+      "IUTBridge.Slots.slotwise",
+      "HMul.hMul",
+      "instHMul",
+      "instMulPadic",
+      "Eq.refl"
+    ],
+    "id": "IUTBridge.Slots.slotwise.eq_1",
+    "kind": "theorem",
+    "module": "IUTBridge.Slots",
+    "statement": "∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (a : Fin n → ℚ_[p]) (x : IUTBridge.Slots.Tuple p n) (j : Fin n),\n  IUTBridge.Slots.slotwise p a x j = a j * x j"
   },
   {
     "axioms": [

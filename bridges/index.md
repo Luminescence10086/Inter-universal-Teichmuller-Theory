@@ -1,6 +1,6 @@
 # Bridge contracts
 
-生成时间：2026-10-20T07:30:01.695263+00:00；状态：`all_contracts_checked`。
+生成时间：2026-10-20T07:46:41.942874+00:00；状态：`all_contracts_checked`。
 
 三套工程、两套工具链。`local → bridge` 是**真实 Lean import**（内核检查）；
 `main → bridge` **无法 import**（Lean 4.34.0 vs rc2），因此那里的边是**受审计的接口合同**：
@@ -14,6 +14,7 @@
 | `BR-04` | instantiation | `IUTAudit.Transport.coupled_choice_counterexample` | `IUTBridge.Admissibility.not_rectangular_of_graph`<br>`IUTBridge.Admissibility.marginals_do_not_force_joint`<br>`IUTBridge.Admissibility.normalised_isRectangular`<br>`IUTBridge.Admissibility.normalised_sigma_marginal` | checked |
 | `BR-05` | new_result | `—（新结果）` | `IUTBridge.ScaleLedger.cost_exact`<br>`IUTBridge.ScaleLedger.layer_image_shift`<br>`IUTBridge.ScaleLedger.layer_ssubset_of_lt` | checked |
 | `BR-06` | new_result | `—（新结果）` | `IUTBridge.Admissibility.rectangular_subrelation_freezes_layer`<br>`IUTBridge.Admissibility.normalised_isRectangular` | checked |
+| `BR-07` | instantiation | `IUTAudit.LocalNumerics.swap23_tuple_and_theta` | `IUTBridge.Slots.relabel_slotwise`<br>`IUTBridge.Slots.valuation_relabel_slotwise`<br>`IUTBridge.Slots.slotwise_commutes_of_invariant`<br>`IUTBridge.Slots.slotwise_not_commutes_of_witness`<br>`IUTBridge.Slots.swap23_exchanges_high_slots` | checked |
 
 ## 每条合同的机器检查项
 
@@ -75,4 +76,14 @@ Any rectangular repair freezes the lattice layer. If a sub-relation of the joint
 - ✅ 2 concrete endpoint(s) elaborated, axioms approved
 - ✅ contract declares no IUT object constructed
 - 未构造：joint (kappa, sigma) lift, seed-region membership, hull bound
+
+### BR-07
+
+The integer slot model of the label action is realized on actual p-adic tuples. Relabelling by a permutation conjugates a slotwise scalar family, so a slotwise action is sigma-equivariant exactly when the family is sigma-invariant; it moves components but preserves each component's valuation data. The main project's swap23 model is a generic-type reindexing with no scalar action, so the conjugation statement is new to this toolchain.
+
+- ✅ abstract endpoint elaborated: IUTAudit.LocalNumerics.swap23_tuple_and_theta
+- ✅ 5 concrete endpoint(s) elaborated, axioms approved
+- ✅ instantiation edge: statements differ by design, no identity claimed
+- ✅ contract declares no IUT object constructed
+- 未构造：real Hodge theater slot set, procession automorphism, tensor packet
 
