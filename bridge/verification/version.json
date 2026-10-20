@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "env",
+    "lean",
+    "--version"
+  ],
+  "exit_code": 0,
+  "stdout": "Lean (version 4.34.0-rc2, x86_64-w64-windows-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)\n",
+  "stderr": ""
+}

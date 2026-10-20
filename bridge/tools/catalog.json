@@ -1,0 +1,199 @@
+[
+  {
+    "id": "IUTBridge.ScaleLedger.mem_layer_iff_norm_le",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.mem_layer_iff_le_valuation",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.zero_mem_layer",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.shift_apply",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.shift_comp_apply",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.norm_shift",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.norm_factor_composition",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.norm_factor_pow",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.valuation_shift",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.shift_ne_zero",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.valuation_ledger_composition",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "hx"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_image_shift",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_subset_of_le",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "h"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_ssubset_of_lt",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": [
+      "h"
+    ]
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.layer_injective",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.cost_exact",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.map_one_determines",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.image_ball_eq_layer",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.existsUnique_layer_of_auto",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.composeShift_apply",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.ScaleLedger.composeShift_eq_shift_sum",
+    "source": "IUTBridge/ScaleLedger.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.rectangular_iff_product",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.not_rectangular_of_graph",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hun",
+      "h1",
+      "h2",
+      "hne"
+    ]
+  },
+  {
+    "id": "IUTBridge.Admissibility.marginals_insufficient_of_graph",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hun",
+      "hleft",
+      "hright",
+      "h1",
+      "h2",
+      "hne"
+    ]
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_unique",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hk",
+      "hm"
+    ]
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_attained",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_refl",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.marginals_total",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.latticeAdmissible_not_rectangular",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.marginals_do_not_force_joint",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.normalised_isRectangular",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.normalised_sigma_marginal",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": []
+  },
+  {
+    "id": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer",
+    "source": "IUTBridge/Admissibility.lean",
+    "hypotheses": [
+      "hsub",
+      "hrect",
+      "h1",
+      "h2"
+    ]
+  }
+]

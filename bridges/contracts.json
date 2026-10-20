@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "purpose": "Machine-checkable bridge contracts between the three verification projects of this repository. Main project uses Lean 4.34.0 (no Mathlib); local-field and bridge use Lean 4.34.0-rc2 (Mathlib). A proof cannot be imported across those toolchains, so a main-to-bridge edge is NOT a kernel-checked dependency: it is an audited contract, pinned by elaborated statement text and vendored definition types. The local-field-to-bridge edge is a real Lean import and needs no contract.",
+  "edge_strength": {
+    "local_to_bridge": "kernel_checked_import",
+    "main_to_bridge": "audited_statement_contract_no_proof_transfer"
+  },
+  "normalisation": {
+    "strip_prefixes": [
+      "IUTAudit.Transport.",
+      "IUTAudit.Scale.",
+      "IUTAudit.Descent.",
+      "IUTAudit.Orbit.",
+      "IUTAudit.LocalNumerics.",
+      "IUTBridge.Admissibility.",
+      "IUTBridge.ScaleLedger.",
+      "LocalFieldAudit.Filtration.",
+      "LocalFieldAudit.Shell.",
+      "LocalFieldAudit.ContinuousLinearity."
+    ],
+    "note": "Whitespace is collapsed after prefix stripping. Equality of the remaining text is a property of the two elaborated types, not of the source files."
+  },
+  "contracts": [
+    {
+      "id": "BR-01",
+      "kind": "instantiation",
+      "claim": "The abstract discrete scale model composes multiplicatively. On actual Q_p the multiplicative coordinate is the norm scale factor, and the additive coordinate is the valuation; both are proved to have exactly the predicted composition law, and iterated rescaling telescopes to the sum of exponents.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.scale_composition"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.norm_factor_pow"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.valuation_ledger_composition"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.composeShift_eq_shift_sum"
+        }
+      ],
+      "external_anchors": [
+        "Padic.norm_eq_zpow_neg_valuation",
+        "Padic.norm_p_zpow"
+      ],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "Theta-link",
+        "Ism element",
+        "Arakelov log-volume"
+      ],
+      "notes": "The model uses Nat scales; the arithmetic statement uses Int exponents. This is an instantiation, not a statement identity: the model's product of scales corresponds to the sum of valuation exponents."
+    },
+    {
+      "id": "BR-02",
+      "kind": "instantiation",
+      "claim": "The abstract model proves that a scale is determined by its value on the unit. On actual Q_p the corresponding statement is that the value at 1 determines the automorphism, hence determines exactly one lattice layer of the ball image: the joint data is a graph.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.normalization_at_unit"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.map_one_determines"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.existsUnique_layer_of_auto"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "Ism group",
+        "finite H-invariant module",
+        "log coordinate"
+      ],
+      "notes": "Uniqueness of the layer index is what converts the abstract normalisation statement into the non-rectangularity obstruction of BR-03/BR-04."
+    },
+    {
+      "id": "BR-03",
+      "kind": "statement_identity",
+      "claim": "The rectangularity interface (LeftAllowed, RightAllowed, IsRectangular) and the equivalence 'rectangular iff the joint relation is the product of its marginals' are the same proposition in both toolchains.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Transport.rectangular_iff_product"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.rectangular_iff_product"
+        }
+      ],
+      "vendored": [
+        {
+          "main": "IUTAudit.Transport.LeftAllowed",
+          "bridge": "IUTBridge.Admissibility.LeftAllowed"
+        },
+        {
+          "main": "IUTAudit.Transport.RightAllowed",
+          "bridge": "IUTBridge.Admissibility.RightAllowed"
+        },
+        {
+          "main": "IUTAudit.Transport.IsRectangular",
+          "bridge": "IUTBridge.Admissibility.IsRectangular"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "Ind1 operation",
+        "procession automorphism",
+        "Kummer isomorphism"
+      ],
+      "notes": "This is the only contract whose elaborated statements must agree verbatim after prefix normalisation; the auditor enforces that. Body text of the vendored definitions was copied, and the auditor compares their elaborated types."
+    },
+    {
+      "id": "BR-04",
+      "kind": "instantiation",
+      "claim": "The abstract Boolean counterexample showing that separate kappa- and sigma-admissibility does not entail joint admissibility is realized on actual arithmetic data: automorphisms of Q_p versus integer layers of the unit ball. Both marginals are total and the relation is not rectangular, because the relation is a graph over an infinite ladder. A general graph obstruction is isolated, and the normalised sub-relation is proved rectangular, so the failure is exactly the rescaling freedom.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Transport.coupled_choice_counterexample"
+      },
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.not_rectangular_of_graph"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.marginals_do_not_force_joint"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.normalised_isRectangular"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.normalised_sigma_marginal"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "SeedRegion membership",
+        "possible-images family",
+        "joint (kappa, sigma) lift"
+      ],
+      "notes": "Still a base-field statement. It does not assert that any Step (v) objection is correct or incorrect."
+    },
+    {
+      "id": "BR-05",
+      "kind": "new_result",
+      "claim": "In the base field, moving the ladder container from one layer to another costs exactly the exponent difference and nothing else, and the ladder is a strictly increasing infinite filtration. This supplies the exact price of a container-widening repair at the level of base-field lattices, without any claim about IUT volumes.",
+      "abstract": null,
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.cost_exact"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.layer_image_shift"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.ScaleLedger.layer_ssubset_of_lt"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "holomorphic hull",
+        "tensor normalisation",
+        "global error budget"
+      ],
+      "notes": "The repository records that enlarging a container is only a repair if the added volume cost still meets the target estimate. This contract supplies the base-field cost formula, not the IUT-level estimate."
+    },
+    {
+      "id": "BR-06",
+      "kind": "new_result",
+      "claim": "Any rectangular repair freezes the lattice layer. If a sub-relation of the joint lattice relation admits independent marginal reasoning (is rectangular), then all of its admissible pairs share one layer: independent marginal reasoning is available only after the rescaling freedom has been given up. This converts the BR-04 obstruction from a counterexample into a design constraint on any repair attempt.",
+      "abstract": null,
+      "concrete": [
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer"
+        },
+        {
+          "project": "bridge",
+          "theorem": "IUTBridge.Admissibility.normalised_isRectangular"
+        }
+      ],
+      "external_anchors": [],
+      "iut_objects_constructed": [],
+      "not_constructed": [
+        "joint (kappa, sigma) lift",
+        "seed-region membership",
+        "hull bound"
+      ],
+      "notes": "Base-field lattice statement. It constrains what a repair may assume, and says nothing about whether the actual IUT Step (v) objection is correct."
+    }
+  ]
+}

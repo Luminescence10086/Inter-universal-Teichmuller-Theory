@@ -1,0 +1,194 @@
+{
+  "schema": 1,
+  "generated_utc": "2026-10-20T07:30:01.695263+00:00",
+  "projects": {
+    "main": ".",
+    "local": "local-field",
+    "bridge": "bridge"
+  },
+  "contracts": [
+    {
+      "id": "BR-01",
+      "kind": "instantiation",
+      "claim": "The abstract discrete scale model composes multiplicatively. On actual Q_p the multiplicative coordinate is the norm scale factor, and the additive coordinate is the valuation; both are proved to have exactly the predicted composition law, and iterated rescaling telescopes to the sum of exponents.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.scale_composition"
+      },
+      "concrete": [
+        "IUTBridge.ScaleLedger.norm_factor_pow",
+        "IUTBridge.ScaleLedger.valuation_ledger_composition",
+        "IUTBridge.ScaleLedger.composeShift_eq_shift_sum"
+      ],
+      "external_anchors": [
+        "Padic.norm_eq_zpow_neg_valuation",
+        "Padic.norm_p_zpow"
+      ],
+      "not_constructed": [
+        "Theta-link",
+        "Ism element",
+        "Arakelov log-volume"
+      ],
+      "checks": [
+        "abstract endpoint elaborated: IUTAudit.Scale.scale_composition",
+        "3 concrete endpoint(s) elaborated, axioms approved",
+        "instantiation edge: statements differ by design, no identity claimed",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-02",
+      "kind": "instantiation",
+      "claim": "The abstract model proves that a scale is determined by its value on the unit. On actual Q_p the corresponding statement is that the value at 1 determines the automorphism, hence determines exactly one lattice layer of the ball image: the joint data is a graph.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Scale.normalization_at_unit"
+      },
+      "concrete": [
+        "IUTBridge.ScaleLedger.map_one_determines",
+        "IUTBridge.ScaleLedger.existsUnique_layer_of_auto"
+      ],
+      "external_anchors": [],
+      "not_constructed": [
+        "Ism group",
+        "finite H-invariant module",
+        "log coordinate"
+      ],
+      "checks": [
+        "abstract endpoint elaborated: IUTAudit.Scale.normalization_at_unit",
+        "2 concrete endpoint(s) elaborated, axioms approved",
+        "instantiation edge: statements differ by design, no identity claimed",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-03",
+      "kind": "statement_identity",
+      "claim": "The rectangularity interface (LeftAllowed, RightAllowed, IsRectangular) and the equivalence 'rectangular iff the joint relation is the product of its marginals' are the same proposition in both toolchains.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Transport.rectangular_iff_product"
+      },
+      "concrete": [
+        "IUTBridge.Admissibility.rectangular_iff_product"
+      ],
+      "external_anchors": [],
+      "not_constructed": [
+        "Ind1 operation",
+        "procession automorphism",
+        "Kummer isomorphism"
+      ],
+      "checks": [
+        "abstract endpoint elaborated: IUTAudit.Transport.rectangular_iff_product",
+        "1 concrete endpoint(s) elaborated, axioms approved",
+        "elaborated statements identical after prefix normalisation",
+        "vendored definition type identical: LeftAllowed",
+        "vendored definition type identical: RightAllowed",
+        "vendored definition type identical: IsRectangular",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-04",
+      "kind": "instantiation",
+      "claim": "The abstract Boolean counterexample showing that separate kappa- and sigma-admissibility does not entail joint admissibility is realized on actual arithmetic data: automorphisms of Q_p versus integer layers of the unit ball. Both marginals are total and the relation is not rectangular, because the relation is a graph over an infinite ladder. A general graph obstruction is isolated, and the normalised sub-relation is proved rectangular, so the failure is exactly the rescaling freedom.",
+      "abstract": {
+        "project": "main",
+        "theorem": "IUTAudit.Transport.coupled_choice_counterexample"
+      },
+      "concrete": [
+        "IUTBridge.Admissibility.not_rectangular_of_graph",
+        "IUTBridge.Admissibility.marginals_do_not_force_joint",
+        "IUTBridge.Admissibility.normalised_isRectangular",
+        "IUTBridge.Admissibility.normalised_sigma_marginal"
+      ],
+      "external_anchors": [],
+      "not_constructed": [
+        "SeedRegion membership",
+        "possible-images family",
+        "joint (kappa, sigma) lift"
+      ],
+      "checks": [
+        "abstract endpoint elaborated: IUTAudit.Transport.coupled_choice_counterexample",
+        "4 concrete endpoint(s) elaborated, axioms approved",
+        "instantiation edge: statements differ by design, no identity claimed",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-05",
+      "kind": "new_result",
+      "claim": "In the base field, moving the ladder container from one layer to another costs exactly the exponent difference and nothing else, and the ladder is a strictly increasing infinite filtration. This supplies the exact price of a container-widening repair at the level of base-field lattices, without any claim about IUT volumes.",
+      "abstract": null,
+      "concrete": [
+        "IUTBridge.ScaleLedger.cost_exact",
+        "IUTBridge.ScaleLedger.layer_image_shift",
+        "IUTBridge.ScaleLedger.layer_ssubset_of_lt"
+      ],
+      "external_anchors": [],
+      "not_constructed": [
+        "holomorphic hull",
+        "tensor normalisation",
+        "global error budget"
+      ],
+      "checks": [
+        "3 concrete endpoint(s) elaborated, axioms approved",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    },
+    {
+      "id": "BR-06",
+      "kind": "new_result",
+      "claim": "Any rectangular repair freezes the lattice layer. If a sub-relation of the joint lattice relation admits independent marginal reasoning (is rectangular), then all of its admissible pairs share one layer: independent marginal reasoning is available only after the rescaling freedom has been given up. This converts the BR-04 obstruction from a counterexample into a design constraint on any repair attempt.",
+      "abstract": null,
+      "concrete": [
+        "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer",
+        "IUTBridge.Admissibility.normalised_isRectangular"
+      ],
+      "external_anchors": [],
+      "not_constructed": [
+        "joint (kappa, sigma) lift",
+        "seed-region membership",
+        "hull bound"
+      ],
+      "checks": [
+        "2 concrete endpoint(s) elaborated, axioms approved",
+        "contract declares no IUT object constructed"
+      ],
+      "proof_transfer": false,
+      "edge_strength": "contract",
+      "status": "checked"
+    }
+  ],
+  "import_edge": {
+    "from": "local",
+    "to": "bridge",
+    "edge_strength": "kernel_checked_import",
+    "evidence": [
+      "LocalFieldAudit.Filtration.mem_zpow_ball_iff_le_valuation"
+    ],
+    "note": "bridge/IUTBridge/ScaleLedger.lean imports LocalFieldAudit.Filtration; the dependency is checked by the Lean kernel, not by this auditor."
+  },
+  "failures": [],
+  "status": "all_contracts_checked",
+  "cross_toolchain_proof_transfer": false,
+  "iut_object_constructed": false,
+  "iut_cor312_proved": false,
+  "abc_proved": false,
+  "scope": "Statement/structure correspondence between an abstract discrete model and an audited base-field Q_p theory. Not an IUT result."
+}

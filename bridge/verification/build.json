@@ -1,0 +1,11 @@
+{
+  "command": [
+    "C:\\Users\\18746\\.elan\\bin\\lake.EXE",
+    "--wfail",
+    "build",
+    "IUTBridge"
+  ],
+  "exit_code": 0,
+  "stdout": "✔ [1998/2000] Built IUTBridge.Admissibility (17s)\n✔ [1999/2000] Built IUTBridge (17s)\nBuild completed successfully (2000 jobs).\n",
+  "stderr": ""
+}
