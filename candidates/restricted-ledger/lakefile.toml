@@ -1,0 +1,13 @@
+name = "candidates"
+version = "0.1.0"
+defaultTargets = ["Candidates"]
+
+[[lean_lib]]
+name = "Candidates"
+
+# The candidate reuses the worktree's own admitted bridge library instead of
+# redefining the ledger; the transitive dependency on `local_field_audit` and on
+# the external Mathlib checkout is inherited from `../bridge/lakefile.toml`.
+[[require]]
+name = "iut_bridge"
+path = "../../bridge"
