@@ -1,0 +1,14 @@
+name = "candidates"
+version = "0.1.0"
+defaultTargets = ["Candidates"]
+
+[[lean_lib]]
+name = "Candidates"
+
+[[require]]
+name = "iut_bridge"
+path = "../../bridge"
+
+[[require]]
+name = "mathlib"
+path = "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/mathlib"
