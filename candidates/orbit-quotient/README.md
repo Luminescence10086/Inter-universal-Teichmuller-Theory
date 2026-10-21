@@ -24,8 +24,8 @@ VS Code session.
 
 | file | role |
 | --- | --- |
-| `Candidates/OrbitQuotient.lean` | the single concentrated entry file (5 main theorems + auxiliary lemmas, all exported) |
-| `Candidates/Axioms.lean` | axiom export for the main theorems |
+| `Candidates/OrbitQuotient.lean` | the concentrated original entry plus 3 repair theorems and auxiliary lemmas |
+| `Candidates/Axioms.lean` | complete declaration type and axiom export |
 | `Candidates.lean` | library root, re-exports the entry file only |
 
 ## Frozen verification commands
@@ -47,3 +47,34 @@ lake env lean --json Candidates/Axioms.lean
 Finite counting here is not a log-volume, and the global error budget / real
 seed identities remain independent obligations.  See `SUMMARY.md` in the
 external delivery package.
+
+## Incremental rectangular-product repair (2026-10-21)
+
+Repair base: `e9eff929ff63f5faf993abc08f3b7ef84de3b9ee`. Three new main theorems
+close the former bounded-threshold-only interface: `coordinateProductHull_minimal`,
+`coordinateProductHull_orbitUnion`, and `hull_minimal_coordinateProduct`.
+The product hull is defined as `Set.pi Set.univ (fun j => (fun x => x j) '' U)`.
+Its equality with `Box (hullThresh Γ hΓ k)` and minimality hold for every nonempty
+finite family `Γ`; these set-theoretic results do not require primality, bounded
+thresholds, identity membership, or a group structure. Counting results retain
+all their original assumptions.
+
+Direction is explicit: `permAct γ x = x ∘ γ`, while the unchanged `orbitUnion`
+uses inverse images. The new auxiliary lemma `orbitUnion_eq_inverse_images`
+proves that it equals the union of images under `permAct γ.symm`. This is not an
+assertion that a general finite family equals its inverse family. Consequently
+the existing hull threshold `k (γ.symm j)` is correct for the retained definition.
+
+The entry, original cardinality/budget proofs and 2/3/4 example are checked
+once per frozen replay. To avoid triggering dependency builds, the replay emits
+the candidate olean directly using the existing locked dependency caches:
+
+```text
+lake env lean --json -DwarningAsError=true -o .lake/build/lib/lean/Candidates/OrbitQuotient.olean -i .lake/build/lib/lean/Candidates/OrbitQuotient.ilean Candidates/OrbitQuotient.lean
+lake env lean --json -DwarningAsError=true Candidates/Axioms.lean
+```
+
+The second command exports every declaration's exact type and axiom dependencies,
+plus the original and added definition bodies. Evidence is stored outside the
+candidate source in the main workspace's `reviews/repair-round/m2/`. Actual VS Code
+observation is a separate reviewer obligation; this remains candidate-only.

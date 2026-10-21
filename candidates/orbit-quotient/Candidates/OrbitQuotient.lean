@@ -15,13 +15,13 @@ is realized by the explicit `p`-divisibility predicate on representatives
 `U` is the union of the permuted boxes and `H` the smallest coordinate product
 box containing `U`.
 
-Main theorems, one per required case id:
+Original main theorems, with the rectangular-product repair below:
 
 * `hull_thresholds`     (M2.rectangular_hull_thresholds) — the hull thresholds
                           are the coordinatewise minima of the permuted
                           thresholds, each attained inside `Γ`.
 * `hull_minimal`        (M2.rectangular_hull_minimality) — `H` contains `U`
-                          and is minimal among coordinate boxes containing `U`.
+                          and is minimal among bounded threshold boxes containing `U`.
 * `box_cardinality`     (M2.box_cardinality) — `Nat.card (B k) = p ^ ∑ j, (N - k j)`.
 * `enlargement_budget`  (M2.enlargement_integer_budget) — exact integer-exponent
                           budget `|B k| * p ^ e = |B k'|` for `k' ≤ k`.
@@ -29,7 +29,18 @@ Main theorems, one per required case id:
                           `p = 2, N = 1, n = 2, k = (0,1)`, `Γ = {id, swap}`
                           check: `2`, `3`, `4`.
 
-Scope statements (deliberate limitations, see `SUMMARY.md`):
+The incremental repair adds three main theorems:
+
+* `coordinateProductHull_minimal` — universal property for arbitrary products.
+* `coordinateProductHull_orbitUnion` — the product of actual projections is
+  exactly `Box (hullThresh Γ hΓ k)`.
+* `hull_minimal_coordinateProduct` — containment and minimality among all
+  `Set.pi Set.univ S`, with unrestricted coordinate subsets `S`.
+
+`orbitUnion_eq_inverse_images` records the inverse-image convention in Lean.
+The original definitions and counting results are unchanged.
+
+Scope statements (deliberate limitations, see the external delivery summary):
 
 * Finite counting here is **not** a log-volume.  No Haar or Arakelov measure is
   introduced, and no function called `cost` is defined and called a volume.
@@ -66,17 +77,40 @@ def IdealBox (p N n : ℕ) (k : Fin n → ℕ) : Set (Fin n → ZMod (p ^ N)) :=
 
 /-- The coordinate permutation action.  We fix the convention
 `(γ • x) j = x (γ j)`, i.e. `γ • x = x ∘ γ`.  Consequently the `γ`-image of the
-box `B k` is the box with thresholds `j ↦ k (γ⁻¹ j)`; see `mem_permAct_box`.
+box `B k` has thresholds `j ↦ k (γ j)`.  The inverse image used in
+`orbitUnion` has thresholds `j ↦ k (γ⁻¹ j)`; see `mem_permAct_box`.
 This is the σ/σ⁻¹ convention used everywhere below, including `hullThresh`. -/
 def permAct (p N : ℕ) {n : ℕ} (γ : Equiv.Perm (Fin n))
     (x : Fin n → ZMod (p ^ N)) : Fin n → ZMod (p ^ N) :=
   fun j => x (γ j)
 
-/-- The orbit union `U = ⋃_{γ ∈ Γ} γ • B k`, for an explicitly finite family `Γ`.
+/-- The orbit union `U = ⋃_{γ ∈ Γ} (permAct γ)⁻¹(B k)`, equivalently the union
+of the images under `permAct γ.symm`, for an explicitly finite family `Γ`.
 No group structure on `Γ` is assumed or used. -/
 def orbitUnion (p N n : ℕ) (Γ : Finset (Equiv.Perm (Fin n)))
     (k : Fin n → ℕ) : Set (Fin n → ZMod (p ^ N)) :=
   {x | ∃ γ ∈ Γ, permAct p N γ x ∈ Box p N n k}
+
+/-- Exact action convention: the existing orbit union is the union of images
+under the inverse permutations.  For a finite family not closed under inverse,
+this must not be silently replaced by the forward-image family. -/
+lemma orbitUnion_eq_inverse_images {p N n : ℕ}
+    (Γ : Finset (Equiv.Perm (Fin n))) (k : Fin n → ℕ) :
+    orbitUnion p N n Γ k = ⋃ γ ∈ Γ, permAct p N γ.symm '' Box p N n k := by
+  ext x
+  simp only [Set.mem_iUnion, Set.mem_image]
+  constructor
+  · rintro ⟨γ, hγ, hx⟩
+    refine ⟨γ, hγ, permAct p N γ x, hx, ?_⟩
+    funext j
+    simp [permAct]
+  · rintro ⟨γ, hγ, y, hy, rfl⟩
+    refine ⟨γ, hγ, ?_⟩
+    have he : permAct p N γ (permAct p N γ.symm y) = y := by
+      funext j
+      simp [permAct]
+    rw [he]
+    exact hy
 
 /-- The threshold vector of the minimal coordinate box containing the orbit
 union: coordinate `j` gets the minimum of `k (γ⁻¹ j)` over `γ ∈ Γ`. -/
@@ -135,8 +169,8 @@ lemma box_mono {p N n : ℕ} {k k' : Fin n → ℕ} (h : ∀ j, k' j ≤ k j) :
     Box p N n k ⊆ Box p N n k' :=
   fun _ hx j => (pow_dvd_pow p (h j)).trans (hx j)
 
-/-- The `γ`-image of `B k` is `B (j ↦ k (γ⁻¹ j))`.  This is the σ/σ⁻¹
-direction fixing lemma. -/
+/-- The inverse image of `B k` under `permAct γ` is `B (j ↦ k (γ⁻¹ j))`.
+This is the σ/σ⁻¹ direction fixing lemma for the existing `orbitUnion`. -/
 lemma mem_permAct_box {p N n : ℕ} (γ : Equiv.Perm (Fin n)) (k : Fin n → ℕ)
     (x : Fin n → ZMod (p ^ N)) :
     permAct p N γ x ∈ Box p N n k ↔ x ∈ Box p N n (fun j => k (γ.symm j)) := by
@@ -212,6 +246,74 @@ theorem hull_minimal {p N n : ℕ} (hp : p.Prime) (Γ : Finset (Equiv.Perm (Fin 
       hU y ⟨γ, hγ, (mem_permAct_box γ k y).mpr hy⟩
     have hle := le_of_box_subset hp (fun i => hkN (γ.symm i)) hk'N hsub j
     omega
+
+/-! ### Arbitrary coordinate products (incremental M2 repair) -/
+
+/-- The coordinate product hull is literally the product of the coordinate
+projections.  This definition applies to every set of dependent tuples. -/
+def coordinateProductHull {ι : Type*} {α : ι → Type*}
+    (U : Set ((j : ι) → α j)) : Set ((j : ι) → α j) :=
+  Set.pi Set.univ (fun j => (fun x => x j) '' U)
+
+/-- Universal property among arbitrary coordinate products, with no restrictions
+on their coordinate subsets.  In particular, the original set is contained in
+its coordinate product hull. -/
+theorem coordinateProductHull_minimal {ι : Type*} {α : ι → Type*}
+    (U : Set ((j : ι) → α j)) (S : (j : ι) → Set (α j)) :
+    coordinateProductHull U ⊆ Set.pi Set.univ S ↔ U ⊆ Set.pi Set.univ S := by
+  constructor
+  · intro h x hx
+    apply h
+    intro j _
+    exact ⟨x, hx, rfl⟩
+  · intro h x hx j hj
+    obtain ⟨y, hy, hyj⟩ := hx j (Set.mem_univ j)
+    rw [← hyj]
+    exact h hy j hj
+
+/-- The product of the orbit union's actual coordinate projections is exactly
+the box with the coordinatewise minimum thresholds.  The reverse inclusion uses
+a tuple supported in one coordinate; no group closure of `Γ` is used. -/
+theorem coordinateProductHull_orbitUnion {p N n : ℕ}
+    (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty) (k : Fin n → ℕ) :
+    coordinateProductHull (orbitUnion p N n Γ k) =
+      Box p N n (hullThresh Γ hΓ k) := by
+  classical
+  have hhull := hull_thresholds Γ hΓ k
+  ext x
+  constructor
+  · intro hx j
+    obtain ⟨y, ⟨γ, hγ, hy⟩, hyj⟩ := hx j (Set.mem_univ j)
+    rw [← hyj]
+    exact box_mono (fun i => hhull.1 i γ hγ) ((mem_permAct_box γ k y).mp hy) j
+  · intro hx j _
+    obtain ⟨γ, hγ, hmin⟩ := hhull.2 j
+    refine ⟨Function.update (0 : Fin n → ZMod (p ^ N)) j (x j), ?_, by simp⟩
+    refine ⟨γ, hγ, (mem_permAct_box γ k _).mpr ?_⟩
+    intro i
+    by_cases hi : i = j
+    · subst i
+      simpa only [Function.update_self, ← hmin] using hx j
+    · simp [Function.update_of_ne hi]
+
+/-- Full rectangular minimality: every product of arbitrary coordinate subsets
+containing the orbit union contains its threshold hull.  The finite family need
+only be nonempty; primality and bounded thresholds are needed for counting,
+not for this set-theoretic conclusion. -/
+theorem hull_minimal_coordinateProduct {p N n : ℕ}
+    (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty) (k : Fin n → ℕ) :
+    orbitUnion p N n Γ k ⊆ Box p N n (hullThresh Γ hΓ k) ∧
+      ∀ S : Fin n → Set (ZMod (p ^ N)),
+        orbitUnion p N n Γ k ⊆ Set.pi Set.univ S →
+          Box p N n (hullThresh Γ hΓ k) ⊆ Set.pi Set.univ S := by
+  constructor
+  · intro x hx
+    rw [← coordinateProductHull_orbitUnion Γ hΓ k]
+    intro j _
+    exact ⟨x, hx, rfl⟩
+  · intro S hS
+    rw [← coordinateProductHull_orbitUnion Γ hΓ k]
+    exact (coordinateProductHull_minimal _ S).mpr hS
 
 /-! ## 4. Stage 2: exact cardinality and the integer enlargement budget -/
 
