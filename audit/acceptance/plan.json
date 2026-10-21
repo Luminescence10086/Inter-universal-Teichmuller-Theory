@@ -1,0 +1,657 @@
+{
+  "schema": 1,
+  "note": "Frozen allowlist and expected values for the P0 launcher. The reviewer freezes this file together with contracts.json; a candidate bundle can never supply its own commands or expectations.",
+  "contract_sha256": "acd2f31d1cb23f9548445ff2db0cdeb92406ba72b1ce0d1dfc4a3501b77b807f",
+  "cases": {
+    "P0.valid_bundle": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.wrong_commit": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.missing_log": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.log_digest_mismatch": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.failed_check_claimed_pass": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.timeout": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "slow"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.skipped_required_check": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.missing_git_context": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.changed_frozen_expectation": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "P0.unapproved_command": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/acceptance/probe.py",
+        "ok"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 60,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.baseline_pass": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/mutation_harness.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.fact_tree_removal_regression": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py",
+        "E1.fact_tree_removal_regression"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.unpin_entry_failure": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py",
+        "E1.unpin_entry_failure"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.clean_checkout_failure": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py",
+        "E1.clean_checkout_failure"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.baseline_failure": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py",
+        "E1.baseline_failure"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.probe_exception": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py",
+        "E1.probe_exception"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.malformed_probe_result": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py",
+        "E1.malformed_probe_result"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E1.existing_65_tests": {
+      "argv": [
+        "python",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "audit/tests",
+        "-p",
+        "test_*.py"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 900,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.new_lean_glob_member": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.new_lean_glob_member"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.new_workspace_tool": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.new_workspace_tool"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.new_vscode_config": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.new_vscode_config"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.rename_into_scope": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.rename_into_scope"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.rename_out_of_scope": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.rename_out_of_scope"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.delete_pinned_input": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.delete_pinned_input"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.documentation_control": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.documentation_control"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.out_of_scope_control": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.out_of_scope_control"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E2.distinct_node_counts": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py",
+        "E2.distinct_node_counts"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 600,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E3.child_process_input": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_tcb_negative_closure.py",
+        "E3.child_process_input"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 300,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E3.qualified_sibling_input": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_tcb_negative_closure.py",
+        "E3.qualified_sibling_input"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 300,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E3.real_bridge_consumer_bindings": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_tcb_negative_closure.py",
+        "E3.real_bridge_consumer_bindings"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 300,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E3.simple_complete_read_control": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_tcb_negative_closure.py",
+        "E3.simple_complete_read_control"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 300,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E3.incomplete_closure_blocks_safe_proposal": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_tcb_negative_closure.py",
+        "E3.incomplete_closure_blocks_safe_proposal"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 300,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "E3.separate_input_dependency_runtime_toolchain": {
+      "argv": [
+        "python",
+        "-B",
+        "audit/tests/test_tcb_negative_closure.py",
+        "E3.separate_input_dependency_runtime_toolchain"
+      ],
+      "cwd": ".",
+      "timeout_seconds": 300,
+      "expected_exit": 0,
+      "layer": "engineering"
+    },
+    "M1.integer_span_criterion": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/RestrictedLedger.lean"
+      ],
+      "cwd": "candidates/restricted-ledger",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M1.actual_qp_ledger_connection": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/RestrictedLedger.lean"
+      ],
+      "cwd": "candidates/restricted-ledger",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M1.equal_valuation_two_slot_example": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/RestrictedLedger.lean"
+      ],
+      "cwd": "candidates/restricted-ledger",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M1.full_domain_specialization": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/RestrictedLedger.lean"
+      ],
+      "cwd": "candidates/restricted-ledger",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M1.explicit_nonempty_nonzero_hypotheses": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/RestrictedLedger.lean"
+      ],
+      "cwd": "candidates/restricted-ledger",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M1.axiom_export": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "Candidates/Axioms.lean"
+      ],
+      "cwd": "candidates/restricted-ledger",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M1.cli_zero_diagnostics": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/RestrictedLedger.lean"
+      ],
+      "cwd": "candidates/restricted-ledger",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M1.actual_vscode_observation": {
+      "manual": true,
+      "note": "reviewer must replay in their own VS Code; the launcher can never grant this",
+      "layer": "mathematics"
+    },
+    "M2.rectangular_hull_thresholds": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/OrbitQuotient.lean"
+      ],
+      "cwd": "candidates/orbit-quotient",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M2.rectangular_hull_minimality": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/OrbitQuotient.lean"
+      ],
+      "cwd": "candidates/orbit-quotient",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M2.box_cardinality": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/OrbitQuotient.lean"
+      ],
+      "cwd": "candidates/orbit-quotient",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M2.enlargement_integer_budget": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/OrbitQuotient.lean"
+      ],
+      "cwd": "candidates/orbit-quotient",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M2.two_three_four_example": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/OrbitQuotient.lean"
+      ],
+      "cwd": "candidates/orbit-quotient",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M2.axiom_export": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "Candidates/Axioms.lean"
+      ],
+      "cwd": "candidates/orbit-quotient",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M2.cli_zero_diagnostics": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--json",
+        "-DwarningAsError=true",
+        "Candidates/OrbitQuotient.lean"
+      ],
+      "cwd": "candidates/orbit-quotient",
+      "timeout_seconds": 1800,
+      "expected_exit": 0,
+      "layer": "mathematics"
+    },
+    "M2.actual_vscode_observation": {
+      "manual": true,
+      "note": "reviewer must replay in their own VS Code; the launcher can never grant this",
+      "layer": "mathematics"
+    }
+  },
+  "allowed_bundle_extra_fields": [
+    "evidence_files",
+    "scope_contract_file"
+  ],
+  "supplementary_programs": {
+    "E1": [
+      [
+        "python",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py"
+      ]
+    ],
+    "E2": [
+      [
+        "python",
+        "-B",
+        "audit/affected.py"
+      ],
+      [
+        "python",
+        "-B",
+        "audit/tests/test_affected_snapshot_membership.py"
+      ]
+    ],
+    "E3": [
+      [
+        "python",
+        "-B",
+        "audit/tcb_manifest.py"
+      ]
+    ],
+    "M1": [
+      [
+        "lake",
+        "env",
+        "lean"
+      ]
+    ],
+    "M2": [
+      [
+        "lake",
+        "env",
+        "lean"
+      ]
+    ]
+  }
+}
