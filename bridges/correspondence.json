@@ -57,6 +57,7 @@
   ],
   "companion_evidence": {
     "definitions_inventory": "research/exploration/definitions-inventory.md",
+    "log_kummer_feasibility": "research/exploration/log-kummer-feasibility.md",
     "synthesis": "research/exploration/correspondence.md"
   },
   "entries": [
@@ -209,6 +210,80 @@
     "E3": "role recorded, definition absent",
     "E4": "wholly absent; only negative characterisations"
   },
+  "feasibility": {
+    "cheapest_next_step": {
+      "cost": "tens of lines from the already-firing IsUltrametricDist / NonarchimedeanAddGroup",
+      "target": "instance : NonarchimedeanRing Q_[p]",
+      "why": "it unblocks HasSum.mul_of_nonarchimedean, which gates both log multiplicativity and the Teichmuller homomorphism law"
+    },
+    "cost_verdicts": {
+      "Kummer instantiation": "days",
+      "Kummer pairing": "implausible",
+      "Lubin-Tate": "implausible",
+      "Q_p^x decomposition": "hours",
+      "Z_p^x Teichmuller half": "days (plus a separate p = 2 case)",
+      "Z_p^x residue half": "hours",
+      "exp": "additional 2-4 weeks",
+      "p-adic log": "weeks 3-6",
+      "ramification lift to Filtration.lean": "days (2-4)"
+    },
+    "does_not_establish": "nothing about IUT, Theta-links or the pilot; \"absent\" means \"not found by an import-complete probe plus a source grep\", which cannot distinguish absence from a deprecation rename",
+    "items": [
+      {
+        "item": "Q_p^x = Z x Z_p^x",
+        "missing": "only the bundled MulEquiv; factorization already exists elementwise",
+        "present": [
+          "PadicInt.unitCoeff_spec",
+          "Padic.valuation_mul",
+          "Padic.valuation_inv"
+        ],
+        "verdict": "partial"
+      },
+      {
+        "item": "Z_p^x decomposition",
+        "missing": "Teichmuller / rootsOfUnity absent from NumberTheory/Padics/**, although hensels_lemma and IsCyclic (ZMod p)^x give the raw material",
+        "present": [
+          "PadicInt.residueField",
+          "PadicInt.norm_le_pow_iff_mem_span_pow"
+        ],
+        "verdict": "partial"
+      },
+      {
+        "item": "p-adic log / exp",
+        "missing": "any log/exp; and the instance NonarchimedeanRing Q_p, which blocks the multiplicativity rearrangement HasSum.mul_of_nonarchimedean",
+        "present": [
+          "PadicInt.dividedPowers",
+          "padicValNat_factorial_lt_of_ne_zero",
+          "Padic.nonarchimedean",
+          "CompleteSpace (Q_p)"
+        ],
+        "verdict": "absent"
+      },
+      {
+        "item": "Kummer theory (local)",
+        "missing": "nothing about Q_p^x/(Q_p^x)^n; no H1 / KummerTheory / IsKummerExtension",
+        "present": [
+          "isCyclic_tfae",
+          "autEquivRootsOfUnity",
+          "autEquivZmod"
+        ],
+        "verdict": "partial"
+      },
+      {
+        "item": "ramification / normalization",
+        "missing": "the completion-level restatement: valuation_liesOver is stated for height-one spectra of Dedekind domains, not for adicCompletion",
+        "present": [
+          "Ideal.ramificationIdx",
+          "Ideal.ramificationIdx'",
+          "Ideal.ramificationIdx'_eq_ramificationIdx",
+          "valuation_liesOver"
+        ],
+        "verdict": "exists"
+      }
+    ],
+    "largest_gap": "the p-adic logarithm (and its enabling NonarchimedeanRing Q_p): the only item where the mathematics, not the interface, is missing",
+    "report": "research/exploration/log-kummer-feasibility.md"
+  },
   "forbidden_identifications": [
     {
       "evidence": "research/exploration/definitions-inventory.md (E1 row for Ism); research/round3-semantic-audit.md:55; research/round2-source-audit.md:41",
@@ -241,9 +316,52 @@
       ]
     }
   ],
+  "independent_checks": [
+    {
+      "claim": "PadicInt.unitCoeff_spec exists",
+      "command": "lake env lean --json ../.agent-notes/probe_feas2.lean",
+      "result": "confirmed"
+    },
+    {
+      "claim": "PadicInt.residueField : ResidueField Z_p =+* ZMod p exists",
+      "command": "same probe, plus RingHoms.lean:349 grep",
+      "result": "confirmed (first probe reported it unknown because of a missing import; import-complete probe confirms it)"
+    },
+    {
+      "claim": "Ideal.ramificationIdx and the legacy bridge exist",
+      "command": "same probe",
+      "result": "confirmed"
+    },
+    {
+      "claim": "valuation_liesOver is a fraction-field statement in IsDedekindDomain.HeightOneSpectrum",
+      "command": "grep of the Mathlib tree",
+      "result": "confirmed by source at NumberTheory/RamificationInertia/Valuation.lean:57"
+    },
+    {
+      "claim": "NonarchimedeanRing Q_[p] does not synthesize",
+      "command": "lake env lean --json ../.agent-notes/probe_feas3.lean -> failed to synthesize",
+      "result": "confirmed"
+    },
+    {
+      "claim": "NormedAlgebra Q Q_[p] does not synthesize",
+      "command": "-",
+      "result": "NOT independently confirmed (identifier needs another import); reported by the feasibility track only"
+    }
+  ],
   "iut_cor312_proved": false,
   "iut_object_constructed": false,
+  "method_note": "An \"unknown constant\" from an under-imported probe proves nothing about absence: this happened twice in this repository (a name probe in round 6, and this ledger author's own first probe of PadicInt.residueField). Absence claims must be import-complete plus source-grep, and even then only mean \"not found now\".",
   "next_targets": [
+    {
+      "must_keep": [
+        "do not add the instance by assuming log exists",
+        "keep it an instance derivation, not a new axiom"
+      ],
+      "rank": 0,
+      "reason": "cheapest unblocking step found this round: it gates HasSum.mul_of_nonarchimedean, which both log multiplicativity and the Teichmuller homomorphism law need",
+      "target": "instance : NonarchimedeanRing Q_[p]",
+      "unblocks": "p-adic log multiplicativity path; Teichmuller hom law"
+    },
     {
       "must_keep": [
         "Ind3 is a relation, not a group action",

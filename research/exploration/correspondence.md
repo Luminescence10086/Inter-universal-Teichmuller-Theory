@@ -109,6 +109,35 @@ sandwich —— 这正是不能把 C-04 直接当 RI-06 的原因。
 | 2 | 为 possible images 实例化 `SeededFamily` | 容器形状已对，只缺一个实际 Kummer 选择 `c` | 不得把族扩大到恰好包含 witness；membership 必须在原 `U_j` |
 | 3 | log-shell 的**未阻塞半边** | 基域判别式已是定理；把 log 作为显式参数传入 | log 像的来源仍需 p-adic 对数；小分歧 `e_v=105,35` 时 `1/e_v≠1`，层索引不能整搬 |
 
+## 库级可行性：到底谁在阻塞（并入 `log-kummer-feasibility.md`）
+
+| 对象 | 判定 | 已有 | 缺 |
+|---|---|---|---|
+| `ℚ_p^× ≅ ℤ × ℤ_p^×` | 部分 | `PadicInt.unitCoeff_spec`、`valuation_mul/inv`（逐元素分解已存在） | 只缺打包的 `MulEquiv` |
+| `ℤ_p^×` 分解 | 部分 | 剩余域半边完整（`PadicInt.residueField` 等） | Teichmüller/`rootsOfUnity` 在 `NumberTheory/Padics/**` 零命中；原料 `hensels_lemma`、`IsCyclic (ZMod p)ˣ` 在 |
+| p-adic log/exp | **缺失** | 收敛工具齐（`PadicInt.dividedPowers`、`padicValNat_factorial_lt_of_ne_zero`、`CompleteSpace`） | log/exp 本体；且 `NonarchimedeanRing ℚ_[p]` **合成失败**，卡住 `HasSum.mul_of_nonarchimedean` |
+| Kummer（局部） | 部分 | 一般域论（`isCyclic_tfae` 等） | 关于 `ℚ_p^×/(ℚ_p^×)^n` 的一切 |
+| 分歧/归一化 | **存在** | `Ideal.ramificationIdx` 与 legacy `'` 版及桥接；`valuation_liesOver` | 它在**分式域层**；完成域层的重述不存在 |
+
+**最大缺口只有一处是数学性的**：p-adic 对数（连同其使能的 `NonarchimedeanRing ℚ_[p]`）。
+其余都是接口/包装工作。
+
+**最便宜的下一步（已升为 rank 0）**：`instance : NonarchimedeanRing ℚ_[p]`（数十行，
+`IsUltrametricDist` 的 `NonarchimedeanAddGroup` 半边已在触发）——它解锁
+`HasSum.mul_of_nonarchimedean`，而后者同时挡在 log 乘性证明与 Teichmüller 同态律的路上。
+
+## 我自己复跑的核验（不采信报告）
+
+已独立确认：`PadicInt.unitCoeff_spec`、`PadicInt.residueField`（`ResidueField ℤ_[p] ≃+* ZMod p`）、
+`Ideal.ramificationIdx` 与 legacy 桥接、`valuation_liesOver` 位于
+`IsDedekindDomain.HeightOneSpectrum` 且停在分式域层、**以及 `NonarchimedeanRing ℚ_[p]` 确实合成失败**。
+`NormedAlgebra ℚ ℚ_[p]` 一项我**未能独立确认**（缺 import），故只记作报告方结论。
+
+**方法论教训（已写入台账 `method_note`）**：缺 import 的探针报 "unknown constant"，
+**不能**据此断言不存在。本轮我自己就犯了一次（`PadicInt.residueField`），这是本项目第二次
+同类错误（第六轮的 log 名字探针）。缺席断言必须"import 完整 + 源码 grep"双证，且仍只意味着
+"当前没找到"。
+
 ## 从"影子"到"实例"还差什么
 
 按当前证据，任何一条要从影子升为实例，都必须同时补上：

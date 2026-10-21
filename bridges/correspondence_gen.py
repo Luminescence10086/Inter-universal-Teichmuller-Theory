@@ -200,6 +200,12 @@ FORBIDDEN = [
 
 # Ranked by cost/blocker as of this round; each names what it would unblock.
 NEXT_TARGETS = [
+    dict(rank=0, target='instance : NonarchimedeanRing Q_[p]',
+         reason='cheapest unblocking step found this round: it gates HasSum.mul_of_nonarchimedean, '
+                'which both log multiplicativity and the Teichmuller homomorphism law need',
+         must_keep=['do not add the instance by assuming log exists',
+                    'keep it an instance derivation, not a new axiom'],
+         unblocks='p-adic log multiplicativity path; Teichmuller hom law'),
     dict(rank=1, target='Ind1-Ind3 as relation-valued allowed operations + a projection equation',
          reason='no library blocker; the toy projection formula already exists as '
                 'IUTBridge.Slots.relabel_slotwise',
@@ -221,6 +227,81 @@ NEXT_TARGETS = [
                     'not transfer unchanged'],
          unblocks='part of RI-06; the image identity itself stays blocked'),
 ]
+
+# Library-level feasibility, from research/exploration/log-kummer-feasibility.md and from
+# probes re-run by the ledger's own author (see independent_checks).
+FEASIBILITY = {
+    'report': 'research/exploration/log-kummer-feasibility.md',
+    'items': [
+        dict(item='Q_p^x = Z x Z_p^x', verdict='partial',
+             present=['PadicInt.unitCoeff_spec', 'Padic.valuation_mul', 'Padic.valuation_inv'],
+             missing='only the bundled MulEquiv; factorization already exists elementwise'),
+        dict(item='Z_p^x decomposition', verdict='partial',
+             present=['PadicInt.residueField', 'PadicInt.norm_le_pow_iff_mem_span_pow'],
+             missing='Teichmuller / rootsOfUnity absent from NumberTheory/Padics/**, although '
+                     'hensels_lemma and IsCyclic (ZMod p)^x give the raw material'),
+        dict(item='p-adic log / exp', verdict='absent',
+             present=['PadicInt.dividedPowers', 'padicValNat_factorial_lt_of_ne_zero',
+                      'Padic.nonarchimedean', 'CompleteSpace (Q_p)'],
+             missing='any log/exp; and the instance NonarchimedeanRing Q_p, which blocks the '
+                     'multiplicativity rearrangement HasSum.mul_of_nonarchimedean'),
+        dict(item='Kummer theory (local)', verdict='partial',
+             present=['isCyclic_tfae', 'autEquivRootsOfUnity', 'autEquivZmod'],
+             missing='nothing about Q_p^x/(Q_p^x)^n; no H1 / KummerTheory / IsKummerExtension'),
+        dict(item='ramification / normalization', verdict='exists',
+             present=['Ideal.ramificationIdx', 'Ideal.ramificationIdx\'',
+                      'Ideal.ramificationIdx\'_eq_ramificationIdx', 'valuation_liesOver'],
+             missing='the completion-level restatement: valuation_liesOver is stated for '
+                     'height-one spectra of Dedekind domains, not for adicCompletion'),
+    ],
+    'largest_gap': 'the p-adic logarithm (and its enabling NonarchimedeanRing Q_p): the only '
+                   'item where the mathematics, not the interface, is missing',
+    'cheapest_next_step': {
+        'target': 'instance : NonarchimedeanRing Q_[p]',
+        'why': 'it unblocks HasSum.mul_of_nonarchimedean, which gates both log multiplicativity '
+               'and the Teichmuller homomorphism law',
+        'cost': 'tens of lines from the already-firing IsUltrametricDist / NonarchimedeanAddGroup',
+    },
+    'cost_verdicts': {
+        'Q_p^x decomposition': 'hours', 'Z_p^x residue half': 'hours',
+        'Z_p^x Teichmuller half': 'days (plus a separate p = 2 case)',
+        'p-adic log': 'weeks 3-6', 'exp': 'additional 2-4 weeks', 'Lubin-Tate': 'implausible',
+        'Kummer instantiation': 'days', 'Kummer pairing': 'implausible',
+        'ramification lift to Filtration.lean': 'days (2-4)',
+    },
+    'does_not_establish': 'nothing about IUT, Theta-links or the pilot; "absent" means "not found '
+                          'by an import-complete probe plus a source grep", which cannot '
+                          'distinguish absence from a deprecation rename',
+}
+
+# Probes this ledger's author re-ran independently rather than trusting the report.
+INDEPENDENT_CHECKS = [
+    dict(claim='PadicInt.unitCoeff_spec exists', result='confirmed',
+         command="lake env lean --json ../.agent-notes/probe_feas2.lean"),
+    dict(claim='PadicInt.residueField : ResidueField Z_p =+* ZMod p exists',
+         result='confirmed (first probe reported it unknown because of a missing import; '
+                'import-complete probe confirms it)',
+         command='same probe, plus RingHoms.lean:349 grep'),
+    dict(claim='Ideal.ramificationIdx and the legacy bridge exist', result='confirmed',
+         command='same probe'),
+    dict(claim='valuation_liesOver is a fraction-field statement in '
+               'IsDedekindDomain.HeightOneSpectrum', result='confirmed by source at '
+                                                          'NumberTheory/RamificationInertia/'
+                                                          'Valuation.lean:57',
+         command='grep of the Mathlib tree'),
+    dict(claim='NonarchimedeanRing Q_[p] does not synthesize', result='confirmed',
+         command="lake env lean --json ../.agent-notes/probe_feas3.lean -> failed to synthesize"),
+    dict(claim='NormedAlgebra Q Q_[p] does not synthesize', result='NOT independently '
+                                                                  'confirmed (identifier needs '
+                                                                  'another import); reported by '
+                                                                  'the feasibility track only',
+         command='-'),
+]
+
+METHOD_NOTE = ('An "unknown constant" from an under-imported probe proves nothing about absence: '
+               'this happened twice in this repository (a name probe in round 6, and this '
+               'ledger author\'s own first probe of PadicInt.residueField). Absence claims must '
+               'be import-complete plus source-grep, and even then only mean "not found now".')
 
 validated = []
 missing_all = []
@@ -281,6 +362,9 @@ payload = {
         'E4': 'wholly absent; only negative characterisations',
     },
     'companion_evidence': {k: v for k, v in COMPANION.items() if (ROOT / v).exists()},
+    'feasibility': FEASIBILITY,
+    'independent_checks': INDEPENDENT_CHECKS,
+    'method_note': METHOD_NOTE,
     'anchors_all_present': not missing_all,
     'iut_object_constructed': False,
     'iut_cor312_proved': False,
