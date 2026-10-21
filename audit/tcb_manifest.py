@@ -34,8 +34,45 @@ never be mistaken for a complete one.  A dynamic segment that the same function
 constrains with a regex literal is resolved by matching that regex against the
 tree (the ``verification/vscode-observation-roundN.txt`` handshake does this).
 
-Exit codes: 0 = clean closure, no findings; 2 = over/under-pinned findings;
-3 = at least one unresolved repo-scoped dynamic read site.
+Closure completeness (acceptance finding R1/P1)
+-----------------------------------------------
+A read site this analyser does not model is *not* evidence that a pin is
+unnecessary.  Every consumer boundary that cannot be traversed is therefore
+recorded as INCOMPLETE, with the category it belongs to:
+
+  executed-program    a subprocess runs a repo-local program or script; that
+                      program's own read set is never analysed here
+  dynamic-command     the argv of an exec is not statically known
+  lean-build         ``lake build`` / ``lake env lean <file>.lean`` hands Lean
+                      sources and their import graph to the toolchain: a
+                      runtime/Lean read this Python analyser cannot observe
+  module-method-call  a ``module.func(...)`` call whose body was not resolved
+  unsupported-call    a call on an unknown receiver or an unknown callee
+  unreached-consumer  a module-level function main() never calls, although
+                      other components may (``freshness.verifier(base)`` calls
+                      ``module.snapshot()``)
+  unanalysed-entry    a standalone or pinned Python component outside the
+                      analysed closure, e.g. ``tools/semantic_lock.py``, which
+                      executes ``lake env lean ... tools/DefinitionBodies.lean``
+  module-cap / depth-cap   a coverage cap was hit
+
+If at least one such boundary exists (or an UNRESOLVED repo-scoped read site),
+the closure is INCOMPLETE and the tool refuses to emit a safe-to-remove pin
+proposal.  It then reports
+
+    proposal.status        == "WITHHELD"
+    proposal.withheld_reason == "closure incomplete — proposal withheld"
+    proposal.removed       == []            (no deletion is suggested)
+    proposal.proposed_pin  == current pin   (the existing rule is kept)
+
+and a pinned key with no discovered consumer is reported as UNCLASSIFIED --
+never as proof of uselessness.  Input, dependency, runtime and toolchain
+consumption are reported in separate categories, so a Lean source in the
+dependency map is toolchain consumption rather than "only Python hashes it".
+
+Exit codes: 0 = clean closure, no findings; 2 = over/under-pinned findings on a
+complete closure; 3 = at least one unresolved repo-scoped dynamic read site;
+4 = closure incomplete (unsupported consumer boundary): proposal withheld.
 
 Usage:
     python audit/tcb_manifest.py                       # all three projects
@@ -49,6 +86,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import builtins
 import hashlib
 import json
 import re
@@ -73,6 +111,44 @@ PLATFORM_INPUTS = frozenset({"lean-toolchain", "lakefile.toml",
 
 KNOWN_HELPERS = frozenset({"run", "save", "digest", "check_process",
                            "one_information"})
+
+#: method names that cannot read a file: calling them on an unresolved receiver
+#: is not a consumer boundary (hashing, string/list/dict plumbing).
+PURE_METHODS = frozenset({
+    "encode", "decode", "join", "pop", "sort", "reverse", "copy", "count",
+    "index", "issubset", "issuperset", "union", "intersection", "difference",
+    "add", "discard", "clear", "keys", "values", "items", "get", "setdefault",
+    "format", "splitlines", "partition", "casefold", "title", "capitalize",
+    "strip", "lstrip", "rstrip", "lower", "upper", "replace", "startswith",
+    "endswith", "split", "rsplit", "removesuffix", "removeprefix", "ljust",
+    "rjust", "zfill", "isoformat", "append", "extend", "update", "sort_key",
+    "groupby", "isinstance",
+    # pathlib plumbing on an unresolved path value: it only re-shapes a path,
+    # so it is not a consumer boundary (a later read/digest still surfaces as
+    # UNRESOLVED through consume()).
+    "resolve", "absolute", "expanduser", "as_posix", "relative_to", "joinpath",
+    "exists", "is_file", "is_dir", "is_absolute", "is_symlink", "iterdir",
+    "with_name", "with_suffix", "with_stem", "stat", "glob", "rglob",
+    "mkdir", "unlink", "touch", "readlink",
+})
+
+#: programs that interpret a source file handed to them on the command line
+PYTHON_PROGRAMS = frozenset({"python", "python3", "py", "python2"})
+
+#: programs that are part of the Lean toolchain
+LEAN_PROGRAMS = frozenset({"lake", "lean"})
+
+#: dependency-map entries the Lean toolchain (not Python) interprets
+LEAN_SOURCE_SUFFIXES = (".lean", ".olean")
+LEAN_CONFIG_NAMES = frozenset({"lean-toolchain", "lakefile.toml",
+                               "lakefile.lean", "lake-manifest.json"})
+
+#: builtins a verifier may call without opening anything; a call to any other
+#: unresolved name is an unsupported consumer boundary (never silent).
+PURE_BUILTINS = frozenset(dir(builtins)) - {
+    "open", "__import__", "exec", "eval", "compile", "input", "breakpoint",
+    "globals", "locals", "memoryview",
+}
 
 PROJECTS = {
     "root": ".",
@@ -131,6 +207,16 @@ class P:
 class Unk:
     reason: str
     detail: str = ""
+    #: set when the unknown value is an imported module that has no local file
+    #: (standard library / third party): a call on it is not a repo consumer
+    foreign: str | None = None
+
+
+@dataclass(frozen=True)
+class ModuleRef:
+    """A name bound to a sibling module file that *was* loaded and analysed."""
+
+    rel: str
 
 
 @dataclass(frozen=True)
@@ -200,6 +286,28 @@ class Unresolved:
 
 
 @dataclass
+class Boundary:
+    """A consumer boundary this analyser could not traverse.
+
+    It never proves a pin useless: it proves our closure is *incomplete*, which
+    is why an incomplete closure suppresses the removal proposal.
+    """
+
+    kind: str
+    category: str            # "consumer" | "toolchain"
+    detail: str
+    file: str
+    line: int
+    snippet: str
+    fn: str
+
+    def as_dict(self) -> dict:
+        return {"kind": self.kind, "category": self.category,
+                "detail": self.detail, "file": self.file, "line": self.line,
+                "snippet": self.snippet, "fn": self.fn}
+
+
+@dataclass
 class FunctionInfo:
     node: ast.FunctionDef
     module: "ModuleInfo"
@@ -226,6 +334,7 @@ class Analyzer:
         self.modules: dict[str, ModuleInfo] = {}
         self.sites: list[Site] = []
         self.unresolved: list[Unresolved] = []
+        self.boundaries: list[Boundary] = []
         self.writes: list[str] = []
         self.external: set[str] = set()
         self.regex_hints: dict[tuple, list[str]] = {}
@@ -237,8 +346,11 @@ class Analyzer:
         self.map_stack: list = [None]
         self._module: ModuleInfo | None = None
         self._unresolved_seen: set = set()
+        self._boundary_seen: set = set()
         self.entered: set = set()
         self.module_defs: set = set()
+        self.functions_by_module: dict = {}
+        self.entry_rel: str = "tools/verify.py"
 
     # -- helpers -----------------------------------------------------------
 
@@ -285,6 +397,8 @@ class Analyzer:
             if value.unknown:
                 text += f"  [unresolved: {value.unknown}]"
             return text
+        if isinstance(value, ModuleRef):
+            return f"<module {value.rel}>"
         if isinstance(value, Unk):
             return f"<{value.reason}>"
         if isinstance(value, str):
@@ -301,6 +415,7 @@ class Analyzer:
         entry = self.project / entry_rel
         if not entry.is_file():
             raise SystemExit(f"error: verifier not found: {entry}")
+        self.entry_rel = entry_rel
         module = self.load_module(entry)
         # the verifier's own source is executed: it is part of the TCB
         if module is not None:
@@ -314,6 +429,10 @@ class Analyzer:
     def load_module(self, path: Path) -> ModuleInfo | None:
         path = Path(path).resolve()
         if len(self.modules) >= MAX_MODULES:
+            self.add_boundary(
+                "module-cap", "consumer",
+                f"MAX_MODULES={MAX_MODULES} reached; {self.rel(path)} was not "
+                f"analysed", where=self.rel(path))
             return None
         rel = self.rel(path)
         if rel in self.modules:
@@ -416,6 +535,25 @@ class Analyzer:
             return
         self._unresolved_seen.add(key)
         self.unresolved.append(record)
+
+    def add_boundary(self, kind: str, category: str, detail: str,
+                     node: ast.AST | None = None, where: str | None = None):
+        """Record a consumer boundary that static analysis cannot traverse.
+
+        Boundaries never justify a pin removal; they set closure.complete=False.
+        """
+        fn = self.current_fn()
+        record = Boundary(
+            kind=kind, category=category, detail=detail,
+            file=self._module.rel if self._module else (where or "<unknown>"),
+            line=getattr(node, "lineno", 0) if node is not None else 0,
+            snippet=self.snippet(node) if node is not None else "",
+            fn=fn)
+        key = (record.kind, record.file, record.line, record.detail)
+        if key in self._boundary_seen:
+            return
+        self._boundary_seen.add(key)
+        self.boundaries.append(record)
 
     # -- resolution --------------------------------------------------------
 
@@ -532,6 +670,12 @@ class Analyzer:
     def ev_attr(self, node, env, module):
         base = self.ev(node.value, env, module)
         attr = node.attr
+        if isinstance(base, Unk) and base.foreign is not None:
+            if base.foreign == "sys" and attr == "executable":
+                return Unk("interpreter sys.executable")
+            return Unk(f"foreign attribute {attr}", foreign=base.foreign)
+        if isinstance(base, ModuleRef):
+            return Unk(f"module attribute {attr}", detail=base.rel)
         if isinstance(base, P):
             if attr == "parent":
                 return p_parent(base)
@@ -669,6 +813,8 @@ class Analyzer:
         attr = func.attr
         base = self.ev(func.value, env, module)
         args = node.args
+        if isinstance(base, ModuleRef):
+            return self.call_sibling(base, attr, node, env, module)
         if isinstance(base, P):
             if attr in ("glob", "rglob"):
                 pat = self.ev(args[0], env, module) if args else Unk("pattern")
@@ -734,7 +880,7 @@ class Analyzer:
                 v = self.ev(args[0], env, module)
                 if isinstance(v, str):
                     self.external.add(v)
-            return Unk("tool path")
+            return Unk("tool path", v if isinstance(v, str) else "")
         if attr in ("loads", "load"):
             content = self.ev(args[0], env, module) if args else Unk("json")
             return self.load_json(content)
@@ -743,9 +889,50 @@ class Analyzer:
             for a in args:
                 self.ev(a, env, module)
             return Unk(f"call {attr}")
+        if isinstance(base, Unk) and base.foreign is not None:
+            # a standard-library / third-party call: it does not read repo inputs
+            for a in args:
+                self.ev(a, env, module)
+            return Unk(f"foreign method {attr}", foreign=base.foreign)
+        if attr in PURE_METHODS:
+            for a in args:
+                self.ev(a, env, module)
+            return Unk(f"pure method {attr}")
         for a in args:
             self.ev(a, env, module)
+        # Unsupported consumer boundary: we cannot see what this method reads.
+        self.add_boundary(
+            "unsupported-call", "consumer",
+            f"method call .{attr}(...) on {self.render(base)} cannot be "
+            f"resolved; any file it reads is invisible to this analysis", node)
         return Unk(f"method {attr}")
+
+    def call_sibling(self, ref: ModuleRef, attr: str, node, env, module):
+        """`import helper; helper.check(ROOT)` - inline the sibling function.
+
+        Ordinary module method calls are part of the closure: without this the
+        callee's reads are silently missing (acceptance review R1/P1).
+        """
+        arg_values = [self.ev(a, env, module) for a in node.args]
+        info = self.functions_by_module.get(ref.rel, {}).get(attr)
+        if info is None:
+            if self.depth >= MAX_INLINE_DEPTH:
+                self.add_boundary(
+                    "depth-cap", "consumer",
+                    f"call depth cap reached resolving {ref.rel}:{attr}()", node)
+                return Unk("depth cap")
+            self.add_boundary(
+                "module-method-call", "consumer",
+                f"{ref.rel} has no analysed definition of {attr}(); its body "
+                f"was not traversed", node)
+            return Unk(f"module method {attr}")
+        if self.depth >= MAX_INLINE_DEPTH:
+            self.add_boundary(
+                "depth-cap", "consumer",
+                f"call depth cap reached inlining {ref.rel}:{attr}()", node)
+            return Unk("depth cap")
+        return self.inline(info, env, module, arg_values=arg_values,
+                           args_node=node)
 
     def record_regex_hint(self, args) -> None:
         if not args:
@@ -767,22 +954,60 @@ class Analyzer:
         else:
             env[target.id] = as_list(addition)
 
+    def program_name(self, item) -> str | None:
+        """Best-effort identity of the program at argv[0]."""
+        if isinstance(item, str):
+            name = item.replace("\\", "/").rsplit("/", 1)[-1].lower()
+            return name.removesuffix(".exe")
+        if isinstance(item, Unk):
+            if item.reason == "tool path" and isinstance(item.detail, str):
+                return item.detail.lower().removesuffix(".exe")
+            if item.reason.endswith("sys.executable"):
+                return "python"
+        return None
+
     def do_argv(self, value, node) -> None:
         if isinstance(value, P):
             self.consume(value, "exec", node)
+            self.add_boundary(
+                "executed-program", "consumer",
+                f"executes repo program {self.render(value)}; that program's "
+                f"read set is not analysed", node)
             return
         if not isinstance(value, list):
+            self.add_boundary(
+                "dynamic-command", "consumer",
+                "exec argv is not statically known; the executed program and "
+                "its reads are invisible", node)
             return
+        strings = [v for v in value if isinstance(v, str)]
+        program = self.program_name(value[0]) if value else None
+        lean_sources = [s for s in strings if s.endswith(".lean")]
+        if lean_sources or (program in LEAN_PROGRAMS and "build" in strings):
+            detail = "Lean toolchain invocation " + " ".join(
+                ([program or "<tool>"] + strings)[:6])
+            if lean_sources:
+                detail += "; the Lean import graph of " + ", ".join(
+                    lean_sources[:4]) + " is not analysed"
+            else:
+                detail += "; a Lean build reads the whole import graph"
+            self.add_boundary("lean-build", "toolchain", detail, node)
+        executed = []
         for i, item in enumerate(value):
             if i == 0:                      # program: an external tool
                 if isinstance(item, str):
                     self.external.add(item)
+                elif isinstance(item, Unk) and isinstance(item.detail, str) \
+                        and item.reason == "tool path":
+                    self.external.add(item.detail)
                 continue
             if isinstance(item, str):
                 cand = self.project / item
                 if cand.is_file():          # cwd = project: executed source
                     self.add_site("exec", repr(item),
                                   (self.key_for(cand),), node)
+                    if item.endswith((".py", ".pyw")):
+                        executed.append(item)
                 continue
             if isinstance(item, P):
                 keys, why = self.resolve(item)
@@ -793,6 +1018,17 @@ class Analyzer:
                 self.consume(item, "exec", node)
             elif isinstance(item, (Unk, list)):
                 self.consume(item, "exec", node)
+        if executed:
+            self.add_boundary(
+                "executed-program", "consumer",
+                "subprocess executes repo script "
+                + ", ".join(sorted(set(executed)))
+                + "; that script's own read closure is not analysed here", node)
+        elif program in PYTHON_PROGRAMS:
+            self.add_boundary(
+                "dynamic-command", "consumer",
+                "a Python interpreter runs code this analyser cannot see "
+                "(inline -c / shell string); its reads are invisible", node)
 
     # -- comprehensions ----------------------------------------------------
 
@@ -924,7 +1160,9 @@ class Analyzer:
             self.do_import(node, env, module)
             return
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
-            self.functions[node.name] = FunctionInfo(node, module, env)
+            info = FunctionInfo(node, module, env)
+            self.functions[node.name] = info
+            self.functions_by_module.setdefault(module.rel, {})[node.name] = info
             if not self.stack:
                 self.module_defs.add(node.name)
             return
@@ -1029,9 +1267,11 @@ class Analyzer:
             names = [node.module.split(".")[0]] if node.module else []
         else:
             names = [a.name.split(".")[0] for a in node.names]
+        found: dict = {}
         for base in names:
             target = module.path.parent / f"{base}.py"
             if not target.is_file():
+                found[base] = None
                 continue
             rel = self.rel(target)
             self.sites.append(Site(
@@ -1040,6 +1280,30 @@ class Analyzer:
                 snippet=self.snippet(node), fn=self.current_fn(),
                 map=self.current_map()))
             self.load_module(target)
+            found[base] = rel
+        # Bind the imported names: a sibling module becomes a ModuleRef (so
+        # `helper.check(ROOT)` can be inlined), anything else is a foreign
+        # module whose calls cannot read repo inputs.
+        if isinstance(node, ast.ImportFrom):
+            primary = names[0] if names else None
+            if primary:
+                env[primary] = (ModuleRef(found[primary]) if found.get(primary)
+                                else Unk(f"foreign module {primary}",
+                                         foreign=primary))
+            for alias in node.names:
+                bind = alias.asname or alias.name
+                if bind == "*":
+                    continue
+                env[bind] = Unk(f"imported name {bind}",
+                                foreign=primary or bind)
+        else:
+            for alias in node.names:
+                base = alias.name.split(".")[0]
+                bind = alias.asname or base
+                if found.get(base):
+                    env[bind] = ModuleRef(found[base])
+                else:
+                    env[bind] = Unk(f"foreign module {base}", foreign=base)
 
     # -- function calls ----------------------------------------------------
 
@@ -1056,6 +1320,14 @@ class Analyzer:
             self.ev(a, env, module)
         info = self.functions.get(name)
         if info is None:
+            if name in PURE_BUILTINS:
+                return Unk(f"builtin {name}()")
+            # Unsupported consumer boundary: an unresolved callee could read
+            # anything, so the closure cannot be called complete.
+            self.add_boundary(
+                "unsupported-call", "consumer",
+                f"call to {name}() resolves to no analysed function and is not "
+                f"a known builtin; its reads are invisible", node)
             return Unk(f"external call {name}()")
         if self.depth >= MAX_INLINE_DEPTH:
             self.add_unresolved(name, "call depth exceeded (inlining cap)", node)
@@ -1066,6 +1338,10 @@ class Analyzer:
     def inline(self, info: FunctionInfo, env, module, args_node=None,
                arg_values=None, forced_env=None):
         if self.depth >= MAX_INLINE_DEPTH:
+            self.add_boundary(
+                "depth-cap", "consumer",
+                f"call depth cap MAX_INLINE_DEPTH={MAX_INLINE_DEPTH} reached "
+                f"inlining {info.node.name}(); deeper reads are not analysed")
             return Unk("depth cap")
         self.depth += 1
         local = dict(info.module.env)
@@ -1163,6 +1439,12 @@ def classify(key: str, project: Path | None = None) -> str:
     return "input"
 
 
+def is_toolchain_input(key: str) -> bool:
+    """True when the Lean toolchain (not this Python analyser) interprets it."""
+    base = key.replace("\\", "/").rsplit("/", 1)[-1]
+    return base.endswith(LEAN_SOURCE_SUFFIXES) or base in LEAN_CONFIG_NAMES
+
+
 def collect(analyzer: Analyzer, kinds: frozenset) -> dict:
     buckets: dict[str, list[Site]] = {}
     for site in analyzer.sites:
@@ -1170,6 +1452,143 @@ def collect(analyzer: Analyzer, kinds: frozenset) -> dict:
             for key in site.keys:
                 buckets.setdefault(key, []).append(site)
     return buckets
+
+
+# --------------------------------------------------------------------------
+# closure completeness
+# --------------------------------------------------------------------------
+
+WITHHELD_REASON = "closure incomplete — proposal withheld"
+
+CLOSURE_CRITERIA = (
+    "complete means every consumer boundary in the traversed closure was "
+    "resolved: the executed verifier, its imports and inlined calls, every "
+    "executed program, every sibling-module call, and every Lean build input. "
+    "Any boundary this analyser cannot traverse makes the closure incomplete.")
+
+
+def has_standalone_entry(path: Path) -> bool:
+    """True when a module can run on its own (``main()`` or __main__ guard)."""
+    try:
+        tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+    except (OSError, SyntaxError, UnicodeDecodeError):
+        return False
+    for stmt in tree.body:
+        if isinstance(stmt, (ast.FunctionDef, ast.AsyncFunctionDef)) \
+                and stmt.name == "main":
+            return True
+        if isinstance(stmt, ast.If) and is_main_guard(stmt.test):
+            return True
+    return False
+
+
+def scan_unanalysed_entry_points(analyzer, project_dir: Path,
+                                 input_pin: dict) -> list:
+    """Python components outside the analysed closure that may read inputs.
+
+    Two families are reported instead of being ignored:
+
+    * a standalone entry point under this project's ``tools/`` directory;
+    * a pinned ``@workspace/tools/*.py`` component.  It is part of the
+      evidence chain by construction (the pin records it) yet its body was
+      never walked -- e.g. ``tools/semantic_lock.py`` runs
+      ``lake env lean ... tools/DefinitionBodies.lean``.
+    """
+    found: list = []
+    own = project_dir / "tools"
+    if own.is_dir():
+        for path in sorted(own.rglob("*.py")):
+            if "__pycache__" in path.parts or not path.is_file():
+                continue
+            rel = analyzer.rel(path)
+            if rel in analyzer.modules:
+                continue
+            if has_standalone_entry(path):
+                found.append({
+                    "path": rel, "key": None, "display": rel,
+                    "reason": "standalone entry point (main()/__main__ guard) "
+                              "outside the tools/verify.py closure; its body and "
+                              "anything it reads or executes are not analysed"})
+    shared = project_dir.parent / "tools"
+    if shared.is_dir() and shared.resolve() != own.resolve():
+        for key in sorted(input_pin):
+            if not key.startswith("@workspace/tools/") or not key.endswith(".py"):
+                continue
+            path = pin_target(key, project_dir)
+            rel = analyzer.rel(path)
+            if rel in analyzer.modules:
+                continue
+            if not path.is_file():
+                continue
+            found.append({
+                "path": rel, "key": key, "display": key,
+                "reason": "pinned @workspace Python component outside the "
+                          "analysed closure; its body is never walked, so any "
+                          "file it reads or executes is invisible to this "
+                          "analysis"})
+    return found
+
+
+def build_closure(analyzer, project_dir: Path, input_pin: dict) -> dict:
+    """Decide whether the analysed closure is complete, and why not."""
+    unresolved_repo = [u for u in analyzer.unresolved if u.scope == "repo"]
+    entries = scan_unanalysed_entry_points(analyzer, project_dir, input_pin)
+    boundaries = [b.as_dict() for b in analyzer.boundaries]
+    for entry in entries:
+        boundaries.append({
+            "kind": "unanalysed-entry", "category": "consumer",
+            "detail": entry["reason"], "file": entry.get("display") or entry["path"],
+            "line": 0, "snippet": entry.get("key") or "", "fn": "<entry>"})
+    # "uncovered consumers": module-level functions main() never calls.  Known
+    # primitive wrappers (run/digest/save/check_process/one_information) are
+    # handled explicitly by the analyser, so they are not listed here.
+    for name in sorted(analyzer.module_defs):
+        if name in analyzer.entered or name in KNOWN_HELPERS:
+            continue
+        info = None
+        for rel in sorted(analyzer.functions_by_module):
+            if name in analyzer.functions_by_module[rel]:
+                info = analyzer.functions_by_module[rel][name]
+                break
+        boundaries.append({
+            "kind": "unreached-consumer", "category": "consumer",
+            "detail": f"{name}() is defined but main() never calls it; another "
+                      f"component may (freshness.verifier(base) calls "
+                      f"module.snapshot()), so its reads are not covered",
+            "file": info.module.rel if info else "<unknown>",
+            "line": getattr(info.node, "lineno", 0) if info else 0,
+            "snippet": f"def {name}(...)", "fn": "<module>"})
+    kinds = sorted({b["kind"] for b in boundaries})
+    reasons = []
+    if kinds:
+        reasons.append("unsupported consumer boundaries: " + ", ".join(kinds))
+    if unresolved_repo:
+        reasons.append(f"{len(unresolved_repo)} unresolved repo-scoped dynamic "
+                       f"read site(s)")
+    counts: dict = {}
+    for b in boundaries:
+        counts[b["kind"]] = counts.get(b["kind"], 0) + 1
+    complete = not boundaries and not unresolved_repo
+    return {
+        "complete": complete,
+        "status": "complete" if complete else "incomplete",
+        "entry_points": {
+            "analyzed": [{"path": analyzer.entry_rel,
+                          "how": "executed verifier source; main() inlined",
+                          "modules": sorted(analyzer.modules)}],
+            "not_analyzed": entries,
+        },
+        "boundaries": boundaries,
+        "boundary_counts": counts,
+        "unsupported_boundaries": kinds,
+        "unresolved_repo_sites": [
+            {"expr": u.display, "reason": u.reason, "file": u.file,
+             "line": u.line, "fn": u.fn} for u in unresolved_repo],
+        "reasons": reasons,
+        "criteria": CLOSURE_CRITERIA,
+        "safe_removal_proposal_allowed": complete,
+        "proposal_withheld_reason": None if complete else WITHHELD_REASON,
+    }
 
 
 def analyze_project(project_dir: Path, name: str) -> dict:
@@ -1191,8 +1610,12 @@ def analyze_project(project_dir: Path, name: str) -> dict:
     pin_only = collect(analyzer, frozenset({"hash-only"}))
     platform = sorted(k for k in input_pin if k in PLATFORM_INPUTS)
 
+    closure = build_closure(analyzer, project_dir, input_pin)
+
     # ---- input map -------------------------------------------------------
-    over = []
+    # "no consumer site found" is NEVER proof of uselessness: when the closure
+    # is incomplete the entries become UNCLASSIFIED instead of over-pinned.
+    no_consumer = []
     for key in sorted(input_pin):
         if key in read or key in platform:
             continue
@@ -1210,8 +1633,20 @@ def analyze_project(project_dir: Path, name: str) -> dict:
             reason = "no read site discovered anywhere in the verifier closure"
         else:
             reason = "no read site discovered and the key is absent on disk"
-        over.append({"key": key, "sha256": input_pin[key], "reason": reason,
-                     "evidence": evidence, "exists": exists})
+        no_consumer.append({"key": key, "sha256": input_pin[key], "reason": reason,
+                            "evidence": evidence, "exists": exists})
+
+    if closure["complete"]:
+        over = no_consumer
+        unclassified = []
+    else:
+        over = []
+        unclassified = [
+            dict(entry, classification="unclassified",
+                 reason=entry["reason"]
+                        + "; closure incomplete -> unclassified, not a claim "
+                          "that the pin is unnecessary")
+            for entry in no_consumer]
 
     under, exempt, dep_covered = [], [], []
     for key in sorted(read):
@@ -1244,7 +1679,12 @@ def analyze_project(project_dir: Path, name: str) -> dict:
             under.append(record)
 
     # ---- dependency map --------------------------------------------------
+    # Categories are kept apart: a Python read of the map is NOT the whole
+    # story for a Lean source, which the Lean import/build graph consumes.
     dep_report: dict = {}
+    dep_read_abs: dict = {}
+    dep_unclassified: list = []
+    dep_toolchain: list = []
     if dep_pin:
         dep_sites: dict[str, list[Site]] = {}
         for site in analyzer.sites:
@@ -1271,11 +1711,23 @@ def analyze_project(project_dir: Path, name: str) -> dict:
                 dep_pinned_abs[ab] = key
             else:
                 synthetic.append(key)
-        dep_over = [{"key": dep_pinned_abs[ab],
-                     "reason": "hash-only: dependency_snapshot() hashes it; the "
-                               "verifier only interprets external-lock.json and "
-                               "the manifest"}
-                    for ab in sorted(dep_pinned_abs) if ab not in dep_read_abs]
+        for ab in sorted(dep_pinned_abs):
+            if ab in dep_read_abs:
+                continue
+            key = dep_pinned_abs[ab]
+            if is_toolchain_input(key):
+                dep_toolchain.append({
+                    "key": key, "category": "toolchain",
+                    "reason": "the Lean import/build graph interprets this "
+                              "source or config; the Python verifier merely "
+                              "hashes it, which is not evidence that the "
+                              "toolchain leaves it unused"})
+            else:
+                dep_unclassified.append({
+                    "key": key, "category": "dependency",
+                    "reason": "no Python consumer site discovered in this "
+                              "closure; unclassified, not evidence of "
+                              "uselessness (an outer tool may read it)"})
         dep_under = [{"key": k, "abs": ab,
                       "sites": [f"{s.file}:{s.line}" for s in v]}
                      for ab, v in sorted(dep_read_abs.items())
@@ -1285,15 +1737,20 @@ def analyze_project(project_dir: Path, name: str) -> dict:
         dep_report = {
             "pinned": len(dep_pin),
             "read": len(dep_read_abs),
-            "over_pinned": len(dep_over),
+            "over_pinned": 0,
             "under_pinned": len(dep_under),
-            "over": dep_over,
+            "over": [],
             "under": dep_under,
+            "unclassified": dep_unclassified,
+            "toolchain_consumed": dep_toolchain,
             "synthetic_keys": synthetic,
+            "note": "no dependency-map key is proposed for removal; a Lean "
+                    "source here is toolchain consumption, not a Python-"
+                    "hash-only artefact",
         }
 
     proposal = build_proposal(project_dir, input_pin, read, platform, over,
-                              dep_covered)
+                              dep_covered, closure)
 
     admissions: dict = {}
     facts = project_dir / "fact-tree" / "facts.json"
@@ -1313,6 +1770,47 @@ def analyze_project(project_dir: Path, name: str) -> dict:
     unreached = sorted(name for name in module_functions
                        if name not in analyzer.entered)
     exempt_keys = {e["key"] for e in exempt}
+
+    # ---- categories ------------------------------------------------------
+    # input / dependency / runtime / toolchain are reported separately and no
+    # category may speak for another: a Lean source is toolchain consumption,
+    # not "only Python hashes it".
+    consumed_input = sorted(k for k in input_pin if k in read)
+    categories = {
+        "input": {
+            "pinned": len(input_pin),
+            "consumed": len(consumed_input),
+            "declared_platform_inputs": len(platform),
+            "unclassified": len(unclassified),
+            "absent_on_disk": sum(1 for o in no_consumer if not o["exists"]),
+        },
+        "dependency": {
+            "pinned": len(dep_pin),
+            "consumed_python": len(dep_read_abs),
+            "unclassified": len(dep_unclassified),
+            "toolchain_consumed": len(dep_toolchain),
+        },
+        "runtime": {
+            "external_tools": sorted(analyzer.external),
+            "external_checkouts": sum(1 for u in analyzer.unresolved
+                                      if u.scope == "external-checkout"),
+            "olean_or_artifact_sites": sum(1 for u in analyzer.unresolved
+                                           if u.scope == "runtime-oleans"),
+            "contract": "runtime artifacts and tool binaries are bound by "
+                        "runtime_sha256 / a recorded version, not by the input "
+                        "map; they are not input-map entries",
+        },
+        "toolchain": {
+            "declared_platform_inputs": platform,
+            "dependency_lean_sources": [e["key"] for e in dep_toolchain],
+            "lean_build_boundaries": sum(1 for b in closure["boundaries"]
+                                         if b["kind"] == "lean-build"),
+            "contract": "the Lean import graph / build / toolchain config are "
+                        "toolchain consumption; this Python analyser does not "
+                        "observe them and must not claim they are unused",
+        },
+    }
+
     return {
         "project": name,
         "project_dir": str(project_dir),
@@ -1326,6 +1824,8 @@ def analyze_project(project_dir: Path, name: str) -> dict:
             "read_tcb": len([k for k in read if k not in exempt_keys]),
             "over_pinned": len(over),
             "under_pinned": len(under),
+            "unclassified": len(unclassified),
+            "incomplete_boundaries": len(closure["boundaries"]),
             "unresolved": len(analyzer.unresolved),
             "unresolved_repo": len(unresolved_repo),
             "exempt_observation": sum(1 for e in exempt
@@ -1333,9 +1833,15 @@ def analyze_project(project_dir: Path, name: str) -> dict:
             "exempt_external": sum(1 for e in exempt
                                    if e["kind"] == "external"),
         },
+        "closure": closure,
+        "categories": categories,
         "read_paths": sorted(read),
-        "never_read": [o["key"] for o in over],
+        # deprecated alias: "no consumer site discovered" -- never a usefulness
+        # claim (see no_consumer_site_found / unclassified)
+        "never_read": [o["key"] for o in over] + [u["key"] for u in unclassified],
+        "no_consumer_site_found": [o["key"] for o in no_consumer],
         "over_pinned": over,
+        "unclassified": unclassified,
         "under_pinned": under,
         "exempt_reads": exempt,
         "dep_covered_reads": dep_covered,
@@ -1356,7 +1862,34 @@ def analyze_project(project_dir: Path, name: str) -> dict:
 
 
 def build_proposal(project_dir: Path, input_pin: dict, read: dict,
-                   platform: list, over: list, dep_covered: list) -> dict:
+                   platform: list, over: list, dep_covered: list,
+                   closure: dict | None = None) -> dict:
+    closure = closure or {"complete": True, "reasons": []}
+    pin_mismatches = []
+    for key, pinned in sorted(input_pin.items()):
+        path = pin_target(key, project_dir)
+        if not path.is_file():
+            continue
+        actual = sha256_file(path)
+        if pinned != actual:
+            pin_mismatches.append({"key": key, "pinned": pinned, "disk": actual})
+    if not closure["complete"]:
+        # Refuse to emit a safe-to-remove pin proposal: an untraversed
+        # consumer boundary means "not found" is unclassified, not useless.
+        return {
+            "status": "WITHHELD",
+            "withheld": True,
+            "withheld_reason": WITHHELD_REASON,
+            "withheld_because": closure.get("reasons", []),
+            "proposed_pin": dict(sorted(input_pin.items())),
+            "added": [],
+            "removed": [],
+            "pin_matches_disk": not pin_mismatches,
+            "pin_disk_mismatches": pin_mismatches,
+            "note": "read-only proposal; nothing was written to the repository. "
+                    "No pin deletion is suggested while the closure is "
+                    "incomplete: the existing pin rule is kept.",
+        }
     proposed: dict[str, str] = {}
     mismatches = []
     dep_set = set(dep_covered)
@@ -1375,6 +1908,10 @@ def build_proposal(project_dir: Path, input_pin: dict, read: dict,
                 "reason": "; ".join([e["reason"]] + e["evidence"][:2])}
                for e in over]
     return {
+        "status": "PROPOSED",
+        "withheld": False,
+        "withheld_reason": None,
+        "withheld_because": [],
         "proposed_pin": proposed,
         "added": [k for k in sorted(read) if k not in input_pin
                   and classify(k, project_dir) == "input" and k not in dep_set],
@@ -1391,26 +1928,53 @@ def build_proposal(project_dir: Path, input_pin: dict, read: dict,
 
 def render_text(report: dict) -> str:
     c = report["counts"]
+    closure = report["closure"]
     lines = [
         f"== {report['project']}  ({report['project_dir']})",
         f"   verifier {report['verifier']}; modules: "
         + ", ".join(report["modules_analyzed"]),
         f"   pinned={c['pinned']}  read={c['read']} (tcb {c['read_tcb']})  "
         f"over={c['over_pinned']}  under={c['under_pinned']}  "
+        f"unclassified={c['unclassified']}  "
+        f"incomplete-boundaries={c['incomplete_boundaries']}  "
         f"unresolved={c['unresolved']} (repo-scoped {c['unresolved_repo']})  "
         f"exempt={c['exempt_observation']}obs/{c['exempt_external']}ext",
+        f"   CLOSURE: {closure['status'].upper()}"
+        + ("  -> " + "; ".join(closure["reasons"]) if closure["reasons"] else ""),
     ]
     if report["platform_inputs"]:
         lines.append("   declared toolchain inputs (implicit lake/lean reads): "
                      + ", ".join(report["platform_inputs"]))
+    if closure["boundaries"]:
+        lines.append("   INCOMPLETE consumer boundaries (not analysed here, so "
+                     "they cannot be called unused):")
+        for b in closure["boundaries"][:40]:
+            where = f"{b['file']}:{b['line']}" if b["file"] else "<unknown>"
+            lines.append(f"     ! [{b['category']}/{b['kind']}] {where} "
+                         f"{b['detail']}")
+        if len(closure["boundaries"]) > 40:
+            lines.append(f"     ... {len(closure['boundaries']) - 40} more")
     if report["over_pinned"]:
-        lines.append("   OVER-PINNED (pinned, never interpreted -> brittleness):")
+        lines.append("   OVER-PINNED (pinned, never interpreted -> brittleness; "
+                     "closure complete):")
         for entry in report["over_pinned"]:
             lines.append(f"     - {entry['key']}  [{entry['reason']}]")
             for evidence in entry["evidence"][:1]:
                 lines.append(f"         witness: {evidence}")
     else:
-        lines.append("   OVER-PINNED: none")
+        lines.append("   OVER-PINNED: none"
+                     + (" (suppressed: no read site found is unclassified while "
+                        "the closure is incomplete)" if not closure["complete"]
+                        else ""))
+    if report.get("unclassified"):
+        lines.append("   UNCLASSIFIED (pinned, no consumer site found, closure "
+                     "incomplete -> NOT evidence of uselessness):")
+        for entry in report["unclassified"]:
+            lines.append(f"     ? {entry['key']}  [{entry['reason']}]")
+    if not closure["complete"]:
+        lines.append(f"   PROPOSAL: {report['proposal']['status']} "
+                     f"({closure['proposal_withheld_reason']}); no pin removal "
+                     f"is suggested, the current pin is kept as-is")
     if report["under_pinned"]:
         lines.append("   UNDER-PINNED (interpreted, not pinned -> evidence gap):")
         for entry in report["under_pinned"]:
@@ -1436,7 +2000,21 @@ def render_text(report: dict) -> str:
         lines.append(f"   dependency map: pinned={dep['pinned']} "
                      f"read={dep['read']} over={dep['over_pinned']} "
                      f"under={dep['under_pinned']} "
+                     f"unclassified={len(dep.get('unclassified', []))} "
+                     f"toolchain={len(dep.get('toolchain_consumed', []))} "
                      f"synthetic={len(dep['synthetic_keys'])}")
+    cats = report.get("categories") or {}
+    if cats:
+        tools = ", ".join(cats["runtime"]["external_tools"]) or "none"
+        lean_n = len(cats["toolchain"]["dependency_lean_sources"])
+        lines.append(
+            f"   categories: input {cats['input']['pinned']} pinned / "
+            f"{cats['input']['consumed']} consumed / "
+            f"{cats['input']['unclassified']} unclassified; "
+            f"dependency {cats['dependency']['pinned']} pinned / "
+            f"{cats['dependency']['consumed_python']} read by python / "
+            f"{cats['dependency']['toolchain_consumed']} toolchain-consumed; "
+            f"runtime tools: {tools}; toolchain lean sources: {lean_n}")
     if report["unresolved"]:
         lines.append("   UNRESOLVED read sites (coverage caveat):")
         for u in report["unresolved"]:
@@ -1448,9 +2026,16 @@ def render_text(report: dict) -> str:
     adm = report["admissions"]
     if adm:
         overfiles = [e for e in report["over_pinned"] if e["exists"]]
-        lines.append(f"   admissions: {adm.get('admitted')} "
-                     f"(status {adm.get('status')}, pending {adm.get('pending')}); "
-                     f"{len(overfiles)} pinned-but-unread file(s) can void them")
+        if closure["complete"]:
+            lines.append(f"   admissions: {adm.get('admitted')} "
+                         f"(status {adm.get('status')}, pending {adm.get('pending')}); "
+                         f"{len(overfiles)} pinned-but-unread file(s) can void them")
+        else:
+            lines.append(f"   admissions: {adm.get('admitted')} "
+                         f"(status {adm.get('status')}, pending {adm.get('pending')}); "
+                         f"{len(report['unclassified'])} pinned-but-unconsumed "
+                         f"file(s) unclassified (closure incomplete: no removal "
+                         f"claim)")
     return "\n".join(lines)
 
 
@@ -1458,11 +2043,16 @@ def render_proposal(report: dict) -> str:
     prop = report["proposal"]
     payload = {
         "project": report["project"],
+        "status": prop.get("status"),
+        "withheld": prop.get("withheld"),
+        "withheld_reason": prop.get("withheld_reason"),
+        "withheld_because": prop.get("withheld_because", []),
         "proposed_pin": prop["proposed_pin"],
         "added": prop["added"],
         "removed": prop["removed"],
         "pin_matches_disk": prop["pin_matches_disk"],
         "pin_disk_mismatches": prop["pin_disk_mismatches"],
+        "closure_status": report["closure"]["status"],
         "note": prop["note"],
     }
     return json.dumps(payload, indent=2, ensure_ascii=False)
@@ -1489,9 +2079,12 @@ def main(argv: list[str] | None = None) -> int:
         prog="tcb_manifest.py",
         description="Discover what each Lean verifier really reads, compare it "
                     "with verification/checked-inputs.json, and (optionally) "
-                    "print a narrowed pin proposal. Read-only.",
-        epilog="exit codes: 0 clean; 2 over/under-pinned findings; 3 at least "
-               "one unresolved repo-scoped dynamic read site.")
+                    "print a narrowed pin proposal. Read-only. No pin proposal "
+                    "is emitted while the analysed closure is incomplete.",
+        epilog="exit codes: 0 clean; 2 over/under-pinned findings on a complete "
+               "closure; 3 at least one unresolved repo-scoped dynamic read "
+               "site; 4 closure incomplete (unsupported consumer boundary, no "
+               "removal proposal).")
     parser.add_argument("--project", default="all",
                         help="'root', 'local-field', 'bridge', a comma list, or "
                              "'all' (default)")
@@ -1503,6 +2096,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--root", default=None,
                         help="repository root (default: parent of this file)")
     args = parser.parse_args(argv)
+
+    # Reports contain the frozen phrase "closure incomplete — proposal withheld";
+    # emit UTF-8 on every platform so a pipe, a file and a console agree.
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="backslashreplace")
+    except (AttributeError, ValueError):   # pragma: no cover - StringIO / old io
+        pass
 
     root = Path(args.root).resolve() if args.root else \
         Path(__file__).resolve().parent.parent
@@ -1522,8 +2122,13 @@ def main(argv: list[str] | None = None) -> int:
     findings = any(r["counts"]["over_pinned"] or r["counts"]["under_pinned"]
                    for r in reports)
     unresolved = any(r["counts"]["unresolved_repo"] for r in reports)
+    incomplete = any(not r["closure"]["complete"] for r in reports)
     if unresolved:
         return 3
+    if incomplete:
+        # Never exit 0 while a consumer boundary is untraversed: "no read site
+        # found" would otherwise read as a clean, complete closure.
+        return 4
     if findings:
         return 2
     return 0

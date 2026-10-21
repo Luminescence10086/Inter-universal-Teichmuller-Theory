@@ -25,6 +25,14 @@ import unittest
 from pathlib import Path
 
 TOOL = Path(__file__).resolve().parents[1] / "affected.py"
+#: The production verifiers.  The fixture copies them instead of writing stubs so the
+#: snapshot-membership probe in ``affected.py`` exercises the real snapshot functions.
+REPO = Path(__file__).resolve().parents[2]
+PRODUCTION_VERIFIERS = {
+    "main": REPO / "tools/verify.py",
+    "local": REPO / "local-field/tools/verify.py",
+    "bridge": REPO / "bridge/tools/verify_integrated.py",
+}
 
 SHA = lambda char: (char * 64)
 COMMIT_ENV = {
@@ -47,6 +55,13 @@ def write_json(path: Path, payload) -> None:
 def write_text(path: Path, text: str = "placeholder\n") -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
+
+
+def copy_verifier(root: Path, project: str, target: str) -> None:
+    """Install a *production* verifier into the fixture (no re-implementation)."""
+    destination = root / target
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(PRODUCTION_VERIFIERS[project], destination)
 
 
 def main_facts() -> dict:
@@ -136,8 +151,15 @@ def build_fixture(root: Path) -> None:
         {"id": "IUTAudit.Dep.derived", "source": "IUTAudit/Dep.lean"},
         {"id": "IUTAudit.Claim.main", "source": "IUTAudit/Claim.lean"},
     ])
-    write_text(root / "tools/verify.py", "# main verifier\n")
     write_text(root / "tools/helper.py", "# unpinned by main, pinned by bridge\n")
+    # Production verifier plus the fixed inputs its own snapshot() hashes (a missing one
+    # would make the membership probe undecidable, which is covered by the dedicated
+    # snapshot-membership test file, not here).
+    copy_verifier(root, "main", "tools/verify.py")
+    for name in ("tools/query.py", "tools/Export.lean", "tools/Imports.lean",
+                 "tools/EditorCheck.lean"):
+        write_text(root / name)
+    write_text(root / "lake-manifest.json", "{}\n")
     write_text(root / "IUTAudit.lean")
     write_text(root / "lean-toolchain", "leanprover/lean4:v4.34.0\n")
     write_text(root / "lakefile.toml")
@@ -170,7 +192,14 @@ def build_fixture(root: Path) -> None:
     ])
     write_text(root / "local-field/LocalFieldAudit/Base.lean")
     write_text(root / "local-field/lean-toolchain", "leanprover/lean4:v4.34.0-rc2\n")
-    write_text(root / "local-field/tools/verify.py", "# local verifier\n")
+    copy_verifier(root, "local", "local-field/tools/verify.py")
+    for name in ("local-field/lakefile.toml", "local-field/LocalFieldAudit.lean",
+                 "local-field/tools/query.py", "local-field/tools/Export.lean",
+                 "local-field/tools/Imports.lean", "local-field/tools/EditorCheck.lean"):
+        write_text(root / name)
+    # bridge's dependency snapshot parses these two: real (empty) package lists.
+    write_json(root / "local-field/lake-manifest.json", {"packages": []})
+    write_json(root / "local-field/external-lock.json", {"schema": 1, "packages": []})
 
     # bridge: schema 3, pins workspace tools + an absolute dependency path
     bridge_inputs = {
@@ -206,7 +235,9 @@ def build_fixture(root: Path) -> None:
     write_text(root / "bridge/IUTBridge.lean")
     write_text(root / "bridge/IUTBridge/Adm.lean")
     write_text(root / "bridge/IUTBridge/Integ.lean")
-    write_text(root / "bridge/tools/verify_integrated.py", "# bridge verifier\n")
+    copy_verifier(root, "bridge", "bridge/tools/verify_integrated.py")
+    for name in ("bridge/lean-toolchain", "bridge/lakefile.toml", "bridge/lake-manifest.json"):
+        write_text(root / name)
 
     # cross-project contracts, recorded twice (like contracts.json + facts.json)
     contract = {

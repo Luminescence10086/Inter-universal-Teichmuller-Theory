@@ -31,6 +31,17 @@ The tool is read-only: it never writes, never runs lake, never runs a verifier a
 never touches ``tools/``, ``*.lean`` or ``verification/`` output.  It only reads
 recorded JSON and runs read-only git (``diff``, ``log``).
 
+What the recorded keys cannot answer is *membership*: the real verifiers glob their input
+sets (``IUTBridge/**/*.lean``, ``tools/*.py``, ``.vscode/*.json``), so a file that appears
+after the observation changes the input map while appearing in no recorded key.  Rather
+than re-implementing those patterns here -- they would drift from
+``bridge/tools/verify_integrated.py`` / ``tools/verify.py`` the moment either file is
+edited -- the tool imports each project's own production snapshot function and asks one
+question per changed path: *is this path a live member of that project's input set?*  A
+member that no recorded key covers means the observation no longer spans the input set,
+so the receipt is VOID.  Where the snapshot cannot be computed (missing verifier, deleted
+hard-coded input, unavailable source checkout) the receipt is UNKNOWN -- never INTACT.
+
 Usage
 -----
   python audit/affected.py --range 78bc059..HEAD
@@ -46,6 +57,8 @@ failed (missing records, bad revision, no git), 2 = command-line misuse.
 from __future__ import annotations
 
 import argparse
+import importlib.util
+import inspect
 import json
 import subprocess
 import sys
@@ -112,19 +125,34 @@ def load_json(path: Path, *, required: bool) -> object | None:
         raise ToolError(f"unreadable JSON in {path}: {exc}") from exc
 
 
-def anchor_to_root(key: str, root_name: str) -> str | None:
+def anchor_to_root(key: str, root_name: str, project_rels: tuple[str, ...] = ()) -> str | None:
     """Map a recorded absolute path back to a repository-relative path.
 
     Schema 3 records some dependency pins as absolute paths.  Anchoring on the last
     occurrence of the repository directory name keeps ``.../local-field/tools/verify.py``
     from being mistaken for the repository's own ``tools/verify.py``.
+
+    A receipt recorded in one checkout is also read in another (a git worktree, a copy),
+    where the repository directory name differs while the project directories do not.
+    In that case anchor on the longest known project directory instead, so the pin is
+    still recognised rather than silently lost.
     """
     segments = key.replace("\\", "/").split("/")
     if root_name in segments:
         index = len(segments) - 1 - segments[::-1].index(root_name)
         tail = "/".join(segments[index + 1:])
         return tail or None
-    return None
+    best: str | None = None
+    for rel in sorted(project_rels, key=lambda item: (-len(item), item)):
+        rel_segments = rel.split("/")
+        width = len(rel_segments)
+        for index in range(len(segments) - width, -1, -1):
+            if segments[index:index + width] == rel_segments:
+                candidate = "/".join(segments[index:])
+                if best is None or len(candidate) > len(best):
+                    best = candidate
+                break
+    return best
 
 
 def _strings(value) -> list[str]:
@@ -287,6 +315,7 @@ class Project:
     catalog: dict[str, str]
     modules: dict[str, str] = field(default_factory=dict)
     root_name: str = ""
+    sibling_rels: tuple[str, ...] = ()
     warnings: list[str] = field(default_factory=list)
 
     # -- paths -------------------------------------------------------------------
@@ -344,7 +373,7 @@ class Project:
         for key in self.dependencies:
             if not isinstance(key, str) or key == relative or key in self.inputs:
                 continue
-            if anchor_to_root(key, self.root_name) == repo_relative:
+            if anchor_to_root(key, self.root_name, self.sibling_rels) == repo_relative:
                 found.append((key, "dependency"))
         if self.evidence and self.repo_path(self.evidence) == repo_relative:
             found.append((self.evidence, "evidence"))
@@ -450,6 +479,11 @@ class Records:
         projects: dict[str, Project] = {}
         for name, rel in discover_projects(root).items():
             projects[name] = _load_project(root, name, rel, warnings)
+        # Absolute dependency pins may have been recorded in another checkout of this
+        # same workspace; anchoring needs the sibling project directories.
+        rels = tuple(sorted({project.rel for project in projects.values() if project.rel}))
+        for project in projects.values():
+            project.sibling_rels = rels
         contracts = _load_contracts(root, warnings)
         lock_modules, lock_kinds = _load_integrated_lock(root, warnings)
         statement_counts = _load_statement_counts(root, warnings, lock_modules)
@@ -681,9 +715,236 @@ def _load_statement_counts(root: Path, warnings: list[str],
 
 
 # --------------------------------------------------------------------------------------
+# live snapshot membership (decided by the production snapshot functions, not by us)
+# --------------------------------------------------------------------------------------
+#: Production entry points, in the order a schema-2 project tries them; a schema-3 receipt
+#: prefers its integrated verifier.  These are the files that decide what an input set is.
+SNAPSHOT_ENTRY_POINTS = (
+    ("tools/verify_integrated.py", "project_snapshot"),
+    ("tools/verify.py", "snapshot"),
+    ("tools/verify_integrated.py", "snapshot"),
+)
+DEPENDENCY_FUNCTION = "dependency_snapshot"
+
+
+@dataclass
+class MemberSet:
+    """One live input set, as reported by a project's own snapshot function."""
+
+    status: str  # 'decided' | 'unavailable'
+    source: str | None = None
+    key_count: int = 0
+    paths: frozenset[str] = frozenset()
+    unmapped: tuple[str, ...] = ()
+    error: str | None = None
+
+    @property
+    def decided(self) -> bool:
+        return self.status == "decided"
+
+    def as_row(self) -> dict:
+        shown = list(self.unmapped[:5])
+        return {
+            "status": self.status,
+            "source": self.source,
+            "keys": self.key_count,
+            "members": len(self.paths),
+            "unmapped": shown,
+            "unmapped_more": max(0, len(self.unmapped) - len(shown)),
+            "error": self.error,
+        }
+
+
+@dataclass
+class SnapshotProbe:
+    """Everything one project's snapshot functions told us about its live input set."""
+
+    project: str
+    input: MemberSet
+    dependency: MemberSet | None = None
+    entry_points_tried: tuple[str, ...] = ()
+
+    def as_row(self) -> dict:
+        return {
+            "input": self.input.as_row(),
+            "dependency": self.dependency.as_row() if self.dependency is not None else None,
+            "entry_points_tried": list(self.entry_points_tried),
+        }
+
+
+def _is_absolute_key(text: str) -> bool:
+    if text.startswith("/"):
+        return True
+    head = text.split("/", 1)[0]
+    return len(head) == 2 and head[1] == ":" and head[0].isalpha()
+
+
+def _relative_to_root(key: str, root: Path) -> str | None:
+    text = norm_path(key)
+    if not _is_absolute_key(text):
+        return None
+    root_text = root.resolve().as_posix()
+    if text == root_text:
+        return None
+    if text.startswith(root_text + "/"):
+        return text[len(root_text) + 1:]
+    try:
+        return Path(text).resolve().relative_to(root.resolve()).as_posix()
+    except (OSError, ValueError):
+        return None
+
+
+def member_path(project: Project, key: str, root: Path) -> str | None:
+    """Repository-relative path of one snapshot key (None = this key is not a file path).
+
+    The mapping mirrors the two conventions the verifiers use for keys: project-relative
+    inside the project, ``@workspace/`` for the workspace root, and absolute paths for
+    ``dependency_sha256``.
+    """
+    text = norm_path(key)
+    if not text:
+        return None
+    if text.startswith(WORKSPACE_PREFIX):
+        return norm_path(text[len(WORKSPACE_PREFIX):]) or None
+    if text.startswith("@"):
+        return None
+    if _is_absolute_key(text):
+        return _relative_to_root(text, root)
+    if project.rel:
+        if text == project.rel or text.startswith(project.rel + "/"):
+            return text
+        return f"{project.rel}/{text}"
+    return text
+
+
+def _load_verifier_module(path: Path, label: str):
+    """Import a production verifier module for its snapshot function only."""
+    spec = importlib.util.spec_from_file_location(label, path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"{path.name}: not importable as a python module")
+    module = importlib.util.module_from_spec(spec)
+    previous = sys.dont_write_bytecode
+    sys.dont_write_bytecode = True  # never leave __pycache__ in the observed tree
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        sys.dont_write_bytecode = previous
+    return module
+
+
+def _positional_arity(function) -> int:
+    try:
+        parameters = list(inspect.signature(function).parameters.values())
+    except (TypeError, ValueError):
+        return 0
+    count = 0
+    for parameter in parameters:
+        if parameter.kind is parameter.VAR_POSITIONAL:
+            return count
+        if parameter.kind in (parameter.POSITIONAL_ONLY, parameter.POSITIONAL_OR_KEYWORD):
+            count += 1
+    return count
+
+
+def _call_snapshot(function, base: Path):
+    """Call a snapshot function with its project directory when it accepts one."""
+    return function(base) if _positional_arity(function) >= 1 else function()
+
+
+def _member_set(project: Project, root: Path, snapshot, source: str) -> MemberSet:
+    if not isinstance(snapshot, dict):
+        return MemberSet(
+            "unavailable", source=source,
+            error=f"snapshot returned {type(snapshot).__name__}, not a mapping",
+        )
+    paths: set[str] = set()
+    unmapped: list[str] = []
+    for key in sorted(str(item) for item in snapshot):
+        mapped = member_path(project, key, root)
+        if mapped is None:
+            unmapped.append(key)
+        else:
+            paths.add(mapped)
+    return MemberSet(
+        "decided", source=source, key_count=len(snapshot),
+        paths=frozenset(paths), unmapped=tuple(unmapped),
+    )
+
+
+def _probe_dependency(project: Project, root: Path, module, filename: str) -> MemberSet | None:
+    """Cross-project input set (schema-3 ``dependency_sha256``), when the module has one."""
+    function = getattr(module, DEPENDENCY_FUNCTION, None)
+    if not callable(function):
+        return None
+    source = f"{project.repo_path(filename)}:{DEPENDENCY_FUNCTION}"
+    directory = getattr(module, "DEP", None)
+    takes_argument = _positional_arity(function) >= 1
+    try:
+        if directory is None and takes_argument:
+            return MemberSet(
+                "unavailable", source=source,
+                error="module exposes no DEP directory for its dependency snapshot",
+            )
+        snapshot = function(directory) if directory is not None and takes_argument else function()
+    except Exception as exc:  # noqa: BLE001 - any failure means "we cannot decide"
+        return MemberSet("unavailable", source=source, error=f"{type(exc).__name__}: {exc}")
+    return _member_set(project, root, snapshot, source)
+
+
+def probe_project(project: Project, root: Path) -> SnapshotProbe:
+    """Ask the project's own production snapshot functions what their input set is."""
+    base = root / project.rel if project.rel else root
+    preferred = "tools/verify_integrated.py" if project.receipt_schema == 3 else "tools/verify.py"
+    ordered = sorted(SNAPSHOT_ENTRY_POINTS, key=lambda entry: entry[0] != preferred)
+    tried: list[str] = []
+    for filename, function_name in ordered:
+        path = base / filename
+        if not path.is_file():
+            continue
+        label = f"{project.repo_path(filename)}:{function_name}"
+        tried.append(label)
+        try:
+            module = _load_verifier_module(
+                path, f"_affected_snapshot_{project.name}_{len(tried)}_{function_name}"
+            )
+        except Exception:  # noqa: BLE001 - an unimportable verifier is just undecidable
+            continue
+        function = getattr(module, function_name, None)
+        if not callable(function):
+            continue
+        try:
+            snapshot = _call_snapshot(function, base)
+        except Exception as exc:  # noqa: BLE001 - e.g. a hard-coded input was deleted
+            return SnapshotProbe(
+                project.name,
+                MemberSet("unavailable", source=label, error=f"{type(exc).__name__}: {exc}"),
+                _probe_dependency(project, root, module, filename),
+                tuple(tried),
+            )
+        return SnapshotProbe(
+            project.name,
+            _member_set(project, root, snapshot, label),
+            _probe_dependency(project, root, module, filename),
+            tuple(tried),
+        )
+    looked_for = ", ".join(f"{name}:{function}" for name, function in SNAPSHOT_ENTRY_POINTS)
+    return SnapshotProbe(
+        project.name,
+        MemberSet(
+            "unavailable",
+            error=f"no production snapshot entry point under {base.as_posix()} "
+                  f"(looked for {looked_for})",
+        ),
+        None,
+        tuple(tried),
+    )
+
+
+# --------------------------------------------------------------------------------------
 # analysis
 # --------------------------------------------------------------------------------------
-def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
+def analyse(records: Records, changes: list[Change], mode: dict,
+            probe_membership: bool = True) -> dict:
     root = records.root
     warnings = list(records.warnings)
 
@@ -701,6 +962,72 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
                 pins_by_project.setdefault(project_name, []).append(
                     {"path": path, "key": key, "kind": kind}
                 )
+
+    # ---- 1b. live snapshot membership ---------------------------------------------
+    # The recorded keys above are only the files that existed at observation time.  A
+    # changed path that is a live member of the project's own snapshot set but appears
+    # in no recorded key changes the input map without touching a pin, which is exactly
+    # the case a pin-only planner reports as "intact".  Ask the production functions.
+    probes: dict[str, SnapshotProbe] = {}
+    if probe_membership:
+        for project_name, project in records.projects.items():
+            probes[project_name] = probe_project(project, root)
+    member_of: dict[str, set[str]] = {}
+    membership_rows: dict[str, dict] = {}
+    for project_name, project in records.projects.items():
+        label = project.rel or "."
+        probe = probes.get(project_name)
+        pinned_paths = {pin["path"] for pin in pins_by_project.get(project_name, [])}
+        added: list[dict] = []
+        if probe is not None:
+            for path in changed_paths:
+                if path in pinned_paths:
+                    continue
+                origin = None
+                if probe.input.decided and path in probe.input.paths:
+                    origin = "input"
+                elif (probe.dependency is not None and probe.dependency.decided
+                      and path in probe.dependency.paths):
+                    origin = "dependency"
+                if origin is not None:
+                    added.append({"path": path, "origin": origin})
+            for member_set in (probe.input, probe.dependency):
+                if member_set is None or not member_set.decided:
+                    continue
+                for path in member_set.paths:
+                    member_of.setdefault(path, set()).add(project_name)
+        live_paths = set(probe.input.paths) if probe is not None and probe.input.decided else None
+        recorded_paths: set[str] = set()
+        recorded_unmapped: list[str] = []
+        for key in project.inputs:
+            mapped = member_path(project, key, root)
+            if mapped is None:
+                recorded_unmapped.append(key)
+            else:
+                recorded_paths.add(mapped)
+        live_only = sorted(live_paths - recorded_paths) if live_paths is not None else []
+        recorded_only = sorted(recorded_paths - live_paths) if live_paths is not None else []
+        # A member this change set introduced is already reported per receipt; the warning
+        # is for disagreement that exists independently of the change set.
+        introduced = {item["path"] for item in added}
+        drift_live_only = [path for path in live_only if path not in introduced]
+        if drift_live_only or recorded_only:
+            differing = (drift_live_only or recorded_only)[:4]
+            more = len(drift_live_only) + len(recorded_only) - len(differing)
+            warnings.append(
+                f"{label}: the live input set and the recorded receipt also disagree "
+                f"independently of this change set ({len(drift_live_only)} live-only, "
+                f"{len(recorded_only)} recorded-only): " + ", ".join(differing)
+                + (f" ... +{more} more" if more > 0 else "")
+            )
+        membership_rows[project_name] = {
+            "added": added,
+            "live_only": live_only,
+            "recorded_only": recorded_only,
+            "recorded_unmapped_keys": recorded_unmapped,
+            "probe": probe.as_row() if probe is not None else None,
+        }
+
     receipts = []
     for project_name, project in records.projects.items():
         pins = sorted(
@@ -711,21 +1038,42 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
             admitted_count = len(project.checked_targets) or len(project.nodes)
         else:
             admitted_count = len(admitted)
-        void = bool(pins)
+        membership = membership_rows[project_name]
+        probe_row = membership["probe"]
+        undecided: list[str] = []
+        if probe_row is None:
+            undecided.append("snapshot membership probe disabled")
+        else:
+            for field in ("input", "dependency"):
+                block = probe_row[field]
+                if block is not None and block["status"] != "decided":
+                    undecided.append(f"{field} set: {block['error']}")
+        void = bool(pins) or bool(membership["added"])
+        if void:
+            status = "VOID"
+        elif undecided:
+            status = "UNKNOWN"
+        else:
+            status = "INTACT"
         receipts.append(
             {
                 "project": project_name,
                 "path": project.repo_path("verification/vscode-receipt.json"),
                 "schema": project.receipt_schema,
+                "status": status,
                 "void": void,
                 "pins": [
                     {"path": path, "key": key, "kind": kind} for path, key, kind in pins
                 ],
                 "admitted_at_observation": admitted_count,
                 "nodes_to_pending": admitted_count if void else 0,
+                "membership": membership,
+                "not_intact_because": undecided,
             }
         )
     voided = {row["project"] for row in receipts if row["void"]}
+    unknown = [row["project"] for row in receipts if row["status"] == "UNKNOWN"]
+    membership_added = sum(len(row["membership"]["added"]) for row in receipts)
 
     # ---- 2. nodes: direct + transitive dependents --------------------------------
     per_project: dict[str, dict] = {}
@@ -924,6 +1272,7 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
                 "primary_class": ordered[0] if ordered else "unpinned",
                 "classes": ordered,
                 "pins": pin_rows,
+                "snapshot_member_of": sorted(member_of.get(path, ())),
             }
         )
 
@@ -961,6 +1310,8 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
         },
         "receipts": len(receipts),
         "receipts_voided": sum(1 for row in receipts if row["void"]),
+        "receipts_unknown": len(unknown),
+        "snapshot_members_added": membership_added,
         "nodes_total": sum(len(project.nodes) for project in records.projects.values()),
         "nodes_direct": direct_total,
         "nodes_transitive_dependents": dependent_total,
@@ -984,11 +1335,16 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
             "contracts_at_risk": counts["contracts_at_risk"],
             "receipts": counts["receipts"],
             "receipts_voided": counts["receipts_voided"],
+            "receipts_unknown": counts["receipts_unknown"],
             "projects": len(records.projects),
         },
         "otherwise_manual": [
             f"{counts['receipts']} receipt(s) re-read against {len(changed_paths)} changed file(s) "
-            f"to decide which pins they contain ({counts['receipts_voided']} void)",
+            f"to decide which pins they contain ({counts['receipts_voided']} void, "
+            f"{counts['receipts_unknown']} undecidable)",
+            f"{counts['receipts']} live input set(s) recomputed by calling each project's own "
+            f"production snapshot function ({counts['snapshot_members_added']} new member(s) that "
+            f"no recorded key covers)",
             f"{counts['nodes_total']} fact-tree nodes walked (depends_on + edges) to find the "
             f"{counts['nodes_invalidated']} whose evidence is no longer valid "
             f"({counts['nodes_to_pending']} more fall back to pending with a void receipt)",
@@ -1003,6 +1359,14 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
     # ---- 7. redo list -------------------------------------------------------------
     redo: list[str] = []
     for row in receipts:
+        if row["status"] != "UNKNOWN":
+            continue
+        detail = "; ".join(row["not_intact_because"])
+        redo.append(
+            f"{row['project']}: receipt UNKNOWN, the recorded observation cannot be shown to "
+            f"cover the current input set ({detail})"
+        )
+    for row in receipts:
         if not row["void"]:
             continue
         project = records.projects[row["project"]]
@@ -1012,6 +1376,13 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
         pins = ", ".join(key_list[:6])
         if len(key_list) > 6:
             pins += f", +{len(key_list) - 6} more"
+        if not key_list:
+            added = row["membership"]["added"]
+            pins = "new snapshot input(s) no recorded key covers: " + ", ".join(
+                f"{item['path']} ({item['origin']} set)" for item in added[:6]
+            )
+            if len(added) > 6:
+                pins += f", +{len(added) - 6} more"
         redo.append(
             f"{row['project']}: re-run {command} and record a new editor observation; "
             f"{row['nodes_to_pending']} admitted node(s) return to pending [{pins}]"
@@ -1067,6 +1438,21 @@ def analyse(records: Records, changes: list[Change], mode: dict) -> dict:
         "unclassified": sorted(unclassified),
         "outside_repo": sorted(outside),
         "statement_lock": statement_lock,
+        "snapshot_membership": {
+            "probe": "enabled" if probe_membership else "disabled",
+            "entry_points": {
+                name: probe.as_row() for name, probe in sorted(probes.items())
+            },
+            "undecided": sorted(unknown),
+            "note": (
+                "Membership is not re-derived from glob patterns here: each project's own "
+                "production snapshot function is imported and called, and each changed path "
+                "is tested for membership in the live input (or dependency) set. "
+                "A live member that no recorded key covers means the observation no longer "
+                "spans the input set; a snapshot that cannot be computed leaves the receipt "
+                "UNKNOWN instead of INTACT."
+            ),
+        },
         "counts": counts,
         "hand_reconstruction": hand,
         "redo": redo,
@@ -1109,12 +1495,34 @@ def render_human(payload: dict) -> str:
     add("")
     add("RECEIPTS  (does the recorded editor observation still bind?)")
     for row in payload["receipts"]:
-        flag = "VOID  " if row["void"] else "INTACT"
+        flag = {"VOID": "VOID   ", "UNKNOWN": "UNKNOWN", "INTACT": "INTACT "}.get(
+            row["status"], row["status"])
         add(f"  {flag} {row['project']:<10} {row['path']}  schema={row['schema']}")
         for pin in row["pins"][:6]:
             add(f"         pin: {pin['key']}  ({pin['kind']})")
         if len(row["pins"]) > 6:
             add(f"         ... {len(row['pins']) - 6} more pin(s)")
+        membership = row["membership"]
+        input_block = (membership["probe"] or {}).get("input")
+        if input_block and input_block["status"] == "decided":
+            add(
+                f"         live input set: {input_block['keys']} key(s) from "
+                f"{input_block['source']}"
+            )
+        dependency_block = (membership["probe"] or {}).get("dependency")
+        if dependency_block and dependency_block["status"] == "decided":
+            add(
+                f"         live dependency set: {dependency_block['keys']} key(s) from "
+                f"{dependency_block['source']}"
+            )
+        for item in membership["added"][:limit]:
+            add(
+                f"         new snapshot member not covered by any recorded key: "
+                f"{item['path']}  ({item['origin']} set)"
+            )
+        elide(membership["added"], "new snapshot member(s)")
+        for reason in row["not_intact_because"]:
+            add(f"         membership undecided: {reason}")
         if row["void"]:
             add(
                 f"         {row['admitted_at_observation']} admitted node(s) -> "
@@ -1181,6 +1589,8 @@ def render_human(payload: dict) -> str:
         add(f"  {row['status']} {row['path']}  -> {', '.join(row['classes'])}")
         for pin in row["pins"]:
             add(f"       pinned by {pin['project']} as {pin['key']} ({pin['kind']})")
+        if row.get("snapshot_member_of"):
+            add(f"       live snapshot member of: {', '.join(row['snapshot_member_of'])}")
     elide(payload["changed"], "file(s)", prefix="  ")
     if payload["counts"].get("files_by_class"):
         add("  by class: " + ", ".join(
@@ -1209,7 +1619,8 @@ def render_human(payload: dict) -> str:
     add("WHAT ASTRA WOULD OTHERWISE HAVE TO RECONSTRUCT BY HAND")
     counts = payload["hand_reconstruction"]["counts"]
     add(
-        f"  {counts['receipts']} receipts ({counts['receipts_voided']} void) - "
+        f"  {counts['receipts']} receipts ({counts['receipts_voided']} void, "
+        f"{counts['receipts_unknown']} undecidable) - "
         f"{counts['contracts']} contracts ({counts['contracts_invalidated']} invalidated, "
         f"{counts['contracts_at_risk']} at risk) - "
         f"{counts['nodes']} nodes ({counts['nodes_invalidated']} invalidated, "
@@ -1249,7 +1660,11 @@ def build_parser() -> argparse.ArgumentParser:
             "  --range A..B     compare two commits (git diff --name-status, plus git log for context)\n"
             "  --files P ...    explicit repository-relative paths (deleted paths are fine)\n"
             "  --staged         the staged index (git diff --cached)\n\n"
-            "Read-only: this tool never writes, never builds and never runs a verifier.\n\n"
+            "Read-only: this tool never writes, never builds and never runs a verifier.\n"
+            "Membership of a changed path in a project's live input set is decided by\n"
+            "importing that project's own production snapshot function (read-only hashing),\n"
+            "so the glob rules are never re-implemented here.  --no-membership-probe skips\n"
+            "that step and then no receipt can be called INTACT (they become UNKNOWN).\n\n"
             "Exit status: 0 analysed, 1 analysis failed, 2 bad arguments.\n\n"
             "Note on Windows: the tool writes UTF-8 without a BOM, but Windows PowerShell\n"
             "5.x '>' redirection re-encodes native output as UTF-16LE.  For --json use a\n"
@@ -1269,6 +1684,10 @@ def build_parser() -> argparse.ArgumentParser:
                            help="use the staged index")
     parser.add_argument("--json", dest="as_json", action="store_true",
                         help="machine-readable output on stdout")
+    parser.add_argument("--no-membership-probe", dest="no_membership_probe",
+                        action="store_true",
+                        help="do not call the production snapshot functions (every non-void "
+                             "receipt is then reported UNKNOWN, never INTACT)")
     parser.add_argument("--repo", dest="repo", metavar="PATH", default=None,
                         help="repository root (default: the parent of this script's directory)")
     return parser
@@ -1309,7 +1728,8 @@ def main(argv: list[str] | None = None) -> int:
             mode = {"kind": "files", "paths": sorted({c.path for c in changes}), "commits": []}
 
         records = Records.load(root)
-        payload = analyse(records, changes, mode)
+        payload = analyse(records, changes, mode,
+                          probe_membership=not args.no_membership_probe)
     except ToolError as exc:
         print(f"{TOOL}: error: {exc}", file=sys.stderr)
         return 1
