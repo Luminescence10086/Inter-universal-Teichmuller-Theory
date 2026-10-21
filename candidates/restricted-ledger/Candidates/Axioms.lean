@@ -52,3 +52,18 @@ open Candidates.RestrictedLedger
 
 #print axioms Candidates.RestrictedLedger.swapWeights_budget
 #print axioms Candidates.RestrictedLedger.empty_domain_vacuous
+
+/-! Repair increment: exact types and axiom dependencies. -/
+set_option pp.universes true
+#check @Candidates.RestrictedLedger.integer_combination_criterion
+#check @Candidates.RestrictedLedger.restricted_ledger_combination_criterion
+#check @Candidates.RestrictedLedger.full_domain_iff
+#check @Candidates.RestrictedLedger.finite_integer_span_membership_example
+#print Candidates.RestrictedLedger.finiteIntegerDomain
+#print Candidates.RestrictedLedger.integerUnitGenerator
+#print axioms Candidates.RestrictedLedger.integer_combination_criterion
+#print axioms Candidates.RestrictedLedger.restricted_ledger_combination_criterion
+#print axioms Candidates.RestrictedLedger.full_domain_iff
+#print axioms Candidates.RestrictedLedger.finiteIntegerDomain
+#print axioms Candidates.RestrictedLedger.integerUnitGenerator
+#print axioms Candidates.RestrictedLedger.finite_integer_span_membership_example
