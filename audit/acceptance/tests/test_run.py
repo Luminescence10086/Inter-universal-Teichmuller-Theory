@@ -109,7 +109,7 @@ def make_bundle(tmp: Path, repo, base, head, *, drop_case=None, bad_digest=False
         'schema': 1, 'status': 'RESULT', 'task_id': 'P0',
         'base_commit': base, 'head_commit': head,
         'scope_contract_sha256': 'f' * 64 if wrong_scope else CONTRACT_DIGEST,
-        'source_tree_clean': False,
+        'source_tree_clean': True,
         'environment': {'os': sys.platform, 'python': sys.version.split()[0],
                         'lean': None, 'lake': None, 'dependency_locks': []},
         'changes': changes, 'checks': checks,
@@ -173,6 +173,8 @@ def _valid(tmp):
     assert verdict['status'] == 'PASS', verdict['status']
     assert verdict['mathematical_admission'] is False
     assert len(verdict['checks']) == len(P0_IDS)
+    assert sum(not check['deduplicated'] for check in verdict['checks']) == 2
+    assert any(check['deduplicated'] for check in verdict['checks'])
 
 
 @case('P0.wrong_commit')
@@ -210,7 +212,37 @@ def _claimed_pass(tmp):
     bundle = make_bundle(tmp, repo, base, head)
     code, verdict, _ = invoke(bundle, repo, plan=fixture_plan(tmp, base))
     assert code != 0 and verdict['status'] != 'PASS'
-    assert 'P0.failed_check_claimed_pass' in codes(verdict), codes(verdict)
+    assert 'P0.expected_exit_mismatch' in codes(verdict), codes(verdict)
+
+
+@case('P0.failed_required_check_claimed_fail')
+def _claimed_fail(tmp):
+    repo, base, head = make_repo(tmp, probe_source=PROBE_FAIL)
+    bundle = make_bundle(tmp, repo, base, head, outcome='FAIL', exit_code=1)
+    code, verdict, _ = invoke(bundle, repo, plan=fixture_plan(tmp, base))
+    assert code != 0 and verdict['status'] != 'PASS', verdict
+    assert 'P0.expected_exit_mismatch' in codes(verdict), codes(verdict)
+
+
+@case('P0.author_incomplete')
+def _author_incomplete(tmp):
+    repo, base, head = make_repo(tmp)
+    bundle = make_bundle(tmp, repo, base, head, outcome='INCOMPLETE', exit_code=0)
+    code, verdict, _ = invoke(bundle, repo, plan=fixture_plan(tmp, base))
+    assert code != 0 and verdict['status'] == 'INCOMPLETE', verdict
+
+
+@case('P0.checked_out_head_mismatch')
+def _checked_out_head_mismatch(tmp):
+    repo, base, head = make_repo(tmp)
+    bundle = make_bundle(tmp, repo, base, head)
+    data = json.loads(bundle.read_text(encoding='utf-8'))
+    data['source_tree_clean'] = None
+    bundle.write_text(json.dumps(data, indent=2), encoding='utf-8')
+    git(repo, 'checkout', '-q', '--detach', base)
+    code, verdict, _ = invoke(bundle, repo, plan=fixture_plan(tmp, base))
+    assert code != 0 and verdict['status'] != 'PASS', verdict
+    assert 'P0.checked_out_head_mismatch' in codes(verdict), codes(verdict)
 
 
 @case('P0.timeout')

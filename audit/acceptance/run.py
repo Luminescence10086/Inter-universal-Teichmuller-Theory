@@ -23,9 +23,12 @@ come from the frozen contract/plan, never from the candidate bundle.
 from __future__ import annotations
 
 import argparse
+import ctypes
 import fnmatch
 import hashlib
 import json
+import os
+import signal
 import subprocess
 import sys
 import time
@@ -175,22 +178,30 @@ def validate_bundle(bundle, contract, plan, repo, verdict):
         verdict.fail('P0.wrong_commit', 'head_commit is not a descendant of base_commit')
         return False
 
-    if bundle['source_tree_clean'] is not None:
-        # Commit identity is what matters: tracked modifications contradict a "clean" claim,
-        # untracked scratch files do not (they cannot enter the commit, and the scope check
-        # covers what did). Untracked entries are reported, not failed.
-        rc, status, _ = git(repo, 'status', '--porcelain', '--untracked-files=no')
-        dirty = status.strip()
-        if bundle['source_tree_clean'] and rc == 0 and dirty:
-            verdict.fail('P0.source_tree_dirty', f'claimed clean but tracked files changed: {dirty[:200]}')
-            return False
-        rc_all, all_status, _ = git(repo, 'status', '--porcelain')
-        untracked = [line[3:] for line in all_status.splitlines() if line.startswith('??')]
-        if untracked:
-            verdict.notes.append({'code': 'P0.untracked_present',
-                                  'detail': f'{len(untracked)} untracked path(s), e.g. '
-                                            f'{untracked[:3]} — not part of the commit, not a '
-                                            f'cleanliness defect'})
+    rc, checked_out_head, _ = git(repo, 'rev-parse', '--verify', '--quiet', 'HEAD')
+    if rc != 0 or checked_out_head.strip() != head_sha:
+        verdict.fail('P0.checked_out_head_mismatch',
+                     f'checked out HEAD {checked_out_head.strip()!r} != bundle head '
+                     f'{bundle["head_commit"]!r}')
+        return False
+    if bundle['source_tree_clean'] is not True:
+        verdict.fail('P0.source_tree_identity',
+                     'source_tree_clean must be true so replay is bound to committed files')
+        return False
+    rc, status, _ = git(repo, 'status', '--porcelain', '--untracked-files=no')
+    dirty = status.strip()
+    if rc != 0 or dirty:
+        verdict.fail('P0.source_tree_dirty',
+                     f'replay requires clean tracked files at bundle HEAD: {dirty[:200]}')
+        return False
+
+    # Untracked scratch files are reported; tracked files must match the bundle commit.
+    rc_all, all_status, _ = git(repo, 'status', '--porcelain')
+    untracked = [line[3:] for line in all_status.splitlines() if line.startswith('??')]
+    if untracked:
+        verdict.notes.append({'code': 'P0.untracked_present',
+                              'detail': f'{len(untracked)} untracked path(s), e.g. '
+                                        f'{untracked[:3]} — not part of the commit'})
 
     rc, diff, _ = git(repo, 'diff', '--name-only', base_out.strip(), head_sha)
     changed = [line for line in diff.splitlines() if line.strip()]
@@ -299,17 +310,109 @@ def validate_check_declarations(bundle, task, plan, repo, verdict):
     return not verdict.failures
 
 
+def _windows_job_for(process):
+    """Put a replay process in a kill-on-close Windows Job Object when available."""
+    if os.name != 'nt':
+        return None
+
+    class BasicLimit(ctypes.Structure):
+        _fields_ = [
+            ('PerProcessUserTimeLimit', ctypes.c_longlong),
+            ('PerJobUserTimeLimit', ctypes.c_longlong),
+            ('LimitFlags', ctypes.c_uint32),
+            ('MinimumWorkingSetSize', ctypes.c_size_t),
+            ('MaximumWorkingSetSize', ctypes.c_size_t),
+            ('ActiveProcessLimit', ctypes.c_uint32),
+            ('Affinity', ctypes.c_size_t),
+            ('PriorityClass', ctypes.c_uint32),
+            ('SchedulingClass', ctypes.c_uint32),
+        ]
+
+    class IoCounters(ctypes.Structure):
+        _fields_ = [(name, ctypes.c_uint64) for name in
+                    ('ReadOperationCount', 'WriteOperationCount', 'OtherOperationCount',
+                     'ReadTransferCount', 'WriteTransferCount', 'OtherTransferCount')]
+
+    class ExtendedLimit(ctypes.Structure):
+        _fields_ = [
+            ('BasicLimitInformation', BasicLimit),
+            ('IoInfo', IoCounters),
+            ('ProcessMemoryLimit', ctypes.c_size_t),
+            ('JobMemoryLimit', ctypes.c_size_t),
+            ('PeakProcessMemoryUsed', ctypes.c_size_t),
+            ('PeakJobMemoryUsed', ctypes.c_size_t),
+        ]
+
+    kernel32 = ctypes.WinDLL('kernel32', use_last_error=True)
+    kernel32.CreateJobObjectW.restype = ctypes.c_void_p
+    kernel32.SetInformationJobObject.argtypes = [ctypes.c_void_p, ctypes.c_int,
+                                                  ctypes.c_void_p, ctypes.c_uint32]
+    kernel32.AssignProcessToJobObject.argtypes = [ctypes.c_void_p, ctypes.c_void_p]
+    kernel32.CloseHandle.argtypes = [ctypes.c_void_p]
+    job = kernel32.CreateJobObjectW(None, None)
+    if not job:
+        return None
+    info = ExtendedLimit()
+    info.BasicLimitInformation.LimitFlags = 0x2000  # JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE
+    ok = kernel32.SetInformationJobObject(job, 9, ctypes.byref(info), ctypes.sizeof(info))
+    ok = ok and kernel32.AssignProcessToJobObject(job, int(process._handle))
+    if not ok:
+        kernel32.CloseHandle(job)
+        return None
+    return (kernel32, job)
+
+
+def _close_windows_job(job):
+    if job:
+        job[0].CloseHandle(job[1])
+
+
 def execute(spec, repo, timeout):
     rel = spec.get('cwd', '.')
     cwd = repo if rel in ('.', '') else repo / rel
     started = time.time()
     try:
-        result = subprocess.run(spec['argv'], cwd=str(cwd), capture_output=True, text=True,
-                                encoding='utf-8', errors='replace', timeout=timeout)
-        return {'exit': result.returncode, 'stdout': result.stdout, 'stderr': result.stderr,
+        command_env = os.environ.copy()
+        command_env.update(spec.get('env', {}))
+        process = subprocess.Popen(spec['argv'], cwd=str(cwd), env=command_env,
+                                   stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE, text=True, encoding='utf-8',
+                                   errors='replace', start_new_session=(os.name != 'nt'),
+                                   creationflags=(subprocess.CREATE_NEW_PROCESS_GROUP
+                                                  if os.name == 'nt' else 0))
+        job = _windows_job_for(process)
+        try:
+            stdout, stderr = process.communicate(timeout=timeout)
+            _close_windows_job(job)
+            return {'exit': process.returncode, 'stdout': stdout, 'stderr': stderr,
+                    'elapsed': round(time.time() - started, 3), 'timed_out': False}
+        except subprocess.TimeoutExpired:
+            # Closing the job also kills grandchildren which inherited the pipes.
+            _close_windows_job(job)
+            job = None
+            if os.name == 'nt':
+                # communicate() can wait on inherited pipe handles after the parent
+                # exits. Kill the complete process tree before collecting its output.
+                try:
+                    subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                                   capture_output=True, timeout=5)
+                except (OSError, subprocess.TimeoutExpired):
+                    pass
+            else:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+            try:
+                stdout, stderr = process.communicate(timeout=5)
+            except subprocess.TimeoutExpired:
+                process.kill()
+                stdout, stderr = process.communicate()
+            return {'exit': None, 'stdout': stdout, 'stderr': stderr,
+                    'elapsed': round(time.time() - started, 3), 'timed_out': True}
+    except OSError as exc:
+        return {'exit': None, 'stdout': '', 'stderr': str(exc),
                 'elapsed': round(time.time() - started, 3), 'timed_out': False}
-    except subprocess.TimeoutExpired:
-        return {'exit': None, 'stdout': '', 'stderr': '', 'elapsed': timeout, 'timed_out': True}
     except OSError as exc:
         return {'exit': None, 'stdout': '', 'stderr': str(exc), 'elapsed': round(time.time() - started, 3),
                 'timed_out': False}
@@ -317,6 +420,7 @@ def execute(spec, repo, timeout):
 
 def replay(bundle, task, plan, repo, verdict, timeout_override=None):
     declared = {c.get('id'): c for c in bundle['checks'] if isinstance(c, dict)}
+    measured_by_command = {}
     for cid in task['required_case_ids']:
         spec = plan['cases'].get(cid)
         entry = declared.get(cid, {})
@@ -330,7 +434,13 @@ def replay(bundle, task, plan, repo, verdict, timeout_override=None):
                                    'detail': spec.get('note', 'reviewer must perform this step')})
             continue
         timeout = timeout_override or spec.get('timeout_seconds', 300)
-        measured = execute(spec, repo, timeout)
+        cwd = repo if spec.get('cwd', '.') in ('.', '') else repo / spec['cwd']
+        command_key = (tuple(spec['argv']), str(cwd.resolve()),
+                       tuple(sorted(os.environ.items())),
+                       tuple(sorted(spec.get('env', {}).items())))
+        if command_key not in measured_by_command:
+            measured_by_command[command_key] = (execute(spec, repo, timeout), cid)
+        measured, executed_as = measured_by_command[command_key]
         claimed_exit = entry.get('exit_code')
         claimed_outcome = entry.get('outcome')
         expected_exit = spec.get('expected_exit', 0)
@@ -343,12 +453,21 @@ def replay(bundle, task, plan, repo, verdict, timeout_override=None):
             verdict.note_incomplete('P0.execution_error',
                                     f'{cid}: could not run ({measured["stderr"][:120]})')
         else:
-            if claimed_outcome == 'PASS' and (claimed_exit != expected_exit
-                                              or measured['exit'] != expected_exit):
+            if measured['exit'] != expected_exit:
                 status = 'FAIL'
-                verdict.fail('P0.failed_check_claimed_pass',
-                             f'{cid}: claimed PASS but exits claimed={claimed_exit} '
-                             f'measured={measured["exit"]} expected={expected_exit}')
+                verdict.fail('P0.expected_exit_mismatch',
+                             f'{cid}: measured exit {measured["exit"]}, frozen expected '
+                             f'{expected_exit} (claimed outcome={claimed_outcome!r}, '
+                             f'claimed exit={claimed_exit!r})')
+            elif claimed_outcome == 'INCOMPLETE':
+                status = 'INCOMPLETE'
+                verdict.note_incomplete('P0.author_incomplete',
+                                         f'{cid}: bundle reports INCOMPLETE')
+            elif claimed_outcome != 'PASS':
+                status = 'FAIL'
+                verdict.fail('P0.author_not_pass',
+                             f'{cid}: bundle reports {claimed_outcome!r}; required check '
+                             f'cannot contribute to PASS')
             elif measured['exit'] != claimed_exit and claimed_exit is not None:
                 status = 'FAIL'
                 verdict.fail('P0.replay_mismatch',
@@ -362,6 +481,8 @@ def replay(bundle, task, plan, repo, verdict, timeout_override=None):
                                'claimed_exit': claimed_exit,
                                'claimed_outcome': claimed_outcome,
                                'elapsed_seconds': measured['elapsed'],
+                               'executed_as': executed_as,
+                               'deduplicated': executed_as != cid,
                                'replay_stdout_head': measured['stdout'][:400],
                                'replay_stderr_head': measured['stderr'][:400]})
 
