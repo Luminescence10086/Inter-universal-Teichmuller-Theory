@@ -1,0 +1,119 @@
+﻿L33   information  @Padic.valuation : {p : ℕ} → [hp : Fact (Nat.Prime p)] → ℚ_[p] → ℤ
+L34   information  @Padic.valuation_mul : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] {x y : ℚ_[p]},   x ≠ 0 → y ≠ 0 → (x * y).valuation = x.valuation + y.valuation
+L35   information  @Padic.valuation_inv : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (x : ℚ_[p]), x⁻¹.valuation = -x.valuation
+L36   information  @Padic.mulValuation : {p : ℕ} → [hp : Fact (Nat.Prime p)] → Valuation ℚ_[p] (WithZero (Multiplicative ℤ))
+L37   information  @Padic.norm_eq_zpow_neg_valuation : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] {x : ℚ_[p]}, x ≠ 0 → ‖x‖ = ↑p ^ (-x.valuation)
+L38   information  @Padic.norm_eq_zpow_log_mulValuation : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] {x : ℚ_[p]},   x ≠ 0 → ‖x‖ = ↑p ^ (Padic.mulValuation x).log
+L39   information  @Padic.valuation_p : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)], (↑p).valuation = 1
+L40   information  @Padic.addValuation : {p : ℕ} → [hp : Fact (Nat.Prime p)] → AddValuation ℚ_[p] (WithTop ℤ)
+L41   information  @PadicInt.valuation : {p : ℕ} → [hp : Fact (Nat.Prime p)] → ℤ_[p] → ℕ
+L42   information  @PadicInt.unitCoeff : {p : ℕ} → [hp : Fact (Nat.Prime p)] → {x : ℤ_[p]} → x ≠ 0 → ℤ_[p]ˣ
+L43   information  @PadicInt.unitCoeff_spec : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] {x : ℤ_[p]} (hx : x ≠ 0),   x = ↑(PadicInt.unitCoeff hx) * ↑p ^ x.valuation
+L44   information  @PadicInt.mkUnits : {p : ℕ} → [hp : Fact (Nat.Prime p)] → {u : ℚ_[p]} → ‖u‖ = 1 → ℤ_[p]ˣ
+L45   information  @PadicInt.norm_units : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (u : ℤ_[p]ˣ), ‖↑u‖ = 1
+L46   information  @PadicInt.isUnit_iff : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] {z : ℤ_[p]}, IsUnit z ↔ ‖z‖ = 1
+L47   information  ValuativeRel : (R : Type u_1) → [Semiring R] → Type u_1
+L48   information  ValuativeRel.valuation : (R : Type u_1) →   [inst : Ring R] → [inst_1 : ValuativeRel R] → Valuation R (ValuativeRel.ValueGroupWithZero R)
+L49   information  Valued : (R : Type u_2) →   [Ring R] → (Γ₀ : outParam (Type u_1)) → [LinearOrderedCommGroupWithZero Γ₀] → Type (max u_2 u_1)
+L50   information  @WithVal : {R : Type u_1} →   {Γ₀ : Type u_2} → [inst : LinearOrderedCommGroupWithZero Γ₀] → [inst_1 : Ring R] → Valuation R Γ₀ → Type u_1
+L51   information  @WithVal.equiv : {R : Type u_1} →   {Γ₀ : Type u_2} →     [inst : LinearOrderedCommGroupWithZero Γ₀] → [inst_1 : Ring R] → (v : Valuation R Γ₀) → WithVal v ≃+* R
+L52   information  @WithVal.val_apply_equiv : ∀ {R : Type u_1} {Γ₀ : Type u_2} [inst : LinearOrderedCommGroupWithZero Γ₀] [inst_1 : Ring R]   (v : Valuation R Γ₀) (r : WithVal v), v ((WithVal.equiv v) r) = Valued.v r
+L53   information  @Padic.withValRingEquiv : {p : ℕ} → [inst : Fact (Nat.Prime p)] → (Rat.padicValuation p).Completion ≃+* ℚ_[p]
+L54   information  @PadicInt.withValIntegersRingEquiv : {p : ℕ} →   [inst : Fact (Nat.Prime p)] → ↥(Valued.integer (Rat.padicValuation p).Completion) ≃+* ℤ_[p]
+L55   information  Multiplicative : Type u_1 → Type u_1
+L56   information  @Multiplicative.ofAdd : {α : Type u_1} → α ≃ Multiplicative α
+L57   information  @IsDedekindDomain.HeightOneSpectrum.valuationOfNeZero : {R : Type u_1} →   [inst : CommRing R] →     [IsDedekindDomain R] →       {K : Type u_2} →         [inst_2 : Field K] →           [inst_3 : Algebra R K] → [IsFractionRing R K ...
+L58   information  @IsDedekindDomain.HeightOneSpectrum.valuationOfNeZeroMod : {R : Type u_1} →   [inst : CommRing R] →     [IsDedekindDomain R] →       {K : Type u_2} →         [inst_2 : Field K] →           [inst_3 : Algebra R K] →             [IsF ...
+L61   error        Unknown constant `Padic.unitsEquiv`
+L62   error        Unknown constant `PadicInt.unitBall`
+L63   error        Unknown constant `Padic.valued`
+L67   information  @PadicInt.residueField : {p : ℕ} → [hp_prime : Fact (Nat.Prime p)] → IsLocalRing.ResidueField ℤ_[p] ≃+* ZMod p
+L68   information  @PadicInt.toZMod : {p : ℕ} → [hp_prime : Fact (Nat.Prime p)] → ℤ_[p] →+* ZMod p
+L69   information  @PadicInt.ker_toZMod : ∀ {p : ℕ} [hp_prime : Fact (Nat.Prime p)],   RingHom.ker PadicInt.toZMod = IsLocalRing.maximalIdeal ℤ_[p]
+L70   information  @PadicInt.toZModPow : {p : ℕ} → [hp_prime : Fact (Nat.Prime p)] → (n : ℕ) → ℤ_[p] →+* ZMod (p ^ n)
+L71   information  @PadicInt.ker_toZModPow : ∀ {p : ℕ} [hp_prime : Fact (Nat.Prime p)] (n : ℕ),   RingHom.ker (PadicInt.toZModPow n) = Ideal.span {↑p ^ n}
+L72   information  @PadicInt.norm_le_pow_iff_mem_span_pow : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (x : ℤ_[p]) (n : ℕ),   ‖x‖ ≤ ↑p ^ (-↑n) ↔ x ∈ Ideal.span {↑p ^ n}
+L73   information  @PadicInt.norm_le_pow_iff_le_valuation : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (x : ℤ_[p]),   x ≠ 0 → ∀ (n : ℕ), ‖x‖ ≤ ↑p ^ (-↑n) ↔ n ≤ x.valuation
+L74   information  @PadicInt.mem_span_pow_iff_le_valuation : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (x : ℤ_[p]),   x ≠ 0 → ∀ (n : ℕ), x ∈ Ideal.span {↑p ^ n} ↔ n ≤ x.valuation
+L75   information  @PadicInt.maximalIdeal_eq_span_p : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)], IsLocalRing.maximalIdeal ℤ_[p] = Ideal.span {↑p}
+L76   information  IsLocalRing.ResidueField : (R : Type u_1) → [inst : CommRing R] → [IsLocalRing R] → Type u_1
+L77   information  IsLocalRing.residue : (R : Type u_1) → [inst : CommRing R] → [inst_1 : IsLocalRing R] → R →+* IsLocalRing.ResidueField R
+L78   information  @IsLocalRing.surjective_units_map_of_local_ringHom : ∀ {R : Type u_1} {S : Type u_2} [inst : Semiring R]   [inst_1 : Semiring S] (f : R →+* S), Function.Surjective ⇑f → IsLocalHom f → Function.Surjective ⇑(Units.map ↑f)
+L79   information  @ValuationSubring.unitGroup : {K : Type u_1} → [inst : Field K] → ValuationSubring K → Subgroup Kˣ
+L80   information  @ValuationSubring.principalUnitGroup : {K : Type u_1} → [inst : Field K] → ValuationSubring K → Subgroup Kˣ
+L81   information  @ValuationSubring.unitGroupToResidueFieldUnits : {K : Type u_1} →   [inst : Field K] → (A : ValuationSubring K) → ↥A.unitGroup →* (IsLocalRing.ResidueField ↥A)ˣ
+L82   information  @ValuationSubring.unitsModPrincipalUnitsEquivResidueFieldUnits : {K : Type u_1} →   [inst : Field K] →     (A : ValuationSubring K) →       ↥A.unitGroup ⧸ Subgroup.comap A.unitGroup.subtype A.principalUnitGroup ≃* (IsLocalRing.Res ...
+L83   information  @ValuationSubring.principalUnitGroupEquiv : {K : Type u_1} →   [inst : Field K] → (A : ValuationSubring K) → ↥A.principalUnitGroup ≃* ↥(Units.map ↑(IsLocalRing.residue ↥A)).ker
+L84   information  rootsOfUnity : ℕ → (M : Type u_1) → [inst : CommMonoid M] → Subgroup Mˣ
+L85   information  @IsPrimitiveRoot : {M : Type u_1} → [CommMonoid M] → M → ℕ → Prop
+L86   information  @IsPrimitiveRoot.zmodEquivZPowers : {R : Type u_1} →   {k : ℕ} → [inst : CommRing R] → {ζ : Rˣ} → IsPrimitiveRoot ζ k → ZMod k ≃+ Additive ↥(Subgroup.zpowers ζ)
+L87   error        Unknown identifier `WittVector.teichmuller`
+L88   error        Unknown identifier `Perfection.teichmuller`
+L89   error        Unknown constant `PadicInt.teichmuller`
+L91   information  PadicInt.instIsDiscreteValuationRing
+L92   information  PadicInt.instIsLocalRing
+L93   information  Padic.instValuativeRel
+L94   information  Padic.instIsUltrametricDist p
+L95   information  Padic.normedField p
+L96   error        failed to synthesize instance of type class   LinearOrderedCommGroupWithZero ℝ  Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+L97   information  of_isDiscreteValuationRing ℤ_[p]
+L101  error        Unknown constant `Padic.log`
+L102  error        Unknown constant `Padic.exp`
+L103  error        Unknown constant `PadicInt.log`
+L104  error        Unknown constant `PadicInt.exp`
+L105  error        Unknown constant `Padic.logP`
+L106  error        Unknown identifier `LubinTate`
+L108  information  PadicInt.dividedPowers : (p : ℕ) → [hp : Fact (Nat.Prime p)] → DividedPowers (Ideal.span {↑p})
+L109  information  @Padic.nonarchimedean : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (q r : ℚ_[p]), ‖q + r‖ ≤ max ‖q‖ ‖r‖
+L110  information  @PadicInt.nonarchimedean : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (q r : ℤ_[p]), ‖q + r‖ ≤ max ‖q‖ ‖r‖
+L111  error        Unknown constant `Padic.norm_add_eq_max_of_ne`
+L112  information  @PadicInt.norm_add_eq_max_of_ne : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] {q r : ℤ_[p]}, ‖q‖ ≠ ‖r‖ → ‖q + r‖ = max ‖q‖ ‖r‖
+L113  information  @Padic.norm_le_pow_iff_norm_lt_pow_add_one : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (x : ℚ_[p]) (n : ℤ),   ‖x‖ ≤ ↑p ^ n ↔ ‖x‖ < ↑p ^ (n + 1)
+L114  information  @padicValNat_choose : ∀ {p n k b : ℕ} [hp : Fact (Nat.Prime p)],   k ≤ n → Nat.log p n < b → padicValNat p (n.choose k) = {i ∈ Finset.Ico 1 b | p ^ i ≤ k % p ^ i + (n - k) % p ^ i}.card
+L115  information  @padicValNat_factorial : ∀ {p n b : ℕ} [hp : Fact (Nat.Prime p)],   Nat.log p n < b → padicValNat p n.factorial = ∑ i ∈ Finset.Ico 1 b, n / p ^ i
+L116  information  padicValNat_factorial_lt_of_ne_zero : ∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ}, n ≠ 0 → padicValNat p n.factorial < n
+L117  information  @NonarchimedeanAddGroup.summable_iff_tendsto_cofinite_zero : ∀ {α : Type u_1} {G : Type u_2} [inst : AddCommGroup G]   [inst_1 : UniformSpace G] [IsUniformAddGroup G] [NonarchimedeanAddGroup G] [CompleteSpace G] (f : α → G),   Sum ...
+L118  information  @NonarchimedeanGroup.multipliable_iff_tendsto_cofinite_one : ∀ {α : Type u_1} {G : Type u_2} [inst : CommGroup G]   [inst_1 : UniformSpace G] [IsUniformGroup G] [NonarchimedeanGroup G] [CompleteSpace G] (f : α → G),   Multipliable ...
+L119  information  @HasSum.mul_of_nonarchimedean : ∀ {α : Type u_1} {β : Type u_2} {R : Type u_3} [inst : Ring R] [inst_1 : UniformSpace R]   [IsUniformAddGroup R] [NonarchimedeanRing R] {f : α → R} {g : β → R} {a b : R},   HasSum f a → HasSum g b → ...
+L120  information  @summable_geometric_of_norm_lt_one : ∀ {K : Type u_1} [inst : NormedRing K] [HasSummableGeomSeries K] {x : K},   ‖x‖ < 1 → Summable fun n => x ^ n
+L121  information  @hasSum_geometric_of_norm_lt_one : ∀ {K : Type u_1} [inst : NormedDivisionRing K] {ξ : K},   ‖ξ‖ < 1 → HasSum (fun n => ξ ^ n) (1 - ξ)⁻¹
+L122  information  @NormedSpace.exp : {𝔸 : Type u_1} → [inst : Ring 𝔸] → [inst_1 : TopologicalSpace 𝔸] → [IsTopologicalRing 𝔸] → 𝔸 → 𝔸
+L123  information  @NormedSpace.expSeries_div_hasSum_exp : ∀ {𝔸 : Type u_1} [inst : NormedDivisionRing 𝔸] [NormedAlgebra ℚ 𝔸]   [CompleteSpace 𝔸] (x : 𝔸), HasSum (fun n => x ^ n / ↑n.factorial) (NormedSpace.exp x)
+L125  error        failed to synthesize   NonarchimedeanRing ℚ_[p]  Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+L126  information  Padic.instCompleteSpace
+L130  information  isCyclic_tfae : ∀ (K : Type u_1) (L : Type u_2) [inst : Field K] [inst_1 : Field L] [inst_2 : Algebra K L]   [FiniteDimensional K L],   (primitiveRoots (Module.finrank K L) K).Nonempty →     [IsGalois K L ∧ IsCyclic Gal(L/K),      ...
+L131  information  @autEquivRootsOfUnity : {K : Type u_1} →   [inst : Field K] →     {n : ℕ} →       (primitiveRoots n K).Nonempty →         {a : K} →           Irreducible (Polynomial.X ^ n - Polynomial.C a) →             (L : Type u_2) →           ...
+L132  information  @autEquivZmod : {K : Type u_1} →   [inst : Field K] →     {n : ℕ} →       {a : K} →         Irreducible (Polynomial.X ^ n - Polynomial.C a) →           (L : Type u_2) →             [inst_1 : Field L] →               [inst_2 : Alge ...
+L133  information  @autAdjoinRootXPowSubCEquiv : {K : Type u_1} →   [inst : Field K] →     {n : ℕ} →       (primitiveRoots n K).Nonempty →         {a : K} →           Irreducible (Polynomial.X ^ n - Polynomial.C a) →             [NeZero n] →         ...
+L134  information  @X_pow_sub_C_irreducible_iff_of_odd : ∀ {K : Type u_1} [inst : Field K] {n : ℕ},   Odd n → ∀ {a : K}, Irreducible (Polynomial.X ^ n - Polynomial.C a) ↔ ∀ (d : ℕ), d ∣ n → d ≠ 1 → ∀ (b : K), b ^ d ≠ a
+L135  information  @rootsOfUnityEquivOfPrimitiveRoots : {R : Type u_1} →   [inst : CommRing R] →     [inst_1 : IsDomain R] →       {S : Type u_2} →         {F : Type u_3} →           [inst_2 : CommRing S] →             [IsDomain S] →               [ ...
+L136  error        Unknown identifier `KummerTheory`
+L137  error        Unknown identifier `IsKummerExtension`
+L138  error        Unknown identifier `KummerDedekind`
+L139  information  @IsDedekindDomain.selmerGroup : {R : Type u_1} →   [inst : CommRing R] →     [IsDedekindDomain R] →       {K : Type u_2} →         [inst_2 : Field K] →           [inst_3 : Algebra R K] →             [IsFractionRing R K] →          ...
+L140  information  @IsDedekindDomain.HeightOneSpectrum.adicCompletion : {R : Type u_1} →   [inst : CommRing R] →     [IsDedekindDomain R] →       (K : Type u_2) →         [inst_2 : Field K] →           [inst_3 : Algebra R K] → [IsFractionRing R K] → ...
+L144  information  Valuation : (R : Type u_1) → (Γ₀ : Type u_2) → [LinearOrderedCommMonoidWithZero Γ₀] → [Ring R] → Type (max u_1 u_2)
+L145  information  ValuationRing : (A : Type u_1) → [inst : CommRing A] → [IsDomain A] → Prop
+L146  information  ValuationSubring : (K : Type u_1) → [Field K] → Type u_1
+L147  information  IsDiscreteValuationRing : (R : Type u_1) → [inst : CommRing R] → [IsDomain R] → Prop
+L148  information  @Ideal.ramificationIdx : {S : Type u_1} →   [inst : CommRing S] → Ideal S → (R : Type u_2) → [inst_1 : CommRing R] → [Algebra R S] → ℕ
+L149  information  @Ideal.ramificationIdx' : {R : Type u_1} →   [inst : CommRing R] → {S : Type u_2} → [inst_1 : CommRing S] → [Algebra R S] → Ideal R → Ideal S → ℕ
+L150  error        Unknown constant `Ideal.ramificationIdxIn`
+L151  information  @Ideal.inertiaDeg : {S : Type u_1} →   [inst : CommRing S] → Ideal S → (R : Type u_2) → [inst_1 : CommRing R] → [Algebra R S] → ℕ
+L152  error        Unknown constant `Ideal.inertiaDeg'`
+L153  information  @Ideal.ramificationIdx_def : ∀ {S : Type u_1} [inst : CommRing S] (q : Ideal S) (R : Type u_2) [inst_1 : CommRing R]   [inst_2 : Algebra R S] [inst_3 : q.IsPrime],   q.ramificationIdx R =     (Module.length (Localization.AtPrime q ...
+L154  error        Unknown identifier `ramificationIdx'_eq_ramificationIdx`
+L155  information  IsDiscreteValuationRing.addVal : (R : Type u_1) →   [inst : CommRing R] → [inst_1 : IsDomain R] → [IsDiscreteValuationRing R] → AddValuation R ℕ∞
+L156  information  @IsDiscreteValuationRing.addVal_le_iff_dvd : ∀ {R : Type u_1} [inst : CommRing R] [inst_1 : IsDomain R]   [inst_2 : IsDiscreteValuationRing R] {a b : R},   (IsDiscreteValuationRing.addVal R) a ≤ (IsDiscreteValuationRing.addVal R)  ...
+L157  information  IsDiscreteValuationRing.idealOrderIsoENat : (R : Type u_1) →   [inst : CommRing R] → [inst_1 : IsDomain R] → [IsDiscreteValuationRing R] → Ideal R ≃o ℕ∞ᵒᵈ
+L158  information  @Irreducible.maximalIdeal_pow_eq_setOfPred_le_v_coe_pow : ∀ {K : Type u_1} {Γ₀ : Type u_2} [inst : Field K]   [inst_1 : LinearOrderedCommGroupWithZero Γ₀] (v : Valuation K Γ₀) [inst_2 : IsDiscreteValuationRing ↥v.integer]   {ϖ : ↥ ...
+L159  information  @Valuation.IsUniformizer : {Γ : Type u_1} →   [inst : LinearOrderedCommGroupWithZero Γ] →     {A : Type u_2} → [inst_1 : Ring A] → (v : Valuation A Γ) → [hv : v.IsRankOneDiscrete] → A → Prop
+L160  information  @Valuation.IsRankOneDiscrete : {Γ : Type u_1} →   [inst : LinearOrderedCommGroupWithZero Γ] → {A : Type u_2} → [inst_1 : Ring A] → Valuation A Γ → Prop
+L161  error        Unknown identifier `HeightOneSpectrum.adicCompletion`
+L162  error        Unknown identifier `HeightOneSpectrum.adicCompletionIntegers`
+L163  information  @IsDedekindDomain.HeightOneSpectrum.valuation_liesOver : ∀ {A : Type u_1} {K : Type u_2} (L : Type u_3) {B : Type u_4}   [inst : CommRing A] [inst_1 : IsDedekindDomain A] [inst_2 : CommRing B] [inst_3 : IsDedekindDomain B]   [inst ...
+L164  information  @IsDedekindDomain.HeightOneSpectrum.intValuation_liesOver : ∀ {A : Type u_1} {B : Type u_2} [inst : CommRing A]   [inst_1 : IsDedekindDomain A] [inst_2 : CommRing B] [inst_3 : IsDedekindDomain B] [inst_4 : Algebra A B]   [Module.I ...
+L165  information  @IsDedekindDomain.HeightOneSpectrum.uniformContinuous_algebraMap_liesOver : ∀ {A : Type u_1} (K : Type u_2)   (L : Type u_3) {B : Type u_4} [inst : CommRing A] [inst_1 : IsDedekindDomain A] [inst_2 : CommRing B]   [inst_3 : IsDede ...
+L166  error        Unknown constant `NumberField.adicAbv`
+L167  error        Unknown identifier `IsUnramifiedAt`
+L170  error        Unknown identifier `IsRamifiedAt`

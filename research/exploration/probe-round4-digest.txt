@@ -1,0 +1,6 @@
+﻿L5    information  @hensels_lemma : ∀ {p : ℕ} [inst : Fact (Nat.Prime p)] {R : Type u_1} [inst_1 : CommSemiring R] [inst_2 : Algebra R ℤ_[p]] {F : Polynomial R} {a : ℤ_[p]}, ‖(Polynomial.aeval a) F‖ < ‖(Polynomial.aeval a) (Polynomial.derivative F)‖ ^ 2 → ∃ z, (Polynomial.aeval z) F = 0 ∧ ‖z - a‖ < ‖(Polynomial.aeval a) (Polynomial.derivative F)‖ ∧ ‖(Polynomial.aeval z) (Polynomial.derivative F)‖ = ‖(Polynomial.aeval a) (Polynomial.derivative F)‖ ∧ ∀ (z' : ℤ_[p]), (Polynomial.aeval z') F = 0 → ‖z' - a‖ < ‖(Polynomial.aeval a) (Polynomial.derivative F)‖ → z' = z
+L6    error        Unknown constant `PadicInt.hensels_lemma`
+L7    information  @PadicInt.toZMod : {p : ℕ} → [hp_prime : Fact (Nat.Prime p)] → ℤ_[p] →+* ZMod p
+L8    information  @IsLocalRing.surjective_units_map_of_local_ringHom : ∀ {R : Type u_1} {S : Type u_2} [inst : Semiring R] [inst_1 : Semiring S] (f : R →+* S), Function.Surjective ⇑f → IsLocalHom f → Function.Surjective ⇑(Units.map ↑f)
+L9    information  @PadicInt.appr : {p : ℕ} → [hp_prime : Fact (Nat.Prime p)] → ℤ_[p] → ℕ → ℕ
+L10   information  @PadicInt.residueField : {p : ℕ} → [hp_prime : Fact (Nat.Prime p)] → IsLocalRing.ResidueField ℤ_[p] ≃+* ZMod p

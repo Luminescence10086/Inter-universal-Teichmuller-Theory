@@ -1,0 +1,42 @@
+﻿L32   error        failed to synthesize   Valued ℚ_[p] NNReal  Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+L33   error        failed to synthesize   NormedAlgebra ℚ ℚ_[p]  Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+L34   information  instHasSummableGeomSeries
+L35   information  IsUltrametricDist.nonarchimedeanAddGroup
+L36   error        failed to synthesize   NonarchimedeanRing ℚ_[p]  Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+L37   error        failed to synthesize   NonarchimedeanRing ℤ_[p]  Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+L38   information  PadicInt.instIsUltrametricDist p
+L39   information  PadicInt.completeSpace p
+L40   information  PadicComplex.valued p
+L44   error        Unknown constant `Ideal.IsUnramifiedAt`
+L45   information  Algebra.IsUnramifiedAt : (R : Type u_1) →   {A : Type u_2} → [inst : CommRing R] → [inst_1 : CommRing A] → [Algebra R A] → (q : Ideal A) → [q.IsPrime] → Prop
+L46   information  @Ideal.ramificationIdx'_eq_ramificationIdx : ∀ {R : Type u_1} {S : Type u_2} [inst : CommRing R] [inst_1 : CommRing S]   [inst_2 : Algebra R S] (p : Ideal R) (q : Ideal S) [IsDomain R] [IsDedekindDomain S] [Mod ...
+L47   error        Unknown constant `Ideal.ramificationIdx_inertiaDeg_sum`
+L48   error        Unknown constant `Ideal.sum_ramification_inertia`
+L49   information  @Ideal.ramificationIdxIn : {A : Type u_1} →   [inst : CommRing A] → Ideal A → (B : Type u_2) → [inst_1 : CommRing B] → [Algebra A B] → ℕ
+L50   information  @Ideal.ramificationIdxIn_eq_ramificationIdx : ∀ {A : Type u_1} {B : Type u_2} [inst : CommRing A] [inst_1 : CommRing B]   [inst_2 : Algebra A B] (p : Ideal A) (P : Ideal B) [hPp : P.IsPrime] [hp : P.LiesOver p] ...
+L51   information  @Ideal.ncard_primesOver_mul_ramificationIdxIn_mul_inertiaDegIn : ∀ {A : Type u_1} [inst : CommRing A] [IsDomain A]   (p : Ideal A) [p.IsPrime] (B : Type u_2) [inst_3 : CommRing B] [IsDomain B] [inst_5 : Algebra ...
+L52   information  @Ideal.ramificationIdx_eq_of_isGaloisGroup : ∀ {A : Type u_1} {B : Type u_2} [inst : CommRing A] [inst_1 : CommRing B]   [inst_2 : Algebra A B] (p : Ideal A) (P Q : Ideal B) [hPp : P.IsPrime] [hp : P.LiesOver p ...
+L53   information  @IsDedekindDomain.HeightOneSpectrum.adicAbv : {R : Type u_1} →   [inst : CommRing R] →     [IsDedekindDomain R] →       {K : Type u_2} →         [inst_2 : Field K] →           [inst_3 : Algebra R K] →           ...
+L54   information  @IsDedekindDomain.HeightOneSpectrum.adicCompletion : {R : Type u_1} →   [inst : CommRing R] →     [IsDedekindDomain R] →       (K : Type u_2) →         [inst_2 : Field K] →           [inst_3 : Algebra R K] → [I ...
+L55   information  @IsDedekindDomain.HeightOneSpectrum.adicCompletionIntegers : {R : Type u_1} →   [inst : CommRing R] →     [inst_1 : IsDedekindDomain R] →       (K : Type u_2) →         [inst_2 : Field K] →           [inst_3 :  ...
+L56   information  @IsDedekindDomain.HeightOneSpectrum.valuation_exists_uniformizer : ∀ {R : Type u_1} [inst : CommRing R]   [inst_1 : IsDedekindDomain R] (K : Type u_2) [inst_2 : Field K] [inst_3 : Algebra R K] [inst_4 : IsFract ...
+L57   information  @Valuation.valuationSubring_isDiscreteValuationRing : ∀ {Γ : Type u_1} [inst : LinearOrderedCommGroupWithZero Γ]   {K : Type u_2} [inst_1 : Field K] (v : Valuation K Γ) [IsCyclic ↥(MonoidWithZeroHom.ofClass v). ...
+L58   information  @Valuation.integer : {R : Type u_1} →   {Γ₀ : Type u_2} → [inst : Ring R] → [inst_1 : LinearOrderedCommGroupWithZero Γ₀] → Valuation R Γ₀ → Subring R
+L59   information  @Valuation.valuationSubring : {K : Type u_1} →   [inst : Field K] → {Γ : Type u_2} → [inst_1 : LinearOrderedCommGroupWithZero Γ] → Valuation K Γ → ValuationSubring K
+L60   information  @Valuation.Integers : {R : Type u_1} →   {Γ₀ : Type u_2} →     [inst : CommRing R] →       [inst_1 : LinearOrderedCommGroupWithZero Γ₀] →         Valuation R Γ₀ → (O : Type u_3) → [inst_2 : CommRing O] → [Algeb ...
+L61   error        Unknown constant `Valuation.valuation_surjective`
+L65   information  WittVector.teichmuller : (p : ℕ) →   {R : Type u_1} → [hp : Fact (Nat.Prime p)] → [inst : CommRing R] → R →* WittVector p R
+L66   information  Perfection.teichmuller : (p : ℕ) →   [inst : Fact (Nat.Prime p)] →     {R : Type u_1} →       [inst_1 : CommRing R] →         (I : Ideal R) → [inst_2 : CharP (R ⧸ I) p] → [IsAdicComplete I R] → Perfection (R ⧸  ...
+L67   information  PadicComplexInt : (p : ℕ) → [hp : Fact (Nat.Prime p)] → ValuationSubring ℂ_[p]
+L68   information  PadicComplex.valued : (p : ℕ) → [hp : Fact (Nat.Prime p)] → Valued ℂ_[p] NNReal
+L69   information  PadicAlgCl : (p : ℕ) → [hp : Fact (Nat.Prime p)] → Type
+L70   error        Unknown constant `Padic.rootsOfUnity`
+L74   error        Unknown identifier `padicValNat_choose_eq_sub_sum_digits`
+L75   error        Unknown constant `Nat.Prime.dvd_choose_self`
+L76   information  @Nat.Prime.dvd_choose_pow : ∀ {p n k : ℕ}, Nat.Prime p → k ≠ 0 → k ≠ p ^ n → p ∣ (p ^ n).choose k
+L77   information  @Padic.norm_p_lt_one : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)], ‖↑p‖ < 1
+L78   information  @Padic.norm_p_zpow : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (n : ℤ), ‖↑p ^ n‖ = ↑p ^ (-n)
+L79   information  @tendsto_pow_atTop_nhds_zero_of_norm_lt_one : ∀ {R : Type u_1} [inst : SeminormedRing R] {x : R},   ‖x‖ < 1 → Filter.Tendsto (fun n => x ^ n) Filter.atTop (nhds 0)
+L80   information  @tendsto_pow_atTop_nhds_zero_of_lt_one : ∀ {𝕜 : Type u_1} [inst : Semifield 𝕜] [inst_1 : LinearOrder 𝕜]   [IsStrictOrderedRing 𝕜] [ExistsAddOfLE 𝕜] [Archimedean 𝕜] [inst_5 : TopologicalSpace 𝕜] [OrderTop ...
+L81   information  @PadicInt.mem_span_pow_iff_le_valuation : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (x : ℤ_[p]),   x ≠ 0 → ∀ (n : ℕ), x ∈ Ideal.span {↑p ^ n} ↔ n ≤ x.valuation
+L82   information  @PadicInt.norm_le_pow_iff_le_valuation : ∀ {p : ℕ} [hp : Fact (Nat.Prime p)] (x : ℤ_[p]),   x ≠ 0 → ∀ (n : ℕ), ‖x‖ ≤ ↑p ^ (-↑n) ↔ n ≤ x.valuation
