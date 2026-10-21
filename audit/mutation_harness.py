@@ -914,7 +914,7 @@ def violations_for(spec, cells):
     return violations
 
 
-def run():
+def run(include_matrix=True):
     witness_before = repo_witness()
     matrix = []
     violations = []
@@ -938,7 +938,7 @@ def run():
     # same list and with the same standing as a missed catch.
     violations.extend(probe_violations(probe_results))
 
-    for spec in MUTATIONS:
+    for spec in MUTATIONS if include_matrix else ():
         with tempfile.TemporaryDirectory(prefix=f"mutation_{spec['id']}_") as holder:
             tree = build_tree(spec["tree"], Path(holder))
             spec["apply"](tree)
@@ -984,6 +984,7 @@ def run():
         "gates": [{"id": gate, "short": SHORT[gate], "tool": GATE_TOOL[gate]}
                   for gate in GATES],
         "matrix": matrix,
+        "matrix_complete": include_matrix,
         "probes": probe_results,
         "violations": violations,
         "exit_code": 1 if violations else 0,
@@ -1076,6 +1077,8 @@ def main(argv=None):
                         help="emit the machine-readable report instead of the matrix")
     parser.add_argument("--verbose", action="store_true",
                         help="print every cell's detail below the matrix")
+    parser.add_argument("--probes-only", action="store_true",
+                        help="run required probes without repeating the M1-M8 matrix")
     args = parser.parse_args(argv)
 
     for stream in (sys.stdout, sys.stderr):
@@ -1085,15 +1088,18 @@ def main(argv=None):
             pass
 
     try:
-        result = run()
+        result = run(include_matrix=not args.probes_only)
     except RuntimeError as error:
         print(f"mutation harness could not run: {error}", file=sys.stderr)
         return 2
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     else:
-        print(render(result))
-        if args.verbose:
+        if args.probes_only:
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+        else:
+            print(render(result))
+        if args.verbose and not args.probes_only:
             print()
             print(_verbose(result))
     return result["exit_code"]
