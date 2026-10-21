@@ -142,13 +142,96 @@ ENTRIES = [
                    'identity alone would not supply it'),
 ]
 
+# Evidence tiers for "is the IUT object actually recorded in local evidence?":
+# E1 = definition recorded and statable; E2 = construction locators only, no data list;
+# E3 = role recorded but definition absent; E4 = wholly absent (only negative
+# characterisations). Quoted from research/exploration/definitions-inventory.md, which
+# records the exact note line for every row.
+TIERS = {
+    'C-01': ('E1', 'Ism and the open-H lattice conditions are recorded and statable; the '
+                   'coordinate action itself is our own construct'),
+    'C-02': ('E2', 'the comparison shape is recorded, but log-volume weights are not given as '
+                   'data; our weights are hand-chosen integers'),
+    'C-03': ('E1', 'Ism is recorded; the joint admissibility relation between its elements is '
+                   'not, so the relation here is ours'),
+    'C-04': ('E1', 'the layer discriminator is recorded; log_p(O^x) provenance additionally '
+                   'needs the missing logarithm'),
+    'C-05': ('E1', 'A(k) is recorded as an acknowledged over-approximation, not as Ism'),
+    'C-06': ('E3', 'the possible-images family role is recorded but the dependent index type '
+                   'was never extracted'),
+    'C-07': ('E2', 'the hull is characterised only ("least lambda_0 O-type region"); the class '
+                   'of allowed regions is not recorded'),
+    'C-08': ('E1', 'the log-shell role is recorded and statable; the log image is the gap'),
+}
+
+COMPANION = {
+    'definitions_inventory': 'research/exploration/definitions-inventory.md',
+    'log_kummer_feasibility': 'research/exploration/log-kummer-feasibility.md',
+    'synthesis': 'research/exploration/correspondence.md',
+}
+
+# Identifications that would look like progress and would be false. Each is stated so a
+# reader can check whether a future claim has quietly made it.
+FORBIDDEN = [
+    dict(id='F-01',
+         reading='our Q_p-linear / A(k) automorphisms ARE Ism elements',
+         why='it is close and already proved: dozens of real base-field theorems would silently '
+             'become claims about the IUT Ism group, and the acknowledged over-approximation '
+             'A(k) would collapse into an identification',
+         would_misread=['IUTBridge.Admissibility.latticeAdmissible_not_rectangular',
+                        'LocalFieldAudit.ContinuousLinearity.map_padic_smul',
+                        'IUTBridge.Slots.slotwise_commutes_of_invariant'],
+         evidence='research/exploration/definitions-inventory.md (E1 row for Ism); '
+                  'research/round3-semantic-audit.md:55; research/round2-source-audit.md:41'),
+    dict(id='F-02',
+         reading='mono-analytic structure IS holomorphic structure',
+         why='the source requires their separation precisely to make the comparison nontrivial; '
+             'identifying them deletes the content of the link',
+         would_misread=['IUTBridge.Slots.relabel_slotwise'],
+         evidence='research/exploration/definitions-inventory.md (E3 row)'),
+    dict(id='F-03',
+         reading='Theta-link IS a Reindexing / set-theoretic transport',
+         why='APT deliberately forbids a set-theoretic identification; Reindexing is a bijection, '
+             'i.e. the wrong shape, not an incomplete version of the right one',
+         would_misread=['IUTAudit.Transport.transport_projection',
+                        'IUTAudit.Transport.transport_comp'],
+         evidence='research/exploration/definitions-inventory.md (E4 row); GAP.md:9'),
+]
+
+# Ranked by cost/blocker as of this round; each names what it would unblock.
+NEXT_TARGETS = [
+    dict(rank=1, target='Ind1-Ind3 as relation-valued allowed operations + a projection equation',
+         reason='no library blocker; the toy projection formula already exists as '
+                'IUTBridge.Slots.relabel_slotwise',
+         must_keep=['Ind3 is a relation, not a group action',
+                    'Allowed12 is strictly smaller than all of A(k)',
+                    'CompositionClosed is a target to prove, never a hypothesis'],
+         unblocks='RI-04 (part of the RI-01/RI-02 assumptions)'),
+    dict(rank=2, target='SeededFamily instantiation for the possible-images family',
+         reason='the container shape in IUTAudit.Transport.SeededFamily is already right; one '
+                'actual Kummer choice c is missing',
+         must_keep=['do not widen the family to admit a witness',
+                    'membership must be in the original U_j, not in an over-approximation'],
+         unblocks='RI-05, the ledger own priority bridge'),
+    dict(rank=3, target='log-shell / log_p(O^x): the unblocked half only',
+         reason='the base-field discriminator is already a theorem; pass log as an explicit '
+                'parameter and prove only what does not need its image',
+         must_keep=['log image provenance needs the missing p-adic logarithm',
+                    'small ramification (e_v = 105, 35) means 1/e_v != 1: the layer index does '
+                    'not transfer unchanged'],
+         unblocks='part of RI-06; the image identity itself stays blocked'),
+]
+
 validated = []
 missing_all = []
 for entry in ENTRIES:
     missing = [tid for tid in entry['formal'] if tid not in known]
     if missing:
         missing_all.append((entry['id'], missing))
-    validated.append({**entry, 'anchors_missing': missing})
+    validated.append({**entry,
+                      'evidence_tier': TIERS[entry['id']][0],
+                      'evidence_note': TIERS[entry['id']][1],
+                      'anchors_missing': missing})
 
 CANDIDATES = [
     dict(id='K-01', obligation='RI-07', branch='task/m1 → candidates/restricted-ledger',
@@ -189,6 +272,15 @@ payload = {
     'anchor_count': len(known),
     'entries': validated,
     'candidate_results': CANDIDATES,
+    'forbidden_identifications': FORBIDDEN,
+    'next_targets': NEXT_TARGETS,
+    'evidence_tier_legend': {
+        'E1': 'definition recorded in local evidence and statable',
+        'E2': 'construction locators only; no data list recorded',
+        'E3': 'role recorded, definition absent',
+        'E4': 'wholly absent; only negative characterisations',
+    },
+    'companion_evidence': {k: v for k, v in COMPANION.items() if (ROOT / v).exists()},
     'anchors_all_present': not missing_all,
     'iut_object_constructed': False,
     'iut_cor312_proved': False,

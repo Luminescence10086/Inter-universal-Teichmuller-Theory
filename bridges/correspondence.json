@@ -55,6 +55,10 @@
       "value": "the valuation vector of the (b1,b1,b2,b1) pattern as an actual object: 4-element orbit, constant hull at min(v1,v2), excess exactly one slot, and the label action moves the pattern while the hull ignores the slot"
     }
   ],
+  "companion_evidence": {
+    "definitions_inventory": "research/exploration/definitions-inventory.md",
+    "synthesis": "research/exploration/correspondence.md"
+  },
   "entries": [
     {
       "anchors_missing": [],
@@ -62,6 +66,8 @@
         "IUTBridge.Slots.relabel",
         "IUTBridge.Slots.slotwise"
       ],
+      "evidence_note": "Ism and the open-H lattice conditions are recorded and statable; the coordinate action itself is our own construct",
+      "evidence_tier": "E1",
       "falsifier": "if a real procession automorphism turned out not to act slotwise, the conjugation formula would not apply",
       "formal": [
         "IUTBridge.Slots.relabel_slotwise",
@@ -78,6 +84,8 @@
     },
     {
       "anchors_missing": [],
+      "evidence_note": "the comparison shape is recorded, but log-volume weights are not given as data; our weights are hand-chosen integers",
+      "evidence_tier": "E2",
       "falsifier": "if the real comparison used non-integer or archimedean weights, the integer ledger would not model it",
       "formal": [
         "IUTBridge.WeightedLedger.weightedLedger_slotwise",
@@ -95,6 +103,8 @@
     },
     {
       "anchors_missing": [],
+      "evidence_note": "Ism is recorded; the joint admissibility relation between its elements is not, so the relation here is ours",
+      "evidence_tier": "E1",
       "falsifier": "if the real allowed family were rectangular (e.g. a product of independent choices), the obstruction would not apply to it",
       "formal": [
         "IUTBridge.Admissibility.not_rectangular_of_graph",
@@ -112,6 +122,8 @@
     },
     {
       "anchors_missing": [],
+      "evidence_note": "the layer discriminator is recorded; log_p(O^x) provenance additionally needs the missing logarithm",
+      "evidence_tier": "E1",
       "falsifier": "if log_p(O^x) were strictly smaller than the maximal ideal (small ramification, e <= p-2 regime), the layer identity would need the sandwich instead",
       "formal": [
         "IUTBridge.ScaleLedger.mem_layer_iff_le_valuation",
@@ -128,6 +140,8 @@
     },
     {
       "anchors_missing": [],
+      "evidence_note": "A(k) is recorded as an acknowledged over-approximation, not as Ism",
+      "evidence_tier": "E1",
       "falsifier": "if the restriction were only additive and not continuous, the result would not upgrade it",
       "formal": [
         "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
@@ -142,6 +156,8 @@
     },
     {
       "anchors_missing": [],
+      "evidence_note": "the possible-images family role is recorded but the dependent index type was never extracted",
+      "evidence_tier": "E3",
       "falsifier": "if the real U_j were not closed under the allowed operations, the envelope would be a proper enlargement rather than the family",
       "formal": [
         "IUTAudit.Orbit.envelope_minimal",
@@ -157,6 +173,8 @@
     },
     {
       "anchors_missing": [],
+      "evidence_note": "the hull is characterised only (\"least lambda_0 O-type region\"); the class of allowed regions is not recorded",
+      "evidence_tier": "E2",
       "falsifier": "if the real hull normalization let the layer vary, the freezing theorem would describe a different regime",
       "formal": [
         "IUTBridge.Admissibility.frozen_isRectangular"
@@ -170,6 +188,8 @@
     },
     {
       "anchors_missing": [],
+      "evidence_note": "the log-shell role is recorded and statable; the log image is the gap",
+      "evidence_tier": "E1",
       "falsifier": "if a future cost estimate needed the measure rather than the index, this identity alone would not supply it",
       "formal": [
         "IUTBridge.ScaleLedger.cost_exact",
@@ -183,8 +203,79 @@
       "status": "blocked-by-missing-log"
     }
   ],
+  "evidence_tier_legend": {
+    "E1": "definition recorded in local evidence and statable",
+    "E2": "construction locators only; no data list recorded",
+    "E3": "role recorded, definition absent",
+    "E4": "wholly absent; only negative characterisations"
+  },
+  "forbidden_identifications": [
+    {
+      "evidence": "research/exploration/definitions-inventory.md (E1 row for Ism); research/round3-semantic-audit.md:55; research/round2-source-audit.md:41",
+      "id": "F-01",
+      "reading": "our Q_p-linear / A(k) automorphisms ARE Ism elements",
+      "why": "it is close and already proved: dozens of real base-field theorems would silently become claims about the IUT Ism group, and the acknowledged over-approximation A(k) would collapse into an identification",
+      "would_misread": [
+        "IUTBridge.Admissibility.latticeAdmissible_not_rectangular",
+        "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+        "IUTBridge.Slots.slotwise_commutes_of_invariant"
+      ]
+    },
+    {
+      "evidence": "research/exploration/definitions-inventory.md (E3 row)",
+      "id": "F-02",
+      "reading": "mono-analytic structure IS holomorphic structure",
+      "why": "the source requires their separation precisely to make the comparison nontrivial; identifying them deletes the content of the link",
+      "would_misread": [
+        "IUTBridge.Slots.relabel_slotwise"
+      ]
+    },
+    {
+      "evidence": "research/exploration/definitions-inventory.md (E4 row); GAP.md:9",
+      "id": "F-03",
+      "reading": "Theta-link IS a Reindexing / set-theoretic transport",
+      "why": "APT deliberately forbids a set-theoretic identification; Reindexing is a bijection, i.e. the wrong shape, not an incomplete version of the right one",
+      "would_misread": [
+        "IUTAudit.Transport.transport_projection",
+        "IUTAudit.Transport.transport_comp"
+      ]
+    }
+  ],
   "iut_cor312_proved": false,
   "iut_object_constructed": false,
+  "next_targets": [
+    {
+      "must_keep": [
+        "Ind3 is a relation, not a group action",
+        "Allowed12 is strictly smaller than all of A(k)",
+        "CompositionClosed is a target to prove, never a hypothesis"
+      ],
+      "rank": 1,
+      "reason": "no library blocker; the toy projection formula already exists as IUTBridge.Slots.relabel_slotwise",
+      "target": "Ind1-Ind3 as relation-valued allowed operations + a projection equation",
+      "unblocks": "RI-04 (part of the RI-01/RI-02 assumptions)"
+    },
+    {
+      "must_keep": [
+        "do not widen the family to admit a witness",
+        "membership must be in the original U_j, not in an over-approximation"
+      ],
+      "rank": 2,
+      "reason": "the container shape in IUTAudit.Transport.SeededFamily is already right; one actual Kummer choice c is missing",
+      "target": "SeededFamily instantiation for the possible-images family",
+      "unblocks": "RI-05, the ledger own priority bridge"
+    },
+    {
+      "must_keep": [
+        "log image provenance needs the missing p-adic logarithm",
+        "small ramification (e_v = 105, 35) means 1/e_v != 1: the layer index does not transfer unchanged"
+      ],
+      "rank": 3,
+      "reason": "the base-field discriminator is already a theorem; pass log as an explicit parameter and prove only what does not need its image",
+      "target": "log-shell / log_p(O^x): the unblocked half only",
+      "unblocks": "part of RI-06; the image identity itself stays blocked"
+    }
+  ],
   "obligations": [
     {
       "id": "RI-01",

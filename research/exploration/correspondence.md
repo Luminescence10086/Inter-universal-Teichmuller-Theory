@@ -4,6 +4,10 @@
 机器版：`bridges/correspondence.json`（由 `python -B bridges/correspondence_gen.py` 生成）；
 生成器会把每个 `formal` 锚点拿去与三套工程**已导出**的定理清单比对，缺一即报错。
 
+配套证据：`research/exploration/definitions-inventory.md`（源语义清单，逐条记到笔记行号，
+并给 E1–E4 证据分级；70 个 Lean id 已核对存在）与
+`research/exploration/log-kummer-feasibility.md`（库级可达性，见下文）。
+
 **这份台账不证明任何 IUT 命题。** 它做三件事：把每个形式对象钉到具体义务（RI-01…RI-08）
 上；写清它证明了什么、缺什么、什么情形会推翻这条对应；给出尚为候选的三个结果。
 任何新定理若不能归入某条的 `proves` 或 `gap`，就应当新增条目而不是归功于既有条目。
@@ -71,6 +75,39 @@ sandwich —— 这正是不能把 C-04 直接当 RI-06 的原因。
 | K-01 | `candidates/restricted-ledger`（RI-07） | 把全空间加权不变性判据化为受限域上**有限个整数等式**（`integer_span_criterion` → `restricted_ledger_criterion`），并给出"受限域保账而权重非全空间不变"的二槽实例 | 真实 admissible region 未构造，`hgen/hreal` 仍是假设 |
 | K-02 | `candidates/orbit-quotient`（RI-05） | 包络阈值 = 轨道逐坐标最小、`|B(k)|=p^{Σ(N−k_j)}`、扩大预算为整数指数，并用 2/3/4 把 U 与 H 分开 | 只到 `ZMod(p^N)` 商环；无 normalization/log-volume |
 | K-03 | `candidates/pilot-shadow`（RI-03） | `(b₁,b₁,b₂,b₁)` 的估值向量成为真实对象：轨道恰 4 元、包络恒为 `min(v₁,v₂)`、超额恰一个槽位、标号作用移动模式而包络忽略槽位 | 整数代替估值；无 place、无 pilot、无 Θ-link |
+
+## 证据分级（真实对象在本地证据里"记到什么程度"）
+
+| 级别 | 含义 | 本台账条目 |
+|---|---|---|
+| E1 | 定义已记录且可陈述 | C-01、C-03、C-04、C-05、C-08 |
+| E2 | 只有构造定位，没有数据清单 | C-02、C-07 |
+| E3 | 作用/角色有记录，定义缺失 | C-06 |
+| E4 | 完全缺失，只有否定性刻画 | （Θ-link 本身；不在本台账条目内） |
+
+**没有一条能升到"实例"级**：E1 只说明"我们知道自己缺的对象长什么样"，不说明它已构造。
+
+## 三个必须拒绝的等同（F-01…F-03）
+
+这三条看起来像进展、实际是错误；写出来是为了让后来的claim可被对照检查。
+
+1. **F-01：把我们 `Q_p`-线性 / `A(k)` 自同构当成 `Ism` 元素。** 最危险，因为它**近且已证**：
+   数十条真实的基域定理会悄悄变成关于 IUT `Ism` 群的断言，而来源明确承认 `A(k)` 是过度
+   近似（`round2-source-audit.md:41`）——"像 vs 全体不变量"的区分会被抹掉
+   （`round3-semantic-audit.md:55`）。会被误读的定理：`latticeAdmissible_not_rectangular`、
+   `map_padic_smul`、`slotwise_commutes_of_invariant`。
+2. **F-02：把 mono-analytic 结构等同 holomorphic 结构。** 来源要求二者分离正是 link 的内容；
+   等同掉就把比较变成同义反复。
+3. **F-03：把 Θ-link 当成 `Reindexing`/集合论搬运。** APT 明确禁止集合论同一化；
+   `Reindexing` 是双射，是**形状错误**，不是"不完整的正确形状"。
+
+## 下一步三个目标（按成本/阻塞排序）
+
+| 排序 | 目标 | 为何先做 | 必须保持 |
+|---|---|---|---|
+| 1 | Ind1–Ind3 作为**关系值**允许操作 + 投影方程 | 无库级阻塞；玩具投影公式已是 `Slots.relabel_slotwise` | Ind3 是关系而非群作用；`Allowed12` 严格小于全部 `A(k)`；`CompositionClosed` 是要证的目标而非假设 |
+| 2 | 为 possible images 实例化 `SeededFamily` | 容器形状已对，只缺一个实际 Kummer 选择 `c` | 不得把族扩大到恰好包含 witness；membership 必须在原 `U_j` |
+| 3 | log-shell 的**未阻塞半边** | 基域判别式已是定理；把 log 作为显式参数传入 | log 像的来源仍需 p-adic 对数；小分歧 `e_v=105,35` 时 `1/e_v≠1`，层索引不能整搬 |
 
 ## 从"影子"到"实例"还差什么
 
