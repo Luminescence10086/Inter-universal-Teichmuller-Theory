@@ -38,9 +38,16 @@ Verdicts
   not-applicable  the mutation is outside that gate's artefact class, with the
                   reason recorded per cell
 
-Exit status: 0 when every expected catch happened and no negative-control gate
-fired; 1 when an expectation is violated; 2 when the harness itself cannot run
-(anchor missing, baseline gate failing, repository bytes changed under us).
+Exit status: 0 when every expected catch happened, no negative-control gate
+fired and every required contract probe reported success; 1 when that contract
+is violated -- an expected catch missed, a control gate firing, or a required
+probe that did not report success (a failed probe, a probe that raised, or a
+probe whose result carries no boolean ``ok``); 2 when the harness itself cannot
+produce a report (a mutation anchor missing, repository bytes changed under us).
+
+A probe's verdict is part of the exit-code contract, not a side note: the probes
+are the "the gates must also pass what they should pass" half of the matrix, so
+one failing probe is a violated claim just like a missed catch.
 
 Usage:
   python audit/mutation_harness.py            # matrix + findings
@@ -824,6 +831,51 @@ PROBES = (
     ("clean_checkout_head", probe_clean_checkout_head),
 )
 
+#: probes that run read-only against the repository and take no copy tree
+REPO_ONLY_PROBES = ("clean_checkout_head",)
+
+
+def _probe_verdict(value):
+    """Normalise one probe's return value to ``{"ok": bool, "detail": str, ...}``.
+
+    A required probe that cannot state a boolean verdict has not passed.  ``None``
+    or a mapping without ``"ok"`` becomes an explicit failure naming the problem
+    (the caller turns a raised exception into the same shape), because a probe
+    whose result is unreadable must never be counted as silence or as success.
+    """
+    if not isinstance(value, dict):
+        return {"ok": False,
+                "detail": (f"result is {type(value).__name__}, not a mapping; a "
+                           f"required probe must report a boolean 'ok'")}
+    verdict = dict(value)
+    if not isinstance(verdict.get("ok"), bool):
+        verdict["ok"] = False
+        verdict["detail"] = (f"result has no boolean 'ok' field (got "
+                             f"{value.get('ok')!r}); a required probe must state "
+                             f"its verdict")
+        return verdict
+    verdict.setdefault("detail", "")
+    return verdict
+
+
+def probe_violations(probe_results):
+    """The probe half of the exit-code contract, next to ``violations_for``.
+
+    Every entry of ``PROBES`` is required.  A probe that reports ``ok=False``, one
+    that raised, one that returned no verdict and one that is missing from the
+    report are all contract violations, and each names the probe so a reader of
+    the exit code learns *which* check failed.
+    """
+    violations = []
+    for name, _probe in PROBES:
+        verdict = probe_results.get(name)
+        if verdict is None:
+            violations.append(f"{name}: required probe produced no result")
+        elif verdict.get("ok") is not True:
+            detail = verdict.get("detail") or "<no detail>"
+            violations.append(f"{name}: required probe failed: {detail}")
+    return violations
+
 
 # ---------------------------------------------------------------------------
 # the run
@@ -869,10 +921,22 @@ def run():
     probe_results = {}
     for name, probe in PROBES:
         with tempfile.TemporaryDirectory(prefix=f"mutation_probe_{name}_") as holder:
-            if probe is probe_clean_checkout_head:
-                probe_results[name] = probe()
+            try:
+                verdict = probe() if name in REPO_ONLY_PROBES else probe(Path(holder))
+            except Exception as error:  # noqa: BLE001 - a probe that raises has failed
+                # A probe that cannot state a verdict is a failed required probe, not
+                # a crash and not a pass: record it, name it, and report it below.
+                probe_results[name] = {
+                    "ok": False,
+                    "detail": (f"raised {type(error).__name__}: {error}; a required "
+                               f"probe must report a verdict"),
+                    "raised": type(error).__name__,
+                }
             else:
-                probe_results[name] = probe(Path(holder))
+                probe_results[name] = _probe_verdict(verdict)
+    # The probes are part of the contract: a failing one is a violation, in the
+    # same list and with the same standing as a missed catch.
+    violations.extend(probe_violations(probe_results))
 
     for spec in MUTATIONS:
         with tempfile.TemporaryDirectory(prefix=f"mutation_{spec['id']}_") as holder:
@@ -906,10 +970,6 @@ def run():
                 "caught_by": caught,
             })
 
-    for name in ("baseline_bridge", "baseline_main"):
-        if not probe_results[name]["ok"]:
-            raise RuntimeError(f"probe {name} failed: {probe_results[name]['detail']}")
-
     witness_after = repo_witness()
     if witness_after != witness_before:
         raise RuntimeError("repository bytes changed during the run; the harness "
@@ -932,8 +992,9 @@ def run():
 
 LEGEND = (
     "C = CAUGHT, m = missed (gate applicable but silent), . = not applicable",
-    "exit status: 0 = every claimed gate fired and no control gate fired; "
-    "1 = expectation violated; 2 = harness could not run",
+    "exit status: 0 = every claimed gate fired, no control gate fired and every "
+    "required probe passed; 1 = an expectation was violated or a required probe "
+    "did not pass; 2 = harness could not run",
 )
 
 
@@ -980,8 +1041,9 @@ def render(result):
         for violation in result["violations"]:
             lines.append("  " + violation)
     else:
-        lines.append("no violations: every mutation a gate claims was caught, and "
-                     "the negative control was not read as statement drift")
+        lines.append("no violations: every mutation a gate claims was caught, the "
+                     "negative control was not read as statement drift, and every "
+                     "required probe passed")
     return "\n".join(lines)
 
 
@@ -1006,7 +1068,10 @@ def main(argv=None):
                 "is read-only input. Mutations: M1 statement weakening, M2 statement "
                 "alteration, M3 hypothesis drift, M4 axiom regression, M5 vendored "
                 "body flip, M6 node removal, M7 input byte drift, M8 negative control. "
-                "Exit 0 = all claims held, 1 = a claim was violated, 2 = harness error."))
+                "The five probes (two baselines, fact-tree removal, ledger unpin, real "
+                "clean checkout) are equally required. Exit 0 = all claims held and "
+                "every required probe passed, 1 = a claim or a required probe was "
+                "violated, 2 = harness error."))
     parser.add_argument("--json", action="store_true",
                         help="emit the machine-readable report instead of the matrix")
     parser.add_argument("--verbose", action="store_true",
