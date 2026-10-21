@@ -1,0 +1,105 @@
+{
+  "version": "1.2.0",
+  "packagesDir": ".lake/packages",
+  "packages": [
+    {
+      "type": "path",
+      "name": "local_field_audit",
+      "dir": "../../local-field",
+      "inherited": false,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "plausible",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/plausible",
+      "inherited": true,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "LeanSearchClient",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/LeanSearchClient",
+      "inherited": true,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "importGraph",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/importGraph",
+      "inherited": true,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "proofwidgets",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/proofwidgets",
+      "inherited": true,
+      "configFile": "lakefile.lean",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "aesop",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/aesop",
+      "inherited": true,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "Qq",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/Qq",
+      "inherited": true,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "batteries",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/batteries",
+      "inherited": true,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "Cli",
+      "scope": "leanprover",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/Cli",
+      "inherited": true,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "mathlib",
+      "scope": "leanprover-community",
+      "dir": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/mathlib",
+      "inherited": false,
+      "configFile": "lakefile.lean",
+      "manifestFile": "lake-manifest.json"
+    },
+    {
+      "type": "path",
+      "name": "iut_bridge",
+      "dir": "../../bridge",
+      "inherited": false,
+      "configFile": "lakefile.toml",
+      "manifestFile": "lake-manifest.json"
+    }
+  ],
+  "name": "candidates",
+  "lakeDir": ".lake"
+}
