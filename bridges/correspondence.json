@@ -1,0 +1,233 @@
+{
+  "abc_proved": false,
+  "anchor_count": 212,
+  "anchors_all_present": true,
+  "anchors_validated_against": {
+    "bridge": "bridge\\verification\\project-constants.json",
+    "local": "local-field\\verification\\project-constants.json",
+    "main": "verification\\project-constants.json"
+  },
+  "candidate_results": [
+    {
+      "branch": "task/m1 → candidates/restricted-ledger",
+      "gap": "no real IUT admissible region is constructed, so the certificate stays a criterion",
+      "id": "K-01",
+      "obligation": "RI-07",
+      "result": "candidates/restricted-ledger/Candidates/RestrictedLedger.lean",
+      "theorems": [
+        "integer_span_criterion",
+        "weightedLedger_shift",
+        "restricted_ledger_criterion",
+        "equal_valuation_two_slot_example",
+        "full_domain_specialization"
+      ],
+      "value": "turns the global weighted-invariance test into finitely many integer equations on a restricted admissible domain, with the finite-realisation hypothesis explicit"
+    },
+    {
+      "branch": "task/m2 → candidates/orbit-quotient",
+      "gap": "ZMod(p^N) quotient boxes only; no normalization, no log-volume, Γ is a finite family",
+      "id": "K-02",
+      "obligation": "RI-05",
+      "result": "candidates/orbit-quotient/Candidates/OrbitQuotient.lean",
+      "theorems": [
+        "hull_thresholds",
+        "hull_minimal",
+        "box_cardinality",
+        "enlargement_integer_budget",
+        "two_three_four"
+      ],
+      "value": "exact finite envelope: hull thresholds are orbit minima, boxes have cardinality p^(sum (N - k_j)), and U vs H are proved apart (2/3/4 at p=2,N=1,n=2,k=(0,1))"
+    },
+    {
+      "branch": "explore/pilot → candidates/pilot-shadow",
+      "gap": "integers standing in for valuations; no places, no pilot, no Theta-link",
+      "id": "K-03",
+      "obligation": "RI-03",
+      "result": "candidates/pilot-shadow/Candidates/PilotShadow.lean",
+      "theorems": [
+        "orbit_mem_iff",
+        "orbit_card",
+        "hull_eq",
+        "hull_strict_one_coordinate",
+        "swap23_moves_profile",
+        "excess_is_uniform"
+      ],
+      "value": "the valuation vector of the (b1,b1,b2,b1) pattern as an actual object: 4-element orbit, constant hull at min(v1,v2), excess exactly one slot, and the label action moves the pattern while the hull ignores the slot"
+    }
+  ],
+  "entries": [
+    {
+      "anchors_missing": [],
+      "definitions": [
+        "IUTBridge.Slots.relabel",
+        "IUTBridge.Slots.slotwise"
+      ],
+      "falsifier": "if a real procession automorphism turned out not to act slotwise, the conjugation formula would not apply",
+      "formal": [
+        "IUTBridge.Slots.relabel_slotwise",
+        "IUTBridge.Slots.slotwise_commutes_of_invariant",
+        "IUTBridge.Slots.swap23_exchanges_high_slots",
+        "IUTAudit.LocalNumerics.swap23_tuple_and_theta"
+      ],
+      "gap": "no Hodge theater, no Galois group G or open subgroup H, slots are Fin n; the label action is not an Ind1 procession automorphism",
+      "id": "C-01",
+      "iut_object": "slot/label bookkeeping of the four coordinates (IUT II Ex.1.8(iv), Def.4.9(i))",
+      "obligation": "RI-04",
+      "proves": "a relabelling transports a slotwise scalar family into the conjugated family; the concrete swap 2<->3 moves exactly the high slots",
+      "status": "toy-coordinate-shadow"
+    },
+    {
+      "anchors_missing": [],
+      "falsifier": "if the real comparison used non-integer or archimedean weights, the integer ledger would not model it",
+      "formal": [
+        "IUTBridge.WeightedLedger.weightedLedger_slotwise",
+        "IUTBridge.WeightedLedger.weightedLedger_invariant_iff",
+        "IUTBridge.Integration.slotwise_commutes_iff",
+        "IUTBridge.Integration.weightedLedger_combined_invariant_iff",
+        "IUTAudit.Scale.weighted_comparison_forces_bound"
+      ],
+      "gap": "weights are arbitrary integers; nothing identifies them with log-volume weights, and the elements are Q_p scalars rather than Idele/Kummer data",
+      "id": "C-02",
+      "iut_object": "weighted average of local valuations comparing one side of the Theta-link",
+      "obligation": "RI-07",
+      "proves": "the weighted ledger shifts by exactly sum_j w_j v(a_j), and is relabel-invariant for all tuples iff the weights are permutation-invariant; the combined relabel+scale criterion is an iff",
+      "status": "exact-base-field-theorem"
+    },
+    {
+      "anchors_missing": [],
+      "falsifier": "if the real allowed family were rectangular (e.g. a product of independent choices), the obstruction would not apply to it",
+      "formal": [
+        "IUTBridge.Admissibility.not_rectangular_of_graph",
+        "IUTBridge.Admissibility.rectangular_subrelation_freezes_layer",
+        "IUTBridge.Admissibility.marginals_do_not_force_joint",
+        "IUTAudit.Transport.rectangular_iff_product",
+        "IUTAudit.Transport.coupled_choice_counterexample"
+      ],
+      "gap": "the relation is between Q_p-linear automorphisms and layers of the unit ball; no Ism group, no open-H lattice family, no Kummer element",
+      "id": "C-03",
+      "iut_object": "admissibility of a Kummer isomorphism kappa jointly with an Ind1 action sigma",
+      "obligation": "RI-01",
+      "proves": "when the joint (automorphism, lattice layer) relation is a graph with at least two values, separate marginal admissibility cannot be composed; any rectangular sub-relation freezes the layer",
+      "status": "conditional-interface-only"
+    },
+    {
+      "anchors_missing": [],
+      "falsifier": "if log_p(O^x) were strictly smaller than the maximal ideal (small ramification, e <= p-2 regime), the layer identity would need the sandwich instead",
+      "formal": [
+        "IUTBridge.ScaleLedger.mem_layer_iff_le_valuation",
+        "IUTBridge.ScaleLedger.layer_image_shift",
+        "IUTBridge.ScaleLedger.valuation_shift",
+        "LocalFieldAudit.Filtration.mem_zpow_maximalIdealImage_iff_lt_valuation"
+      ],
+      "gap": "the object on the left of the real equivalence is log_p(O^x), whose image is not constructed; only the valuation side exists, so the real equivalence is not stated",
+      "id": "C-04",
+      "iut_object": "the layer discrimination z in p^n log_p(O_v^x) <-> n < ord_p(z)",
+      "obligation": "RI-06",
+      "proves": "on the actual base field, the ideal/layer ladder and the valuation threshold are interchangeable, exactly and two-sidedly",
+      "status": "blocked-by-missing-log"
+    },
+    {
+      "anchors_missing": [],
+      "falsifier": "if the restriction were only additive and not continuous, the result would not upgrade it",
+      "formal": [
+        "LocalFieldAudit.ContinuousLinearity.map_padic_smul",
+        "LocalFieldAudit.ContinuousLinearity.preserves_integerIdealImages"
+      ],
+      "gap": "the real restriction map is not constructed; no finite H-invariant module, no unit-to-torsion-quotient map",
+      "id": "C-05",
+      "iut_object": "linearity of the finite-coordinate restriction of an Ism element",
+      "obligation": "RI-01",
+      "proves": "a continuous additive map between Q_p modules is Q_p-linear, hence a restriction that is at least continuous and additive already lands in A(k)",
+      "status": "exact-base-field-theorem"
+    },
+    {
+      "anchors_missing": [],
+      "falsifier": "if the real U_j were not closed under the allowed operations, the envelope would be a proper enlargement rather than the family",
+      "formal": [
+        "IUTAudit.Orbit.envelope_minimal",
+        "IUTAudit.Orbit.envelope_minimal_closed",
+        "IUTAudit.Orbit.envelope_covers"
+      ],
+      "gap": "no committed identification with the real U_j: enlarging the container is allowed only if the added cost is controlled, which is not done here",
+      "id": "C-06",
+      "iut_object": "the possible-images family U_j and its hull (IUT III Cor.3.12, Rem.3.9.5)",
+      "obligation": "RI-05",
+      "proves": "for an arbitrary set and action, the envelope is the least closed container and is idempotent",
+      "status": "toy-generic-container"
+    },
+    {
+      "anchors_missing": [],
+      "falsifier": "if the real hull normalization let the layer vary, the freezing theorem would describe a different regime",
+      "formal": [
+        "IUTBridge.Admissibility.frozen_isRectangular"
+      ],
+      "gap": "no normalization, no tensor packet, no coordinate realization of O, no log-volume",
+      "id": "C-07",
+      "iut_object": "the holomorphic hull / projected hull and its integral structure R-tilde",
+      "obligation": "RI-08",
+      "proves": "freezing the lattice layer makes independent marginal reasoning sound; the layer is then fixed rather than chosen",
+      "status": "toy-coordinate-shadow"
+    },
+    {
+      "anchors_missing": [],
+      "falsifier": "if a future cost estimate needed the measure rather than the index, this identity alone would not supply it",
+      "formal": [
+        "IUTBridge.ScaleLedger.cost_exact",
+        "IUTBridge.ScaleLedger.norm_shift"
+      ],
+      "gap": "no measure/volume is defined, and the log image is absent, so this is an index identity, not a log-volume statement",
+      "id": "C-08",
+      "iut_object": "the log-shell modulus (1/p)log(O^x) and its integral scaling",
+      "obligation": "RI-06",
+      "proves": "moving the ladder container between two layers is the single dilation of signed exponent difference; norms scale exactly",
+      "status": "blocked-by-missing-log"
+    }
+  ],
+  "iut_cor312_proved": false,
+  "iut_object_constructed": false,
+  "obligations": [
+    {
+      "id": "RI-01",
+      "name": "finite_Ism_realization",
+      "source_note": "research/round3-realization-obligations.md:23-35"
+    },
+    {
+      "id": "RI-02",
+      "name": "Kummer_tensor_realization",
+      "source_note": "research/round3-realization-obligations.md:37-49"
+    },
+    {
+      "id": "RI-03",
+      "name": "specific_seed_realization",
+      "source_note": "research/round3-realization-obligations.md:51-63"
+    },
+    {
+      "id": "RI-04",
+      "name": "specific_Ind1_lift",
+      "source_note": "research/round3-realization-obligations.md:65-79"
+    },
+    {
+      "id": "RI-05",
+      "name": "specific_output_membership",
+      "source_note": "research/round3-realization-obligations.md:81-93"
+    },
+    {
+      "id": "RI-06",
+      "name": "small_ramification_log_lattice",
+      "source_note": "research/round3-realization-obligations.md:95-109"
+    },
+    {
+      "id": "RI-07",
+      "name": "coarse_valuation_bound",
+      "source_note": "research/round3-realization-obligations.md:111-123"
+    },
+    {
+      "id": "RI-08",
+      "name": "normalization_hull_compatibility",
+      "source_note": "research/round3-realization-obligations.md:125-137"
+    }
+  ],
+  "purpose": "Map each formal object of this repository to the real-interface obligation it would have to refine. Statuses describe the CORRESPONDENCE, not the truth of any IUT statement. Nothing here closes a gap.",
+  "schema": 1,
+  "tool": "ad-hoc generator (see research/exploration/correspondence.md for the command)"
+}
