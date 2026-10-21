@@ -333,11 +333,16 @@ CANDIDATES = [
     dict(id='K-03', obligation='RI-03', branch='explore/pilot → candidates/pilot-shadow',
          result='candidates/pilot-shadow/Candidates/PilotShadow.lean',
          theorems=['orbit_mem_iff', 'orbit_card', 'hull_eq', 'hull_strict_one_coordinate',
-                   'swap23_moves_profile', 'excess_is_uniform'],
+                   'swap23_moves_profile', 'excess_is_uniform',
+                   'relabel_toPadic', 'swap23_eq_labelAction'],
          value='the valuation vector of the (b1,b1,b2,b1) pattern as an actual object: 4-element '
-               'orbit, constant hull at min(v1,v2), excess exactly one slot, and the label action '
-               'moves the pattern while the hull ignores the slot',
-         gap='integers standing in for valuations; no places, no pilot, no Theta-link'),
+               'orbit characterised exactly, hull constant at min(v1,v2) (proved without v1 != v2, '
+               'stronger than requested), excess exactly slot 2, the label action moves the pattern '
+               'while the hull forgets the slot, and relabel_toPadic/iswap23_eq_labelAction tie the '
+               'integer action to IUTBridge.Slots.relabel/swap23 by rfl',
+         gap='integers standing in for valuations; no places, no pilot, no Theta-link. Verified '
+             'independently: CLI zero diagnostics, 10 axiom lines all within '
+             '{propext, Classical.choice, Quot.sound}, no sorry/admit/opaque/axiom'),
 ]
 
 payload = {
