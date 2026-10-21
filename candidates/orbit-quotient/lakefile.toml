@@ -1,0 +1,12 @@
+name = "orbit_quotient_candidates"
+version = "0.1.0"
+defaultTargets = ["Candidates"]
+
+[[lean_lib]]
+name = "Candidates"
+
+# Same mathlib lock as the worktree's local-field project; the package path is the
+# external absolute path shared by the audit projects. No network access is needed.
+[[require]]
+name = "mathlib"
+path = "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/mathlib"
