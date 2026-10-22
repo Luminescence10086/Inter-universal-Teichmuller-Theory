@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "p": 2,
+  "weights": [
+    0,
+    0
+  ],
+  "permutation": [
+    0,
+    1
+  ],
+  "scalar_valuations": [
+    1,
+    0
+  ],
+  "domain": {
+    "kind": "finite_profiles",
+    "profiles": [
+      [
+        0,
+        0
+      ]
+    ],
+    "base_index": 0
+  }
+}
