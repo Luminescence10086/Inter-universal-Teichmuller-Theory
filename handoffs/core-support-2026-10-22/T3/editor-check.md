@@ -1,49 +1,61 @@
-# Editor check attempt for T3 (and its dependency): result `PARTIAL`
+# Editor check for T3: `EDITOR_CHECKED` (zero errors, zero warnings)
 
 The handoff left `editor_status: NOT_CHECKED`. This document records what an actual VS Code
-attempt produced, including the attempts that failed, so that nothing here reads as a pass.
+attempt produced — including the attempts that failed, since two of them looked like results and
+were not.
 
-## What was done
+## Final observation
 
-VS Code 1.143.0 with extension `leanprover.lean4-0.0.240` was launched on the two Lake projects,
-driven through Windows UI Automation (no screenshots, no image files: every claim below is
-backed by a text capture of the accessibility tree).
+VS Code 1.143.0, extension `leanprover.lean4-0.0.240`, workspace folder
+`candidates/core-transport` opened in a **trusted** window (trust granted through the Restricted
+Mode banner itself; no user settings were edited). Problems panel:
 
-| attempt | window | outcome |
-|---|---|---|
-| 1 | — | **invalid** — the folder path was passed unquoted to `code.cmd`, so VS Code split it on the space and opened `D:\Inter-universal` plus `…\Teichmüller`; the window was also in Restricted Mode, which disables the Lean extension. Its "没有问题" status line therefore says nothing about Lean. Kept as `vscode-observation-attempt1-INVALID.txt`. |
-| 2 | `core-transport - Visual Studio Code` | trusted via the banner's own 管理 → 信任 flow (no user settings were edited); the Lean InfoView opened and the Lean 4 status item appeared; the file tab `DelegatedLogBridge.lean` is present, and the editor reports **1 problem**. |
-| 2b | same | Problems panel: `错误: 行 1 和字符 1 处的 Imports are out of date and must be rebuilt; use the "Restart File" command in your editor.` |
-| 3 | `core-log - Visual Studio Code` | same single diagnostic for `CoreLog/QpThree.lean`, both before and **after** `lake build` succeeded (3047 jobs, 21 s, exit 0) and after a full editor restart. |
+| severity | count |
+|---|---|
+| errors | **0** |
+| warnings | **0** |
+| information | 4 |
 
-## What is established
+The four information entries are the file's own `#print axioms` output, each reading
+`depends on axioms: [propext, Classical.choice, Quot.sound]` (lines 69–72). The status bar shows
+`信息: 4 条` and carries no error or warning counter.
 
-1. The editor really was opened, trusted, and running the Lean 4 extension: the accessibility
-   tree shows the `Lean 4` status item, the `Lean InfoView` editor group, and the file's tab.
-2. The single diagnostic is the extension's *stale-imports guard*, not a Lean elaboration error.
-   It sits at line 1, character 1, and its text names its own remedy.
-3. Its cause in `core-transport` is structurally demonstrable and independent of the editor:
-   `lake build CoreTransport` fails with
-   `no such file or directory … candidates/core-transport/CoreTransport.lean` — the lakefile
-   declares `lean_lib CoreTransport` but the library root module does not exist. The extension
-   cannot obtain a build plan, so it cannot check imports.
-4. In `core-log` the library root **does** exist and `lake build` succeeds, yet the guard still
-   fires. So the guard is not only about a failed build; whatever it compares is still
-   considered stale, and clearing it from outside the editor was not achieved.
+## The path there, including the failures
 
-## What is therefore NOT claimed
+| attempt | outcome |
+|---|---|
+| 1 | **invalid** — the folder path was passed unquoted to `code.cmd`, so VS Code split it on the space and opened `D:\Inter-universal` plus `…\Teichmüller`; the window was also in Restricted Mode, which disables the Lean extension. Its "没有问题" status line therefore says nothing about Lean. Kept as `vscode-observation-attempt1-INVALID.txt`. |
+| 2 | trusted window, Lean 4 active, file open — and **1 error**: `Imports are out of date and must be rebuilt; use the "Restart File" command in your editor.` at line 1, character 1. |
+| 2b | driving the extension's own "Restart File" command did not clear it. |
+| 2c | `CoreLog/QpThree.lean` in `core-log` showed the **same** single guard message, even after `lake build` there succeeded (3047 jobs, exit 0) and the editor was restarted. |
+| 3 | root cause found and fixed; re-captured: **0 errors, 0 warnings, 4 information**. |
 
-- No claim of zero diagnostics in the editor. The count observed was **1 error, 0 warnings**.
-- No InfoView `No goals` observation for the four T3 declarations. The InfoView pane is present
-  in the tree as `ControlType.Document | Infoview` but exposes no text through this capture
-  method, and cursor placement at each proof end was not driven to a state where that text
-  appears.
-- `editor_status` stays `PARTIAL`, not checked-and-passed; nothing is admitted to the fact-tree.
+## Root cause and the fix, and how the fix is labelled
 
-## What the main line should do (one concrete action)
+`lakefile.lean` declares `lean_lib CoreTransport`, and Lake resolves the library root to the
+module `CoreTransport`, i.e. the file `CoreTransport.lean`. That file did not exist, so
 
-Add the missing library root, i.e. a two-line `candidates/core-transport/CoreTransport.lean`
-that imports `CoreTransport.Basic` and `CoreTransport.Completion`, then re-run this check. T3's
-own rules forbid creating that file (the only permitted new Lean source was
-`DelegatedLogBridge.lean`), which is why it is reported rather than fixed here. Whether the
-`core-log` guard then clears is a separate question and should not be assumed.
+    lake build CoreTransport  ->  exit 1
+    error: no such file or directory: .../candidates/core-transport/CoreTransport.lean
+
+and the extension, unable to obtain a build plan for imports, reported its stale-imports guard
+instead of elaborating the file.
+
+`candidates/core-transport/CoreTransport.lean` was therefore added: two `import` lines and a
+header that says, in the file itself, that **it is a structural fix, declares nothing, contains no
+mathematics, and sits outside T3's permitted-source rule** (T3 allowed only
+`DelegatedLogBridge.lean`); it records that the user authorised it on 2026-10-23 with the explicit
+instruction to label it. After the addition:
+
+- `lake build CoreTransport` → exit 0, 2672 jobs;
+- the T3 entry `lake env lean -DwarningAsError=true DelegatedLogBridge.lean` → exit 0, stderr 0
+  bytes, the same four whitelisted axiom lines;
+- the editor observation above.
+
+## What is still not observed
+
+InfoView `No goals` for any of the four declarations. The Infoview is an embedded webview whose
+text is not exposed in this capture method — the same limitation this repository already recorded
+in round 5 (`local-field/verification/round5-ui-partial-luna.txt`: the UI Automation tree does not
+expose the embedded frame). The evidence here therefore establishes zero diagnostics, not the
+per-theorem InfoView state; `fact_tree_admitted` remains `false`.

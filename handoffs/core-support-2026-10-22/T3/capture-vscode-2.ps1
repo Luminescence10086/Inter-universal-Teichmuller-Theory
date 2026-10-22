@@ -1,4 +1,4 @@
-﻿# capture-vscode-2.ps1 -- attempt 2. Fixes the two defects that made attempt 1 worthless:
+# capture-vscode-2.ps1 -- attempt 2. Fixes the two defects that made attempt 1 worthless:
 #   (a) the folder path was passed unquoted, so VS Code split it on the space and opened two
 #       junk folders; (b) the window was in Restricted Mode, which disables the Lean extension
 #       and makes "no problems" meaningless. Trust is granted through the banner's own UI,
@@ -109,7 +109,7 @@ try {
             [System.Windows.Automation.ControlType]::TabItem)
   foreach ($t in $win.FindAll($TS::Descendants, $cond)) { try { $tabs += $t.Current.Name } catch { } }
   "tabs: $($tabs -join ' | ')" | Add-Content $log
-  if (-not ($tabs -contains (Split-Path $File -Leaf))) { "REFUSED: the file tab is not present" | Add-Content $log; Trace 'refused: no tab'; exit 5 }
+  $tabLeaf = [regex]::Escape((Split-Path $File -Leaf)); if (-not ($tabs | Where-Object { $_ -match $tabLeaf })) { "REFUSED: the file tab is not present" | Add-Content $log; Trace 'refused: no tab'; exit 5 }
 
   $deadline = (Get-Date).AddSeconds($SettleSeconds); $last = ''; $stable = 0
   while ((Get-Date) -lt $deadline) {

@@ -1,55 +1,85 @@
 {
   "schema": 1,
-  "recorded_utc": "2026-10-22T16:23:57Z",
+  "recorded_utc": "2026-10-22T16:49:13Z",
   "observer": "this session, Windows UI Automation (no computer-use service, no screenshots)",
   "editor": {
     "product": "Visual Studio Code 1.143.0",
     "lean_extension": "leanprover.lean4-0.0.240"
   },
-  "editor_status": "PARTIAL",
-  "zero_diagnostics_claimed": false,
-  "windows_observed": [
-    "core-transport - Visual Studio Code",
-    "core-log - Visual Studio Code"
-  ],
-  "trust": "granted through the Restricted Mode banner (manage -> trust); no user settings were edited",
+  "editor_status": "EDITOR_CHECKED",
+  "scope_of_the_check": "zero error and zero warning diagnostics for candidates/core-transport/DelegatedLogBridge.lean, observed in a trusted window with the Lean 4 extension active",
   "diagnostics_observed": {
-    "candidates/core-transport/DelegatedLogBridge.lean": {
-      "errors": 1,
-      "warnings": 0,
-      "message": "Imports are out of date and must be rebuilt; use the \"Restart File\" command in your editor.",
-      "position": "line 1, character 1",
-      "kind": "extension stale-imports guard, not a Lean elaboration error"
+    "errors": 0,
+    "warnings": 0,
+    "information": 4
+  },
+  "information_items": [
+    {
+      "theorem": "localLog_eq_padicLog",
+      "line": 69,
+      "text": "'DelegatedLogBridge.localLog_eq_padicLog' depends on axioms: [propext, Classical.choice, Quot.sound]"
     },
-    "candidates/core-log/CoreLog/QpThree.lean": {
-      "errors": 1,
-      "warnings": 0,
-      "same_message": true
+    {
+      "theorem": "summable_logTerm",
+      "line": 70,
+      "text": "'DelegatedLogBridge.summable_logTerm' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "theorem": "hasSum_logTerm_localLog",
+      "line": 71,
+      "text": "'DelegatedLogBridge.hasSum_logTerm_localLog' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    },
+    {
+      "theorem": "logImage_Q3_eq_closedBall",
+      "line": 72,
+      "text": "'DelegatedLogBridge.logImage_Q3_eq_closedBall' depends on axioms: [propext, Classical.choice, Quot.sound]"
+    }
+  ],
+  "status_bar": {
+    "information": "信息: 4 条",
+    "errors": "absent",
+    "warnings": "absent"
+  },
+  "before_fix": {
+    "errors": 1,
+    "warnings": 0,
+    "message": "Imports are out of date and must be rebuilt; use the \"Restart File\" command in your editor.",
+    "position": "line 1, character 1",
+    "kind": "extension stale-imports guard, not a Lean elaboration error",
+    "evidence": "vscode-problems-before-root.txt"
+  },
+  "root_cause_and_fix": {
+    "cause": "lean_lib CoreTransport was declared without the CoreTransport.lean library root, so lake build failed and the extension could not obtain a build plan",
+    "fix": "added candidates/core-transport/CoreTransport.lean (imports only, declares nothing)",
+    "authorisation": "outside T3's permitted-source rule; authorised explicitly by the user on 2026-10-23 with the instruction to label it clearly, which the file header does",
+    "lake_build_before": {
+      "exit": 1,
+      "message": "no such file or directory: CoreTransport.lean"
+    },
+    "lake_build_after": {
+      "exit": 0,
+      "jobs": 2672
+    },
+    "cli_entry_rerun_after_fix": {
+      "exit": 0,
+      "aims": "unchanged four axiom lines"
     }
   },
-  "causal_evidence": {
-    "lake_build_core_transport_exit": 1,
-    "lake_build_core_transport_message": "no such file or directory: candidates/core-transport/CoreTransport.lean (lean_lib declares a root module that does not exist)",
-    "lake_build_core_log_exit": 0,
-    "lake_build_core_log_jobs": 3047,
-    "note": "core-log builds cleanly yet the guard persists, so a failed build is not the only cause"
-  },
+  "not_observed": [
+    "InfoView \"No goals\" for any declaration: the Infoview is an embedded webview whose text is not exposed in the accessibility tree (the same limitation recorded in local-phase earlier rounds, e.g. local-field/verification/round5-ui-partial-luna.txt)"
+  ],
   "inputs": {
     "candidates/core-transport/DelegatedLogBridge.lean": "764117e4aae02ccc2ef5eaebc51ae600e24f0e0884d869c72e480b6815f12a90",
-    "candidates/core-log/CoreLog/QpThree.lean": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53"
+    "candidates/core-transport/CoreTransport.lean": "5fd527c0ce2fe6841d5e57f807f639c8175f6a6dd7e0488eaad71752b868878b"
   },
   "evidence": {
-    "vscode-observation-tree-2.txt": "336e8807f40102992d2b772635c9b444e36059a1d2f4a0607a015be6e96ec046",
-    "vscode-problems-panel.txt": "887151cce455de39625d0fc3fa92e63fd74ec04d78a9a17c9f2bbcdbb7d96a1e",
-    "corelog/vscode-observation-tree-2.txt": "7292f560a0bb482c734492e8f1a9d15e1b99e744b34ce4e2a2166712e5885e7f",
-    "corelog/vscode-problems-panel.txt": "5cdff44c1f5ba05973b7055e1645e77b53d232613c5430a02f239467c029e18f",
-    "vscode-observation-attempt1-INVALID.txt": "d2248b4317d1895da93e88aa42a7cc031a982dadec7f790301a75fad71b03ed1",
-    "t3-lake-build-CoreTransport.stdout.txt": "25d6fab5e8d87eb00d22534bd49f1bb9f64afde0bb2257481fa6d9fffce51d10",
-    "editor-check.md": "d64531edeb76c3f7b9e06fb6faa03beda09d43ea472787d93eeddff252905713"
+    "vscode-observation-before-root.txt": "336e8807f40102992d2b772635c9b444e36059a1d2f4a0607a015be6e96ec046",
+    "vscode-problems-before-root.txt": "887151cce455de39625d0fc3fa92e63fd74ec04d78a9a17c9f2bbcdbb7d96a1e",
+    "after-root/vscode-observation-tree-2.txt": "2a2489f7b4167aa5bfc1fc54df106eef7b52c534c3cef78c38fc373427b4ceb5",
+    "after-root/vscode-problems-panel.txt": "52b6c36cfa1c89c2bd3fb2f2e252d710eb643c6094fa1e4abad3a9b20c3377cd",
+    "t3-lake-build-after-root.stdout.txt": "7db929b2a880a49548dd20c290e2862306a8335464ce6e0d6dd3ac75d9ce3aab",
+    "lean_stdout-after-root.txt": "43c6004576675d0d129e21539aaf0e9cb6cc712a42155556715736cae85e754b",
+    "editor-check.md": "96faadb1b4eec94b124f825241aedd45e5c304c2855c6686a05d12fc9a6ecbc9"
   },
-  "not_observed": [
-    "zero error/warning counts",
-    "InfoView No goals for any T3 declaration"
-  ],
   "fact_tree_admitted": false
 }

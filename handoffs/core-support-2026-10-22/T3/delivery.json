@@ -67,6 +67,18 @@
   ],
   "outputs": [
     {
+      "path": "handoffs/core-support-2026-10-22/T3/after-root/vscode-capture-2.log",
+      "sha256": "0a6d9f5de03a96346d24b150964c4a8fb95ea8ba9244900501fb5bb9aa983104"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/after-root/vscode-observation-tree-2.txt",
+      "sha256": "2a2489f7b4167aa5bfc1fc54df106eef7b52c534c3cef78c38fc373427b4ceb5"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/after-root/vscode-problems-panel.txt",
+      "sha256": "52b6c36cfa1c89c2bd3fb2f2e252d710eb643c6094fa1e4abad3a9b20c3377cd"
+    },
+    {
       "path": "handoffs/core-support-2026-10-22/T3/capture-problems.ps1",
       "sha256": "da3b0b9f8cadafc9d092e51864543e53ff0b8bce274ebf6c269ccca89f1e2359"
     },
@@ -76,7 +88,7 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/capture-vscode-2.ps1",
-      "sha256": "6be12de25b10c46724d7569b1ad5568f916024d4200e693c28af1c08a43c2873"
+      "sha256": "97cd67b600fc01c4fc4ca9280c03cb454ea86abfc2d30d2ada66398da93caf9a"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/capture-vscode.ps1",
@@ -96,11 +108,19 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/editor-check.md",
-      "sha256": "d64531edeb76c3f7b9e06fb6faa03beda09d43ea472787d93eeddff252905713"
+      "sha256": "96faadb1b4eec94b124f825241aedd45e5c304c2855c6686a05d12fc9a6ecbc9"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/lean_stderr-after-root.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/lean_stderr.txt",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/lean_stdout-after-root.txt",
+      "sha256": "43c6004576675d0d129e21539aaf0e9cb6cc712a42155556715736cae85e754b"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/lean_stdout.txt",
@@ -108,7 +128,15 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/SUMMARY.md",
-      "sha256": "c67c0d38dcb676146d6b5bee13f791d015ceb4f73c730a8c8f939454d37e4557"
+      "sha256": "8290b85d992d1f9ee1046668ae69e89fe7950b7337dac8ce6eb6548d884149c6"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/t3-lake-build-after-root.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/t3-lake-build-after-root.stdout.txt",
+      "sha256": "7db929b2a880a49548dd20c290e2862306a8335464ce6e0d6dd3ac75d9ce3aab"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/t3-lake-build-CoreTransport.stderr.txt",
@@ -139,8 +167,16 @@
       "sha256": "d2248b4317d1895da93e88aa42a7cc031a982dadec7f790301a75fad71b03ed1"
     },
     {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-observation-before-root.txt",
+      "sha256": "336e8807f40102992d2b772635c9b444e36059a1d2f4a0607a015be6e96ec046"
+    },
+    {
       "path": "handoffs/core-support-2026-10-22/T3/vscode-observation-tree-2.txt",
       "sha256": "336e8807f40102992d2b772635c9b444e36059a1d2f4a0607a015be6e96ec046"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-problems-before-root.txt",
+      "sha256": "887151cce455de39625d0fc3fa92e63fd74ec04d78a9a17c9f2bbcdbb7d96a1e"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/vscode-problems-panel.txt",
@@ -148,11 +184,15 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/vscode-receipt.json",
-      "sha256": "8fd427fbd5bd3af8f7a05a74ec01f2eee281a39f6a3df1fc965caa01bef8fdf2"
+      "sha256": "d5f5d00849ddc8892072c4fa5c475553f962cad1bc34b1ab2711c2c25eccb965"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/write_receipt.py",
       "sha256": "f18ac69381dea4946aa6cfaaba6b595f045605409ed95cd188141b98aade67c0"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/write_receipt_final.py",
+      "sha256": "9e467bbb460a2516e03834b56c1a023ddae6c13a1f9352102eec769d43808a60"
     }
   ],
   "commands": [
@@ -177,13 +217,14 @@
     "all four declarations report only [propext, Classical.choice, Quot.sound]",
     "inputs unchanged (0 drift across 10 tracked input files)",
     "editor opened in a trusted window with Lean 4 active; the single diagnostic was identified verbatim as the extension stale-imports guard, not an elaboration error",
-    "causal evidence: lake build CoreTransport fails on a missing library root module CoreTransport.lean"
+    "causal evidence: lake build CoreTransport fails on a missing library root module CoreTransport.lean",
+    "after adding the labelled library-root module, the editor reports 0 errors and 0 warnings; the four remaining Problems entries are the #print axioms information messages themselves",
+    "lake build CoreTransport now exits 0 (2672 jobs) and the T3 entry re-runs at exit 0 with the same four axiom lines"
   ],
   "open": [
-    "editor reports 1 error (0 warnings); no zero-diagnostic editor state was reached",
-    "no InfoView No goals observation for the four declarations",
-    "clearing the guard requires adding candidates/core-transport/CoreTransport.lean, which the T3 rules forbid"
+    "InfoView No goals was not observed for any declaration (Infoview webview text is not exposed through the accessibility tree)",
+    "candidates/core-transport/CoreTransport.lean is outside T3's permitted-source rule; it was authorised by the user on 2026-10-23 and is labelled as a structural fix in its header"
   ],
-  "editor_status": "PARTIAL",
+  "editor_status": "EDITOR_CHECKED",
   "fact_tree_admitted": false
 }

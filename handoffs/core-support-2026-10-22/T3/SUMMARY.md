@@ -1,13 +1,14 @@
 # T3 — delegated log bridge
 
-**status: `PARTIAL`** · one new source file · one command · real exit 0 · editor check attempted and blocked
+**status: `PARTIAL`** · one new source file (+ one labelled structural fix) · one command · real exit 0 · **editor checked: 0 errors, 0 warnings**
 
-CLI: exit 0, zero diagnostics, axioms within the whitelist. Editor: opened in a trusted window
-with Lean 4 active, and it reports **1 error, 0 warnings** — the extension's stale-imports guard
-(`Imports are out of date … use the "Restart File" command`), whose structural cause is that
-`candidates/core-transport` declares `lean_lib CoreTransport` but has no `CoreTransport.lean`
-library root, so `lake build` fails. See `editor-check.md` and `vscode-receipt.json`; nothing is
-claimed to be zero-diagnostic in the editor.
+CLI: exit 0, zero diagnostics, axioms within the whitelist. Editor: trusted window, Lean 4
+active, Problems panel shows **0 errors / 0 warnings / 4 information** — the information entries
+are the file's own four `#print axioms` lines. Reaching that required adding
+`candidates/core-transport/CoreTransport.lean`, the missing library root (its header labels it a
+structural fix outside T3's permitted-source rule, authorised by the user on 2026-10-23). The one
+thing still unobserved is InfoView `No goals`: the Infoview webview does not expose text to the
+accessibility tree. See `editor-check.md` and `vscode-receipt.json`.
 
 ## What was done
 
