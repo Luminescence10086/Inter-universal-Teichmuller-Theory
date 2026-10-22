@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "p": 5,
+  "N": 3,
+  "thresholds": [1, 2],
+  "permutations": [[0, 1], [1, 0]],
+  "require_enlargement": true
+}

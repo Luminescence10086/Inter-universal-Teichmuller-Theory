@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ledger-v1.schema.json",
+  "title": "Finite valuation profile ledger request",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "p", "weights", "permutation", "scalar_valuations"],
+  "properties": {
+    "schema": {"const": 1},
+    "p": {"type": "integer", "minimum": 2},
+    "weights": {"type": "array", "minItems": 1, "items": {"type": "integer"}},
+    "permutation": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+    "scalar_valuations": {"type": "array", "items": {"type": "integer"}},
+    "domain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "profiles", "base_index"],
+      "properties": {
+        "kind": {"const": "finite_profiles"},
+        "profiles": {"type": "array", "minItems": 1, "items": {"type": "array", "items": {"type": "integer"}}},
+        "base_index": {"type": "integer", "minimum": 0}
+      }
+    }
+  },
+  "$comment": "All vectors must have a common dimension; p must be prime; permutation must be a bijection. Missing/unsupported domain information is INSUFFICIENT."
+}

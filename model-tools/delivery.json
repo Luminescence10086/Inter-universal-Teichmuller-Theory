@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "date": "2026-10-22",
+  "editor_admission": false,
+  "formal_fact_tree_admission": false,
+  "open_gap": "GAP-tool-round-editor.md",
+  "projects": {
+    "hull": {
+      "path": "D:\\iut-wt\\m2\\candidates\\orbit-quotient",
+      "commit": "2a13a5bca589bd1100c48282ca30cf0e1e55acce",
+      "helper_sha256": "11cc030fb124ae42670ed119d76bbdc10dbf0fe6f23f8556ca2d9791f47460a7",
+      "emitter_sha256": "08f97c626c47c8342a62fe3cbb3de88d0f21771aa45d22df27e83e3a6f05cf59"
+    },
+    "ledger": {
+      "path": "D:\\iut-wt\\m1\\candidates\\restricted-ledger",
+      "commit": "063ce7bf12b5d94dae94da446982b4762435a8d1",
+      "helper_sha256": "f4ebd1ef0d41e898093a05acc2160a06b68c25b5276b8c447d6342a0a1bc0bc9",
+      "emitter_sha256": "d6933c37b077fbbf006d7d4215951697c203e452f00c048c5604a7987fc041aa"
+    }
+  },
+  "cases": [
+    {
+      "name": "runner/hull-three-cycle-full-2",
+      "status": "VERIFIED",
+      "certificate_sha256": "d4cf621b04052a2d40e9e2d0a7843024eed2fa630b533884bbe4701b4335d4f0",
+      "theorem_names": [
+        "HullToolCertificate.input_valid",
+        "HullToolCertificate.action_convention",
+        "HullToolCertificate.witnesses_valid",
+        "HullToolCertificate.exponents_valid",
+        "HullToolCertificate.thresholds_eq_hull",
+        "HullToolCertificate.product_minimality",
+        "HullToolCertificate.cardinality",
+        "HullToolCertificate.identity_mem",
+        "HullToolCertificate.enlargement"
+      ],
+      "cli_zero_diagnostics": true,
+      "editor_verified": false,
+      "raw_receipt": "D:\\Inter-universal Teichmüller Theory\\reviews\\tool-round\\runner\\hull-three-cycle-full-2\\manifest.json"
+    },
+    {
+      "name": "runner/hull-two-three-four-full-2",
+      "status": "VERIFIED",
+      "certificate_sha256": "55e6f06fbda874e18dcd2f193345cd3e3e19c17043e1c25b119ea22581384bbe",
+      "theorem_names": [
+        "HullToolCertificate.input_valid",
+        "HullToolCertificate.action_convention",
+        "HullToolCertificate.witnesses_valid",
+        "HullToolCertificate.exponents_valid",
+        "HullToolCertificate.thresholds_eq_hull",
+        "HullToolCertificate.product_minimality",
+        "HullToolCertificate.cardinality",
+        "HullToolCertificate.identity_mem",
+        "HullToolCertificate.enlargement"
+      ],
+      "cli_zero_diagnostics": true,
+      "editor_verified": false,
+      "raw_receipt": "D:\\Inter-universal Teichmüller Theory\\reviews\\tool-round\\runner\\hull-two-three-four-full-2\\manifest.json"
+    },
+    {
+      "name": "parent-hull-no-identity",
+      "status": "VERIFIED",
+      "certificate_sha256": "89e965cb40ec4a68ea0121e7e6f7d4bb5cc9a9c3adb0ee51f6a73466cbed343d",
+      "theorem_names": [
+        "HullToolCertificate.input_valid",
+        "HullToolCertificate.action_convention",
+        "HullToolCertificate.witnesses_valid",
+        "HullToolCertificate.exponents_valid",
+        "HullToolCertificate.thresholds_eq_hull",
+        "HullToolCertificate.product_minimality",
+        "HullToolCertificate.cardinality"
+      ],
+      "cli_zero_diagnostics": true,
+      "editor_verified": false,
+      "raw_receipt": "D:\\Inter-universal Teichmüller Theory\\reviews\\tool-round\\parent-hull-no-identity\\manifest.json"
+    },
+    {
+      "name": "parent-ledger-cycle-final2",
+      "status": "VERIFIED_COUNTEREXAMPLE",
+      "certificate_sha256": "550ab5bba7717513b09efd299c3491516d7a3cede7152d4d916b1e87203e23a8",
+      "theorem_names": [
+        "GeneratedLedger.span_generation",
+        "GeneratedLedger.span_membership",
+        "GeneratedLedger.domain_nonempty",
+        "GeneratedLedger.scalars_nonzero",
+        "GeneratedLedger.numeric_result",
+        "GeneratedLedger.ledger_result",
+        "GeneratedLedger.domain_result",
+        "GeneratedLedger.witness_values",
+        "GeneratedLedger.domain_witness_result"
+      ],
+      "cli_zero_diagnostics": true,
+      "editor_verified": false,
+      "raw_receipt": "D:\\Inter-universal Teichmüller Theory\\reviews\\tool-round\\parent-ledger-cycle-final2\\manifest.json"
+    },
+    {
+      "name": "parent-ledger-positive-final",
+      "status": "VERIFIED",
+      "certificate_sha256": "28a6c507583062836eaa733f976e67399ed2f48088b3a76985319d010bcb81a8",
+      "theorem_names": [
+        "GeneratedLedger.span_generation",
+        "GeneratedLedger.span_membership",
+        "GeneratedLedger.domain_nonempty",
+        "GeneratedLedger.scalars_nonzero",
+        "GeneratedLedger.numeric_result",
+        "GeneratedLedger.ledger_result",
+        "GeneratedLedger.domain_result"
+      ],
+      "cli_zero_diagnostics": true,
+      "editor_verified": false,
+      "raw_receipt": "D:\\Inter-universal Teichmüller Theory\\reviews\\tool-round\\parent-ledger-positive-final\\manifest.json"
+    },
+    {
+      "name": "parent-ledger-domain-final",
+      "status": "VERIFIED_COUNTEREXAMPLE",
+      "certificate_sha256": "1036bcfa55d78e4d8d133ad32a8a587753761499e641b377d4d19c20cf394dc8",
+      "theorem_names": [
+        "GeneratedLedger.span_generation",
+        "GeneratedLedger.span_membership",
+        "GeneratedLedger.domain_nonempty",
+        "GeneratedLedger.scalars_nonzero",
+        "GeneratedLedger.numeric_result",
+        "GeneratedLedger.ledger_result",
+        "GeneratedLedger.domain_result",
+        "GeneratedLedger.domain_witness_result"
+      ],
+      "cli_zero_diagnostics": true,
+      "editor_verified": false,
+      "raw_receipt": "D:\\Inter-universal Teichmüller Theory\\reviews\\tool-round\\parent-ledger-domain-final\\manifest.json"
+    },
+    {
+      "name": "parent-ledger-span-final",
+      "status": "VERIFIED",
+      "certificate_sha256": "acb9be4ee63abacea8bf01b63d9082c9327053d3675bc28a32f2bf8591fee018",
+      "theorem_names": [
+        "GeneratedLedger.span_generation",
+        "GeneratedLedger.span_membership",
+        "GeneratedLedger.domain_nonempty",
+        "GeneratedLedger.scalars_nonzero",
+        "GeneratedLedger.numeric_result",
+        "GeneratedLedger.ledger_result",
+        "GeneratedLedger.domain_result"
+      ],
+      "cli_zero_diagnostics": true,
+      "editor_verified": false,
+      "raw_receipt": "D:\\Inter-universal Teichmüller Theory\\reviews\\tool-round\\parent-ledger-span-final\\manifest.json"
+    }
+  ],
+  "runner_sha256": "c038b77a43c4302536c9ef2ac86550f1c2beaedbce250506a2e80ef5a1be52bf",
+  "engineering_tests": {
+    "runner": 10,
+    "ledger": 8,
+    "hull": 5
+  }
+}
