@@ -31,9 +31,15 @@ PROOF_VERDICTS = {'INSTANCE_PROVED_UNBLOCKS', 'INSTANCE_PROVED_STRUCTURAL_ONLY',
 # Lowercase, and matched against a lowercased window, because prose capitalises freely
 # ("Nothing here constructs ..." vs the same sentence mid-paragraph). The list is kept
 # specific on purpose: a bare "not" within 400 characters would swallow every mention.
-HEDGES = ('not constructed', 'not construct', 'does not construct', 'constructs no',
-          'nothing here', 'no construction', 'forbidden', 'out of scope', 'not attempted',
-          'no iut', 'not an element', 'never an element')
+# The verdict may be written inside backticks or bold on its own line: `VERDICT: CORE_PROVED`.
+VERDICT_LINE = re.compile(r'^[\s`*_>#-]*VERDICT:\s*[`*_]*([A-Z_]+)[`*_]*\s*$', re.M)
+# A dangerous name is acceptable when a *negation token* sits near it — the grammar of hedging
+# is "no Θ-link", "does not construct Ism", "nothing here is Cor 3.12". Matching a fixed list of
+# phrases inside a 400-character window was both too loose (any distant hedge passed) and too
+# strict (the commonest form, a bare leading "no", failed).
+NEGATION = re.compile(r'\b(no|not|none|nothing|never|without|absent|forbidden|omit|omits)\b',
+                      re.I)
+WINDOW = 160
 SENSITIVE = ('Cor 3.12', 'Corollary 3.12', 'Θ-link', 'Theta-link', 'Ism', 'abc')
 
 
@@ -57,7 +63,7 @@ def main(argv=None) -> int:
     report = json.loads(json_path.read_text(encoding='utf-8-sig'))
 
     # 1 -- the verdict contract
-    verdicts = re.findall(r'^VERDICT:\s*([A-Z_]+)\s*$', readme, re.M)
+    verdicts = VERDICT_LINE.findall(readme)
     allowed = set(args.allow_verdict) or (PROOF_VERDICTS | {'ALREADY_INSTANCE_USE_ONLY',
                                                             'INCOMPLETE'})
     if len(verdicts) != 1:
@@ -88,12 +94,13 @@ def main(argv=None) -> int:
     if checker_errors > 0 and verdict in PROOF_VERDICTS:
         problems.append(f'{checker_errors} error diagnostics contradict verdict {verdict}')
 
-    # 5 -- the three dangerous names may only appear hedged
+    # 5 -- the three dangerous names may only appear negated nearby
     for name in SENSITIVE:
         if name in readme:
-            window = readme[max(0, readme.index(name) - 400):readme.index(name) + 400].lower()
-            if not any(hedge in window for hedge in HEDGES):
-                problems.append(f'{name!r} appears without a hedging token within 400 chars')
+            at = readme.index(name)
+            window = readme[max(0, at - WINDOW):at + WINDOW]
+            if not NEGATION.search(window):
+                problems.append(f'{name!r} appears without a negation token within {WINDOW} chars')
                 break
 
     # 6 -- reproducibility claims must be checkable

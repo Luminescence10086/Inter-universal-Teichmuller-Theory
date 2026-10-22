@@ -1,0 +1,19 @@
+{
+  "admitted_nodes": [
+    "N1-narc",
+    "N2-ind",
+    "N3-crosscheck",
+    "N4-synthesis"
+  ],
+  "chain_ok": true,
+  "command_evidence_rechecked": 3,
+  "goal": "Round: close/attempt the ledger's rank-0 target (NonarchimedeanRing Q_p) and rank-1 target (relation-valued Ind1-3 allowed operations + projection equation), with every claim re-derived by an independent verification node. PASS here means process integrity of the audit, NOT mathematical admission of any IUT object.",
+  "log_lines": 17,
+  "note": "skipped_records is history (e.g. an earlier handoff wait); it is not a failure — admission is decided by the gates only",
+  "problems": [],
+  "skipped_records": [
+    "N4-synthesis"
+  ],
+  "spec_digest": "806c34486a0f1d4e350af848c3402831e6e44239a7732e51e284557ef6680702",
+  "status": "PASS"
+}

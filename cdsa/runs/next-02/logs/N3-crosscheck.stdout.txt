@@ -1,0 +1,25 @@
+{
+  "candidates": [
+    {
+      "claim_consistency_exit": 0,
+      "f01_traps": [],
+      "name": "narc",
+      "project": "candidates/nonarchimedean-ring",
+      "source": "Candidates/Nonarchimedean.lean",
+      "strict_check_exit": 0,
+      "strict_json": "cdsa\\runs\\next-02\\checks\\strict\\narc.strict.json"
+    },
+    {
+      "claim_consistency_exit": 0,
+      "f01_traps": [],
+      "name": "ind",
+      "project": "candidates/ind-relations",
+      "source": "Candidates/IndRelations.lean",
+      "strict_check_exit": 0,
+      "strict_json": "cdsa\\runs\\next-02\\checks\\strict\\ind.strict.json"
+    }
+  ],
+  "ok": true,
+  "problems": []
+}
+

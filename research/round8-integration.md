@@ -54,7 +54,7 @@ L_w(Tx) = L_(w∘σ)(x) + Σ_j if x_j=0 then 0 else w_(σj) v(a_j).
 
 统一 fact-tree 深查重建为 **135 个节点、115 条边、0 pending**：主工程 38/14、local-field 24/31、bridge 73/67，另有 3 条实际 `local-field → bridge` 导入边。两套工具链的标准公理与外部库仍是依赖环境，没有把整套 Mathlib 当作逐一编辑器验收的新节点。
 
-本地 HEAD `4e3f01c307d67ae2c0b1b1ce9723afda39376f4d` 的原两工程 31 项被验收输入均与 Git blob 和工作区字节一致，原 14 处行尾漂移已消除；两树独立 `--deep` 也通过。本轮整合是工作区改动，未声称已经发布到 GitHub。最后一轮 CLI 记录在 `integration-engineering/cli-final.json`，基线复核在 `retained-baseline.json`。
+首次整合验收时的本地 HEAD `4e3f01c307d67ae2c0b1b1ce9723afda39376f4d` 的原两工程 31 项被验收输入均与 Git blob 和工作区字节一致，原 14 处行尾漂移已消除；两树独立 `--deep` 也通过。本轮整合是工作区改动，未声称已经发布到 GitHub。最后一轮 CLI 记录在 `integration-engineering/cli-final.json`，基线复核在 `retained-baseline.json`。
 
 工程记录补充：准备期间追加审计 helper/负测，曾使正在运行的验证因工具输入变化而拒绝；在固定输入并取得实际 UI 观察后重跑通过，没有手改旧凭据来掩盖漂移。一次共享产物检查把新绑定的 `.olean.hash` 构建元数据也要求存在于旧 local-field 收据，检查过严而失败；排除旧收据未覆盖的该类辅助文件后，13,006 个共享产物及两个实际导入的局部域 `.olean` 全部相同，见 `import-identity.json`。
 
@@ -73,3 +73,7 @@ python -X utf8 tools/semantic_lock.py
 ```
 
 `semantic_lock.py --accept --note "具体复核原因"` 只用于明确记录新基线，不能当作消除漂移的证明。旧提交 `78bc059` 的历史审阅保持原样；本轮本地整合不改写其历史结论。
+
+## 收尾状态
+
+2026-10-21 的当前状态与复核证据见 [本轮收尾](round8-closeout.md)。此前准备阶段的失败日志保留，不能代替当前复核结果。

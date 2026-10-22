@@ -1,0 +1,1 @@
+{"argv": ["python", "-B", "cdsa/checks/check_lean_candidate.py", "--project", "candidates/ind-relations", "--source", "Candidates/IndRelations.lean", "--axiom-source", "Candidates/Axioms.lean", "--build-lib", "Candidates", "--require-all-axioms", "--timeout", "1500", "--json-out", "cdsa/runs/next-02/checks/ind.json"], "elapsed": 42.54, "exit": 0, "touched": []}

@@ -1,0 +1,127 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "Candidates\\Nonarchimedean.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "ed3678e2692b8e1c76e0fd96fb2c07dc5da07486d535f68ae297c2986d6f9133",
+  "axiom_source": "D:\\Inter-universal Teichmüller Theory\\candidates\\nonarchimedean-ring\\Candidates\\Axioms.lean",
+  "axioms": {
+    "Candidates.Nonarchimedean.exists_openAddSubgroup_subset_closedBall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.hasSum_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.instNonarchimedeanRingPadic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.isUltrametricDist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.nonarchimedeanAddGroup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.norm_add_le_max": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.summable_iff_tendsto_cofinite_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.summable_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.Nonarchimedean.tsum_mul_tsum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "Candidates"
+    ],
+    "exit": 0,
+    "stdout_tail": "nds on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:20:0: 'Candidates.Nonarchimedean.isUltrametricDist' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:21:0: 'Candidates.Nonarchimedean.hasSum_mul' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:22:0: 'Candidates.Nonarchimedean.summable_mul' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:23:0: 'Candidates.Nonarchimedean.tsum_mul_tsum' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:24:0: 'Candidates.Nonarchimedean.summable_iff_tendsto_cofinite_zero' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\nBuild completed successfully (1770 jobs).\n"
+  },
+  "build_lib": "Candidates",
+  "counts": {
+    "declarations": 8,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\nonarchimedean-ring",
+  "declarations": [
+    {
+      "kind": "theorem",
+      "name": "exists_openAddSubgroup_subset_closedBall"
+    },
+    {
+      "kind": "theorem",
+      "name": "nonarchimedeanAddGroup"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_add_le_max"
+    },
+    {
+      "kind": "theorem",
+      "name": "isUltrametricDist"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_mul"
+    },
+    {
+      "kind": "theorem",
+      "name": "summable_mul"
+    },
+    {
+      "kind": "theorem",
+      "name": "tsum_mul_tsum"
+    },
+    {
+      "kind": "theorem",
+      "name": "summable_iff_tendsto_cofinite_zero"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\nonarchimedean-ring\\Candidates\\Nonarchimedean.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": "",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

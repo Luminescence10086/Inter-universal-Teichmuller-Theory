@@ -63,11 +63,16 @@ Recorded because the audit is about not trusting self-reports — including this
 3. **The companion probe needs a build.** `Candidates/Axioms.lean` *imports* the module, so it
    dies with `unknown module prefix 'Candidates'` unless `lake build Candidates` ran first —
    hence `--build-lib`.
-4. **The hedge window was case-sensitive**, so `Nothing here constructs … an Ism` was read as an
-   unhedged claim. Lowercased on both sides, and the hedge list was kept specific (`not
-   construct`, `nothing here`, `no construction`, …) rather than accepting a bare `not`, which
-   would swallow every mention.
-5. **`candidates/orbit-quotient/lakefile.lean` does not exist on this branch.** The worker brief
+4. **The hedge window was phrase-based and case-sensitive.** `Nothing here constructs … an Ism`
+   was read as an unhedged claim, and later a leading `**no**` Cor 3.12 was also missed. The
+   check now looks for a *negation token near the mention* (`no|not|none|nothing|never|without|
+   absent|forbidden`) inside a 160-character window — the actual grammar of hedging — instead of
+   a fixed phrase list inside 400 characters, which was simultaneously too loose (any distant
+   hedge passed) and too strict (the commonest form failed).
+5. **`VERDICT:` wrapped in backticks was invisible.** The rank-1 candidate wrote it as
+   `` `VERDICT: CORE_PROVED` `` and the audit reported "found 0". The regex now tolerates
+   markdown wrappers and a preceding heading marker.
+6. **`candidates/orbit-quotient/lakefile.lean` does not exist on this branch.** The worker brief
    pointed at it; the only real pattern here is `candidates/pilot-shadow/lakefile.toml`. The
    brief was wrong, not the tool.
 

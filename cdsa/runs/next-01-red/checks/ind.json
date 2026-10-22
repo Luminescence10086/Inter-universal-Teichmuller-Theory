@@ -1,0 +1,323 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "Candidates\\IndRelations.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "d04983dcc3e3ba9bbba4925f0866e0887f7c07bff79182d8b17d5a7adcdc33b5",
+  "axiom_source": "D:\\Inter-universal Teichmüller Theory\\candidates\\ind-relations\\Candidates\\Axioms.lean",
+  "axioms": {
+    "Candidates.IndRelations.allowed12_strict": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.allowed12_subset": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.ambient_e3_e2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.compositionClosed_of_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.flip0_val_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.flip0_val_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.gamma12_trans_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.mem_Gamma12": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.mem_S": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.move_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.move_e": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.move_move": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.move_projection": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.move_projection_source": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.neg_e": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.neg_one_ne_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.neg_one_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.not_allowed12_e3_e2": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.not_compositionClosed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.not_scaling_family_closed": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.relabel_relabel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.relabel_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.scale_relabel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.scale_scale": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.IndRelations.scale_single": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "Candidates"
+    ],
+    "exit": 0,
+    "stdout_tail": "✔ [1752/1754] Built Candidates.IndRelations (16s)\n✔ [1753/1754] Built Candidates (15s)\nBuild completed successfully (1754 jobs).\n"
+  },
+  "build_lib": "Candidates",
+  "counts": {
+    "declarations": 37,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\ind-relations",
+  "declarations": [
+    {
+      "kind": "abbrev",
+      "name": "Tuple"
+    },
+    {
+      "kind": "def",
+      "name": "relabel"
+    },
+    {
+      "kind": "def",
+      "name": "scale"
+    },
+    {
+      "kind": "def",
+      "name": "pull"
+    },
+    {
+      "kind": "def",
+      "name": "move"
+    },
+    {
+      "kind": "def",
+      "name": "e"
+    },
+    {
+      "kind": "theorem",
+      "name": "neg_one_ne_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "neg_one_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "relabel_relabel"
+    },
+    {
+      "kind": "theorem",
+      "name": "scale_scale"
+    },
+    {
+      "kind": "theorem",
+      "name": "scale_relabel"
+    },
+    {
+      "kind": "theorem",
+      "name": "relabel_single"
+    },
+    {
+      "kind": "theorem",
+      "name": "scale_single"
+    },
+    {
+      "kind": "theorem",
+      "name": "move_e"
+    },
+    {
+      "kind": "theorem",
+      "name": "neg_e"
+    },
+    {
+      "kind": "theorem",
+      "name": "move_apply"
+    },
+    {
+      "kind": "theorem",
+      "name": "move_projection"
+    },
+    {
+      "kind": "theorem",
+      "name": "move_projection_source"
+    },
+    {
+      "kind": "theorem",
+      "name": "move_move"
+    },
+    {
+      "kind": "def",
+      "name": "Gamma12"
+    },
+    {
+      "kind": "theorem",
+      "name": "mem_Gamma12"
+    },
+    {
+      "kind": "theorem",
+      "name": "gamma12_trans_mem"
+    },
+    {
+      "kind": "def",
+      "name": "flip0"
+    },
+    {
+      "kind": "def",
+      "name": "S"
+    },
+    {
+      "kind": "theorem",
+      "name": "mem_S"
+    },
+    {
+      "kind": "theorem",
+      "name": "flip0_val_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "flip0_val_one"
+    },
+    {
+      "kind": "def",
+      "name": "Allowed12"
+    },
+    {
+      "kind": "def",
+      "name": "ambient"
+    },
+    {
+      "kind": "theorem",
+      "name": "allowed12_subset"
+    },
+    {
+      "kind": "theorem",
+      "name": "ambient_e3_e2"
+    },
+    {
+      "kind": "theorem",
+      "name": "not_allowed12_e3_e2"
+    },
+    {
+      "kind": "theorem",
+      "name": "allowed12_strict"
+    },
+    {
+      "kind": "def",
+      "name": "CompositionClosed"
+    },
+    {
+      "kind": "theorem",
+      "name": "compositionClosed_of_closed"
+    },
+    {
+      "kind": "theorem",
+      "name": "not_scaling_family_closed"
+    },
+    {
+      "kind": "theorem",
+      "name": "not_compositionClosed"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\ind-relations\\Candidates\\IndRelations.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": "",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

@@ -26,12 +26,12 @@
           "--timeout",
           "1500",
           "--json-out",
-          "cdsa/runs/next-01/checks/narc.json"
+          "cdsa/runs/next-02/checks/narc.json"
         ]
       },
       "allowed_paths": [
         "candidates/nonarchimedean-ring/",
-        "cdsa/runs/next-01/checks/"
+        "cdsa/runs/next-02/checks/"
       ],
       "claim_template": "rank-0: the nonarchimedean-ring candidate builds with zero diagnostics under an independent strict check, and every reported axiom lies in the whitelist (exit {code})",
       "dissent_template": "the candidate's README may claim the instance unblocks more than the use-test actually demonstrates; the compiler cannot detect an overstated 'what this unblocks' section",
@@ -39,7 +39,7 @@
       "confidence_floor": 0.6,
       "timeout": 1800,
       "evidence_files": [
-        "cdsa/runs/next-01/checks/narc.json"
+        "cdsa/runs/next-02/checks/narc.json"
       ],
       "forbidden_in_claim": [
         "Cor 3.12",
@@ -69,12 +69,12 @@
           "--timeout",
           "1500",
           "--json-out",
-          "cdsa/runs/next-01/checks/ind.json"
+          "cdsa/runs/next-02/checks/ind.json"
         ]
       },
       "allowed_paths": [
         "candidates/ind-relations/",
-        "cdsa/runs/next-01/checks/"
+        "cdsa/runs/next-02/checks/"
       ],
       "claim_template": "rank-1: the relation-valued Ind1-3 candidate builds with zero diagnostics under an independent strict check, and every reported axiom lies in the whitelist (exit {code})",
       "dissent_template": "proving `Allowed12` strictly smaller than the ambient family is only a safety property; it does not show the formal model is faithful to Ind1-3, and the toy slot model may be faithful in letter but wrong in spirit",
@@ -82,7 +82,7 @@
       "confidence_floor": 0.6,
       "timeout": 1800,
       "evidence_files": [
-        "cdsa/runs/next-01/checks/ind.json"
+        "cdsa/runs/next-02/checks/ind.json"
       ],
       "forbidden_in_claim": [
         "Cor 3.12",
@@ -105,9 +105,9 @@
           "--candidate",
           "ind:candidates/ind-relations:Candidates/IndRelations.lean:Candidates/Axioms.lean",
           "--json-dir",
-          "cdsa/runs/next-01/checks/strict",
+          "cdsa/runs/next-02/checks/strict",
           "--out",
-          "cdsa/runs/next-01/checks/crosscheck.json",
+          "cdsa/runs/next-02/checks/crosscheck.json",
           "--timeout",
           "1500"
         ]
@@ -115,15 +115,15 @@
       "allowed_paths": [
         "candidates/nonarchimedean-ring/",
         "candidates/ind-relations/",
-        "cdsa/runs/next-01/checks/"
+        "cdsa/runs/next-02/checks/"
       ],
-      "claim_template": "both candidates re-derive from scratch in a separate strict process, their READMEs match their artifacts, and neither source identifies A(k) automorphisms with Ism (exit {code})",
+      "claim_template": "both candidates re-derive from scratch in a separate strict process, their READMEs match their artifacts, and neither source commits the forbidden identification of the automorphism family with the isomorphism monoid (exit {code})",
       "dissent_template": "this cross-check reuses the same checker code as the first pass, so a defect in that code would satisfy both; it is an independent process, not an independent implementation",
       "confidence": 0.75,
       "confidence_floor": 0.6,
       "timeout": 1800,
       "evidence_files": [
-        "cdsa/runs/next-01/checks/crosscheck.json"
+        "cdsa/runs/next-02/checks/crosscheck.json"
       ],
       "forbidden_in_claim": [
         "Cor 3.12",
@@ -139,7 +139,7 @@
         "kind": "handoff"
       },
       "allowed_paths": [
-        "cdsa/runs/next-01/",
+        "cdsa/runs/next-02/",
         "research/exploration/"
       ],
       "claim_template": "round synthesis: the two ledger targets are resolved to the extent the Lean evidence supports, with the residual gaps named",

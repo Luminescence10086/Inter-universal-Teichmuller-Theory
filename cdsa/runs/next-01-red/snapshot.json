@@ -1,0 +1,143 @@
+{
+  "admitted": [
+    "N1-narc",
+    "N2-ind"
+  ],
+  "admitted_count": 2,
+  "chain_ok": true,
+  "claimed": 3,
+  "envelopes": {
+    "N1-narc": {
+      "artifactRef": "",
+      "claim": "rank-0: the nonarchimedean-ring candidate builds with zero diagnostics under an independent strict check, and every reported axiom lies in the whitelist (exit 0)",
+      "claim_id": "N1-narc",
+      "confidence": 0.7,
+      "dissent": [
+        "the candidate's README may claim the instance unblocks more than the use-test actually demonstrates; the compiler cannot detect an overstated 'what this unblocks' section"
+      ],
+      "evidence": [
+        {
+          "detail": "exit=0 elapsed=40.5s touched=0",
+          "kind": "command",
+          "ref": "cdsa/runs/next-01/logs/N1-narc.stdout.txt",
+          "sha256": "0477da0d09cae62cc8bcd28bceba7cc24db715cb3f2c37a904354a1092a384c6"
+        },
+        {
+          "detail": "stderr of python",
+          "kind": "command",
+          "ref": "cdsa/runs/next-01/logs/N1-narc.stderr.txt",
+          "sha256": "6f330eb1151e5a0ae468a4d5b07d1a32b9abf952b28b4ec07ac6e2bb68f189d4"
+        },
+        {
+          "detail": "exit status 0",
+          "kind": "exit",
+          "ref": "cdsa/runs/next-01/logs/N1-narc.exit.json",
+          "sha256": "4e990442e56a034fd121ec5f7e06f253c1c91ce770700b191e2a2ff2e562f02d"
+        },
+        {
+          "detail": "declared evidence file",
+          "kind": "file",
+          "ref": "cdsa/runs/next-01/checks/narc.json",
+          "sha256": "0477da0d09cae62cc8bcd28bceba7cc24db715cb3f2c37a904354a1092a384c6"
+        }
+      ],
+      "kind": "command",
+      "producer": "N1-narc",
+      "spec_digest": "28c5ff7c21f75cd3f8088ca2fac2a5b22f2e98a2cc1842111902cc07db7b703c",
+      "version": "v1"
+    },
+    "N2-ind": {
+      "artifactRef": "",
+      "claim": "rank-1: the relation-valued Ind1-3 candidate builds with zero diagnostics under an independent strict check, and every reported axiom lies in the whitelist (exit 0)",
+      "claim_id": "N2-ind",
+      "confidence": 0.65,
+      "dissent": [
+        "proving `Allowed12` strictly smaller than the ambient family is only a safety property; it does not show the formal model is faithful to Ind1-3, and the toy slot model may be faithful in letter but wrong in spirit"
+      ],
+      "evidence": [
+        {
+          "detail": "exit=0 elapsed=75.32s touched=0",
+          "kind": "command",
+          "ref": "cdsa/runs/next-01/logs/N2-ind.stdout.txt",
+          "sha256": "526022b6b3237773b630c186dd6e77a8a1507cc675de380d6ebf8e8435649c4e"
+        },
+        {
+          "detail": "stderr of python",
+          "kind": "command",
+          "ref": "cdsa/runs/next-01/logs/N2-ind.stderr.txt",
+          "sha256": "6f330eb1151e5a0ae468a4d5b07d1a32b9abf952b28b4ec07ac6e2bb68f189d4"
+        },
+        {
+          "detail": "exit status 0",
+          "kind": "exit",
+          "ref": "cdsa/runs/next-01/logs/N2-ind.exit.json",
+          "sha256": "fb6a36f06646f474bd4b29886fff0ea9e1f5287d46696b5415cea1cfa3ffca1c"
+        },
+        {
+          "detail": "declared evidence file",
+          "kind": "file",
+          "ref": "cdsa/runs/next-01/checks/ind.json",
+          "sha256": "526022b6b3237773b630c186dd6e77a8a1507cc675de380d6ebf8e8435649c4e"
+        }
+      ],
+      "kind": "command",
+      "producer": "N2-ind",
+      "spec_digest": "28c5ff7c21f75cd3f8088ca2fac2a5b22f2e98a2cc1842111902cc07db7b703c",
+      "version": "v1"
+    },
+    "N3-crosscheck": {
+      "artifactRef": "",
+      "claim": "both candidates re-derive from scratch in a separate strict process, their READMEs match their artifacts, and neither source identifies A(k) automorphisms with Ism (exit 1)",
+      "claim_id": "N3-crosscheck",
+      "confidence": 0.75,
+      "dissent": [
+        "this cross-check reuses the same checker code as the first pass, so a defect in that code would satisfy both; it is an independent process, not an independent implementation"
+      ],
+      "evidence": [
+        {
+          "detail": "exit=1 elapsed=82.28s touched=0",
+          "kind": "command",
+          "ref": "cdsa/runs/next-01/logs/N3-crosscheck.stdout.txt",
+          "sha256": "ba948da6fe58b728ab67c923b6a67fb3ecb02072f9a50630bcbde4aee11d5d22"
+        },
+        {
+          "detail": "stderr of python",
+          "kind": "command",
+          "ref": "cdsa/runs/next-01/logs/N3-crosscheck.stderr.txt",
+          "sha256": "0fa288a281634136c244bc040a53fbcf68a2b2e434faff9aa176ae5edca3182d"
+        },
+        {
+          "detail": "exit status 1",
+          "kind": "exit",
+          "ref": "cdsa/runs/next-01/logs/N3-crosscheck.exit.json",
+          "sha256": "0b20fd40b8c3f064dc95d8e888a1c9a2773572d71d549feb207fbef7b8ccd2da"
+        },
+        {
+          "detail": "declared evidence file",
+          "kind": "file",
+          "ref": "cdsa/runs/next-01/checks/crosscheck.json",
+          "sha256": "ff63d6be6766f8cde1e0e06837a9f3dea4f8773a30dad786c306d1e990ca4f57"
+        }
+      ],
+      "kind": "command",
+      "producer": "N3-crosscheck",
+      "spec_digest": "28c5ff7c21f75cd3f8088ca2fac2a5b22f2e98a2cc1842111902cc07db7b703c",
+      "version": "v1"
+    }
+  },
+  "gates": {
+    "N1-narc->N3-crosscheck": "green",
+    "N1-narc:self": "green",
+    "N2-ind->N3-crosscheck": "green",
+    "N2-ind:self": "green",
+    "N3-crosscheck->N4-synthesis": "red",
+    "N3-crosscheck:self": "red"
+  },
+  "log_lines": 11,
+  "replans": [
+    [
+      "N4-synthesis"
+    ]
+  ],
+  "skipped": []
+}

@@ -1,0 +1,1 @@
+{"argv": ["python", "-B", "cdsa/checks/check_lean_candidate.py", "--project", "candidates/nonarchimedean-ring", "--source", "Candidates/Nonarchimedean.lean", "--axiom-source", "Candidates/Axioms.lean", "--build-lib", "Candidates", "--require-all-axioms", "--timeout", "1500", "--json-out", "cdsa/runs/next-01/checks/narc.json"], "elapsed": 40.5, "exit": 0, "touched": []}
