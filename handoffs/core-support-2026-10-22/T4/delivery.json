@@ -179,8 +179,12 @@
   ],
   "open": [
     "editor check not performed",
-    "axiom lines reported above are those the entries themselves export, not a new audit"
+    "axiom lines reported above are those the entries themselves export, not a new audit",
+    "editor check not performed for T4 entries; T3 established that the same extension stale-imports guard fires on CoreLog/QpThree.lean even after a successful lake build (see T3/editor-check.md)"
   ],
   "editor_status": "NOT_CHECKED",
-  "fact_tree_admitted": false
+  "fact_tree_admitted": false,
+  "cross_references": {
+    "t3_editor_check": "handoffs/core-support-2026-10-22/T3/editor-check.md"
+  }
 }

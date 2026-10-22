@@ -1,6 +1,13 @@
 # T3 — delegated log bridge
 
-**status: `CLI_CHECKED_EDITOR_PENDING`** · one new source file · one command · real exit 0.
+**status: `PARTIAL`** · one new source file · one command · real exit 0 · editor check attempted and blocked
+
+CLI: exit 0, zero diagnostics, axioms within the whitelist. Editor: opened in a trusted window
+with Lean 4 active, and it reports **1 error, 0 warnings** — the extension's stale-imports guard
+(`Imports are out of date … use the "Restart File" command`), whose structural cause is that
+`candidates/core-transport` declares `lean_lib CoreTransport` but has no `CoreTransport.lean`
+library root, so `lake build` fails. See `editor-check.md` and `vscode-receipt.json`; nothing is
+claimed to be zero-diagnostic in the editor.
 
 ## What was done
 

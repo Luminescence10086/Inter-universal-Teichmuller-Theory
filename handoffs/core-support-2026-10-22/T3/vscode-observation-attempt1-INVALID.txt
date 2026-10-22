@@ -1,0 +1,142 @@
+﻿### VS Code accessibility tree, captured 2026-10-23T00:15:07.3875210+08:00
+### window: ● Inter-universal - Visual Studio Code
+ControlType.Window | ● Inter-universal - Visual Studio Code
+ControlType.Pane | 
+ControlType.Pane | ● Inter-universal - Visual Studio Code
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Button | 最小化
+ControlType.Button | 最大化
+ControlType.Button | 关闭
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Document | ● Inter-universal - Visual Studio Code
+ControlType.Group | 
+ControlType.Pane | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.MenuBar | 
+ControlType.MenuItem | 文件
+ControlType.MenuItem | 编辑
+ControlType.MenuItem | 选择
+ControlType.MenuItem | 查看
+ControlType.MenuItem | 更多
+ControlType.ToolBar | 
+ControlType.Button | 返回 (Alt+LeftArrow)
+ControlType.Button | 前进 (Alt+RightArrow)
+ControlType.ToolBar | 智能体状态
+ControlType.Button | 打开快速访问
+ControlType.Group | 
+ControlType.Button | 切换聊天
+ControlType.Button | 切换聊天
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多操作
+ControlType.ToolBar | 
+ControlType.Button | Try Agents Window (Ctrl+Shift+Alt+A)
+ControlType.ToolBar | 
+ControlType.Button | 更新
+ControlType.ToolBar | 标题操作
+ControlType.Button | 切换主侧栏 (Ctrl+B)
+ControlType.Text | 
+ControlType.Button | 自定义布局...
+ControlType.Button | 切换面板 (Ctrl+J)
+ControlType.Text | 
+ControlType.Button | 切换辅助侧栏 (Ctrl+Alt+B)
+ControlType.Text | 
+ControlType.Group | 受限模式旨在实现安全地浏览代码。信任此窗口以启用所有功能。使用导航键访问横幅操作。
+ControlType.Button | 管理
+ControlType.Button | 了解详细信息
+ControlType.ToolBar | 
+ControlType.Button | 关闭横幅
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Tab | 活动视图切换器
+ControlType.TabItem | 资源管理器 (Ctrl+Shift+E) - 4 个未保存的文件
+ControlType.Group | 资源管理器 (Ctrl+Shift+E) - 4 个未保存的文件
+ControlType.Group | 资源管理器 (Ctrl+Shift+E) - 4 个未保存的文件
+ControlType.TabItem | 搜索 (Ctrl+Shift+F)
+ControlType.Group | 搜索 (Ctrl+Shift+F)
+ControlType.TabItem | 源代码管理 (Ctrl+Shift+G)
+ControlType.Group | 源代码管理 (Ctrl+Shift+G)
+ControlType.TabItem | 运行和调试 (Ctrl+Shift+D)
+ControlType.Group | 运行和调试 (Ctrl+Shift+D)
+ControlType.TabItem | 远程资源管理器
+ControlType.Group | 远程资源管理器
+ControlType.TabItem | 扩展 (Ctrl+Shift+X)
+ControlType.Group | 扩展 (Ctrl+Shift+X)
+ControlType.ToolBar | 管理
+ControlType.Button | 帐户
+ControlType.Group | 帐户
+ControlType.Text | 
+ControlType.Button | 管理 - 有新的 Code 的更新可用。
+ControlType.Group | 管理 - 有新的 Code 的更新可用。
+ControlType.Text | 
+ControlType.Group | 管理 - 有新的 Code 的更新可用。
+ControlType.Text | 1
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Tab | 
+ControlType.TabItem | Inter-universal
+ControlType.Group | D:\Inter-universal
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | Teichmüller
+ControlType.Group | D:\Inter-universal Teichmüller Theory\Teichmüller
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | DelegatedLogBridge.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\Theory\candidates\core-transport\DelegatedLogBridge.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | core-transport
+ControlType.Group | D:\Inter-universal Teichmüller Theory\Theory\candidates\core-transport
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.ToolBar | 编辑器操作
+ControlType.Button | 向右拆分编辑器 (Ctrl+\) [Alt] 向下拆分编辑器
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多操作...
+ControlType.Text | 
+ControlType.Group | Inter-universal
+ControlType.Text | 
+ControlType.Edit | 现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1
+ControlType.StatusBar | 
+ControlType.Group | remote
+ControlType.Button | remote
+ControlType.Group | 受限模式: 某些功能已禁用，因为此窗口不受信任。
+ControlType.Button | 受限模式: 某些功能已禁用，因为此窗口不受信任。
+ControlType.Group | 没有问题
+ControlType.Button | 没有问题
+ControlType.Group | 通知
+ControlType.Button | 通知
+ControlType.Group | 已禁用 Copilot
+ControlType.Button | 已禁用 Copilot
+ControlType.Group | 纯文本
+ControlType.Button | 纯文本
+ControlType.Group | 编辑器语言状态: $(copilot) 无内联建议可用，内联建议
+ControlType.Button | 编辑器语言状态: $(copilot) 无内联建议可用，内联建议
+ControlType.Group | CRLF
+ControlType.Button | CRLF
+ControlType.Group | UTF-8
+ControlType.Button | UTF-8
+ControlType.Group | 空格: 4
+ControlType.Button | 空格: 4
+ControlType.Group | 行 1，列 1
+ControlType.Button | 行 1，列 1
+ControlType.Text | 
+ControlType.Text | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Pane | 
+### nodes: 136
+
+
+### WHY THIS CAPTURE IS INVALID: the workspace path contains spaces and was passed unquoted, so VS Code opened 'D:\Inter-universal' and '...\Teichmüller' as two folders; the window was also in Restricted Mode, which disables the Lean extension, so the '没有问题' status bar line says nothing about Lean diagnostics. Kept as a negative receipt.

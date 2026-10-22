@@ -1,6 +1,6 @@
 {
   "task_id": "T3",
-  "status": "CLI_CHECKED_EDITOR_PENDING",
+  "status": "PARTIAL",
   "started_at": "2026-10-23T00:03:53+08:00",
   "finished_at": "2026-10-23T00:06:05+08:00",
   "inputs": [
@@ -67,16 +67,92 @@
   ],
   "outputs": [
     {
-      "path": "candidates/core-transport/DelegatedLogBridge.lean",
-      "sha256": "764117e4aae02ccc2ef5eaebc51ae600e24f0e0884d869c72e480b6815f12a90"
+      "path": "handoffs/core-support-2026-10-22/T3/capture-problems.ps1",
+      "sha256": "da3b0b9f8cadafc9d092e51864543e53ff0b8bce274ebf6c269ccca89f1e2359"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/capture-restart.ps1",
+      "sha256": "eb826dc24711e250b184a7ad251895797066dee8976d3eeafb34fa49332403e2"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/capture-vscode-2.ps1",
+      "sha256": "6be12de25b10c46724d7569b1ad5568f916024d4200e693c28af1c08a43c2873"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/capture-vscode.ps1",
+      "sha256": "aa8e2bd8b63d22c569f80fb7f7124809b51e92d6a6a47f4807dc579b169191de"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/corelog/vscode-capture-2.log",
+      "sha256": "bca5390994d16433074f7e91444faa40ab3f6f2557b5db7c4d49cbc25fa64b44"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/corelog/vscode-observation-tree-2.txt",
+      "sha256": "7292f560a0bb482c734492e8f1a9d15e1b99e744b34ce4e2a2166712e5885e7f"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/corelog/vscode-problems-panel.txt",
+      "sha256": "5cdff44c1f5ba05973b7055e1645e77b53d232613c5430a02f239467c029e18f"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/editor-check.md",
+      "sha256": "d64531edeb76c3f7b9e06fb6faa03beda09d43ea472787d93eeddff252905713"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/lean_stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/lean_stdout.txt",
       "sha256": "43c6004576675d0d129e21539aaf0e9cb6cc712a42155556715736cae85e754b"
     },
     {
-      "path": "handoffs/core-support-2026-10-22/T3/lean_stderr.txt",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "path": "handoffs/core-support-2026-10-22/T3/SUMMARY.md",
+      "sha256": "c67c0d38dcb676146d6b5bee13f791d015ceb4f73c730a8c8f939454d37e4557"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/t3-lake-build-CoreTransport.stderr.txt",
+      "sha256": "03dfe001357ab7a428a065114222771350c95ea03b85885c52dac588775ac7ef"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/t3-lake-build-CoreTransport.stdout.txt",
+      "sha256": "25d6fab5e8d87eb00d22534bd49f1bb9f64afde0bb2257481fa6d9fffce51d10"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-after-restart-action.txt",
+      "sha256": "0acd381589957c1f8bcacf560fd9212fa8b40fd61e7db2d750a0e6e4039b5a62"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-capture-2.log",
+      "sha256": "f0dfadd6d78cc81dbd2a178fa0fb9a67a08773defcb2320c8f4270364207d5df"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-capture.log",
+      "sha256": "7a833e5323bdd2f7ceafdd39207cffda1cd56b0b535126443bfa7d56916c74dd"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-observation-after-restart.txt",
+      "sha256": "5944ce25fc49c8de914d6bfc0c847709460e01238a4530bc14cffe179ed1386a"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-observation-attempt1-INVALID.txt",
+      "sha256": "d2248b4317d1895da93e88aa42a7cc031a982dadec7f790301a75fad71b03ed1"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-observation-tree-2.txt",
+      "sha256": "336e8807f40102992d2b772635c9b444e36059a1d2f4a0607a015be6e96ec046"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-problems-panel.txt",
+      "sha256": "887151cce455de39625d0fc3fa92e63fd74ec04d78a9a17c9f2bbcdbb7d96a1e"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/vscode-receipt.json",
+      "sha256": "8fd427fbd5bd3af8f7a05a74ec01f2eee281a39f6a3df1fc965caa01bef8fdf2"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/write_receipt.py",
+      "sha256": "f18ac69381dea4946aa6cfaaba6b595f045605409ed95cd188141b98aade67c0"
     }
   ],
   "commands": [
@@ -99,9 +175,15 @@
     "item 2: summable_logTerm from CoreLog.principal_unit_log_summable, and HasSum logTerm (localLog x) for ||x-1||<1 derived from that summability",
     "item 3: CoreTransport.logImage Q_3 = {y | ||y|| <= 1/3} by rewriting along item 1 into CoreLog.principal_unit_log_image",
     "all four declarations report only [propext, Classical.choice, Quot.sound]",
-    "inputs unchanged (0 drift across 10 tracked input files)"
+    "inputs unchanged (0 drift across 10 tracked input files)",
+    "editor opened in a trusted window with Lean 4 active; the single diagnostic was identified verbatim as the extension stale-imports guard, not an elaboration error",
+    "causal evidence: lake build CoreTransport fails on a missing library root module CoreTransport.lean"
   ],
-  "open": [],
-  "editor_status": "NOT_CHECKED",
+  "open": [
+    "editor reports 1 error (0 warnings); no zero-diagnostic editor state was reached",
+    "no InfoView No goals observation for the four declarations",
+    "clearing the guard requires adding candidates/core-transport/CoreTransport.lean, which the T3 rules forbid"
+  ],
+  "editor_status": "PARTIAL",
   "fact_tree_admitted": false
 }

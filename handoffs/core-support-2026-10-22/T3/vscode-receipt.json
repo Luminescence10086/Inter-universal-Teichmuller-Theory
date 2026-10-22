@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-22T16:23:57Z",
+  "observer": "this session, Windows UI Automation (no computer-use service, no screenshots)",
+  "editor": {
+    "product": "Visual Studio Code 1.143.0",
+    "lean_extension": "leanprover.lean4-0.0.240"
+  },
+  "editor_status": "PARTIAL",
+  "zero_diagnostics_claimed": false,
+  "windows_observed": [
+    "core-transport - Visual Studio Code",
+    "core-log - Visual Studio Code"
+  ],
+  "trust": "granted through the Restricted Mode banner (manage -> trust); no user settings were edited",
+  "diagnostics_observed": {
+    "candidates/core-transport/DelegatedLogBridge.lean": {
+      "errors": 1,
+      "warnings": 0,
+      "message": "Imports are out of date and must be rebuilt; use the \"Restart File\" command in your editor.",
+      "position": "line 1, character 1",
+      "kind": "extension stale-imports guard, not a Lean elaboration error"
+    },
+    "candidates/core-log/CoreLog/QpThree.lean": {
+      "errors": 1,
+      "warnings": 0,
+      "same_message": true
+    }
+  },
+  "causal_evidence": {
+    "lake_build_core_transport_exit": 1,
+    "lake_build_core_transport_message": "no such file or directory: candidates/core-transport/CoreTransport.lean (lean_lib declares a root module that does not exist)",
+    "lake_build_core_log_exit": 0,
+    "lake_build_core_log_jobs": 3047,
+    "note": "core-log builds cleanly yet the guard persists, so a failed build is not the only cause"
+  },
+  "inputs": {
+    "candidates/core-transport/DelegatedLogBridge.lean": "764117e4aae02ccc2ef5eaebc51ae600e24f0e0884d869c72e480b6815f12a90",
+    "candidates/core-log/CoreLog/QpThree.lean": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53"
+  },
+  "evidence": {
+    "vscode-observation-tree-2.txt": "336e8807f40102992d2b772635c9b444e36059a1d2f4a0607a015be6e96ec046",
+    "vscode-problems-panel.txt": "887151cce455de39625d0fc3fa92e63fd74ec04d78a9a17c9f2bbcdbb7d96a1e",
+    "corelog/vscode-observation-tree-2.txt": "7292f560a0bb482c734492e8f1a9d15e1b99e744b34ce4e2a2166712e5885e7f",
+    "corelog/vscode-problems-panel.txt": "5cdff44c1f5ba05973b7055e1645e77b53d232613c5430a02f239467c029e18f",
+    "vscode-observation-attempt1-INVALID.txt": "d2248b4317d1895da93e88aa42a7cc031a982dadec7f790301a75fad71b03ed1",
+    "t3-lake-build-CoreTransport.stdout.txt": "25d6fab5e8d87eb00d22534bd49f1bb9f64afde0bb2257481fa6d9fffce51d10",
+    "editor-check.md": "d64531edeb76c3f7b9e06fb6faa03beda09d43ea472787d93eeddff252905713"
+  },
+  "not_observed": [
+    "zero error/warning counts",
+    "InfoView No goals for any T3 declaration"
+  ],
+  "fact_tree_admitted": false
+}

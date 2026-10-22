@@ -1,0 +1,335 @@
+﻿### VS Code accessibility tree, attempt 2, captured 2026-10-23T00:20:35.4946404+08:00
+### window: core-log - Visual Studio Code
+ControlType.Window | QpThree.lean - core-log - Visual Studio Code
+ControlType.Pane | 
+ControlType.Pane | QpThree.lean - core-log - Visual Studio Code
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Button | 最小化
+ControlType.Button | 最大化
+ControlType.Button | 关闭
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Document | QpThree.lean - core-log - Visual Studio Code
+ControlType.Group | 
+ControlType.Pane | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.MenuBar | 
+ControlType.MenuItem | 文件
+ControlType.MenuItem | 编辑
+ControlType.MenuItem | 选择
+ControlType.MenuItem | 查看
+ControlType.MenuItem | 更多
+ControlType.ToolBar | 
+ControlType.Button | 返回 (Alt+LeftArrow)
+ControlType.Button | 前进 (Alt+RightArrow)
+ControlType.ToolBar | 智能体状态
+ControlType.Button | 打开快速访问
+ControlType.Group | 
+ControlType.Button | 切换聊天
+ControlType.Button | 切换聊天
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多操作
+ControlType.ToolBar | 
+ControlType.Button | Try Agents Window (Ctrl+Shift+Alt+A)
+ControlType.ToolBar | 标题操作
+ControlType.Button | 切换主侧栏 (Ctrl+B)
+ControlType.Text | 
+ControlType.Button | 自定义布局...
+ControlType.Button | 切换面板 (Ctrl+J)
+ControlType.Text | 
+ControlType.Button | 切换辅助侧栏 (Ctrl+Alt+B)
+ControlType.Text | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Tab | 活动视图切换器
+ControlType.TabItem | 资源管理器 (Ctrl+Shift+E)
+ControlType.Group | 资源管理器 (Ctrl+Shift+E)
+ControlType.TabItem | 搜索 (Ctrl+Shift+F)
+ControlType.Group | 搜索 (Ctrl+Shift+F)
+ControlType.TabItem | 源代码管理 (Ctrl+Shift+G)
+ControlType.Group | 源代码管理 (Ctrl+Shift+G)
+ControlType.TabItem | 运行和调试 (Ctrl+Shift+D)
+ControlType.Group | 运行和调试 (Ctrl+Shift+D)
+ControlType.TabItem | 远程资源管理器
+ControlType.Group | 远程资源管理器
+ControlType.TabItem | 扩展 (Ctrl+Shift+X)
+ControlType.Group | 扩展 (Ctrl+Shift+X)
+ControlType.TabItem | Python
+ControlType.Group | Python
+ControlType.TabItem | GPT Bridge
+ControlType.Group | GPT Bridge
+ControlType.ToolBar | 管理
+ControlType.Button | 帐户
+ControlType.Group | 帐户
+ControlType.Text | 
+ControlType.Button | 管理
+ControlType.Group | 管理
+ControlType.Text | 
+ControlType.Text | 资源管理器
+ControlType.ToolBar | 资源管理器操作
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 视图和更多操作…
+ControlType.ToolBar | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 打开的编辑器部分
+ControlType.Text | 打开的编辑器
+ControlType.List | 打开的编辑器
+ControlType.ListItem | 编辑器组1
+ControlType.Text | 第 1 组
+ControlType.ListItem | 欢迎, undefined
+ControlType.Group | 欢迎
+ControlType.Text | 欢迎
+ControlType.ListItem | QpThree.lean, CoreLog
+ControlType.ToolBar | 
+ControlType.Button | 关闭编辑器 (Ctrl+F4)
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog\QpThree.lean • 此文件存在 1 个问题
+ControlType.Text | 
+ControlType.Text | QpThree.lean
+ControlType.Text | CoreLog
+ControlType.Text | 1
+ControlType.ListItem | 编辑器组2
+ControlType.Text | 第 2 组
+ControlType.ListItem | Lean InfoView, undefined
+ControlType.Group | Lean InfoView
+ControlType.Text | 
+ControlType.Text | Lean InfoView
+ControlType.Button | 资源管理器部分: core-log
+ControlType.Text | 资源管理器部分: core-log
+ControlType.Tree | 文件资源管理器
+ControlType.TreeItem | .lake
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\.lake
+ControlType.TreeItem | CoreLog
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog • 包含强调项
+ControlType.TreeItem | Audit.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog\Audit.lean
+ControlType.TreeItem | PrecisionArithmetic.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog\PrecisionArithmetic.lean
+ControlType.TreeItem | QpThree.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog\QpThree.lean • 此文件存在 1 个问题
+ControlType.TreeItem | PadicLogVolume
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\PadicLogVolume
+ControlType.TreeItem | .gitignore
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\.gitignore
+ControlType.TreeItem | CoreLog.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog.lean
+ControlType.TreeItem | lake-manifest.json
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\lake-manifest.json
+ControlType.TreeItem | lakefile.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\lakefile.lean
+ControlType.TreeItem | lean-toolchain
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\lean-toolchain
+ControlType.TreeItem | LICENSE
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\LICENSE
+ControlType.TreeItem | PadicLogVolume.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\PadicLogVolume.lean
+ControlType.TreeItem | README.md
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\README.md
+ControlType.Button | 大纲部分
+ControlType.Text | 大纲
+ControlType.Button | 时间线部分
+ControlType.Text | 时间线
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Tab | 
+ControlType.TabItem | 欢迎，预览
+ControlType.Group | 欢迎
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | QpThree.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog\QpThree.lean • 此文件存在 1 个问题
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.ToolBar | 编辑器操作
+ControlType.Button | Run Code (Ctrl+Alt+N)
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | Lean 4
+ControlType.Button | Paperproof: Toggle
+ControlType.Button | 向右拆分编辑器 (Ctrl+\) [Alt] 向下拆分编辑器
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多操作...
+ControlType.Text | 
+ControlType.List | 
+ControlType.ListItem | CoreLog
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog • 包含强调项
+ControlType.Text | CoreLog
+ControlType.Text | 
+ControlType.ListItem | QpThree.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-log\CoreLog\QpThree.lean • 此文件存在 1 个问题
+ControlType.Text | 
+ControlType.Text | QpThree.lean
+ControlType.Group | QpThree.lean, 编辑器组1
+ControlType.Text | 
+ControlType.Edit | 现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1
+ControlType.List | 显示代码操作。首选可用的快速修复(Shift+Alt+.)
+ControlType.Text | 
+ControlType.Group | 
+ControlType.Tab | 
+ControlType.TabItem | Lean InfoView, 编辑器组2
+ControlType.Group | Lean InfoView
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.ToolBar | 编辑器操作
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多操作...
+ControlType.Text | 
+ControlType.Group | 
+ControlType.Tab | 活动视图切换器
+ControlType.TabItem | 聊天 (Ctrl+Alt+I)
+ControlType.Group | 聊天 (Ctrl+Alt+I)
+ControlType.ToolBar | 聊天操作
+ControlType.Group | 
+ControlType.Button | 新建聊天 (Ctrl+N)
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 新建聊天
+ControlType.Button | 打开自定义
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 视图和更多操作…
+ControlType.Group | 
+ControlType.ToolBar | 
+ControlType.Button | 最大化辅助侧栏
+ControlType.Text | 
+ControlType.Button | 隐藏辅助侧栏 (Ctrl+Alt+B)
+ControlType.Group | 
+ControlType.Text | 会话
+ControlType.ToolBar | 
+ControlType.Button | 刷新智能体会话
+ControlType.Button | 查找智能体会话
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 筛选智能体会话
+ControlType.Text | 
+ControlType.Button | 显示智能体会话边栏
+ControlType.Tree | 智能体会话
+ControlType.Group | 
+ControlType.Group | 
+ControlType.ToolBar | Session status
+ControlType.Button | 未提交更改: 60 Files, +6095, -2
+ControlType.Group | 提示: 还有其他任务要处理?启动新会话以同时运行多个智能体。
+ControlType.Group | 
+ControlType.Text | 提示:
+ControlType.Text | 还有其他任务要处理?启动新会话以同时运行多个智能体。
+ControlType.ToolBar | 
+ControlType.Button | 上一个提示
+ControlType.Button | 下一提示
+ControlType.Button | 关闭提示
+ControlType.Button | 禁用提示
+ControlType.Group | 
+ControlType.Group | 建议的上下文、文件、QpThree.lean file:///d%3A/Inter-universal%20Teichm%C3%BCller%20Theory/candidates/core-log/CoreLog
+ControlType.Button | 将 file:QpThree.lean 添加到上下文
+ControlType.Group | 启用当前 文件 上下文 CoreLog\QpThree.lean
+ControlType.Text | 
+ControlType.Text | QpThree.lean
+ControlType.Text | 
+ControlType.Edit | 现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1
+ControlType.Text | 与 Claude 聊天
+ControlType.Group | 
+ControlType.ToolBar | 
+ControlType.Button | 添加上下文... (Ctrl+/)
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | Agent
+ControlType.Text | 
+ControlType.Text | Agent
+ControlType.Group | Models, No models available
+ControlType.Button | Models, No models available
+ControlType.ToolBar | 
+ControlType.Button | Dictate (Speech to Text) (Ctrl+I)
+ControlType.Text | 
+ControlType.Button | 发送 [Alt] 发送到新聊天 (Ctrl+Shift+Enter)
+ControlType.ToolBar | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | Claude
+ControlType.Text | 
+ControlType.Text | Claude
+ControlType.Button | 审批: 编辑前询问
+ControlType.Button | Allow connections from other machines and vscode.dev/agents
+ControlType.Text | 
+ControlType.StatusBar | 
+ControlType.Group | remote
+ControlType.Button | remote
+ControlType.Group | 错误: 1 个
+ControlType.Button | 错误: 1 个
+ControlType.Group | 通知
+ControlType.Button | 通知
+ControlType.Group | circle-slash GPT Bridge, **GPT Bridge** — Stopped Click to open the panel.
+ControlType.Button | circle-slash GPT Bridge, **GPT Bridge** — Stopped Click to open the panel.
+ControlType.Group | Copilot 状态
+ControlType.Button | Copilot 状态
+ControlType.Group | lean4
+ControlType.Button | lean4
+ControlType.Group | 编辑器语言状态: $(copilot) 无内联建议可用，内联建议
+ControlType.Button | 编辑器语言状态: $(copilot) 无内联建议可用，内联建议
+ControlType.Group | LF
+ControlType.Button | LF
+ControlType.Group | UTF-8
+ControlType.Button | UTF-8
+ControlType.Group | 空格: 2
+ControlType.Button | 空格: 2
+ControlType.Group | 行 1，列 1
+ControlType.Button | 行 1，列 1
+ControlType.Text | 
+ControlType.Text | 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details)
+ControlType.Text | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Document | 
+ControlType.Document | 
+ControlType.Document | Lean InfoView
+ControlType.Document | Infoview
+ControlType.Document | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | QpThree.lean:1:0   
+ControlType.Text | QpThree.lean:1:0
+ControlType.Group | 
+ControlType.Text | 
+ControlType.Group | 
+ControlType.Hyperlink | 
+ControlType.Hyperlink | 
+ControlType.Group | 
+ControlType.Button | Messages (  1)
+ControlType.Text | Messages
+ControlType.Text | (
+ControlType.Text | 
+ControlType.Text | 1
+ControlType.Text | )
+ControlType.Group | 
+ControlType.Button | QpThree.lean:1:0 
+ControlType.Text | QpThree.lean:1:0
+ControlType.Group | 
+ControlType.Hyperlink | 
+ControlType.Text | Imports are out of date and must be rebuilt; use the "Restart File" command in your editor.
+ControlType.Group | 
+ControlType.Button | All Messages (  1)  
+ControlType.Text | All Messages
+ControlType.Text | (
+ControlType.Text | 
+ControlType.Text | 1
+ControlType.Text | )
+ControlType.Group | 
+ControlType.Hyperlink | 
+ControlType.Hyperlink | 
+ControlType.Button | Restart File
+ControlType.Pane | 
+### nodes: 331
+
