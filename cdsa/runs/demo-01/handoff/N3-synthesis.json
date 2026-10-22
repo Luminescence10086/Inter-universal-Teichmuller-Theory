@@ -1,0 +1,34 @@
+{
+  "claim_id": "round-synthesis",
+  "claim": "The correspondence ledger for this round was regenerated and independently verified: 8 entries anchored to exported theorem ids, 3 forbidden identifications recorded, and the single mathematical blocker identified as the p-adic logarithm; no IUT object was constructed and no gap closed.",
+  "evidence": [
+    {
+      "kind": "file",
+      "ref": "bridges/correspondence.json",
+      "sha256": "53dfd0a14e7737ab05cd9ee8c9e2990aa6150921ff91adaf4ee4747f47da54b0",
+      "detail": "the ledger this claim is about"
+    },
+    {
+      "kind": "file",
+      "ref": "research/exploration/RESULTS.md",
+      "sha256": "d405dbb9428b2f2ab5ab9e0248c3153ff1f818e99a58436ce333e6c80bf7ad51",
+      "detail": "the round report"
+    },
+    {
+      "kind": "command",
+      "ref": "cdsa/runs/demo-01/logs/N2-verify.stdout.txt",
+      "sha256": "07dc39513450e8a9cc224f3069e56887e7003548dc52f876dfe7cb3a0d6bc83e",
+      "detail": "independent verifier output (generation and verification separated)"
+    }
+  ],
+  "confidence": 0.75,
+  "artifactRef": "",
+  "dissent": [
+    "The claim is about correspondence and blockers only. The ledger proves no IUT statement: E1 just means the missing object is recorded, and F-01 warns that our A(k)-level theorems must not be read as statements about Ism.",
+    "Anchoring is structural: check_correspondence.py verifies ids, tiers, sections and companions, not whether the prose is faithful to each theorem."
+  ],
+  "producer": "N3-synthesis",
+  "spec_digest": "9f898162cfadf3dd80593edb21e553b5932e8f4f20d58e5122ee416b3e7d5826",
+  "version": "v1",
+  "kind": "handoff"
+}

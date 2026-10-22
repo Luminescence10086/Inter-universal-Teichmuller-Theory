@@ -1,0 +1,18 @@
+{
+  "admitted_nodes": [
+    "N1-regen",
+    "N2-verify",
+    "N3-synthesis"
+  ],
+  "chain_ok": true,
+  "command_evidence_rechecked": 2,
+  "goal": "Regenerate the semantic-correspondence ledger and independently verify it, then record a human-owned synthesis claim that names its own objection.",
+  "log_lines": 13,
+  "note": "skipped_records is history (e.g. an earlier handoff wait); it is not a failure — admission is decided by the gates only",
+  "problems": [],
+  "skipped_records": [
+    "N3-synthesis"
+  ],
+  "spec_digest": "9f898162cfadf3dd80593edb21e553b5932e8f4f20d58e5122ee416b3e7d5826",
+  "status": "PASS"
+}

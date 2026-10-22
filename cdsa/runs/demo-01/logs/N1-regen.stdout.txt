@@ -1,0 +1,1 @@
+wrote bridges\correspondence.json : 8 correspondence entries, 3 candidate results, 212 known theorem ids
