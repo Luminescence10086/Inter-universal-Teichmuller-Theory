@@ -48,6 +48,29 @@ one forbidden identification — describing `A(k)` / `Q_p`-linear automorphisms 
 `Ism` (finding **F-01**, the most dangerous false bridge). That last check is prose-level, so
 no compiler can ever catch it.
 
+## Defects this tool had, found by pointing it at real candidates
+
+Recorded because the audit is about not trusting self-reports — including this tool's own.
+
+1. **Wrapped axiom lists were silently dropped.** `#print axioms` wraps a long axiom list onto
+   a second line; a single-line pattern therefore dropped exactly the declarations with many
+   axioms. On the rank-0 candidate this made 2 of 9 audited theorems look unreported, and the
+   strict gate failed on a candidate that was in fact complete. Fixed by matching the closing
+   `]` across newlines.
+2. **Qualified vs unqualified names.** The report is fully qualified (`Candidates.X.foo`) while
+   the source enumerates `foo`; matching them directly marked all 35 declarations of the
+   existing pilot candidate as unreported.
+3. **The companion probe needs a build.** `Candidates/Axioms.lean` *imports* the module, so it
+   dies with `unknown module prefix 'Candidates'` unless `lake build Candidates` ran first —
+   hence `--build-lib`.
+4. **The hedge window was case-sensitive**, so `Nothing here constructs … an Ism` was read as an
+   unhedged claim. Lowercased on both sides, and the hedge list was kept specific (`not
+   construct`, `nothing here`, `no construction`, …) rather than accepting a bare `not`, which
+   would swallow every mention.
+5. **`candidates/orbit-quotient/lakefile.lean` does not exist on this branch.** The worker brief
+   pointed at it; the only real pattern here is `candidates/pilot-shadow/lakefile.toml`. The
+   brief was wrong, not the tool.
+
 ## Calibration (both directions, actually executed)
 
 | control | command | result |

@@ -25,8 +25,10 @@ from pathlib import Path
 
 DIAGNOSTIC = re.compile(r'^(?P<file>[^:\n]+\.lean):(?P<line>\d+):(?P<col>\d+):\s*'
                         r'(?P<sev>error|warning):\s*(?P<msg>.*)$', re.M)
-AXIOMS = re.compile(r"^'(?P<name>[^']+)' depends on axioms: \[(?P<ax>.*?)\]", re.M)
-AXIOM_FREE = re.compile(r"^'(?P<name>[^']+)' does not depend on any axioms", re.M)
+# `#print axioms` output wraps when the axiom list is long, so the terminator must be sought
+# across newlines: a single-line pattern silently drops exactly the theorems with many axioms.
+AXIOMS = re.compile(r"'(?P<name>[^']+)' depends on axioms:\s*\[(?P<ax>[^\]]*)\]", re.S)
+AXIOM_FREE = re.compile(r"'(?P<name>[^']+)' does not depend on any axioms")
 DECLARATION = re.compile(r'^(?P<kind>theorem|lemma|instance|def|abbrev|structure|class)\s+'
                          r'(?P<name>[^\s:({\[]+)', re.M)
 VERDICT = re.compile(r'^VERDICT:\s*(?P<v>[A-Z_]+)\s*$', re.M)

@@ -18,7 +18,7 @@
   "build_lib": "",
   "counts": {
     "declarations": 1,
-    "errors": 1,
+    "errors": 0,
     "warnings": 1
   },
   "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\pilot-shadow",
@@ -31,21 +31,13 @@
   "diagnostics": [
     {
       "file": "Candidates\\Tamper.lean",
-      "line": 1,
-      "message": "expected token",
-      "severity": "error"
-    },
-    {
-      "file": "Candidates\\Tamper.lean",
       "line": 3,
       "message": "declaration uses `sorry`",
       "severity": "warning"
     }
   ],
-  "exit": 1,
+  "exit": 0,
   "failures": [
-    "lean exited 1",
-    "1 error diagnostics",
     "1 warning diagnostics (strict: zero required)",
     "1 forbidden term(s)",
     "no axiom report found (`#print axioms` missing)"
@@ -62,8 +54,8 @@
   "readme_verdicts": [],
   "require_all_axioms": false,
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout_sha256": "9254eaf75598d248f7338aa9272a48863a7f6ee16811216effcef5d578324966",
-  "stdout_tail": "Candidates\\Tamper.lean:1:0: error: expected token\nCandidates\\Tamper.lean:3:8: warning: declaration uses `sorry`\n",
+  "stdout_sha256": "07321ff30bb4f454b80c4c08848ada3bda281511e3b9e458964f54b42bed204e",
+  "stdout_tail": "Candidates\\Tamper.lean:3:8: warning: declaration uses `sorry`\n",
   "toolchain": "leanprover/lean4:v4.34.0-rc2",
   "unlisted_axioms": [],
   "unreported_theorems": [

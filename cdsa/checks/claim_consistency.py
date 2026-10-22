@@ -28,8 +28,12 @@ from pathlib import Path
 
 PROOF_VERDICTS = {'INSTANCE_PROVED_UNBLOCKS', 'INSTANCE_PROVED_STRUCTURAL_ONLY', 'CORE_PROVED',
                   'PARTIAL', 'PASS'}
-HEDGES = ('not constructed', 'forbidden', 'not attempted', 'no construction', 'NOT ',
-          'out of scope', 'forbidden identification')
+# Lowercase, and matched against a lowercased window, because prose capitalises freely
+# ("Nothing here constructs ..." vs the same sentence mid-paragraph). The list is kept
+# specific on purpose: a bare "not" within 400 characters would swallow every mention.
+HEDGES = ('not constructed', 'not construct', 'does not construct', 'constructs no',
+          'nothing here', 'no construction', 'forbidden', 'out of scope', 'not attempted',
+          'no iut', 'not an element', 'never an element')
 SENSITIVE = ('Cor 3.12', 'Corollary 3.12', 'Θ-link', 'Theta-link', 'Ism', 'abc')
 
 
@@ -87,7 +91,7 @@ def main(argv=None) -> int:
     # 5 -- the three dangerous names may only appear hedged
     for name in SENSITIVE:
         if name in readme:
-            window = readme[max(0, readme.index(name) - 400):readme.index(name) + 400]
+            window = readme[max(0, readme.index(name) - 400):readme.index(name) + 400].lower()
             if not any(hedge in window for hedge in HEDGES):
                 problems.append(f'{name!r} appears without a hedging token within 400 chars')
                 break
