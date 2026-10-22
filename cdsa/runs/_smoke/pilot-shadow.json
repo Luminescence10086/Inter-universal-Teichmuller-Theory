@@ -1,0 +1,273 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "Candidates\\PilotShadow.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "0c6b19a6aa28e4bbae528d126b988078dc43dcd54fff4f041b115189fc41d701",
+  "axiom_source": "D:\\Inter-universal Teichmüller Theory\\candidates\\pilot-shadow\\Candidates\\Axioms.lean",
+  "axioms": {
+    "Candidates.PilotShadow.excess_is_uniform": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.hull_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.hull_slotVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.hull_strict_one_coordinate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.orbit_act": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.orbit_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.orbit_mem_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.relabel_toPadic": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.swap23_eq_labelAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Candidates.PilotShadow.swap23_moves_profile": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "Candidates"
+    ],
+    "exit": 0,
+    "stdout_tail": "pext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:22:0: 'Candidates.PilotShadow.hull_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:23:0: 'Candidates.PilotShadow.hull_slotVector' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:24:0: 'Candidates.PilotShadow.hull_strict_one_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:25:0: 'Candidates.PilotShadow.swap23_moves_profile' depends on axioms: [propext, Classical.choice, Quot.sound]\ninfo: Candidates/Axioms.lean:26:0: 'Candidates.PilotShadow.excess_is_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]\n✔ [2003/2004] Built Candidates (15s)\nBuild completed successfully (2004 jobs).\n"
+  },
+  "build_lib": "Candidates",
+  "counts": {
+    "declarations": 35,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\pilot-shadow",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "act"
+    },
+    {
+      "kind": "theorem",
+      "name": "act_apply"
+    },
+    {
+      "kind": "theorem",
+      "name": "act_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "act_trans"
+    },
+    {
+      "kind": "theorem",
+      "name": "swap23_eq_labelAction"
+    },
+    {
+      "kind": "theorem",
+      "name": "relabel_toPadic"
+    },
+    {
+      "kind": "def",
+      "name": "pilotProfile"
+    },
+    {
+      "kind": "def",
+      "name": "slotVector"
+    },
+    {
+      "kind": "theorem",
+      "name": "pilotProfile_eq_slotVector"
+    },
+    {
+      "kind": "theorem",
+      "name": "slotVector_self"
+    },
+    {
+      "kind": "theorem",
+      "name": "slotVector_of_ne"
+    },
+    {
+      "kind": "theorem",
+      "name": "slotVector_apply_or"
+    },
+    {
+      "kind": "theorem",
+      "name": "slotVector_eq_v₂_iff"
+    },
+    {
+      "kind": "theorem",
+      "name": "slotVector_injective"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_nonempty"
+    },
+    {
+      "kind": "theorem",
+      "name": "act_pilotProfile"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_act"
+    },
+    {
+      "kind": "theorem",
+      "name": "slotVector_eq_act"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_slotVector"
+    },
+    {
+      "kind": "theorem",
+      "name": "mem_orbit_iff_exists_slotVector"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_mem_iff"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_card"
+    },
+    {
+      "kind": "theorem",
+      "name": "hull_le_of_mem"
+    },
+    {
+      "kind": "theorem",
+      "name": "le_hull"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_coord_value"
+    },
+    {
+      "kind": "theorem",
+      "name": "exists_orbit_coord_eq_v₁"
+    },
+    {
+      "kind": "theorem",
+      "name": "exists_orbit_coord_eq_v₂"
+    },
+    {
+      "kind": "theorem",
+      "name": "hull_eq"
+    },
+    {
+      "kind": "theorem",
+      "name": "hull_slotVector"
+    },
+    {
+      "kind": "theorem",
+      "name": "hull_strict_one_coordinate"
+    },
+    {
+      "kind": "theorem",
+      "name": "act_swap23_profile"
+    },
+    {
+      "kind": "theorem",
+      "name": "swap23_profile_high_slots"
+    },
+    {
+      "kind": "theorem",
+      "name": "swap23_profile_low_slots"
+    },
+    {
+      "kind": "theorem",
+      "name": "swap23_moves_profile"
+    },
+    {
+      "kind": "theorem",
+      "name": "excess_is_uniform"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\pilot-shadow\\Candidates\\PilotShadow.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_tail": "",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": [
+    "act_apply",
+    "act_one",
+    "act_trans",
+    "swap23_eq_labelAction",
+    "relabel_toPadic",
+    "pilotProfile_eq_slotVector",
+    "slotVector_self",
+    "slotVector_of_ne",
+    "slotVector_apply_or",
+    "slotVector_eq_v₂_iff",
+    "slotVector_injective",
+    "orbit_nonempty",
+    "act_pilotProfile",
+    "orbit_act",
+    "slotVector_eq_act",
+    "orbit_slotVector",
+    "mem_orbit_iff_exists_slotVector",
+    "orbit_mem_iff",
+    "orbit_card",
+    "hull_le_of_mem",
+    "le_hull",
+    "orbit_coord_value",
+    "exists_orbit_coord_eq_v₁",
+    "exists_orbit_coord_eq_v₂",
+    "hull_eq",
+    "hull_slotVector",
+    "hull_strict_one_coordinate",
+    "act_swap23_profile",
+    "swap23_profile_high_slots",
+    "swap23_profile_low_slots",
+    "swap23_moves_profile",
+    "excess_is_uniform"
+  ]
+}

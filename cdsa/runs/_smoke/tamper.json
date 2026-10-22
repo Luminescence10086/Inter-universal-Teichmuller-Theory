@@ -1,0 +1,72 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "Candidates\\Tamper.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {},
+  "build": null,
+  "build_lib": "",
+  "counts": {
+    "declarations": 1,
+    "errors": 1,
+    "warnings": 1
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\pilot-shadow",
+  "declarations": [
+    {
+      "kind": "theorem",
+      "name": "bad_sum"
+    }
+  ],
+  "diagnostics": [
+    {
+      "file": "Candidates\\Tamper.lean",
+      "line": 1,
+      "message": "expected token",
+      "severity": "error"
+    },
+    {
+      "file": "Candidates\\Tamper.lean",
+      "line": 3,
+      "message": "declaration uses `sorry`",
+      "severity": "warning"
+    }
+  ],
+  "exit": 1,
+  "failures": [
+    "lean exited 1",
+    "1 error diagnostics",
+    "1 warning diagnostics (strict: zero required)",
+    "1 forbidden term(s)",
+    "no axiom report found (`#print axioms` missing)"
+  ],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\pilot-shadow\\Candidates\\Tamper.lean",
+  "forbidden": [
+    {
+      "line": 3,
+      "pattern": "\\bsorry\\b",
+      "text": "theorem bad_sum : (1 : Nat) = 2 := by sorry"
+    }
+  ],
+  "ok": false,
+  "readme_verdicts": [],
+  "require_all_axioms": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "9254eaf75598d248f7338aa9272a48863a7f6ee16811216effcef5d578324966",
+  "stdout_tail": "Candidates\\Tamper.lean:1:0: error: expected token\nCandidates\\Tamper.lean:3:8: warning: declaration uses `sorry`\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": [
+    "bad_sum"
+  ]
+}
