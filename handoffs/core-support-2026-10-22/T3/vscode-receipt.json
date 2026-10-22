@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "recorded_utc": "2026-10-22T16:49:13Z",
+  "recorded_utc": "2026-10-22T17:04:48Z",
   "observer": "this session, Windows UI Automation (no computer-use service, no screenshots)",
   "editor": {
     "product": "Visual Studio Code 1.143.0",
     "lean_extension": "leanprover.lean4-0.0.240"
   },
   "editor_status": "EDITOR_CHECKED",
-  "scope_of_the_check": "zero error and zero warning diagnostics for candidates/core-transport/DelegatedLogBridge.lean, observed in a trusted window with the Lean 4 extension active",
+  "scope_of_the_check": "zero error and zero warning diagnostics for candidates/core-transport/DelegatedLogBridge.lean in a trusted window with the Lean 4 extension active, plus a zero-goal InfoView reading at each of the four declarations",
   "diagnostics_observed": {
     "errors": 0,
     "warnings": 0,
@@ -65,9 +65,6 @@
       "aims": "unchanged four axiom lines"
     }
   },
-  "not_observed": [
-    "InfoView \"No goals\" for any declaration: the Infoview is an embedded webview whose text is not exposed in the accessibility tree (the same limitation recorded in local-phase earlier rounds, e.g. local-field/verification/round5-ui-partial-luna.txt)"
-  ],
   "inputs": {
     "candidates/core-transport/DelegatedLogBridge.lean": "764117e4aae02ccc2ef5eaebc51ae600e24f0e0884d869c72e480b6815f12a90",
     "candidates/core-transport/CoreTransport.lean": "5fd527c0ce2fe6841d5e57f807f639c8175f6a6dd7e0488eaad71752b868878b"
@@ -79,7 +76,43 @@
     "after-root/vscode-problems-panel.txt": "52b6c36cfa1c89c2bd3fb2f2e252d710eb643c6094fa1e4abad3a9b20c3377cd",
     "t3-lake-build-after-root.stdout.txt": "7db929b2a880a49548dd20c290e2862306a8335464ce6e0d6dd3ac75d9ce3aab",
     "lean_stdout-after-root.txt": "43c6004576675d0d129e21539aaf0e9cb6cc712a42155556715736cae85e754b",
-    "editor-check.md": "96faadb1b4eec94b124f825241aedd45e5c304c2855c6686a05d12fc9a6ecbc9"
+    "editor-check.md": "77ee6e733478ab3805c982437673355f0754c76026572908bb66ea2fda0c6d0f",
+    "infoview/localLog_eq_padicLog.txt": "f9a7cb1dfcb5c320cb934f1c3db25e021c53b78efbc04753f8086b88cbb94ae0",
+    "infoview/summable_logTerm.txt": "925006b3a211a4da3554ca1cf020ca27efaa06d297ed2ee2f4ab2d7f637d05d5",
+    "infoview/hasSum_logTerm_localLog.txt": "127d5c5b8dea6c1ac4b3ec00296d58da91ffe313379120c69dfe17003732bbb9",
+    "infoview/logImage_Q3_eq_closedBall.txt": "bd8414031a2045dca652c4cbe02120c18ab7aa6a1bc7df36bcc3db79a72e33a4",
+    "infoview/infoview-summary.json": "9221781c4085036b933392b08739b8d688d581dada6f98b3c684a89f89a049cd",
+    "capture-infoview.ps1": "1d560dabaecc5e012cde8b404da53635b64ea3e8be06291c8a5516448f032db2"
   },
-  "fact_tree_admitted": false
+  "fact_tree_admitted": false,
+  "infoview": {
+    "observed": true,
+    "zero_goals_meaning": "\"No goals\" and \"Goals accomplished!\" are the two strings the Lean 4 Tactic state section shows when the goal list is empty",
+    "method": "VS Code relaunched with --force-renderer-accessibility so the embedded webview enters the accessibility tree; for each declaration the cursor was parked on the line after the last tactic step (or at the end of it); the text was then read from the Infoview Tactic state section, whose sibling section All Messages ( 4) holds the four axiom reports",
+    "per_declaration": {
+      "localLog_eq_padicLog": {
+        "line": 36,
+        "text": "No goals"
+      },
+      "summable_logTerm": {
+        "line": 41,
+        "text": "Goals accomplished!"
+      },
+      "hasSum_logTerm_localLog": {
+        "line": 50,
+        "text": "No goals"
+      },
+      "logImage_Q3_eq_closedBall": {
+        "line": 64,
+        "text": "Goals accomplished!"
+      }
+    },
+    "evidence": {
+      "localLog_eq_padicLog": "infoview/localLog_eq_padicLog.txt",
+      "summable_logTerm": "infoview/summable_logTerm.txt",
+      "hasSum_logTerm_localLog": "infoview/hasSum_logTerm_localLog.txt",
+      "logImage_Q3_eq_closedBall": "infoview/logImage_Q3_eq_closedBall.txt"
+    },
+    "flakiness_note": "the pane does not always repaint immediately; the first passes read an empty Tactic state, so the capture now polls up to 24 s for the text instead of sleeping a fixed interval. The run recorded here is a single pass in which all four were read."
+  }
 }

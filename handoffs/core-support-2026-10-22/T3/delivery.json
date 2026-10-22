@@ -1,6 +1,6 @@
 {
   "task_id": "T3",
-  "status": "PARTIAL",
+  "status": "CLI_CHECKED_EDITOR_PENDING",
   "started_at": "2026-10-23T00:03:53+08:00",
   "finished_at": "2026-10-23T00:06:05+08:00",
   "inputs": [
@@ -79,6 +79,10 @@
       "sha256": "52b6c36cfa1c89c2bd3fb2f2e252d710eb643c6094fa1e4abad3a9b20c3377cd"
     },
     {
+      "path": "handoffs/core-support-2026-10-22/T3/capture-infoview.ps1",
+      "sha256": "1d560dabaecc5e012cde8b404da53635b64ea3e8be06291c8a5516448f032db2"
+    },
+    {
       "path": "handoffs/core-support-2026-10-22/T3/capture-problems.ps1",
       "sha256": "da3b0b9f8cadafc9d092e51864543e53ff0b8bce274ebf6c269ccca89f1e2359"
     },
@@ -108,7 +112,27 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/editor-check.md",
-      "sha256": "96faadb1b4eec94b124f825241aedd45e5c304c2855c6686a05d12fc9a6ecbc9"
+      "sha256": "77ee6e733478ab3805c982437673355f0754c76026572908bb66ea2fda0c6d0f"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/infoview/hasSum_logTerm_localLog.txt",
+      "sha256": "127d5c5b8dea6c1ac4b3ec00296d58da91ffe313379120c69dfe17003732bbb9"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/infoview/infoview-summary.json",
+      "sha256": "9221781c4085036b933392b08739b8d688d581dada6f98b3c684a89f89a049cd"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/infoview/localLog_eq_padicLog.txt",
+      "sha256": "f9a7cb1dfcb5c320cb934f1c3db25e021c53b78efbc04753f8086b88cbb94ae0"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/infoview/logImage_Q3_eq_closedBall.txt",
+      "sha256": "bd8414031a2045dca652c4cbe02120c18ab7aa6a1bc7df36bcc3db79a72e33a4"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/infoview/summable_logTerm.txt",
+      "sha256": "925006b3a211a4da3554ca1cf020ca27efaa06d297ed2ee2f4ab2d7f637d05d5"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/lean_stderr-after-root.txt",
@@ -128,7 +152,7 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/SUMMARY.md",
-      "sha256": "8290b85d992d1f9ee1046668ae69e89fe7950b7337dac8ce6eb6548d884149c6"
+      "sha256": "e3bc5e093288767b41ac7c669ea5a689f916a18a9d4a61ff18af6dc88b2575ee"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/t3-lake-build-after-root.stderr.txt",
@@ -184,7 +208,11 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/vscode-receipt.json",
-      "sha256": "d5f5d00849ddc8892072c4fa5c475553f962cad1bc34b1ab2711c2c25eccb965"
+      "sha256": "de934a9a395ee9a4e5acf5af76ec19c1c51ae7dcda939978db3cf1775824037c"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/write_infoview_receipt.py",
+      "sha256": "9085799cbe5243e5ebd357ffc7c69709f77b13634ac388833f84619c74e8f5e2"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/write_receipt.py",
@@ -219,12 +247,13 @@
     "editor opened in a trusted window with Lean 4 active; the single diagnostic was identified verbatim as the extension stale-imports guard, not an elaboration error",
     "causal evidence: lake build CoreTransport fails on a missing library root module CoreTransport.lean",
     "after adding the labelled library-root module, the editor reports 0 errors and 0 warnings; the four remaining Problems entries are the #print axioms information messages themselves",
-    "lake build CoreTransport now exits 0 (2672 jobs) and the T3 entry re-runs at exit 0 with the same four axiom lines"
+    "lake build CoreTransport now exits 0 (2672 jobs) and the T3 entry re-runs at exit 0 with the same four axiom lines",
+    "InfoView zero-goal reading obtained in a single pass for all four declarations (\"No goals\" or \"Goals accomplished!\") by relaunching with --force-renderer-accessibility and polling the Tactic state section"
   ],
   "open": [
-    "InfoView No goals was not observed for any declaration (Infoview webview text is not exposed through the accessibility tree)",
     "candidates/core-transport/CoreTransport.lean is outside T3's permitted-source rule; it was authorised by the user on 2026-10-23 and is labelled as a structural fix in its header"
   ],
   "editor_status": "EDITOR_CHECKED",
-  "fact_tree_admitted": false
+  "fact_tree_admitted": false,
+  "vocabulary_note": "the closed status vocabulary has no value meaning \"verified in both planes\"; this value is the closest documented one, and editor_status = EDITOR_CHECKED carries the actual editor outcome, so nothing here should be read as the editor still being pending"
 }

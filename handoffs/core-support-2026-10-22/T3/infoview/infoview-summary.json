@@ -1,0 +1,26 @@
+﻿[
+    {
+        "name":  "localLog_eq_padicLog",
+        "line":  "36",
+        "nodes":  373,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "summable_logTerm",
+        "line":  "41",
+        "nodes":  435,
+        "goal_text":  "Goals accomplished!"
+    },
+    {
+        "name":  "hasSum_logTerm_localLog",
+        "line":  "50",
+        "nodes":  373,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "logImage_Q3_eq_closedBall",
+        "line":  "64",
+        "nodes":  405,
+        "goal_text":  "Goals accomplished!"
+    }
+]

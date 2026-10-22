@@ -1,14 +1,18 @@
 # T3 — delegated log bridge
 
-**status: `PARTIAL`** · one new source file (+ one labelled structural fix) · one command · real exit 0 · **editor checked: 0 errors, 0 warnings**
+**status: `CLI_CHECKED_EDITOR_PENDING`** · one new source file (+ one labelled structural fix) · one command · real exit 0 · **editor checked: 0 errors, 0 warnings, 0 goals on all four declarations**
 
-CLI: exit 0, zero diagnostics, axioms within the whitelist. Editor: trusted window, Lean 4
-active, Problems panel shows **0 errors / 0 warnings / 4 information** — the information entries
-are the file's own four `#print axioms` lines. Reaching that required adding
+CLI: exit 0, zero diagnostics, axioms within the whitelist. Editor: trusted window, Lean 4 active,
+Problems panel shows **0 errors / 0 warnings / 4 information** (the file's own `#print axioms`
+lines), and the InfoView Tactic state reads `No goals` / `Goals accomplished!` at each of the four
+declarations — obtained by relaunching with `--force-renderer-accessibility`, which is what puts
+the webview into the accessibility tree. Reaching that required adding
 `candidates/core-transport/CoreTransport.lean`, the missing library root (its header labels it a
-structural fix outside T3's permitted-source rule, authorised by the user on 2026-10-23). The one
-thing still unobserved is InfoView `No goals`: the Infoview webview does not expose text to the
-accessibility tree. See `editor-check.md` and `vscode-receipt.json`.
+structural fix outside T3's permitted-source rule, authorised by the user on 2026-10-23).
+
+Note on the status value: the handoff's closed vocabulary has no entry for "verified in both
+planes", so it is kept at the closest documented value and `editor_status: EDITOR_CHECKED` carries
+the real outcome. See `editor-check.md` and `vscode-receipt.json`.
 
 ## What was done
 

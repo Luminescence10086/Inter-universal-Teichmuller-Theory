@@ -52,10 +52,39 @@ instruction to label it. After the addition:
   bytes, the same four whitelisted axiom lines;
 - the editor observation above.
 
-## What is still not observed
+## The InfoView reading (this was the last missing piece)
 
-InfoView `No goals` for any of the four declarations. The Infoview is an embedded webview whose
-text is not exposed in this capture method — the same limitation this repository already recorded
-in round 5 (`local-field/verification/round5-ui-partial-luna.txt`: the UI Automation tree does not
-expose the embedded frame). The evidence here therefore establishes zero diagnostics, not the
-per-theorem InfoView state; `fact_tree_admitted` remains `false`.
+Plain UI Automation cannot see the Infoview: it is an embedded webview, and the same limitation is
+already recorded in round 5 of this repository. The lever that worked is Chromium's own
+accessibility tree — VS Code relaunched with `--force-renderer-accessibility` exposes the webview
+content, and the cursor is then parked on the line after the last tactic step (or at the end of
+it) so the Tactic state section reports the goal list.
+
+One single pass, all four declarations:
+
+| declaration | cursor line | Tactic state |
+|---|---|---|
+| `localLog_eq_padicLog` | 36 | `No goals` |
+| `summable_logTerm` | 41 | `Goals accomplished!` |
+| `hasSum_logTerm_localLog` | 50 | `No goals` |
+| `logImage_Q3_eq_closedBall` | 64 | `No goals` / `Goals accomplished!` |
+
+Both strings are the Lean 4 extension's ways of saying the goal list is empty. In the captured
+tree the text sits under the `Tactic state` heading, and the sibling section
+`All Messages ( 4)` holds the four axiom reports — so the same capture shows, in one place, that
+the proofs are closed and that the axioms are the whitelisted three.
+
+Captures: `infoview/<declaration>.txt`, summary in `infoview/infoview-summary.json`.
+
+A note on flakiness, because it shaped the method: the pane does not always repaint immediately,
+and the first passes read an empty Tactic state at the correct cursor positions. The capture now
+polls up to 24 s for the text instead of sleeping a fixed interval; the run recorded here is one
+pass in which all four were read.
+
+## What this does and does not establish
+
+It establishes, from observation rather than from the CLI: the four declarations elaborate in the
+editor with zero errors and zero warnings, each proof leaves no goals, and the axiom reports shown
+in the editor match the whitelist. It is still an observation record, not a certificate — the
+`fact_tree_admitted` flag stays `false`.
+
