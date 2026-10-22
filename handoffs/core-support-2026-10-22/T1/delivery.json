@@ -1,0 +1,134 @@
+{
+  "task_id": "T1",
+  "status": "STATIC_ONLY",
+  "started_at": "2026-10-23T00:05:32+08:00",
+  "finished_at": "2026-10-23T00:08:03+08:00",
+  "time_note": "started_at is the timestamp of this task's first artefact written to disk (C:/Users/18746/AppData/Local/Temp/t1_pdfcount.py, creation time 2026-10-23T00:05:32+08:00); the preceding read-only inspection left no timestamp and is not claimed.",
+  "inputs": [
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.pdf",
+      "role": "primary source III (PDF)",
+      "sha256_before": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9",
+      "sha256_after": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9",
+      "commit": null,
+      "note": "matches the SHA256 pinned in the handoff"
+    },
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "role": "primary source III (extracted text; all text_line_* refer to this file)",
+      "sha256_before": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715",
+      "sha256_after": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715",
+      "commit": null,
+      "note": "not pinned by the handoff; this run records it as the input hash"
+    },
+    {
+      "path": "reviews/core-round/external/LANA_report_202607/LANA_report_202607.tex",
+      "role": "secondary report (LANA); all its text_line_* refer to this file",
+      "sha256_before": "a12653a83ccff73592fb385ce78f539c49928237831b341bc893ad4958248585",
+      "sha256_after": "a12653a83ccff73592fb385ce78f539c49928237831b341bc893ad4958248585",
+      "commit": "293bdd89463473ae13d40834d70fb4b7ba81da1f",
+      "commit_as_pinned_in_handoff": "293bddf89463473ae13d40834d70fb4b7ba81da1f",
+      "commit_pin_defect": true,
+      "input_drift": false,
+      "commit_note": "The handoff string has 41 hex characters and is not a valid SHA-1. Measured `git -C reviews/core-round/external/LANA_report_202607 rev-parse HEAD` = 293bdd89463473ae13d40834d70fb4b7ba81da1f (40 chars) = the handoff string with the inserted 'f' at position 7 removed. Classified as a handoff typo, not INPUT_DRIFT."
+    },
+    {
+      "path": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/IUT_STAGE1_SOURCE_MAP.csv",
+      "role": "secondary index only (clue; not used as final location)",
+      "sha256_before": "4a5b964fa0dc7aa1905044bacd9397439960858cf3655945df7a12813e219731",
+      "sha256_after": "4a5b964fa0dc7aa1905044bacd9397439960858cf3655945df7a12813e219731",
+      "commit": "5098565e7f88e75718344702640d5d769e3f3074",
+      "note": "matches the handoff pin"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/core-support-2026-10-22/T1/source-map.csv",
+      "sha256": "3fd033b9b69a5f2440bc702f8bb7d4e0d30a1ccec587e3dd49df5ae2040f055c"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T1/notes.md",
+      "sha256": "2c82bafef2f07c7d90eafc4ef3712c650a292ff993928aeacd15e1fd85d6ace7"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T1/SUMMARY.md",
+      "sha256": "5ea570c595b67c49fcf6e868d419466c97050095fde28d83a3889d169b3c5ca4"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T1/tooling.log",
+      "sha256": "0d49b2b795b5031bbae715a4976204e1192fbe7158751412cab913a8f4617b1d"
+    }
+  ],
+  "commands": [
+    {
+      "cwd": ".",
+      "argv": [
+        "pwsh",
+        "-Command",
+        "Get-FileHash <each input> -Algorithm SHA256"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T1/tooling.log",
+      "section": "1"
+    },
+    {
+      "cwd": "reviews/core-round/external/LANA_report_202607",
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.exe",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T1/tooling.log",
+      "section": "2"
+    },
+    {
+      "cwd": ".",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "C:\\Users\\18746\\AppData\\Local\\Temp\\t1_pdfpages.py"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T1/tooling.log",
+      "section": "3",
+      "note": "read-only PDF page-tree/folio cross-check; no build, no repo script"
+    },
+    {
+      "cwd": ".",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-c",
+        "import csv; ... read source-map.csv and report rows/columns/roles/statuses"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T1/tooling.log",
+      "section": "4"
+    }
+  ],
+  "completed": [
+    "source-map.csv: 15 rows, exactly the 11 columns required, every row status=STATIC_ONLY, no UNRESOLVED unit",
+    "III R3.9.5(ix): cQ3 (p141-142), cQ4 (p142), iQ5 (p142-143) located with subparagraph spans and explicit references",
+    "III R3.9.5: order of sQ1/sQ2/sQ3/sQ4/sQ5 identified -- the enumeration is in (viii) p139 (sQ3 line 8461 < sQ4 8465 < sQ5 8471); (ix) p143 restates that the closed loop passes through (sQ3),(sQ4) before (sQ5)",
+    "III R3.11.1: IPL (p160-161, in (iii) starting line 9837), SHE (p161), APT (p162, inside (iv))",
+    "Cor 3.12 proof: xi-d (p183), xi-e (p183-184), xi-f (p184, target), xi-g (p184; Fig. 3.8 itself on p185)",
+    "LANA: 'The main goal' (tex 2502-2523), 'Minimal structure of the eta-algorithm' (2525-2539), 'Provisional assessment' (2668-2680)",
+    "PDF page-order verified: page tree /Count=199 = 199 '.txt' page markers = 199 raw /Type /Page dicts; folio number equals marker index on all 99 pages where the folio was extractable, 0 mismatches, hence printed_page == pdf_page_1_based for this file",
+    "LANA commit pin defect recorded verbatim (41-char handoff string vs 40-char measured HEAD); reported as handoff typo, status kept STATIC_ONLY",
+    "Cross-checked all located page numbers against the secondary index CSV: no page-number conflict; only span-granularity differences, listed in notes.md section 6",
+    "iQ5 explicit_references reduced to the single explicit reference (Ob7); the page-break continuation note was moved out of the CSV field into notes.md section 7"
+  ],
+  "open": [
+    "Page order is verified structurally (page tree count, page-object count, folio-vs-marker agreement), not by decoding each page's content stream; a stronger check needs poppler pdftotext -layout per-page splitting (not installed).",
+    "Remark 3.9.5(vii) sub-items (Ob1)-(Ob9) were not located line by line (outside the requested units); they appear only inside explicit_references of the requested units.",
+    "The iQ5 paragraph continues across the page break at line 8653 (p143); the CSV span covers only the headed paragraph 8643-8652 and the continuation's explicit references were not excerpted.",
+    "statement_role vocabulary has no 'asserted incompatibility' value; iQ5 is coded asserted_compatibility because the source sentence is an assertion about compatibility with the F-prime-strip data, but its polarity is negative (anchor begins 'Incompatibility of (sQ5)'). Do not read it as a positive compatibility claim.",
+    "The LANA report exists only as LaTeX in this workspace; no typeset version was available to cross-check its line numbers or pagination.",
+    "command argv strings in this file are reconstructions of the pwsh -Command invocations actually run (the exact quoting is shown by the log path given); no build/compile was executed at all."
+  ],
+  "editor_status": "NOT_CHECKED",
+  "fact_tree_admitted": false
+}

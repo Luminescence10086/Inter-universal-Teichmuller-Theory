@@ -1,0 +1,82 @@
+{
+  "runs": [
+    {
+      "cwd": "candidates/core-log",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "CoreLog/QpThree.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "handoffs/core-support-2026-10-22/T4/qpthree.stdout.txt",
+      "stderr": "handoffs/core-support-2026-10-22/T4/qpthree.stderr.txt",
+      "stdout_sha256": "69014488e430fb8ed17ee90a863526a0c62720ba9e0198d7d6579f337244146d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 635,
+      "stderr_bytes": 0,
+      "axiom_report_lines": 7,
+      "error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "cwd": "candidates/core-transport",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "CoreTransport/Completion.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "handoffs/core-support-2026-10-22/T4/completion.stdout.txt",
+      "stderr": "handoffs/core-support-2026-10-22/T4/completion.stderr.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "axiom_report_lines": 0,
+      "error_lines": 0,
+      "warning_lines": 0
+    },
+    {
+      "cwd": "candidates/core-transport",
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "CoreTransport/AxiomExports.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "stdout": "handoffs/core-support-2026-10-22/T4/axiomexports.stdout.txt",
+      "stderr": "handoffs/core-support-2026-10-22/T4/axiomexports.stderr.txt",
+      "stdout_sha256": "fbc63709cb79a51d2aae9923b15f7e007429ce2a5e89ba229dc5b25e19e11a68",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 935,
+      "stderr_bytes": 0,
+      "axiom_report_lines": 10,
+      "error_lines": 0,
+      "warning_lines": 0
+    }
+  ],
+  "sources": {
+    "candidates/core-log/CoreLog/QpThree.lean": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53",
+    "candidates/core-transport/CoreTransport/Completion.lean": "f0347d38b37a3ee8ffb558f9974c116b436ab50e1e1062f56cb5da382f89af0b",
+    "candidates/core-transport/CoreTransport/AxiomExports.lean": "833dad9728400ddd39fdde065f255663292fdaa434dd469e4184fd7f82405e58",
+    "candidates/core-transport/CoreTransport/Basic.lean": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447",
+    "candidates/core-log/PadicLogVolume/PadicLog.lean": "84197867308b1040d94e8f99a2e51f71fa9926b8e93e8d8b039fce9d71b1187d"
+  },
+  "sources_after": {
+    "candidates/core-log/CoreLog/QpThree.lean": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53",
+    "candidates/core-transport/CoreTransport/Completion.lean": "f0347d38b37a3ee8ffb558f9974c116b436ab50e1e1062f56cb5da382f89af0b",
+    "candidates/core-transport/CoreTransport/AxiomExports.lean": "833dad9728400ddd39fdde065f255663292fdaa434dd469e4184fd7f82405e58",
+    "candidates/core-transport/CoreTransport/Basic.lean": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447",
+    "candidates/core-log/PadicLogVolume/PadicLog.lean": "84197867308b1040d94e8f99a2e51f71fa9926b8e93e8d8b039fce9d71b1187d"
+  },
+  "drift": []
+}

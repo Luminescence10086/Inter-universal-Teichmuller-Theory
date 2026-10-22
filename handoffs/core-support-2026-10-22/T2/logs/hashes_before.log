@@ -1,0 +1,16 @@
+﻿# T2 input hashes (before) 2026-10-23T00:05:35.5133090+08:00
+iut/Iut\Wall\EtaAlg.lean lines=229 sha256=393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c
+continuous-kummer-theory/ContinuousKummerTheory\Kummer\Restriction.lean lines=123 sha256=a3cb72802180576ed19c3ea02a3f5118685969c66647789c5fa0bc6121fd395e
+continuous-kummer-theory/ContinuousKummerTheory\Kummer\Corestriction.lean lines=170 sha256=363f9ca8e7ba6c6407e295f7b6aab745fb94a7c4ea0ecd18016ad5cc57f03144
+continuous-kummer-theory/ContinuousKummerTheory\Kummer\Specialization.lean lines=270 sha256=a3852b0e12e7f0af7f87341f904df7914a32fd0b550f79bb0d4de4a3ec2a876a
+tate-curves-theta/TateCurvesTheta\Kummer\ThetaValues.lean lines=293 sha256=eca16ee96c794c002219a7d36e51f1ed6358dcea7757a87fab3a27330a6650f5
+local-class-field-theory/LocalClassFieldTheory\Reciprocity\ArtinUnique.lean lines=172 sha256=0d0221fea075835788dd31e92859a69536b404cee91761ee1d41fb1917af5247
+
+# negative control: is restriction_kummer_thetaUnit in continuous-kummer-theory?
+=== negative control exit=1 (1 = not present, expected) ===
+
+# HEADs
+HEAD iut=f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb rev-parse_exit=0 dirty_lines=0 status_exit=0
+HEAD continuous-kummer-theory=1d5194fcc63ddeb7a8cdb6c98d59452503db60fa rev-parse_exit=0 dirty_lines=0 status_exit=0
+HEAD tate-curves-theta=d1fba94861c886b671f4137ab35e24b7474c9e00 rev-parse_exit=0 dirty_lines=0 status_exit=0
+HEAD local-class-field-theory=a6655a871f92138e486362f08f7df48204f3e985 rev-parse_exit=0 dirty_lines=0 status_exit=0

@@ -1,0 +1,107 @@
+{
+  "task_id": "T3",
+  "status": "CLI_CHECKED_EDITOR_PENDING",
+  "started_at": "2026-10-23T00:03:53+08:00",
+  "finished_at": "2026-10-23T00:06:05+08:00",
+  "inputs": [
+    {
+      "path": "candidates/core-log/PadicLogVolume/PadicLog.lean",
+      "sha256_before": "84197867308b1040d94e8f99a2e51f71fa9926b8e93e8d8b039fce9d71b1187d",
+      "sha256_after": "84197867308b1040d94e8f99a2e51f71fa9926b8e93e8d8b039fce9d71b1187d",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-log/CoreLog/QpThree.lean",
+      "sha256_before": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53",
+      "sha256_after": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256_before": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447",
+      "sha256_after": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Completion.lean",
+      "sha256_before": "f0347d38b37a3ee8ffb558f9974c116b436ab50e1e1062f56cb5da382f89af0b",
+      "sha256_after": "f0347d38b37a3ee8ffb558f9974c116b436ab50e1e1062f56cb5da382f89af0b",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/lakefile.lean",
+      "sha256_before": "64edc4799f8d158e30876777743bbd54e7a94a6266a266407439c0a96eb3f51d",
+      "sha256_after": "64edc4799f8d158e30876777743bbd54e7a94a6266a266407439c0a96eb3f51d",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/lean-toolchain",
+      "sha256_before": "b563246bde88bad741a3fe1c6b126ad8dab470340d55ac3e97cca9b3f200878b",
+      "sha256_after": "b563246bde88bad741a3fe1c6b126ad8dab470340d55ac3e97cca9b3f200878b",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/lake-manifest.json",
+      "sha256_before": "43a3bc7486d957d306d2ef66a959676e1abad57caecaf720157c3ea6166f09c1",
+      "sha256_after": "43a3bc7486d957d306d2ef66a959676e1abad57caecaf720157c3ea6166f09c1",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-log/lakefile.lean",
+      "sha256_before": "7a962e0e76cf84a3244275e28070289db05ccb3d0adac9b6546e5d763324c0ae",
+      "sha256_after": "7a962e0e76cf84a3244275e28070289db05ccb3d0adac9b6546e5d763324c0ae",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-log/lean-toolchain",
+      "sha256_before": "b563246bde88bad741a3fe1c6b126ad8dab470340d55ac3e97cca9b3f200878b",
+      "sha256_after": "b563246bde88bad741a3fe1c6b126ad8dab470340d55ac3e97cca9b3f200878b",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-log/lake-manifest.json",
+      "sha256_before": "3e21a6cc46e74c4d8eb3bd18614b5b70fbafd0c3441e30046ab9b306a5190f8a",
+      "sha256_after": "3e21a6cc46e74c4d8eb3bd18614b5b70fbafd0c3441e30046ab9b306a5190f8a",
+      "commit": null
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates/core-transport/DelegatedLogBridge.lean",
+      "sha256": "764117e4aae02ccc2ef5eaebc51ae600e24f0e0884d869c72e480b6815f12a90"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/lean_stdout.txt",
+      "sha256": "43c6004576675d0d129e21539aaf0e9cb6cc712a42155556715736cae85e754b"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T3/lean_stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "commands": [
+    {
+      "cwd": "candidates/core-transport",
+      "argv": [
+        "C:\\\\Users\\\\18746\\\\.elan\\\\bin\\\\lake.exe",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "DelegatedLogBridge.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T3/lean_stdout.txt (stdout) + lean_stderr.txt (stderr, 0 bytes)"
+    }
+  ],
+  "completed": [
+    "item 1: CoreTransport.localLog = PadicLogVolume.padicLog on Q_3, both definitions unfolded (definition-level wiring)",
+    "item 2: summable_logTerm from CoreLog.principal_unit_log_summable, and HasSum logTerm (localLog x) for ||x-1||<1 derived from that summability",
+    "item 3: CoreTransport.logImage Q_3 = {y | ||y|| <= 1/3} by rewriting along item 1 into CoreLog.principal_unit_log_image",
+    "all four declarations report only [propext, Classical.choice, Quot.sound]",
+    "inputs unchanged (0 drift across 10 tracked input files)"
+  ],
+  "open": [],
+  "editor_status": "NOT_CHECKED",
+  "fact_tree_admitted": false
+}

@@ -1,0 +1,34 @@
+﻿# T1 tooling log (STATIC_ONLY; no build, no repo scripts)
+generated_at: 2026-10-23T00:07:23+08:00
+
+## 1. input SHA256 (Get-FileHash -Algorithm SHA256)
+9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9  research\round2-source-cache\iut-III-official-retrieved-2026-10-16.pdf
+70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715  research\round2-source-cache\iut-III-official-retrieved-2026-10-16.txt
+a12653a83ccff73592fb385ce78f539c49928237831b341bc893ad4958248585  reviews\core-round\external\LANA_report_202607\LANA_report_202607.tex
+4a5b964fa0dc7aa1905044bacd9397439960858cf3655945df7a12813e219731  reviews\core-round\external\MoheetBrain--iut-bridge-audit\IUT_STAGE1_SOURCE_MAP.csv
+
+## 2. external repo HEADs (git -C <dir> rev-parse HEAD)
+293bdd89463473ae13d40834d70fb4b7ba81da1f  reviews/core-round/external/LANA_report_202607  (len=40)
+5098565e7f88e75718344702640d5d769e3f3074  reviews/core-round/external/MoheetBrain--iut-bridge-audit  (len=40)
+main workspace HEAD (informational, not a T1 input): 49105d98c312d4724f15e02f739ae187d3c2d99d
+
+## 3. PDF page-count / folio alignment check (python zlib + regex)
+decompressed_streams 477 pages_nodes 1
+counts ['10', '100', '199', '9', '99']
+markers 199 first (2, '===== PDF PAGE 1 =====') last (11821, '===== PDF PAGE 199 =====')
+folio_checked 99 mismatches 0
+
+## 4. source-map.csv validation
+data_rows 15
+columns ['id', 'source_path', 'source_sha256', 'printed_page', 'pdf_page_1_based', 'text_line_start', 'text_line_end', 'anchor', 'statement_role', 'explicit_references', 'status']
+ids III-R3.9.5-ix-cQ3 III-R3.9.5-ix-cQ4 III-R3.9.5-ix-iQ5 III-R3.9.5-viii-sQorder III-R3.9.5-ix-closedloop III-R3.11.1-IPL III-R3.11.1-SHE III-R3.11.1-APT Cor3.12-xi-d Cor3.12-xi-e Cor3.12-xi-f Cor3.12-xi-g LANA-main-goal LANA-eta-minimal LANA-provisional-assessment
+roles ['asserted_compatibility', 'assessment', 'definition', 'inference', 'target']
+statuses ['STATIC_ONLY']
+
+## 3b. clarification of section 3
+Root page tree node (decompressed object stream) carries /Count 199; the other numeric matches ('9','10','99','100') come from unrelated decompressed content streams. Independent tallies in the same run: 199 '===== PDF PAGE n =====' markers in the .txt and 199 raw '/Type /Page' page dicts in the PDF bytes.
+
+## 5. output SHA256 (final; computed after the last content edit of each file)
+3fd033b9b69a5f2440bc702f8bb7d4e0d30a1ccec587e3dd49df5ae2040f055c  T1/source-map.csv
+2c82bafef2f07c7d90eafc4ef3712c650a292ff993928aeacd15e1fd85d6ace7  T1/notes.md
+5ea570c595b67c49fcf6e868d419466c97050095fde28d83a3889d169b3c5ca4  T1/SUMMARY.md

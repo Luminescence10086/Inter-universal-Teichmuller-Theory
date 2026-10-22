@@ -1,0 +1,161 @@
+{
+  "task_id": "T2",
+  "status": "STATIC_ONLY",
+  "started_at": "2026-10-23T00:03:53+08:00",
+  "finished_at": "2026-10-23T00:08:10+08:00",
+  "started_at_basis": "Creation time of the T2 output directory, which the parent created immediately before this task's first tool call (reading the handoff); not the exact instant of that call. The two/three read-only tool calls that preceded the first artifact fall between this timestamp and logs/hashes_before.log (2026-10-23T00:05:35+08:00).",
+  "finished_at_basis": "Time of the last verification command before this manifest was written; the four output files were already final at that moment.",
+  "timezone": "UTC+08:00",
+  "input_drift": false,
+  "input_drift_detail": "All four pinned repos verified at the exact pinned commits, with empty `git status --porcelain`. No INPUT_DRIFT.",
+  "toolchain": {
+    "lean": "not run",
+    "lake": "not run",
+    "editor": "not used",
+    "note": "Per T2 and the common constraints, no Lean/Lake command was executed on any of the four repositories. All card content is static source reading."
+  },
+  "conventions": {
+    "git_executable": "C:\\Program Files\\Git\\cmd\\git.exe",
+    "repo_paths_recorded": "Repo paths inside argv are written with forward slashes; the invocations used the equivalent absolute Windows backslash paths under reviews/core-round/external/.",
+    "line_numbers": "1-based plain-text line numbers as read from disk (license header included).",
+    "edges_direction": "from = card carrying the reference, to = card being referenced."
+  },
+  "inputs": [
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "sha256_before": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "sha256_after": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "repo": "iut",
+      "lines_total": 229,
+      "cards_served": [1, 2, 3]
+    },
+    {
+      "path": "reviews/core-round/external/continuous-kummer-theory/ContinuousKummerTheory/Kummer/Restriction.lean",
+      "sha256_before": "a3cb72802180576ed19c3ea02a3f5118685969c66647789c5fa0bc6121fd395e",
+      "sha256_after": "a3cb72802180576ed19c3ea02a3f5118685969c66647789c5fa0bc6121fd395e",
+      "commit": "1d5194fcc63ddeb7a8cdb6c98d59452503db60fa",
+      "repo": "continuous-kummer-theory",
+      "lines_total": 123,
+      "cards_served": [4]
+    },
+    {
+      "path": "reviews/core-round/external/continuous-kummer-theory/ContinuousKummerTheory/Kummer/Corestriction.lean",
+      "sha256_before": "363f9ca8e7ba6c6407e295f7b6aab745fb94a7c4ea0ecd18016ad5cc57f03144",
+      "sha256_after": "363f9ca8e7ba6c6407e295f7b6aab745fb94a7c4ea0ecd18016ad5cc57f03144",
+      "commit": "1d5194fcc63ddeb7a8cdb6c98d59452503db60fa",
+      "repo": "continuous-kummer-theory",
+      "lines_total": 170,
+      "cards_served": [5]
+    },
+    {
+      "path": "reviews/core-round/external/continuous-kummer-theory/ContinuousKummerTheory/Kummer/Specialization.lean",
+      "sha256_before": "a3852b0e12e7f0af7f87341f904df7914a32fd0b550f79bb0d4de4a3ec2a876a",
+      "sha256_after": "a3852b0e12e7f0af7f87341f904df7914a32fd0b550f79bb0d4de4a3ec2a876a",
+      "commit": "1d5194fcc63ddeb7a8cdb6c98d59452503db60fa",
+      "repo": "continuous-kummer-theory",
+      "lines_total": 270,
+      "cards_served": [6]
+    },
+    {
+      "path": "reviews/core-round/external/tate-curves-theta/TateCurvesTheta/Kummer/ThetaValues.lean",
+      "sha256_before": "eca16ee96c794c002219a7d36e51f1ed6358dcea7757a87fab3a27330a6650f5",
+      "sha256_after": "eca16ee96c794c002219a7d36e51f1ed6358dcea7757a87fab3a27330a6650f5",
+      "commit": "d1fba94861c886b671f4137ab35e24b7474c9e00",
+      "repo": "tate-curves-theta",
+      "lines_total": 293,
+      "cards_served": [7]
+    },
+    {
+      "path": "reviews/core-round/external/local-class-field-theory/LocalClassFieldTheory/Reciprocity/ArtinUnique.lean",
+      "sha256_before": "0d0221fea075835788dd31e92859a69536b404cee91761ee1d41fb1917af5247",
+      "sha256_after": "0d0221fea075835788dd31e92859a69536b404cee91761ee1d41fb1917af5247",
+      "commit": "a6655a871f92138e486362f08f7df48204f3e985",
+      "repo": "local-class-field-theory",
+      "lines_total": 172,
+      "cards_served": [8]
+    }
+  ],
+  "inputs_note": "The 8 cards resolve to 6 distinct files (cards 1-3 are all in Iut/Wall/EtaAlg.lean). Card 7 was expected by the handoff to be alongside cards 4-6; it is not (see naming_findings). No file outside these 6 was read beyond targeted greps.",
+  "outputs": [
+    {"path": "handoffs/core-support-2026-10-22/T2/cards.md", "sha256": "d6635e880b63e3da7cc19fa4f3480ce19fa903269124514f18847663b990dab2", "bytes": 36445, "lines": 628},
+    {"path": "handoffs/core-support-2026-10-22/T2/cards.json", "sha256": "25a28fd7cd25e14548630d222cfd6f813fb9a20c9b4ff4e49be35e777618a175", "bytes": 33043, "lines": 496},
+    {"path": "handoffs/core-support-2026-10-22/T2/edges.csv", "sha256": "781c2ffc4fecf0f665c868215490afeaeba9d82bc3db48a4577b180b8b0824f2", "bytes": 551, "lines": 5},
+    {"path": "handoffs/core-support-2026-10-22/T2/SUMMARY.md", "sha256": "c32b99a1b9c9b1867f79613ca692a234dd06841126ba8d5ad0ab1d2124cd7c30", "bytes": 1811, "lines": 19},
+    {"path": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "sha256": "5852a2203f49053468d6178096f2afcb65d5300c320c74245ab577d83126d9b5", "bytes": 1638},
+    {"path": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "sha256": "52ed0c91316fb31cf0cc732ff34d27a0eb008680ac450ebee96596f24e07c0d6", "bytes": 1537},
+    {"path": "handoffs/core-support-2026-10-22/T2/logs/hashes_after.log", "sha256": "19fd9447ea6b60e3b364a3d52496a65a83127bb28c75ab004cc2c53e895cb33e", "bytes": 1487}
+  ],
+  "commands": [
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/iut", "rev-parse", "HEAD"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "stdout_value": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb"},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/continuous-kummer-theory", "rev-parse", "HEAD"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "stdout_value": "1d5194fcc63ddeb7a8cdb6c98d59452503db60fa"},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/tate-curves-theta", "rev-parse", "HEAD"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "stdout_value": "d1fba94861c886b671f4137ab35e24b7474c9e00"},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/local-class-field-theory", "rev-parse", "HEAD"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "stdout_value": "a6655a871f92138e486362f08f7df48204f3e985"},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/iut", "status", "--porcelain"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "matched_lines": 0, "note": "empty output = clean tree"},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/continuous-kummer-theory", "status", "--porcelain"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "matched_lines": 0},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/tate-curves-theta", "status", "--porcelain"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "matched_lines": 0},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/local-class-field-theory", "status", "--porcelain"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "matched_lines": 0},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/iut", "grep", "-n", "-F", "--", "structure EtaAlg"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 1},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/iut", "grep", "-n", "-F", "--", "theorem etaAnab_eq_etaQ_iff"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 2},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/iut", "grep", "-n", "-F", "--", "theorem variant_of_wall "], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 3},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/continuous-kummer-theory", "grep", "-n", "-F", "--", "theorem restriction_kummer "], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 4},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/continuous-kummer-theory", "grep", "-n", "-F", "--", "theorem corestriction_kummer "], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 5},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/continuous-kummer-theory", "grep", "-n", "-F", "--", "theorem map_section_kummer_eq_kummerValue"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 6},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/tate-curves-theta", "grep", "-n", "-F", "--", "theorem restriction_kummer_thetaUnit"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 7},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/local-class-field-theory", "grep", "-n", "-F", "--", "theorem eq_artin_of_forall"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 1, "card": 8},
+    {"cwd": ".", "argv": ["C:\\Program Files\\Git\\cmd\\git.exe", "-C", "reviews/core-round/external/continuous-kummer-theory", "grep", "-n", "-F", "--", "restriction_kummer_thetaUnit"], "exit_code": 1, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/grep.log", "matched_lines": 0, "note": "NEGATIVE CONTROL, and the basis of a naming finding. exit 1 = no match, which is the EXPECTED result here, not a failure: it proves card 7 is not in continuous-kummer-theory."},
+    {"cwd": ".", "argv": ["pwsh", "-Command", "Get-FileHash -Algorithm SHA256 over the 6 card-bearing input files; git rev-parse HEAD and git status --porcelain over the 4 pinned repos"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_before.log", "note": "Harness pwsh invocation; the shell's exit status is 0. The git exit codes it recorded separately are listed above."},
+    {"cwd": ".", "argv": ["pwsh", "-Command", "Get-FileHash -Algorithm SHA256 over cards.md, cards.json, edges.csv, SUMMARY.md, logs/* and the 6 input files (after)"], "exit_code": 0, "timed_out": false, "log": "handoffs/core-support-2026-10-22/T2/logs/hashes_after.log"},
+    {"cwd": ".", "argv": ["C:/msys64/ucrt64/bin/python.exe", "C:/Users/18746/AppData/Local/Temp/t2json.py", "handoffs/core-support-2026-10-22/T2/cards.json"], "exit_code": 0, "timed_out": false, "log": null, "stdout_value": "utf8 decode: OK, chars: 32429 / JSON OK; cards: 8", "note": "cards.json parsed as UTF-8 JSON with exactly 8 card objects; no replacement characters in any signature."}
+  ],
+  "completed": [
+    "Verified all four repositories at their pinned commits with clean worktrees (no INPUT_DRIFT).",
+    "Located all 8 declarations and recorded repo SHA, file path, line numbers, whole-file SHA256, and the file's own direct import lines for each.",
+    "Quoted each declaration's ORIGINAL signature verbatim in a fenced block preceded by its file:line.",
+    "Recovered the enclosing section/variable/typeclass/local-instance context for every card (read 30-80 line windows), including the premises a theorem-line-only card would silently drop: [Algebra.IsIntegral L ΩL] (card 4, Restriction.lean:84); [IsGalois K Ω] + [FiniteDimensional K L] and the two anonymous section-level instances at lines 60 and 63 (card 5); (hπ : Continuous π) forced by `include hπ in` at line 244 (card 6); [CompleteSpace K] + [IsUltrametricDist K] (card 7); [Fact p.Prime] forced by `include hp in` at line 149 plus the file-level `set_option linter.unusedSectionVars false` at line 28 (card 8).",
+    "Recorded each card's explicit consumed premises and its output type/value, noting for cards 2 and 4 that NO propositional hypothesis is consumed and for cards 3, 7, 8 that the declaration is conditional.",
+    "Produced edges.csv with exactly 4 direct relations among the 8 cards (2 signature_reference, 1 import, 1 proof_reference) and documented in cards.md which transitive or non-card relations were deliberately excluded.",
+    "Recorded two naming findings: card 6 is missing its KummerTheory. prefix, and card 7 is in a different repository (tate-curves-theta, namespace TateCurvesTheta.TateParameter) than the handoff implies.",
+    "Confirmed input sha256 unchanged before/after; nothing under reviews/core-round/external was written, and no registry, fact-tree, root config or existing proof was touched.",
+    "cards.json validated as UTF-8 JSON with 8 objects (Python json.loads, exit 0)."
+  ],
+  "naming_findings": [
+    {
+      "card": 6,
+      "given": "map_section_kummer_eq_kummerValue",
+      "real": "KummerTheory.map_section_kummer_eq_kummerValue",
+      "kind": "missing namespace prefix",
+      "evidence": "namespace KummerTheory opens at Specialization.lean:70; the declaration is at 247."
+    },
+    {
+      "card": 7,
+      "given": "restriction_kummer_thetaUnit",
+      "real": "TateCurvesTheta.TateParameter.restriction_kummer_thetaUnit",
+      "kind": "wrong repository and missing namespaces",
+      "evidence": "git grep -F restriction_kummer_thetaUnit in continuous-kummer-theory exits 1 (absent); the declaration is tate-curves-theta/TateCurvesTheta/Kummer/ThetaValues.lean:284."
+    },
+    {
+      "card": 3,
+      "given": "Iut.Wall.variant_of_wall (listed alongside cards 1-2)",
+      "real": "Iut.Wall.variant_of_wall",
+      "kind": "misleading co-location assumption, name itself correct",
+      "evidence": "The name is right, but cards 1-3 share Iut/Wall/EtaAlg.lean while card 3 sits in a REOPENED `namespace Wall` (line 177) after `end Wall` (166), with `variable {D}` re-declared implicit at line 179 - a different scope than cards 1-2."
+    }
+  ],
+  "open": [
+    "No elaborator confirmation of any signature or hidden premise: no `#print`, no `lake build`, no `lean` invocation was performed (prohibited for this task). Every 'hidden premise' is a STATIC reading of the enclosing scope and could differ in elaboration order from the inferred one.",
+    "No `#print axioms` check: the axiom-dependence of any of the 8 declarations is unverified.",
+    "IsAdelic and InHullOfImage (used by card 1's realisation field) were not carded; Iut/MainTheorem.lean was not read.",
+    "Iut/Concrete/Ind1Invariance.lean, named in card 3's docstring as the source of the -|log(Theta)| log-volume, was not read.",
+    "Non-card dependency files were only used for edge exclusion, not carded: Iut/Wall/Ind3.lean, Iut/MainTheorem.lean, Kummer/Equiv.lean, ContH1/Corestriction.lean, Kummer/Values.lean, Kummer/CorRes.lean, TateCurvesTheta/Theta/Durfee.lean, TateCurvesTheta/Theta/Inversion.lean, TateCurvesTheta/QParameter/BaseChange.lean, Reciprocity/ArtinInertia.lean.",
+    "Card 1's downstream consumers (Iut/Wall/Checks.lean, Iut/Wall/IdentifiedCopies.lean, Iut/Wall/MultiContainer.lean) were not traced; that would exceed the 8-card scope.",
+    "No editor / IDE diagnostics check was performed, as required (editor_status NOT_CHECKED)."
+  ],
+  "editor_status": "NOT_CHECKED",
+  "fact_tree_admitted": false,
+  "claims_not_made": [
+    "No premise of the original IUT is claimed satisfied by any declaration carded here.",
+    "No proof is claimed established, and no GAP is claimed closed.",
+    "cards 1-3 describe a formal interface plus a HYPOTHETICAL implication taking the wall hypothesis as an argument; the wall hypothesis itself is never asserted."
+  ]
+}

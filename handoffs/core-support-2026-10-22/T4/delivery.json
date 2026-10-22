@@ -1,0 +1,186 @@
+{
+  "task_id": "T4",
+  "status": "CLI_CHECKED_EDITOR_PENDING",
+  "started_at": "2026-10-23T00:03:53+08:00",
+  "finished_at": "2026-10-23T00:10:02+08:00",
+  "inputs": [
+    {
+      "path": "candidates/core-log/CoreLog/QpThree.lean",
+      "sha256_before": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53",
+      "sha256_after": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Completion.lean",
+      "sha256_before": "f0347d38b37a3ee8ffb558f9974c116b436ab50e1e1062f56cb5da382f89af0b",
+      "sha256_after": "f0347d38b37a3ee8ffb558f9974c116b436ab50e1e1062f56cb5da382f89af0b",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/AxiomExports.lean",
+      "sha256_before": "833dad9728400ddd39fdde065f255663292fdaa434dd469e4184fd7f82405e58",
+      "sha256_after": "833dad9728400ddd39fdde065f255663292fdaa434dd469e4184fd7f82405e58",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256_before": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447",
+      "sha256_after": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447",
+      "commit": null
+    },
+    {
+      "path": "candidates/core-log/PadicLogVolume/PadicLog.lean",
+      "sha256_before": "84197867308b1040d94e8f99a2e51f71fa9926b8e93e8d8b039fce9d71b1187d",
+      "sha256_after": "84197867308b1040d94e8f99a2e51f71fa9926b8e93e8d8b039fce9d71b1187d",
+      "commit": null
+    }
+  ],
+  "prior_record_check": {
+    "records": [
+      {
+        "path": "candidates/core-log/PadicLogVolume/PadicLog.lean",
+        "recorded_sha256": "84197867308b1040d94e8f99a2e51f71fa9926b8e93e8d8b039fce9d71b1187d",
+        "matches_disk": true
+      },
+      {
+        "path": "candidates/core-log/CoreLog/QpThree.lean",
+        "recorded_sha256": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53",
+        "matches_disk": true
+      },
+      {
+        "path": "candidates/core-log/CoreLog/Audit.lean",
+        "recorded_sha256": "0cdfad3f676abc86d72d0b6c0499901fda9cf8aa82ac0e43c17d6778d1dfd23e",
+        "matches_disk": true
+      },
+      {
+        "path": "reviews/core-round/log/port-build.txt",
+        "recorded_sha256": "97fd3eeb182eab5657841c866451bab168fac4bfefeced479c86e359c7f4d2e4",
+        "matches_disk": true
+      },
+      {
+        "path": "reviews/core-round/log/qp-three-build.txt",
+        "recorded_sha256": "e46ef0b3d60e5624396c03232e24fb42b966860586ef2032dc6f016662a5f888",
+        "matches_disk": true
+      },
+      {
+        "path": "reviews/core-round/log/all-port-axioms.txt",
+        "recorded_sha256": "99cb06a1adefda833b9d51c722324befd0139b9f96882ebc3ffc2f10d2e0e299",
+        "matches_disk": true
+      },
+      {
+        "path": "reviews/core-round/transport/basic-compile.log",
+        "recorded_sha256": "83f68091464c54959620b4e50a9b363292fafd9b511687afcef5d4d4482380a5",
+        "matches_disk": true,
+        "logged_exit_code": 0
+      },
+      {
+        "path": "reviews/core-round/transport/completion-compile.log",
+        "recorded_sha256": "2b9545844e705fc5410059e54092c96bf39f77149385455b36932e79f694f939",
+        "matches_disk": true,
+        "logged_exit_code": 0
+      },
+      {
+        "path": "reviews/core-round/transport/axioms.log",
+        "recorded_sha256": "485a3625a5300a2e0db35dbd055d2d86acd345d1c8e22b0005e56ec7d3f7f360",
+        "matches_disk": true,
+        "logged_exit_code": null
+      }
+    ],
+    "all_match": true,
+    "sources_without_record": [
+      "candidates/core-transport/CoreTransport/Completion.lean",
+      "candidates/core-transport/CoreTransport/AxiomExports.lean"
+    ]
+  },
+  "outputs": [
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/axiomexports.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/axiomexports.stdout.txt",
+      "sha256": "fbc63709cb79a51d2aae9923b15f7e007429ce2a5e89ba229dc5b25e19e11a68"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/completion.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/completion.stdout.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/qpthree.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/qpthree.stdout.txt",
+      "sha256": "69014488e430fb8ed17ee90a863526a0c62720ba9e0198d7d6579f337244146d"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/replay.json",
+      "sha256": "de832c84eed59e74053efb4e3d63dc3a267f38e40e99532292027d8dd8f28a6b"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/replay.md",
+      "sha256": "168fb3a3b225dc6415ff52a506ba678a92cc2ca749ab3f064cf97313dc9f6591"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T4/replay.py",
+      "sha256": "4a56d4d5dddee5e2f301f733d587cbde48c13d129a957ad06fd2d623c76b9bac"
+    }
+  ],
+  "commands": [
+    {
+      "cwd": "candidates/core-log",
+      "argv": [
+        "C:\\Users\\18746\\.elan\\bin\\lake.exe",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "CoreLog/QpThree.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T4/qpthree.stdout.txt (stdout, 635 B) + handoffs/core-support-2026-10-22/T4/qpthree.stderr.txt (stderr, 0 B)"
+    },
+    {
+      "cwd": "candidates/core-transport",
+      "argv": [
+        "C:\\Users\\18746\\.elan\\bin\\lake.exe",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "CoreTransport/Completion.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T4/completion.stdout.txt (stdout, 0 B) + handoffs/core-support-2026-10-22/T4/completion.stderr.txt (stderr, 0 B)"
+    },
+    {
+      "cwd": "candidates/core-transport",
+      "argv": [
+        "C:\\Users\\18746\\.elan\\bin\\lake.exe",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "CoreTransport/AxiomExports.lean"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "log": "handoffs/core-support-2026-10-22/T4/axiomexports.stdout.txt (stdout, 935 B) + handoffs/core-support-2026-10-22/T4/axiomexports.stderr.txt (stderr, 0 B)"
+    }
+  ],
+  "completed": [
+    "prior records re-hashed: 9/9 match",
+    "three frozen entries replayed once each, exit 0, zero diagnostics, zero warnings",
+    "source hashes identical before/after (0 drift)",
+    "two previously unrecorded sources hashed and recorded here"
+  ],
+  "open": [
+    "editor check not performed",
+    "axiom lines reported above are those the entries themselves export, not a new audit"
+  ],
+  "editor_status": "NOT_CHECKED",
+  "fact_tree_admitted": false
+}

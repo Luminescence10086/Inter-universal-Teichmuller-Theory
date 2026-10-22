@@ -1,0 +1,5 @@
+from,to,kind,source_location
+Iut.Wall.EtaAlg.etaAnab_eq_etaQ_iff,Iut.Wall.EtaAlg,signature_reference,iut/Iut/Wall/EtaAlg.lean:151-152
+Iut.Wall.variant_of_wall,Iut.Wall.EtaAlg,signature_reference,iut/Iut/Wall/EtaAlg.lean:201
+TateCurvesTheta.TateParameter.restriction_kummer_thetaUnit,KummerTheory.restriction_kummer,import,tate-curves-theta/TateCurvesTheta/Kummer/ThetaValues.lean:7
+TateCurvesTheta.TateParameter.restriction_kummer_thetaUnit,KummerTheory.restriction_kummer,proof_reference,tate-curves-theta/TateCurvesTheta/Kummer/ThetaValues.lean:287
