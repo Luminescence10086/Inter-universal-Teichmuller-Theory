@@ -59,8 +59,67 @@
   这是 (9-1) 的最小忠实形状，且仍然完全在 `ℚ_[3]` 玩具层内可做。
 - 仍不做的：不声称 (9-1) 成立；不把 `R^ss` 的"体积相等商"当成 (9-1) 的替代；核心 GAP 保持 OPEN。
 
-## 5. 两页 ZEN 公告
+## 5b. 仓库比对（`lana-agents/iut`，2026-10-23 克隆）
+
+经用户允许，把 `https://github.com/lana-agents/iut` 克隆到
+`reviews/core-round/external/lana-agents--iut`（**未入 Git**：`reviews/core-round/external/` 下的外部仓库本来
+就都不受版本控制，只以清单记录 commit）。克隆 HEAD `188ff572b61b748e5606d1419980f1e0b5abb0aa`，7.37 MB。
+
+**与被审版本的关系**：本仓库与我们一直审的 `external/iut`（commit `f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb`）
+是**同一个仓库**。
+
+- 两版之间只多 **6 个 Lean 文件**，全部在 `Iut/Reconstruction/{Cusp,Thm19}`（424 → 430）；
+- 我们 M3 审过的 7 个文件（`Wall/EtaAlg`、`Wall/Constraints`、`Wall/Ind3`、`Wall/Rss`、`Wall/MultiContainer`、
+  `LogLink/Kummer`、`LogLink/Thm311LGP`）**逐字节相同** ⇒ **M3 的接口结论对固定 commit 仍然有效**，
+  不因上游前进而失效。
+
+**README 的自我定位（重要）**：「It does **not** verify IUT.」主定理是
+`Iut.classicalABC_of_variant (h312 : Cor312VariantHolds) : ClassicalABC`——即 ABC 是**从变体**推出的，
+而 `Cor312VariantHolds` 是 project-owner 指定的 **Cor 3.12 variant**（含 initial Θ-data、log-shell 的
+processions/tensor-packets、large volume container、其 log-volume、holomorphic hull）。
+
+**最关键的发现：这份仓库里 (9-1) 已经被形式化了**，而且正是 M3 读到的那条接口：
+
+- `Iut/Wall/Rss.lean:501`：`noncomputable def etaQ : (qVal D.bpsDegrees).C →ₗ[ℝ] ℝ`（`η_q` 是**定义**）；
+- `Iut/Wall/EtaAlg.lean:145`：`noncomputable def etaAnab …`（`η_anab` 也是**定义**）；
+- `Iut/Wall/EtaAlg.lean:151`：`theorem etaAnab_eq_etaQ_iff (ι S) : A.etaAnab ι S = etaQ D ↔ logVol D (A.out ι S) = (concreteVariantData D).qPilot.lhs`
+  其 docstring 逐字写着：「`etaAnab_eq_etaQ_iff`: **(9-1)** for `(ι, S)` holds iff `log-vol(out ι S) = −|log q|`:
+  an equation between two maps of pointed lines *is* an equation of real numbers」。
+
+  也就是说：**报告的 (9-1) 在仓库里等价于一条标量 log-volume 等式**——但这条等价是在**模型内**成立的，
+  而模型里的 `out` 是裸字段（M3：11 个接口 F3 全 false，没有执行来源）。所以它是 (9-1) 的**模型内改写**，
+  不是对真实算法的证明。
+
+**另一条对我们极有用的文件：`Iut/WallEquiv/NonDerivable.lean`**，标题即
+**「Non-derivability of Step (xi) from Theorem 3.11」**：
+
+- `theorem xi_iff : P.Xi ↔ P.SS`（`Iut/WallEquiv/NonDerivable.lean:273`）——在 `Thm311Package` 抽象里，
+  **Step (xi) 等价于 Scholze–Stix 不等式** `(s − 1)·a ≤ V`；
+- `not_xi_family` / `exists_package_not_xi` / `not_forall_xi`——对一切与已证数字相容的取值，以及显式地
+  `ℓ = 7, a = 1, V = 1`（此时 `(s − 1)·a = 11/3 > V`），存在 package 使其**全部字段成立而 Step (xi) 失败**，
+  故**只用这些字段的任何论证都证不出 Step (xi)**；
+- 文件自己标注了边界：「**Audited, not a theorem**: that these fields exhaust what the repository proves at
+  the level of Theorem 3.11」。
+
+**这对我们意味着三条**：
+
+1. (9-1) 不需要我们自己发明——它是仓库里一条具名等价（`etaAnab_eq_etaQ_iff`）；我们 M3 读到的正是它。
+2. 仓库把 (9-1) 化成**标量**等式；我们对"标量相等 ≠ 来源相等"的纪律仍然适用，但要表述准确：**模型内**二者
+   等价（有定理），**模型外**（真实算法）仍未证。
+3. `NonDerivable` 是上游给出的、Lean 检查过的"缺口不可由 Thm 3.11 字段关闭"的陈词——与报告 §9.2/§10.5 一致，
+   且同样带"审计而非定理"的自我限定。
+
+## 5c. 由此对路径的调整
+
+- 我们不再需要自己构造 η 的形状（那是重复劳动）：W7 的"同构在轨道上相等"可以**直接对齐**
+  `etaAnab_eq_etaQ_iff` 的两边，做的是"玩具层面的同构相等"而非发明新接口；
+- 但**不能**声称我们的玩具触及 `etaAnab`/`etaQ`：它们依赖 `out`、`BPS`、`Ind3` 等真实模型对象，
+  在 `ℚ_[3]` 玩具层里没有对应物；
+- `NonDerivable` 的 `xi_iff` 给了我们一条可引用的"必要条件"表述：若某步只使用 Thm 3.11 的字段，
+  它不足以得到 Step (xi)。
+
+## 6. 两页 ZEN 公告
 
 `zen.ac.jp/news/zmcpostevent0331e`（2026-03-31：宣布 LANA 项目启动）与 `…0717e`（2026-07-17：发布本中期报告）
-只提供项目背景与报告发布信息；正文被 `web_fetch` 截断（只取到标题），**本文件的内容全部来自上面归档的 PDF**，
-不是从这两个页面转述的。
+只提供项目背景与报告发布信息；正文被 `web_fetch` 截断（只取到标题），**本文件的内容全部来自上面归档的 PDF
+与克隆的仓库源码**，不是从这两个页面转述的。

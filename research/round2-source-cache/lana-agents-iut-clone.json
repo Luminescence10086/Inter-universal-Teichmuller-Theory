@@ -1,0 +1,43 @@
+{
+  "repo": "lana-agents/iut",
+  "url": "https://github.com/lana-agents/iut.git",
+  "local_path": "reviews/core-round/external/lana-agents--iut",
+  "tracked_in_git": false,
+  "clone_note": "reviews/core-round/external/ holds read-only external checkouts that are not versioned in this repository; the clone is referenced here by commit only",
+  "head": "188ff572b61b748e5606d1419980f1e0b5abb0aa",
+  "clone_depth": 1,
+  "size_mb": 7.37,
+  "cloned_utc": "2026-10-23T07:40:00Z",
+  "relationship_to_audited_copy": {
+    "audited_path": "reviews/core-round/external/iut",
+    "audited_head": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+    "same_repository": true,
+    "lean_files": {"audited": 424, "current": 430},
+    "added_files": [
+      "Iut/Reconstruction/Cusp/BelyiSpec.lean",
+      "Iut/Reconstruction/Cusp/Cor37c.lean",
+      "Iut/Reconstruction/Cusp/SurfaceGeom.lean",
+      "Iut/Reconstruction/Cusp/SurfacePi1.lean",
+      "Iut/Reconstruction/Thm19/CuspPrincipal.lean",
+      "Iut/Reconstruction/Thm19/NFKummer.lean"
+    ],
+    "audited_files_unchanged": [
+      "Iut/Wall/EtaAlg.lean",
+      "Iut/Wall/Constraints.lean",
+      "Iut/Wall/Ind3.lean",
+      "Iut/Wall/Rss.lean",
+      "Iut/Wall/MultiContainer.lean",
+      "Iut/LogLink/Kummer.lean",
+      "Iut/LogLink/Thm311LGP.lean"
+    ],
+    "conclusion": "the M3 interface audit remains valid for the pinned commit; upstream has only added six files elsewhere"
+  },
+  "key_findings": [
+    "README: 'It does not verify IUT'; the main theorem is Iut.classicalABC_of_variant (h312 : Cor312VariantHolds) : ClassicalABC",
+    "Iut/Wall/EtaAlg.lean:151 etaAnab_eq_etaQ_iff is labelled (9-1) in its own docstring and reduces it to logVol D (A.out iota S) = (concreteVariantData D).qPilot.lhs",
+    "Iut/Wall/Rss.lean:501 defines etaQ as a linear map, and EtaAlg.etaAnab is a definition too, so (9-1) is a statement about two defined maps",
+    "Iut/WallEquiv/NonDerivable.lean proves xi_iff : P.Xi <-> P.SS (Step (xi) iff the Scholze-Stix inequality) and not_forall_xi, with the caveat 'Audited, not a theorem'"
+  ],
+  "mathematical_claim_verified": false,
+  "caveat": "cloning and reading are not endorsement; the repository itself says it does not verify IUT"
+}
