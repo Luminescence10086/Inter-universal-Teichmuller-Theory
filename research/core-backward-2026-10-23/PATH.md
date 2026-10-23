@@ -30,13 +30,17 @@ K4（执行来源）这三处最容易含糊的地方，各自做成一个能编
 | M-ii | `candidates/core-transport/ExponentUniqueness.lean` + `research/…/m-ii-design.md` | 指数 `M` 被确定 ⟺ **探针读数非零**；挠探针（`x = 1`）对任意指数给相同读数 | `db181de`、`ba78ff1` |
 
 | W10 | `candidates/core-transport/H3Synthesis.lean` | M-i 与 M-ii 是同一条同态事实的推论：`reading(x^M) = M • reading x`；非挠探针定指数；twist-free ⟺ 读数不变；两条一起给出除回；两侧退化见证（`Multiplicative ℤ` 上） | `64126ef` |
+| W11 | `candidates/core-transport/EtaComparison.lean` | (9-1) 的 **ℝ-线性镜像**：`map_eq_iff_pilot`（点线映射相等 ⟺ pilot 处取值相等，即仓库 `ValBPS.eta_eq_eta_iff` 的抽象版）、`eta_equality_iff_scalar`、以及"映射相等 = 标量等式 = 落在轨道"一条链；退化两侧（pilot 为零 / `H = ⊥` 且 `q` 不在轨道） | `023c9a1` |
 
 ## 现在正在走的
 
-**下一步（未开始）：把 W7 升级为"同构在轨道上相等"**，并按 LANA 报告的 (9-1) 对齐——仓库里已有
-`Iut/Wall/EtaAlg.lean:151` 的 `etaAnab_eq_etaQ_iff` 作为具名等价（其 docstring 自标 "(9-1)"），所以玩具层要做的是
-"两族同构 + 存在 `S` 使二者相等"的**形状**，而不是发明新接口。玩具里没有 `out`/`BPS`/`Ind3`，故不得声称触及
-`etaAnab`/`etaQ`。
+**W12 — `candidates/core-transport/LabelNormalization.lean`（进行中）**：M-iii 的落地——把
+`|F_l|` 索引的平均与 `F_l^⋆` 轨道平均**显式写成两个归一化**，证明它们在"标签集就是轨道"（简单传递作用）时
+相等，并给出"标签集比轨道大"时的具体反例。这是把 IUT II Cor 4.10(i) 的 `0 ↔ ⟨F_l^⋆⟩` 认同落到"两个平均
+相等"的形式，而不是再证一次 W5 的抽象命题。
+
+**W11 的对齐依据**（已逐字入库）：仓库 `Iut/Wall/EtaAlg.lean:145/151` 与 `Rss.lean:501`，其 docstring 明写
+形式化的是 [LANA] §9.2；玩具层没有 `out`/`BPS`/`Ind3`，故只做镜像、不声称触及 `etaAnab`/`etaQ`，也不证 (9-1)。
 
 ## 外部来源：LANA 中期报告（2026-07，已归档）
 
