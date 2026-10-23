@@ -25,13 +25,13 @@ K4（执行来源）这三处最容易含糊的地方，各自做成一个能编
 | W4 | `candidates/core-transport/TransitionCompatibility.lean` | 带余圈律的过渡；相容链迫使读数相同，断裂链不 | `8a6ada4` |
 | W5 | `candidates/core-transport/NormalizationAlignment.lean` | 不变读数 ⇒ **轨道平均 = 标签处取值**（`0 ↔ ⟨F_l^⋆⟩` 的代数内容） | `ae9d90d` |
 | W6 | `candidates/core-transport/ReadingFactorization.lean` | 读数**下降到商**（`Quotient.lift`）；断裂链上**没有**因子化 | `ae9d90d` |
+| W7 | `candidates/core-transport/UnifiedFactorization.lean` | W5 的群轨道与 W6 的过渡关系合成**一条**：两条关系上的常数性 ⇒ 并上常数性 ⇒ 读数下降到并商；W5/W6 还原为调用同一 `descended` 的实例 | 见 W7 交付提交 |
 
 ## 现在正在走的
 
-**W7 — `candidates/core-transport/UnifiedFactorization.lean`（进行中）**：把 W5 的"群轨道不变"与 W6 的"过渡关系
-下降"合成**一条**陈述——两条关系 `R`（过渡生成）、`S`（群作用生成）各自的不变性 ⇒ 在它们的**并**上不变 ⇒
-读数通过 `Quotient.lift` 下降到并商，并把 W5、W6 还原为它的两个实例。若这次合成成功，前面两个文件就不再是两个
-特例，而是同一个纪律的两次落地。
+**回到 H3 的 M-i 类型设计（下一步，尚未开始）**：原文 (Ob4)/(Ob4-3) 只**断言**"除回 M 次 tensor power 无害"，
+既无映射也无界；W3 给了"除以标量 M"的玩具，但真实形状需要一个**把 M 次幂读数送回原读数的具名操作**，
+并证明它与 twist 不定性相容。这是三条 H3 义务里最难的一条，也是 W7 之后唯一还在原位的缺口。
 
 ## 下一步（已排定，尚未开始）
 

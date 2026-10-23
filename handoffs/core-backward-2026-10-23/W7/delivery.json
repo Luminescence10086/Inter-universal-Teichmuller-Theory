@@ -1,0 +1,91 @@
+{
+  "task_id": "W7",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T13:31:43+0800",
+  "path_record": {
+    "path": "research/core-backward-2026-10-23/PATH.md",
+    "sha256": "40bb8ff3ed021a37af2dadf6a5df2e7364add52a22feff6de39cf3852d7beb0a",
+    "role": "the document recording the line being walked: every step taken with its artifact and commit, W7 in flight, and the next items in order"
+  },
+  "inputs": [
+    {
+      "path": "research/core-backward-2026-10-23/PATH.md",
+      "sha256": "40bb8ff3ed021a37af2dadf6a5df2e7364add52a22feff6de39cf3852d7beb0a"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W5/delivery.json",
+      "sha256": "a5af33f037906714c28e800edc125ffb3240ec745ca90299bbf1b51f876c5c70"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W6/delivery.json",
+      "sha256": "da6a16fdc78648e9d13c4465652489e60bccd8d26b28d591b272e670b5b4196a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates\\core-transport\\UnifiedFactorization.lean",
+      "sha256": "d822480026ea3121b05753dd9160c01d93b57d3a0df66a601970e1caae4f1af9"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W7/README.md",
+      "sha256": "c2c9be6eb1fffe8165fcc575017aaf4eb5943fe7073570c53a5091503bb5087b"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W7/check.json",
+      "sha256": "8c520d902f7d68b46844518acdc5f6c8c89afca4d793ba94cc1ec3cee2895d08"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W7/editor-check.md",
+      "sha256": "f699fe9bec6b0563ed091197186949199ca332971ad1f1d9ed322c9b1be9265d"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W7/editor/vscode-observation-tree-2.txt",
+      "sha256": "cac73688abb0d97a2d2236efb2c16aaee074089cdaf3b07278b30c2f69c8730c"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 85,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 85,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "d822480026ea3121b05753dd9160c01d93b57d3a0df66a601970e1caae4f1af9"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "constant_of_join: constancy on two relations gives constancy on their join, by induction on the closure",
+    "joinedSetoid + descended (Quotient.lift) + descended_mk: the reading factors through the joined quotient",
+    "W5 and W6 recovered as instances that call descended itself",
+    "anti-degeneracy on both sides: a failing S-constancy and a broken transport chain, each with concrete numbers"
+  ],
+  "unresolved": [
+    "this unifies the shape only: it does not assert that the IUT object carries two such relations",
+    "it does not assert that any reading of the real object is presentation-independent",
+    "nothing here touches Theta-links, Ism, log-volumes or Cor 3.12"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

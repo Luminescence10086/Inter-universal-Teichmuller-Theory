@@ -1,0 +1,51 @@
+W7 checks — UnifiedFactorization.lean
+generated: 2026-10-23 (W7 handoff)
+
+[artifact]
+path        = candidates/core-transport/UnifiedFactorization.lean
+sha256      = d822480026ea3121b05753dd9160c01d93b57d3a0df66a601970e1caae4f1af9
+bytes       = 50694
+lines       = 850   (LF terminators, LF-only file: 0 CR bytes; 49991 characters, UTF-8)
+namespace   = UnifiedFactorization
+imports     = CoreLog.QpThree (only)
+declarations(^theorem|^def|^abbrev|^instance) = 85
+#print axioms lines = 85
+set difference (declared minus printed) = empty ; (printed minus declared) = empty
+
+[build]
+command     = lake env lean -DwarningAsError=true UnifiedFactorization.lean
+cwd         = candidates/core-transport
+exit        = 0
+stderr      = 0 bytes
+stdout      = 7954 bytes, the 85 dependency-footprint entries (2 of them wrapped by the printer)
+errors      = 0
+warnings    = 0   (-DwarningAsError=true, so an unused variable or unused simp argument would have failed)
+oleans      = none produced (the file is not a Lake target; checked: UnifiedFactorization.olean absent)
+capture     = cmd.exe redirection (raw bytes, no re-encoding); PowerShell 5.1 '>' was avoided because it
+              writes UTF-16LE and makes byte counts incomparable
+
+[forbidden-substring scan, whole file]
+  sorry         = 0
+  admit         = 0
+  opaque        = 0
+  native_decide = 0
+  axiom         = 85 ; all 85 inside '#print axioms' lines; occurrences outside them = 0
+
+[dependency footprint: verbatim lines in axioms.txt]
+  declarations audited = 85
+  'does not depend on any axioms'                      = 14
+  'depends on axioms: [propext]'                        =  1   (orbitRel_equivalence)
+  'depends on axioms: [propext, Classical.choice, Quot.sound]' = 70 (69 on one line, 1 wrapped)
+  union                                                 = {propext, Classical.choice, Quot.sound}
+  'sorryAx' occurrences in axioms.txt                   = 0
+
+[cross-checks performed]
+  * the log comes from THIS file: it is not a Lake target, so every 'lake env lean' run re-elaborates it
+    and no .olean is left behind.
+  * no pre-existing file was modified: UnifiedFactorization.lean is the only file added under
+    candidates/core-transport; the six throw-away ProbeW7*.lean probes used to pin down API details were
+    deleted before delivery. tools/, fact-tree/, registry and the other candidates are untouched.
+  * one repair round preceded the clean build (two hypothesis lemmas restated in ∀-form; no goal left
+    open, no literal 'sorry' written at any point); see README.md 'Build history'.
+  * the two instances call 'descended' itself (not a copy of it), and 'join_imp_left'/'join_imp_right'
+    identify the join of the general statement with the relation each province uses.

@@ -1,0 +1,758 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "UnifiedFactorization.lean"
+  ],
+  "axiom_free": [
+    "UnifiedFactorization.Join",
+    "UnifiedFactorization.join_incl_left",
+    "UnifiedFactorization.join_incl_right",
+    "UnifiedFactorization.join_refl",
+    "UnifiedFactorization.join_symm",
+    "UnifiedFactorization.join_trans",
+    "UnifiedFactorization.join_equivalence",
+    "UnifiedFactorization.joinedSetoid",
+    "UnifiedFactorization.joinedSetoid_rfl",
+    "UnifiedFactorization.join_imp_right",
+    "UnifiedFactorization.join_imp_left",
+    "UnifiedFactorization.orbitRel",
+    "UnifiedFactorization.LabelGroup",
+    "UnifiedFactorization.reflTransGen_symm"
+  ],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "UnifiedFactorization.ChainRel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.LabelVector": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.TransportStep": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.brokenNoStep_02": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.brokenReading_not_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.brokenRel_02": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.brokenStep_01": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.brokenStep_12": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.brokenUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.brokenUnit_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainInput_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainInput_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainRel_equivalence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainRel_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainStep_02": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainUnit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainUnit_cocycle": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainUnit_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.chainUnit_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.classes_distinct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.constant_of_join": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.descended": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.descended_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.descended_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.diffReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.diffReading_not_constant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.diffReading_vecOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.diffReading_vecSwap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.join_eq_chainRel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.join_eq_labelOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.labelOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.labelOrbit_equivalence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.labelVectorMulAction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.labelVector_smul_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.no_factorization_on_broken": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.no_factorization_when_S_constancy_fails": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.orbitRel_equivalence": [
+      "propext"
+    ],
+    "UnifiedFactorization.orbit_vecOne_vecSwap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput_broken_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput_broken_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput_broken_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput_chainUnit_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput_chainUnit_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput_eq_of_rel": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.relativeInput_eq_of_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.sumReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.sumReading_of_orbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.sumReading_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.sumReading_vecOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.sumReading_vecOther": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.sumReading_vecSwap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.swapLabels": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.swapLabels_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.swapLabels_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.swapLabels_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.swap_smul_vecOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.transportStep_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.vecOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.vecOther": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.vecSwap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w5Descended": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w5Descended_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w5Descended_vecOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w5Descended_vecSwap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w5_average_eq_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w6Descended": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w6Descended_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w6Descended_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "UnifiedFactorization.w6Descended_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 85,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "Join"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_incl_left"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_incl_right"
+    },
+    {
+      "kind": "theorem",
+      "name": "constant_of_join"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_refl"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_trans"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_equivalence"
+    },
+    {
+      "kind": "def",
+      "name": "joinedSetoid"
+    },
+    {
+      "kind": "theorem",
+      "name": "joinedSetoid_rfl"
+    },
+    {
+      "kind": "def",
+      "name": "descended"
+    },
+    {
+      "kind": "theorem",
+      "name": "descended_mk"
+    },
+    {
+      "kind": "theorem",
+      "name": "descended_unique"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_imp_right"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_imp_left"
+    },
+    {
+      "kind": "def",
+      "name": "orbitRel"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitRel_equivalence"
+    },
+    {
+      "kind": "abbrev",
+      "name": "LabelGroup"
+    },
+    {
+      "kind": "abbrev",
+      "name": "LabelVector"
+    },
+    {
+      "kind": "instance",
+      "name": "labelVectorMulAction"
+    },
+    {
+      "kind": "theorem",
+      "name": "labelVector_smul_apply"
+    },
+    {
+      "kind": "def",
+      "name": "swapLabels"
+    },
+    {
+      "kind": "theorem",
+      "name": "swapLabels_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "swapLabels_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "swapLabels_one"
+    },
+    {
+      "kind": "abbrev",
+      "name": "labelOrbit"
+    },
+    {
+      "kind": "theorem",
+      "name": "labelOrbit_equivalence"
+    },
+    {
+      "kind": "def",
+      "name": "sumReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "sumReading_smul"
+    },
+    {
+      "kind": "theorem",
+      "name": "sumReading_of_orbit"
+    },
+    {
+      "kind": "def",
+      "name": "vecOne"
+    },
+    {
+      "kind": "def",
+      "name": "vecSwap"
+    },
+    {
+      "kind": "def",
+      "name": "vecOther"
+    },
+    {
+      "kind": "theorem",
+      "name": "swap_smul_vecOne"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_vecOne_vecSwap"
+    },
+    {
+      "kind": "theorem",
+      "name": "sumReading_vecOne"
+    },
+    {
+      "kind": "theorem",
+      "name": "sumReading_vecSwap"
+    },
+    {
+      "kind": "theorem",
+      "name": "sumReading_vecOther"
+    },
+    {
+      "kind": "def",
+      "name": "w5Descended"
+    },
+    {
+      "kind": "theorem",
+      "name": "w5Descended_mk"
+    },
+    {
+      "kind": "theorem",
+      "name": "w5Descended_vecOne"
+    },
+    {
+      "kind": "theorem",
+      "name": "w5Descended_vecSwap"
+    },
+    {
+      "kind": "theorem",
+      "name": "w5_average_eq_value"
+    },
+    {
+      "kind": "theorem",
+      "name": "classes_distinct"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_eq_labelOrbit"
+    },
+    {
+      "kind": "def",
+      "name": "chainInput"
+    },
+    {
+      "kind": "def",
+      "name": "chainUnit"
+    },
+    {
+      "kind": "def",
+      "name": "brokenUnit"
+    },
+    {
+      "kind": "def",
+      "name": "TransportStep"
+    },
+    {
+      "kind": "def",
+      "name": "ChainRel"
+    },
+    {
+      "kind": "def",
+      "name": "relativeInput"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainUnit_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainUnit_cocycle"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainUnit_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "brokenUnit_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "relativeInput_eq_of_step"
+    },
+    {
+      "kind": "theorem",
+      "name": "relativeInput_eq_of_rel"
+    },
+    {
+      "kind": "theorem",
+      "name": "transportStep_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "reflTransGen_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainRel_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainRel_equivalence"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainInput_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainInput_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainStep_02"
+    },
+    {
+      "kind": "theorem",
+      "name": "relativeInput_chainUnit_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "relativeInput_chainUnit_two"
+    },
+    {
+      "kind": "def",
+      "name": "w6Descended"
+    },
+    {
+      "kind": "theorem",
+      "name": "w6Descended_mk"
+    },
+    {
+      "kind": "theorem",
+      "name": "w6Descended_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "w6Descended_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "join_eq_chainRel"
+    },
+    {
+      "kind": "def",
+      "name": "diffReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "diffReading_vecOne"
+    },
+    {
+      "kind": "theorem",
+      "name": "diffReading_vecSwap"
+    },
+    {
+      "kind": "theorem",
+      "name": "diffReading_not_constant"
+    },
+    {
+      "kind": "theorem",
+      "name": "no_factorization_when_S_constancy_fails"
+    },
+    {
+      "kind": "theorem",
+      "name": "brokenStep_01"
+    },
+    {
+      "kind": "theorem",
+      "name": "brokenStep_12"
+    },
+    {
+      "kind": "theorem",
+      "name": "brokenNoStep_02"
+    },
+    {
+      "kind": "theorem",
+      "name": "brokenRel_02"
+    },
+    {
+      "kind": "theorem",
+      "name": "relativeInput_broken_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "relativeInput_broken_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "relativeInput_broken_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "brokenReading_not_constant"
+    },
+    {
+      "kind": "theorem",
+      "name": "no_factorization_on_broken"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\UnifiedFactorization.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "948df707738a1126875e48b26e3bf3e62676951d7c72faff0d2d8530f19487ac",
+  "stdout_tail": "xioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.diffReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.diffReading_vecOne' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.diffReading_vecSwap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.diffReading_not_constant' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.no_factorization_when_S_constancy_fails' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'UnifiedFactorization.brokenStep_01' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.brokenStep_12' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.brokenNoStep_02' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.brokenRel_02' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.relativeInput_broken_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.relativeInput_broken_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.relativeInput_broken_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.brokenReading_not_constant' depends on axioms: [propext, Classical.choice, Quot.sound]\n'UnifiedFactorization.no_factorization_on_broken' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}
