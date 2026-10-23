@@ -86,6 +86,41 @@ first; the repair evidence records both hashes. No dependency upgrade or rebuild
 is needed when the existing worktree dependency cache is available. Record the
 actual Lean version and githash: a toolchain label alone is not binary identity.
 
+## Span-certificate increment (2026-10-23)
+
+The reviewer gap: `restricted_ledger_criterion` strengthens "the generators generate
+the same integer submodule as the actual differences" into "each generator *is* an
+actual difference" (`hreal`). Both versions are now present in the same entry file,
+and the relation between them is proved:
+
+| version | premise | theorem |
+| --- | --- | --- |
+| strong (retained candidate) | `hreal : ∀ i, ∃ x ∈ Ω, vprofile x - vprofile x₀ = b i` | `restricted_ledger_criterion` |
+| general span certificate | `hspan : ∀ i, MemDiffSpanOn Ω x₀ (b i)` | `restricted_ledger_span_criterion` |
+
+* `MemDiffSpan` (integer vectors) and `MemDiffSpanOn` (points of `Ω`) name the
+  `ℤ`-span membership of a generator in the actual differences. Neither body mentions
+  a weight vector, a scalar family, the ledger, or preservation.
+* `memDiffSpan_of_realised`, `memDiffSpanOn_of_realised`: realisation implies span
+  membership (a one-term combination with coefficient `1`).
+* `integer_span_criterion_of_combination`, `restricted_ledger_criterion_of_combination`:
+  the strong-premise criteria are corollaries of the general ones, so the pair is a
+  proved inclusion, not two unrelated assumptions.
+* The converse inclusion is false; `finite_integer_span_membership_example` refutes it
+  on `{0, 2, 3}` with generator `1 = (-1)·(2-0) + 1·(3-0)`, which is no difference.
+
+### What the full-space specialisation actually gives
+
+`full_domain_specialization` yields only the *necessary* direction
+`∀ j, w (σ j) = w j`. `full_domain_iff` yields the full equivalence
+`(preservation on the nonzero locus) ↔ (∀ j, w (σ j) = w j) ∧ (Σ_j w (σ j) v(a_j) = 0)`.
+Its budget is stated with relabelled weights; it equals the admitted theorem's
+`Σ_j w j v(a_j)` only under the first conjunct. Both results instantiate the admitted
+`weightedLedger_combined_invariant_iff` through the restricted route, sharing its
+base-point, nonzero-point and nonzero-scalar hypotheses; recovering that theorem in
+its own form is **not** claimed, and no statement here restores "the whole old
+criterion" independently of it.
+
 This remains a mathematical candidate. Actual VS Code observation belongs to the
 reviewer, and is not simulated by the CLI. No formal bridge, receipt, or fact-tree
 is changed. No actual IUT admissible region or finite certificate for it is

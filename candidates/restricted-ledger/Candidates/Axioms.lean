@@ -67,3 +67,23 @@ set_option pp.universes true
 #print axioms Candidates.RestrictedLedger.finiteIntegerDomain
 #print axioms Candidates.RestrictedLedger.integerUnitGenerator
 #print axioms Candidates.RestrictedLedger.finite_integer_span_membership_example
+
+/-! Span-certificate increment: the general span premise, its relation to the
+realised-generator premise, and the exact types of both ledger criteria. -/
+
+set_option pp.universes false
+
+#check @Candidates.RestrictedLedger.restricted_ledger_span_criterion
+#check @Candidates.RestrictedLedger.restricted_ledger_criterion
+#check @Candidates.RestrictedLedger.restricted_ledger_criterion_of_combination
+#check @Candidates.RestrictedLedger.full_domain_iff
+
+#print Candidates.RestrictedLedger.MemDiffSpan
+#print Candidates.RestrictedLedger.MemDiffSpanOn
+#print axioms Candidates.RestrictedLedger.MemDiffSpan
+#print axioms Candidates.RestrictedLedger.MemDiffSpanOn
+#print axioms Candidates.RestrictedLedger.memDiffSpan_of_realised
+#print axioms Candidates.RestrictedLedger.memDiffSpanOn_of_realised
+#print axioms Candidates.RestrictedLedger.integer_span_criterion_of_combination
+#print axioms Candidates.RestrictedLedger.restricted_ledger_span_criterion
+#print axioms Candidates.RestrictedLedger.restricted_ledger_criterion_of_combination

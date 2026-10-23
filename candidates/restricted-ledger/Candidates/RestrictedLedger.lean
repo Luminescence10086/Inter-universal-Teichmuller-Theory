@@ -40,10 +40,16 @@ the main result `restricted_ledger_criterion` is the exact equivalence
 (∀ x ∈ Ω, L_w (relabel σ (slotwise a x)) = L_w x)  ↔  f e₀ + c = 0 ∧ ∀ i, f (b i) = 0.
 ```
 
-This original result is retained with its stronger realisation premise. The repair
-results at the end of this file replace that premise by arbitrary finite integer
-combinations of actual differences in both directions; see
-`integer_combination_criterion` and `restricted_ledger_combination_criterion`.
+This original result is retained with its stronger realisation premise. The results
+at the end of this file replace that premise by arbitrary finite integer combinations
+of actual differences in both directions; see `integer_combination_criterion` and
+`restricted_ledger_combination_criterion`. The general span-certificate version is
+`restricted_ledger_span_criterion`, whose premise `hspan : ∀ i, MemDiffSpanOn Ω x₀
+(b i)` says only that each generator lies in the `ℤ`-span of the actual profile
+differences realised inside `Ω`. `restricted_ledger_criterion_of_combination` derives
+the strong-premise version from it, so the two versions are related by an explicit
+inclusion rather than being independent assumptions. The converse inclusion fails and
+is refuted by `finite_integer_span_membership_example`.
 
 ## Hypotheses, nonemptiness, and the empty domain
 
@@ -73,9 +79,26 @@ file says nothing about `T Ω ⊆ Ω` in general.
   weighted ledger, even though `w` is not permutation invariant. This is the point:
   preservation on a restricted domain does not require global invariance of `w`.
 * `full_domain_specialization`: with `Ω` the coordinatewise nonzero locus and the
-  `deltaTuple`-style unit generators, the restricted criterion recovers exactly the
-  `∀ j, w (σ j) = w j` conclusion of `weightedLedger_invariant_iff`. It instantiates
-  and cross-checks that theorem; it does not replace it.
+  `deltaTuple`-style unit generators, the restricted criterion's *necessary*
+  direction gives `∀ j, w (σ j) = w j` only. It does not give the scalar budget and
+  it is not the full `weightedLedger_combined_invariant_iff`.
+* `full_domain_iff`: the corresponding full equivalence on the same locus,
+  `(preservation) ↔ (∀ j, w (σ j) = w j) ∧ (Σ_j w (σ j) v(a_j) = 0)`, derived
+  through the general span certificate.
+
+## What the full-space specialisation does and does not give
+
+The second conjunct above is stated with the *relabelled* weights `w (σ j)`; the
+admitted `weightedLedger_combined_invariant_iff` states its budget with `w j`. Under
+the first conjunct the two budgets agree, so the two statements have the same content
+— but this file derives its version through the restricted route and therefore
+`instantiates` the admitted theorem, it does not reprove, replace or strengthen it.
+Neither `full_domain_specialization` nor `full_domain_iff` is claimed to *restore the
+whole old criterion*: they are specialisations of the finite certificate to
+`Ω = {x | ∀ j, x j ≠ 0}`, sharing its hypotheses (a base point, coordinatewise
+nonzero points, nonzero scalars) verbatim. The added information is only *why* the
+global probes are the delta tuples: they realise the unit generators. Restoration of
+the admitted global criterion in its own form is not claimed.
 
 Scope. Slots are an abstract `Fin n`, weights are arbitrary integers, tuples are
 actual `ℚ_[p]`. No Ism/Kummer element, packet, seed region, Arakelov volume or
@@ -617,6 +640,98 @@ theorem finite_integer_span_membership_example :
     simpa only [dot, mul_zero, Finset.sum_const_zero, zero_add] using
       integer_combination_criterion d (fun _ => 0) c integerUnitGenerator
         finiteIntegerDomain h₀ hgen hmem
+
+
+/-! ## The hierarchy of the two hypotheses
+
+`hreal` (each generator is itself an actual difference) and `hmem` (each generator is
+a finite integer combination of actual differences) are not equivalent, and only the
+second is the hypothesis the task asks for. This section names that hypothesis and
+proves the inclusion explicitly, so that the strong-premise criterion stands as a
+candidate special case of the general span certificate instead of a separate
+assumption.
+
+The converse inclusion fails: `finite_integer_span_membership_example` exhibits a
+finite set in which the generator lies in the difference span without being an actual
+difference. -/
+
+/-- `v` lies in the `ℤ`-span of the differences `e - e₀` with `e ∈ S`. The body
+mentions only `S`, the base point and the generators; it never mentions a functional,
+a weight vector or the ledger. -/
+def MemDiffSpan {n : Nat} (S : Set (Fin n → ℤ)) (e₀ v : Fin n → ℤ) : Prop :=
+  ∃ (m : Nat) (e : Fin m → Fin n → ℤ) (lam : Fin m → ℤ),
+    (∀ k, e k ∈ S) ∧ v = ∑ k, lam k • (e k - e₀)
+
+/-- The same span certificate for the actual `Q_p` ledger: `v` is a finite integer
+combination of the profile differences `vprofile p x - vprofile p x₀` realised by
+points of the restricted domain `Ω`. -/
+def MemDiffSpanOn {n : Nat} (Ω : Set (Tuple p n)) (x₀ : Tuple p n)
+    (v : Fin n → ℤ) : Prop :=
+  ∃ (m : Nat) (x : Fin m → Tuple p n) (lam : Fin m → ℤ),
+    (∀ k, x k ∈ Ω) ∧ v = ∑ k, lam k • (vprofile p (x k) - vprofile p x₀)
+
+/-- A realised generator lies in the difference span: it is the one-term combination
+of a single actual difference with coefficient `1`. -/
+theorem memDiffSpan_of_realised {n r : Nat} (S : Set (Fin n → ℤ)) (e₀ : Fin n → ℤ)
+    (b : Fin r → Fin n → ℤ) (hreal : ∀ i, ∃ e ∈ S, e - e₀ = b i) :
+    ∀ i, MemDiffSpan S e₀ (b i) := by
+  intro i
+  obtain ⟨e, heS, hb⟩ := hreal i
+  exact ⟨1, fun _ => e, fun _ => (1 : ℤ), fun _ => heS,
+    by simpa only [Fin.sum_univ_one, one_smul] using hb.symm⟩
+
+/-- A generator realised by an actual point of `Ω` lies in the point-level difference
+span of `Ω`. -/
+theorem memDiffSpanOn_of_realised {n r : Nat} (Ω : Set (Tuple p n)) (x₀ : Tuple p n)
+    (b : Fin r → Fin n → ℤ)
+    (hreal : ∀ i, ∃ x ∈ Ω, vprofile p x - vprofile p x₀ = b i) :
+    ∀ i, MemDiffSpanOn p Ω x₀ (b i) := by
+  intro i
+  obtain ⟨x, hx, hb⟩ := hreal i
+  exact ⟨1, fun _ => x, fun _ => (1 : ℤ), fun _ => hx,
+    by simpa only [Fin.sum_univ_one, one_smul] using hb.symm⟩
+
+/-- The strong-premise integer criterion is a corollary of the general combination
+criterion: realisation is a one-term membership certificate. -/
+theorem integer_span_criterion_of_combination {n r : Nat} (d e₀ : Fin n → ℤ) (c : ℤ)
+    (b : Fin r → Fin n → ℤ) (S : Set (Fin n → ℤ)) (he₀ : e₀ ∈ S)
+    (hgen : ∀ e ∈ S, ∃ lam : Fin r → ℤ, e - e₀ = ∑ i, lam i • b i)
+    (hreal : ∀ i, ∃ e ∈ S, e - e₀ = b i) :
+    (∀ e ∈ S, dot d e + c = 0) ↔ (dot d e₀ + c = 0 ∧ ∀ i, dot d (b i) = 0) :=
+  integer_combination_criterion d e₀ c b S he₀ hgen
+    (memDiffSpan_of_realised S e₀ b hreal)
+
+/-- **The general span certificate version of the ledger criterion.** The premise
+`hspan` asks only that every generator lies in the `ℤ`-span of the actual profile
+differences realised inside `Ω`; no generator has to be an actual difference. This is
+the version the task asks for; `restricted_ledger_criterion` remains available as the
+candidate with the stronger realisation premise. -/
+theorem restricted_ledger_span_criterion {n r : Nat} (Ω : Set (Tuple p n))
+    (hΩ : ∀ x ∈ Ω, ∀ j, x j ≠ 0)
+    (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]) (ha : ∀ j, a j ≠ 0)
+    (x₀ : Tuple p n) (hx₀ : x₀ ∈ Ω) (b : Fin r → Fin n → ℤ)
+    (hgen : ∀ x ∈ Ω, ∃ lam : Fin r → ℤ, vprofile p x - vprofile p x₀ = ∑ i, lam i • b i)
+    (hspan : ∀ i, MemDiffSpanOn p Ω x₀ (b i)) :
+    (∀ x ∈ Ω, weightedLedger p w (relabel p σ (slotwise p a x)) = weightedLedger p w x) ↔
+      dot (fun j => w (σ j) - w j) (vprofile p x₀)
+          + ∑ j, w (σ j) * (a j).valuation = 0
+        ∧ ∀ i, dot (fun j => w (σ j) - w j) (b i) = 0 :=
+  restricted_ledger_combination_criterion p Ω hΩ w σ a ha x₀ hx₀ b hgen hspan
+
+/-- The stronger-premise ledger criterion is a corollary of the general span
+certificate: a realised generator is a one-term span witness. -/
+theorem restricted_ledger_criterion_of_combination {n r : Nat} (Ω : Set (Tuple p n))
+    (hΩ : ∀ x ∈ Ω, ∀ j, x j ≠ 0)
+    (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]) (ha : ∀ j, a j ≠ 0)
+    (x₀ : Tuple p n) (hx₀ : x₀ ∈ Ω) (b : Fin r → Fin n → ℤ)
+    (hgen : ∀ x ∈ Ω, ∃ lam : Fin r → ℤ, vprofile p x - vprofile p x₀ = ∑ i, lam i • b i)
+    (hreal : ∀ i, ∃ x ∈ Ω, vprofile p x - vprofile p x₀ = b i) :
+    (∀ x ∈ Ω, weightedLedger p w (relabel p σ (slotwise p a x)) = weightedLedger p w x) ↔
+      dot (fun j => w (σ j) - w j) (vprofile p x₀)
+          + ∑ j, w (σ j) * (a j).valuation = 0
+        ∧ ∀ i, dot (fun j => w (σ j) - w j) (b i) = 0 :=
+  restricted_ledger_combination_criterion p Ω hΩ w σ a ha x₀ hx₀ b hgen
+    (memDiffSpanOn_of_realised p Ω x₀ b hreal)
 
 
 end
