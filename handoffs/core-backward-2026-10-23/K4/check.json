@@ -1,0 +1,144 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "ExecutionProvenance.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "ExecutionProvenance.algorithmRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.algorithmRun_eq_partialSums": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.hasSum_logTerm_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.localLog_eq_padicLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.logImage_Q3_eq_closedBall": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.norm_four_sub_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.value_eq_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.value_mem_logImage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.value_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExecutionProvenance.witnessFour": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 11,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "algorithmRun"
+    },
+    {
+      "kind": "theorem",
+      "name": "algorithmRun_eq_partialSums"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_eq_padicLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_logTerm_localLog"
+    },
+    {
+      "kind": "structure",
+      "name": "LegalExecution"
+    },
+    {
+      "kind": "theorem",
+      "name": "value_eq_localLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "value_unique"
+    },
+    {
+      "kind": "theorem",
+      "name": "value_mem_logImage"
+    },
+    {
+      "kind": "theorem",
+      "name": "logImage_Q3_eq_closedBall"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_sub_one"
+    },
+    {
+      "kind": "def",
+      "name": "witnessFour"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\ExecutionProvenance.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "452babcca464b5fe20c33f2071cfb99f6166fb2b5559783a87049de411b152f0",
+  "stdout_tail": "'ExecutionProvenance.algorithmRun' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.algorithmRun_eq_partialSums' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.localLog_eq_padicLog' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.hasSum_logTerm_localLog' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.value_eq_localLog' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.value_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.value_mem_logImage' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.logImage_Q3_eq_closedBall' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.norm_four_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExecutionProvenance.witnessFour' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

@@ -1,0 +1,12 @@
+﻿=== attempt 2 start 2026-10-23T09:22:06.1718160+08:00 ===
+folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+window: ● DelegatedLogBridge.lean - core-transport - Visual Studio Code
+trusted=True stillRestricted=False
+tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+poll 09:22:26 stable=0 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || [Server Startup] Starting Lean language server and cloning missing project dependencies ]
+poll 09:22:31 stable=0 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+poll 09:22:36 stable=1 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+poll 09:22:41 stable=2 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+poll 09:22:47 stable=3 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+poll 09:22:52 stable=4 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+tree captured: 397 nodes

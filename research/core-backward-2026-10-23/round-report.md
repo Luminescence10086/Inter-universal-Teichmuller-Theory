@@ -30,6 +30,29 @@
 它用的是 `Import-Csv`，该命令对多余逗号宽容。已退回修复，M2 用 `TextFieldParser` 与 `csv.reader` 双解析器复核后
 通过（27 行 × 11 列、0 错列、0 空字段），主线再独立复解析一次确认。教训：**自检工具比被检对象更宽松时，自检无效**。
 
+## H1 与 K4 的收尾（本批次之后的两项）
+
+**H1 已完成**（`h1-decision.md`）：环境范畴原文声明过（`F⊩▶×μ-prime-strips`，9287–9296、8560/8587）；
+商是两层——`⊼fQ₁` 的集合层 orbit（8570–8571）与 `⊼fQ₂ modulo ⊼fQ₁` 的形式商（8607–8629），原文把后者与
+"由 log-volume 这类集合不变量给出的 coarse/set-theoretic 商"明确对照。故 W3 的约束是"两层都要、禁止层间偷换"；
+log-volume 一出现即已粗化。此前 M1 的发现 #1 与本设计稿的 §1′(a)(b) 都已更正。
+
+**K4 已交付并三关验证**（`handoffs/core-backward-2026-10-23/K4/`）：
+`candidates/core-transport/ExecutionProvenance.lean`（sha `f37a80d6…`，208 行）。
+`LegalExecution` 用 `steps_eq : steps = algorithmRun input` 把轨迹**按定义**钉在算法上，于是
+`value_eq_localLog` 从收敛＋唯一性**推出**值，`value_unique` 说明值只由输入决定，`value_mem_logImage`
+是推出而非字段——这正是与 `EtaAlg.realisation` 的对照。非空性有具体见证（输入 `4`）。
+
+- CLI：`lake env lean -DwarningAsError=true` exit 0、stderr 0 字节；严格门禁 11 声明 / 0 error / 0 warning、
+  10 定理全有公理报告、公理仅 `{propext, Classical.choice, Quot.sound}`。**注意**：首跑在文件最后一次改动之前，
+  已在最终哈希上复跑，记录的是复跑结果。
+- 编辑器：0 error / 0 warning / 14 information（其中 10 条是本文件的公理信息）。
+- Infoview：9 个证明全部读到 `No goals`/`Goals accomplished!`（`value_mem_logImage` 的空白行位置两次读空，
+  改在证明行末读取，判据相同）。
+
+**K4 的诚实边界**：算法是 p 进对数的部分和算法，**不是 η-算法**；没有把任何 IUT 接口改写成带来源的形式；
+没有 Θ-link、`Ism`、Cor 3.12。核心 GAP 保持 OPEN。
+
 ## 下一步（不属本批次的机械任务）
 
 1. 按 M1 的端点在原文层面定下"环境范畴"与商类型，再决定 W2/W3 的层（H1）。
