@@ -1,0 +1,239 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "DivideBackTwist.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "DivideBackTwist.algorithmRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.algorithmRun_eq_partialSums": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.divideBack_twist": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.divideBack_twist_four_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.divideBack_twist_four_one_sq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.divideBack_twist_residue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.hasSum_logTerm_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.localLog_eq_padicLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.localLog_four_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.localLog_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.localLog_pow_eq_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.norm_four_sub_one_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.norm_localLog_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.norm_logTerm_four_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.norm_three_sq_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.twistReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.twistReading_twistTerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.twistResidue": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.twistResidue_four_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.twistTerm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackTwist.twist_insensitive_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 21,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "algorithmRun"
+    },
+    {
+      "kind": "theorem",
+      "name": "algorithmRun_eq_partialSums"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_eq_padicLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_logTerm_localLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_pow_eq_smul"
+    },
+    {
+      "kind": "def",
+      "name": "twistTerm"
+    },
+    {
+      "kind": "def",
+      "name": "twistResidue"
+    },
+    {
+      "kind": "theorem",
+      "name": "twistReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "twistReading_twistTerm"
+    },
+    {
+      "kind": "theorem",
+      "name": "divideBack_twist"
+    },
+    {
+      "kind": "theorem",
+      "name": "divideBack_twist_residue"
+    },
+    {
+      "kind": "theorem",
+      "name": "twist_insensitive_iff"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_sub_one_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "divideBack_twist_four_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "divideBack_twist_four_one_sq"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_three_sq_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_logTerm_four_le"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_localLog_four"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_four_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "twistResidue_four_ne_zero"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\DivideBackTwist.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "45cff8e60761de3769c0ba9d084bc673e0f282f3e1874a248c269ebf7d754c80",
+  "stdout_tail": " [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.twistTerm' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.twistResidue' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.twistReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.twistReading_twistTerm' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.divideBack_twist' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.divideBack_twist_residue' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.twist_insensitive_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.norm_four_sub_one_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.divideBack_twist_four_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.divideBack_twist_four_one_sq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.norm_three_sq_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.norm_logTerm_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.norm_localLog_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.localLog_four_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackTwist.twistResidue_four_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

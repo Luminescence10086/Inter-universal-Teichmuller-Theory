@@ -1,0 +1,85 @@
+{
+  "task_id": "W8",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T14:39:37+0800",
+  "design_record": {
+    "path": "research/core-backward-2026-10-23/m-i-design.md",
+    "sha256": "219ea2e644c6c57dc00b68a6e360bb6633accb506cb862e508c244d18cdab118",
+    "role": "the M-i type design this file implements: divide-back lives on readings, with the twist term tau explicit"
+  },
+  "inputs": [
+    {
+      "path": "research/core-backward-2026-10-23/m-i-design.md",
+      "sha256": "219ea2e644c6c57dc00b68a6e360bb6633accb506cb862e508c244d18cdab118"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W3/delivery.json",
+      "sha256": "13428fb23bcb5bf04cfabd9e37dc08e242ff9f30498933a5190b2de53852b10c"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates\\core-transport\\DivideBackTwist.lean",
+      "sha256": "dd685d61f0e15a1ccebddecfdbfbc66fc377b76ea2315349cbb2b346328532a8"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W8/README.md",
+      "sha256": "28856a470e915d408a03dfc020887559c1515b422ea4ce2d3703dcce51229b21"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W8/check.json",
+      "sha256": "e12fb7e42f2ed6853652febddd9ccad540bd897b75bad929ee3214cebea7f9ab"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W8/editor/vscode-observation-tree-2.txt",
+      "sha256": "ad8b07286082dc342523f073e58d4c437ed287e772e8a506e2e0022add78dd2a"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 21,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 21,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "dd685d61f0e15a1ccebddecfdbfbc66fc377b76ea2315349cbb2b346328532a8"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "status_bar": "no problems detected in the workspace",
+      "evidence": "editor/vscode-observation-tree-2.txt"
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "twistReading: the reading of a twisted M-th power, with the twist term written out explicitly",
+    "divideBack_twist: dividing back returns the original reading plus the twist reading -- the term the source asserts away",
+    "twist_insensitive_iff: insensitivity holds iff that term vanishes, so the source assertion becomes a checkable condition",
+    "non-vanishing proved independently: the norm of localLog 4 is 1/3, so localLog 4 != 0 and the twist residue is not zero"
+  ],
+  "unresolved": [
+    "what tau is for the real tensor-power Frobenioids is not addressed (needs the M-iii alignment first)",
+    "the estimate version: Ob4-3 speaks of estimates, so a bound on |tau/M| would be needed if tau != 0",
+    "this is a toy on Q_3; x -> x^M is not det^{tensor M}"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

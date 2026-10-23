@@ -1,0 +1,374 @@
+﻿### VS Code accessibility tree, captured 2026-10-23T14:39:19.0811389+08:00
+### window: UnifiedFactorization.lean - core-transport - Visual Studio Code
+ControlType.Window | DivideBackTwist.lean - core-transport - Visual Studio Code
+ControlType.Pane | 
+ControlType.Pane | DivideBackTwist.lean - core-transport - Visual Studio Code
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Button | 最小化
+ControlType.Button | 最大化
+ControlType.Button | 关闭
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Pane | 
+ControlType.Document | DivideBackTwist.lean - core-transport - Visual Studio Code
+ControlType.Group | 
+ControlType.Pane | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.MenuBar | 
+ControlType.MenuItem | 文件
+ControlType.MenuItem | 编辑
+ControlType.MenuItem | 选择
+ControlType.MenuItem | 查看
+ControlType.MenuItem | 转到
+ControlType.MenuItem | 更多
+ControlType.ToolBar | 
+ControlType.Button | 返回 (Alt+LeftArrow)
+ControlType.Button | 前进 (Alt+RightArrow)
+ControlType.ToolBar | 智能体状态
+ControlType.Button | 打开快速访问
+ControlType.Group | 
+ControlType.Button | 切换聊天
+ControlType.Button | 切换聊天
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多操作
+ControlType.ToolBar | 
+ControlType.Button | Try Agents Window (Ctrl+Shift+Alt+A)
+ControlType.ToolBar | 标题操作
+ControlType.Button | 切换主侧栏 (Ctrl+B)
+ControlType.Text | 
+ControlType.Button | 自定义布局...
+ControlType.Button | 切换面板 (Ctrl+J)
+ControlType.Text | 
+ControlType.Button | 切换辅助侧栏 (Ctrl+Alt+B)
+ControlType.Text | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Tab | 活动视图切换器
+ControlType.TabItem | 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件
+ControlType.Group | 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件
+ControlType.Group | 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件
+ControlType.TabItem | 搜索 (Ctrl+Shift+F)
+ControlType.Group | 搜索 (Ctrl+Shift+F)
+ControlType.TabItem | 源代码管理 (Ctrl+Shift+G)
+ControlType.Group | 源代码管理 (Ctrl+Shift+G)
+ControlType.Group | 源代码管理 (Ctrl+Shift+G)
+ControlType.TabItem | 运行和调试 (Ctrl+Shift+D)
+ControlType.Group | 运行和调试 (Ctrl+Shift+D)
+ControlType.TabItem | 远程资源管理器
+ControlType.Group | 远程资源管理器
+ControlType.TabItem | 扩展 (Ctrl+Shift+X)
+ControlType.Group | 扩展 (Ctrl+Shift+X)
+ControlType.TabItem | Python
+ControlType.Group | Python
+ControlType.TabItem | GPT Bridge
+ControlType.Group | GPT Bridge
+ControlType.ToolBar | 管理
+ControlType.Button | 帐户
+ControlType.Group | 帐户
+ControlType.Text | 
+ControlType.Button | 管理
+ControlType.Group | 管理
+ControlType.Text | 
+ControlType.Text | 资源管理器
+ControlType.ToolBar | 资源管理器操作
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 视图和更多操作…
+ControlType.ToolBar | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 打开的编辑器部分
+ControlType.Text | 打开的编辑器
+ControlType.Button | 1 unsaved, open unsaved editor
+ControlType.List | 打开的编辑器
+ControlType.ListItem | DelegatedLogBridge.lean,
+ControlType.ToolBar | 
+ControlType.Button | 关闭编辑器 (Ctrl+F4)
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DelegatedLogBridge.lean
+ControlType.Text | 
+ControlType.Text | DelegatedLogBridge.lean
+ControlType.ListItem | ExecutionProvenance.lean,
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ExecutionProvenance.lean
+ControlType.Text | 
+ControlType.Text | ExecutionProvenance.lean
+ControlType.ListItem | ReadingInvariance.lean,
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingInvariance.lean
+ControlType.Text | 
+ControlType.Text | ReadingInvariance.lean
+ControlType.ListItem | DivideBackLaw.lean,
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackLaw.lean
+ControlType.Text | 
+ControlType.Text | DivideBackLaw.lean
+ControlType.ListItem | TransitionCompatibility.lean,
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\TransitionCompatibility.lean
+ControlType.Text | 
+ControlType.Text | TransitionCompatibility.lean
+ControlType.ListItem | ReadingFactorization.lean,
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingFactorization.lean
+ControlType.Text | 
+ControlType.Text | ReadingFactorization.lean
+ControlType.ListItem | NormalizationAlignment.lean,
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\NormalizationAlignment.lean
+ControlType.Text | 
+ControlType.Text | NormalizationAlignment.lean
+ControlType.ListItem | UnifiedFactorization.lean,
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\UnifiedFactorization.lean
+ControlType.Text | 
+ControlType.Text | UnifiedFactorization.lean
+ControlType.ListItem | DivideBackTwist.lean,
+ControlType.ToolBar | 
+ControlType.Button | 关闭编辑器 (Ctrl+F4)
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackTwist.lean
+ControlType.Text | 
+ControlType.Text | DivideBackTwist.lean
+ControlType.Button | 资源管理器部分: core-transport
+ControlType.Text | 资源管理器部分: core-transport
+ControlType.Tree | 文件资源管理器
+ControlType.TreeItem | .lake
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\.lake
+ControlType.TreeItem | CoreTransport
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\CoreTransport
+ControlType.TreeItem | CollectionProvenance.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\CollectionProvenance.lean
+ControlType.TreeItem | CoreTransport.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\CoreTransport.lean
+ControlType.TreeItem | DelegatedLogBridge.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DelegatedLogBridge.lean
+ControlType.TreeItem | DivideBackLaw.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackLaw.lean
+ControlType.TreeItem | DivideBackTwist.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackTwist.lean
+ControlType.TreeItem | ExecutionProvenance.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ExecutionProvenance.lean
+ControlType.TreeItem | lake-manifest.json
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\lake-manifest.json
+ControlType.TreeItem | lakefile.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\lakefile.lean
+ControlType.TreeItem | lean-toolchain
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\lean-toolchain
+ControlType.TreeItem | NormalizationAlignment.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\NormalizationAlignment.lean
+ControlType.TreeItem | ReadingFactorization.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingFactorization.lean
+ControlType.TreeItem | ReadingInvariance.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingInvariance.lean
+ControlType.TreeItem | README.md
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\README.md
+ControlType.TreeItem | TransitionCompatibility.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\TransitionCompatibility.lean
+ControlType.TreeItem | Unfinished.md
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\Unfinished.md
+ControlType.TreeItem | UnifiedFactorization.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\UnifiedFactorization.lean
+ControlType.Button | 大纲部分
+ControlType.Text | 大纲
+ControlType.Button | 时间线部分
+ControlType.Text | 时间线
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Tab | 
+ControlType.TabItem | 欢迎，预览, 编辑器组1
+ControlType.Group | 欢迎
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | DelegatedLogBridge.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DelegatedLogBridge.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | ExecutionProvenance.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ExecutionProvenance.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | ReadingInvariance.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingInvariance.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | DivideBackLaw.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackLaw.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | TransitionCompatibility.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\TransitionCompatibility.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | ReadingFactorization.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingFactorization.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | NormalizationAlignment.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\NormalizationAlignment.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | UnifiedFactorization.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\UnifiedFactorization.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.TabItem | DivideBackTwist.lean, 编辑器组1
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackTwist.lean
+ControlType.ToolBar | 选项卡操作
+ControlType.Button | 关闭 (Ctrl+F4)
+ControlType.ToolBar | 编辑器操作
+ControlType.Button | Run Code (Ctrl+Alt+N)
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | Lean 4
+ControlType.Button | Paperproof: Toggle
+ControlType.Button | 向右拆分编辑器 (Ctrl+\) [Alt] 向下拆分编辑器
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多操作...
+ControlType.Text | 
+ControlType.List | 
+ControlType.ListItem | DivideBackTwist.lean
+ControlType.Group | D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackTwist.lean
+ControlType.Text | 
+ControlType.Text | DivideBackTwist.lean
+ControlType.Group | DivideBackTwist.lean, 编辑器组1
+ControlType.Text | 
+ControlType.Edit | 现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1
+ControlType.Group | 编辑器组2 (空)
+ControlType.ToolBar | 空编辑器组操作
+ControlType.Button | 关闭组 (Ctrl+F4)
+ControlType.ToolBar | 
+ControlType.Tab | 活动视图切换器
+ControlType.TabItem | 问题 (Ctrl+Shift+M)
+ControlType.Group | 问题 (Ctrl+Shift+M)
+ControlType.TabItem | 输出 (Ctrl+Shift+U)
+ControlType.Group | 输出 (Ctrl+Shift+U)
+ControlType.TabItem | 调试控制台 (Ctrl+Shift+Y)
+ControlType.Group | 调试控制台 (Ctrl+Shift+Y)
+ControlType.TabItem | 终端 (Ctrl+`)
+ControlType.Group | 终端 (Ctrl+`)
+ControlType.TabItem | 端口
+ControlType.Group | 端口
+ControlType.ToolBar | 问题操作
+ControlType.Edit | 筛选器问题
+ControlType.ToolBar | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 更多筛选器...
+ControlType.Button | 全部折叠
+ControlType.Button | 以表形式查看
+ControlType.Group | 
+ControlType.ToolBar | 
+ControlType.Button | 最大化面板
+ControlType.Text | 
+ControlType.Button | 隐藏面板 (Ctrl+J)
+ControlType.Group | 未在工作区检测到问题。
+ControlType.Group | 未在工作区检测到问题。
+ControlType.Text | 未在工作区检测到问题。
+ControlType.Tab | 活动视图切换器
+ControlType.TabItem | 聊天 (Ctrl+Alt+I)
+ControlType.Group | 聊天 (Ctrl+Alt+I)
+ControlType.ToolBar | 聊天操作
+ControlType.Group | 
+ControlType.Button | 新建聊天 (Ctrl+N)
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 新建聊天
+ControlType.Button | 打开自定义
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 视图和更多操作…
+ControlType.Group | 
+ControlType.ToolBar | 
+ControlType.Button | 最大化辅助侧栏
+ControlType.Text | 
+ControlType.Button | 隐藏辅助侧栏 (Ctrl+Alt+B)
+ControlType.Group | 
+ControlType.Text | 会话
+ControlType.ToolBar | 
+ControlType.Button | 刷新智能体会话
+ControlType.Button | 查找智能体会话
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | 筛选智能体会话
+ControlType.Text | 
+ControlType.Button | 显示智能体会话边栏
+ControlType.Tree | 智能体会话
+ControlType.Group | 
+ControlType.Group | 
+ControlType.ToolBar | Session status
+ControlType.Button | 未提交更改: 126 Files, +11410, -2
+ControlType.Group | 提示: Try the Plan agent to research and plan before implementing changes. 按 Tab 执行操作。
+ControlType.Group | 
+ControlType.Text | 提示:
+ControlType.Text | Try the
+ControlType.Hyperlink | Plan agent
+ControlType.Text | to research and plan before implementing changes.
+ControlType.ToolBar | 
+ControlType.Button | 上一个提示
+ControlType.Button | 下一提示
+ControlType.Button | 关闭提示
+ControlType.Button | 禁用提示
+ControlType.Group | 
+ControlType.Group | 建议的上下文、文件、DivideBackTwist.lean file:///d%3A/Inter-universal%20Teichm%C3%BCller%20Theory/candidates/core-transport
+ControlType.Button | 将 file:DivideBackTwist.lean 添加到上下文
+ControlType.Group | 启用当前 文件 上下文 DivideBackTwist.lean
+ControlType.Text | 
+ControlType.Text | DivideBackTwist.lean
+ControlType.Text | 
+ControlType.Edit | 现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1
+ControlType.Text | 与 Claude 聊天
+ControlType.Group | 
+ControlType.ToolBar | 
+ControlType.Button | 添加上下文... (Ctrl+/)
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | Agent
+ControlType.Text | 
+ControlType.Text | Agent
+ControlType.Group | Models, No models available
+ControlType.Button | Models, No models available
+ControlType.ToolBar | 
+ControlType.Button | Dictate (Speech to Text) (Ctrl+I)
+ControlType.Text | 
+ControlType.Button | 发送 [Alt] 发送到新聊天 (Ctrl+Shift+Enter)
+ControlType.ToolBar | 
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Button | Claude
+ControlType.Text | 
+ControlType.Text | Claude
+ControlType.Button | 审批: 编辑前询问
+ControlType.Button | Allow connections from other machines and vscode.dev/agents
+ControlType.Text | 
+ControlType.StatusBar | 
+ControlType.Group | remote
+ControlType.Button | remote
+ControlType.Group | 没有问题
+ControlType.Button | 没有问题
+ControlType.Group | 通知
+ControlType.Button | 通知
+ControlType.Group | Copilot 状态
+ControlType.Button | Copilot 状态
+ControlType.Group | lean4
+ControlType.Button | lean4
+ControlType.Group | 编辑器语言状态: $(copilot) 无内联建议可用，内联建议
+ControlType.Button | 编辑器语言状态: $(copilot) 无内联建议可用，内联建议
+ControlType.Group | LF
+ControlType.Button | LF
+ControlType.Group | UTF-8
+ControlType.Button | UTF-8
+ControlType.Group | 空格: 2
+ControlType.Button | 空格: 2
+ControlType.Group | 行 1，列 1
+ControlType.Button | 行 1，列 1
+ControlType.Text | 
+ControlType.Text | 
+ControlType.Text | Auto
+ControlType.Group | 
+ControlType.Group | 
+ControlType.Pane | 
+### nodes: 370
+
