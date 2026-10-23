@@ -29,11 +29,14 @@ K4（执行来源）这三处最容易含糊的地方，各自做成一个能编
 | M-i | `candidates/core-transport/DivideBackTwist.lean` + `research/…/m-i-design.md` | 除回活在**读数层**；twist 项 `τ` 显式写出，不变性 ⟺ `τ = 0`；并**证出** `‖localLog 4‖ = 1/3`，故 `τ ≠ 0` 有具体见证 | `cfd3796`、`ed39245` |
 | M-ii | `candidates/core-transport/ExponentUniqueness.lean` + `research/…/m-ii-design.md` | 指数 `M` 被确定 ⟺ **探针读数非零**；挠探针（`x = 1`）对任意指数给相同读数 | `db181de`、`ba78ff1` |
 
+| W10 | `candidates/core-transport/H3Synthesis.lean` | M-i 与 M-ii 是同一条同态事实的推论：`reading(x^M) = M • reading x`；非挠探针定指数；twist-free ⟺ 读数不变；两条一起给出除回；两侧退化见证（`Multiplicative ℤ` 上） | `64126ef` |
+
 ## 现在正在走的
 
-**W10 — `candidates/core-transport/H3Synthesis.lean`（进行中）**：把 M-i 与 M-ii 合成一条**抽象**定理——
-读数是从乘法群到加法群的**同态**、探针**非挠**，两条一起给出"twist-free ⇒ 除回得到原读数"与"非挠 ⇒ 指数唯一"。
-若成功，W8/W9 就是同一条同态事实的两个实例，而不是两个孤立玩具。
+**下一步（未开始）：把 W7 升级为"同构在轨道上相等"**，并按 LANA 报告的 (9-1) 对齐——仓库里已有
+`Iut/Wall/EtaAlg.lean:151` 的 `etaAnab_eq_etaQ_iff` 作为具名等价（其 docstring 自标 "(9-1)"），所以玩具层要做的是
+"两族同构 + 存在 `S` 使二者相等"的**形状**，而不是发明新接口。玩具里没有 `out`/`BPS`/`Ind3`，故不得声称触及
+`etaAnab`/`etaQ`。
 
 ## 外部来源：LANA 中期报告（2026-07，已归档）
 
