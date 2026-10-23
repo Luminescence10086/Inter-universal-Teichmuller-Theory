@@ -27,10 +27,16 @@
 | M4 的声明定位 | 在 `external/iut` 内 grep 四条 | `OrbitObj`(43)、`OrbitHom`(52)、`ValBPS.valIso_subsingleton`(296)、`IsFrobenioid.pullback_surj`(**251，结构字段**)、`degree_hom`(305)、`degree_frobenius`(328) 全部命中 |
 | M1 的 CSV | 独立解析 | 28 行 × 10 列、无空格、状态含 `STATIC_ONLY`/`PARTIAL`、交付哈希与磁盘一致 |
 | M4 的 CSV | 独立解析 | 8 行 × 13 列、无错列、`hits_kind` 只用 definition/theorem/assumed_field、哈希一致 |
-| M2 的 CSV | 独立解析 | **发现缺陷**：表头 11 列，27 个数据行中 **15 行**含未加引号的逗号（字段数 12–14），不能作为表格解析；已退回 M2 修复（只改引号、不改内容），修好后重核 |
+| M2 的 CSV | 独立解析 | **发现缺陷**：表头 11 列，27 个数据行中 **15 行**含未加引号的逗号（字段数 12–14），不能作为表格解析；已退回 M2 修复（只改引号、不改内容） |
+| M2 修复版 | 再独立解析 | 表头 11 列、27 数据行、0 错列、无空字段、哈希与 `delivery.json` 一致 —— 通过 |
+| M3 的接口定位 | 在 `external/iut` 内 grep 六条 | `out`(108)、`ind12_acts_on_S`(112)、`etUnitOnly`(117)、`realisation`(123)、`LatticeKummer`(248，`L` 为幻参数)、`EtaAlg.ThetaShift`(105–107，确为名称扩展) 全部命中 |
 
-一条方法记录：三个任务的 CSV 都有"字段内含逗号"的风险，而只有 M2 踩到。今后凡要求交付 CSV，主线接收时必须
-独立解析一次（列数 + 空字段 + 哈希），不能只看行数自述。
+两条方法记录：
+1. 三个任务的 CSV 都有"字段内含逗号"的风险，而只有 M2 踩到。今后凡要求交付 CSV，主线接收时必须用**严格
+   解析器**独立解析一次（列数 + 空字段 + 哈希）。**M2 自报的"已用 CSV 解析器回读、无错行"是假通过**——
+   因为它用的是 PowerShell `Import-Csv`，该命令对多余逗号过于宽容；换 `csv.reader`/`TextFieldParser` 才暴露
+   15 行错列、2 行无法解析。这条对后续任何"自检"都适用：自检工具比被检对象更宽松时，自检无效。
+2. 交付文件里的自述（如 M2 的"回读无错行"）不能作为验收依据；只有主线独立复核的输出才算。
 
 ## 1. H1：最小忠实类型
 
@@ -170,6 +176,33 @@ orbit 范畴、model-Frobenioid 的 pullback 构造模式、Iut4Sec1 的 base-ch
 
 环境注意（M4 记录）：`external/iut` 固定的 mathlib 与本地 `85e3a25e`（v4.34.0-rc2）**不同版本**，任何移植前必须
 先解决版本差，不能假定签名可直接搬用。
+
+## 4″. M3 的接口事实（11 项，已抽查 4 处）
+
+M3（`handoffs/core-backward-2026-10-23/M3/`，11 项，全部按搜索定位）把四个问题变成明确的"有/无"，
+主线抽查了 `EtaAlg.out`(108)、`ind12_acts_on_S`(112)、`etUnitOnly`(117)、`realisation`(123)、
+`LatticeKummer`(248)、`EtaAlg.ThetaShift`(105–107，注意是名称扩展，不是 `MultiContainer.ThetaShift`)。
+
+**F3「显式要求合法执行路径」对 11 项全部为 false。** `out` 是结构里的裸字段，`realisation` 只约束输出
+*落在哪里*（`IsAdelic ∧ InHullOfImage`），不是"由某个算法执行产生"。这正是 K4 的缺口，也是设计稿 W1/W6
+不能从接口直接取值的理由：允许性必须由新的实现证明提供，`realisation` 只能当落点条件用。
+
+**F4「显式要求 degree 比较」只在 `ThetaShift` 为真，且是等式而非不等式**：
+`logVol D (A.out ι S) = -(sFactor (nC D) * D.qPilot.absLogQ) + logVol D S.1`。其余所有上界都是**独立定理**
+（`logVol_le_rhs` Rss:374、`logVol_le_vcI` Ind3:244、`SSIneq` MultiContainer:88），不是接口字段。
+所以 K5 的接线必须引用这些定理，不能假设某个字段"自带上界"。
+
+**F1「显式要求 native q 标记」在 9/11 为 false。** `Choice` 瞄准的是 Θ-pilot（`D.thetaValD`），因此
+Step-1 的选择是 q-free 的；q 只在**使用处**通过 `B := A.qBPS` 进入（Wall:174–175）。对 W1 的含义：
+"同一 native q"这条关系不是接口携带的，必须由联合见证自己提供并证明。
+
+三条需要提防的源码事实：
+- `LatticeKummer` 的类型参数 `L` 是**幻参数**（两个字段的类型都不提 L），而
+  `not_unitInducedScaling_qScale_zpow`(238–240) 说明它的 Kummer 数据**不能**提供 q-scaling。故 W4 的
+  归一化不能照搬 `LatticeKummer`。
+- `exists_ind3_logVol_iff`(Ind3:253) 是**输入侧** S 的满射性，不是输出满射；不得反读为"任意 hull 值都是某次
+  输出"（与 §0 禁令 2 同一件事）。
+- `realisation` 的 D 是 `.{0}`，而 `Rss` 的 `IsAdelic`/`InHullOfImage` 在 `.{u}` 上：移植时需先对齐宇宙。
 
 ## 5. 本轮不做的
 

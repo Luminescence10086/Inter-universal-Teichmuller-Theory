@@ -1,0 +1,793 @@
+{
+  "_meta": {
+    "task_id": "M3",
+    "status": "STATIC_ONLY",
+    "purpose": "What the existing interfaces actually retain, for K1/K4 (and H1): 11 items, located by searching the four pinned repositories, with verbatim signatures, enclosing scope, field lists, directly referenced types and four evidence-backed flags.",
+    "generated_by": "static source reading only. No Lean, no lake, no build, no editor, no task beyond M3.",
+    "reuse_of_T2": {
+      "note": "The eight T2 declaration cards are NOT re-carded here; they are cited by reference. Cards 1-3 (Iut.Wall.EtaAlg, etaAnab_eq_etaQ_iff, variant_of_wall), 4-6 (KummerTheory restricton/corestriction/specialization), 7 (TateCurvesTheta.restriction_kummer_thetaUnit), 8 (PadicField.eq_artin_of_forall) keep their own evidence.",
+      "cards_json": "handoffs/core-support-2026-10-22/T2/cards.json",
+      "cards_json_sha256": "25a28fd7cd25e14548630d222cfd6f813fb9a20c9b4ff4e49be35e777618a175",
+      "cards_md_sha256": "d6635e880b63e3da7cc19fa4f3480ce19fa903269124514f18847663b990dab2",
+      "overlap": "Item M3-01 (out), M3-03 (ind12_acts_on_S), M3-04 (etUnitOnly), M3-05 (realisation) are FIELDS of T2 card 1's structure. T2 carded the structure as a whole (its lines 96-125, including the eight-field list); M3 adds per-field verbatim text, per-field scope reading and the four flags. Nothing in T2's card 1 is contradicted."
+    },
+    "repo_heads_verified": {
+      "iut": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "continuous-kummer-theory": "1d5194fcc63ddeb7a8cdb6c98d59452503db60fa",
+      "tate-curves-theta": "d1fba94861c886b671f4137ab35e24b7474c9e00",
+      "local-class-field-theory": "a6655a871f92138e486362f08f7df48204f3e985"
+    },
+    "input_drift": false,
+    "input_drift_detail": "All four pinned repositories verified with `git rev-parse HEAD` at the pinned commits and empty `git status --porcelain`. No INPUT_DRIFT.",
+    "scope_decision": "All 11 items were found in the pinned `external/iut` repository. A name scan of the other fifteen `reviews/core-round/external/*` repositories found no occurrence of ThetaShift, LGPLattice, LatticeKummer, InHullOfImage or IsAdelic, so the five names that could have collided do not collide within the pinned set. Other repositories were not read and are outside M3 scope.",
+    "flag_criteria": {
+      "F1_native_q_marking": "TRUE iff the declaration's own type or field body names a distinguished q-object of the native ring/value structure: a term of D.qPilot (e.g. absLogQ), qVal, qRegion, qGen, or a named q-power generator in a native completion. Naming a theta-pilot object (thetaValD, thetaImage, thetaBPS) does not count; theta is not q.",
+      "F2_localization_data": "TRUE iff the declaration's own type names place/prime-indexed component data or an adelic/local side condition, either directly (`∀ i`, FinitePlace/InfinitePlace, ℤ×ℤ vertex indexing) or through a named type whose definition is place-indexed and is cited in the evidence. This flag records the PRESENCE of place-indexed data only. It does not assert that any localization MAP or local-to-global comparison is required.",
+      "F3_legal_execution_path": "TRUE iff the declaration requires that its object be produced by a specified procedure, i.e. names an algorithm, an execution trace, an arrow composition, or a computation whose result is the object. A bare structure field, an arbitrary function position, or a Prop imposed on an already-given function is FALSE even when the docstring speaks of an algorithm.",
+      "F4_degree_comparison": "TRUE iff the declaration's own statement contains a comparison or identification of two normalized degree/log-volume quantities. `kind` records `inequality` vs `equality`. A subset condition on regions, a hull condition, or a q-free statement is FALSE with kind `none`; a degree fact proved in a DIFFERENT declaration is recorded in `note`, not counted here."
+    },
+    "line_numbering": "1-based plain-text lines as read from disk, license header included.",
+    "disclaimer": "Hidden premises recorded here are static readings of the enclosing scope; no elaborator was run. No field is given a new interpretation: each flag cites the deciding line. `The source does not require X` is recorded only about the quoted declaration; no conclusion is drawn about the original IUT, about any other file, or about what the source `really` means."
+  },
+  "interfaces": [
+    {
+      "id": "M3-01",
+      "given_name": "EtaAlg.out",
+      "real_name": "Iut.Wall.EtaAlg.out",
+      "kind": "structure_field",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "lines": "105-109",
+      "decl_lines": "108-109",
+      "file_lines_total": 229,
+      "file_sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "raw_signature_verbatim": "  /-- **The output** `LGP·S` of the η-algorithm, read in the concrete container ([LANA], §9.1,\n  Steps 8–9; §6.2(i)), for a choice `ι` of an isomorphism of the input BPS `B` with the\n  Θ-pilot BPS of a Hodge theater `h` (Step 1) and an (Ind3)-choice `S`. -/\n  out : ∀ {B : BPS model D.bpsDegrees.bad} {h : Side},\n    BPS.Iso B ⟨etUnit h, D.thetaValD⟩ → Ind3 D → Region D",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": ["NumberField"],
+        "variables": ["variable (D : InitialThetaData.{0})   (line 92) -- explicit; D is an explicit parameter of the whole structure, so the elaborated name is Iut.Wall.EtaAlg (D : InitialThetaData.{0})"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "other_scope_entries": ["abbrev Pl (D : InitialThetaData.{0}) : Type := FinitePlace D.F ⊕ InfinitePlace D.F   (line 90)"],
+        "premises_added_by_scope": "YES, but only D: `variable (D : InitialThetaData.{0})` at line 92 is explicit and becomes a parameter of every field. No typeclass binder and no local instance is in scope at line 96, so no hidden instance premise is added.",
+        "depends_on_prior_fields": ["model (98)", "Side (100)", "side_nonempty (102)", "etUnit (104)"],
+        "notes": "`out` is a field, not a free-standing def: its type mentions the earlier fields `Side` and `etUnit`, so it is only meaningful inside an EtaAlg."
+      },
+      "parent_structure": {
+        "name": "Iut.Wall.EtaAlg",
+        "decl_lines": "96-125",
+        "decl_kind": "structure",
+        "fields_with_lines": [
+          "model : Pl D → GMData   (98)",
+          "Side : Type   (100)",
+          "side_nonempty : Nonempty Side   (102)",
+          "etUnit : Side → EtUnitBPS model   (104)",
+          "out : ...   (108-109)",
+          "ind12_acts_on_S : ...   (112-114)",
+          "etUnitOnly : ...   (117-119)",
+          "realisation : ...   (123-125)"
+        ],
+        "check": "The field list agrees with T2 card 1 (`field_names`); T2 already records it, so it is quoted here only as the parent context of the four field items."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.InitialThetaData", "defined_at": "Iut/Cor312/ThetaData/Basic.lean:81", "note": "structure; supplies D.bpsDegrees, D.thetaValD"},
+        {"name": "Iut.Wall.GMData", "defined_at": "Iut/Wall/BPS.lean:69", "note": "through `model : Pl D → GMData`"},
+        {"name": "Iut.Wall.EtUnitBPS", "defined_at": "Iut/Wall/BPS.lean:136", "note": "through `etUnit`"},
+        {"name": "Iut.Wall.BPS", "defined_at": "Iut/Wall/BPS.lean:357", "note": "input object `B`"},
+        {"name": "Iut.Wall.BPS.Iso", "defined_at": "Iut/Wall/BPS.lean:369", "note": "the Step-1 choice `ι`"},
+        {"name": "Iut.Wall.Ind3", "defined_at": "Iut/Wall/Ind3.lean:213", "note": "the choice `S`"},
+        {"name": "Iut.Wall.Region", "defined_at": "Iut/Wall/Rss.lean:314", "note": "codomain"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "EtaAlg.lean:108-109 — the whole field type is `∀ {B : BPS model D.bpsDegrees.bad} {h : Side}, BPS.Iso B ⟨etUnit h, D.thetaValD⟩ → Ind3 D → Region D`. No `q`-term occurs: the input BPS `B` is generic, the choice targets `D.thetaValD` (theta, not q), and the codomain is a region.",
+          "note": "q enters this development only at use sites where the generic `B` is instantiated with `A.qBPS` (EtaAlg.lean:135, used at 151-152 and 173-175). That instantiation is not part of this field."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "EtaAlg.lean:109 — codomain `Region D`; Rss.lean:314 — `abbrev Region := ∀ i : Fin (VC D).proc.length, (VC D).AdmissibleRegion i`.",
+          "note": "Place/capsule-indexed family only. The field requires no localization map, no local-to-global comparison, and no compatibility between local pieces beyond what `AdmissibleRegion` already is."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "EtaAlg.lean:108 — `out : ...` is a structure field with no definition and no body; nothing in the field requires it to be the result of any procedure.",
+          "note": "The docstring at 105-107 describes the η-algorithm, but the field is an arbitrary function of (B, h, ι, S). This is the K4 gap at its sharpest."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "EtaAlg.lean:108-109 — no log-volume, degree or inequality term occurs in the field type.",
+          "note": "The degree facts live elsewhere: `logVol` at Rss.lean:324, the bound `logVol_le_rhs` at Rss.lean:374."
+        }
+      },
+      "notable_findings": [
+        "The output is a function of a GENERIC input BPS `B` and a choice into a Theta-pilot BPS; nothing in the field ties the output to the q-pilot. The q-pilot enters only when `Wall` instantiates B := A.qBPS h2 (EtaAlg.lean:174-175)."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-02",
+      "given_name": "Choice",
+      "real_name": "Iut.Wall.EtaAlg.Choice",
+      "kind": "abbrev",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "lines": "140-141",
+      "decl_lines": "141",
+      "file_lines_total": 229,
+      "file_sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "raw_signature_verbatim": "/-- The choices of Step 1 of the η-algorithm: isomorphisms of the input with a Θ-pilot BPS. -/\nabbrev Choice (B : A.BPSA) (h : A.Side) := BPS.Iso B (A.thetaBPS h)",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall", "EtaAlg"],
+        "opens": ["NumberField"],
+        "variables": [
+          "variable {D} (A : EtaAlg D)   (line 129) -- D is now IMPLICIT (it was explicit at line 92), A is EXPLICIT",
+          "same-scope definitions the type refers to: abbrev BPSA (132), noncomputable def qBPS (135), noncomputable def thetaBPS (138)"
+        ],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "premises_added_by_scope": "YES: `A : EtaAlg D` is an explicit section variable at line 129 and becomes a parameter, and {D} becomes implicit. No typeclass binder and no local instance is added.",
+        "notes": "`Choice` takes the EtaAlg `A` (hence its `model` and `Side`) plus a Hodge theater `h`; the elaborated name is Iut.Wall.EtaAlg.Choice {D} (A : EtaAlg D) (B : A.BPSA) (h : A.Side)."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.BPS", "defined_at": "Iut/Wall/BPS.lean:357", "note": "via abbrev BPSA (132): `BPS A.model D.bpsDegrees.bad`"},
+        {"name": "Iut.Wall.BPS.Iso", "defined_at": "Iut/Wall/BPS.lean:369", "note": "the body of the abbrev"},
+        {"name": "Iut.Wall.EtUnitBPS", "defined_at": "Iut/Wall/BPS.lean:136", "note": "via thetaBPS"},
+        {"name": "Iut.Wall.ValBPS", "defined_at": "Iut/Wall/BPS.lean (ValBPS section; `qVal` is Pilots.lean:106)", "note": "thetaBPS = ⟨etUnit h, D.thetaValD⟩ (138), so the value portion is D.thetaValD"},
+        {"name": "Iut.Wall.BPS.Iso.et", "defined_at": "Iut/Wall/BPS.lean:371", "note": "the field used by etUnitOnly at 119"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "EtaAlg.lean:141 — `abbrev Choice (B : A.BPSA) (h : A.Side) := BPS.Iso B (A.thetaBPS h)`, with thetaBPS at 138 = `⟨A.etUnit h, D.thetaValD⟩`. The target is the Theta-pilot BPS; no q-term occurs.",
+          "note": "The q-pilot BPS is the separate definition `qBPS` (135) = `⟨A.etUnit h, qVal D.bpsDegrees⟩`. `Choice` is not stated against it, although `Wall` instantiates B with `A.qBPS h2`."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "BPS.lean:369-373 — `structure Iso ... where et : EtUnitIso B.et B'.et; val : ValBPS.Iso B.val B'.val`, and BPS.lean:147 — `def EtUnitIso (E E' : EtUnitBPS model) : Type := ∀ v, GMIso (E.gm v) (E'.gm v)`.",
+          "note": "A place-indexed family of isomorphisms (one per v : Pl D). No localization map and no comparison of local data with a global object."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "EtaAlg.lean:141 — the body is an isomorphism TYPE; it names no procedure and produces no object by computation.",
+          "note": "Step 1 of [LANA] §9.1 is described in the docstring at 140; the declaration is only the type of its choice."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "EtaAlg.lean:141 — no log-volume or degree term.",
+          "note": "`Choice` is degree-free; `ValBPS.Iso` constrains value-group data, not an inequality."
+        }
+      },
+      "notable_findings": [
+        "`Choice` is q-free: it is the type of isomorphisms onto the Theta-pilot BPS. The 'Step 1 choice' and the q-pilot are joined only in `Wall` (173-175) and in `etaAnab_eq_etaQ_iff` (151-152), by instantiating B."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-03",
+      "given_name": "ind12_acts_on_S",
+      "real_name": "Iut.Wall.EtaAlg.ind12_acts_on_S",
+      "kind": "structure_field",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "lines": "110-114",
+      "decl_lines": "112-114",
+      "file_lines_total": 229,
+      "file_sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "raw_signature_verbatim": "  /-- **(T1)** (Ind1), (Ind2) — automorphisms of the étale-unit portion of the input — act on\n  the (Ind3)-choices (IUT III, Theorem 3.11(i); [LANA], §10.4). -/\n  ind12_acts_on_S : ∀ {B : BPS model D.bpsDegrees.bad} {h : Side} (α : EtUnitIso B.et B.et)\n    (ι : BPS.Iso B ⟨etUnit h, D.thetaValD⟩), ∃ τ : Ind3 D ≃ Ind3 D, ∀ S,\n      out ((BPS.Iso.mk α (ValBPS.Iso.refl _)).trans ι) S = out ι (τ S)",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": ["NumberField"],
+        "variables": ["variable (D : InitialThetaData.{0})   (line 92) -- explicit structure parameter"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "premises_added_by_scope": "Only D (line 92, explicit). No typeclass binder and no local instance.",
+        "depends_on_prior_fields": ["Side (100)", "etUnit (104)", "out (108-109)"],
+        "notes": "The field is an equation between values of the earlier field `out`; it is a constraint on `out`, not a standalone statement about an action."
+      },
+      "parent_structure": {
+        "name": "Iut.Wall.EtaAlg",
+        "decl_lines": "96-125",
+        "decl_kind": "structure",
+        "fields_with_lines": ["model (98)", "Side (100)", "side_nonempty (102)", "etUnit (104)", "out (108-109)", "ind12_acts_on_S (112-114)", "etUnitOnly (117-119)", "realisation (123-125)"],
+        "check": "Consistent with T2 card 1."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.EtUnitIso", "defined_at": "Iut/Wall/BPS.lean:147", "note": "α : EtUnitIso B.et B.et -- an automorphism of the etale-unit portion"},
+        {"name": "Iut.Wall.BPS.Iso", "defined_at": "Iut/Wall/BPS.lean:369", "note": "ι, and BPS.Iso.mk / .trans at 114"},
+        {"name": "Iut.Wall.ValBPS.Iso", "defined_at": "Iut/Wall/BPS.lean (ValBPS section)", "note": "ValBPS.Iso.refl _ -- the value portion is left fixed"},
+        {"name": "Iut.Wall.Ind3", "defined_at": "Iut/Wall/Ind3.lean:213", "note": "τ : Ind3 D ≃ Ind3 D and S : Ind3 D"},
+        {"name": "Iut.Wall.Region", "defined_at": "Iut/Wall/Rss.lean:314", "note": "through out"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "EtaAlg.lean:112-114 — the field mentions `B.et`, `EtUnitIso`, `BPS.Iso`, `ValBPS.Iso.refl`, `Ind3 D`, `out`. No q-term occurs.",
+          "note": "The invariance is stated for a generic `B`, hence for every value-group portion, q-pilot included or not."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "EtaAlg.lean:112 — `α : EtUnitIso B.et B.et`; BPS.lean:147 — `EtUnitIso ... := ∀ v, GMIso (E.gm v) (E'.gm v)`; also `Ind3 D` (Ind3.lean:213) is a place-indexed family.",
+          "note": "Place-indexed automorphism data. No localization map is named, and no local-to-global compatibility is required."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "EtaAlg.lean:113-114 — the conclusion is `∃ τ : Ind3 D ≃ Ind3 D, ∀ S, out (...) S = out ι (τ S)`: an equation between values of the already-given `out`.",
+          "note": "It constrains `out`; it does not require `out` to be computed, and it does not exhibit the action as data."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "EtaAlg.lean:112-114 — no log-volume, degree or inequality term.",
+          "note": "The invariance is at the level of regions, not of their log-volumes; a log-volume consequence would need a separate step."
+        }
+      },
+      "notable_findings": [
+        "The (Ind1)/(Ind2) action is recorded as an existence of a PERMUTATION τ of Ind3 (up to a bijection), not as an action by a named group. The field therefore does not supply a group, a group action, or equivariance data."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-04",
+      "given_name": "etUnitOnly",
+      "real_name": "Iut.Wall.EtaAlg.etUnitOnly",
+      "kind": "structure_field",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "lines": "115-119",
+      "decl_lines": "117-119",
+      "file_lines_total": 229,
+      "file_sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "raw_signature_verbatim": "  /-- **(T2)** the output depends on the input only through its étale-unit portion and the\n  étale-unit part of the choice ([LANA], Remark 6.2.2). -/\n  etUnitOnly : ∃ f : ∀ {E : EtUnitBPS model} {h : Side}, EtUnitIso E (etUnit h) → Ind3 D →\n      Region D, ∀ {B : BPS model D.bpsDegrees.bad} {h : Side}\n      (ι : BPS.Iso B ⟨etUnit h, D.thetaValD⟩) (S : Ind3 D), out ι S = f ι.et S",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": ["NumberField"],
+        "variables": ["variable (D : InitialThetaData.{0})   (line 92) -- explicit structure parameter"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "premises_added_by_scope": "Only D (line 92, explicit). No typeclass binder and no local instance.",
+        "depends_on_prior_fields": ["model (98)", "Side (100)", "etUnit (104)", "out (108-109)"],
+        "notes": "The field existentially quantifies a factorisation function f; the module docstring (lines 42-45) records that nothing below uses it except the checks."
+      },
+      "parent_structure": {
+        "name": "Iut.Wall.EtaAlg",
+        "decl_lines": "96-125",
+        "decl_kind": "structure",
+        "fields_with_lines": ["model (98)", "Side (100)", "side_nonempty (102)", "etUnit (104)", "out (108-109)", "ind12_acts_on_S (112-114)", "etUnitOnly (117-119)", "realisation (123-125)"],
+        "check": "Consistent with T2 card 1."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.EtUnitBPS", "defined_at": "Iut/Wall/BPS.lean:136", "note": "E : EtUnitBPS model"},
+        {"name": "Iut.Wall.EtUnitIso", "defined_at": "Iut/Wall/BPS.lean:147", "note": "ι.et : EtUnitIso B.et (etUnit h)"},
+        {"name": "Iut.Wall.BPS", "defined_at": "Iut/Wall/BPS.lean:357", "note": "B"},
+        {"name": "Iut.Wall.Ind3", "defined_at": "Iut/Wall/Ind3.lean:213", "note": "S"},
+        {"name": "Iut.Wall.Region", "defined_at": "Iut/Wall/Rss.lean:314", "note": "codomain of f"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "EtaAlg.lean:117-119 — the field mentions `EtUnitBPS`, `Side`, `EtUnitIso`, `Ind3`, `Region`, `BPS.Iso`, `out`, `ι.et`. No q-term occurs.",
+          "note": "The factorisation explicitly discards the value-group portion, so a q-pilot marking could not appear in it without contradiction with the field's intent as described at 115-116."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "EtaAlg.lean:117 — `EtUnitBPS model` / `EtUnitIso E (etUnit h)`; BPS.lean:147 place-indexes the isomorphisms; `Ind3 D` is a place-indexed family.",
+          "note": "Place-indexed data only; no localization map."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "EtaAlg.lean:117-119 — an existential factorisation of the already-given `out`: `out ι S = f ι.et S`.",
+          "note": "It is a dependence statement about `out`, not a construction of `out`."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "EtaAlg.lean:117-119 — no log-volume or degree term.",
+          "note": "None."
+        }
+      },
+      "notable_findings": [
+        "This is the field that would make the output blind to value-group (hence q) data. It is required of any EtaAlg, while the module docstring (45) records that nothing in the development uses it except the checks."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-05",
+      "given_name": "realisation",
+      "real_name": "Iut.Wall.EtaAlg.realisation",
+      "kind": "structure_field",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "lines": "120-125",
+      "decl_lines": "123-125",
+      "file_lines_total": 229,
+      "file_sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "raw_signature_verbatim": "  /-- **(T3) realisation**: every output is an adelic region in the holomorphic hull of a\n  single (Ind1)-image of the concrete theta-pilot region (IUT III, Theorem 3.11(ii),\n  Corollary 3.12; roadmap package P21). -/\n  realisation : ∀ {B : BPS model D.bpsDegrees.bad} {h : Side}\n    (ι : BPS.Iso B ⟨etUnit h, D.thetaValD⟩) (S : Ind3 D),\n      IsAdelic D (out ι S) ∧ InHullOfImage D (out ι S)",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": ["NumberField"],
+        "variables": ["variable (D : InitialThetaData.{0})   (line 92) -- explicit structure parameter"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "premises_added_by_scope": "Only D (line 92, explicit). No typeclass binder and no local instance. Note that `IsAdelic` and `InHullOfImage` are declared for a universe-polymorphic D (Rss.lean:300, `InitialThetaData.{u}`), while this field's D is `.{0}`; applying them at `.{0}` needs no extra premise.",
+        "depends_on_prior_fields": ["Side (100)", "etUnit (104)", "out (108-109)"],
+        "notes": "IsAdelic and InHullOfImage are defined in Iut/Wall/Rss.lean, imported transitively through Iut/Wall/Ind3.lean (line 6) and directly via Iut/MainTheorem (line 7); the strength of this field's conclusion is fixed in Rss.lean, not here (as T2 card 1 already notes)."
+      },
+      "parent_structure": {
+        "name": "Iut.Wall.EtaAlg",
+        "decl_lines": "96-125",
+        "decl_kind": "structure",
+        "fields_with_lines": ["model (98)", "Side (100)", "side_nonempty (102)", "etUnit (104)", "out (108-109)", "ind12_acts_on_S (112-114)", "etUnitOnly (117-119)", "realisation (123-125)"],
+        "check": "Consistent with T2 card 1, which already records `output` = the conjunction IsAdelic ∧ InHullOfImage."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.IsAdelic", "defined_at": "Iut/Wall/Rss.lean:319", "note": "first conjunct"},
+        {"name": "Iut.Wall.InHullOfImage", "defined_at": "Iut/Wall/Rss.lean:338", "note": "second conjunct"},
+        {"name": "Iut.Wall.BPS.Iso", "defined_at": "Iut/Wall/BPS.lean:369", "note": "ι"},
+        {"name": "Iut.Wall.Ind3", "defined_at": "Iut/Wall/Ind3.lean:213", "note": "S"},
+        {"name": "Iut.Wall.Region", "defined_at": "Iut/Wall/Rss.lean:314", "note": "through out"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "EtaAlg.lean:125 — the conclusion is `IsAdelic D (out ι S) ∧ InHullOfImage D (out ι S)`. Neither predicate mentions a q-object (Rss.lean:319-320, 338-339 use `LocalTheory.hull`, `hullOf`, `thetaImage`).",
+          "note": "The theta-pilot region appears (through `thetaImage`, Rss.lean:333-335); the q-pilot region does not."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "EtaAlg.lean:125 — `IsAdelic D (out ι S)`; Rss.lean:319-320 — `def IsAdelic (U : Region D) : Prop := ∀ i, (LocalTheory.hull D.placeSect (nC D)).IsAdmissible (U i)`.",
+          "note": "Componentwise admissibility over capsules. No localization map, and no compatibility between the local components beyond admissibility."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "EtaAlg.lean:123-125 — a universally quantified conjunction of two predicates about the VALUE `out ι S`; no procedure occurs.",
+          "note": "The field constrains where outputs land, not how they are produced. This is the K4 gap: a model may satisfy `realisation` with an `out` that is not LANA's algorithm."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "EtaAlg.lean:125 — a membership/subset condition, no log-volume or degree term. The corresponding bound is a SEPARATE theorem: Rss.lean:374-375 `logVol_le_rhs : IsAdelic D U -> InHullOfImage D U -> logVol D U ≤ (concreteVariantData D).rhsData.rhs`.",
+          "note": "So the interface does not require any degree comparison; the comparison is derived from the hull condition later."
+        }
+      },
+      "prohibition_check": {
+        "no_reverse_surjectivity": "`realisation` says every output is adelic and lies in the hull of SOME single (Ind1)-image; it does NOT say that every adelic region, or every region in that hull, is an output. No converse is stated or implied by the field. This is a condition on `out`'s values, not a statement that `out` is onto any set.",
+        "hull_is_one_directional": "Rss.lean:338-339 `InHullOfImage U := ∃ l, ∀ i, U i ≤ hullOf D (thetaImage D l) i` is a subset condition; Rss.lean:350 `InImage.inHullOfImage` shows `InImage => InHullOfImage`, i.e. the hull demand is weaker, so a hull landing carries strictly less than an image landing.",
+        "t2_card1_note": "T2 card 1 already records that the hull requirement is weaker than LANA's InImage and that an inhabitant of the structure is therefore not LANA's algorithm. M3 does not weaken or strengthen that."
+      },
+      "notable_findings": [
+        "The degree bound is NOT in the interface: it is theorem `logVol_le_rhs` (Rss.lean:374), proved later from IsAdelic + InHullOfImage.",
+        "The realisation condition is q-free and theta-image-based; nothing in it mentions the q-pilot region."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-06",
+      "given_name": "IsAdelic",
+      "real_name": "Iut.Wall.IsAdelic",
+      "kind": "def (Prop-valued predicate)",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/Rss.lean",
+      "lines": "316-320",
+      "decl_lines": "319-320",
+      "file_lines_total": 517,
+      "file_sha256": "301fe11b08e2d0ff838fc77915768c11c0235eff96801b1515cb89c9bd3d855d",
+      "raw_signature_verbatim": "/-- **Adelic measurable regions** ([LANA], §6 (Ind3), §9.2): every packet region is a product of\nadmissible components (nonempty, relatively compact, measurable, of positive finite Haar\nmeasure), and almost all of them are the integral structure. -/\ndef IsAdelic (U : Region D) : Prop :=\n  ∀ i, (LocalTheory.hull D.placeSect (nC D)).IsAdmissible (U i)",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": ["NumberField", "MeasureTheory"],
+        "universe": "universe u   (line 55)",
+        "variables": ["variable (D : InitialThetaData.{u})   (line 300) -- EXPLICIT and universe-polymorphic in u"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "other_scope_entries": ["abbrev nC : ℕ := (D.ℓ - 1) / 2   (line 303)", "noncomputable abbrev VC := LocalTheory.container D.placeSect (nC D)   (line 311)", "abbrev Region := ∀ i : Fin (VC D).proc.length, (VC D).AdmissibleRegion i   (line 314)"],
+        "premises_added_by_scope": "YES: `variable (D : InitialThetaData.{u})` at line 300 is explicit, so the elaborated name is Iut.Wall.IsAdelic (D : InitialThetaData.{u}) (U : Region D). No typeclass binder and no local instance.",
+        "notes": "This is the SECOND `namespace Wall` block of Rss.lean (298-491); the first-ended block is LocalTheory (118-296). A third `namespace Wall` block reopens at 493 with D at universe 0. IsAdelic and InHullOfImage are both in the universe-u block."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.Region", "defined_at": "Iut/Wall/Rss.lean:314", "note": "argument type"},
+        {"name": "Iut.Cor312.AdmissibleRegion", "defined_at": "Iut/Cor312/Container.lean:152", "note": "component type of Region"},
+        {"name": "LocalTheory.hull", "defined_at": "Iut/Wall/Rss.lean:118-296 block (the hull system of the container)", "note": "carries `IsAdmissible`; exact def line not read in this task"},
+        {"name": "Iut.Wall.nC", "defined_at": "Iut/Wall/Rss.lean:303", "note": "number of capsules"},
+        {"name": "Iut.Wall.VC", "defined_at": "Iut/Wall/Rss.lean:311", "note": "the concrete container"},
+        {"name": "Iut.InitialThetaData.placeSect", "defined_at": "Iut/Cor312/ThetaData/Basic.lean:81 (structure); field line not read", "note": "D.placeSect"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "Rss.lean:319-320 — the body is `∀ i, (LocalTheory.hull D.placeSect (nC D)).IsAdmissible (U i)`. No q-term occurs; the data used are D.placeSect and nC D.",
+          "note": "IsAdelic is a predicate on regions; q-data would have to come from the region U itself, about which the predicate says only that its components are admissible."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "Rss.lean:320 — `∀ i, ... IsAdmissible (U i)`, with i : Fin (VC D).proc.length (Rss.lean:314), i.e. one condition per capsule; `D.placeSect` selects places.",
+          "note": "Strictly componentwise: each local component is required admissible, and NO relation between components is required. There is no localization map in this declaration."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "Rss.lean:319-320 — a `def ... : Prop` with a universally quantified admissibility condition; no procedure, no computation producing an object.",
+          "note": "None."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "Rss.lean:319-320 — no log-volume or degree term. `logVol` is the next definition (324-325), and the bound `logVol_le_rhs` is at 374.",
+          "note": "None."
+        }
+      },
+      "notable_findings": [
+        "IsAdelic requires only componentwise admissibility. The name 'adelic' does not come with a global compatibility condition: nothing relates the components U i for different i."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-07",
+      "given_name": "InHullOfImage",
+      "real_name": "Iut.Wall.InHullOfImage",
+      "kind": "def (Prop-valued predicate)",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/Rss.lean",
+      "lines": "337-339",
+      "decl_lines": "338-339",
+      "file_lines_total": 517,
+      "file_sha256": "301fe11b08e2d0ff838fc77915768c11c0235eff96801b1515cb89c9bd3d855d",
+      "raw_signature_verbatim": "/-- **An adelic region in the hull of a single (Ind1)-image of the theta-pilot region.** -/\ndef InHullOfImage (U : Region D) : Prop :=\n  ∃ l : ∀ i : Fin (nC D), InitialThetaData.Lab (nC D) i, ∀ i, U i ≤ hullOf D (thetaImage D l) i",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": ["NumberField", "MeasureTheory"],
+        "universe": "universe u   (line 55)",
+        "variables": ["variable (D : InitialThetaData.{u})   (line 300) -- EXPLICIT, universe u"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "other_scope_entries": ["abbrev hullOf (U : Region D) : Region D := (LocalTheory.hull D.placeSect (nC D)).hullFamily U   (line 328-329)", "noncomputable abbrev thetaImage (l : ∀ i : Fin (nC D), InitialThetaData.Lab (nC D) i) : Region D := D.thetaPilotOn (nC D) (fun i => {l i}) ...   (line 333-335)"],
+        "premises_added_by_scope": "YES: `variable (D : InitialThetaData.{u})` at line 300, explicit. No typeclass binder, no local instance.",
+        "notes": "The sibling `InImage` (343-344) is the stronger `U i ≤ thetaImage D l i`; Rss.lean:350 proves `InImage -> InHullOfImage`."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.Region", "defined_at": "Iut/Wall/Rss.lean:314", "note": "argument type"},
+        {"name": "Iut.Wall.hullOf", "defined_at": "Iut/Wall/Rss.lean:328-329", "note": "capsule-wise holomorphic hull"},
+        {"name": "Iut.Wall.thetaImage", "defined_at": "Iut/Wall/Rss.lean:333-335", "note": "one (Ind1)-image of the theta-pilot region; built from D.thetaPilotOn"},
+        {"name": "Iut.InitialThetaData.Lab", "defined_at": "Iut/Cor312/ThetaData/Basic.lean:81 (structure); associated def line not read", "note": "the label set of a capsule"},
+        {"name": "Iut.Wall.nC", "defined_at": "Iut/Wall/Rss.lean:303", "note": "number of capsules"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "Rss.lean:338-339 — the witness data are a label family `l` and `thetaImage D l` (Rss.lean:333-335: `D.thetaPilotOn ...`). No q-term occurs.",
+          "note": "The comparison object is the THETA-pilot image; the q-pilot region (`qRegion`, QPilotRegion.lean:314) does not occur."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "Rss.lean:339 — `∀ i, U i ≤ hullOf D (thetaImage D l) i`: a capsule-by-capsule subset condition, with the label family indexed by `Fin (nC D)`.",
+          "note": "One label choice `l` is shared across all capsules (a 'single image'), but no localization map or local-global comparison is named."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "Rss.lean:338-339 — an existential subset condition on U; no procedure.",
+          "note": "None."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "Rss.lean:338-339 — a subset condition only; the log-volume consequence is the separate theorem at 374-375.",
+          "note": "None."
+        }
+      },
+      "prohibition_check": {
+        "no_reverse_surjectivity": "`InHullOfImage U` is a SUBSET condition (`U i ≤ hullOf D (thetaImage D l) i`) with an existential witness. It does not state that every region inside that hull is of the form `U`, nor that `out` hits every element of the hull; no converse appears at 337-339 or at the derived 350-353.",
+        "directed_use": "Rss.lean:374-379 uses the condition only in the direction 'U inside hull => log-vol U ≤ log-vol(hull)'. Nothing downstream in Rss.lean constructs a region FROM the hull."
+      },
+      "notable_findings": [
+        "The predicate allows ANY region U that is contained in the hull of one theta-image; it does not require U to be an image, an algorithm output, or reachable. The interface's use of it (realisation) is exactly this containment."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-08",
+      "given_name": "Ind3",
+      "real_name": "Iut.Wall.Ind3",
+      "kind": "def (Type-valued subtype)",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
+      "lines": "209-213",
+      "decl_lines": "213",
+      "file_lines_total": 293,
+      "file_sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d",
+      "raw_signature_verbatim": "/-- **The (Ind3)-choices** ([LANA], §6 (Ind3), §9.2; IUT III, Corollary 3.12,\nStep (xi-d)–(xi-f)): the adelic measurable regions `S ⊆ hull(VC(I))`, the holomorphic hull of\nthe log-shell container (see the module docstring for the deviation from [LANA], §6,\n`S ⊆ VC(I)`). -/\ndef Ind3 : Type _ := {S : Region D // IsAdelic D S ∧ ∀ i, S i ≤ hullOf D (vcI D) i}",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": ["NumberField", "MeasureTheory"],
+        "universe": "universe u   (line 51)",
+        "variables": ["variable (D : InitialThetaData.{u})   (line 55) -- EXPLICIT, universe u"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "other_scope_entries": ["noncomputable def vcI : Region D := vcIAt D   (line 123)", "the module docstring (lines 32-38) records the deliberate deviation: S ⊆ hull(VC(I)) instead of S ⊆ VC(I)"],
+        "premises_added_by_scope": "YES: `variable (D : InitialThetaData.{u})` at line 55, explicit. No typeclass binder, no local instance.",
+        "notes": "Ind3.lean imports only Iut.Wall.Rss (line 6): the (Ind3)-choice set is defined BEFORE and INDEPENDENTLY of EtaAlg (which imports Ind3 at EtaAlg.lean:6)."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.Region", "defined_at": "Iut/Wall/Rss.lean:314", "note": "underlying type of the subtype"},
+        {"name": "Iut.Wall.IsAdelic", "defined_at": "Iut/Wall/Rss.lean:319", "note": "first conjunct of the predicate"},
+        {"name": "Iut.Wall.hullOf", "defined_at": "Iut/Wall/Rss.lean:328-329", "note": "second conjunct"},
+        {"name": "Iut.Wall.vcI", "defined_at": "Iut/Wall/Ind3.lean:123", "note": "the log-shell container; defines the upper bound of the choice set"},
+        {"name": "Iut.Wall.nC", "defined_at": "Iut/Wall/Rss.lean:303", "note": "capsule count, via VC"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "Ind3.lean:213 — the predicate is `IsAdelic D S ∧ ∀ i, S i ≤ hullOf D (vcI D) i`; vcI is the log-shell container (line 123). No q-term occurs.",
+          "note": "Ind3 is not restricted by any q-pilot region or q-volume; the upper bound is the hull of VC(I)."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "Ind3.lean:213 — `IsAdelic D S` (Rss.lean:319-320, componentwise over capsules) and `∀ i, S i ≤ hullOf ... i`.",
+          "note": "Componentwise conditions again; no localization map, no local-to-global comparison."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "Ind3.lean:213 — a subtype of regions cut out by two closed conditions. Nothing about how an S is produced.",
+          "note": "Ind3 is the INPUT choice set, not an output family; it is defined in a file that does not mention EtaAlg at all (imports: Iut.Wall.Rss only, line 6)."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "Ind3.lean:213 — no log-volume term in the definition.",
+          "note": "The log-volume facts about Ind3 are DERIVED: `logVol_le_vcI` (244-245) and `exists_ind3_logVol_iff` (253-254). See prohibition_check."
+        }
+      },
+      "prohibition_check": {
+        "surjectivity_is_about_inputs_not_outputs": "Ind3.lean:253-254 proves `(∃ S : Ind3 D, logVol D S.1 = x) ↔ x ≤ logVol D (hullOf D (vcI D))`, i.e. the log-volume map on the (Ind3)-CHOICE SET is onto the half-line. This must NOT be read as a statement about the η-algorithm's outputs: `out` does not occur in Ind3.lean, and this theorem concerns S, an input choice. Likewise `logVol_le_vcI` bounds inputs, not outputs.",
+        "no_output_surjectivity_claimed": "Nothing in this file states that any region, hull element, or log-volume value is attained by an output."
+      },
+      "notable_findings": [
+        "The (Ind3) choice set is defined independently of any algorithm: it imports only Rss.lean and never mentions EtaAlg, out, or a q-pilot. The algorithm and the choice set are joined only in EtaAlg's field types.",
+        "The choice set is constrained by an admissibility condition plus a hull bound; both are conditions on S, not constructions of S."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-09",
+      "given_name": "LatticeKummer",
+      "real_name": "Iut.LogLink.LatticeKummer",
+      "kind": "structure",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "lines": "246-252",
+      "decl_lines": "248-252",
+      "file_lines_total": 312,
+      "file_sha256": "c250443ede2e12be428f7e84ec7b61aab82eab724a1134358152eccdb877e4e4",
+      "raw_signature_verbatim": "/-- **Unit-induced Kummer identifications at every vertex of a log-theta-lattice** (the Kummer\nisomorphisms of IUT III, Theorem 3.11(ii)(a), in the model). -/\nstructure LatticeKummer (L : LogThetaLattice D) where\n  /-- The Kummer identification of the container of the vertex `(n, m)`. -/\n  kum : ℤ × ℤ → Scaling D\n  /-- It is unit-induced. -/\n  unit : ∀ a, UnitInducedScaling D (kum a)",
+      "enclosing_scope": {
+        "namespace": ["Iut", "LogLink"],
+        "opens": ["LocalConstruct", "NumberField", "Wall", "ThetaLink", "HodgeTheater", "Pointwise (scoped)", "Valued (scoped)"],
+        "variables": [
+          "variable (D : InitialThetaData.{0})   (line 182) -- EXPLICIT at that point",
+          "variable {D}   (line 244) -- makes D IMPLICIT for the declarations that follow, including LatticeKummer at 248"
+        ],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "other_scope_entries": ["noncomputable section   (line 66)", "section Tensor (70-178) is closed before line 182, so its {K} {p} {v} variables are NOT in scope at 248"],
+        "premises_added_by_scope": "YES, in a way that changes the printed shape: D is a section variable made explicit at 182 and implicit again at 244. The elaborated name is therefore Iut.LogLink.LatticeKummer {D : InitialThetaData.{0}} (L : LogThetaLattice D). No typeclass binder and no local instance. This is a static reading of the scope, not elaborator output.",
+        "notes": "The structure takes L explicitly but NO field mentions L (see notable_findings)."
+      },
+      "fields": [
+        {"name": "kum", "line": "250", "type_verbatim": "ℤ × ℤ → Scaling D"},
+        {"name": "unit", "line": "252", "type_verbatim": "∀ a, UnitInducedScaling D (kum a)"}
+      ],
+      "directly_referenced_types": [
+        {"name": "Iut.LogLink.LogThetaLattice", "defined_at": "Iut/LogLink/Lattice.lean:90", "note": "the parameter L; NOT used in any field type"},
+        {"name": "Iut.Wall.Scaling", "defined_at": "Iut/Wall/Scaling.lean:121", "note": "fields u (capsule/prime/tuple-indexed units, 123-124) and good (trivial at good primes, 126)"},
+        {"name": "Iut.LogLink.UnitInducedScaling", "defined_at": "Iut/LogLink/Kummer.lean:186-191", "note": "a Prop: componentwise elementary-tensor of unit-induced factor scalings"},
+        {"name": "Iut.InitialThetaData", "defined_at": "Iut/Cor312/ThetaData/Basic.lean:81", "note": "D"},
+        {"name": "Iut.Wall.nC", "defined_at": "Iut/Wall/Rss.lean:303", "note": "through Scaling"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": false,
+          "evidence": "Kummer.lean:250,252 — the field types are `ℤ × ℤ → Scaling D` and `∀ a, UnitInducedScaling D (kum a)`. No q-term occurs.",
+          "note": "Moreover the same file proves `not_unitInducedScaling_qScale_zpow` (238-240): for m ≠ 0, `¬ UnitInducedScaling D (qScale D ^ m)`. Since field `unit` requires UnitInducedScaling for every `kum a`, no `kum a` can be a nonzero power of `qScale` — a consequence of the two declarations, not an added interpretation."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "Kummer.lean:250 — `Scaling D`, whose field `u` is indexed by `(i : Fin (nC D)) (p : Nat.Primes) (c : Lab ...)` (Scaling.lean:123-124) with a good-prime triviality field (126); and `UnitInducedScaling` (186-191) is componentwise.",
+          "note": "Prime/capsule-indexed units. The declaration requires no localization map between the vertex containers."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "Kummer.lean:248-252 — plain data: a family of scalings plus a unit-inducedness condition. No execution, no arrow composition, no algorithm.",
+          "note": "The docstring (246-247) names Theorem 3.11(ii)(a), but the structure only stores the scalings."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "Kummer.lean:250,252 — no log-volume, degree or inequality term.",
+          "note": "The degree consequence is derived in the same file: `shift_eq_zero_of_unitInduced` (203-205) proves the shift/log-volume change of a unit-induced scaling is 0. That is a theorem about the field, not part of the field."
+        }
+      },
+      "notable_findings": [
+        "The parameter `L : LogThetaLattice D` is PHANTOM: neither field mentions L, so the 'Kummer identification of the container of the vertex (n, m)' (docstring 246-247) is not indexed by L's vertex containers at all; `kum : ℤ × ℤ → Scaling D` is indexed by ℤ × ℤ only. Whether the intended reading ties `kum (n,m)` to `L.H (n,m)` is not stated in the source; recorded in QUESTIONS.md, not asserted here.",
+        "The Kummer data are required to be unit-induced, and unit-induced scalings are exactly those with zero log-volume shift (203-205); combined with 238-240 (q-powers are not unit-induced), the interface's Kummer data cannot supply the q-scaling."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-10",
+      "given_name": "LGPLattice",
+      "real_name": "Iut.LogLink.LGPLattice",
+      "kind": "structure (extends LogThetaLattice)",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Thm311LGP.lean",
+      "lines": "89-98",
+      "decl_lines": "93-98",
+      "file_lines_total": 211,
+      "file_sha256": "862eaed70b1588eaf198ae9114d9897d5811f73c4904bc2d56076103c1014aaf",
+      "raw_signature_verbatim": "variable (D) in\n/-- **An LGP-Gaussian log-theta-lattice** (IUT III, Definition 3.8(iii)): a log-theta-lattice with\narchimedean vertical lines and Kummer isomorphisms compatible with the Gaussian generators at the\nbad places. -/\nstructure LGPLattice extends LogThetaLattice D where\n  /-- The archimedean vertical lines of the `n`-th column at the infinite places. -/\n  arc : ℤ → InfinitePlace D.Fmod → ArchColumn\n  /-- The Kummer isomorphisms at the bad places fix the Gaussian generator. -/\n  kum_gen : ∀ (n : ℤ) (w : FinitePlace D.Fmod), w ∈ D.VBad → ∀ (m : ℤ) (j : Fin (nC D)),\n    (loc n w).kum m (gaussGen D (D.V.sectFin w) j) = gaussGen D (D.V.sectFin w) j",
+      "enclosing_scope": {
+        "namespace": ["Iut", "LogLink"],
+        "opens": ["Wall", "ThetaLink", "HodgeTheater", "NumberField", "Metric", "Valued (scoped)"],
+        "variables": [
+          "variable {D : InitialThetaData.{0}}   (line 66) -- IMPLICIT",
+          "variable (D) in   (line 89) -- re-binds D as EXPLICIT for the declarations it prefixes, including LGPLattice"
+        ],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "other_scope_entries": ["noncomputable section   (line 64)", "structure LGPLattice extends LogThetaLattice D -- so the parent's four fields are inherited"],
+        "premises_added_by_scope": "YES: the `variable (D) in` directive at line 89 turns the file-level IMPLICIT {D} (line 66) into an EXPLICIT parameter for LGPLattice. The elaborated name is Iut.LogLink.LGPLattice (D : InitialThetaData.{0}). No typeclass binder and no local instance. This is a static reading, not elaborator output.",
+        "notes": "This is the pattern T2 flagged for `include`/`variable` premises; here the effect is on implicitness, not on an omitted premise."
+      },
+      "fields": [
+        {"name": "arc", "line": "95", "type_verbatim": "ℤ → InfinitePlace D.Fmod → ArchColumn", "inherited": false},
+        {"name": "kum_gen", "line": "97-98", "type_verbatim": "∀ (n : ℤ) (w : FinitePlace D.Fmod), w ∈ D.VBad → ∀ (m : ℤ) (j : Fin (nC D)), (loc n w).kum m (gaussGen D (D.V.sectFin w) j) = gaussGen D (D.V.sectFin w) j", "inherited": false},
+        {"name": "H", "line": "Lattice.lean:92", "type_verbatim": "ℤ × ℤ → ThetaPmEllNFHT D", "inherited": true},
+        {"name": "vert", "line": "Lattice.lean:94", "type_verbatim": "∀ n m : ℤ, LogLinkHT D (H (n, m)) (H (n, m + 1))", "inherited": true},
+        {"name": "horiz", "line": "Lattice.lean:96", "type_verbatim": "∀ n m : ℤ, ThetaLinkIso D (H (n, m)) (H (n + 1, m))", "inherited": true},
+        {"name": "loc", "line": "Lattice.lean:98", "type_verbatim": "ℤ → ∀ w : FinitePlace ↥(fieldOfModuli D.F D.E), LogColumn (Kfin D w)", "inherited": true}
+      ],
+      "directly_referenced_types": [
+        {"name": "Iut.LogLink.LogThetaLattice", "defined_at": "Iut/LogLink/Lattice.lean:90", "note": "parent structure (extends)"},
+        {"name": "Iut.LogLink.ArchColumn", "defined_at": "Iut/LogLink/Arch.lean:169", "note": "field arc"},
+        {"name": "Iut.LogLink.LogColumn", "defined_at": "Iut/LogLink/Lattice.lean (structure; the `.kum` field is used at 98)", "note": "inherited field loc; exact line not read"},
+        {"name": "Iut.ThetaLink.gaussGen", "defined_at": "Iut/ThetaLink/Gauss.lean:262-263", "note": "`fun j => EtaleTheta.lgpValue D v (j.1 + 1)`; docstring at 260-261 calls these the theta values q_v^{j²}"},
+        {"name": "Iut.Wall.nC", "defined_at": "Iut/Wall/Rss.lean:303", "note": "index j : Fin (nC D)"},
+        {"name": "Iut.InitialThetaData", "defined_at": "Iut/Cor312/ThetaData/Basic.lean:81", "note": "supplies D.Fmod, D.VBad, D.V, D.F, D.E"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": true,
+          "evidence": "Thm311LGP.lean:97-98 — the field equates `(loc n w).kum m (gaussGen D (D.V.sectFin w) j)` with `gaussGen D (D.V.sectFin w) j`; Gauss.lean:262-263 defines `gaussGen D v j := EtaleTheta.lgpValue D v (j.1 + 1)` and its docstring (260-261) calls these 'the theta values `q_v^{j²}`'.",
+          "note": "This is a q-POWER generator (q_v^{j²}) at a bad place, not `D.qPilot` and not `D.qroot` (the latter is `qGen`, Gauss.lean:266). Whether q-power data should count as a 'native q marking' is a criterion question recorded in QUESTIONS.md; the flag records only that a distinguished q-power element is named by the field."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "Thm311LGP.lean:95 — `arc : ℤ → InfinitePlace D.Fmod → ArchColumn`; Thm311LGP.lean:97 — `∀ (n : ℤ) (w : FinitePlace D.Fmod), w ∈ D.VBad → ...`.",
+          "note": "Explicit infinite-place and finite-place (bad) indexing. No localization map between the local columns and a global object is required."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "Thm311LGP.lean:93-98 — a structure of lattice data plus equations ('the Kummer isomorphisms ... fix the Gaussian generator'). Nothing requires that any object be produced by a procedure.",
+          "note": "The Kummer equations are compatibility conditions on given data."
+        },
+        "degree_comparison": {
+          "value": false,
+          "kind": "none",
+          "evidence": "Thm311LGP.lean:93-98 — no log-volume, degree or inequality term in the structure or its inherited fields.",
+          "note": "A degree statement about the LGP data exists as a THEOREM, not as a field: `answerLGP` (198-203) concludes `avgDeg (piMap ((L.loc n w).kum m) x) = avgDeg x` among other conjuncts."
+        }
+      },
+      "notable_findings": [
+        "The q-content of this structure is via `gaussGen` (q_v^{j²}), and it appears only as a FIXED POINT of the Kummer isomorphisms: the field says the Kummer maps fix the Gaussian generator, not that they transport it.",
+        "Inherited fields (H, vert, horiz, loc) come from LogThetaLattice (Lattice.lean:90-98); M3 did not re-derive them beyond quoting their lines."
+      ],
+      "status": "STATIC_ONLY"
+    },
+    {
+      "id": "M3-11",
+      "given_name": "ThetaShift",
+      "real_name": "Iut.Wall.EtaAlg.ThetaShift",
+      "kind": "def (Prop-valued; a name-extension, not a structure)",
+      "repo": "iut",
+      "repo_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "file": "reviews/core-round/external/iut/Iut/Wall/MultiContainer.lean",
+      "lines": "102-107",
+      "decl_lines": "105-107",
+      "file_lines_total": 513,
+      "file_sha256": "a1aef71ec5fefbd4fe809eae537ff9e258bdb9297ce9319c06d3efed89960597",
+      "raw_signature_verbatim": "/-- **The identified-copies log-volumes** (Milestone 2, (C9)): every output has log-volume\n`−s·|log(q)| + log-vol(S)`, the log-volume of `LGP·S` computed in the ring structure of the\nHodge theater through which the algorithm runs. -/\ndef EtaAlg.ThetaShift {D : InitialThetaData.{0}} (A : EtaAlg D) : Prop :=\n  ∀ {B : A.BPSA} {h : A.Side} (ι : A.Choice B h) (S : Ind3 D),\n    logVol D (A.out ι S) = -(sFactor (nC D) * D.qPilot.absLogQ) + logVol D S.1",
+      "enclosing_scope": {
+        "namespace": ["Iut", "Wall"],
+        "opens": [],
+        "variables": ["none in scope: D is bound by the definition itself ({D : InitialThetaData.{0}} at line 105); A is an explicit parameter"],
+        "typeclass_binders": [],
+        "local_instances": [],
+        "include": null,
+        "other_scope_entries": ["namespace Iut (79), namespace Wall (81); the declared NAME is the extension `EtaAlg.ThetaShift`, so the full name is Iut.Wall.EtaAlg.ThetaShift inside the existing Iut.Wall.EtaAlg namespace -- it is NOT Iut.Wall.MultiContainer.ThetaShift"],
+        "premises_added_by_scope": "NO section premises are added: D and A are bound by the definition's own binders at line 105. No typeclass binder and no local instance.",
+        "notes": "`SSIneq` (88-89) and `SSIneqNoHull` (94-95) precede it in the same file; `variable (D : InitialThetaData.{0})` at line 109 is declared AFTER ThetaShift, so it is not in its scope."
+      },
+      "fields": null,
+      "directly_referenced_types": [
+        {"name": "Iut.Wall.EtaAlg", "defined_at": "Iut/Wall/EtaAlg.lean:96", "note": "the argument A"},
+        {"name": "Iut.Wall.EtaAlg.BPSA", "defined_at": "Iut/Wall/EtaAlg.lean:132", "note": "B : A.BPSA"},
+        {"name": "Iut.Wall.EtaAlg.Choice", "defined_at": "Iut/Wall/EtaAlg.lean:141", "note": "ι"},
+        {"name": "Iut.Wall.EtaAlg.Side", "defined_at": "Iut/Wall/EtaAlg.lean:100", "note": "h"},
+        {"name": "Iut.Wall.Ind3", "defined_at": "Iut/Wall/Ind3.lean:213", "note": "S"},
+        {"name": "Iut.Wall.logVol", "defined_at": "Iut/Wall/Rss.lean:324", "note": "both sides"},
+        {"name": "Iut.Wall.sFactor", "defined_at": "Iut/Wall/Pilots.lean:55", "note": "sFactor (nC D)"},
+        {"name": "Iut.Cor312.QPilotData.absLogQ", "defined_at": "Iut/Cor312/LeftHandSide.lean:88", "note": "D.qPilot.absLogQ"},
+        {"name": "Iut.Wall.nC", "defined_at": "Iut/Wall/Rss.lean:303", "note": "sFactor (nC D)"}
+      ],
+      "flags": {
+        "native_q_marking": {
+          "value": true,
+          "evidence": "MultiContainer.lean:107 — the right-hand side contains `(sFactor (nC D) * D.qPilot.absLogQ)`; `absLogQ` is defined at Cor312/LeftHandSide.lean:88 and `D.qPilot` at Concrete/ThetaRegion.lean:348.",
+          "note": "This is the ONLY one of the 11 items whose statement names a q-pilot quantity."
+        },
+        "localization_data": {
+          "value": true,
+          "evidence": "MultiContainer.lean:107 — `logVol D (A.out ι S)` and `logVol D S.1`, with `logVol` defined at Rss.lean:324-325 as the procession-normalized volume over the capsule-indexed region (Rss.lean:314).",
+          "note": "The statement consumes place-indexed regions. It names no localization map and performs no local-to-global comparison: both sides are single real numbers."
+        },
+        "legal_execution_path": {
+          "value": false,
+          "evidence": "MultiContainer.lean:105-107 — a `Prop` universally quantified over `{B} {h} (ι) (S)` for an ARBITRARY `A : EtaAlg D`; the only constraint is the displayed equation of real numbers.",
+          "note": "It is a law imposed on `out` after the fact, not a requirement that `out` be produced by a specified procedure. Its inhabitants are produced elsewhere, e.g. `theaterAlg_thetaShift` (HodgeTheater/Wall.lean:108) and `model_thetaShift` (LogLink/Thm311.lean:185)."
+        },
+        "degree_comparison": {
+          "value": true,
+          "kind": "equality",
+          "evidence": "MultiContainer.lean:107 — `logVol D (A.out ι S) = -(sFactor (nC D) * D.qPilot.absLogQ) + logVol D S.1`.",
+          "note": "An EQUALITY identifying two log-volume expressions, not an inequality and not a comparison against a bound. Whether an equality should count for K5's 'degree comparison' is recorded in QUESTIONS.md."
+        }
+      },
+      "use_sites": [
+        {"site": "Iut/HodgeTheater/Wall.lean:108", "verbatim": "theorem theaterAlg_thetaShift (H : σ → ThetaPmEllNFHT D) : (theaterAlg D H).ThetaShift :=", "role": "an inhabitant is constructed for the model algorithm theaterAlg"},
+        {"site": "Iut/WallEquiv/Basic.lean:131", "verbatim": "theorem wall_iff_ss_of_thetaShift (A : EtaAlg D) (hS : A.ThetaShift) : Wall D A ↔ SSIneq D :=", "role": "under ThetaShift, the wall is equivalent to the Scholze-Stix inequality"},
+        {"site": "Iut/LogLink/Thm311.lean:185", "verbatim": "theorem model_thetaShift : K.model.alg.ThetaShift := theaterAlg_thetaShift D L.H", "role": "transfers it to the Theorem-3.11 model"},
+        {"site": "Iut/LogLink/Thm311LGP.lean:201", "verbatim": "K.model.alg.ThetaShift ∧ (XiPrinciple K ↔ SSIneq D) ∧", "role": "a conjunct of answerLGP (198-203)"},
+        {"site": "Iut/Wall/MultiContainer.lean:341,356,367,373,407,501 and Iut/Wall/MultiConstraints.lean:70,85,101,121,146", "verbatim": "(theorems taking `hS : M.alg.ThetaShift` as a hypothesis, e.g. wallOn_iff_of_thetaShift, ss_of_wall3)", "role": "hypothesis position throughout the multi-container development"}
+      ],
+      "notable_findings": [
+        "ThetaShift is a Prop about an arbitrary EtaAlg, i.e. a law that an algorithm may or may not satisfy; it is not part of the EtaAlg structure. A model can satisfy it while its `out` is still not an implementation.",
+        "It is the only interface-level degree statement among the 11 items, and it is an equality. The inequality that K5 consumes is not of this form: `logVol_le_rhs` (Rss.lean:374) and `SSIneq` (MultiContainer.lean:88-89) are separate declarations.",
+        "The name is an extension of the existing namespace Iut.Wall.EtaAlg; a reader searching for `MultiContainer.ThetaShift` will not find it."
+      ],
+      "status": "STATIC_ONLY"
+    }
+  ],
+  "cross_item_observations": [
+    "F3 legal execution path is FALSE for all 11 items. No item in this set requires that any object be produced by a specified procedure.",
+    "F1 native q marking is TRUE for exactly 2 of 11 (LGPLattice via the q-power generator gaussGen; ThetaShift via D.qPilot.absLogQ). The four EtaAlg fields carded in M3, plus Choice, IsAdelic, InHullOfImage, Ind3 and LatticeKummer, contain no q-term.",
+    "F2 localization data is TRUE for all 11 under the stated criterion, but the localization content is always place-indexed DATA or a componentwise condition. No item requires a localization MAP, an identification of local data with a global object, or a compatibility diagram between local pieces.",
+    "F4 degree comparison is TRUE for exactly 1 of 11 (ThetaShift, kind = equality). No interface-level inequality occurs; every inequality in this area is a separate theorem (Rss.lean:374 logVol_le_rhs; Ind3.lean:244 logVol_le_vcI; MultiContainer.lean:88 SSIneq)."
+  ]
+}

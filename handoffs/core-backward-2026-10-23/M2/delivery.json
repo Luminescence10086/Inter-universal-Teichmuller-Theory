@@ -1,0 +1,75 @@
+{
+  "task_id": "M2",
+  "status": "STATIC_ONLY",
+  "inputs": [
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.pdf",
+      "commit": null,
+      "sha256": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9"
+    },
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "commit": null,
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T1/source-map.csv",
+      "commit": null,
+      "sha256": "3fd033b9b69a5f2440bc702f8bb7d4e0d30a1ccec587e3dd49df5ae2040f055c",
+      "role": "locator index only; every locator used was re-read in the txt"
+    },
+    {
+      "path": "research/core-compatibility-2026-10-23/README.md",
+      "commit": null,
+      "sha256": "82839f4e5f1aba0a0d5d51103390afdb3eeae74dbb185e901b0947b018bba1a3"
+    },
+    {
+      "path": "research/core-compatibility-2026-10-23/source-analysis.md",
+      "commit": null,
+      "sha256": "860748876c678c821f80f4d2a8e68c08c87b50f519772e774428d096e4d2bba9"
+    },
+    {
+      "path": "handoffs/core-backward-plan-2026-10-23.md",
+      "commit": null,
+      "sha256": "177948fbc57e5cca2473d083ba719e8896fc79ef91ee7bee2f5d3d80d926f93b",
+      "role": "task instruction (sections 4 and M2)"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/core-backward-2026-10-23/M2/normalizations.csv",
+      "sha256": "8ab8648222482b202102ec9e1110ab6278ecec8a1ffb932b3c5510bfc1a8d2a3"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M2/QUESTIONS.md",
+      "sha256": "5639abcfafcdf0621ff770b071b694c40e60a5858e10c9195d52374a2c885e28"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M2/SUMMARY.md",
+      "sha256": "e0d80c810ed7b27eb48b266eb623a7da38b4100f456b8e8066361f104a601bb1"
+    }
+  ],
+  "completed": [
+    "Verified both source hashes against the plan; PDF and txt match exactly (no INPUT_DRIFT).",
+    "Re-verified every T1 locator used, in the txt: cQ3 8546-8629 (pp.141-142); Cor 3.12 (xi-c) 10982-11003 (p.182) and (xi-d) 11007-11047 (p.183); Remark 3.9.5(vii) Ob3/Ob4 at 8050-8189 (pp.131-134), with the Ob-block beginning at 8020 (p.131); Remark 3.12.2(iv) 11510-11562 (pp.191-192) and (v) 11563-11654 (pp.193-195). Note: (iv) starts on printed p.191, not p.192.",
+    "Wrote 27 rows / 11 columns. FIRST VERSION WAS DEFECTIVE: the factor_explicit / normalization_explicit cells contained ASCII double quotes and commas without CSV quoting, so 15 of 27 rows split into 12-14 fields and 2 rows did not parse at all; the initial check had wrongly relied on the lenient PowerShell Import-Csv, which reported a false pass. normalizations.csv was then rewritten in full with every field double-quoted and internal quotes escaped as doubled quotes. Content, wording, locators and verdicts were not changed - only the CSV quoting.",
+    "Re-verified the rewritten normalizations.csv with two independent strict parsers: Microsoft.VisualBasic.FileIO.TextFieldParser (HasFieldsEnclosedInQuotes=true) gives 28 lines = 1 header + 27 data rows, header 11 fields, 0 rows with field count != 11, 0 parse errors; Python csv.reader gives totalRows=28, headerLen=11, dataRows=27, badRows=[], ids in order M2-01..M2-27. No empty cells in any of the 11 columns; every factor_explicit and normalization_explicit cell begins with yes / no / partial / UNRESOLVED. File is valid UTF-8 with no BOM.",
+    "Located the four derivative definitions the audited units cite, inside the same source, and gave each its own row rather than counting it inside a using unit: Proposition 3.9(i) packet/procession normalization (6974-7010, pp.115-116); Proposition 3.9(iii) global log-volume = arithmetic degree (7067-7090, p.117); Remark 3.1.1(ii) local normalized weights (5503-5561, pp.94-95); Remark 3.1.1(iv) the displayed weight identity (5730-5746, p.97).",
+    "Recorded which quantities have an explicit factor: only Remark 3.1.1(ii) weights, the Remark 3.1.1(iv) display, Proposition 3.9(i) packet/procession normalization, the characterization of M in (Ob3-2), the M-th-power comparison target in (Ob4) (and the degree-M Frobenius functor of (Ob4-1)), and the definitions of -|log(Theta)| / -|log(q)| in (xi-d).",
+    "Kept local weights, global degree and the (xi-d) j-normalization in separate rows with separate unresolved notes; no row merges them and no factor was computed by this task.",
+    "Wrote QUESTIONS.md with exactly 10 items, the first four of which are the tensor-power-division consistency obligations."
+  ],
+  "unresolved": [
+    "No map is constructed anywhere in the audited units from the M-th-tensor-power reading back to the reading of the original object; (Ob4) excludes the resulting indeterminacy by assertion, and (Ob4-3) excludes the twist's effect on log-volumes by assertion. See Q1, Q2.",
+    "The integer M is only characterized (Ob3-2), never valued; its link to N_E of Remark 3.1.1(iv) is a bare 'cf.'. Whether the M of the hull determinant, the M of the q-pilot side and the degree-M of (Ob4-1) are the same M must be proved. See Q3.",
+    "Proposition 3.9(iii) identifies the global log-volume with an arithmetic degree only 'relative to a suitable normalization'; the normalization is never written in the source. This is where any global factor would have to be pinned down or shown to cancel. See Q6.",
+    "(xi-d) reads the two regions with 'the [suitably normalized, with respect to j in |Fl|] log-volume' but gives no formula, while Step (x) uses the average over j in F_l^*. Whether the j-dependence cancels identically is unproved. See Q5.",
+    "Step (x) states the mono-analytic log-volumes convert (Ind3) into 'an inequality [from above]'; Remark 3.12.2(v) claims 'precise equalities [i.e., not just inequalities!]' for the 1-column, in words only, with no displayed equality and no bridge. See Q8.",
+    "The vertical shift rectified in (xi-d) is never sized; (Ob8) leaves the log-link iterate count arbitrary, and Proposition 3.9(iv)(b) gives 'compatibility', not equality of scalars. See Q7.",
+    "The hull enlargement in (xi-c)/(xi-d) plus (Ob6)'s 'mu_log(H_Phi(P)) may be > mu_log(P)' leaves open whether the enlargement is mu_log-null for the hull actually read. See Q9.",
+    "One substantive reading difficulty is recorded but deliberately not settled here (main line's call): whether 'absorbed by passing to log-volumes' (Remark 3.12.2(v)) is a statement about the indeterminacy or about the value. See Q10."
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "fact_tree_admitted": false
+}

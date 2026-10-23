@@ -1,0 +1,200 @@
+{
+  "task_id": "M3",
+  "status": "STATIC_ONLY",
+  "started_at": "2026-10-23T09:00:50+08:00",
+  "started_at_basis": "Creation time of the (empty) M3 output directory, which the parent created immediately before this task's first tool call. Not the exact instant of that call.",
+  "finished_at": "2026-10-23T09:06:43+08:00",
+  "finished_at_basis": "Time of the hash/line-count command run after the last artifact (SUMMARY.md) was written and after the JSON parse check and the invisible-character check; delivery.json had not yet been written at that moment.",
+  "timezone": "UTC+08:00",
+  "input_drift": false,
+  "input_drift_detail": "All four pinned repositories verified with `git rev-parse HEAD` at the pinned commits and empty `git status --porcelain`. No INPUT_DRIFT.",
+  "toolchain": {
+    "lean": "not run",
+    "lake": "not run",
+    "build": "not run",
+    "editor": "not used",
+    "note": "Static source reading only. The only executable checks were: JSON parse of interfaces.json (ConvertFrom-Json), SHA256/line counts (Get-FileHash, System.IO.File.ReadAllLines), and a git HEAD/status check. No Lean/Lake command was executed on any repository, and no new automation script was created."
+  },
+  "conventions": {
+    "line_numbers": "1-based plain-text lines as read from disk, license header included. `lines` in interfaces.json includes the docstring block when the docstring is part of the declaration; `decl_lines` gives the declaration-only lines.",
+    "file_lines_total_source": "System.IO.File.ReadAllLines(...).Count (empty lines included). Note that PowerShell `Get-Content | Measure-Object -Line` undercounts because it skips empty lines; it is not the number recorded here.",
+    "signature_form": "`raw_signature_verbatim` is a single string with the source line breaks preserved as \\n."
+  },
+  "repos_head_verified": {
+    "reviews/core-round/external/iut": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+    "reviews/core-round/external/continuous-kummer-theory": "1d5194fcc63ddeb7a8cdb6c98d59452503db60fa",
+    "reviews/core-round/external/tate-curves-theta": "d1fba94861c886b671f4137ab35e24b7474c9e00",
+    "reviews/core-round/external/local-class-field-theory": "a6655a871f92138e486362f08f7df48204f3e985",
+    "note": "Only `iut` supplied file content to M3. The other three were HEAD-verified because the plan pins them and because T2's card 7 lives in tate-curves-theta; no file from them was read in M3."
+  },
+  "inputs": [
+    {
+      "path": "handoffs/core-backward-plan-2026-10-23.md",
+      "commit": null,
+      "sha256": "177948fbc57e5cca2473d083ba719e8896fc79ef91ee7bee2f5d3d80d926f93b",
+      "role": "authoritative task definition (sections 四 and M3)"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T2/cards.json",
+      "commit": null,
+      "sha256": "25a28fd7cd25e14548630d222cfd6f813fb9a20c9b4ff4e49be35e777618a175",
+      "role": "eight T2 cards, reused by reference; not re-carded"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T2/cards.md",
+      "commit": null,
+      "sha256": "d6635e880b63e3da7cc19fa4f3480ce19fa903269124514f18847663b990dab2",
+      "role": "same content, human-readable"
+    },
+    {
+      "path": "research/core-compatibility-2026-10-23/README.md",
+      "commit": null,
+      "sha256": "82839f4e5f1aba0a0d5d51103390afdb3eeae74dbb185e901b0947b018bba1a3",
+      "role": "K1/K4 vocabulary and the explicit warning that EtaAlg.realisation is only a landing direction"
+    },
+    {
+      "path": "research/core-compatibility-2026-10-23/source-analysis.md",
+      "commit": null,
+      "sha256": "860748876c678c821f80f4d2a8e68c08c87b50f519772e774428d096e4d2bba9",
+      "role": "source-level analysis; consulted, not extended"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "lines_total": 229,
+      "items_served": ["M3-01", "M3-02", "M3-03", "M3-04", "M3-05"]
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Rss.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "301fe11b08e2d0ff838fc77915768c11c0235eff96801b1515cb89c9bd3d855d",
+      "lines_total": 517,
+      "items_served": ["M3-06", "M3-07"],
+      "note": "also supplies Region (314), logVol (324), hullOf (328), thetaImage (333), InImage (343), logVol_le_rhs (374)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d",
+      "lines_total": 293,
+      "items_served": ["M3-08"],
+      "note": "also supplies vcI (123), logVol_le_vcI (244), exists_ind3_logVol_iff (253)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "c250443ede2e12be428f7e84ec7b61aab82eab724a1134358152eccdb877e4e4",
+      "lines_total": 312,
+      "items_served": ["M3-09"],
+      "note": "also supplies UnitInducedScaling (186), shift_eq_zero_of_unitInduced (203), not_unitInducedScaling_qScale_zpow (238)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Thm311LGP.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "862eaed70b1588eaf198ae9114d9897d5811f73c4904bc2d56076103c1014aaf",
+      "lines_total": 211,
+      "items_served": ["M3-10"],
+      "note": "also supplies answerLGP (198-203)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/MultiContainer.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "a1aef71ec5fefbd4fe809eae537ff9e258bdb9297ce9319c06d3efed89960597",
+      "lines_total": 513,
+      "items_served": ["M3-11"],
+      "note": "also supplies SSIneq (88-89), MultiContainer (114-118)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/BPS.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "9635772d13099d49ff68bd2a4c285f1e492c1908807902d3b08c47db69a1f2c8",
+      "lines_total": 411,
+      "items_served": [],
+      "note": "read only for GMData (69), EtUnitBPS (136), EtUnitIso (147), BPS (357), BPS.Iso (369)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Lattice.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "715a331ddf1846b9164edddcd668cc26aa28a259aad925a6ae05904992ee125f",
+      "lines_total": 162,
+      "items_served": [],
+      "note": "read only for LogThetaLattice (90-98) and for the `variable (D) in` pattern at 88"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/ThetaLink/Gauss.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "45b297298bcc4825f98f809cd94c158120ce1607853f47d8c364bcee040ab6eb",
+      "lines_total": 422,
+      "items_served": [],
+      "note": "read only for gaussGen (262-263) and qGen (266)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Scaling.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "1624cabcd42c0a25f43898b0015fba1fc4517e0c2424fd7e22b4a8147330d4a4",
+      "lines_total": 439,
+      "items_served": [],
+      "note": "read only for structure Scaling (121-126)"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Pilots.lean",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": "506e78c0273ba1a3cbfdf95c9431583b77d38301478ec749fffe10c04a55644b",
+      "lines_total": 350,
+      "items_served": [],
+      "note": "read only to locate sFactor (55) and qVal (106); not otherwise cited"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/core-backward-2026-10-23/M3/interfaces.json",
+      "sha256": "5d22fcb2243b4f2ae0bf40126836c288ee81bfe29457498733254d6045d4de8e",
+      "lines": 793,
+      "content": "11 item objects with real name, repo+commit, file:line, file sha256, verbatim signature, enclosing scope, field lists, directly referenced types, and the four evidence-backed flags; plus _meta flag criteria and cross-item observations"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M3/delta.md",
+      "sha256": "148645454a3fb148f308f52de27b2103f9742c08813da1c371751037815e7a43",
+      "lines": 78,
+      "content": "what the 11 interfaces retain vs what K1/K4 need; localization and degree gaps; reuse and scope notes"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M3/QUESTIONS.md",
+      "sha256": "66ccd1076afbfa600d2d33ba613dcd5e831329617933252e964aa6c855c0ba3e",
+      "lines": 45,
+      "content": "9 interpretive questions (q-power as q-marking, equality as degree comparison, Choice vs q-pilot, phantom L, Side vs H, generic-B out, unused etUnitOnly, full name of ThetaShift, cross-repository scope)"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M3/SUMMARY.md",
+      "sha256": "0cf9899780e946cf7c8fc66d58a9990c055036e881de4f4e8bba2104b267c748",
+      "lines": 13,
+      "content": "one-page summary"
+    }
+  ],
+  "outputs_note": "delivery.json itself is not listed in `outputs` (avoiding self-reference), per the plan schema.",
+  "completed": [
+    "Verified all four pinned repository HEADs and clean working trees; recorded input_drift=false.",
+    "Searched (not assumed) the location of all 11 items; all 11 are in external/iut at pinned commit f7ed1cc8, each with file:line and file sha256.",
+    "Recorded the real fully qualified name of each item, including two naming corrections: ThetaShift is Iut.Wall.EtaAlg.ThetaShift (a name extension made in MultiContainer.lean:105, NOT a MultiContainer declaration), and Choice is Iut.Wall.EtaAlg.Choice (not a global name).",
+    "Recorded verbatim signatures and the enclosing scope for each item, including the four places where scope changes the declared binders: EtaAlg {D} at 129 vs (D) at 92; LatticeKummer `variable {D}` at Kummer.lean:244; LGPLattice `variable (D) in` at Thm311LGP.lean:89; universe u for IsAdelic/InHullOfImage (Rss.lean:55,300) and Ind3 (Ind3.lean:51,55) versus Universe 0 for EtaAlg.",
+    "Recorded field lists for the two structures in scope: LatticeKummer (kum, unit) and LGPLattice (arc, kum_gen plus the four inherited LogThetaLattice fields H, vert, horiz, loc quoted from Lattice.lean:90-98).",
+    "Recorded for every item the four flags with the exact deciding line: legal_execution_path false for all 11; native_q_marking true only for LGPLattice and ThetaShift; localization_data true for all 11 but only as place-indexed data or componentwise conditions; degree_comparison true only for ThetaShift and only as an equality.",
+    "Reused the eight T2 cards by reference and did not re-card them; M3-01/03/04/05 are field-level additions to T2 card 1 and do not contradict it.",
+    "Observed both prohibitions: no 'the source does not require X therefore the original IUT lacks X' inference was drawn, and no condition field or hull landing was reported as a reverse surjectivity onto outputs (the Ind3 log-volume surjectivity at Ind3.lean:253 is explicitly marked as being about the input choice set, with `out` absent from that file).",
+    "Checked name collisions across the pinned external set: no other repository mentions ThetaShift, LGPLattice, LatticeKummer, InHullOfImage or IsAdelic, so no cross-repository alias table was needed within the pinned four.",
+    "Pushed interpretive questions to QUESTIONS.md instead of deciding them (9 items)."
+  ],
+  "unresolved": [
+    "Whether a q-power generator (gaussGen = EtaleTheta.lgpValue, docstring q_v^{j²}) should count as an F1 'native q marking' for K1/K4; M3 marked LGPLattice true on that reading and states the basis in the entry. (QUESTIONS.md item 1.)",
+    "Whether an equality of log-volumes counts as an F4 'degree comparison' for K5; M3 recorded kind=equality. If only inequalities count, F4 is false for all 11. (QUESTIONS.md item 2.)",
+    "Whether it is intended that the Step-1 choice is stated against the Theta-pilot BPS and never against the q-pilot BPS; M3 records the fact only. (QUESTIONS.md item 3.)",
+    "Whether LatticeKummer's parameter L is intended to tie `kum (n,m)` to L.H (n,m); the source fields do not mention L. (QUESTIONS.md item 4.)",
+    "Whether a bridge between EtaAlg.Side and LogThetaLattice.H is intended in K1; no declaration identifies the two opaque families. (QUESTIONS.md item 5.)",
+    "Whether K4 needs a q-pilot-indexed version of `out` rather than instantiation at use sites. (QUESTIONS.md item 6.)",
+    "No elaborator was run: every statement about implicit/explicit binders and about which premises a declaration silently depends on is a static reading of the enclosing scope, matching T2's disclaimer. This limitation is not resolvable inside M3's static-only constraint."
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "fact_tree_admitted": false
+}
