@@ -1,0 +1,94 @@
+{
+  "task_id": "E3",
+  "title": "TCB dependency review: keep the closure conservative on the remaining cases",
+  "branch": "round2/e3",
+  "verdict": "no-change",
+  "head_commit": "6707684c8b6d7d521bb4cc803bc9a83ab0f0fb47",
+  "base_commit": "484127185878e65b10795d20568bd3714eebc798",
+  "commit_created": false,
+  "changed_paths": [],
+  "reviewed_paths": [
+    "audit/tcb_manifest.py",
+    "audit/tests/test_tcb_negative_closure.py",
+    "audit/tests/test_tcb_manifest.py"
+  ],
+  "required_cases": {
+    "E3.child_process_input": "pass",
+    "E3.qualified_sibling_input": "pass",
+    "E3.real_bridge_consumer_bindings": "pass",
+    "E3.simple_complete_read_control": "pass",
+    "E3.incomplete_closure_blocks_safe_proposal": "pass (also covers 'no read found' = unclassified)",
+    "E3.separate_input_dependency_runtime_toolchain": "pass"
+  },
+  "test_result": {
+    "tests_run": 13,
+    "result": "OK",
+    "exit_code": 0,
+    "duration_s": 5.659,
+    "wall_time_s": 5.987,
+    "selection": "python -B -m unittest discover -s audit/tests -p \"test_tcb*.py\" -v"
+  },
+  "commands_run": [
+    "New-Item -ItemType Directory -Force -Path 'D:\\Inter-universal Teichmüller Theory\\.wt\\e3\\.tmp'  (TEMP/TMP for every python call)",
+    "python -B -m unittest discover -s audit/tests -p \"test_tcb*.py\" -v   (run 1: 11 fixture ERRORS, all from tempfile 0o700 -> PermissionError; log kept as run1-env-failure)",
+    "python -X utf8 -c '<probe: os.mkdir(mode) in 0o700 vs 0o777 vs default>'   (root cause: only 0o700 dirs become unwritable)",
+    "python -B harness_e3_tests.py   (run 2 = same selection, tempfile.mkdtemp patched to 0o777; 13 tests OK, exit 0)",
+    "python -B -X utf8 -c '<analyze_project(bridge)>'   (pinned=36, WITHHELD, removed=0, proposed=36, closure.complete=false, boundaries=[lean-build, unanalysed-entry, unreached-consumer], unclassified=20)",
+    "git diff 4841271 HEAD -- bridge/verification/   (empty: no pin/receipt change)",
+    "git status --porcelain   (clean except untracked .tmp/)"
+  ],
+  "logs": [
+    {
+      "path": "handoffs/round2-2026-10-23/e3/logs/e3-tcb-unittest.run2.log",
+      "role": "acceptance replay (13 tests OK, exit 0)",
+      "bytes": 2104,
+      "sha256": "AFB02A533DAB776010A00CCF9A82730B3EB6287FAF4ADEAD1C70465C46B61A70"
+    },
+    {
+      "path": "handoffs/round2-2026-10-23/e3/logs/e3-tcb-unittest.run1-env-failure.log",
+      "role": "first replay in this sandbox: fixture errors from tempfile 0o700 (environment, not product)",
+      "bytes": 78584,
+      "sha256": "1B1D259F00FC732618B64CA6A25771DC59E76134152C668BD9E957D46C1AAB99"
+    },
+    {
+      "path": "handoffs/round2-2026-10-23/e3/logs/unittest_tcb.log",
+      "role": "pre-existing log from the previous round (kept untouched)",
+      "bytes": 39794,
+      "sha256": "2876B97CD3183A38D1208322858465B3A87810574791145AB26D0AD049B3C00C"
+    }
+  ],
+  "harness": {
+    "path": "handoffs/round2-2026-10-23/e3/harness_e3_tests.py",
+    "why": "in this sandbox a directory created with POSIX mode 0o700 (what tempfile.mkdtemp uses) accepts no nested writes, so every TemporaryDirectory fixture errored before any assertion; the wrapper only changes mkdtemp to 0o777 and runs the identical discovery",
+    "changes_tests": false,
+    "skips_or_relaxes_assertions": false
+  },
+  "pins": {
+    "pin_file": "bridge/verification/checked-inputs.json",
+    "pin_count": 36,
+    "schema": 3,
+    "pin_status": "WITHHELD",
+    "withheld_reason": "closure incomplete \u2014 proposal withheld",
+    "removed_proposals": 0,
+    "proposed_pin_count": 36,
+    "formal_pin_deletion_committed": false,
+    "pin_diff_vs_base": "empty",
+    "unclassified_pins": 20,
+    "closure_complete": false,
+    "boundary_kinds": ["lean-build", "unanalysed-entry", "unreached-consumer"]
+  },
+  "unresolved": [
+    "20 of the 36 bridge pins stay unclassified: their consumers are only reachable through the second-phase 'explicit consumer list + dependency-edge evidence' (per-edge provenance: import / executed command / config rule / manual declaration), which is not implemented.",
+    "Cases E3.child_process_input and E3.qualified_sibling_input assert the current branch (subprocess and module-method calls are unparsed); a future analyser that really resolved them would fail these tests. Over-strict, so it cannot hide a defect, but it is not the 'either parse or declare incomplete' shape of the spec.",
+    "Environment quirk worth recording: this sandbox cannot write inside 0o700 directories, so tempfile-based fixtures need the harness wrapper; on a normal host plain 'python -B -m unittest discover -s audit/tests -p \"test_tcb*.py\"' reproduces exit 0.",
+    "Second-phase prototype (consumer manifest with dependency-edge evidence) is design-only; no production pin was narrowed in this round."
+  ],
+  "lean_run": false,
+  "lean_note": "not applicable: E3 is a static Python dependency-closure review; no Lean target is built or replayed, and no math claim is asserted.",
+  "editor_run": false,
+  "editor_note": "no VS Code / editor observation was performed or claimed; nothing here is candidate-only math.",
+  "sandbox_notes": [
+    "TEMP and TMP were pointed at <worktree>/.tmp for every python invocation.",
+    "no push; no change outside audit/tcb_manifest.py and audit/tests/* was needed, and none was made."
+  ]
+}

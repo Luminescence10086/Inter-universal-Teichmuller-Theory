@@ -1,0 +1,52 @@
+mutation x gate matrix (each mutation applied to a temp copy only)
+
+                                                                         stmt-lock   sem-lock    hyp         axiom       body        input-hash  checkout  
+M1  statement weakening: one extra hypothesis                            C           C           .           .           .           m           .
+M2  statement alteration: bound direction flipped                        C           C           .           .           .           m           .
+M3  hypothesis-count drift (catalog short one, binder row edited)        .           .           C           .           .           C           .
+M4  axiom regression: non-whitelisted axiom added                        C           C           .           C           .           m           .
+M5  vendored definition body: ∃ flipped to ∀, elaborated type identical  m           C           .           .           C           m           .
+M6  node removal: one ledgered theorem deleted                           C           C           .           .           .           m           .
+M7  source-byte drift: one byte of a recorded input changed              m           m           .           .           .           C           .
+M8  NEGATIVE CONTROL: comment appended, JSON keys reordered              m           m           .           .           .           C           .
+
+  C = CAUGHT, m = missed (gate applicable but silent), . = not applicable
+  exit status: 0 = every claimed gate fired, no control gate fired and every required probe passed; 1 = an expectation was violated or a required probe did not pass; 2 = harness could not run
+
+gates:
+  stmt-lock   statement_lock    tools/statement_lock.py
+  sem-lock    semantic_lock     tools/semantic_lock.py
+  hyp         hypothesis_gate   bridge/tools/verify_integrated.py:audit_hypotheses
+  axiom       axiom_gate        tools/bridge.py:require_theorem
+  body        contract_body     tools/bridge.py:vendored_matches
+  input-hash  input_hash        tools/freshness.py:validate_project/assert_equal
+  checkout    clean_checkout    bridges/check_clean_checkout.py
+
+probes:
+  ok  baseline_bridge: unmutated copies pass every applicable gate
+  ok  baseline_main: validate_project accepted an unmutated main copy
+  ok  fact_tree_removal: <copy>: not fully admitted, or stale target set
+  ok  unpin_entry: unpinning a ledger entry reads as an addition and passes, which is what both ledgers declare
+  ok  clean_checkout_head: clean checkout reproduces every recorded input
+
+findings:
+  M1 caught by stmt-lock, sem-lock
+     input-hash blind: 36 recorded input bytes match [expected blind: export refreshed as a verifier re-run would refresh it, and exported constants are outputs, not recorded inputs]
+  M2 caught by stmt-lock, sem-lock
+     input-hash blind: 36 recorded input bytes match [expected blind: export refreshed as a verifier re-run would refresh it]
+  M3 caught by hyp, input-hash
+  M4 caught by stmt-lock, sem-lock, axiom
+     input-hash blind: 36 recorded input bytes match [expected blind: export refreshed as a verifier re-run would refresh it]
+  M5 caught by sem-lock, body
+     stmt-lock blind: no statement or axiom drift [expected blind: printed statements are identical by construction: this is exactly why a statement ledger alone is not enough]
+     input-hash blind: 36 recorded input bytes match [expected blind: definition bodies are exported output, not input bytes]
+  M6 caught by stmt-lock, sem-lock
+     input-hash blind: 36 recorded input bytes match [expected blind: exported constants are outputs and the export is refreshed]
+  M7 caught by input-hash
+     stmt-lock blind: no statement or axiom drift [expected blind: a comment byte moves no printed statement: the distinction the ledger was built to draw]
+     sem-lock blind: Change ledger: 312 constants; changed=0, removed=0, added=0; baseline_recorded=False [expected blind: the mutated file contributes no ledgered statement]
+  M8 caught by input-hash
+     stmt-lock blind: no statement or axiom drift
+     sem-lock blind: Change ledger: 312 constants; changed=0, removed=0, added=0; baseline_recorded=False
+
+no violations: every mutation a gate claims was caught, the negative control was not read as statement drift, and every required probe passed

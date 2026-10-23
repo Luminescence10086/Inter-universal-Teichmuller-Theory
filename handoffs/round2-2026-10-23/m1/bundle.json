@@ -1,0 +1,192 @@
+{
+  "task_id": "M1",
+  "task_title": "M1 受限允许域上的有限账本判据（数学候选）",
+  "branch": "round2/m1",
+  "worktree": "D:\\Inter-universal Teichmüller Theory\\.wt\\m1",
+  "candidate_scope": "candidates/restricted-ledger/",
+  "base_commit": "063ce7bf12b5d94dae94da446982b4762435a8d1",
+  "head_commit": "80967748f03e0545834d1cae3ffcfe4bcc7c4dac",
+  "commit_message": "M1: separate the general span certificate from the realised-generator version",
+  "changed_paths": [
+    "candidates/restricted-ledger/Candidates/RestrictedLedger.lean",
+    "candidates/restricted-ledger/Candidates/Axioms.lean",
+    "candidates/restricted-ledger/README.md"
+  ],
+  "untouched": {
+    "main_worktree_source": true,
+    "fact_tree": true,
+    "pins": true,
+    "receipts": true,
+    "other_task_dirs": true,
+    "handoffs_committed": false,
+    "pushed": false
+  },
+  "hypothesis_hierarchy": {
+    "strong": "hreal : ∀ i, ∃ x ∈ Ω, vprofile p x - vprofile p x₀ = b i（生成元本身是实际差分）",
+    "general": "hspan : ∀ i, MemDiffSpanOn p Ω x₀ (b i)（生成元落在实际差分生成的 ℤ-span 内）",
+    "together_with_hgen": "hgen（每个差分落在生成元的 ℤ-span 内）+ hspan 合并即‘生成元与差分生成同一 ℤ-子模’，即本轮任务目标",
+    "inclusion_proved": "memDiffSpan_of_realised / memDiffSpanOn_of_realised（hreal ⟹ hspan）；restricted_ledger_criterion_of_combination（强前提版是一般版的推论）",
+    "converse_refuted": "finite_integer_span_membership_example：{0,2,3}、基点 0、生成元 1 = (-1)·(2-0)+1·(3-0)，但 1 不是任何实际差分"
+  },
+  "lean_run": {
+    "attempts": 1,
+    "budget_seconds": 1200,
+    "result": "PASS",
+    "toolchain": "leanprover/lean4:v4.34.0-rc2",
+    "lean_binary": "Lean (version 4.34.0-rc2, x86_64-w64-windows-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+    "lake_binary": "Lake version 5.0.0-src+6a10ac8 (Lean version 4.34.0-rc2)",
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\m1\\candidates\\restricted-ledger",
+    "temp_isolation": "$env:TEMP=$env:TMP=<worktree>\\.tmp（按任务要求设置，避免 WinError 5）",
+    "cache_note": "bridge/ 与 local-field/ 的 tree id 与本工作树 HEAD 相同（cddd6010…、b11fd39c…），故将其 gitignored .lake olean 预置进本工作树，候选工程自建独立 .lake 缓存；Mathlib 使用外部只读检出 C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+    "math_olean_sha256": "fb55438f4a48dba2a42d5f1c70eb1a5f8b3a3d321a0fc0085bc084b4c6839704",
+    "source_sha256": {
+      "Candidates/RestrictedLedger.lean": "74e9d8a1ada9b637f5472ea5413047729f5ca192cafc60caf317835f125ba457",
+      "Candidates/Axioms.lean": "a4163b30845ded4cac9a2e8415fea224e2cb929e1066014c7e5ee9df9d126ba7",
+      "Candidates.lean": "f7dcd02282bbf9a72bfdbdd2487ca6c3cb23446f866c405ed8ebb4e77ce0ef78",
+      "lakefile.toml": "7b8b8449073c709878b6d99e8cc26c41cff438626e216f5bf8381886f15d7d76",
+      "lake-manifest.json": "ad05b09b129b9efb21cfbb5367887d52adb62557d65821e452dce18eb9d3d633",
+      "lean-toolchain": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88"
+    }
+  },
+  "commands_run": [
+    {
+      "id": "lean-strict",
+      "argv": ["lake", "env", "lean", "--json", "-DwarningAsError=true", "Candidates/RestrictedLedger.lean", "-o", ".lake/build/lib/lean/Candidates/RestrictedLedger.olean"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\m1\\candidates\\restricted-ledger",
+      "exit_code": 0,
+      "seconds": 24.32,
+      "log": "logs/01-lean-strict.jsonl",
+      "output_bytes": 0,
+      "note": "唯一一次构建尝试；输出为空即零 error / 零 warning（-DwarningAsError=true 下任何告警都会非零退出）"
+    },
+    {
+      "id": "lean-axioms",
+      "argv": ["lake", "env", "lean", "--json", "Candidates/Axioms.lean"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\m1\\candidates\\restricted-ledger",
+      "exit_code": 0,
+      "seconds": 19.66,
+      "log": "logs/02-lean-axioms.jsonl",
+      "output_bytes": 24936,
+      "note": "导入由上面同一份冻结源码产出的 olean；52 条 information 消息，全部为 #print axioms / #check / #print"
+    },
+    {
+      "id": "lean-axioms-utf8-recapture",
+      "argv": ["lake", "env", "lean", "Candidates/Axioms.lean"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\m1\\candidates\\restricted-ledger",
+      "exit_code": 0,
+      "seconds": 20.28,
+      "log": "logs/02b-lean-axioms-utf8.txt",
+      "note": "仅为修正 PowerShell 5.1 控制台解码导致的日志乱码而重跑同一条公理导出命令（纯文本、UTF-8 保真）；不是第二次构建：数学 olean 前后 sha256 不变（fb55438f…），见 02b-olean-hash.txt"
+    }
+  ],
+  "theorems": [
+    {
+      "name": "Candidates.RestrictedLedger.restricted_ledger_criterion",
+      "role": "强前提版（保留候选；复核方指出的 hreal 未删除）",
+      "premises": ["hΩ : ∀ x ∈ Ω, ∀ j, x j ≠ 0", "ha : ∀ j, a j ≠ 0", "hx₀ : x₀ ∈ Ω", "hgen : ∀ x ∈ Ω, ∃ lam, vprofile x - vprofile x₀ = ∑ i, lam i • b i", "hreal : ∀ i, ∃ x ∈ Ω, vprofile x - vprofile x₀ = b i"],
+      "exact_type": "∀ (p : ℕ) [Fact (Nat.Prime p)] {n r : ℕ} (Ω : Set (Tuple p n)), (∀ x ∈ Ω, ∀ j, x j ≠ 0) → ∀ (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]), (∀ j, a j ≠ 0) → ∀ x₀ ∈ Ω, ∀ (b : Fin r → Fin n → ℤ), (∀ x ∈ Ω, ∃ lam, vprofile p x - vprofile p x₀ = ∑ i, lam i • b i) → (∀ i, ∃ x ∈ Ω, vprofile p x - vprofile p x₀ = b i) → ((∀ x ∈ Ω, weightedLedger p w (relabel p σ (slotwise p a x)) = weightedLedger p w x) ↔ dot (fun j => w (σ j) - w j) (vprofile p x₀) + ∑ j, w (σ j) * (a j).valuation = 0 ∧ ∀ i, dot (fun j => w (σ j) - w j) (b i) = 0)",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.restricted_ledger_span_criterion",
+      "role": "一般 span 证书版（本轮新增主结果）",
+      "premises": ["hΩ : ∀ x ∈ Ω, ∀ j, x j ≠ 0", "ha : ∀ j, a j ≠ 0", "hx₀ : x₀ ∈ Ω", "hgen : ∀ x ∈ Ω, ∃ lam, vprofile x - vprofile x₀ = ∑ i, lam i • b i", "hspan : ∀ i, MemDiffSpanOn p Ω x₀ (b i)"],
+      "exact_type": "∀ (p : ℕ) [Fact (Nat.Prime p)] {n r : ℕ} (Ω : Set (Tuple p n)), (∀ x ∈ Ω, ∀ j, x j ≠ 0) → ∀ (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]), (∀ j, a j ≠ 0) → ∀ x₀ ∈ Ω, ∀ (b : Fin r → Fin n → ℤ), (∀ x ∈ Ω, ∃ lam, vprofile p x - vprofile p x₀ = ∑ i, lam i • b i) → (∀ i, MemDiffSpanOn p Ω x₀ (b i)) → ((∀ x ∈ Ω, weightedLedger p w (relabel p σ (slotwise p a x)) = weightedLedger p w x) ↔ dot (fun j => w (σ j) - w j) (vprofile p x₀) + ∑ j, w (σ j) * (a j).valuation = 0 ∧ ∀ i, dot (fun j => w (σ j) - w j) (b i) = 0)",
+      "defs": {
+        "MemDiffSpanOn": "fun (p) [Fact (Nat.Prime p)] {n} (Ω : Set (Tuple p n)) (x₀ : Tuple p n) (v : Fin n → ℤ) => ∃ (m : Nat) (x : Fin m → Tuple p n) (lam : Fin m → ℤ), (∀ k, x k ∈ Ω) ∧ v = ∑ k, lam k • (vprofile p (x k) - vprofile p x₀)",
+        "MemDiffSpan": "fun {n} (S : Set (Fin n → ℤ)) (e₀ v : Fin n → ℤ) => ∃ (m : Nat) (e : Fin m → Fin n → ℤ) (lam : Fin m → ℤ), (∀ k, e k ∈ S) ∧ v = ∑ k, lam k • (e k - e₀)"
+      },
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.restricted_ledger_criterion_of_combination",
+      "role": "从属证明：强前提版＝一般 span 版推论",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.restricted_ledger_combination_criterion",
+      "role": "原始 Exist 形 hmem 版本（hgen + hmem 双包含）",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.integer_span_criterion",
+      "role": "强前提整数版（hreal）",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.integer_combination_criterion",
+      "role": "一般整数版（hgen + hmem 双包含）",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.integer_span_criterion_of_combination",
+      "role": "强前提整数版＝一般整数版推论",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.memDiffSpan_of_realised",
+      "role": "hreal ⟹ MemDiffSpan（单项组合，系数 1）",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.memDiffSpanOn_of_realised",
+      "role": "hreal ⟹ MemDiffSpanOn（单项组合，系数 1）",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.full_domain_specialization",
+      "role": "全空间特化：只导出必要方向 ∀ j, w (σ j) = w j（不含标量预算）",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.full_domain_iff",
+      "role": "全空间特化的完整 iff：预算写作 Σ j, w (σ j) v(a j) = 0，与已准入定理的 Σ j, w j v(a j) 仅在权不变下相等；属实例化，不声称恢复全部旧判据",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.equal_valuation_two_slot_example",
+      "role": "二槽等估值域 + 交换 0↔1 + 权 (1,2) + 标量全 1：受限域保账成立而权非置换不变",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.domain_not_preserved_by_slotwise",
+      "role": "TΩ⊆Ω 与 Ω 上保账是两项独立义务",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.empty_domain_vacuous",
+      "role": "空域不提供任何必要条件，非空前提不可去",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "Candidates.RestrictedLedger.finite_integer_span_membership_example",
+      "role": "有限集 {0,2,3}：双包含成立、生成元 1 非实际差分、一般判据实例成立（反驳 hspan ⟹ hreal）",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    }
+  ],
+  "axiom_summary": "全部声明（含两个版本主定理）的 #print axioms 集合均为 {propext, Classical.choice, Quot.sound} 的子集；swapWeights / finiteIntegerDomain / integerUnitGenerator 为 [propext] 或空。无 sorry、无 admit、无新增 axiom、无 native_decide；结论未写入结构字段。",
+  "exact_types_note": "theorems[].exact_type 按 #check 输出转写，省略了大量 IUTBridge.WeightedLedger.* / IUTBridge.Slots.* 限定前缀（语义与括号结构保持一致）；逐字原文见 logs/02b-lean-axioms-utf8.txt。",
+  "log_sha256": {
+    "logs/toolchain.txt": "2c233498668f520d3cde6e311a24dfdf8068f27b55b418fe6492b8fe68754879",
+    "logs/01-lean-strict.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/02-lean-axioms.jsonl": "fa0e5ecf5e242171ba7b0453171257463bf7b4e7c55e76283827d5910e1104f5",
+    "logs/02b-lean-axioms-utf8.txt": "125a6221ad46eed1ae475f420f738c59b74be44467858c13e80e230bccbd7b6d",
+    "logs/02b-lean-axioms-utf8.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/02b-olean-hash.txt": "0b24ff879dfd972f8926565399e25223c595ceb647efd0e46301cd2504c3a1a9",
+    "logs/source-sha256.txt": "fad59f6e418c53a340f78c72decae71cfd0910e18d1232dd9b90ded4f1b2b8c5"
+  },
+  "unresolved": [
+    "hreal 强前提版按复核意见保留为候选，未被替换或删除；它与一般 span 版并存，二者关系已证（hreal ⟹ hspan，反向有显式反例）。",
+    "全空间特化只到实例化：full_domain_specialization 仅给 ∀ j, w (σ j) = w j；full_domain_iff 的预算用重标权重，与原定理的 Σ j, w j v(a j) 仅在权不变下相同。未声称恢复全部旧判据，也未独立重证 weightedLedger_combined_invariant_iff。",
+    "无真实 IUT admissible region，也没有为它提供有限生成证书（hgen/hspan 仍是待实例化的结构前提）；G01/G03 未关闭，无首创性主张。",
+    "T Ω ⊆ Ω（域在变换下自封闭）仍是与‘Ω 上保账’相互独立的义务，本文件不对一般情形作断言。",
+    "实际 VS Code 零 error/warning 观察未做（editor_run.observed=false），故保持 candidate-only，未进入 fact-tree。",
+    "Lean 只做一次构建尝试；若复核方要求重放，请用同一 argv 与同一 toolchain（v4.34.0-rc2，lean githash 6a10ac8c…）。"
+  ],
+  "editor_run": {
+    "observed": false,
+    "reason": "实际编辑器观察属复核方步骤；本轮只做命令行证据，不伪造 IDE 记录"
+  },
+  "fact_tree_admitted": false,
+  "sorry_admit_new_axioms": "none"
+}

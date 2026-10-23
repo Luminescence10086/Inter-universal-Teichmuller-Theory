@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "status": "REPAIR_READY_FOR_REVIEW",
+  "task_id": "E1",
+  "base_commit": "484127185878e65b10795d20568bd3714eebc798",
+  "head_commit": "24f42c645ba6ec61a693926d7956268e955a5b15",
+  "scope_contract_sha256": "acd2f31d1cb23f9548445ff2db0cdeb92406ba72b1ce0d1dfc4a3501b77b807f",
+  "source_tree_clean": true,
+  "environment": {
+    "os": "Windows 11 (10.0.26200)",
+    "python": "3.14.5 (C:\\msys64\\ucrt64\\bin\\python.exe)",
+    "lean": null,
+    "lake": null,
+    "dependency_locks": [],
+    "notes": [
+      "no Lean build and no editor observation in this task",
+      "TEMP/TMP were pointed inside the worktree (.wt/e1/.tmp) and a sitecustomize shim that only drops the mode argument of os.mkdir was on PYTHONPATH, because this sandbox refuses writes inside mkdtemp(0o700) directories; neither is part of the commit",
+      "E1.existing_65_tests needed PYTHONIOENCODING=utf-8 in this umlaut path"
+    ]
+  },
+  "changed_paths": [
+    "audit/mutation_harness.py",
+    "audit/tests/test_mutation_probe_exit.py"
+  ],
+  "changes": [
+    {
+      "path": "audit/mutation_harness.py",
+      "sha256": "31231d937210b6da449acee04fbc86a9c73aa795cfecc1dedc8306de2770db57",
+      "purpose": "reusable probe results (--reuse-probes) gated on the repository witness, so the deduplicated entry cannot reuse a verdict for different bytes; probes_reused in the report"
+    },
+    {
+      "path": "audit/tests/test_mutation_probe_exit.py",
+      "sha256": "66490d7f0ac63d31a64fc53d804beed1ba4e1e459a4e9fd6b7cba3349ec75408",
+      "purpose": "supervised no-arg entry: file-backed streams, one total deadline covering tree cleanup (job object on Windows), exit 124 on expiry, plus --self-test-timeout, and baseline-recorded probe reuse in the focused cases"
+    }
+  ],
+  "commands_run": [
+    {
+      "id": "E1.quick_entry",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py"
+      ],
+      "cwd": "D:\\\\Inter-universal Teichmüller Theory\\\\.wt\\\\e1",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 34.49,
+      "log": "logs\\e1-fast-entry.stdout.txt",
+      "log_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456",
+      "note": "frozen quick entry, measured from an independent parent wait(); exit status is the process status, never a log's last line"
+    },
+    {
+      "id": "E1.self_test_timeout",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "audit/tests/test_mutation_probe_exit.py",
+        "--self-test-timeout"
+      ],
+      "cwd": "D:\\\\Inter-universal Teichmüller Theory\\\\.wt\\\\e1",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 3.4,
+      "log": "logs\\e1-self-test-timeout.stdout.txt",
+      "log_sha256": "4acf197d69334d6d6ef9a844603f13da0e4594e8cf36624250c7f2790bac111f",
+      "note": "child plus grandchild hang while holding the inherited handles; requires exit 124, a wall clock inside the deadline and a reaped grandchild"
+    },
+    {
+      "id": "E1.negative_control",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "handoffs/round2-2026-10-23/e1/negative_control.py"
+      ],
+      "cwd": "D:\\\\Inter-universal Teichmüller Theory\\\\.wt\\\\e1",
+      "exit_code": 1,
+      "expected_exit": 1,
+      "seconds": 119.22,
+      "log": "logs\\e1-negative-control.stdout.txt",
+      "log_sha256": "2353badbd9e8463941d52733e62eb43676bddb464c47c3e231cde77059b4fc4d",
+      "note": "the round-1 defect is reintroduced; 6 of 7 cases must fail, so the cases still catch it"
+    },
+    {
+      "id": "E1.exit_contract_propagation",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "handoffs/round2-2026-10-23/e1/exit_contracts.py"
+      ],
+      "cwd": "D:\\\\Inter-universal Teichmüller Theory\\\\.wt\\\\e1",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 0.56,
+      "log": "logs\\e1-exit-contracts.stdout.txt",
+      "log_sha256": "7ce5c3ac0308e288e3cc4af35db23f44e80a2137ef73da55500cc39f9461cebb",
+      "note": "supervisor relays a nonzero child status and refuses a forged reuse witness"
+    },
+    {
+      "id": "E1.existing_65_tests",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "audit/tests",
+        "-p",
+        "test_*.py"
+      ],
+      "cwd": "D:\\\\Inter-universal Teichmüller Theory\\\\.wt\\\\e1",
+      "exit_code": 0,
+      "expected_exit": 0,
+      "seconds": 150.43,
+      "log": "logs\\e1-discovery.stderr.txt",
+      "log_sha256": "e6814dee5b5624aebcd813e17c7f703e89fb3a0b3cbdac8d1d84d9a276fe095e",
+      "note": "72 tests = 65 pre-existing + 7 E1 cases; unittest writes its summary to stderr, so that is the log of record"
+    }
+  ],
+  "checks": [
+    {
+      "id": "E1.baseline_pass",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    },
+    {
+      "id": "E1.fact_tree_removal_regression",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    },
+    {
+      "id": "E1.unpin_entry_failure",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    },
+    {
+      "id": "E1.checkout_head_failure",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    },
+    {
+      "id": "E1.baseline_failure",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    },
+    {
+      "id": "E1.probe_exception",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    },
+    {
+      "id": "E1.malformed_probe_result",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    },
+    {
+      "id": "E1.existing_65_tests",
+      "executed_as": "E1.quick_entry",
+      "outcome": "PASS",
+      "stdout_path": "logs\\e1-fast-entry.stdout.txt",
+      "stdout_sha256": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456"
+    }
+  ],
+  "deduplication": {
+    "matrix": "M1-M8 runs once, in E1.baseline_pass; the focused cases use --probes-only",
+    "probes": "the healthy probes run for real once, in E1.baseline_pass; the focused cases reuse those recorded results with --reuse-probes only after the harness re-checks the repository witness, and the injected probe always runs for real",
+    "frozen_case_ids": "the seven probe cases are one execution (E1.quick_entry); the runner never re-runs the entry per case"
+  },
+  "mathematics": {
+    "candidate_only": true,
+    "theorems": [],
+    "cli_zero_diagnostics": null,
+    "vscode_observation": null,
+    "reviewer_vscode_replay_complete": false,
+    "new_formal_admissions": 0
+  },
+  "open_obligations": [],
+  "unresolved": [
+    "reviewer-side replay environment: this delivery was measured in a sandbox that denies writes inside mkdtemp(0o700) directories, so a sitecustomize shim that only drops the mode argument of os.mkdir sat on PYTHONPATH and TEMP/TMP pointed inside the worktree; neither is part of the commit and the reviewer's D:/iut-wt/e1 replay needs neither",
+    "the negative control needs its own 119 s run because it re-executes the supervised entry with the defect reintroduced; the fast entry itself stays at 34.5 s",
+    "the resolution of whether the degraded-containment warning belongs in the supervisor was settled by keeping it: e9ff362 removed it, the branch keeps it, and this bundle describes the kept revision"
+  ],
+  "limitations": [
+    "PASS here means the exit-code contract of the required probes holds; it does not certify any Python program, any Lean build, or any mathematical claim",
+    "no Lean run, no VS Code observation, no fact-tree/pin/receipt change",
+    "the pre-repair entry measured 167.3 s wall clock in this worktree with the same 7/7 output, i.e. already past the reviewer's 150 s budget"
+  ],
+  "lean_run": null,
+  "editor_run": null,
+  "summary_path": "SUMMARY.md",
+  "remeasured": {
+    "date": "2026-10-23",
+    "reason": "the earlier bundle described e9ff362, which dropped the degraded-containment warning in the supervisor; the branch now stands at a revision that keeps that warning, so every measurement below was re-run against this HEAD",
+    "superseded_logs": "logs-superseded-e9ff362/"
+  },
+  "log_sha256": {
+    "logs\\e1-discovery.stderr.txt": "e6814dee5b5624aebcd813e17c7f703e89fb3a0b3cbdac8d1d84d9a276fe095e",
+    "logs\\e1-discovery.stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs\\e1-exit-contracts.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs\\e1-exit-contracts.stdout.txt": "7ce5c3ac0308e288e3cc4af35db23f44e80a2137ef73da55500cc39f9461cebb",
+    "logs\\e1-fast-entry.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs\\e1-fast-entry.stdout.txt": "e7978c8bd3a664219adb33059bc98f30544c8d78a419de54166f52724d493456",
+    "logs\\e1-negative-control.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs\\e1-negative-control.stdout.txt": "2353badbd9e8463941d52733e62eb43676bddb464c47c3e231cde77059b4fc4d",
+    "logs\\e1-self-test-timeout.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs\\e1-self-test-timeout.stdout.txt": "4acf197d69334d6d6ef9a844603f13da0e4594e8cf36624250c7f2790bac111f"
+  }
+}

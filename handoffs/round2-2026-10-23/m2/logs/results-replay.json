@@ -1,0 +1,15 @@
+{
+    "id":  "tool-emission-replay",
+    "argv":  [
+                 "cmd",
+                 "/c",
+                 "python -B .tmp/replay_emission.py"
+             ],
+    "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool",
+    "exit_code":  0,
+    "elapsed_seconds":  0.168,
+    "stdout":  "tool-emission-replay.stdout.txt",
+    "stderr":  "tool-emission-replay.stderr.txt",
+    "stdout_bytes":  269,
+    "stderr_bytes":  0
+}

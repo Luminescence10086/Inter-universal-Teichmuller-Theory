@@ -1,0 +1,112 @@
+{
+  "task_id": "P0",
+  "head_commit": "eff68757c84f3183bb0f8bed240a12dab2bc4039",
+  "base_commit": "484127185878e65b10795d20568bd3714eebc798",
+  "previous_head_commit": "8c78025",
+  "branch": "round2/p0",
+  "worktree": "D:\\Inter-universal Teichmüller Theory\\.wt\\p0",
+  "scope_contract_sha256": "acd2f31d1cb23f9548445ff2db0cdeb92406ba72b1ce0d1dfc4a3501b77b807f",
+  "plan_sha256": "ea1107f1d816d5c8e0121a4cd651ebf9916926c9ce3f2d6251309c2646243b27",
+  "changed_paths": [
+    {
+      "path": "audit/acceptance/run.py",
+      "sha256": "3c3029899cc7e8db410e7724b5286e9dd0a469eeea1ba37f04c54027a73e8637",
+      "purpose": "judge each required case against the frozen expected_exit instead of the author's claim; require checked-out HEAD == head_commit and committed file bytes; execute identical argv/cwd/env once and keep the case mapping; run commands with file-backed stdio and a timeout that kills the whole tree"
+    },
+    {
+      "path": "audit/acceptance/tests/test_run.py",
+      "sha256": "78c1a903b80b2943660e1f4197df387194ee3e939b15cc07cae876eb4fec583d",
+      "purpose": "add the two required counter-examples (author-declared FAIL, wrong checked-out HEAD / dirty tree) plus manual-step-never-PASS; make the scripted suite exit 0 under a restricted sandbox (own scratch root, archive case with GIT_CEILING_DIRECTORIES, contract resolution)"
+    },
+    {
+      "path": "audit/acceptance/README.md",
+      "sha256": "41a093b0ff4f0cf8f2980a6beae2f0502ae9aa9e51af38477cd8ef5ac3c72c6e",
+      "purpose": "document frozen-expectation judgement, HEAD binding, command de-duplication, the file-backed execution and the sandbox temp-directory requirement"
+    }
+  ],
+  "commands_run": [
+    {
+      "argv": ["python", "-B", "audit/acceptance/tests/test_run.py"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\p0",
+      "env_note": "TEMP=TMP=<worktree>\\.tmp (sandbox denies the default temp directory)",
+      "exit_code": 1,
+      "elapsed_seconds": 0.35,
+      "classification": "infrastructure failure, not a launcher defect",
+      "result": "all cases ERROR before reaching the launcher: tempfile.mkdtemp creates 0o700 directories that the restricted sandbox token cannot write into (WinError 5)",
+      "log": "logs/p0-selftest.run1.log"
+    },
+    {
+      "argv": ["python", "-B", "audit/acceptance/tests/test_run.py"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\p0",
+      "exit_code": 1,
+      "elapsed_seconds": 30.85,
+      "classification": "test run",
+      "result": "13/14; P0.missing_git_context reported P0.wrong_commit because the fixture sat inside this worktree and git discovered the enclosing repository",
+      "log": "logs/p0-selftest.run2.log"
+    },
+    {
+      "argv": ["python", "-B", "audit/acceptance/tests/test_run.py"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\p0",
+      "exit_code": 0,
+      "elapsed_seconds": 31.35,
+      "classification": "test run (final)",
+      "result": "14/14 cases ok in 31.2s",
+      "log": "logs/p0-selftest.run3.log"
+    },
+    {
+      "argv": ["python", "-B", ".tmp/negctl/audit/acceptance/tests/test_run.py", "P0.failed_required_check_claimed_fail", "P0.checked_out_head_mismatch", "P0.manual_step_never_pass"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\p0",
+      "exit_code": 1,
+      "elapsed_seconds": 9.22,
+      "classification": "negative control against the pre-fix launcher (14c06a9 copy)",
+      "result": "both new counter-examples FAIL on the old code (it reports verdict PASS with measured exit 1 and with a wrong checked-out HEAD); the fixed launcher passes them",
+      "log": "logs/p0-negative-control.prefix14c06a9.log"
+    }
+  ],
+  "logs": [
+    {
+      "path": "logs/p0-selftest.run1.log",
+      "sha256": "74e7f269d8de63bba0752413ea6c5a035a78524ff2d53ffb66fac448c336d7d1",
+      "bytes": 2844
+    },
+    {
+      "path": "logs/p0-selftest.run2.log",
+      "sha256": "67c7914b55f5f722202d552be8dbbeddd91baa5453a6ef265b481b47bf900c83",
+      "bytes": 455
+    },
+    {
+      "path": "logs/p0-selftest.run3.log",
+      "sha256": "44b5c18ef41e6aa8db71d9c258a01ab21d62ea90f898689b97063b1045b3b4b9",
+      "bytes": 434
+    },
+    {
+      "path": "logs/p0-negative-control.prefix14c06a9.log",
+      "sha256": "3957f0f3c91e82b68d4a0ed30a0e13ac5c0d5d4a6d194683c1d9329350fde76d",
+      "bytes": 5373
+    }
+  ],
+  "uncommitted_worktree_change_review": {
+    "path": "audit/acceptance/run.py",
+    "verdict": "correct, kept and committed",
+    "evidence": [
+      "child stdio now goes to temp files, so wait() returns as soon as the direct child exits: measured 0.08 s with a grandchild still holding the handle, where the pipe version blocks until the grandchild exits (the reviewer's E1 observation of ~595.7 s)",
+      "timeout path closes the Windows Job object (KILL_ON_JOB_CLOSE), then taskkill /T /F (killpg on POSIX), then falls back to kill(), so the whole tree is cleaned",
+      "tempfile.TemporaryFile() succeeds under the sandbox (0o600 files are usable through the inherited handle, unlike 0o700 directories); no temp files leak after the suite"
+    ]
+  },
+  "lean_run": {
+    "status": "not_run",
+    "reason": "P0 is the engineering launcher layer; no Lean/Lake command was replayed. The launcher now de-duplicates the six M1/M2 cases that share one Lean argv down to two real compilations, but the math layers were not executed in this round."
+  },
+  "editor_run": {
+    "status": "not_run",
+    "reason": "no VS Code observation; the launcher reports manual steps as MANUAL_REQUIRED and never grants mathematical admission"
+  },
+  "unresolved": [
+    "5 leftover mode-0o700 directories under .wt/p0/.tmp (created by tempfile.mkdtemp before the fix) cannot be read or deleted with this sandbox token; they are untracked, outside the commit and outside `git status --untracked-files=no`, but they make `git status` print permission warnings. A shell outside the sandbox must remove them.",
+    "handoffs/ is not part of this branch: replaying a bundle from the .wt/p0 worktree requires an explicit --contract (the default path there does not exist; the launcher then fails closed with P0.launcher_exception).",
+    "P0 is not frozen: run.py, plan.json, test_run.py and this README changed, so the reviewer must re-freeze the launcher, the case set and the expected values before P0 can release other tasks.",
+    "unittest discovery still reports 0 tests for tests/test_run.py; it is a scripted case set and must be run as a file (documented in its docstring and in audit/acceptance/README.md).",
+    "mathematical admission: none. No Lean replay, no editor observation, no fact-tree/pin/receipt change."
+  ]
+}

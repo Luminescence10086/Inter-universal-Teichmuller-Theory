@@ -1,0 +1,9 @@
+CASE E2.new_lean_glob_member: PASS
+CASE E2.new_workspace_tool: PASS
+CASE E2.new_vscode_config: PASS
+CASE E2.rename_into_scope: PASS
+CASE E2.rename_out_of_scope: PASS
+CASE E2.delete_pinned_input: PASS
+CASE E2.documentation_control: PASS
+CASE E2.out_of_scope_control: PASS
+CASE E2.distinct_node_counts: PASS

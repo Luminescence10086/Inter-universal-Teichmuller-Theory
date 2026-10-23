@@ -1,0 +1,1 @@
+{"checks": {"status": "PROPOSED", "hull_thresholds": [3, 0, 2], "has_enlargement_theorem": false, "duplicate_emit": "InputError", "duplicate_key_emit": "rejected", "invalid_status": "INVALID_INPUT", "invalid_theorem_names": [], "invalid_files": true}, "all_ok": true}

@@ -1,0 +1,49 @@
+ERROR P0.valid_bundle: PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\Inter-universal Teichm��ller Theory\\.wt\\p0\\.tmp\\tmptfsa_i4_\\repo'
+python.exe : Traceback (most recent call last):
+At line:1 char:354
++ ... w(); $out = & python -B audit/acceptance/tests/test_run.py 2>&1; $cod ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\Inter-universal Teichm��ller Theory\\.wt\\p0\\.tmp\\tmptfsa_i4_'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\p0\audit\acceptance\tests\test_run.py", line 379, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ~~~~^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\p0\audit\acceptance\tests\test_run.py", line 363, in main
+    with tempfile.TemporaryDirectory() as tmpdir:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\Inter-universal Teichm��ller Theory\\.wt\\p0\\.tmp\\tmptfsa_i4_'

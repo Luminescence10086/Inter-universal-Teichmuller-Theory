@@ -1,0 +1,9 @@
+PASS (unexpected, the defect was NOT caught) E1.baseline_pass
+FAIL as expected E1.fact_tree_removal_regression: the final CLI exited 0 while a required contract probe failed (R2/P2); probe={'ok': False, 'detail': 'removing IUTAudit.Transport.transport_projection from the 
+FAIL as expected E1.unpin_entry_failure: the final CLI exited 0 while unpin_entry failed; violations=[]
+FAIL as expected E1.clean_checkout_failure: the final CLI exited 0 while clean_checkout_head failed; violations=[]
+FAIL as expected E1.baseline_failure: the failing probe 'baseline_bridge' is not named in violations=[]
+FAIL as expected E1.probe_exception: a probe that raised was reported as success; violations=[]
+FAIL as expected E1.malformed_probe_result: malformed probe results were reported as success; violations=[]
+unexpectedly passing with the defect reintroduced: ['E1.baseline_pass']
+catching the defect: 6/7 cases

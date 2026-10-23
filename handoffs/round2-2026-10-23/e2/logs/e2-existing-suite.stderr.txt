@@ -1,0 +1,27 @@
+test_concrete_endpoint_source_change_flags_the_contract (__main__.TestContracts.test_concrete_endpoint_source_change_flags_the_contract) ... ok
+test_contract_record_change_flags_every_contract (__main__.TestContracts.test_contract_record_change_flags_every_contract) ... ok
+test_transitive_endpoint_flags_the_contract (__main__.TestContracts.test_transitive_endpoint_flags_the_contract) ... ok
+test_vendored_definition_change_on_the_abstract_side (__main__.TestContracts.test_vendored_definition_change_on_the_abstract_side) ... ok
+test_doc_invalidates_nothing (__main__.TestDocs.test_doc_invalidates_nothing) ... ok
+test_unknown_path_is_reported_but_harmless (__main__.TestDocs.test_unknown_path_is_reported_but_harmless) ... ok
+test_missing_mode_is_a_usage_error (__main__.TestErrors.test_missing_mode_is_a_usage_error) ... ok
+test_missing_records_is_a_clear_error (__main__.TestErrors.test_missing_records_is_a_clear_error) ... ok
+test_unknown_revision_is_a_clear_error (__main__.TestErrors.test_unknown_revision_is_a_clear_error) ... ok
+test_empty_range_is_clean (__main__.TestModes.test_empty_range_is_clean) ... ok
+test_human_output_has_the_hand_reconstruction_section (__main__.TestModes.test_human_output_has_the_hand_reconstruction_section) ... ok
+test_json_is_deterministic (__main__.TestModes.test_json_is_deterministic) ... ok
+test_range_matches_explicit_files (__main__.TestModes.test_range_matches_explicit_files) ... ok
+test_rename_is_reported_on_both_sides (__main__.TestModes.test_rename_is_reported_on_both_sides) ... ok
+test_staged_mode (__main__.TestModes.test_staged_mode) ... ok
+test_dependency_pin_voids_the_dependent_project (__main__.TestReceipts.test_dependency_pin_voids_the_dependent_project) ... ok
+test_evidence_file_is_pinned_by_the_receipt (__main__.TestReceipts.test_evidence_file_is_pinned_by_the_receipt) ... ok
+test_tools_file_voids_the_whole_receipt (__main__.TestReceipts.test_tools_file_voids_the_whole_receipt) ... ok
+test_workspace_tool_voids_only_the_project_that_pins_it (__main__.TestReceipts.test_workspace_tool_voids_only_the_project_that_pins_it) ... ok
+test_source_change_without_dependents (__main__.TestTheorems.test_source_change_without_dependents) ... ok
+test_theorem_source_invalidates_exactly_the_dependent_nodes (__main__.TestTheorems.test_theorem_source_invalidates_exactly_the_dependent_nodes) ... ok
+test_transitive_chain_across_files (__main__.TestTheorems.test_transitive_chain_across_files) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 25.817s
+
+OK

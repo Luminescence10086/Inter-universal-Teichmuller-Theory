@@ -1,0 +1,54 @@
+test_case (__main__.TestNewLeanGlobMember.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.684s
+
+OK
+test_case (__main__.TestNewWorkspaceTool.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.151s
+
+OK
+test_case (__main__.TestNewVscodeConfig.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.348s
+
+OK
+test_case (__main__.TestRenameIntoScope.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.866s
+
+OK
+test_case (__main__.TestRenameOutOfScope.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.854s
+
+OK
+test_case (__main__.TestDeletePinnedInput.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 2.905s
+
+OK
+test_case (__main__.TestDocumentationControl.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.688s
+
+OK
+test_case (__main__.TestOutOfScopeControl.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.549s
+
+OK
+test_case (__main__.TestDistinctNodeCounts.test_case) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.593s
+
+OK

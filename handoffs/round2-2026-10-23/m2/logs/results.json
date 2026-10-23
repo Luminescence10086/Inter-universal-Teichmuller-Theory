@@ -1,0 +1,137 @@
+[
+    {
+        "id":  "git-head",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "git rev-parse HEAD"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2",
+        "exit_code":  0,
+        "elapsed_seconds":  0.105,
+        "stdout":  "git-head.stdout.txt",
+        "stderr":  "git-head.stderr.txt",
+        "stdout_bytes":  41,
+        "stderr_bytes":  0
+    },
+    {
+        "id":  "lean-version",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "lake env lean --version"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+        "exit_code":  0,
+        "elapsed_seconds":  1.812,
+        "stdout":  "lean-version.stdout.txt",
+        "stderr":  "lean-version.stderr.txt",
+        "stdout_bytes":  108,
+        "stderr_bytes":  0
+    },
+    {
+        "id":  "python-version",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "python --version"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+        "exit_code":  0,
+        "elapsed_seconds":  0.05,
+        "stdout":  "python-version.stdout.txt",
+        "stderr":  "python-version.stderr.txt",
+        "stdout_bytes":  15,
+        "stderr_bytes":  0
+    },
+    {
+        "id":  "tool-unittest",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "python -B test_hull_tool.py -v"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool",
+        "exit_code":  1,
+        "elapsed_seconds":  0.283,
+        "stdout":  "tool-unittest.stdout.txt",
+        "stderr":  "tool-unittest.stderr.txt",
+        "stdout_bytes":  0,
+        "stderr_bytes":  4263
+    },
+    {
+        "id":  "tool-example-two-three-four",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "python -B hull_tool.py --input examples/two-three-four.json --out runs/two-three-four-fixed"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool",
+        "exit_code":  0,
+        "elapsed_seconds":  0.2,
+        "stdout":  "tool-example-two-three-four.stdout.txt",
+        "stderr":  "tool-example-two-three-four.stderr.txt",
+        "stdout_bytes":  1698,
+        "stderr_bytes":  0
+    },
+    {
+        "id":  "lean-entry",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "lake env lean --json -DwarningAsError=true -o .lake/build/lib/lean/Candidates/OrbitQuotient.olean -i .lake/build/lib/lean/Candidates/OrbitQuotient.ilean Candidates/OrbitQuotient.lean"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+        "exit_code":  0,
+        "elapsed_seconds":  17.257,
+        "stdout":  "lean-entry.stdout.txt",
+        "stderr":  "lean-entry.stderr.txt",
+        "stdout_bytes":  0,
+        "stderr_bytes":  0
+    },
+    {
+        "id":  "lean-axioms",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "lake env lean --json -DwarningAsError=true Candidates/Axioms.lean"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+        "exit_code":  0,
+        "elapsed_seconds":  16.332,
+        "stdout":  "lean-axioms.stdout.txt",
+        "stderr":  "lean-axioms.stderr.txt",
+        "stdout_bytes":  31326,
+        "stderr_bytes":  0
+    },
+    {
+        "id":  "lean-hulltool",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "lake env lean --json -DwarningAsError=true -o .lake/build/lib/lean/Candidates/HullTool.olean -i .lake/build/lib/lean/Candidates/HullTool.ilean Candidates/HullTool.lean"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+        "exit_code":  0,
+        "elapsed_seconds":  16.501,
+        "stdout":  "lean-hulltool.stdout.txt",
+        "stderr":  "lean-hulltool.stderr.txt",
+        "stdout_bytes":  0,
+        "stderr_bytes":  0
+    },
+    {
+        "id":  "lean-tool-certificate",
+        "argv":  [
+                     "cmd",
+                     "/c",
+                     "lake env lean --json -DwarningAsError=true tool/runs/two-three-four-fixed/certificate.lean"
+                 ],
+        "cwd":  "D:\\Inter-universal Teichmüller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+        "exit_code":  0,
+        "elapsed_seconds":  16.11,
+        "stdout":  "lean-tool-certificate.stdout.txt",
+        "stderr":  "lean-tool-certificate.stderr.txt",
+        "stdout_bytes":  0,
+        "stderr_bytes":  0
+    }
+]

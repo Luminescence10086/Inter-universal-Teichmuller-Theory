@@ -1,0 +1,67 @@
+test_emission_and_invalid_artifacts (__main__.HullTests.test_emission_and_invalid_artifacts) ... ERROR
+test_independent_set_oracle (__main__.HullTests.test_independent_set_oracle) ... ok
+test_original_two_three_four (__main__.HullTests.test_original_two_three_four) ... ok
+test_three_cycle_direction_and_no_identity (__main__.HullTests.test_three_cycle_direction_and_no_identity) ... ok
+test_type_domain_and_resource_rejections (__main__.HullTests.test_type_domain_and_resource_rejections) ... ok
+
+======================================================================
+ERROR: test_emission_and_invalid_artifacts (__main__.HullTests.test_emission_and_invalid_artifacts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm¨¹ller Theory\.wt\m2\candidates\orbit-quotient\tool\test_hull_tool.py", line 84, in test_emission_and_invalid_artifacts
+    source.write_text('{"schema":1,"p":5,"N":3,"thresholds":[0,2,3],"permutations":[[1,2,0]],"require_enlargement":false}')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 809, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'D:\\Inter-universal Teichm¨¹ller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool\\runs\\tmpp8br6whs\\input.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] ¾Ü¾ø·ÃÎÊ¡£: 'D:\\Inter-universal Teichm¨¹ller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool\\runs\\tmpp8br6whs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm¨¹ller Theory\.wt\m2\candidates\orbit-quotient\tool\test_hull_tool.py", line 81, in test_emission_and_invalid_artifacts
+    with tempfile.TemporaryDirectory(dir=runs) as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] ¾Ü¾ø·ÃÎÊ¡£: 'D:\\Inter-universal Teichm¨¹ller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool\\runs\\tmpp8br6whs'
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.013s
+
+FAILED (errors=1)

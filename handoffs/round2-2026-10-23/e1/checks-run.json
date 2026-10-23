@@ -1,0 +1,88 @@
+[
+  {
+    "id": "E1.self_test_timeout",
+    "argv": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "audit/tests/test_mutation_probe_exit.py",
+      "--self-test-timeout"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\e1",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "outcome": "PASS",
+    "seconds": 3.35,
+    "stdout_path": "logs\\E1-self_test_timeout.stdout.txt",
+    "stdout_sha256": "ccbbfee0a9424dd45fc29d01eb41f82e4633fd8f48c558cd65aac85536a25706",
+    "stderr_path": "logs\\E1-self_test_timeout.stderr.txt",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "env": {},
+    "note": "supervises a child that spawns a grandchild holding the inherited handles and never returns; requires exit 124, a wall clock inside the deadline, and a reaped grandchild"
+  },
+  {
+    "id": "E1.negative_control",
+    "argv": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "D:\\Inter-universal Teichmüller Theory\\handoffs\\round2-2026-10-23\\e1\\negative_control.py"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\e1",
+    "exit_code": 1,
+    "expected_exit": 1,
+    "outcome": "PASS",
+    "seconds": 33.95,
+    "stdout_path": "logs\\E1-negative_control.stdout.txt",
+    "stdout_sha256": "2353badbd9e8463941d52733e62eb43676bddb464c47c3e231cde77059b4fc4d",
+    "stderr_path": "logs\\E1-negative_control.stderr.txt",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "env": {},
+    "note": "reintroduces the round-1 defect (probe_violations returns nothing); 6 of 7 cases must then fail, so the cases still catch it"
+  },
+  {
+    "id": "E1.exit_contract_propagation",
+    "argv": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "D:\\Inter-universal Teichmüller Theory\\handoffs\\round2-2026-10-23\\e1\\exit_contracts.py"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\e1",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "outcome": "PASS",
+    "seconds": 0.55,
+    "stdout_path": "logs\\E1-exit_contract_propagation.stdout.txt",
+    "stdout_sha256": "29614bb8cb136009a51fd4d1d229a67f6b565d8f25244635605d5623e1df2ef1",
+    "stderr_path": "logs\\E1-exit_contract_propagation.stderr.txt",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "env": {},
+    "note": "supervisor relays a nonzero child status (7) and a forged reuse witness is refused with exit 2"
+  },
+  {
+    "id": "E1.existing_65_tests",
+    "argv": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "audit/tests",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\.wt\\e1",
+    "exit_code": 0,
+    "expected_exit": 0,
+    "outcome": "PASS",
+    "seconds": 148.69,
+    "stdout_path": "logs\\E1-existing_65_tests.stdout.txt",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_path": "logs\\E1-existing_65_tests.stderr.txt",
+    "stderr_sha256": "bedcfd0fcb89480d2be6289e5349f69eabd34005197aa29742a75a094b129a68",
+    "env": {
+      "PYTHONIOENCODING": "utf-8"
+    },
+    "note": "72 tests = 65 pre-existing + 7 E1 cases; needs PYTHONIOENCODING=utf-8 in this umlaut path, see unresolved"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "worktree": "D:\\Inter-universal Teichmuller Theory\\.wt\\e2",
+  "python": "python -B (C:\\msys64\\ucrt64\\bin\\python.exe, 3.14.5)",
+  "environment": {
+    "TEMP": "<worktree>\\.tmp",
+    "TMP": "<worktree>\\.tmp",
+    "PYTHONPATH": "<worktree>\\.tmp\\shim",
+    "PYTHONIOENCODING": "utf-8",
+    "PYTHONUTF8": "1",
+    "note": "TEMP/TMP inside the worktree are NOT sufficient in this sandbox: a directory created with mode 0o700 (what tempfile.mkdtemp asks for) does not inherit the sandbox group ACE, so os.mkdir/Listdir inside it raise WinError 5. The runtime-only sitecustomize.py shim forces os.mkdir(mode) to 0o777; it is not part of the repository."
+  },
+  "runs": [
+    {
+      "id": "e2-cases",
+      "argv": [
+        "python", "-B", "audit/tests/test_affected_snapshot_membership.py",
+        "E2.new_lean_glob_member", "E2.new_workspace_tool", "E2.new_vscode_config",
+        "E2.rename_into_scope", "E2.rename_out_of_scope", "E2.delete_pinned_input",
+        "E2.documentation_control", "E2.out_of_scope_control", "E2.distinct_node_counts"
+      ],
+      "cwd": "<worktree>",
+      "exit_code": 0,
+      "duration_seconds": 15.89,
+      "stdout": "logs/e2-cases.stdout.txt",
+      "stderr": "logs/e2-cases.stderr.txt",
+      "result": "CASE ...: PASS x9 (9/9)"
+    },
+    {
+      "id": "e2-existing-suite",
+      "argv": ["python", "-B", "audit/tests/test_affected.py"],
+      "cwd": "<worktree>",
+      "exit_code": 0,
+      "duration_seconds": 26.09,
+      "stdout": "logs/e2-existing-suite.stdout.txt",
+      "stderr": "logs/e2-existing-suite.stderr.txt",
+      "result": "Ran 22 tests ... OK"
+    }
+  ],
+  "failed_attempts_not_counted_as_runs": [
+    "python -B audit/tests/test_affected_snapshot_membership.py <9 ids> with TEMP=<worktree>\\.tmp only: 9/9 ERROR PermissionError [WinError 5] in build_fixture (mkdtemp dir ACL), exit 1",
+    "same with default %TEMP%: identical WinError 5"
+  ]
+}

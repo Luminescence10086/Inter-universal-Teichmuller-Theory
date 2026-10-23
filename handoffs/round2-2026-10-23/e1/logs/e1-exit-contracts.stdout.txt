@@ -1,0 +1,8 @@
+probe-compound exited 7 after 0.0s (total deadline 30s, cleanup included)
+{
+  "relayed_child_exit_7": 7,
+  "forged_witness_exit": 2,
+  "forged_witness_stderr": [
+    "mutation harness could not run: recorded probe results are only reusable for the same repository bytes, but the repository witness differs"
+  ]
+}

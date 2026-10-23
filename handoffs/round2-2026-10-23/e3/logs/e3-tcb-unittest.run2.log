@@ -1,0 +1,32 @@
+python.exe : test_a_globbed_directory_over_pins_unread_file (test_tcb_manifest.FixtureCase.test_a_globbed_directory_ove
+r_pins_unread_file) ... ok
+At line:1 char:597
++ ... tics.Stopwatch]::StartNew(); $out = & python -B $harness 2>&1 | Out-S ...
++                                         ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_a_globbed_...ad_file) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_b_read_but_unpinned_file_is_detected (test_tcb_manifest.FixtureCase.test_b_read_but_unpinned_file_is_detected) ...
+ ok
+test_c_imported_sibling_module_is_in_closure (test_tcb_manifest.FixtureCase.test_c_imported_sibling_module_is_in_closur
+e) ... ok
+test_d_honest_verifier_has_no_findings (test_tcb_manifest.FixtureCase.test_d_honest_verifier_has_no_findings) ... ok
+test_e_dynamic_path_is_reported_unresolved (test_tcb_manifest.FixtureCase.test_e_dynamic_path_is_reported_unresolved) .
+.. ok
+test_help_and_json (test_tcb_manifest.FixtureCase.test_help_and_json) ... ok
+test_proposal_removes_only_unread_keys (test_tcb_manifest.FixtureCase.test_proposal_removes_only_unread_keys) ... ok
+test_e3_child_process_input (test_tcb_negative_closure.NegativeClosureCases.test_e3_child_process_input) ... ok
+test_e3_incomplete_closure_blocks_safe_proposal (test_tcb_negative_closure.NegativeClosureCases.test_e3_incomplete_clos
+ure_blocks_safe_proposal) ... ok
+test_e3_qualified_sibling_input (test_tcb_negative_closure.NegativeClosureCases.test_e3_qualified_sibling_input) ... ok
+test_e3_real_bridge_consumer_bindings (test_tcb_negative_closure.NegativeClosureCases.test_e3_real_bridge_consumer_bind
+ings) ... ok
+test_e3_separate_input_dependency_runtime_toolchain (test_tcb_negative_closure.NegativeClosureCases.test_e3_separate_in
+put_dependency_runtime_toolchain) ... ok
+test_e3_simple_complete_read_control (test_tcb_negative_closure.NegativeClosureCases.test_e3_simple_complete_read_contr
+ol) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 5.659s
+
+OK

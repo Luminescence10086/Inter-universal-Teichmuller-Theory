@@ -1,0 +1,127 @@
+{
+  "schema": 1,
+  "task_id": "E2",
+  "task_title": "affected covers snapshot file-set membership changes",
+  "contract": "handoffs/next-round/contracts.json (#tasks[id=E2])",
+  "branch": "round2/e2",
+  "worktree": "D:\\Inter-universal Teichmuller Theory\\.wt\\e2",
+  "base_commit": "484127185878e65b10795d20568bd3714eebc798",
+  "head_commit": "7d3b66d25a5de9aaa4083d99b964fad65fa16ff4",
+  "head_commit_is_new": false,
+  "verdict": "NO-CHANGE",
+  "verdict_detail": "All 9 required case ids are present, exercise the production snapshot functions and assert in the right direction; no gap found, so nothing was modified or committed. HEAD is unchanged at 7d3b66d.",
+  "changed_paths": [
+    "audit/affected.py",
+    "audit/tests/test_affected.py",
+    "audit/tests/test_affected_snapshot_membership.py"
+  ],
+  "changes": [
+    {
+      "path": "audit/affected.py",
+      "sha256": "9faf2ec53f20278e16eff72ecbdaa5103243906992f2fefe2bf0ac38b48ddb13",
+      "note": "production-snapshot membership probe + VOID/UNKNOWN/INTACT receipts (delivered in 7d3b66d, untouched this round)"
+    },
+    {
+      "path": "audit/tests/test_affected.py",
+      "sha256": "fb9a950eb53a160d71d40483db91162d945c3d9e96c3c7258fe7356e575e018d",
+      "note": "fixture upgraded to copy the production verifiers; no old assertion removed"
+    },
+    {
+      "path": "audit/tests/test_affected_snapshot_membership.py",
+      "sha256": "eb68ac9695978e3c5dbde3cd3f855297aab85aa0f9ae2372008b535792ea8593",
+      "note": "the 9 frozen case ids + 3 non-frozen E2.extra.* cases"
+    }
+  ],
+  "case_coverage": {
+    "contract_required_case_ids": [
+      "E2.new_lean_glob_member",
+      "E2.new_workspace_tool",
+      "E2.new_vscode_config",
+      "E2.rename_into_scope",
+      "E2.rename_out_of_scope",
+      "E2.delete_pinned_input",
+      "E2.documentation_control",
+      "E2.out_of_scope_control",
+      "E2.distinct_node_counts"
+    ],
+    "readme_requirement_mapping": {
+      "new IUTBridge/**/*.lean including comment-only, unimported": ["E2.new_lean_glob_member"],
+      "new tool or .vscode config picked up by root/bridge glob": ["E2.new_workspace_tool", "E2.new_vscode_config"],
+      "rename into scope / out of scope / delete old input": ["E2.rename_into_scope", "E2.rename_out_of_scope", "E2.delete_pinned_input"],
+      "two normal controls (pure docs, known out-of-rule file)": ["E2.documentation_control", "E2.out_of_scope_control"],
+      "three receipts void: nodes_invalidated vs nodes_to_pending 38+24+73": ["E2.distinct_node_counts"]
+    },
+    "uses_production_snapshot_functions": true,
+    "production_entry_points": [
+      "tools/verify.py:snapshot",
+      "local-field/tools/verify.py:snapshot",
+      "bridge/tools/verify_integrated.py:project_snapshot",
+      "bridge/tools/verify_integrated.py:dependency_snapshot"
+    ],
+    "assertion_direction_review": {
+      "new_member": "VOID + membership.added names the path; other projects must stay INTACT",
+      "out_of_scope_or_docs": "INTACT is only accepted when assert_status also proves the probe was 'decided' (no vacuous pass)",
+      "rename_out": "VOID from the recorded pin, with membership.added asserted empty",
+      "snapshot_failure": "recorded pin still decides VOID; without a pin the receipt is UNKNOWN (E2.extra.membership_unavailable_unknown)",
+      "counts": "nodes_to_pending total asserted 38+24+73=135 and explicitly asserted different from the 73 invalidated ledger"
+    }
+  },
+  "commands_run": [
+    {
+      "id": "e2-cases",
+      "argv": [
+        "python", "-B", "audit/tests/test_affected_snapshot_membership.py",
+        "E2.new_lean_glob_member", "E2.new_workspace_tool", "E2.new_vscode_config",
+        "E2.rename_into_scope", "E2.rename_out_of_scope", "E2.delete_pinned_input",
+        "E2.documentation_control", "E2.out_of_scope_control", "E2.distinct_node_counts"
+      ],
+      "cwd": "D:\\Inter-universal Teichmuller Theory\\.wt\\e2",
+      "exit_code": 0,
+      "duration_seconds": 15.89,
+      "stdout_path": "logs/e2-cases.stdout.txt",
+      "stdout_sha256": "c825f8692d492a7ceb545ab451bd783e0f7c6c65183fc4180d2961953c1191d3",
+      "stderr_path": "logs/e2-cases.stderr.txt",
+      "stderr_sha256": "89f03eeea77ac766e5f91628642fc2cd68fba66628b427d7ce215aaed77489ba",
+      "outcome": "9/9 CASE ...: PASS"
+    },
+    {
+      "id": "e2-existing-suite",
+      "argv": ["python", "-B", "audit/tests/test_affected.py"],
+      "cwd": "D:\\Inter-universal Teichmuller Theory\\.wt\\e2",
+      "exit_code": 0,
+      "duration_seconds": 26.09,
+      "stdout_path": "logs/e2-existing-suite.stdout.txt",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_path": "logs/e2-existing-suite.stderr.txt",
+      "stderr_sha256": "403d351e019f830a2bd16d73ce8a661af58a0fdea39295c6a1dc1ae097a975bc",
+      "outcome": "Ran 22 tests ... OK"
+    }
+  ],
+  "logs": [
+    {"path": "logs/e2-cases.stdout.txt", "bytes": 315, "sha256": "c825f8692d492a7ceb545ab451bd783e0f7c6c65183fc4180d2961953c1191d3"},
+    {"path": "logs/e2-cases.stderr.txt", "bytes": 1465, "sha256": "89f03eeea77ac766e5f91628642fc2cd68fba66628b427d7ce215aaed77489ba"},
+    {"path": "logs/e2-existing-suite.stdout.txt", "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},
+    {"path": "logs/e2-existing-suite.stderr.txt", "bytes": 2587, "sha256": "403d351e019f830a2bd16d73ce8a661af58a0fdea39295c6a1dc1ae097a975bc"},
+    {"path": "logs/runs.json", "bytes": 1916, "sha256": "25340be99b87d86647e6da8845ba150617a590f888d9744bf600903787e66b5e"}
+  ],
+  "environment": {
+    "python": "3.14.5 (C:\\msys64\\ucrt64\\bin\\python.exe)",
+    "TEMP": "<worktree>\\.tmp",
+    "TMP": "<worktree>\\.tmp",
+    "PYTHONPATH": "<worktree>\\.tmp\\shim (runtime-only sitecustomize.py: force os.mkdir mode 0o777)",
+    "why_shim": "tempfile.mkdtemp creates 0o700 directories that do not inherit the sandbox group ACE in this Windows sandbox, so mkdir/listdir inside them raise PermissionError [WinError 5]. Pointing TEMP/TMP into the worktree alone is NOT enough.",
+    "tracked_tree_clean_at_head": true,
+    "untracked_in_worktree": [
+      ".tmp/ (TEMP dir + runtime shim + stale 0o700 directories left by the pre-shim failed attempts)",
+      "the stale .tmp/tmp*/ and .tmp/probe_m700/ directories cannot be deleted from this session (they carry no sandbox-group ACE); they are untracked, outside every verifier snapshot rule, and are NOT part of the delivery"
+    ]
+  },
+  "git_commit_created": false,
+  "unresolved": [
+    "The temp-dir shim is a sandbox workaround, not part of the delivery; a replay on an ordinary host should need no PYTHONPATH shim. If this agent sandbox is used again, the shim (or an equivalent) is mandatory.",
+    "The three non-frozen E2.extra.* cases (membership_unavailable_unknown, real_repo_new_glob_member, review_range_replay) were not run this round; they are outside required_case_ids.",
+    "No Lean build and no real VS Code observation: E2 is an engineering task (admission_effect: none)."
+  ],
+  "lean_run": null,
+  "editor_run": null
+}

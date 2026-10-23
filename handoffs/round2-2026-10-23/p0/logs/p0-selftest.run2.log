@@ -1,0 +1,15 @@
+PASS P0.valid_bundle
+PASS P0.wrong_commit
+PASS P0.missing_log
+PASS P0.log_digest_mismatch
+PASS P0.failed_check_claimed_pass
+PASS P0.failed_required_check_claimed_fail
+PASS P0.author_incomplete
+PASS P0.checked_out_head_mismatch
+PASS P0.manual_step_never_pass
+PASS P0.timeout
+PASS P0.skipped_required_check
+FAIL P0.missing_git_context: ['P0.wrong_commit']
+PASS P0.changed_frozen_expectation
+PASS P0.unapproved_command
+13/14 cases ok in 30.7s

@@ -1,0 +1,7 @@
+argv=lake env lean Candidates/Axioms.lean
+olean_sha256_before=fb55438f4a48dba2a42d5f1c70eb1a5f8b3a3d321a0fc0085bc084b4c6839704
+olean_sha256_after=fb55438f4a48dba2a42d5f1c70eb1a5f8b3a3d321a0fc0085bc084b4c6839704
+math_olean_unchanged=True
+exit_code=0
+seconds=20.28
+note=byte-faithful recapture of the axiom export only; no source re-elaboration of RestrictedLedger.lean

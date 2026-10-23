@@ -1,0 +1,442 @@
+{
+  "task_id": "M2",
+  "round": "round2-2026-10-23",
+  "head_commit": "e0b5294a3ef86674b14ccf18eb30949854752374",
+  "base_commit": "2a13a5bca589bd1100c48282ca30cf0e1e55acce",
+  "contract_base_commit": "484127185878e65b10795d20568bd3714eebc798",
+  "branch": "round2/m2",
+  "changed_paths": [
+    "candidates/orbit-quotient/Candidates/OrbitQuotient.lean",
+    "candidates/orbit-quotient/Candidates/Axioms.lean",
+    "candidates/orbit-quotient/README.md"
+  ],
+  "untracked_artifacts": [
+    ".tmp/",
+    "candidates/orbit-quotient/.lake/",
+    "candidates/orbit-quotient/tool/runs/"
+  ],
+  "commands_run": [
+    {
+      "id": "git-head",
+      "argv": [
+        "cmd",
+        "/c",
+        "git rev-parse HEAD"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2",
+      "exit_code": 0,
+      "elapsed_seconds": 0.105,
+      "stdout": "logs/git-head.stdout.txt",
+      "stderr": "logs/git-head.stderr.txt",
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "lean-version",
+      "argv": [
+        "cmd",
+        "/c",
+        "lake env lean --version"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+      "exit_code": 0,
+      "elapsed_seconds": 1.812,
+      "stdout": "logs/lean-version.stdout.txt",
+      "stderr": "logs/lean-version.stderr.txt",
+      "stdout_bytes": 108,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "python-version",
+      "argv": [
+        "cmd",
+        "/c",
+        "python --version"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+      "exit_code": 0,
+      "elapsed_seconds": 0.05,
+      "stdout": "logs/python-version.stdout.txt",
+      "stderr": "logs/python-version.stderr.txt",
+      "stdout_bytes": 15,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "tool-unittest",
+      "argv": [
+        "cmd",
+        "/c",
+        "python -B test_hull_tool.py -v"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool",
+      "exit_code": 1,
+      "elapsed_seconds": 0.283,
+      "stdout": "logs/tool-unittest.stdout.txt",
+      "stderr": "logs/tool-unittest.stderr.txt",
+      "stdout_bytes": 0,
+      "stderr_bytes": 4263
+    },
+    {
+      "id": "tool-example-two-three-four",
+      "argv": [
+        "cmd",
+        "/c",
+        "python -B hull_tool.py --input examples/two-three-four.json --out runs/two-three-four-fixed"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool",
+      "exit_code": 0,
+      "elapsed_seconds": 0.2,
+      "stdout": "logs/tool-example-two-three-four.stdout.txt",
+      "stderr": "logs/tool-example-two-three-four.stderr.txt",
+      "stdout_bytes": 1698,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "lean-entry",
+      "argv": [
+        "cmd",
+        "/c",
+        "lake env lean --json -DwarningAsError=true -o .lake/build/lib/lean/Candidates/OrbitQuotient.olean -i .lake/build/lib/lean/Candidates/OrbitQuotient.ilean Candidates/OrbitQuotient.lean"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+      "exit_code": 0,
+      "elapsed_seconds": 17.257,
+      "stdout": "logs/lean-entry.stdout.txt",
+      "stderr": "logs/lean-entry.stderr.txt",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "lean-axioms",
+      "argv": [
+        "cmd",
+        "/c",
+        "lake env lean --json -DwarningAsError=true Candidates/Axioms.lean"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+      "exit_code": 0,
+      "elapsed_seconds": 16.332,
+      "stdout": "logs/lean-axioms.stdout.txt",
+      "stderr": "logs/lean-axioms.stderr.txt",
+      "stdout_bytes": 31326,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "lean-hulltool",
+      "argv": [
+        "cmd",
+        "/c",
+        "lake env lean --json -DwarningAsError=true -o .lake/build/lib/lean/Candidates/HullTool.olean -i .lake/build/lib/lean/Candidates/HullTool.ilean Candidates/HullTool.lean"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+      "exit_code": 0,
+      "elapsed_seconds": 16.501,
+      "stdout": "logs/lean-hulltool.stdout.txt",
+      "stderr": "logs/lean-hulltool.stderr.txt",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "lean-tool-certificate",
+      "argv": [
+        "cmd",
+        "/c",
+        "lake env lean --json -DwarningAsError=true tool/runs/two-three-four-fixed/certificate.lean"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient",
+      "exit_code": 0,
+      "elapsed_seconds": 16.11,
+      "stdout": "logs/lean-tool-certificate.stdout.txt",
+      "stderr": "logs/lean-tool-certificate.stderr.txt",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "id": "tool-emission-replay",
+      "argv": [
+        "cmd",
+        "/c",
+        "python -B .tmp/replay_emission.py"
+      ],
+      "cwd": "D:\\Inter-universal Teichm\u00fcller Theory\\.wt\\m2\\candidates\\orbit-quotient\\tool",
+      "exit_code": 0,
+      "elapsed_seconds": 0.168,
+      "stdout": "logs/tool-emission-replay.stdout.txt",
+      "stderr": "logs/tool-emission-replay.stderr.txt",
+      "stdout_bytes": 269,
+      "stderr_bytes": 0
+    }
+  ],
+  "theorems": {
+    "minimality_arbitrary_products": {
+      "name": "OrbitQuotient.hull_least_coordinateProduct",
+      "statement": "{p N n : Nat} (Gamma : Finset (Equiv.Perm (Fin n))) (hGamma : Gamma.Nonempty) (k : Fin n -> Nat) (S : Fin n -> Set (ZMod (p ^ N))) : orbitUnion p N n Gamma k subset Set.pi Set.univ S <-> Box p N n (hullThresh Gamma hGamma k) subset Set.pi Set.univ S",
+      "role": "least product of arbitrary coordinate subsets (both directions of the task definition of H)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "minimality_from_products": {
+      "name": "OrbitQuotient.hull_minimal_from_products",
+      "statement": "{p N n : Nat} (Gamma : Finset (Equiv.Perm (Fin n))) (hGamma : Gamma.Nonempty) (k : Fin n -> Nat) : (forall x, orbitUnion p N n Gamma k x -> Box p N n (hullThresh Gamma hGamma k) x) /\\ (forall k' : Fin n -> Nat, (forall x, orbitUnion p N n Gamma k x -> Box p N n k' x) -> forall x, Box p N n (hullThresh Gamma hGamma k) x -> Box p N n k' x)",
+      "role": "old bounded-threshold minimality (hull_minimal) derived from the arbitrary-product theorem; no primality and no k' <= N",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "containment_and_minimality_product_form": {
+      "name": "OrbitQuotient.hull_minimal_coordinateProduct",
+      "statement": "conjunction form: U subset Box (hullThresh ...) and forall S, U subset Set.pi Set.univ S -> Box (hullThresh ...) subset Set.pi Set.univ S",
+      "role": "previous round's repair, retained",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "product_hull_equals_box": {
+      "name": "OrbitQuotient.coordinateProductHull_orbitUnion",
+      "role": "coordinateProductHull (orbitUnion ...) = Box p N n (hullThresh ...)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "thresholds": {
+      "name": "OrbitQuotient.hull_thresholds",
+      "role": "coordinatewise minima of k (gamma.symm j), each attained in Gamma",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "direction": {
+      "name": "OrbitQuotient.orbitUnion_eq_inverse_images",
+      "role": "U = union over gamma in Gamma of permAct gamma.symm '' B k (sigma/sigma^-1 direction)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "box_cardinality": {
+      "name": "OrbitQuotient.box_cardinality",
+      "role": "Nat.card (B k) = p ^ sum j, (N - k j)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "enlargement_budget": {
+      "name": "OrbitQuotient.enlargement_budget",
+      "role": "|B k| * p ^ sum j (k j - k' j) = |B k'| for k' <= k",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "enlargement_budget_hull": {
+      "name": "OrbitQuotient.enlargement_budget_hull",
+      "role": "|B k| * p ^ sum j (k j - hull j) = |B hull|, requires identity in Gamma",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    "two_three_four": {
+      "name": "OrbitQuotient.two_three_four",
+      "role": "p=2, N=1, n=2, k=(0,1), Gamma={id,swap}: |B k| = 2, |U| = 3, |H| = 4 (separate proofs)",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "declarations_exported": 40,
+  "axiom_export": {
+    "log": "logs/lean-axioms.stdout.txt",
+    "severities": {
+      "information": 90
+    },
+    "new_axioms_introduced": false,
+    "sorry_or_admit": false
+  },
+  "lean_run": {
+    "attempts": 1,
+    "result": "VERIFIED",
+    "toolchain": "leanprover/lean4:v4.34.0-rc2",
+    "commands": [
+      "lean-version",
+      "lean-entry",
+      "lean-axioms",
+      "lean-hulltool",
+      "lean-tool-certificate"
+    ],
+    "total_seconds": 68.012,
+    "note": "one consolidated pass; entry file compiled with -DwarningAsError=true, zero diagnostics"
+  },
+  "editor_run": {
+    "performed": false,
+    "reason": "actual VS Code observation is a reviewer / integrator obligation; not run here"
+  },
+  "fact_tree_admitted": false,
+  "python_tool": {
+    "unittest": {
+      "argv": [
+        "python",
+        "-B",
+        "test_hull_tool.py",
+        "-v"
+      ],
+      "exit_code": 1,
+      "result": "4 of 5 tests pass; test_emission_and_invalid_artifacts errors with PermissionError because the workspace-write sandbox denies file creation inside tempfile.mkdtemp directories (environment, reproduced with a 4-line python probe)"
+    },
+    "fixed_example": {
+      "argv": [
+        "python",
+        "-B",
+        "hull_tool.py",
+        "--input",
+        "examples/two-three-four.json",
+        "--out",
+        "runs/two-three-four-fixed"
+      ],
+      "exit_code": 0,
+      "hull_thresholds": [
+        0,
+        0
+      ],
+      "enlargement_exponent": 1
+    },
+    "emission_replay": {
+      "argv": [
+        "python",
+        "-B",
+        ".tmp/replay_emission.py"
+      ],
+      "exit_code": 0,
+      "log": "logs/tool-emission-replay.stdout.txt",
+      "result": "PROPOSED manifest, duplicate-emit InputError, INVALID_INPUT artifacts all as asserted by the shipped test"
+    },
+    "generated_certificate_compiled": true
+  },
+  "logs": {
+    "git-head.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "git-head.stdout.txt": {
+      "sha256": "1d251cdf551eaa97eebbad7cba24ebe749a79a28516c24a76cd81f9cf185c930",
+      "bytes": 41
+    },
+    "lean-axioms.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-axioms.stdout.txt": {
+      "sha256": "05b384fdddc531096572142175fc628560885bf93a1c69aefb3d1d957f225260",
+      "bytes": 31326
+    },
+    "lean-entry.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-entry.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-hulltool.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-hulltool.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-tool-certificate.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-tool-certificate.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-version.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "lean-version.stdout.txt": {
+      "sha256": "82e86dd3e7559dc0b0209a0c1781e82938e0c3cc3f46e4f79c0c66dca88145a6",
+      "bytes": 108
+    },
+    "python-version.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "python-version.stdout.txt": {
+      "sha256": "cf25165865edf0baea5fff58088b4987aa3f34df958a794c11cdf73702d4c9c7",
+      "bytes": 15
+    },
+    "replay_emission.py": {
+      "sha256": "71c3a06004211c825e3c8ceab5d5c48a5dc8d4309dda443764f2de8f769651c2",
+      "bytes": 2936
+    },
+    "results-replay.json": {
+      "sha256": "619ab1cfaf6f9465cb7905a1444960a899f8943c153982260a49d20996801987",
+      "bytes": 482
+    },
+    "results.json": {
+      "sha256": "7b0339241a7887588b45b8c6723f978940aad1609a736359723b4796573a1874",
+      "bytes": 5066
+    },
+    "run_m2.ps1": {
+      "sha256": "c7ed41c0fe87ce7f051c60f2018a80c893200d3e00ab412f4cf72745363e5aef",
+      "bytes": 3018
+    },
+    "tool-emission-replay.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "tool-emission-replay.stdout.txt": {
+      "sha256": "a072be4948b8448097157f155a17386fc1e1f899d0113d425b0eda7bb0e7e57b",
+      "bytes": 269
+    },
+    "tool-example-two-three-four.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "tool-example-two-three-four.stdout.txt": {
+      "sha256": "7ccb7bead294c1e1c61661ff887ea0c349e8320df263e85527665166cd4c3df1",
+      "bytes": 1698
+    },
+    "tool-unittest.stderr.txt": {
+      "sha256": "d38908ac744e4ccd498f4c9d3e7f67789d0d8b67902586d461513beca7db8f43",
+      "bytes": 4263
+    },
+    "tool-unittest.stdout.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "unresolved": [
+    "actual VS Code observation (zero error/warning in the editor) not performed; candidate-only",
+    "shipped unittest's emission case cannot run under the workspace-write sandbox (mkdtemp write denied); replayed manually instead",
+    "finite counting is not a log-volume; global error budget and real seed/kappa/sigma identities untouched",
+    "no formal comparison with the pre-existing envelope_minimal tool beyond reusing the Orbit module definitions"
+  ],
+  "notes": [
+    "sigma/sigma^-1 direction: permAct gamma x = x o gamma; orbitUnion uses inverse images; orbitUnion_eq_inverse_images proves the union of permAct gamma.symm images; mem_permAct_box proves permAct gamma x in B k <-> x in B (j |-> k (gamma.symm j))",
+    "arbitrary coordinate subsets: Set.pi Set.univ S with S j = Set.univ covers unconstrained coordinates",
+    "2/3/4 example: Nat.card proofs for 2, 3 and 4 are separate conjunct proofs inside OrbitQuotient.two_three_four"
+  ]
+}

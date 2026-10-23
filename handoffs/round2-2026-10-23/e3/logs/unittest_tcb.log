@@ -1,0 +1,688 @@
+argv: ["C:\\msys64\\ucrt64\\bin\\python.exe", "-B", "-m", "unittest", "discover", "-s", "audit/tests", "-p", "test_tcb*.py", "-v"]
+cwd: D:\Inter-universal Teichmüller Theory\.wt\e3
+python: 3.14.5
+exit_code: 1
+elapsed_seconds: 1.934
+----- stdout -----
+----- stderr -----
+test_a_globbed_directory_over_pins_unread_file (test_tcb_manifest.FixtureCase.test_a_globbed_directory_over_pins_unread_file) ... ERROR
+test_b_read_but_unpinned_file_is_detected (test_tcb_manifest.FixtureCase.test_b_read_but_unpinned_file_is_detected) ... ERROR
+test_c_imported_sibling_module_is_in_closure (test_tcb_manifest.FixtureCase.test_c_imported_sibling_module_is_in_closure) ... ERROR
+test_d_honest_verifier_has_no_findings (test_tcb_manifest.FixtureCase.test_d_honest_verifier_has_no_findings) ... ERROR
+test_e_dynamic_path_is_reported_unresolved (test_tcb_manifest.FixtureCase.test_e_dynamic_path_is_reported_unresolved) ... ERROR
+test_help_and_json (test_tcb_manifest.FixtureCase.test_help_and_json) ... ERROR
+test_proposal_removes_only_unread_keys (test_tcb_manifest.FixtureCase.test_proposal_removes_only_unread_keys) ... ERROR
+test_e3_child_process_input (test_tcb_negative_closure.NegativeClosureCases.test_e3_child_process_input) ... ERROR
+test_e3_incomplete_closure_blocks_safe_proposal (test_tcb_negative_closure.NegativeClosureCases.test_e3_incomplete_closure_blocks_safe_proposal) ... ERROR
+test_e3_qualified_sibling_input (test_tcb_negative_closure.NegativeClosureCases.test_e3_qualified_sibling_input) ... ERROR
+test_e3_real_bridge_consumer_bindings (test_tcb_negative_closure.NegativeClosureCases.test_e3_real_bridge_consumer_bindings) ... ok
+test_e3_separate_input_dependency_runtime_toolchain (test_tcb_negative_closure.NegativeClosureCases.test_e3_separate_input_dependency_runtime_toolchain) ... ok
+test_e3_simple_complete_read_control (test_tcb_negative_closure.NegativeClosureCases.test_e3_simple_complete_read_control) ... ERROR
+
+======================================================================
+ERROR: test_a_globbed_directory_over_pins_unread_file (test_tcb_manifest.FixtureCase.test_a_globbed_directory_over_pins_unread_file)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 79, in test_a_globbed_directory_over_pins_unread_file
+    write(root, "tools/a.py", "VALUE = 1\n")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 53, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmp9hny3rcs\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmp9hny3rcs'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 77, in test_a_globbed_directory_over_pins_unread_file
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmp9hny3rcs'
+
+======================================================================
+ERROR: test_b_read_but_unpinned_file_is_detected (test_tcb_manifest.FixtureCase.test_b_read_but_unpinned_file_is_detected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 118, in test_b_read_but_unpinned_file_is_detected
+    write(root, "tools/a.py", "VALUE = 1\n")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 53, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpesdkvwz1\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpesdkvwz1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 116, in test_b_read_but_unpinned_file_is_detected
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpesdkvwz1'
+
+======================================================================
+ERROR: test_c_imported_sibling_module_is_in_closure (test_tcb_manifest.FixtureCase.test_c_imported_sibling_module_is_in_closure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 159, in test_c_imported_sibling_module_is_in_closure
+    write(root, "data/sibling.json", '{"k": 2}\n')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 53, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvcsayp97\\data'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvcsayp97'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 157, in test_c_imported_sibling_module_is_in_closure
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvcsayp97'
+
+======================================================================
+ERROR: test_d_honest_verifier_has_no_findings (test_tcb_manifest.FixtureCase.test_d_honest_verifier_has_no_findings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 208, in test_d_honest_verifier_has_no_findings
+    write(root, "tools/a.py", "VALUE = 1\n")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 53, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpsp1ddq24\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpsp1ddq24'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 206, in test_d_honest_verifier_has_no_findings
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpsp1ddq24'
+
+======================================================================
+ERROR: test_e_dynamic_path_is_reported_unresolved (test_tcb_manifest.FixtureCase.test_e_dynamic_path_is_reported_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 242, in test_e_dynamic_path_is_reported_unresolved
+    write(root, "tools/a.py", "VALUE = 1\n")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 53, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmp11fram71\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmp11fram71'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 240, in test_e_dynamic_path_is_reported_unresolved
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmp11fram71'
+
+======================================================================
+ERROR: test_help_and_json (test_tcb_manifest.FixtureCase.test_help_and_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 331, in test_help_and_json
+    write(root, "tools/verify.py", DIGEST + d("""\
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        ROOT = Path(__file__).resolve().parents[1]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<13 lines>...
+            main()
+            ^^^^^^
+        """))
+        ^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 53, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpy_deuqcz\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpy_deuqcz'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 329, in test_help_and_json
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpy_deuqcz'
+
+======================================================================
+ERROR: test_proposal_removes_only_unread_keys (test_tcb_manifest.FixtureCase.test_proposal_removes_only_unread_keys)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 283, in test_proposal_removes_only_unread_keys
+    write(root, "tools/a.py", "VALUE = 1\n")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 53, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmphutks5te\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmphutks5te'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_manifest.py", line 281, in test_proposal_removes_only_unread_keys
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmphutks5te'
+
+======================================================================
+ERROR: test_e3_child_process_input (test_tcb_negative_closure.NegativeClosureCases.test_e3_child_process_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 140, in child_process_input
+    write(root, "tools/verify.py", d("""\
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        import subprocess
+        ^^^^^^^^^^^^^^^^^
+    ...<26 lines>...
+            main()
+            ^^^^^^
+        """))
+        ^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 78, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvisy2b8w\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvisy2b8w'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 535, in <lambda>
+    setattr(NegativeClosureCases, name, lambda self, _fn=fn: _fn())
+                                                             ~~~^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 138, in child_process_input
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvisy2b8w'
+
+======================================================================
+ERROR: test_e3_incomplete_closure_blocks_safe_proposal (test_tcb_negative_closure.NegativeClosureCases.test_e3_incomplete_closure_blocks_safe_proposal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 446, in incomplete_closure_blocks_safe_proposal
+    _build_gate_fixture(root, INCOMPLETE_VERIFY)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 429, in _build_gate_fixture
+    write(root, "tools/verify.py", verifier_source)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 78, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvw2p4enn\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvw2p4enn'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 535, in <lambda>
+    setattr(NegativeClosureCases, name, lambda self, _fn=fn: _fn())
+                                                             ~~~^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 444, in incomplete_closure_blocks_safe_proposal
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpvw2p4enn'
+
+======================================================================
+ERROR: test_e3_qualified_sibling_input (test_tcb_negative_closure.NegativeClosureCases.test_e3_qualified_sibling_input)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 226, in qualified_sibling_input
+    write(root, "tools/verify.py", d("""\
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        from pathlib import Path
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+            main()
+            ^^^^^^
+        """))
+        ^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 78, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpte7qlhs5\\tools'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpte7qlhs5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 535, in <lambda>
+    setattr(NegativeClosureCases, name, lambda self, _fn=fn: _fn())
+                                                             ~~~^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 224, in qualified_sibling_input
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpte7qlhs5'
+
+======================================================================
+ERROR: test_e3_simple_complete_read_control (test_tcb_negative_closure.NegativeClosureCases.test_e3_simple_complete_read_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 337, in simple_complete_read_control
+    write(root, "config/settings.json", '{"mode": "strict"}\n')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 78, in write
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\pathlib\__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpl6yq2vr5\\config'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen os>", line 377, in walk
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpl6yq2vr5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 535, in <lambda>
+    setattr(NegativeClosureCases, name, lambda self, _fn=fn: _fn())
+                                                             ~~~^^
+  File "D:\Inter-universal Teichm��ller Theory\.wt\e3\audit\tests\test_tcb_negative_closure.py", line 335, in simple_complete_read_control
+    with tempfile.TemporaryDirectory() as tmp:
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 971, in __exit__
+    self.cleanup()
+    ~~~~~~~~~~~~^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 975, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 955, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 852, in rmtree
+    _rmtree_impl(path, dir_fd, onexc)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 689, in _rmtree_unsafe
+    for dirpath, dirnames, filenames in results:
+                                        ^^^^^^^
+  File "<frozen os>", line 413, in walk
+  File "C:\msys64\ucrt64\lib\python3.14\shutil.py", line 687, in onerror
+    onexc(os.scandir, err.filename, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 927, in onexc
+    _resetperms(path)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 283, in _resetperms
+    _dont_follow_symlinks(_os.chmod, path, 0o700)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\msys64\ucrt64\lib\python3.14\tempfile.py", line 272, in _dont_follow_symlinks
+    func(path, *args, follow_symlinks=False)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\18746\\AppData\\Local\\Temp\\dsh-qiBtsi\\tmpl6yq2vr5'
+
+----------------------------------------------------------------------
+Ran 13 tests in 1.652s
+
+FAILED (errors=11)
