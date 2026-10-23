@@ -1,0 +1,86 @@
+{
+  "task_id": "W10",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T15:21:00+0800",
+  "design_record": {
+    "path": "research/core-backward-2026-10-23/PATH.md",
+    "sha256": "2e10a1aa55ca29d96448c5f16fc95c1c503e3ad080bf1bfacdd28a4302274cc6",
+    "role": "the path record, which lists M-i and M-ii and marks this synthesis as the step in flight"
+  },
+  "inputs": [
+    {
+      "path": "research/core-backward-2026-10-23/m-i-design.md",
+      "sha256": "219ea2e644c6c57dc00b68a6e360bb6633accb506cb862e508c244d18cdab118"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/m-ii-design.md",
+      "sha256": "eaa613f2a983be27109c62d8c7b6e0f7896057a22e54b4ddc3d9e1d5e0619d95"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates\\core-transport\\H3Synthesis.lean",
+      "sha256": "6c642f6c353876bcb3012a2beca42205cfa4114dc7794693de8318e48ee1b381"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W10/README.md",
+      "sha256": "7b34cb1117debe9838b014ef4318ee22cdff0e57289057b9e3daf108058a53b5"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W10/check.json",
+      "sha256": "03ca14a83ecdb73fd68a494b1580c5908a361f4f3a67ac608dcd0852a9f6cdd2"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W10/editor/vscode-observation-tree-2.txt",
+      "sha256": "731b2f8c7fa76cf5fc03dec0b0557da98834a12d5992511c10814eac080062d3"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 21,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 21,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "6c642f6c353876bcb3012a2beca42205cfa4114dc7794693de8318e48ee1b381"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "information": 43,
+      "evidence": "editor/vscode-observation-tree-2.txt"
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "reading_pow: the reading of a power is the nsmul of the reading, from additivity alone",
+    "exponent_unique: a non-torsion probe determines the exponent",
+    "twist_free_iff: the twist contributes nothing iff every reading is unchanged",
+    "comparison_well_defined: twist-free plus non-torsion probe gives the reading back after dividing by M",
+    "degeneracy in both directions inside Multiplicative Z: a zero-reading probe equalising exponents 0 and 1, and twistFour = 4 making the divided reading 2 instead of 0"
+  ],
+  "unresolved": [
+    "the encoding is R : G ->* Multiplicative Q_3 with reading = toAdd, because a CommGroup has no AddMonoid on the domain; reading_eq_toAdditiveLeft shows this is an additive hom",
+    "the abstraction states what W8 and W9 share, not that any IUT object carries such an R",
+    "the twist witness reads the integer 4, not localLog 4, so W8 norm estimate is deliberately not redone here"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

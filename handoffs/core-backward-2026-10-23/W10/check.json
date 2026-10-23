@@ -1,0 +1,235 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "H3Synthesis.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "H3Synthesis.comparison_fails_at_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.comparison_well_defined": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.divideBack_abstract": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.exponent_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.exponent_unique_fails_at_zero_reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.freeReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.probeOne": [
+      "Quot.sound"
+    ],
+    "H3Synthesis.probeOne_ne_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading_eq_toAdditiveLeft": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading_freeReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading_pow": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading_twistFour": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.reading_twistFour_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.trivialReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.twistFour": [
+      "Quot.sound"
+    ],
+    "H3Synthesis.twist_free_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.zeroReading_probeOne": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "H3Synthesis.zero_reading_powers_agree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 21,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "reading"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_eq_toAdditiveLeft"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_mul"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_pow"
+    },
+    {
+      "kind": "theorem",
+      "name": "exponent_unique"
+    },
+    {
+      "kind": "theorem",
+      "name": "twist_free_iff"
+    },
+    {
+      "kind": "theorem",
+      "name": "divideBack_abstract"
+    },
+    {
+      "kind": "theorem",
+      "name": "comparison_well_defined"
+    },
+    {
+      "kind": "def",
+      "name": "trivialReading"
+    },
+    {
+      "kind": "def",
+      "name": "freeReading"
+    },
+    {
+      "kind": "def",
+      "name": "probeOne"
+    },
+    {
+      "kind": "def",
+      "name": "twistFour"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_freeReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "probeOne_ne_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "zeroReading_probeOne"
+    },
+    {
+      "kind": "theorem",
+      "name": "zero_reading_powers_agree"
+    },
+    {
+      "kind": "theorem",
+      "name": "exponent_unique_fails_at_zero_reading"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_twistFour"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_twistFour_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "comparison_fails_at_four"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\H3Synthesis.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "8b19f99b5f31efb495a1ff287b20863cfdb7dca6b652383319f6844db762bda1",
+  "stdout_tail": "is.reading_pow' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.exponent_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.twist_free_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.divideBack_abstract' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.comparison_well_defined' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.trivialReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.freeReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.probeOne' depends on axioms: [Quot.sound]\n'H3Synthesis.twistFour' depends on axioms: [Quot.sound]\n'H3Synthesis.reading_freeReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.probeOne_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.zeroReading_probeOne' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.zero_reading_powers_agree' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.exponent_unique_fails_at_zero_reading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.reading_twistFour' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.reading_twistFour_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'H3Synthesis.comparison_fails_at_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}
