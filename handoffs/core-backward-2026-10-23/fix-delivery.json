@@ -1,0 +1,175 @@
+{
+  "round": "R1-R4",
+  "review_of": {
+    "path": "research/lana-link-acceptance-2026-10-23/fix-handoff.md",
+    "sha256": "96d4e78a34a33efa1989207b5fbf6218e49d7d09467abbdf882f2e81423323cd"
+  },
+  "produced_at": "2026-10-23",
+  "branch": "explore/correspondence",
+  "items": [
+    {
+      "id": "R1",
+      "review_claim": "the reports treat W5/W7 (\"the reading is invariant along the orbit, hence descends to the quotient\") as a necessary condition for (9-1)",
+      "verdict": "WRONG, withdrawn",
+      "why": "existence of a choice making the two maps equal does not force the reading to be invariant along the whole family; the regression file proves the gap on a two-element family",
+      "changes": [
+        {
+          "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+          "section": "3, item 1",
+          "change": "rewritten: existence of a choice is a strictly weaker statement than invariance; W5/W7 is a different, stronger family condition, not a prerequisite",
+          "sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
+        },
+        {
+          "path": "research/core-backward-2026-10-23/PATH.md",
+          "section": "the W5/W7 row and the two lines after it",
+          "change": "same correction, with the regression theorem cited by name",
+          "sha256": "f62207d84ce06b98b1164d999a1b2070912dbec68d04797f033125fc141d326e"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean",
+          "declaration": "existence_does_not_force_invariance"
+        }
+      ],
+      "status": "FIXED"
+    },
+    {
+      "id": "R2",
+      "review_claim": "W9 and W10 silence the unused-variable linter with `set_option linter.unusedVariables false in` instead of removing the unused hypotheses (W9 `hMN`, W10 `hx`)",
+      "verdict": "CORRECT, fixed at the source",
+      "changes": [
+        {
+          "path": "candidates/core-transport/ExponentUniqueness.lean",
+          "original_commit": "ba78ff1",
+          "sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98",
+          "change": "set_option removed; `not_determined_by_torsion_probe` no longer carries the unused `hMN`; new `torsion_probe_witness` states the two exponents 0 and 1 explicitly"
+        },
+        {
+          "path": "candidates/core-transport/H3Synthesis.lean",
+          "original_commit": "64126ef",
+          "sha256": "ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2",
+          "change": "set_option removed; `comparison_well_defined` no longer carries the unused probe hypothesis, so the probe condition lives only in `exponent_unique` where it is used"
+        }
+      ],
+      "verification": {
+        "W9": {
+          "declarations": 19,
+          "errors": 0,
+          "warnings": 0,
+          "source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
+        },
+        "W10": {
+          "declarations": 21,
+          "errors": 0,
+          "warnings": 0,
+          "source_sha256": "ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2"
+        },
+        "grep": "set_option -> 0 matches in both files; hMN -> 0 matches in W9; the remaining hx occurrences are used hypotheses (W9: hasSum_logTerm_localLog, localLog_pow_eq_smul; W10: exponent_unique, zero_reading_powers_agree), and W10 `comparison_well_defined` carries no probe hypothesis at all"
+      },
+      "status": "FIXED"
+    },
+    {
+      "id": "R3",
+      "review_claim": "the W11 editor evidence is an empty Problems panel, which does not show that the file was checked or that its own axiom report was ever displayed",
+      "verdict": "CORRECT, and the stronger reading was not reached",
+      "changes": [
+        {
+          "path": "handoffs/core-backward-2026-10-23/W11/capture-axiom-report.ps1",
+          "change": "instrument rewritten across four revisions: TreeItem scope, filter to the file, panel opened before elaboration, restart-file fallback; refuses to pass on a partial reading"
+        },
+        {
+          "path": "handoffs/core-backward-2026-10-23/W11/editor/README.md",
+          "change": "the four sessions, their exit codes and what the editor plane does and does not certify"
+        },
+        {
+          "path": "handoffs/core-backward-2026-10-23/W11/delivery.json",
+          "change": "editor gate lowered: errors/warnings are \"not attested by the editor\", status CLI_CHECKED_EDITOR_PENDING, editor_run false"
+        }
+      ],
+      "evidence": {
+        "capture_json": "handoffs/core-backward-2026-10-23/W11/editor/capture-axiom-report.json",
+        "capture_sha256": "591673335bf938ca833cc0cf06d8866369e9bfaf2bc7dac71506a62f6a16f37f",
+        "tree": "handoffs/core-backward-2026-10-23/W11/editor/vscode-observation-axioms.txt",
+        "tree_sha256": "e7b698f7730f55ca7065da17cda7eeecb8c2d01b351ff8b926080788e7e08cb4",
+        "axiom_rows_for_the_file": 0,
+        "error_or_warning_rows": 0,
+        "no_results_banner": true,
+        "workspace_problems_reported_by_the_panel": 47
+      },
+      "status": "PARTIAL (label lowered, evidence not obtained)",
+      "unresolved": "the editor plane never elaborated EtaComparison.lean in four sessions, so the file's own `#print axioms` report was not displayed there; the axiom footprint rests on the CLI plane only (43 declarations, 43 reports)"
+    },
+    {
+      "id": "R4",
+      "review_claim": "three documentation errors",
+      "verdict": "CORRECT, fixed",
+      "changes": [
+        {
+          "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+          "change": "54 -> 50 page markers, counted from the retrieved text, not estimated"
+        },
+        {
+          "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+          "change": "\"同一对象两种呈现\" replaced by \"同一兼容性目标的模型化接口，忠实性尚未证明\": the toy and the source reduction are not two presentations of one object"
+        },
+        {
+          "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+          "change": "the repository comparison now lists 6 new Lean files (Reconstruction/Cusp/{BelyiSpec,Cor37c,SurfaceGeom,SurfacePi1}.lean, Reconstruction/Thm19/{CuspPrincipal,NFKummer}.lean) and 5 modified Lean files (Iut.lean, Iut/Anabelian/Tempered.lean, Iut/Anabelian/TemperedAndre.lean, Iut/Reconstruction/Cusp/Belyi.lean, Iut/Reconstruction/Cusp/Elliptic.lean) alongside the non-Lean changes"
+        }
+      ],
+      "status": "FIXED"
+    }
+  ],
+  "editor_evidence_sweep": {
+    "what_was_counted": "occurrences of \"depends on axioms\" in each task's editor tree dump",
+    "counts": {
+      "K4": 9,
+      "W1": 12,
+      "W2": 13,
+      "W3": 12,
+      "W4": 12,
+      "W5": 11,
+      "W6": 11,
+      "W7": 11,
+      "W8": 0,
+      "W9": 0,
+      "W10": 11,
+      "W11": 0,
+      "W12": 11
+    },
+    "reading": [
+      "W8, W9 and W11 have 0: their editor trees contain no axiom row at all, so for those three the EDITOR_CHECKED label was never supported by the evidence file, and all three are lowered to CLI_CHECKED_EDITOR_PENDING in this round",
+      "the other tasks have 11-13 rows, but those rows name files of other tasks that shared the window (the W10 tree, for instance, carries ExponentUniqueness rows, not H3Synthesis ones), so for them the panel proves that the channel worked in that window, not that their own file was reported",
+      "consequence for the reviewer: EDITOR_CHECKED in this batch should be read as \"the editor plane showed no error or warning row for the window\", and the per-file axiom footprint should be taken from the CLI plane, where it is produced and hashed"
+    ],
+    "downgraded_in_this_round": [
+      "W8",
+      "W9",
+      "W11"
+    ]
+  },
+  "commands": [
+    {
+      "cmd": "lake build (candidates/core-transport) with -DwarningAsError=true",
+      "result": "exit 0, stderr 0 bytes, for both R2 files; declaration counts 19 (W9) and 21 (W10), errors 0, warnings 0"
+    },
+    {
+      "cmd": "cdsa/checks/check_lean_candidate.py --build-lib --axiom-source --require-all-axioms",
+      "result": "PASS after the R2 edits; check.json refreshed for W9 and W10"
+    },
+    {
+      "cmd": "py -3 handoffs/core-backward-2026-10-23/apply_r2_deliveries.py",
+      "result": "W9/W10 delivery records updated with review_fixes; outputs later rebuilt by this script because the applier duplicated an entry with an absolute path"
+    },
+    {
+      "cmd": "powershell -File W11/capture-axiom-report.ps1 -File EtaComparison.lean -WaitSeconds 240",
+      "result": "exit 6: filter typed, panel holds 0 rows for the file, \"no results under filter\" banner, 47 workspace problems belonging to other files"
+    }
+  ],
+  "unresolved": [
+    "the W11 editor plane is PENDING, not checked: four capture sessions, documented in W11/editor/README.md",
+    "the editor gate of every other task in this batch is asserted over the window, not over the task file (see editor_evidence_sweep); relabelling all of them is a larger decision than this fix round should take"
+  ],
+  "core_gap": "OPEN"
+}

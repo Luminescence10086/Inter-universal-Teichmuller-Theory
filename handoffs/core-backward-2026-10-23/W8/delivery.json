@@ -1,6 +1,6 @@
 {
   "task_id": "W8",
-  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "status": "CLI_CHECKED_EDITOR_PENDING",
   "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
   "started_at": "2026-10-23T14:39:37+0800",
   "design_record": {
@@ -57,9 +57,9 @@
     "editor": {
       "product": "Visual Studio Code 1.143.0",
       "lean_extension": "leanprover.lean4-0.0.240",
-      "errors": 0,
-      "warnings": 0,
-      "status_bar": "no problems detected in the workspace",
+      "errors": "not attested by the editor",
+      "warnings": "not attested by the editor",
+      "why": "the cited tree (editor/vscode-observation-tree-2.txt) contains no \"depends on axioms\" row at all, so it cannot show that this file was elaborated; the reading that lowered W11 in R3 applies unchanged",
       "evidence": "editor/vscode-observation-tree-2.txt"
     },
     "infoview": {
@@ -80,6 +80,6 @@
   ],
   "core_gap": "OPEN",
   "lean_run": true,
-  "editor_run": true,
+  "editor_run": false,
   "fact_tree_admitted": false
 }

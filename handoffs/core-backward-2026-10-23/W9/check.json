@@ -103,6 +103,11 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ],
+    "ExponentUniqueness.torsion_probe_witness": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
     ]
   },
   "build": {
@@ -116,7 +121,7 @@
   },
   "build_lib": "CoreTransport",
   "counts": {
-    "declarations": 18,
+    "declarations": 19,
     "errors": 0,
     "warnings": 0
   },
@@ -184,6 +189,10 @@
     },
     {
       "kind": "theorem",
+      "name": "torsion_probe_witness"
+    },
+    {
+      "kind": "theorem",
       "name": "log_eq_zero_of_pow_eq_one"
     },
     {
@@ -204,8 +213,8 @@
   "readme_verdicts": [],
   "require_all_axioms": true,
   "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "stdout_sha256": "49659d87b487f94dcda2488eede722f2675f2cfa3ba5ae177a08655c9f81d3d9",
-  "stdout_tail": "og' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.localLog_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.localLog_pow_eq_smul' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_four_sub_one_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_three_sq_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_logTerm_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_localLog_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.log4_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.reading_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.power_reading_injective_on_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.exponent_determined' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.not_determined_by_torsion_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.log_eq_zero_of_pow_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.not_determined_by_zero_reading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.torsion_probe_determines_nothing' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "stdout_sha256": "8fd7bce2f1b3ff13b14209ed046fe58e12f019778c2c8dec72c5b3c71884486a",
+  "stdout_tail": "ds on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.localLog_pow_eq_smul' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_four_sub_one_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_three_sq_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_logTerm_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_localLog_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.log4_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.reading_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.power_reading_injective_on_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.exponent_determined' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.not_determined_by_torsion_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.torsion_probe_witness' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.log_eq_zero_of_pow_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.not_determined_by_zero_reading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.torsion_probe_determines_nothing' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
   "toolchain": "leanprover/lean4:v4.34.0-rc2",
   "unlisted_axioms": [],
   "unreported_theorems": []

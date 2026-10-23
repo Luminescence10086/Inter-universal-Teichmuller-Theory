@@ -155,3 +155,31 @@ CLI exit 0、50 条公理报告、0 诊断；编辑器 0 error / 0 warning。
 2. 补 K4：一个真的"合法执行"实现，而不是落点条件（`realisation` 只能当落点用）。
 3. 在 (Ob4)/(Ob4-3) 处补"除回 M 次 tensor power"的定量或不变性陈述，并钉死 M 的唯一性（H3 前置）。
 4. 对齐 `j∈|F_l|` 归一化与 Prop 3.9(iii) 全局归一化，否则 `vQ = q₀` 无明确含义。
+
+## R1–R4 复查修正（2026-10-23，对照 fix-handoff）
+
+外部复查给出四条意见，逐条处理，记录见 `handoffs/core-backward-2026-10-23/fix-delivery.json`。
+
+1. **R1（结论错误，已撤回）**：此前把 W5/W7 的"沿轨道不变 ⇒ 下降到商"当成 (9-1) 的**必要条件**。
+   这是错的：存在使两张映射相等的选择，**不蕴含**读数对整个族不变；反例即在
+   `research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean` 的
+   `existence_does_not_force_invariance`。本报告与 `PATH.md` 相应两处已改写，W5/W7 现在被表述为
+   **另一条更强的族条件**，不是 (9-1) 的前提。
+2. **R2（成立，改源件）**：W9、W10 曾用 `set_option linter.unusedVariables false in` 压掉未用变量告警。
+   现已删除该开关并**删去多余假设**：W9 的 `hMN` 去掉、新增 `torsion_probe_witness` 把 0 与 1 两个指数
+   写出；W10 的 `comparison_well_defined` 不再携带未用的探针假设，探针条件只留在真正用到它的
+   `exponent_unique`。两份源件重新过 CLI 与严格检查，`check.json` 已刷新。
+3. **R3（成立，证据不足，标签下调）**：W11 的编辑器关曾以"空的 Problems 面板"为据。四次抓取
+   （工具记法、退出码与逐条判定见 `handoffs/core-backward-2026-10-23/W11/editor/README.md`）中，
+   面板确实被过滤到该文件、**该文件零行**，但同一面板另有 47 条属于其它文件的信息行——说明该通道会发布
+   这类行，而本文件在这几次会话里**没有被精化**。因此"零行"不构成"零诊断"的读数，W11 的编辑器关
+   下调为 `CLI_CHECKED_EDITOR_PENDING`，公理足迹仍由 CLI 侧承担（43 条报告）。同样的读数还发现
+   **W8、W9 的证据树里一条公理行都没有**，两者一并下调；其余任务证据树中的公理行属于**同窗口的其它文件**
+   （例如 W10 的树里是 `ExponentUniqueness` 的行，不是 `H3Synthesis` 的），这一口径已写入
+   `fix-delivery.json` 的 `editor_evidence_sweep`，是否整体重标由复查方决定。
+4. **R4（成立，文档已改）**：页码标记按检索文本重数（54 → **50**）；"同一对象两种呈现"改为
+   "**同一兼容性目标的模型化接口，忠实性尚未证明**"；仓库比对补齐 **6 个新增 Lean 文件**与
+   **5 个修改的既有 Lean 文件**，不再只说"若干新增"。
+
+三关结论不变：核心 GAP 仍 **OPEN**；本批次没有任何结论被提升为 IUT 的定理。
+

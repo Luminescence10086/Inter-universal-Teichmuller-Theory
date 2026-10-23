@@ -1,17 +1,17 @@
 {
   "task_id": "W11",
-  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "status": "CLI_CHECKED_EDITOR_PENDING",
   "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
   "started_at": "2026-10-23T15:35:39+0800",
   "alignment_record": {
-    "path": "research\\core-backward-2026-10-23\\lana-report-assessment.md",
-    "sha256": "f9fd675d6b90ad517f2c9c45708ce974325fe0f5551fca0a1bc553b70ce9509b",
-    "role": "records the verbatim repository statements (EtaAlg.lean:145/151, Rss.lean:501) that this toy mirrors: maps of pointed lines are equal iff they agree at the pilot"
+    "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+    "sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc",
+    "role": "records the verbatim repository statements (EtaAlg.lean:145/151, Rss.lean:501) that this toy mirrors: maps of pointed lines are equal iff they agree at the pilot. Hash refreshed by R1, which rewrote its section 3 item 1."
   },
   "inputs": [
     {
-      "path": "research\\core-backward-2026-10-23\\lana-report-assessment.md",
-      "sha256": "f9fd675d6b90ad517f2c9c45708ce974325fe0f5551fca0a1bc553b70ce9509b"
+      "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+      "sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
     },
     {
       "path": "handoffs/core-backward-2026-10-23/W7/delivery.json",
@@ -20,7 +20,7 @@
   ],
   "outputs": [
     {
-      "path": "candidates\\core-transport\\EtaComparison.lean",
+      "path": "candidates/core-transport/EtaComparison.lean",
       "sha256": "330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce"
     },
     {
@@ -28,8 +28,20 @@
       "sha256": "a4cd26b529519882e91505bd092d74da0bbd44907f5e6a86ae158d33fb1a0b64"
     },
     {
-      "path": "handoffs/core-backward-2026-10-23/W11/editor/vscode-observation-tree-2.txt",
-      "sha256": "79382c5da94c4e1038f79fea611a42fc8f6527285090af95ad9f3d85cc5fe243"
+      "path": "handoffs/core-backward-2026-10-23/W11/editor/vscode-observation-axioms.txt",
+      "sha256": "e7b698f7730f55ca7065da17cda7eeecb8c2d01b351ff8b926080788e7e08cb4"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W11/editor/capture-axiom-report.json",
+      "sha256": "591673335bf938ca833cc0cf06d8866369e9bfaf2bc7dac71506a62f6a16f37f"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W11/editor/capture-axiom-report.log",
+      "sha256": "505b739cc19fd90e188a4cb86224b572b7fff07067d14fec03071775475cbf29"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W11/editor/README.md",
+      "sha256": "76404f4833f8b1ed7d2c3d98287ea01912c54b3c4fe9876ba0db9589c894ac87"
     }
   ],
   "gates": {
@@ -53,10 +65,13 @@
     "editor": {
       "product": "Visual Studio Code 1.143.0",
       "lean_extension": "leanprover.lean4-0.0.240",
-      "errors": 0,
-      "warnings": 0,
-      "status_bar": "no problems detected in the workspace",
-      "evidence": "editor/vscode-observation-tree-2.txt"
+      "errors": "not attested by the editor",
+      "warnings": "not attested by the editor",
+      "what_the_editor_plane_shows": "the window is core-transport, the open document is the absolute path of EtaComparison.lean, the Problems panel is filtered to that name and holds zero rows of any severity (banner: no results under the given filter), while the same panel holds 47 information rows belonging to other files",
+      "why_that_is_not_a_pass": "zero rows for this file and 47 information rows for other files means the extension did not elaborate this file: absence of rows is not a reading of zero diagnostics",
+      "capture": "editor/capture-axiom-report.json",
+      "attempts_documented": "editor/README.md",
+      "evidence": "editor/vscode-observation-axioms.txt"
     },
     "infoview": {
       "attempted": false,
@@ -75,6 +90,50 @@
   ],
   "core_gap": "OPEN",
   "lean_run": true,
-  "editor_run": true,
-  "fact_tree_admitted": false
+  "editor_run": false,
+  "fact_tree_admitted": false,
+  "review_fixes": [
+    {
+      "round": "R1",
+      "original_commit": "909af74",
+      "note": "the claim that W5/W7 invariance is a necessary condition for (9-1) is withdrawn; the alignment record that carries the verbatim sources was rewritten accordingly",
+      "new_source_sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
+    },
+    {
+      "round": "R3",
+      "original_commit": "023c9a1",
+      "note": "the editor gate no longer rests on an empty Problems panel: four capture sessions are documented, the file was never elaborated in them, and the label is lowered to CLI_CHECKED_EDITOR_PENDING",
+      "capture_axiom_rows": 0,
+      "capture_error_rows": 0,
+      "capture_exit_code": 6
+    },
+    {
+      "round": "R1",
+      "original_commit": "909af74",
+      "note": "the claim that W5/W7 invariance is a necessary condition for (9-1) is withdrawn; the alignment record that carries the verbatim sources was rewritten accordingly",
+      "new_source_sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
+    },
+    {
+      "round": "R3",
+      "original_commit": "023c9a1",
+      "note": "the editor gate no longer rests on an empty Problems panel: four capture sessions are documented, the file was never elaborated in them, and the label is lowered to CLI_CHECKED_EDITOR_PENDING",
+      "capture_axiom_rows": 0,
+      "capture_error_rows": 0,
+      "capture_exit_code": 6
+    },
+    {
+      "round": "R1",
+      "original_commit": "909af74",
+      "note": "the claim that W5/W7 invariance is a necessary condition for (9-1) is withdrawn; the alignment record that carries the verbatim sources was rewritten accordingly",
+      "new_source_sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
+    },
+    {
+      "round": "R3",
+      "original_commit": "023c9a1",
+      "note": "the editor gate no longer rests on an empty Problems panel: four capture sessions are documented, the file was never elaborated in them, and the label is lowered to CLI_CHECKED_EDITOR_PENDING",
+      "capture_axiom_rows": 0,
+      "capture_error_rows": 0,
+      "capture_exit_code": 6
+    }
+  ]
 }

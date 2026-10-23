@@ -289,24 +289,29 @@ theorem exponent_determined (M N : ℕ)
     (h : ∀ x : ℚ_[3], CoreTransport.localLog (x ^ M) = CoreTransport.localLog (x ^ N)) : M = N :=
   (power_reading_injective_on_probe M N).1 (h 4)
 
-/-! ## 4. A probe with zero reading determines nothing: the torsion probe -/
+/-! ## 4. A probe with zero reading determines nothing: the zero-reading probe -/
 
-set_option linter.unusedVariables false in
-/-- **The reverse direction, which is the point: a torsion probe determines nothing.**
-At the unit `1` — a torsion probe, killed by the logarithm — the readings of the `M`-th and the
-`N`-th powers agree for **every** pair `M ≠ N`. So a comparison of readings at `1` is compatible with
-any exponent whatsoever, and an argument that only ever evaluates the operation at `1` cannot single
-out a value of `M`.
+/-- **The reverse direction, which is the point: a probe whose reading is zero determines nothing.**
+At the unit `1` — whose reading is zero — the readings of the `M`-th and the `N`-th powers agree for
+**every** pair of exponents, so a comparison of readings at `1` is compatible with any exponent whatsoever,
+and an argument that only ever evaluates the operation at `1` cannot single out a value of `M`.
 
 **This is why (Ob3-2)'s "cf. `N_E`" cannot by itself pin `M`.** (Ob3-2) asserts uniqueness and points,
 by a bare "cf.", at another positive integer; it exhibits no probe on which the reading is non-zero.
 In the toy, uniqueness of `M` is a theorem on the part of the object where the reading is non-zero
 (§3) and is *false* on the part where it vanishes (§4). A "cf." that names no probe therefore
-determines nothing, in exactly the sense made precise here: the statement holds with `M ≠ N`
-assumed, so the zero reading does not even exclude the pairs it is supposed to distinguish. -/
-theorem not_determined_by_torsion_probe (M N : ℕ) (hMN : M ≠ N) :
+determines nothing, in exactly the sense made precise here. -/
+theorem not_determined_by_torsion_probe (M N : ℕ) :
     CoreTransport.localLog ((1 : ℚ_[3]) ^ M) = CoreTransport.localLog ((1 : ℚ_[3]) ^ N) := by
   rw [one_pow, one_pow]
+
+/-- **The witness for the failure, with two different exponents spelled out.** Exponents `0` and `1` are
+different yet give the same reading at the probe `1`, which is what "the hypothesis fails" means
+concretely. (The previous version carried `M ≠ N` as a hypothesis and therefore never used it; this
+one states the two exponents explicitly.) -/
+theorem torsion_probe_witness : ∃ M N : ℕ, M ≠ N ∧
+    CoreTransport.localLog ((1 : ℚ_[3]) ^ M) = CoreTransport.localLog ((1 : ℚ_[3]) ^ N) :=
+  ⟨0, 1, by norm_num, by simp⟩
 
 /-- **Roots of unity among the principal units have zero reading.** If `u ^ n = 1` with `n ≠ 0` and
 `‖u - 1‖ < 1`, then `localLog u = 0`, by `PadicLogVolume.padicLog_eq_zero_of_pow_eq_one` read through
@@ -357,6 +362,7 @@ end ExponentUniqueness
 #print axioms ExponentUniqueness.power_reading_injective_on_probe
 #print axioms ExponentUniqueness.exponent_determined
 #print axioms ExponentUniqueness.not_determined_by_torsion_probe
+#print axioms ExponentUniqueness.torsion_probe_witness
 #print axioms ExponentUniqueness.log_eq_zero_of_pow_eq_one
 #print axioms ExponentUniqueness.not_determined_by_zero_reading
 #print axioms ExponentUniqueness.torsion_probe_determines_nothing

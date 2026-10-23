@@ -1,6 +1,6 @@
 {
   "task_id": "W9",
-  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "status": "CLI_CHECKED_EDITOR_PENDING",
   "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
   "started_at": "2026-10-23T14:53:00+0800",
   "design_record": {
@@ -20,8 +20,8 @@
   ],
   "outputs": [
     {
-      "path": "candidates\\core-transport\\ExponentUniqueness.lean",
-      "sha256": "7857ad77b04ba3926a90da1cda3b51b32bc1c69fda4c80fd13c0d93dcf3cc52d"
+      "path": "candidates/core-transport/ExponentUniqueness.lean",
+      "sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
     },
     {
       "path": "handoffs/core-backward-2026-10-23/W9/README.md",
@@ -29,7 +29,7 @@
     },
     {
       "path": "handoffs/core-backward-2026-10-23/W9/check.json",
-      "sha256": "303d0940431e064526567dc86a722a02a9ff65b45c7212460f330e82a034d9ba"
+      "sha256": "bb21f8e8fa7383dc4deac35b163aadc0779e525dbe64c622488238bff2c47848"
     },
     {
       "path": "handoffs/core-backward-2026-10-23/W9/editor/vscode-observation-tree-2.txt",
@@ -41,7 +41,7 @@
       "exit": 0,
       "stderr_bytes": 0,
       "diagnostics": {
-        "declarations": 18,
+        "declarations": 19,
         "errors": 0,
         "warnings": 0
       },
@@ -52,14 +52,14 @@
         "propext"
       ],
       "forbidden_terms": 0,
-      "source_sha256": "7857ad77b04ba3926a90da1cda3b51b32bc1c69fda4c80fd13c0d93dcf3cc52d"
+      "source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
     },
     "editor": {
       "product": "Visual Studio Code 1.143.0",
       "lean_extension": "leanprover.lean4-0.0.240",
-      "errors": 0,
-      "warnings": 0,
-      "status_bar": "no problems detected in the workspace",
+      "errors": "not attested by the editor",
+      "warnings": "not attested by the editor",
+      "why": "the cited tree (editor/vscode-observation-tree-2.txt) contains no \"depends on axioms\" row at all, so it cannot show that this file was elaborated; the reading that lowered W11 in R3 applies unchanged",
       "evidence": "editor/vscode-observation-tree-2.txt"
     },
     "infoview": {
@@ -80,6 +80,39 @@
   ],
   "core_gap": "OPEN",
   "lean_run": true,
-  "editor_run": true,
-  "fact_tree_admitted": false
+  "editor_run": false,
+  "fact_tree_admitted": false,
+  "review_fixes": [
+    {
+      "round": "R2",
+      "original_commit": "ba78ff1",
+      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98",
+      "note": "R2: removed the set_option linter.unusedVariables silence; dropped the redundant hMN hypothesis from not_determined_by_torsion_probe and added torsion_probe_witness, which states the two different exponents 0 and 1 explicitly",
+      "wording": "the probe is described as one whose reading is zero, not as non-torsion in the field"
+    },
+    {
+      "round": "R3",
+      "original_commit": "ba78ff1",
+      "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
+      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
+    },
+    {
+      "round": "R3",
+      "original_commit": "ba78ff1",
+      "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
+      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
+    },
+    {
+      "round": "R3",
+      "original_commit": "ba78ff1",
+      "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
+      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
+    },
+    {
+      "round": "R3",
+      "original_commit": "ba78ff1",
+      "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
+      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
+    }
+  ]
 }

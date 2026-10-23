@@ -63,8 +63,11 @@ K4（执行来源）这三处最容易含糊的地方，各自做成一个能编
 
 1. `R^ss` 被定义为 `{T | adelic, measurable}/∼`、`T ∼ T'` **iff 体积相等**——即报告所用的粗化商就是
    "按读数取等"的商，印证 `h1-decision.md` 的"coarse 影子"分层。
-2. (9-1) 断言的是**两条同构本身相等**（在"计算 degree 之前"比较，txt 2236–2239），比我们 W5/W7 证的
-   "读数沿轨道不变"**更强**：W5/W7 是**必要条件**，不是充分条件。
+2. (9-1) 断言的是**两条同构本身相等**（在"计算 degree 之前"比较，txt 2236–2239），且只要求**存在一个 `S`**
+   使二者相等。**它不要求读数沿整个选择族不变**——严格反例见
+   `research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean` 的
+   `existence_does_not_force_invariance`（存在使 `candidate b = target` 的 `b`，不蕴含读数对整个 `b` 族不变）。
+   因此 W5/W7 的"沿轨道不变"**不是** (9-1) 的必要条件，而是**另一条更强/不同的族条件**；此前写法是错的。
 3. Ind1/Ind2 的歧义落在 **`S` 的选择**（txt 2267），不是落在实数上；Ind3 来自沿 log 序列**只有 upper
    semi**（Step 9，txt 2109–2116）。这给 M-iii 的对齐一个明确载体：`|F_l|` 索引 vs procession 平均，本质是
    比较两个 `S` 上的归一化。

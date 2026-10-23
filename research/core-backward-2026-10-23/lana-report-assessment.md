@@ -3,7 +3,7 @@
 日期：2026-10-23。来源：**Project LANA Interim Report on IUT Theory**（2026-07），50 页。
 归档：`research/round2-source-cache/LANA-interim-report-2026-07.{pdf,txt}`
 （PDF sha256 `a368345c1b4f03d9dba439cee7d3b186465b802233392b1fc7727edec8be2f30`，640,457 B；
-文本化 txt sha256 `5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e`，用 `pypdf` 抽取，54 页标记）。
+文本化 txt sha256 `5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e`，用 `pypdf` 抽取，50 页标记）。
 配套：`https://github.com/lana-agents/iut`（`Inter-universal Teichmüller theory: the ABC/IUT trunk.`，默认分支 `main`，Lean）。
 本文件只做**来源评估与路径含义**，不是数学结论。
 
@@ -42,9 +42,13 @@
 
 ## 3. 它改变了什么（对我们下一步的实质影响）
 
-1. **门槛被抬高**：我们的玩具证的是"**读数**沿轨道不变 ⇒ 读数下降";而 (9-1) 断言的是**两条同构本身相等**
-   （`η_q = η_anab_S`），即在"计算 degree 之前"比较两个构造（报告 2236–2239 明说 "before computing degrees"）。
-   所以 W5/W7 是**必要条件**，不是充分条件。下一步的玩具应当从"读数值不变"升级为"**同构在轨道上相等**"。
+1. **门槛被抬高，但我先前把关系写错了（已改）**：我们的玩具证的是"**读数**沿轨道不变 ⇒ 读数下降"；而 (9-1)
+   断言的是**两条同构本身相等**（`η_q = η_anab_S`），即在"计算 degree 之前"比较两个构造（报告 2236–2239 明说
+   "before computing degrees"）。**但 (9-1) 只要求存在一个 `S`**，并不要求读数沿整个选择族不变。
+   `research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean` 给出严格反例
+   （`existence_does_not_force_invariance`：存在 `b` 使 `candidate b = target`，并不蕴含读数对整个 `b` 族不变），
+   所以 **W5/W7 的"沿轨道不变"不是 (9-1) 的必要条件**——它们是**不同的、更强的族条件**。此前写成"必要条件"
+   是错的，此处更正。下一步的玩具若要贴近 (9-1)，应做的是"存在 `S` 使两条映射相等"，而不是"沿族不变"。
 2. **`S` 是真正的自由变量**：Ind1/Ind2 的歧义落在 `S ⊂ VC(I_v)`（报告 2267），而不是落在实数上。这给 M-iii
    的对齐一个明确载体：`|F_l|` 索引与 procession 平均的对齐，本质上是在比较两个 `S` 上的归一化。
 3. **一个独立、专业来源确认了缺口**：并非只有我们读不懂——LANA 自己也说没证出 (9-1)。这对我方纪律的含义是：
@@ -68,10 +72,17 @@
 **与被审版本的关系**：本仓库与我们一直审的 `external/iut`（commit `f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb`）
 是**同一个仓库**。
 
-- 两版之间只多 **6 个 Lean 文件**，全部在 `Iut/Reconstruction/{Cusp,Thm19}`（424 → 430）；
+- **新增 6 个 Lean 文件**（424 → 430）：`Iut/Reconstruction/Cusp/{BelyiSpec,Cor37c,SurfaceGeom,SurfacePi1}.lean`
+  与 `Iut/Reconstruction/Thm19/{CuspPrincipal,NFKummer}.lean`；
+- **既有 Lean 文件另有 5 处修改**：`Iut.lean`、`Iut/Anabelian/Tempered.lean`、
+  `Iut/Anabelian/TemperedAndre.lean`、`Iut/Reconstruction/Cusp/Belyi.lean`、
+  `Iut/Reconstruction/Cusp/Elliptic.lean`。**先前我只比了 7 个接口就写"其余逐字节相同"，这是错的**；
+  准确结论是"**我们 M3 审过的这 7 个文件在两版间逐字节相同**"，不等于整棵树未变。另有三类非 Lean 变更
+  （`lakefile.toml`、`lake-manifest.json`、`scripts/shell_lint_allowlist.txt`）与三份文档变更
+  （`AutHolomorphic/README.md`、`Multiradial/ROADMAP.md`、`Plans/MR9Plan.md`），以及新增的 `Plans/MR10Plan.md`；
 - 我们 M3 审过的 7 个文件（`Wall/EtaAlg`、`Wall/Constraints`、`Wall/Ind3`、`Wall/Rss`、`Wall/MultiContainer`、
   `LogLink/Kummer`、`LogLink/Thm311LGP`）**逐字节相同** ⇒ **M3 的接口结论对固定 commit 仍然有效**，
-  不因上游前进而失效。
+  不因上游前进而失效（但不蕴涵"整棵树未变"）。
 
 **README 的自我定位（重要）**：「It does **not** verify IUT.」主定理是
 `Iut.classicalABC_of_variant (h312 : Cor312VariantHolds) : ClassicalABC`——即 ABC 是**从变体**推出的，
@@ -140,7 +151,7 @@ noncomputable def etaQ : (qVal D.bpsDegrees).C →ₗ[ℝ] ℝ :=
   (qVal D.bpsDegrees).eta D.qPilot.lhs
 ```
 
-**由此确认三件事**：(i) 报告 §9.2 与仓库接口是**同一对象的两种呈现**；(ii) 仓库把 (9-1) 归约成标量等式
+**由此确认三件事**：(i) 报告 §9.2 与仓库接口是**同一兼容性目标的模型化接口，忠实性尚未证明**；(ii) 仓库把 (9-1) 归约成标量等式
 （`etaAnab_eq_etaQ_iff`），其引理 `ValBPS.eta_eq_eta_iff` 就是"点线映射相等 ⟺ pilot 处取值相等"——W11 要证的
 正是这条引理的抽象版；(iii) 两个映射都形如 `η = (·).eta (标量)`，即**由一个标量决定**，所以 (9-1) 在该模型里
 必然是标量等式，`out` 的裸字段性（M3 F3）决定了这是模型内归约。

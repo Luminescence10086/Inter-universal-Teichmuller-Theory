@@ -20,8 +20,8 @@
   ],
   "outputs": [
     {
-      "path": "candidates\\core-transport\\H3Synthesis.lean",
-      "sha256": "6c642f6c353876bcb3012a2beca42205cfa4114dc7794693de8318e48ee1b381"
+      "path": "candidates/core-transport/H3Synthesis.lean",
+      "sha256": "ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2"
     },
     {
       "path": "handoffs/core-backward-2026-10-23/W10/README.md",
@@ -52,7 +52,7 @@
         "propext"
       ],
       "forbidden_terms": 0,
-      "source_sha256": "6c642f6c353876bcb3012a2beca42205cfa4114dc7794693de8318e48ee1b381"
+      "source_sha256": "ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2"
     },
     "editor": {
       "product": "Visual Studio Code 1.143.0",
@@ -82,5 +82,14 @@
   "core_gap": "OPEN",
   "lean_run": true,
   "editor_run": true,
-  "fact_tree_admitted": false
+  "fact_tree_admitted": false,
+  "review_fixes": [
+    {
+      "round": "R2",
+      "original_commit": "64126ef",
+      "new_source_sha256": "ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2",
+      "note": "R2: removed the set_option linter.unusedVariables silence; comparison_well_defined no longer carries the unused probe hypothesis, so the probe condition now lives only in exponent_unique, where it is actually used",
+      "wording": "module docstring and the degeneracy docstrings were updated to the new signature"
+    }
+  ]
 }

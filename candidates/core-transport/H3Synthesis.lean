@@ -44,11 +44,11 @@ Abstract results (an arbitrary commutative group `G` and an arbitrary reading `R
   the twist's own reading visible: `reading R (u * x ^ M) / M = reading R u / M + reading R x`. This
   is W8's `divideBack_twist` with `localLog` replaced by an arbitrary additive reading, and with the
   residue `localLog u` replaced by `reading R u`.
-* `comparison_well_defined` — **the synthesis**: twist-free (`reading R u = 0`) plus a non-torsion
-  probe (`reading R x ≠ 0`) gives the reading of the probe back from the divide-back of the twisted
-  `M`-th power. It is the point where (M-i) and (M-ii) meet: the divide-back is harmless, and the
-  surviving number is the probe's reading, which is non-zero and therefore still carries the
-  exponent.
+* `comparison_well_defined` — **the divide-back conclusion** of (M-i): twist-free (`reading R u = 0`)
+  is enough to get the probe's reading back from the divide-back of the twisted `M`-th power. The
+  probe condition `reading R x ≠ 0` is **not** an hypothesis of this statement — it belongs to
+  `exponent_unique`, which is the (M-ii) half. (An earlier version carried it unused and silenced the
+  linter; the hypothesis was dropped instead.)
 
 Degeneracy, in both directions. To keep the numbers literal and the file free of `p`-adic analysis,
 the witnesses live in the free commutative group `Multiplicative ℤ` on one generator (its
@@ -203,24 +203,17 @@ theorem divideBack_abstract (R : G →* Multiplicative ℚ_[3]) (u x : G) (M : �
   have hM' : (M : ℚ_[3]) ≠ 0 := Nat.cast_ne_zero.mpr hM
   rw [reading_mul, reading_pow, nsmul_eq_mul, add_div, mul_div_cancel_left₀ (reading R x) hM']
 
-set_option linter.unusedVariables false in
-/-- **The synthesis.** If the twist reads zero (`reading R u = 0`, the twist-free condition of
-`twist_free_iff`) and the probe has non-zero reading (`reading R x ≠ 0`, the non-torsion condition of
-`exponent_unique`), then the divide-back of the twisted `M`-th power *is* the reading of the probe:
-the divide-back is harmless and the surviving number still carries the exponent. This is the joint
-content of (M-i) and (M-ii): (M-i) supplies that the twist term is absent, (M-ii) supplies that the
-remaining reading determines `M`.
+/-- **The divide-back conclusion.** If the twist reads zero (`reading R u = 0`, the twist-free condition
+of `twist_free_iff`), then the divide-back of the twisted `M`-th power *is* the reading of the probe: the
+twist term is absent, so dividing by `M` is harmless.
 
-The hypothesis `reading R x ≠ 0` is carried because it is what makes the conclusion *informative*
-(without it the conclusion holds but determines nothing); the proof itself only needs
-`divideBack_abstract` and `reading R u = 0`. `comparison_fails_at_four` shows the twist-free
-hypothesis cannot be dropped.
-
-The `set_option linter.unusedVariables false` above is needed because `hx` occurs in the *statement*,
-where it carries the non-torsion content, but not in the proof; under `-DwarningAsError=true` the
-linter would otherwise reject the file. -/
+This is the (M-i) half of the synthesis and it is stated **without** the probe hypothesis, because the
+identity does not need it — the previous version carried `reading R x ≠ 0` as an unused hypothesis and
+silenced the linter; that is fixed here by dropping the hypothesis instead of the warning. The (M-ii)
+half, that the surviving reading determines `M`, is `exponent_unique`, which is where the probe condition
+actually belongs. -/
 theorem comparison_well_defined (R : G →* Multiplicative ℚ_[3]) (u x : G) (hu : reading R u = 0)
-    (hx : reading R x ≠ 0) (M : ℕ) (hM : M ≠ 0) :
+    (M : ℕ) (hM : M ≠ 0) :
     reading R (u * x ^ M) / (M : ℚ_[3]) = reading R x := by
   rw [divideBack_abstract R u x M hM, hu, zero_div, zero_add]
 
@@ -297,7 +290,7 @@ theorem reading_twistFour : reading freeReading twistFour = 4 := by
   norm_num
 
 /-- **The twist of the second witness has non-zero reading**: `reading R u ≠ 0`, so the hypothesis
-`hu` of `comparison_well_defined` is false at these numbers. -/
+`hu` (the twist-free hypothesis) of `comparison_well_defined` is false at these numbers. -/
 theorem reading_twistFour_ne_zero : reading freeReading twistFour ≠ 0 := by
   rw [reading_twistFour]
   exact Nat.cast_ne_zero.mpr (by norm_num)
