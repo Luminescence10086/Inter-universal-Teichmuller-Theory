@@ -69,17 +69,20 @@ M3 的接口字段表是判断这两者的输入，但判断本身不能由"源�
 M1（`handoffs/core-backward-2026-10-23/M1/`，已抽查原文 9237–9264、9863–9872）与 M2
 （同批次 `M2/`，已抽查 8135–8144、11022）把三件事变成硬约束，不能只当补充说明：
 
-**(a) 商类型不是"集合层 orbit"就能了事。** M1 指出："structure poly-morphism" 在原文中
-是 `Aut(det^{⊗M}(φ(P_B)))` 对某个线性 morphism 的**orbit**（集合层），而 cQ3 的结论对象被明确称为
-**formal / stack-theoretic / diagram-theoretic 商**，并且是**相对于** coarse/set-theoretic 商而言的。
-因此 W3 不能只写"读数沿这个 orbit 不变"：必须先记录所用商是哪一层。若模型只实现集合层 orbit，则它**弱于**
-cQ3 的陈述，`vQ = q₀` 的事实不能顺移。这是 H1 的首要问题，不是记号问题。
+**(a) 商的存在两层，不是二选一。** 见 `h1-decision.md`（已核原文 8607–8629）：原文把
+`⊼fQ₂ modulo ⊼fQ₁` 称为 **formal / stack-theoretic 商**，并**明确对照** "coarse/set-theoretic quotients
+given by set-theoretic invariants such as the log-volume"；而 `⊼lc₁` 的 structure poly-morphism 本身
+（`Aut(det^{⊗M}(φ(P_B)))`-orbit of a linear morphism，8566–8571）是**集合层的正确构造**。
+所以 W3 的约束不是"选哪一层"，而是：**两层都在，且禁止层间偷换**——沿 orbit 的不变性属于 `⊼fQ₁`，
+形式商的不变性属于 `⊼fQ₂ modulo ⊼fQ₁`，而 log-volume 一出现就意味着已落到 coarse 层。
+先前把两者并列成"哪个才对"是假二分，此处更正。
 
-**(b) 环境范畴未声明。** M1 指出：图中的下排节点索引是 `(n,m)`，上排是 `(n,◦)`（整条纵线），
-且第一条竖箭的余域"包含一个参数 `†D>`"；但 16 个节点被画成同一类，`∼→` 与 `↑` 同处一图，
-而"存在一个同时容纳两排的环境范畴"原文并未声明。因此 W2 的 localization maps 在**类型上**还没有着落：
-在未定环境范畴之前，K1 无法把这条 zig-zag 写成箭头链。设计上应把"环境范畴"显式列为 H1 的待定项，
-而不是默认它存在。
+**(b) 环境范畴是声明过的；未定的是 `(n,◦)` 的读法。** 原文 9287–9296 明说这些
+`F⊩▶×μ-prime-strips` 都由 `n,m`-env 构造并与之相关，8560/8587 亦称它们就是 Θ×μ_LGP-link 里的那些
+prime-strips——**环境范畴 = `F⊩▶×μ-prime-strips`，不需要另立**。先前"环境范畴未声明"的说法更正。
+仍未定的是：`(n,◦)`（9265–9266 说明这是 `n,◦HT^{D-Θ±ellNF}` 即整条纵线的缩写，且第一条竖箭余域带
+`†D>` 参数）究竟表示**一个由纵线构成的对象**还是**以 m 为参数的族**。原文用缩写不区分；形式化必须显式
+选定并证明读数与之无关（W1 的新增义务）。
 
 **(c) IPL 复合是族索引，不是单个箭头。** 原文 9863–9864 说的是 `linking isomorphisms of
 "intermediate" prime-strips are given by composing …`，即对每个中间 prime-strip 给一个复合，
