@@ -109,6 +109,42 @@ processions/tensor-packets、large volume container、其 log-volume、holomorph
 3. `NonDerivable` 是上游给出的、Lean 检查过的"缺口不可由 Thm 3.11 字段关闭"的陈词——与报告 §9.2/§10.5 一致，
    且同样带"审计而非定理"的自我限定。
 
+## 5b′. 逐字引用（W11 的对齐锚点）
+
+以下三处是 W11（玩具层的 (9-1) 形状）应当对齐的**真实陈述**。注意 docstring 自己写明它们形式化的是
+**[LANA] §9.2**，也就是报告 §9.2 的那两条映射。
+
+`Iut/Wall/EtaAlg.lean:143–149`：
+
+```lean
+/-- **`η^anab_{ι,S} : R_val → R_ss ≅ ℝ`** ([LANA], §9.2): the pointed map sending the pilot of
+the input to the class (log-volume) of `M = 1·S`, the output `out ι S`. -/
+noncomputable def etaAnab {B : A.BPSA} {h : A.Side} (ι : A.Choice B h) (S : Ind3 D) :
+    B.val.C →ₗ[ℝ] ℝ :=
+  B.val.eta (logVol D (A.out ι S))
+```
+
+`Iut/Wall/EtaAlg.lean:151–153`（证明只用了 `ValBPS.eta_eq_eta_iff`）：
+
+```lean
+theorem etaAnab_eq_etaQ_iff {h₁ h₂ : A.Side} (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D) :
+    A.etaAnab ι S = etaQ D ↔ logVol D (A.out ι S) = (concreteVariantData D).qPilot.lhs
+```
+
+`Iut/Wall/Rss.lean:498–501`：
+
+```lean
+/-- **The map `η_q : R_val → R_ss`** ([LANA], §9.2) … It is an isomorphism of pointed real lines
+(`etaQ_bijective`). -/
+noncomputable def etaQ : (qVal D.bpsDegrees).C →ₗ[ℝ] ℝ :=
+  (qVal D.bpsDegrees).eta D.qPilot.lhs
+```
+
+**由此确认三件事**：(i) 报告 §9.2 与仓库接口是**同一对象的两种呈现**；(ii) 仓库把 (9-1) 归约成标量等式
+（`etaAnab_eq_etaQ_iff`），其引理 `ValBPS.eta_eq_eta_iff` 就是"点线映射相等 ⟺ pilot 处取值相等"——W11 要证的
+正是这条引理的抽象版；(iii) 两个映射都形如 `η = (·).eta (标量)`，即**由一个标量决定**，所以 (9-1) 在该模型里
+必然是标量等式，`out` 的裸字段性（M3 F3）决定了这是模型内归约。
+
 ## 5c. 由此对路径的调整
 
 - 我们不再需要自己构造 η 的形状（那是重复劳动）：W7 的"同构在轨道上相等"可以**直接对齐**
