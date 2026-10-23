@@ -4,6 +4,7 @@ Usage:
   python -B audit/acceptance/tests/test_run.py               # all cases
   python -B audit/acceptance/tests/test_run.py P0.valid_bundle
 
+This is a scripted case set, not ``unittest`` discovery: run the file (or name cases).
 Each required case builds its own throw-away git checkout and bundle under a temporary
 directory, runs the real launcher in-process, and asserts the verdict. Exit code 0 means
 every executed case behaved as the frozen contract requires; a missing argument runs all.
@@ -13,6 +14,8 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -24,9 +27,36 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / 'audit/acceptance'))
 import run as launcher  # noqa: E402
 
-CONTRACT = ROOT / 'handoffs/next-round/contracts.json'
+
+def _frozen_contract_path() -> Path:
+    """Locate the frozen ``handoffs/next-round/contracts.json``.
+
+    ``handoffs/`` is a project-level input that is not part of the research branch, so a
+    review worktree (``.wt/<task>``) does not carry it. Order: explicit
+    ``P0_ACCEPTANCE_CONTRACT``, this checkout, then the enclosing project directory. The
+    digest is re-checked against ``plan.json`` below (and again inside the launcher as
+    ``P0.plan_contract_mismatch``), so a wrong file can never pass silently.
+    """
+    candidates = []
+    override = os.environ.get('P0_ACCEPTANCE_CONTRACT')
+    if override:
+        candidates.append(Path(override))
+    candidates.append(ROOT / 'handoffs/next-round/contracts.json')
+    candidates.extend(parent / 'handoffs/next-round/contracts.json' for parent in ROOT.parents)
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate
+    raise SystemExit('frozen contracts.json not found; tried: '
+                     + ', '.join(str(candidate) for candidate in candidates))
+
+
+CONTRACT = _frozen_contract_path()
 PLAN = ROOT / 'audit/acceptance/plan.json'
 CONTRACT_DIGEST = hashlib.sha256(CONTRACT.read_bytes()).hexdigest()
+PLAN_DOC = json.loads(PLAN.read_text(encoding='utf-8'))
+if PLAN_DOC.get('contract_sha256') != CONTRACT_DIGEST:
+    raise SystemExit(f'frozen inputs disagree: {CONTRACT} sha256 {CONTRACT_DIGEST} != '
+                     f'plan.json contract_sha256 {PLAN_DOC.get("contract_sha256")}')
 REQUIRED = json.loads(CONTRACT.read_text(encoding='utf-8'))
 P0_IDS = next(t for t in REQUIRED['tasks'] if t['id'] == 'P0')['required_case_ids']
 
@@ -234,15 +264,45 @@ def _author_incomplete(tmp):
 
 @case('P0.checked_out_head_mismatch')
 def _checked_out_head_mismatch(tmp):
+    """Counter-example 2: the replay must be bound to the checked-out HEAD and its files.
+
+    (a) the checkout sits on another commit than the bundle declares, with
+        ``source_tree_clean`` left null as in the reported counter-example;
+    (b) HEAD matches, but a replayed tracked file is not the committed one.
+    """
     repo, base, head = make_repo(tmp)
+    plan = fixture_plan(tmp, base)
     bundle = make_bundle(tmp, repo, base, head)
     data = json.loads(bundle.read_text(encoding='utf-8'))
     data['source_tree_clean'] = None
     bundle.write_text(json.dumps(data, indent=2), encoding='utf-8')
     git(repo, 'checkout', '-q', '--detach', base)
-    code, verdict, _ = invoke(bundle, repo, plan=fixture_plan(tmp, base))
+    code, verdict, _ = invoke(bundle, repo, plan=plan)
     assert code != 0 and verdict['status'] != 'PASS', verdict
     assert 'P0.checked_out_head_mismatch' in codes(verdict), codes(verdict)
+
+    git(repo, 'checkout', '-q', '--detach', head)
+    data['source_tree_clean'] = True
+    bundle.write_text(json.dumps(data, indent=2), encoding='utf-8')
+    (repo / 'audit/acceptance/impl.txt').write_text('baseline\nimplementation\nlocal edit\n',
+                                                    encoding='utf-8')
+    dirty_code, dirty_verdict, _ = invoke(bundle, repo, plan=plan)
+    assert dirty_code != 0 and dirty_verdict['status'] != 'PASS', dirty_verdict
+    assert 'P0.source_tree_dirty' in codes(dirty_verdict), codes(dirty_verdict)
+
+
+@case('P0.manual_step_never_pass')
+def _manual_never_pass(tmp):
+    """A reviewer-only (manual) math step is outstanding, never an automatic PASS."""
+    verdict = launcher.Verdict('M1')
+    task = {'id': 'M1', 'required_case_ids': ['M1.actual_vscode_observation']}
+    plan = {'cases': {'M1.actual_vscode_observation': {'manual': True, 'note': 'reviewer only'}}}
+    bundle = {'checks': [{'id': 'M1.actual_vscode_observation', 'outcome': 'PASS',
+                          'exit_code': 0, 'argv': ['lake', 'env', 'lean']}]}
+    launcher.replay(bundle, task, plan, Path(tmp), verdict)
+    statuses = [check['status'] for check in verdict.checks]
+    assert statuses == ['MANUAL_REQUIRED'], statuses
+    assert verdict.passed is False, 'a manual step must never let the verdict pass'
 
 
 @case('P0.timeout')
@@ -266,10 +326,23 @@ def _skipped(tmp):
 
 @case('P0.missing_git_context')
 def _no_git(tmp):
+    """An archived tree (no ``.git``) cannot prove source/result identity.
+
+    The fixture lives inside this very worktree, so git would otherwise discover the
+    enclosing repository; the ceiling reproduces the delivered-archive situation.
+    """
     repo, _, _ = make_repo(tmp, with_git=False)
     base = '1' * 40
     bundle = make_bundle(tmp, repo, base, '2' * 40)
-    code, verdict, _ = invoke(bundle, repo, plan=fixture_plan(tmp, base))
+    previous = os.environ.get('GIT_CEILING_DIRECTORIES')
+    os.environ['GIT_CEILING_DIRECTORIES'] = str(tmp)
+    try:
+        code, verdict, _ = invoke(bundle, repo, plan=fixture_plan(tmp, base))
+    finally:
+        if previous is None:
+            os.environ.pop('GIT_CEILING_DIRECTORIES', None)
+        else:
+            os.environ['GIT_CEILING_DIRECTORIES'] = previous
     assert code != 0 and verdict['status'] != 'PASS'
     assert 'P0.missing_git_context' in codes(verdict), codes(verdict)
 
@@ -292,18 +365,41 @@ def _unapproved(tmp):
     assert 'P0.unapproved_command' in codes(verdict), codes(verdict)
 
 
+def case_root() -> Path:
+    """Fresh scratch root for one run of the case set.
+
+    ``tempfile.mkdtemp`` (and therefore ``TemporaryDirectory``) creates its directory with
+    mode ``0o700``; under a restricted sandbox token such a directory is not writable by
+    the very process that created it (``WinError 5``), which makes every fixture fail
+    before the launcher is even reached. The cases therefore build their own scratch root
+    with the default mode and remove it explicitly.
+    """
+    root = Path(tempfile.gettempdir()) / f'p0-selftest-{os.getpid()}-{int(time.time())}'
+    root.mkdir(parents=True, exist_ok=True)
+    return root
+
+
+def case_dir(root: Path, name: str) -> Path:
+    path = root / name.replace('.', '_')
+    shutil.rmtree(path, ignore_errors=True)
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
 def main(argv):
     selected = argv or list(CASES)
     failures = []
     started = time.time()
-    for name in selected:
-        if name not in CASES:
-            print(f'UNKNOWN {name}')
-            failures.append(name)
-            continue
-        with tempfile.TemporaryDirectory() as tmpdir:
+    root = case_root()
+    try:
+        for name in selected:
+            if name not in CASES:
+                print(f'UNKNOWN {name}')
+                failures.append(name)
+                continue
+            workspace = case_dir(root, name)
             try:
-                CASES[name](Path(tmpdir))
+                CASES[name](workspace)
                 print(f'PASS {name}')
             except AssertionError as exc:
                 print(f'FAIL {name}: {exc}')
@@ -311,6 +407,10 @@ def main(argv):
             except Exception as exc:  # noqa: BLE001 - a case that crashes is a failure
                 print(f'ERROR {name}: {type(exc).__name__}: {exc}')
                 failures.append(name)
+            finally:
+                shutil.rmtree(workspace, ignore_errors=True)
+    finally:
+        shutil.rmtree(root, ignore_errors=True)
     elapsed = time.time() - started
     print(f'{len(selected) - len(failures)}/{len(selected)} cases ok in {elapsed:.1f}s')
     return 0 if not failures else 1

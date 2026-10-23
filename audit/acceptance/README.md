@@ -12,6 +12,10 @@ allowlist** 重跑固定命令并捕获日志、输出 `verdict.json` 与一页�
 | `audit/acceptance/plan.json` | **预期值与命令的权威来源**：每个 case id 的 argv、cwd、超时、预期退出码；`manual: true` 表示只能由复核者执行 |
 | `audit/acceptance/probe.py` | 启动器自测用的固定探针（`ok` / `fail` / `slow`） |
 
+`handoffs/` 属项目级输入，不在研究分支里：在评审工作树（`.wt/<task>`）中自测时，测试脚本
+按 `P0_ACCEPTANCE_CONTRACT` → 本检出 → 上层项目目录 的顺序找 `contracts.json`，并先核对其摘要
+是否等于 `plan.json` 的 `contract_sha256`（不一致直接报错退出，不进入用例）。
+
 交付包**不能**提供自定义命令或预期值：argv 或 cwd 与 plan 不一致即 `P0.unapproved_command`；
 `checks[]` 里多出必需集合之外的 id 同样被拒。
 
@@ -20,7 +24,7 @@ allowlist** 重跑固定命令并捕获日志、输出 `verdict.json` 与一页�
 ```text
 python -B audit/acceptance/run.py --bundle <外部交付包>/bundle.json --task E1
 python -B audit/acceptance/run.py --bundle ... --repo <checkout> --contract ... --plan ...
-python -B audit/acceptance/tests/test_run.py            # 10 项自测
+python -B audit/acceptance/tests/test_run.py            # 14 项自测
 python -B audit/acceptance/tests/test_run.py P0.timeout # 单项
 ```
 
@@ -42,6 +46,13 @@ python -B audit/acceptance/tests/test_run.py P0.timeout # 单项
   不判失败——它们进不了提交，提交内容由范围检查负责。
 - `INCOMPLETE`：超时、缺文件、无法执行、或含 `manual` 的复核者步骤尚未完成。
   这些情形**绝不**报告 `PASS`。
+- 判定只取冻结 plan 的预期：实测退出码 ≠ `expected_exit` 即 `P0.expected_exit_mismatch`，
+  与交付者自报的 `outcome`/`exit_code` 无关；作者自报 `FAIL`/`INCOMPLETE` 也不可能凑成整体 PASS。
+- 重放绑定**检出 HEAD**：`HEAD` 必须等于 bundle 的 `head_commit`（`P0.checked_out_head_mismatch`），
+  `source_tree_clean` 必须为 `true`（`P0.source_tree_identity`），且被跟踪文件无改动
+  （`P0.source_tree_dirty`）——即被重跑的文件就是该 SHA 的提交内容。
+- 相同**源码/环境/argv/cwd** 的命令只实际执行一次，其余 case 复用同一测量并保留 case 映射
+  （`checks[].executed_as` / `deduplicated`）；因此多个数学 case 指向同一 Lean 文件时不会重复编译。
 - `FAIL`：错提交号、范围越界、日志缺失或摘要不符、声称 PASS 但实测非零、
   必需用例缺失、冻结预期被改、未批准命令、缺 `.git` 上下文。
 
@@ -54,6 +65,10 @@ python -B audit/acceptance/tests/test_run.py P0.timeout # 单项
 - 重放使用冻结 argv；plan 变更必须由复核者重新冻结（`P0.plan_contract_mismatch`）。
 - 不覆盖 M 任务的 Lean 构建缓存身份；数学层仍以复核者实际 VS Code 与公理导出为准。
 - 归档（无 `.git`）会 `P0.missing_git_context`：这是环境限制，不是生产缺陷。
+- 子进程 stdout/stderr 写临时文件而非管道：孙进程继承管道句柄时 `communicate()` 会在直接子进程
+  退出后继续等待（E1 实测约 595.7 秒仍未返回）。超时路径先关 Windows Job 对象（`KILL_ON_JOB_CLOSE`），
+  再 `taskkill /T /F`（POSIX 用 `killpg`），最后兜底 `kill()`。
+- 临时目录必须可写：沙箱内需把 `TEMP`/`TMP` 指到工作树内目录，否则临时文件与测试夹具都无法创建。
 
 ## 冻结流程（给复核者）
 

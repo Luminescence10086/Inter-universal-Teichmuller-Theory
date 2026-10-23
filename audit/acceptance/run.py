@@ -31,6 +31,7 @@ import os
 import signal
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -374,48 +375,57 @@ def execute(spec, repo, timeout):
     try:
         command_env = os.environ.copy()
         command_env.update(spec.get('env', {}))
-        process = subprocess.Popen(spec['argv'], cwd=str(cwd), env=command_env,
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE, text=True, encoding='utf-8',
-                                   errors='replace', start_new_session=(os.name != 'nt'),
-                                   creationflags=(subprocess.CREATE_NEW_PROCESS_GROUP
-                                                  if os.name == 'nt' else 0))
-        job = _windows_job_for(process)
-        try:
-            stdout, stderr = process.communicate(timeout=timeout)
-            _close_windows_job(job)
-            return {'exit': process.returncode, 'stdout': stdout, 'stderr': stderr,
-                    'elapsed': round(time.time() - started, 3), 'timed_out': False}
-        except subprocess.TimeoutExpired:
-            # Closing the job also kills grandchildren which inherited the pipes.
-            _close_windows_job(job)
-            job = None
-            if os.name == 'nt':
-                # communicate() can wait on inherited pipe handles after the parent
-                # exits. Kill the complete process tree before collecting its output.
+        # Files avoid communicate() waiting on descendant pipe handles after the
+        # direct child has exited.
+        with tempfile.TemporaryFile() as stdout_file, tempfile.TemporaryFile() as stderr_file:
+            process = subprocess.Popen(spec['argv'], cwd=str(cwd), env=command_env,
+                                       stdout=stdout_file, stderr=stderr_file,
+                                       start_new_session=(os.name != 'nt'),
+                                       creationflags=(subprocess.CREATE_NEW_PROCESS_GROUP
+                                                      if os.name == 'nt' else 0))
+            job = _windows_job_for(process)
+            timed_out = False
+            try:
+                process.wait(timeout=timeout)
+            except subprocess.TimeoutExpired:
+                timed_out = True
+                _close_windows_job(job)
+                job = None
+                if os.name == 'nt':
+                    try:
+                        subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
+                                       capture_output=True, timeout=5)
+                    except (OSError, subprocess.TimeoutExpired):
+                        pass
+                else:
+                    try:
+                        os.killpg(process.pid, signal.SIGKILL)
+                    except ProcessLookupError:
+                        pass
                 try:
-                    subprocess.run(['taskkill', '/PID', str(process.pid), '/T', '/F'],
-                                   capture_output=True, timeout=5)
-                except (OSError, subprocess.TimeoutExpired):
-                    pass
-            else:
+                    process.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    try:
+                        process.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        pass
+            _close_windows_job(job)
+            if os.name != 'nt' and not timed_out:
                 try:
                     os.killpg(process.pid, signal.SIGKILL)
                 except ProcessLookupError:
                     pass
-            try:
-                stdout, stderr = process.communicate(timeout=5)
-            except subprocess.TimeoutExpired:
-                process.kill()
-                stdout, stderr = process.communicate()
-            return {'exit': None, 'stdout': stdout, 'stderr': stderr,
-                    'elapsed': round(time.time() - started, 3), 'timed_out': True}
+            stdout_file.seek(0)
+            stderr_file.seek(0)
+            stdout = stdout_file.read().decode('utf-8', errors='replace')
+            stderr = stderr_file.read().decode('utf-8', errors='replace')
+            return {'exit': None if timed_out else process.returncode,
+                    'stdout': stdout, 'stderr': stderr,
+                    'elapsed': round(time.time() - started, 3), 'timed_out': timed_out}
     except OSError as exc:
         return {'exit': None, 'stdout': '', 'stderr': str(exc),
                 'elapsed': round(time.time() - started, 3), 'timed_out': False}
-    except OSError as exc:
-        return {'exit': None, 'stdout': '', 'stderr': str(exc), 'elapsed': round(time.time() - started, 3),
-                'timed_out': False}
 
 
 def replay(bundle, task, plan, repo, verdict, timeout_override=None):
