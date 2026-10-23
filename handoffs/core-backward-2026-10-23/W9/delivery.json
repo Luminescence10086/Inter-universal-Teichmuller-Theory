@@ -95,24 +95,6 @@
       "original_commit": "ba78ff1",
       "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
       "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
-    },
-    {
-      "round": "R3",
-      "original_commit": "ba78ff1",
-      "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
-      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
-    },
-    {
-      "round": "R3",
-      "original_commit": "ba78ff1",
-      "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
-      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
-    },
-    {
-      "round": "R3",
-      "original_commit": "ba78ff1",
-      "note": "editor label lowered under the R3 reading: the evidence file holds no axiom row, so the editor plane does not attest the file; CLI plane unchanged and re-verified after R2",
-      "new_source_sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
     }
   ]
 }

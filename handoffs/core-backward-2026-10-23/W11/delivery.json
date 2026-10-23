@@ -106,34 +106,6 @@
       "capture_axiom_rows": 0,
       "capture_error_rows": 0,
       "capture_exit_code": 6
-    },
-    {
-      "round": "R1",
-      "original_commit": "909af74",
-      "note": "the claim that W5/W7 invariance is a necessary condition for (9-1) is withdrawn; the alignment record that carries the verbatim sources was rewritten accordingly",
-      "new_source_sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
-    },
-    {
-      "round": "R3",
-      "original_commit": "023c9a1",
-      "note": "the editor gate no longer rests on an empty Problems panel: four capture sessions are documented, the file was never elaborated in them, and the label is lowered to CLI_CHECKED_EDITOR_PENDING",
-      "capture_axiom_rows": 0,
-      "capture_error_rows": 0,
-      "capture_exit_code": 6
-    },
-    {
-      "round": "R1",
-      "original_commit": "909af74",
-      "note": "the claim that W5/W7 invariance is a necessary condition for (9-1) is withdrawn; the alignment record that carries the verbatim sources was rewritten accordingly",
-      "new_source_sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
-    },
-    {
-      "round": "R3",
-      "original_commit": "023c9a1",
-      "note": "the editor gate no longer rests on an empty Problems panel: four capture sessions are documented, the file was never elaborated in them, and the label is lowered to CLI_CHECKED_EDITOR_PENDING",
-      "capture_axiom_rows": 0,
-      "capture_error_rows": 0,
-      "capture_exit_code": 6
     }
   ]
 }

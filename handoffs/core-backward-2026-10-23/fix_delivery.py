@@ -68,6 +68,19 @@ rebuilt = {}
 for task, (source, original) in REBUILD.items():
     rebuilt[task] = rebuild_outputs(task, source)
 
+
+def upsert_fixes(delivery, entries):
+    """Keep one review_fixes entry per (round, original_commit).
+
+    Appending blindly made the script non-idempotent: a second run duplicated every R1/R3 entry, and the
+    duplicates reached the file before anyone noticed. Replacing by key keeps re-runs harmless.
+    """
+    kept = [e for e in delivery.get('review_fixes', [])
+            if (e.get('round'), e.get('original_commit')) not in
+            {(n.get('round'), n.get('original_commit')) for n in entries}]
+    delivery['review_fixes'] = kept + list(entries)
+    return delivery
+
 # W8, W9 and W11 share the same defect: their editor trees contain no axiom row at all, so the
 # EDITOR_CHECKED label was never supported by the file it cites. Lower all three the same way.
 for task, commit in [('W8', None), ('W9', 'ba78ff1')]:
@@ -88,11 +101,11 @@ for task, commit in [('W8', None), ('W9', 'ba78ff1')]:
         'evidence': 'editor/vscode-observation-tree-2.txt',
     }
     if commit:
-        d.setdefault('review_fixes', []).append({
+        upsert_fixes(d, [{
             'round': 'R3', 'original_commit': commit,
             'note': ('editor label lowered under the R3 reading: the evidence file holds no axiom row, so the '
                      'editor plane does not attest the file; CLI plane unchanged and re-verified after R2'),
-            'new_source_sha256': sha(ROOT / 'candidates/core-transport/ExponentUniqueness.lean')})
+            'new_source_sha256': sha(ROOT / 'candidates/core-transport/ExponentUniqueness.lean')}])
     dump(p, d)
     if task in rebuilt:
         rebuilt[task] = d
@@ -145,7 +158,7 @@ w11['gates']['editor'] = {
     'attempts_documented': 'editor/README.md',
     'evidence': 'editor/vscode-observation-axioms.txt',
 }
-w11.setdefault('review_fixes', []).extend([
+upsert_fixes(w11, [
     {'round': 'R1', 'original_commit': '909af74',
      'note': ('the claim that W5/W7 invariance is a necessary condition for (9-1) is withdrawn; the '
               'alignment record that carries the verbatim sources was rewritten accordingly'),
