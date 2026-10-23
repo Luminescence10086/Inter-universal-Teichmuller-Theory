@@ -32,15 +32,23 @@ K4（执行来源）这三处最容易含糊的地方，各自做成一个能编
 | W10 | `candidates/core-transport/H3Synthesis.lean` | M-i 与 M-ii 是同一条同态事实的推论：`reading(x^M) = M • reading x`；非挠探针定指数；twist-free ⟺ 读数不变；两条一起给出除回；两侧退化见证（`Multiplicative ℤ` 上） | `64126ef` |
 | W11 | `candidates/core-transport/EtaComparison.lean` | (9-1) 的 **ℝ-线性镜像**：`map_eq_iff_pilot`（点线映射相等 ⟺ pilot 处取值相等，即仓库 `ValBPS.eta_eq_eta_iff` 的抽象版）、`eta_equality_iff_scalar`、以及"映射相等 = 标量等式 = 落在轨道"一条链；退化两侧（pilot 为零 / `H = ⊥` 且 `q` 不在轨道） | `023c9a1` |
 
+| W12 | `candidates/core-transport/LabelNormalization.lean` | M-iii 落地：`\|F_l\|` 索引平均 与 `F_l^⋆` 轨道平均**显式写成两个归一化**，证二者在"标签集就是轨道"时相等；反例 `ZMod 3` 上 2 vs 1；`coord_at_base` 把 W5 收为推论 | `49b5ea7` |
+
 ## 现在正在走的
 
-**W12 — `candidates/core-transport/LabelNormalization.lean`（进行中）**：M-iii 的落地——把
-`|F_l|` 索引的平均与 `F_l^⋆` 轨道平均**显式写成两个归一化**，证明它们在"标签集就是轨道"（简单传递作用）时
-相等，并给出"标签集比轨道大"时的具体反例。这是把 IUT II Cor 4.10(i) 的 `0 ↔ ⟨F_l^⋆⟩` 认同落到"两个平均
-相等"的形式，而不是再证一次 W5 的抽象命题。
+**玩具层已完成**：三条 H3 义务现在各有"显式定义 + 可证定理 + 具体反例 + 两份平面验收"：
 
-**W11 的对齐依据**（已逐字入库）：仓库 `Iut/Wall/EtaAlg.lean:145/151` 与 `Rss.lean:501`，其 docstring 明写
-形式化的是 [LANA] §9.2；玩具层没有 `out`/`BPS`/`Ind3`，故只做镜像、不声称触及 `etaAnab`/`etaQ`，也不证 (9-1)。
+| 义务 | 设计 | Lean | 核心定理 | 反例 |
+|---|---|---|---|---|
+| M-i 除回项 | `m-i-design.md` | `DivideBackTwist.lean` | `divideBack_twist`、`twist_insensitive_iff` | `‖localLog 4‖ = 1/3` ⇒ `τ ≠ 0` |
+| M-ii 探针唯一 | `m-ii-design.md` | `ExponentUniqueness.lean` | `power_reading_injective_on_probe` | 挠探针对任意指数给相同读数 |
+| M-iii 归一化对齐 | `h3-prerequisites.md` §M-iii | `LabelNormalization.lean` | `averageOverLabels_eq_averageOverOrbit` | `ZMod 3` 上 2 vs 1 |
+
+抽象合成：`H3Synthesis.lean`（M-i、M-ii 同出"同态 + 非挠探针"）；(9-1) 的镜像：`EtaComparison.lean`。
+
+**下一步（未开始，且不再是玩具层）**：把三处 `M` 接到同一个真实对象上、并把 (9-1) 从镜像变成对真实
+`etaAnab`/`etaQ` 的陈述——这需要 `out`/`BPS`/`Ind3` 的真实对象（且 M3 已证 `out` 是裸字段、11 个接口 F3 全 false），
+**不是再写一个 `ℚ_[3]` 上的文件**。在拿到那些对象之前，本路径到此为止，核心 GAP 保持 OPEN。
 
 ## 外部来源：LANA 中期报告（2026-07，已归档）
 
