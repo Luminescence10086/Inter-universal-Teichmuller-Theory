@@ -1,0 +1,59 @@
+{
+  "task_id": "M4",
+  "status": "STATIC_ONLY",
+  "inputs": [
+    {
+      "path": "handoffs/core-backward-plan-2026-10-23.md",
+      "commit": null,
+      "sha256": "177948fbc57e5cca2473d083ba719e8896fc79ef91ee7bee2f5d3d80d926f93b",
+      "note": "task plan; sections 4 and M4 are authoritative"
+    },
+    {
+      "path": "reviews/core-round/external/iut",
+      "commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+      "sha256": null,
+      "note": "HEAD verified by git rev-parse; working tree clean; no INPUT_DRIFT. 440 .lean files. Licence Apache-2.0 (LICENSE, formalization.yaml:33). lakefile.toml pins mathlib rev v4.32.0."
+    },
+    {
+      "path": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/mathlib",
+      "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+      "sha256": null,
+      "note": "read-only local Mathlib checkout, lean-toolchain leanprover/lean4:v4.34.0-rc2. Consulted for one name check only (CategoryTheory.Localization.HasLocalization); not the revision the external repo pins."
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/core-backward-2026-10-23/M4/reuse.csv",
+      "sha256": "23aeed6803f45dd4bd65c7eb8a0dc8d6aee17c8678e7b8ee50c5d02ae722c0cf"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M4/missing.md",
+      "sha256": "db4e3ee0f3a375b4c840a8bf8f662a2ff363d84337629f734b9109f9ca5be257"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M4/SUMMARY.md",
+      "sha256": "5d409c69721ab47434b42af263a0a7456a1e78c83d4081cad4509a61a136a6dd"
+    }
+  ],
+  "hit_count": 8,
+  "completed": [
+    "Verified external/iut HEAD == f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb; no INPUT_DRIFT; recorded licence (Apache-2.0) per hit.",
+    "Tabulated exactly 8 hits in reuse.csv with real fully qualified names, file:line ranges, verbatim-ish signatures, and the premises each declaration actually consumes.",
+    "Need 2 covered: Iut.Frobenioid.OrbitObj / OrbitHom (TemperedBase 43-55), with proved theorems at 87, 163, 178, 116, 121.",
+    "Need 4 answered negatively in the general case: IsFrobenioid.pullback_surj (Defs 250-252) is an assumed field; existence proved only by Model.isFrobenioid (302-347, pullback built at 121-126) and degenerately by Angular.isFrobenioid (Angular/Frobenioid.lean:106).",
+    "Need 1 given as partial: RlfMuStrip (PrimeStrip 159-163) encodes IUT II Def 4.9(viii) but drops C^⊛ and the rho_v; localization isomorphisms absent from the type.",
+    "Need 3 given as partial: allowed morphisms RlfMuStrip.Iso / ValBPS.Iso, with Iso.val_eq (208) and isoEquivUnit (214) showing the value part is a subsingleton; no poly-morphism type acting on pilots.",
+    "Need 5 split: dim-1 determinant of the tensor product of factor maps proved (abs_det_archIndMap, GalKummerAll 327); degree side covered by degree_frobenius (Global 328, certificate-field projection) and the Iut4Sec1 base-change pair (Pullback 151/167, genuine computation).",
+    "Stated per hit whether a declaration only allows an object or proves existence, and flagged every theorem that merely projects a field out of a supplied certificate."
+  ],
+  "unresolved": [
+    "No declaration in the searched space provides a collection of genuinely local objects + a global object joined by localization isomorphisms as data; RlfMuStrip keeps only their images. Whether such data is recoverable from the repo's split-Kummer/value-group machinery needs the main line's judgement.",
+    "No theorem states that pullback/base change preserves the structures of needs 1-3 along the actual IUT operations (log-link, Theta-link, cQ3/cQ4), and nothing addresses survival of the associations under a formal/stack-theoretic quotient (H2).",
+    "No naturality of the determinant (or of a fixed tensor power) of a line under a structural poly-morphism, and no transformation law for the normalized log-volume degree used by cQ3; abs_det_archIndMap is a real-vector-space statement at the archimedean places only.",
+    "Local Mathlib (85e3a25e, Lean v4.34.0-rc2) is a different revision from the repo's pinned mathlib v4.32.0, so Mathlib names cannot be carried across without a re-check.",
+    "Proved here means 'carries a proof term in the source as read'; nothing was kernel-checked (lean_run false, editor_run false)."
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "fact_tree_admitted": false
+}

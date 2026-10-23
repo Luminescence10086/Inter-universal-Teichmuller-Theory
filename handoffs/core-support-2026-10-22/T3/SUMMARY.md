@@ -39,7 +39,7 @@ exit  0        stderr 0 bytes (sha256 e3b0c442…b855 = empty file)
 'DelegatedLogBridge.logImage_Q3_eq_closedBall' depends on axioms: [propext, Classical.choice, Quot.sound]
 ```
 
-Inputs: 10 tracked files, **0 drift** before/after. No `sorry/admit/axiom/opaque/native_decide` in the new source (0 grep hits). One file added; existing files untouched; public import root unchanged; no `lake update`.
+Inputs: 10 recorded input files, **0 drift** before/after. No `sorry/admit/axiom/opaque/native_decide` in the new source (0 grep hits). The bridge file was added first; the subsequent separate library-root addition `CoreTransport.lean` is described above. Existing source files were untouched; no `lake update`.
 
 ## Two honest notes
 
@@ -53,5 +53,4 @@ Inputs: 10 tracked files, **0 drift** before/after. No `sorry/admit/axiom/opaque
    why the axioms line above is clean: the failing version is not part of the delivered file.
 
 Timestamps in `delivery.json` come from the task directory's creation time and the final write,
-not from a stopwatch; `editor_status: NOT_CHECKED` — no VS Code check was performed, and nothing
-is admitted to the fact-tree.
+not from a stopwatch. The final recorded status is `editor_status: EDITOR_CHECKED`; the earlier NOT_CHECKED sentence was stale. The editor record is described above. Nothing is admitted to the fact-tree.

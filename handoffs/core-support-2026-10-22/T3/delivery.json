@@ -152,7 +152,7 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/SUMMARY.md",
-      "sha256": "e3bc5e093288767b41ac7c669ea5a689f916a18a9d4a61ff18af6dc88b2575ee"
+      "sha256": "07d20b5685f7688bd37d04bd4c924413609774fc1f6e0ee106bb011ff38d7f34"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/t3-lake-build-after-root.stderr.txt",
@@ -208,7 +208,7 @@
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/vscode-receipt.json",
-      "sha256": "de934a9a395ee9a4e5acf5af76ec19c1c51ae7dcda939978db3cf1775824037c"
+      "sha256": "f58a968b6e8f4cef7aefbab30ef5460079438cad630ec8513cdad55e155bc9a2"
     },
     {
       "path": "handoffs/core-support-2026-10-22/T3/write_infoview_receipt.py",
@@ -227,7 +227,7 @@
     {
       "cwd": "candidates/core-transport",
       "argv": [
-        "C:\\\\Users\\\\18746\\\\.elan\\\\bin\\\\lake.exe",
+        "C:\\Users\\18746\\.elan\\bin\\lake.exe",
         "env",
         "lean",
         "-DwarningAsError=true",

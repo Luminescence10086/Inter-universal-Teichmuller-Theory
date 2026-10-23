@@ -1,0 +1,70 @@
+{
+  "task_id": "M1",
+  "status": "STATIC_ONLY",
+  "inputs": [
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.pdf",
+      "commit": null,
+      "sha256": "9a7ee3c77b1c7717210c0613eb39b6844649d0040dc3d9e1be7d544f8f91a0b9"
+    },
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "commit": null,
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
+      "path": "handoffs/core-support-2026-10-22/T1/source-map.csv",
+      "commit": null,
+      "sha256": "3fd033b9b69a5f2440bc702f8bb7d4e0d30a1ccec587e3dd49df5ae2040f055c"
+    },
+    {
+      "path": "research/core-compatibility-2026-10-23/README.md",
+      "commit": null,
+      "sha256": "82839f4e5f1aba0a0d5d51103390afdb3eeae74dbb185e901b0947b018bba1a3"
+    },
+    {
+      "path": "research/core-compatibility-2026-10-23/source-analysis.md",
+      "commit": null,
+      "sha256": "860748876c678c821f80f4d2a8e68c08c87b50f519772e774428d096e4d2bba9"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/core-backward-2026-10-23/M1/arrows.csv",
+      "sha256": "d6d174b99ee2e1c8781540bc5f236240abb307294bdea1e160acdf676aeff3c7"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M1/sequence.md",
+      "sha256": "0abb6b0654104acc8b38193962b96ecc4a87656d65c504896fa128c772cd1f59"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M1/QUESTIONS.md",
+      "sha256": "6cf37242d2a65fd7e7910df72690393857388979ac5edf81ab772e124be1151a"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M1/SUMMARY.md",
+      "sha256": "2a667e2afc22202a6f1041b98143795ff5bb289e45984dd6f644830d2db2ee6e"
+    }
+  ],
+  "completed": [
+    "Re-hashed all five inputs; PDF sha256 matches the plan value, no INPUT_DRIFT.",
+    "Located and transcribed the Remark 3.10.2 commutative diagram from the extracted text (printed p.152 = PDF p.152, txt 9237-9301): two rows of four nodes and 11 arrow/relation units.",
+    "Transcribed the Remark 3.11.1(iii) IPL composition verbatim (p.161, txt 9863-9872) as 6 constituent arrows plus 1 composite unit.",
+    "Transcribed cQ3 (5 units), cQ4 (1), iQ5 (1), and the closed-loop claim (1) from pp.141-144.",
+    "arrows.csv: 28 rows, exactly the 10 plan columns, all cells non-empty; validated by parse (28x10, no empty field).",
+    "sequence.md: source-ordered listing with per-unit connection lines plus 6 type-connection problems visible from the text.",
+    "Kept every poly-isomorphism / indeterminacy phrase verbatim; no representative chosen out of a poly-isomorphism; no endpoint completed by assumption."
+  ],
+  "unresolved": [
+    "IPL-COMPOSITE domain and codomain are not stated by the source; composability forces n,m LGP -> (n,circ)lgp, recorded as inference only (QUESTIONS.md Q1).",
+    "R3102-CONJ: the source says 'conjugating' and never writes 'inverse'; inverse_explicitly_used left UNRESOLVED (Q2).",
+    "SQ2 (Galois evaluation) domain and codomain are not given in Remark 3.9.5(viii); direction UNRESOLVED (row SQ2).",
+    "CQ4-LOGK codomain is not an object named in the text; two mutually unreconciled indeterminacy regimes (Q6).",
+    "Whether the formal quotient is an Aut-orbit or a stack-theoretic quotient is not decided by the text (Q4) - handed to H1.",
+    "Whether (sQ5) lies inside the closed loop (Q5); M1 did not open Fig. 3.8 or the Cor 3.12 proof.",
+    "No claim made that any closed loop or pilot-preservation is established; both remain UNRESOLVED."
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "fact_tree_admitted": false
+}
