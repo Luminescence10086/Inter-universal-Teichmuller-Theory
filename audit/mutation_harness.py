@@ -914,12 +914,52 @@ def violations_for(spec, cells):
     return violations
 
 
-def run(include_matrix=True):
+def _recorded_probe_results(recorded):
+    """Validate probe results recorded by an earlier run that this one may reuse.
+
+    Re-running an unchanged probe over unchanged repository bytes can only repeat
+    the same answer, so a caller that has already paid for it may hand the results
+    back instead.  That is sound only for the *same* repository bytes and only for
+    probes that exist here, so both are checked and a mismatch is a harness error
+    (exit 2) rather than a quietly reused verdict.
+    """
+    if not isinstance(recorded, dict):
+        raise RuntimeError("recorded probe results must be a mapping, not "
+                           + type(recorded).__name__)
+    if recorded.get("repo_witness") != repo_witness():
+        raise RuntimeError("recorded probe results are only reusable for the same "
+                           "repository bytes, but the repository witness differs")
+    probes = recorded.get("probes")
+    if not isinstance(probes, dict):
+        raise RuntimeError("recorded probe results must carry a 'probes' mapping")
+    known = {name for name, _probe in PROBES}
+    unknown = sorted(set(probes) - known)
+    if unknown:
+        raise RuntimeError("recorded probe results name unknown probes: "
+                           + ", ".join(unknown))
+    return probes
+
+
+def run(include_matrix=True, recorded_probes=None):
+    """Run the gates and the required probes; return the machine-readable report.
+
+    ``recorded_probes`` is an optional ``{"repo_witness", "probes"}`` object from an
+    earlier run of this same harness over the same repository bytes.  Probes it
+    covers are reported as ``reused`` and are *not* executed again; every other
+    probe still runs for real, and a reused probe keeps its full standing in the
+    exit-code contract below.
+    """
     witness_before = repo_witness()
+    recorded = _recorded_probe_results(recorded_probes) if recorded_probes else {}
     matrix = []
     violations = []
     probe_results = {}
+    reused = []
     for name, probe in PROBES:
+        if name in recorded:
+            probe_results[name] = dict(_probe_verdict(recorded[name]), reused=True)
+            reused.append(name)
+            continue
         with tempfile.TemporaryDirectory(prefix=f"mutation_probe_{name}_") as holder:
             try:
                 verdict = probe() if name in REPO_ONLY_PROBES else probe(Path(holder))
@@ -986,6 +1026,7 @@ def run(include_matrix=True):
         "matrix": matrix,
         "matrix_complete": include_matrix,
         "probes": probe_results,
+        "probes_reused": reused,
         "violations": violations,
         "exit_code": 1 if violations else 0,
     }
@@ -1026,7 +1067,9 @@ def render(result):
     lines.append("")
     lines.append("probes:")
     for name, probe in result["probes"].items():
-        lines.append(f"  {'ok ' if probe['ok'] else 'FAIL'} {name}: {probe['detail']}")
+        suffix = " (recorded, reused: same repository bytes)" if probe.get("reused") else ""
+        lines.append(f"  {'ok ' if probe['ok'] else 'FAIL'} {name}: "
+                     f"{probe['detail']}{suffix}")
     lines.append("")
     lines.append("findings:")
     for row in result["matrix"]:
@@ -1079,6 +1122,10 @@ def main(argv=None):
                         help="print every cell's detail below the matrix")
     parser.add_argument("--probes-only", action="store_true",
                         help="run required probes without repeating the M1-M8 matrix")
+    parser.add_argument("--reuse-probes", metavar="PATH",
+                        help="reuse the probe results recorded in PATH (a JSON object "
+                             "with 'repo_witness' and 'probes') instead of rerunning "
+                             "those probes; the repository witness must match")
     args = parser.parse_args(argv)
 
     for stream in (sys.stdout, sys.stderr):
@@ -1087,8 +1134,18 @@ def main(argv=None):
         except (AttributeError, ValueError):  # pragma: no cover
             pass
 
+    recorded = None
+    if args.reuse_probes:
+        try:
+            recorded = json.loads(Path(args.reuse_probes).read_text(encoding="utf-8"))
+        except (OSError, ValueError) as error:
+            print(f"mutation harness could not read {args.reuse_probes}: {error}",
+                  file=sys.stderr)
+            return 2
+
     try:
-        result = run(include_matrix=not args.probes_only)
+        result = run(include_matrix=not args.probes_only,
+                     recorded_probes=recorded)
     except RuntimeError as error:
         print(f"mutation harness could not run: {error}", file=sys.stderr)
         return 2
