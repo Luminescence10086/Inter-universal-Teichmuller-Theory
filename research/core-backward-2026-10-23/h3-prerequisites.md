@@ -46,15 +46,25 @@
   「normalized so that multiplication by `p_{v_Q}` affects log-volumes by addition or subtraction …
   of the quantity `log(p_{v_Q})`」（5525–5529）。
   **注意**：这是 `E/N` 侧的权重，**不是** (xi-d) 的 `j` 归一化；两者不可混用。
+- **〔已核〕两条具名归一化**，txt 7000–7010 与 7034–7039：
+  - **packet-normalization**（7000–7002）：把 `M(−)` 的元素乘 `e = 2.71828…` 对应"加 `1 = log(e)`"；
+  - **procession-normalization**（7005–7010，7034–7039）：对 procession 中的若干 capsule，"normalize by
+    taking the **average**, over the various capsules under consideration"。
+  即：原文的"procession 归一化"**就是取平均**，平均的对象是 procession 里的 capsule 标签。
 - **〔已核〕(xi-d)**，txt 11022：`[suitably normalized, with respect to j ∈ |F_l|] log-volume`——
-  索引是 **`|F_l|`**（集合），与 Step (x) 的 **`F_l^⋆`**（群）**不同**；"suitably" 始终未被指定。
-  两处是否为同一个归一化，原文**没有**声明。
+  索引写的是 **`|F_l|`**（集合），而 Step (x) 写的是 **`F_l^⋆`**（群，"where the average is taken over
+  `j ∈ F_l^⋆`"）。
+- **〔推断，非原文陈述〕** 这两处**很可能指同一个归一化**：`|F_l|` 是标签集，`F_l^⋆` 是作用在标签上的对称群
+  （10917–10922 明说这些平均来自 `F_l^⋆` 在 theta 值标签上的作用），而 7005–7010 的 procession 归一化正是
+  对这些标签取平均。但原文**没有**明说 `|F_l|` 索引与 procession 平均是同一个约定——这条识别必须由证明
+  或显式约定补上，不能默认。
 - **〔已核〕Prop 3.9(iii)**，txt 7080–7090：全局 log-volume 等于由 `J` 决定的 arithmetic line bundle 的
-  degree，但仅「relative to a **suitable normalization**」；Remark 3.1.1(ii) 的公式是**候选**，但原文没说是同一个。
+  degree，但仅「relative to a **suitable normalization**」；Remark 3.1.1(ii) 的权重公式与 7000–7010 的
+  packet/procession 归一化都是候选，原文没有指认是哪一个。
 - **要补的证明**（三条，按难度）：
-  1. 把 (xi-d) 的 `j ∈ |F_l|` 归一化写成显式函数，并证明它与 Step (x) 的 `F_l^⋆` 平均**相容**
-     （或给出二者差的显式界）——这是 `vQ = q₀` 有确定含义的前提；
-  2. 证明 Prop 3.9(iii) 的"suitable normalization"就是 Remark 3.1.1(ii) 那条（给出公式即可，但要引用对齐）；
+  1. **把 (xi-d) 的 `|F_l|` 归一化识别为 procession 归一化**（即"对标签取平均"，7005–7010），从而不是
+     一个未指定的"合适约定"——这是 `vQ = q₀` 有确定含义的前提。这里要的是**定义对齐**，不是新的估计；
+  2. 证明 Prop 3.9(iii) 的"suitable normalization"是 packet 归一化 + procession 平均的组合（给出公式并对齐）；
   3. 在 1、2 之后，才谈得上"同一对象的 native 读数 = 输出读数"这类陈述。
 
 ## 玩具能说什么、不能说什么
