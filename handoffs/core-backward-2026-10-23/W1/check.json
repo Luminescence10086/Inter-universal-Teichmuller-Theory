@@ -1,0 +1,140 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "ReadingInvariance.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "ReadingInvariance.hasSum_logTerm_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.hasSum_perm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.localLog_eq_padicLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.logTerm_four_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.logTerm_four_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.norm_nine": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.partialSumAlong": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.partialSumAlong_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.partialSum_not_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingInvariance.reading_independent_of_enumeration": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 10,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "theorem",
+      "name": "localLog_eq_padicLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_logTerm_localLog"
+    },
+    {
+      "kind": "def",
+      "name": "partialSumAlong"
+    },
+    {
+      "kind": "theorem",
+      "name": "partialSumAlong_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_perm"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_independent_of_enumeration"
+    },
+    {
+      "kind": "theorem",
+      "name": "logTerm_four_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "logTerm_four_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_nine"
+    },
+    {
+      "kind": "theorem",
+      "name": "partialSum_not_invariant"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\ReadingInvariance.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "fea11e7ab003c55fd30e81f37d085526a907bd44102b4c352601409a7ff6b83b",
+  "stdout_tail": "'ReadingInvariance.localLog_eq_padicLog' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.hasSum_logTerm_localLog' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.partialSumAlong' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.partialSumAlong_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.hasSum_perm' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.reading_independent_of_enumeration' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.logTerm_four_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.logTerm_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.norm_nine' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingInvariance.partialSum_not_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

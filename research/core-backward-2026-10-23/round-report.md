@@ -53,6 +53,37 @@ log-volume 一出现即已粗化。此前 M1 的发现 #1 与本设计稿的 §1
 **K4 的诚实边界**：算法是 p 进对数的部分和算法，**不是 η-算法**；没有把任何 IUT 接口改写成带来源的形式；
 没有 Θ-link、`Ism`、Cor 3.12。核心 GAP 保持 OPEN。
 
+## W1：读数不变性（K4 之后的一步）
+
+`h1-decision.md` §结论一′ 定下 `(n,◦)` 是"determined, up to isomorphism"的单对象（原文 8869–8873），
+于是留下一条义务：**读数必须与呈现的选择无关**。M3 已证明 11 个接口都不承担这条不变性，所以只能自己证。
+
+`candidates/core-transport/ReadingInvariance.lean`（sha `c9cb9bcd…`，166 行）在 `ℚ_[3]` 上把这条形状做出来：
+
+- `hasSum_perm`：`‖x-1‖<1` 时，按**任意**枚举 `σ` 求和仍得 `localLog x`（引 `Equiv.hasSum_iff`，不重证收敛；
+  本机 Mathlib 无 `tsum_perm`）
+- `reading_independent_of_enumeration`：两个呈现 `σ,τ` 给出同一 `tsum`，两边都保留为 `tsum`
+- `partialSum_not_invariant`：**反退化**——**部分**读数不变性不成立，具体见证 `σ = swap 0 2, n = 1, x = 4`
+  给出 `9` 与 `3`，用范数 `‖9‖ = 1/9 ≠ 1/3 = ‖3‖` 分开
+
+三关：CLI `lake env lean -DwarningAsError=true` exit 0、stderr 0 字节（严格门禁 10 声明 / 0 error / 0 warning、
+10 定理全有公理报告、公理仅三标准条）；编辑器 0 error / 0 warning / 24 information；Infoview 9/9 `No goals`。
+
+**这是 Ind1–Ind3 的类比，不是它本身**：呈现是"步骤枚举"，不是 Θ-link 的不定性；不构造 Θ-link、`Ism`、
+prime-strip、Hodge theater、coricity；不解除 §结论一′ 对真实对象的义务。核心 GAP 仍 OPEN。
+
+## 一个取证工具缺陷（已修，必须留痕）
+
+W1 的第一次编辑器抓取被**拒绝**（exit 3）——新启动的 VS Code 在目录加载完之前标题只有
+`Visual Studio Code`，我的守卫按设计拒绝。修这个时又发现更糟的一处：`capture-vscode-2.ps1` 曾在一次
+`Get-Content`/`Set-Content` 改写里把中文 UI 模式串**双重编码成乱码**，于是"受限模式"检测可能**假阴性**
+（把未信任窗口当成已信任）。
+
+两处都已修：脚本改为等标题出现目录名；所有本地化 UI 模式串改为 `\uXXXX` 转义、文件保持纯 ASCII。
+对既有收据的影响：T3 与 K4 的编辑器抓取早于本修复；它们的"已信任"依据**不是**字符串匹配，而是
+**Lean 4 状态项与 InfoView 的存在**（受限模式下这两者都不出现），故那些观测仍成立，但旧脚本内的信任检查
+不可靠、现已修好。这条注记写下，是为了以后读收据的人不必猜哪个版本产出了哪份证据。
+
 ## 下一步（不属本批次的机械任务）
 
 1. 按 M1 的端点在原文层面定下"环境范畴"与商类型，再决定 W2/W3 的层（H1）。

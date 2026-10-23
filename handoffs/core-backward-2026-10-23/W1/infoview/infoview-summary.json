@@ -1,0 +1,56 @@
+﻿[
+    {
+        "name":  "localLog_eq_padicLog",
+        "line":  "66",
+        "nodes":  422,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "hasSum_logTerm_localLog",
+        "line":  "75",
+        "nodes":  422,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "partialSumAlong_one",
+        "line":  "87",
+        "nodes":  422,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "hasSum_perm",
+        "line":  "100",
+        "nodes":  422,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "reading_independent_of_enumeration",
+        "line":  "108",
+        "nodes":  422,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "logTerm_four_zero",
+        "line":  "115",
+        "nodes":  422,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "logTerm_four_two",
+        "line":  "120",
+        "nodes":  425,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "norm_nine",
+        "line":  "127",
+        "nodes":  422,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "partialSum_not_invariant",
+        "line":  "152",
+        "nodes":  425,
+        "goal_text":  "No goals"
+    }
+]

@@ -1,0 +1,139 @@
+{
+  "task_id": "W1",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary (STATIC_ONLY / PARTIAL / INPUT_DRIFT) has no value for a Lean task verified in both planes; this value names exactly what was run",
+  "started_at": "2026-10-23T09:54:44+0800",
+  "inputs": [
+    {
+      "path": "research/core-backward-2026-10-23/h1-decision.md",
+      "sha256": "00c3c180ad4799a9f1ab697f2be6bdb424aa4f659ddb6d498b7454b54bce4e58"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M3/interfaces.json",
+      "sha256": "5d22fcb2243b4f2ae0bf40126836c288ee81bfe29457498733254d6045d4de8e"
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447"
+    },
+    {
+      "path": "candidates/core-log/CoreLog/QpThree.lean",
+      "sha256": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates/core-transport/ReadingInvariance.lean",
+      "sha256": "c9cb9bcdd40c3dcd3cf1c1c9e2012cf7a9250792410b7b7e09a010c94f16050b"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W1/README.md",
+      "sha256": "e280b3948d223b92af1a9f1626872c18d453dceb983c089f2c945fb3504ab2b3"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W1/check.json",
+      "sha256": "89d5ea711a7e7d1cde6cd6ee55c6a5c40ada3077d9f5daadedf75aa254a488c3"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W1/editor-check.md",
+      "sha256": "f1f2f35614e29950c8142e1927d54c93e8b67f1d628df12da78ecc646d53f8ed"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W1/editor/vscode-observation-tree-2.txt",
+      "sha256": "861ab9f28c61d2d4d1b49541da79b252c215cf5eda37963e5f7ea8b52b9dc20b"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "ReadingInvariance.lean"
+      ],
+      "cwd": "candidates/core-transport",
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 10,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 10,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "rechecked_on_source_sha": "c9cb9bcdd40c3dcd"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "information": 24,
+      "status_bar": "info 24 lines only, no error or warning counter"
+    },
+    "infoview": {
+      "per_declaration": {
+        "localLog_eq_padicLog": {
+          "line": 66,
+          "text": "No goals"
+        },
+        "hasSum_logTerm_localLog": {
+          "line": 75,
+          "text": "No goals"
+        },
+        "partialSumAlong_one": {
+          "line": 87,
+          "text": "No goals"
+        },
+        "hasSum_perm": {
+          "line": 100,
+          "text": "No goals"
+        },
+        "reading_independent_of_enumeration": {
+          "line": 108,
+          "text": "No goals"
+        },
+        "logTerm_four_zero": {
+          "line": 115,
+          "text": "No goals"
+        },
+        "logTerm_four_two": {
+          "line": 120,
+          "text": "No goals"
+        },
+        "norm_nine": {
+          "line": 127,
+          "text": "No goals"
+        },
+        "partialSum_not_invariant": {
+          "line": 152,
+          "text": "No goals"
+        }
+      },
+      "method": "--force-renderer-accessibility; cursor after the last tactic step",
+      "evidence_dir": "handoffs/core-backward-2026-10-23/W1/infoview/"
+    }
+  },
+  "completed": [
+    "hasSum_perm: the reading is the same under any enumeration, quoted from Equiv.hasSum_iff on top of the existing convergence theorem",
+    "reading_independent_of_enumeration: two presentations give the same tsum, both sides kept as tsum",
+    "partialSum_not_invariant: concrete witness (swap 0 2, n = 1, x = 4) separating 9 from 3 by norm",
+    "all three gates passed; 9/9 Infoview zero-goal"
+  ],
+  "unresolved": [
+    "this is an analogue of Ind1-3, not Ind1-3: the presentation is a step enumeration, not a Theta-link indeterminacy, and no Theta-link, Ism, prime-strip, Hodge theater or coricity is constructed",
+    "section 1-prime of h1-decision is NOT discharged for the real object",
+    "reading_independent_of_enumeration permutes only the enumeration at fixed x; independence of the choice of x is not proved",
+    "the editor capture script had a mojibake defect in its restricted-mode check; fixed here, and the effect on the T3/K4 receipts is recorded in editor-check.md"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}
