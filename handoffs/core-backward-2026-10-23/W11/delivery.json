@@ -1,0 +1,80 @@
+{
+  "task_id": "W11",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T15:35:39+0800",
+  "alignment_record": {
+    "path": "research\\core-backward-2026-10-23\\lana-report-assessment.md",
+    "sha256": "f9fd675d6b90ad517f2c9c45708ce974325fe0f5551fca0a1bc553b70ce9509b",
+    "role": "records the verbatim repository statements (EtaAlg.lean:145/151, Rss.lean:501) that this toy mirrors: maps of pointed lines are equal iff they agree at the pilot"
+  },
+  "inputs": [
+    {
+      "path": "research\\core-backward-2026-10-23\\lana-report-assessment.md",
+      "sha256": "f9fd675d6b90ad517f2c9c45708ce974325fe0f5551fca0a1bc553b70ce9509b"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W7/delivery.json",
+      "sha256": "b09e89b28abfdd1cfa891108f7ae2ae351619edf1bdbb0cc5f530d6fbff02131"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates\\core-transport\\EtaComparison.lean",
+      "sha256": "330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W11/check.json",
+      "sha256": "a4cd26b529519882e91505bd092d74da0bbd44907f5e6a86ae158d33fb1a0b64"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W11/editor/vscode-observation-tree-2.txt",
+      "sha256": "79382c5da94c4e1038f79fea611a42fc8f6527285090af95ad9f3d85cc5fe243"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 43,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 43,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "status_bar": "no problems detected in the workspace",
+      "evidence": "editor/vscode-observation-tree-2.txt"
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "map_eq_iff_pilot: maps of pointed lines are equal iff they agree at a non-zero pilot -- the abstraction of ValBPS.eta_eq_eta_iff used in the repository",
+    "eta_equality_iff_scalar: (9-1) for a given S is a scalar equality, mirroring etaAnab_eq_etaQ_iff",
+    "the chain maps = scalars = orbit membership, with the family indexed by the indeterminacy itself (orbitFamily H c0 s = s . c0)",
+    "degeneracy both ways: agreement at pilot 0 does not determine the map; and with H = bottom, q = 2 is outside the orbit so no S gives equality"
+  ],
+  "unresolved": [
+    "no out, no BPS, no Ind3, hence no logVol and no qPilot: this is the real-linear mirror of the reduction, not etaAnab or etaQ, and it does not prove (9-1)",
+    "the repository reduction is model-internal because out is a bare field (M3: F3 false throughout)"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

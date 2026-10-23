@@ -1,0 +1,437 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "EtaComparison.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "EtaComparison.InOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.Rss": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.Rval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.agreement_at_zero_not_determining": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.bottom_pointwise": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.doubleMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.doubleMap_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.etaAnab": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.etaAnab_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.etaAnab_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.etaQ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.etaQ_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.etaQ_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.eta_eq_iff_inOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.eta_equality_iff_pilot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.eta_equality_iff_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.eta_equality_iff_scalar_via_pilot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.exists_S_of_inOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.exists_eta_eq_iff_exists_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.finrank_Rss": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.finrank_Rval": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.idMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.idMap_ne_doubleMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.idMap_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.inOrbit_iff_exists_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.inOrbit_iff_exists_unit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.in_orbit_iff_exists_iso_in_family": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.map_eq_iff_pilot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.map_eq_iff_pilot_fails_at_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.map_eq_scalarMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.nine_one_at_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.no_S_below_bottom": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.no_S_top_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.not_inOrbit_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.orbitFamily": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.orbitFamily_bot": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.pilot_eq_iff_scalar": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.scalarMap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.scalarMap_apply": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.scalarMap_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.top_inOrbit_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.unit_smul_eq_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "EtaComparison.zero_pilot_not_determining": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 43,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "abbrev",
+      "name": "Rval"
+    },
+    {
+      "kind": "abbrev",
+      "name": "Rss"
+    },
+    {
+      "kind": "theorem",
+      "name": "finrank_Rval"
+    },
+    {
+      "kind": "theorem",
+      "name": "finrank_Rss"
+    },
+    {
+      "kind": "def",
+      "name": "scalarMap"
+    },
+    {
+      "kind": "theorem",
+      "name": "scalarMap_apply"
+    },
+    {
+      "kind": "theorem",
+      "name": "scalarMap_injective"
+    },
+    {
+      "kind": "theorem",
+      "name": "map_eq_iff_pilot"
+    },
+    {
+      "kind": "theorem",
+      "name": "map_eq_scalarMap"
+    },
+    {
+      "kind": "def",
+      "name": "etaAnab"
+    },
+    {
+      "kind": "def",
+      "name": "etaQ"
+    },
+    {
+      "kind": "theorem",
+      "name": "etaAnab_apply"
+    },
+    {
+      "kind": "theorem",
+      "name": "etaQ_apply"
+    },
+    {
+      "kind": "theorem",
+      "name": "etaAnab_bijective"
+    },
+    {
+      "kind": "theorem",
+      "name": "etaQ_bijective"
+    },
+    {
+      "kind": "theorem",
+      "name": "pilot_eq_iff_scalar"
+    },
+    {
+      "kind": "theorem",
+      "name": "eta_equality_iff_pilot"
+    },
+    {
+      "kind": "theorem",
+      "name": "eta_equality_iff_scalar_via_pilot"
+    },
+    {
+      "kind": "theorem",
+      "name": "eta_equality_iff_scalar"
+    },
+    {
+      "kind": "theorem",
+      "name": "exists_eta_eq_iff_exists_scalar"
+    },
+    {
+      "kind": "theorem",
+      "name": "unit_smul_eq_mul"
+    },
+    {
+      "kind": "def",
+      "name": "InOrbit"
+    },
+    {
+      "kind": "theorem",
+      "name": "inOrbit_iff_exists_smul"
+    },
+    {
+      "kind": "theorem",
+      "name": "inOrbit_iff_exists_unit"
+    },
+    {
+      "kind": "def",
+      "name": "orbitFamily"
+    },
+    {
+      "kind": "theorem",
+      "name": "eta_eq_iff_inOrbit"
+    },
+    {
+      "kind": "theorem",
+      "name": "in_orbit_iff_exists_iso_in_family"
+    },
+    {
+      "kind": "theorem",
+      "name": "exists_S_of_inOrbit"
+    },
+    {
+      "kind": "theorem",
+      "name": "top_inOrbit_iff"
+    },
+    {
+      "kind": "theorem",
+      "name": "nine_one_at_four"
+    },
+    {
+      "kind": "theorem",
+      "name": "no_S_top_zero"
+    },
+    {
+      "kind": "def",
+      "name": "idMap"
+    },
+    {
+      "kind": "def",
+      "name": "doubleMap"
+    },
+    {
+      "kind": "theorem",
+      "name": "idMap_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "doubleMap_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "idMap_ne_doubleMap"
+    },
+    {
+      "kind": "theorem",
+      "name": "agreement_at_zero_not_determining"
+    },
+    {
+      "kind": "theorem",
+      "name": "zero_pilot_not_determining"
+    },
+    {
+      "kind": "theorem",
+      "name": "map_eq_iff_pilot_fails_at_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitFamily_bot"
+    },
+    {
+      "kind": "theorem",
+      "name": "bottom_pointwise"
+    },
+    {
+      "kind": "theorem",
+      "name": "not_inOrbit_bot"
+    },
+    {
+      "kind": "theorem",
+      "name": "no_S_below_bottom"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\EtaComparison.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "e97540b36da61eaf8bcfc10dcfc81acd9c458e63bdc2e45c75886fe05b2fea94",
+  "stdout_tail": " Quot.sound]\n'EtaComparison.exists_S_of_inOrbit' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.top_inOrbit_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.nine_one_at_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.no_S_top_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.idMap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.doubleMap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.idMap_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.doubleMap_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.idMap_ne_doubleMap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.agreement_at_zero_not_determining' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.zero_pilot_not_determining' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.map_eq_iff_pilot_fails_at_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.orbitFamily_bot' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.bottom_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.not_inOrbit_bot' depends on axioms: [propext, Classical.choice, Quot.sound]\n'EtaComparison.no_S_below_bottom' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

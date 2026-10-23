@@ -1,0 +1,94 @@
+# W11 checks — `candidates/core-transport/EtaComparison.lean`
+
+Date: 2026-10-23. All values below are measured, not asserted: the file was read as raw bytes
+(`[IO.File]::ReadAllBytes`) and hashed with SHA-256, the compiler was invoked with the exact command in
+the task, and every scan is a whole-file regular-expression count (docstrings included).
+
+## Precondition
+
+`candidates/core-transport/EtaComparison.lean` **did not exist** before this round (glob over
+`candidates/core-transport/*.lean` at start of work: no match). It was created; no existing file was
+modified (`git status --porcelain` shows it as the single untracked addition inside the package).
+
+## Artifact
+
+| item | value |
+|---|---|
+| path | `candidates/core-transport/EtaComparison.lean` |
+| sha256 | `330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce` |
+| bytes | 28381 |
+| characters | 27517 (UTF-8) |
+| lines | 483, LF-only (CR count 0), no BOM, final newline present |
+| namespace | `EtaComparison` |
+| import | `CoreLog.QpThree` (the only import) |
+| declarations | 43 (9 `abbrev`/`def`, 34 `theorem`) |
+| `#print axioms` lines | 43 (one per declaration) |
+
+One extra line in the file matches `^theorem `: line 18 is the **quoted** upstream signature
+`theorem etaAnab_eq_etaQ_iff …` inside the module docstring. It is documentation of the external source,
+not a declaration of this file; the declaration count above excludes it, so 43 = 43.
+
+## Build
+
+Run from `D:\Inter-universal Teichmüller Theory\candidates\core-transport`:
+
+```
+lake env lean -DwarningAsError=true EtaComparison.lean
+```
+
+| item | value |
+|---|---|
+| exit code | **0** (`build.exit.txt`) |
+| stdout | 3968 B (`build.stdout.log`) — the 43 dependency-footprint lines and nothing else |
+| stderr | **0 B** (`build.stderr.log`) |
+| errors / warnings | 0 / 0 (`-DwarningAsError=true` in force) |
+| `.olean` produced | none (the file is not a Lake target, as with W1–W10) |
+
+Repair rounds: **0**. The file compiled at exit 0 with 0 B stderr on its first invocation, and again after
+the one content addition (`not_inOrbit_bot`, item 5b's non-membership) and the line-ending normalisation.
+
+## Dependency footprint
+
+43 of 43 declarations print exactly the same line,
+
+```
+'EtaComparison.<name>' depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+
+so the union over the file is `{propext, Classical.choice, Quot.sound}` — a subset of the allowed set.
+`sorryAx` occurs **0** times in `build.stdout.log` (whole-file scan of the log).
+
+Verbatim, the lines for the three required declarations:
+
+```
+'EtaComparison.map_eq_iff_pilot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EtaComparison.eta_equality_iff_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'EtaComparison.no_S_below_bottom' depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+
+## Forbidden-substring scan (whole file, docstrings included)
+
+| substring | count |
+|---|---|
+| `sorry` | 0 |
+| `admit` | 0 |
+| `opaque` | 0 |
+| `native_decide` | 0 |
+| `sorryAx` | 0 |
+| `axiom` | 43 — **all** of them inside the 43 mandated `#print axioms` lines |
+| `#print axioms` | 43 |
+
+## Cross-check of the axiom list against the declaration list
+
+Every `theorem`/`def`/`abbrev` name in the file (43) was matched against the print list by exact name;
+0 declarations are unprinted and 0 print lines are dangling.
+
+## Quick reproduction
+
+```powershell
+$p='D:\Inter-universal Teichmüller Theory\candidates\core-transport\EtaComparison.lean'
+$b=[IO.File]::ReadAllBytes($p); $b.Length                       # 28381
+$sha=[System.Security.Cryptography.SHA256]::Create()
+(($sha.ComputeHash($b) | % { $_.ToString('x2') }) -join '')     # 330431ed…cfce
+(($b | ? { $_ -eq 13 }).Count)                                  # 0 (LF only)
+```
