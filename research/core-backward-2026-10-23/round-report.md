@@ -131,6 +131,24 @@ CLI exit 0、50 条公理报告、0 诊断；编辑器 0 error / 0 warning。
 **又修了两处我自己的缺陷**：检查器对带命名空间的声明与短名比对不一致（已两侧统一按末段比较）；W4 有 4 个定理
 缺公理报告（审计遗漏，非证明缺陷，我补了 4 行 `#print` 未改证明）。两处修完都用植入 `sorry` 的负对照复校准。
 
+## W5 / W6：对齐的代数内容与"下降到商"
+
+**W5 — `candidates/core-transport/NormalizationAlignment.lean`**（sha `03b6e502…`，406 行，31/31 审计）：
+把 `0 ↔ ⟨F_l^⋆⟩` 认同（IUT II Cor 4.10(i)）的**代数内容**证成定理——不变读数在轨道上取值相同，故
+**轨道平均 = 标签处取值**（`average_eq_value_of_invariant` 与其特例 `alignment`）。反退化是**算出来的**：
+标签交换下读数 5、7，轨道平均 6，标签处 5，且显式证明不变性假设确实失效；文件还主动披露自作用载体上
+不变性即常值性。
+
+**W6 — `candidates/core-transport/ReadingFactorization.lean`**（sha `6a756a88…`，881 行，83/83 审计）：
+把 W4 的"链上常数"推进为"**下降到商**"——`SameObject` 取 transport 关系的 `ReflTransGen` 闭包（相容链上多余，
+一般情形必需），`descendedReading` 用 `Quotient.lift` 构造、常数性义务逐步证明，`descendedReading_mk`
+说明下降函数算出原读数。断裂链上基本单位仍然 transport、直接单位不 transport，读数因此不同，
+于是**根本不存在通过商的因子化**（`no_factorization_on_broken`）——这正是轨道形状的失败。
+
+两者：CLI exit 0、stderr 0 字节、0 诊断、每条声明都有公理报告、公理仅三条标准；编辑器 0 error / 0 warning。
+均**不**声称 IUT 的 localization 数据、log-volume 或 Θ-link 的任何事；W5 明确不证明 (xi-d) 用的是 procession
+平均——来源对齐仍是**定义对齐**。
+
 ## 下一步（不属本批次的机械任务）
 
 1. 按 M1 的端点在原文层面定下"环境范畴"与商类型，再决定 W2/W3 的层（H1）。
