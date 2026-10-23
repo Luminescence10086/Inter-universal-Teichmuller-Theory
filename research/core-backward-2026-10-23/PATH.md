@@ -25,24 +25,29 @@ K4（执行来源）这三处最容易含糊的地方，各自做成一个能编
 | W4 | `candidates/core-transport/TransitionCompatibility.lean` | 带余圈律的过渡；相容链迫使读数相同，断裂链不 | `8a6ada4` |
 | W5 | `candidates/core-transport/NormalizationAlignment.lean` | 不变读数 ⇒ **轨道平均 = 标签处取值**（`0 ↔ ⟨F_l^⋆⟩` 的代数内容） | `ae9d90d` |
 | W6 | `candidates/core-transport/ReadingFactorization.lean` | 读数**下降到商**（`Quotient.lift`）；断裂链上**没有**因子化 | `ae9d90d` |
-| W7 | `candidates/core-transport/UnifiedFactorization.lean` | W5 的群轨道与 W6 的过渡关系合成**一条**：两条关系上的常数性 ⇒ 并上常数性 ⇒ 读数下降到并商；W5/W6 还原为调用同一 `descended` 的实例 | 见 W7 交付提交 |
+| W7 | `candidates/core-transport/UnifiedFactorization.lean` | W5 的群轨道与 W6 的过渡关系合成**一条**：两条关系上的常数性 ⇒ 并上常数性 ⇒ 读数下降到并商；W5/W6 还原为调用同一 `descended` 的实例 | `bf859ae` |
+| M-i | `candidates/core-transport/DivideBackTwist.lean` + `research/…/m-i-design.md` | 除回活在**读数层**；twist 项 `τ` 显式写出，不变性 ⟺ `τ = 0`；并**证出** `‖localLog 4‖ = 1/3`，故 `τ ≠ 0` 有具体见证 | `cfd3796`、`ed39245` |
+| M-ii | `candidates/core-transport/ExponentUniqueness.lean` + `research/…/m-ii-design.md` | 指数 `M` 被确定 ⟺ **探针读数非零**；挠探针（`x = 1`）对任意指数给相同读数 | `db181de`、`ba78ff1` |
 
 ## 现在正在走的
 
-**回到 H3 的 M-i 类型设计（下一步，尚未开始）**：原文 (Ob4)/(Ob4-3) 只**断言**"除回 M 次 tensor power 无害"，
-既无映射也无界；W3 给了"除以标量 M"的玩具，但真实形状需要一个**把 M 次幂读数送回原读数的具名操作**，
-并证明它与 twist 不定性相容。这是三条 H3 义务里最难的一条，也是 W7 之后唯一还在原位的缺口。
+**W10 — `candidates/core-transport/H3Synthesis.lean`（进行中）**：把 M-i 与 M-ii 合成一条**抽象**定理——
+读数是从乘法群到加法群的**同态**、探针**非挠**，两条一起给出"twist-free ⇒ 除回得到原读数"与"非挠 ⇒ 指数唯一"。
+若成功，W8/W9 就是同一条同态事实的两个实例，而不是两个孤立玩具。
 
-## 下一步（已排定，尚未开始）
+## 下一步（已排定）
 
-1. **M-i 的类型设计**：原文 (Ob4)/(Ob4-3) 只**断言**"除回 M 次 tensor power 无害"，既无映射也无界。W3 给了
-   "除以标量 M"的玩具；真实形状需要**一个把 M 次幂读数送回原读数的具名操作**，并证明它与 twist 不定性相容。
-   这是三条 H3 义务里最难的一条。
-2. **M-ii**：证明三处 `M` 是同一个（hull 的 `det^{⊗M}`、q-pilot 侧的 M 次幂、`(Ob4-1)` 的 degree-M Frobenius）。
-   三者若不同，(Ob4) 的"无害"不自动成立。
-3. **M-iii 的落地**：按 IUT II Cor 4.10(i) 的认同，把 (xi-d) 的 `|F_l|` 索引**对齐**到 procession 归一化——
-   现在这已从"缺来源"降级为"引用在手的认同做定义对齐"。
-4. 只有 1–3 有结论后，才谈得上"native 读数 = 输出读数"这类陈述。
+1. **M-iii 的落地**：按 IUT II Cor 4.10(i) 的认同，把 (xi-d) 的 `|F_l|` 索引对齐到 procession 归一化——
+   已从"缺来源"降级为"引用在手的认同做定义对齐"。
+2. **三处 `M` 的同一性**：需要 `det^{⊗M}` 的真实对象层与 `(Ob4-1)` 的 degree-M Frobenius——**超出当前玩具层**，
+   需要新对象，不是再写一个 §ℚ_[3] 上的文件。
+3. 只有 1–2 有结论后，才谈得上"native 读数 = 输出读数"这类陈述。
+
+## 玩具层的边界（重要）
+
+到 W10 为止，所有 Lean 产物都在**玩具层**：读数取 `localLog`、对象取 `ℚ_[3]` 的元素、张量幂取 `x^M`。
+它们把三条 H3 义务的**形状**做成可证、可审计、可被反例打脸的东西；**没有**任何一条构造了真实的
+`det^{⊗M}` 对象、log-shell、prime-strip 或 Θ-link。再往上一层需要这些真实对象，属新的一层工作。
 
 ## 纪律（每一步都检查这三条）
 
