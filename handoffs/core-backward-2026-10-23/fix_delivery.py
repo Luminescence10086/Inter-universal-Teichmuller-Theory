@@ -291,6 +291,9 @@ record = {
             'from the CLI plane, where it is produced and hashed',
         ],
         'downgraded_in_this_round': ['W8', 'W9', 'W11'],
+        'relabelling_of_the_rest': ('deferred to Astra by the student on 2026-10-23: the remaining ten tasks keep '
+                                    'their EDITOR_CHECKED label in this round, and the decision whether to lower or '
+                                    'to re-capture them per file belongs to the external reviewer'),
     },
     'commands': [
         {'cmd': 'lake build (candidates/core-transport) with -DwarningAsError=true',
@@ -307,8 +310,9 @@ record = {
     ],
     'unresolved': [
         'the W11 editor plane is PENDING, not checked: four capture sessions, documented in W11/editor/README.md',
-        'the editor gate of every other task in this batch is asserted over the window, not over the task file '
-        '(see editor_evidence_sweep); relabelling all of them is a larger decision than this fix round should take',
+        'the editor gate of the other ten tasks in this batch is asserted over the window, not over the task file '
+        '(see editor_evidence_sweep); the student deferred that relabelling decision to Astra, so this round '
+        'neither lowers nor defends those ten labels',
     ],
     'core_gap': 'OPEN',
 }
