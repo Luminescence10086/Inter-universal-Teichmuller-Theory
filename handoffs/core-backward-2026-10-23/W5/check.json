@@ -1,0 +1,326 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "NormalizationAlignment.lean"
+  ],
+  "axiom_free": [
+    "NormalizationAlignment.LabelGroup"
+  ],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "NormalizationAlignment.Invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.InvariantOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.alignment": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.average_eq_value_of_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.card_cast_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.card_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.card_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.eq_one_or_swap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.fin_two_eq_zero_or_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.invariant_apply_eq_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.invariant_const": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.invariant_iff_const": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.nonInvariantReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.nonInvariantReading_not_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.nonInvariantReading_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.nonInvariantReading_swap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.one_ne_swap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverage": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverageOn": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverageOn_eq_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverage_const": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverage_mul_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverage_ne_value": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverage_nonInvariantReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbitAverage_perm_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.orbit_sum_eq_card_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.sum_eq_card_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.sum_mul_left": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.swapLabels": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "NormalizationAlignment.univ_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 31,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "Invariant"
+    },
+    {
+      "kind": "def",
+      "name": "orbitAverage"
+    },
+    {
+      "kind": "theorem",
+      "name": "card_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "card_cast_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "invariant_apply_eq_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "invariant_iff_const"
+    },
+    {
+      "kind": "theorem",
+      "name": "sum_mul_left"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitAverage_mul_left"
+    },
+    {
+      "kind": "theorem",
+      "name": "sum_eq_card_mul"
+    },
+    {
+      "kind": "theorem",
+      "name": "average_eq_value_of_invariant"
+    },
+    {
+      "kind": "theorem",
+      "name": "alignment"
+    },
+    {
+      "kind": "theorem",
+      "name": "invariant_const"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitAverage_const"
+    },
+    {
+      "kind": "def",
+      "name": "InvariantOn"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbit_sum_eq_card_mul"
+    },
+    {
+      "kind": "def",
+      "name": "orbitAverageOn"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitAverageOn_eq_value"
+    },
+    {
+      "kind": "abbrev",
+      "name": "LabelGroup"
+    },
+    {
+      "kind": "def",
+      "name": "swapLabels"
+    },
+    {
+      "kind": "theorem",
+      "name": "fin_two_eq_zero_or_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "one_ne_swap"
+    },
+    {
+      "kind": "theorem",
+      "name": "eq_one_or_swap"
+    },
+    {
+      "kind": "theorem",
+      "name": "univ_eq"
+    },
+    {
+      "kind": "theorem",
+      "name": "card_eq"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitAverage_perm_two"
+    },
+    {
+      "kind": "def",
+      "name": "nonInvariantReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "nonInvariantReading_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "nonInvariantReading_swap"
+    },
+    {
+      "kind": "theorem",
+      "name": "nonInvariantReading_not_invariant"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitAverage_nonInvariantReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "orbitAverage_ne_value"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\NormalizationAlignment.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "aff6e7c1298267e0790790e87d0be973c7c6309445cd32f543a64ac190281110",
+  "stdout_tail": ".orbitAverageOn_eq_value' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.LabelGroup' does not depend on any axioms\n'NormalizationAlignment.swapLabels' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.fin_two_eq_zero_or_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.one_ne_swap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.eq_one_or_swap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.univ_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.card_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.orbitAverage_perm_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.nonInvariantReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.nonInvariantReading_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.nonInvariantReading_swap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.nonInvariantReading_not_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.orbitAverage_nonInvariantReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'NormalizationAlignment.orbitAverage_ne_value' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

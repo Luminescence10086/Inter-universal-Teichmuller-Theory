@@ -1,0 +1,80 @@
+{
+  "task_id": "W5",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T11:36:10+0800",
+  "inputs": [
+    {
+      "path": "research/core-backward-2026-10-23/h3-prerequisites.md",
+      "sha256": "932d169d9a0e88d5353437f795690e9c884a6c50756ecead09e844fba9a54cfb"
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates/core-transport/NormalizationAlignment.lean",
+      "sha256": "03b6e50289e4150b8ef98537deab952b14f5e80b0d8ccdc850a8be8ee56b2412"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W5/check.json",
+      "sha256": "03219e5247eb6b1ca4f76a77e51048a10b97fc875388cc51b7a4d286040939f7"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W5/editor-check.md",
+      "sha256": "9a038f66bc93b2c82df54238506609d0fa7886d8e4fa5fd0dca4e0959f267f27"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W5/editor/vscode-observation-tree-2.txt",
+      "sha256": "4d329523215995d749b732c6747f048d55041b1b126a77059f6f845fc8c176c3"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W5/README.md",
+      "sha256": "d7e65a6cefe37c0e140b901f7831f24e1e9d7d7d788425e56389d85df650117f"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 31,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 31,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "03b6e50289e4150b8ef98537deab952b14f5e80b0d8ccdc850a8be8ee56b2412"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "average_eq_value_of_invariant: for an invariant reading, the orbit average equals the value at any point of the orbit",
+    "alignment: the special case at the label 1, which is the algebraic content of 0 <-> <F_l^star>",
+    "anti-degeneracy computed (6 against 5) with an explicit proof that invariance fails"
+  ],
+  "unresolved": [
+    "this is the shape, not the source statement: it does not prove (xi-d) uses the procession average",
+    "no Theta-link, Ism, log-volume or Cor 3.12 appears"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

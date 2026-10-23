@@ -1,0 +1,770 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "ReadingFactorization.lean"
+  ],
+  "axiom_free": [
+    "ReadingFactorization.reflTransGen_symm",
+    "ReadingFactorization.i0",
+    "ReadingFactorization.i1",
+    "ReadingFactorization.i2",
+    "ReadingFactorization.expCompat",
+    "ReadingFactorization.expBroken"
+  ],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "ReadingFactorization.Chain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.Chain.reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.Chain.reading_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.Chain.reading_is_limit_of_algorithm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.Chain.relativeInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.Chain.relativeInput_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.Chain.stepInv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.Chain.stepInv_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.IsCompatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.SameObject": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.SameObjectStep": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.algorithmRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.algorithmRun_eq_partialSums": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.base": [
+      "propext"
+    ],
+    "ReadingFactorization.base_le": [
+      "propext"
+    ],
+    "ReadingFactorization.chainBroken": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_no_direct_edge": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_not_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_reading_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_reading_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_reading_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_readings_differ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_readings_one_two_differ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_relativeInput_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_relativeInput_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_relativeInput_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_sameObject": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_sameObject_one_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_transport_01": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainBroken_transport_12": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainCompat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainCompat_input_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainCompat_isCompatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainCompat_reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.chainCompat_transport_02": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.constancy_not_universal_on_broken": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.descendedReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.descendedReading_chainCompat_const": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.descendedReading_const": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.descendedReading_mk": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.descendedReading_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.exists_incompatible_chain_with_related_unequal_readings": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.hasSum_logTerm_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.input_transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.input_transport_aux": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.localLog_eq_padicLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.localLog_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.localLog_four_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.localLog_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.no_factorization_on_broken": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.norm_four_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.norm_four_pow_sub_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.norm_four_sub_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.norm_logRem_three_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.norm_three_le_two_mul_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.norm_two_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.norm_two_mul_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.one_step_versus_two_steps": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.reading_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.reading_eq_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.reading_eq_of_transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectSetoid": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectSetoid_rfl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectStep_direct": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectStep_of_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectStep_reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectStep_refl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectStep_succ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObjectStep_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_base_related": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_equivalence": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_quotient_subsingleton": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_reading_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_refl": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_symm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_total": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ReadingFactorization.sameObject_trans": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 83,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "algorithmRun"
+    },
+    {
+      "kind": "theorem",
+      "name": "algorithmRun_eq_partialSums"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_eq_padicLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_logTerm_localLog"
+    },
+    {
+      "kind": "def",
+      "name": "base"
+    },
+    {
+      "kind": "theorem",
+      "name": "base_le"
+    },
+    {
+      "kind": "structure",
+      "name": "Chain"
+    },
+    {
+      "kind": "def",
+      "name": "Chain.stepInv"
+    },
+    {
+      "kind": "def",
+      "name": "Chain.relativeInput"
+    },
+    {
+      "kind": "def",
+      "name": "Chain.reading"
+    },
+    {
+      "kind": "def",
+      "name": "IsCompatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_sub_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "Chain.relativeInput_mem"
+    },
+    {
+      "kind": "theorem",
+      "name": "Chain.reading_hasSum"
+    },
+    {
+      "kind": "theorem",
+      "name": "Chain.reading_is_limit_of_algorithm"
+    },
+    {
+      "kind": "theorem",
+      "name": "Chain.stepInv_step"
+    },
+    {
+      "kind": "theorem",
+      "name": "input_transport_aux"
+    },
+    {
+      "kind": "theorem",
+      "name": "input_transport"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_eq_base"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_compatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_two_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_two_mul_three"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_three_le_two_mul_three"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_logRem_three_le"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_four"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_four_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_ne_zero"
+    },
+    {
+      "kind": "def",
+      "name": "SameObjectStep"
+    },
+    {
+      "kind": "def",
+      "name": "SameObject"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObjectStep_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "reflTransGen_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_refl"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObjectStep_refl"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_trans"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_symm"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_equivalence"
+    },
+    {
+      "kind": "def",
+      "name": "sameObjectSetoid"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObjectSetoid_rfl"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObjectStep_succ"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObjectStep_of_compatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObjectStep_direct"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_base_related"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_total"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_quotient_subsingleton"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_eq_of_transport"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObjectStep_reading"
+    },
+    {
+      "kind": "theorem",
+      "name": "sameObject_reading_eq"
+    },
+    {
+      "kind": "def",
+      "name": "descendedReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "descendedReading_mk"
+    },
+    {
+      "kind": "theorem",
+      "name": "descendedReading_const"
+    },
+    {
+      "kind": "theorem",
+      "name": "descendedReading_unique"
+    },
+    {
+      "kind": "def",
+      "name": "i0"
+    },
+    {
+      "kind": "def",
+      "name": "i1"
+    },
+    {
+      "kind": "def",
+      "name": "i2"
+    },
+    {
+      "kind": "def",
+      "name": "expCompat"
+    },
+    {
+      "kind": "def",
+      "name": "expBroken"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_pow_sub_one"
+    },
+    {
+      "kind": "def",
+      "name": "chainCompat"
+    },
+    {
+      "kind": "def",
+      "name": "chainBroken"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_isCompatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_input_base"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_reading"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_transport_02"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_not_compatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_transport_01"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_transport_12"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_no_direct_edge"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_sameObject_one_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_sameObject"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_relativeInput_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_relativeInput_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_relativeInput_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_reading_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_reading_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_reading_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_readings_one_two_differ"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_readings_differ"
+    },
+    {
+      "kind": "theorem",
+      "name": "constancy_not_universal_on_broken"
+    },
+    {
+      "kind": "theorem",
+      "name": "no_factorization_on_broken"
+    },
+    {
+      "kind": "theorem",
+      "name": "descendedReading_chainCompat_const"
+    },
+    {
+      "kind": "theorem",
+      "name": "one_step_versus_two_steps"
+    },
+    {
+      "kind": "theorem",
+      "name": "exists_incompatible_chain_with_related_unequal_readings"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\ReadingFactorization.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "18bb398bbf702a632cbf21a4756f898e848143ac7078567bf5538f5906e7649f",
+  "stdout_tail": "Classical.choice, Quot.sound]\n'ReadingFactorization.chainBroken_relativeInput_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.chainBroken_relativeInput_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.chainBroken_reading_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.chainBroken_reading_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.chainBroken_reading_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.chainBroken_readings_one_two_differ' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.chainBroken_readings_differ' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.constancy_not_universal_on_broken' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.no_factorization_on_broken' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.descendedReading_chainCompat_const' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.one_step_versus_two_steps' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ReadingFactorization.exists_incompatible_chain_with_related_unequal_readings' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'ReadingFactorization.chainBroken_not_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

@@ -1,0 +1,45 @@
+W5 checks — NormalizationAlignment.lean
+generated: 2026-10-23 11:31:52 +08:00
+
+[artifact]
+path        = candidates/core-transport/NormalizationAlignment.lean
+sha256      = 03b6e50289e4150b8ef98537deab952b14f5e80b0d8ccdc850a8be8ee56b2412
+bytes       = 23513
+lines       = 406
+namespace   = NormalizationAlignment
+imports     = CoreLog.QpThree (only)
+declarations(theorem|def|abbrev at line start) = 31
+#print axioms lines = 31
+
+[build]
+command     = lake env lean -DwarningAsError=true NormalizationAlignment.lean
+cwd         = candidates/core-transport
+exit        = 0
+stderr      = 0 bytes
+stdout      = 3139 bytes, 31 dependency-footprint lines
+toolchain   = Lean (version 4.34.0-rc2, x86_64-w64-windows-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)
+capture     = cmd.exe redirection (raw bytes, no re-encoding); an earlier capture via PowerShell
+              5.1 '>' produced a UTF-16LE copy of the same text and is not the reference log
+
+[forbidden-substring scan, whole file]
+  sorry = 0
+  admit = 0
+  opaque = 0
+  native_decide = 0
+  axiom (any occurrence) = 31 ; all of them inside '#print axioms' lines: True
+
+[dependency footprint: verbatim lines in axioms.txt]
+  declarations audited = 31
+  distinct forms:
+    - [propext, Classical.choice, Quot.sound]
+    - 'NormalizationAlignment.LabelGroup' does not depend on any axioms
+  no 'sorryAx' in axioms.txt: True
+
+[cross-checks performed]
+  * the log above comes from THIS file: it is not a Lake target, so 'lake env lean' re-elaborates
+    it on every run; no .olean is produced (checked: no NormalizationAlignment.olean exists).
+  * no pre-existing file was modified by this task; NormalizationAlignment.lean is the only file
+    added under candidates/core-transport. (ReadingFactorization.lean in the same directory was
+    created by another session at 11:30, not by this one.)
+  * three repair cycles preceded the clean build (rewrite/instance issues only, no goal left open,
+    no literal 'sorry' at any point); see README.md 'Build history'.

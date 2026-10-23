@@ -1,0 +1,38 @@
+﻿W6 checks — ReadingFactorization.lean
+date: 2026-10-23
+
+[build] lake env lean -DwarningAsError=true ReadingFactorization.lean
+  exit code    = 0
+  stderr bytes = 0
+  stdout bytes = 16772
+
+[artifact]
+  sha256 = 6a756a88d57eed9892e749eb0c8abea75c1aa289bd0556f44c3e9f8e5fb2716d
+  bytes  = 55759
+  lines  = 881
+
+[forbidden substrings]
+  sorry : 0
+  admit : 0
+  opaque : 0
+  native_decide : 0
+  sorryAx : 0
+  axiom (total)             : 83
+  axiom outside #print lines: 0
+
+[axiom audit coverage]
+  named declarations (theorem|def|structure) = 83
+  #print axioms lines                        = 83
+  sorryAx occurrences in build stdout        = 0
+
+[distinct axiom forms in build stdout]
+  propext, Classical.choice, Quot.sound : 74
+  propext                               :  2  (base, base_le)
+  none                                  :  6  (reflTransGen_symm, i0, i1, i2, expCompat, expBroken)
+  union                                 : {propext, Classical.choice, Quot.sound}
+
+[verification queries used at authoring time]
+  #check Quotient.lift / Quotient.lift_mk / Quotient.ind / Setoid.mk / Equivalence
+  #check Relation.ReflTransGen.refl / .trans / .head / .tail / .single
+  (Relation.ReflTransGen.symm does not exist; reflTransGen_symm is proved in-file)
+
