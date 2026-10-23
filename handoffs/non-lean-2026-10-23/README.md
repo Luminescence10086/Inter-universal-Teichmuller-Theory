@@ -16,7 +16,7 @@ py -3 handoffs\non-lean-2026-10-23\N16\check_deliveries.py --selftest --json-out
 | 任务 | status | 一句话 |
 |---|---|---|
 | N01 | STATIC_COMPLETE | 官方 7-20 版与工程在用的 7-16 版**不是同一字节、也不是同一版本**（差 2 处文本：日期行、致谢段人名与断行）；缓存与 ncatlab 镜像字节相同 |
-| N02 | STATIC_COMPLETE | 9 项争议矩阵；LANA 直引两处确认"没有 (9-1) 的证明""无共识"；Scholze–Stix/Joshi/Dupuy–Hilado 内容标 `SECONDARY_DIGEST`（本地无原文） |
+| N02 | PARTIAL | 12 项争议矩阵（v2）；行级锚点已用 `verify_N02.py` 机械核对 38/38；Scholze–Stix 侧改用**本地全文转录**（`reviews/core-round/external/…/scholze-stix-why-abc-is-still-a-conjecture.md`），不再依赖二手摘录 |
 | N03 | STATIC_COMPLETE | (9-1) 的量词与类型规格：`∃ S, etaAnab ι S = etaQ D`，**不是**全族不变；9 条义务，O1 的见证不存在 |
 | N04 | PARTIAL | 系数环/order/分解/有限商签名摘录；仓库里**没有** `Finite (Tensor …)` 定义，有限商参考格 `UNRESOLVED`；并记录了 INPUT_DRIFT（点名的 `Arithmetic.lean` 不含所需内容） |
 | N05 | STATIC_COMPLETE | 11 行保持台账（7 条原文 + 4 条源码）；`shared_finite_quotient` **全部** `UNRESOLVED`；引文经独立校验器逐条核对（`verify_N05.py` → `ALL_QUOTES_VERIFIED`） |
@@ -25,7 +25,7 @@ py -3 handoffs\non-lean-2026-10-23\N16\check_deliveries.py --selftest --json-out
 | N08 | STATIC_COMPLETE | 5 条待证引理；**L2 的失败例**说明 `n≥2` 时共同容器一般**不是** `λ·O` 形 |
 | N09 | EXPERIMENTAL | 有限搜索器；单因子模型结构性地给不出"共同容器"正例，`Z/9×Z/9` 有；"只测 F_p 标量"的回归例触发 |
 | N10 | EXPERIMENTAL | 四个有限模型；M1 证明 `∃` 与 `∀` 可一个 SAT 一个 UNSAT；M2b 给出"各自可满足、联合不可满足"；M3 说明未知关系必须留 UNKNOWN |
-| N11 | EXPERIMENTAL | 两张工具设计卡（hull 审计器、达到–证书二分器）+ 6 次检索的先前工作记录；卡 2 依赖卡 1 |
+| N11 | EXPERIMENTAL | 两张工具设计卡：**hull 审计器**（LANA §5.2(d) 的模 hull = 仓库 `scaledIntegral b`，环 hull 未决）与**达到–证书二分器**（Part B：两个对象在所有已声明字段上一致，一个达到一个不达到）；卡 2 依赖卡 1 |
 | N12 | STATIC_COMPLETE | 只记上次未覆盖的 7 项增量；发现 `MR9Plan.md` 的 pin 文本与 `lakefile.toml` **不一致** |
 | N13 | STATIC_COMPLETE | 6 张风险卡 + 1 项"已核无问题"；最要紧：`reading ≠ 0` 被写成"非扭"、`exponent_determined` 的假设在发散探针处自动成立、`TransitionCompatibility.lean:634-637` 与 `593-596` 重复 |
 | N14 | STATIC_COMPLETE | 21 项收据分级：6 项 `SUPPORTED`、6 项 `INSUFFICIENT`、2 项 `STALE_HASH`、7 项 `MISSING` |

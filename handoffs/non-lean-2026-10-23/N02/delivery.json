@@ -1,6 +1,6 @@
 {
   "task_id": "N02",
-  "status": "STATIC_COMPLETE",
+  "status": "PARTIAL",
   "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
   "inputs": [
     {
@@ -8,57 +8,102 @@
       "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
     },
     {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
       "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
       "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e"
     },
     {
-      "path": "research/controversies.md",
-      "sha256": "db547854069c77d9428399dc1b3dfa74d876658c507d42e0944b51f22e33f307"
+      "path": "reviews/core-round/external/DrAbx123--Formalization-of-Inter-universal-Teichmuller-Theory-IUT-and-abc-conjecture/vendor/promachina/snapshots/0d52e0fd5b53/docs/scholze-stix-why-abc-is-still-a-conjecture.md",
+      "sha256": "6c0f7281d6a697fa585474e66768fd0e13b05c94d224ee1695b84751e24b354f"
+    },
+    {
+      "path": "reviews/core-round/external/DrAbx123--Formalization-of-Inter-universal-Teichmuller-Theory-IUT-and-abc-conjecture/papers/motizuki_corpus/text/Rpt2018.txt",
+      "sha256": "5ab53862d7aa6fc2fb8fa42ec32ae215909a3a039d91d0849e383b61919c69eb"
+    },
+    {
+      "path": "research/github-iut-core-survey-2026-10-22.md",
+      "sha256": "177a2bc67da0c5fc79bf341a31d7b1a56a401780f3110ed9053bf66be6621c50"
     },
     {
       "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
       "sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
+    },
+    {
+      "path": "research/controversies.md",
+      "sha256": "db547854069c77d9428399dc1b3dfa74d876658c507d42e0944b51f22e33f307"
     }
   ],
   "outputs": [
     {
       "path": "handoffs/non-lean-2026-10-23/N02/SUMMARY.md",
-      "sha256": "8e84c91559971eddb818f2b39fec197e1773d80d4e07e8f655145967b8f06086"
+      "sha256": "a6196b734f82ec82058b8f828ef108d15bf56e7648ca7c7dbc23c188505abf1a"
     },
     {
       "path": "handoffs/non-lean-2026-10-23/N02/controversies.csv",
-      "sha256": "36c58b9b248866fac50b11fd3912eb7940752ed856fa8756c2da5d7d46ab9fc5"
+      "sha256": "11e00a7e55e13c7a9101511f8bfd4f6ea8828b80f842b90a859bb7d87c3aa0f9"
     },
     {
       "path": "handoffs/non-lean-2026-10-23/N02/notes.md",
-      "sha256": "51dba87ddb5f2d7efa04ba074b03cffb34d724aa3c07caffec203b0cca6c1fbd"
+      "sha256": "2f80adbc05981ab040a9abe8086866d0ab3c4df3635e3fe46e565479b522301e"
     },
     {
-      "path": "handoffs/non-lean-2026-10-23/N02/make_N02.py",
+      "path": "handoffs/non-lean-2026-10-23/N02/verify_N02.py",
+      "sha256": "d0f20a9d9043bd03e4f45bb97ee9db4997544886fe6289f0cf06d7212af82d28"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N02/extract_anchors.py",
+      "sha256": "3819e656a6472f23f220c5781a89e391b5619a735570b4907b332165349e9ca3"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N02/make_N02_v1.py.retired",
       "sha256": "502a1f85f8df150f95409e1ade85fd846ce5cc77aca22d98434d188bf4991964"
     }
   ],
+  "superseded_v1": {
+    "note": "A 9-row v1 delivery produced by make_N02.py existed in this directory before this version; it was replaced because it had no IUT III anchors, no local line numbers for the S-S side, a 'tag' column instead of the contract's 'status', and did not use the local Mochizuki 2018 report. The generator was renamed so that a watcher rerun cannot silently revert this version (one such revert was observed at 2026-10-23 20:04:49).",
+    "verified_sha256": {
+      "controversies.csv": "36c58b9b248866fac50b11fd3912eb7940752ed856fa8756c2da5d7d46ab9fc5",
+      "delivery.json": "31720d0283a459668929304b3849a1d46fdf6b369a75b0599bc38bcffae1eb22",
+      "make_N02.py": "502a1f85f8df150f95409e1ade85fd846ce5cc77aca22d98434d188bf4991964"
+    },
+    "not_recomputable": {
+      "SUMMARY.md": "8e84c915... (v1 self-reported; file overwritten, UNRESOLVED)",
+      "notes.md": "51dba87d... (v1 self-reported; file overwritten, UNRESOLVED)"
+    }
+  },
   "review_anchors": [
     {
-      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
-      "line_or_page": "2274-2293 (p.49-50)",
-      "supports": "that the LANA assessment accepts the non-commuting diagram, points at (9-1), and states no proof of it exists"
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "line_or_page": "l.11073-11083 (PDF p.184), proof of Cor 3.12, substep (xi-f)",
+      "supports": "the author-side claim that the inclusion, hence the inequality of Cor 3.12, follows formally from the possible log-volumes produced by 3.11 together with the holomorphic hull"
     },
     {
-      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
-      "line_or_page": "2283-2289 (p.49)",
-      "supports": "that the 3.11 -> 3.12 step and the identification of copies of R are named as the shared problem"
+      "path": "reviews/core-round/external/DrAbx123--Formalization-of-Inter-universal-Teichmuller-Theory-IUT-and-abc-conjecture/vendor/promachina/snapshots/0d52e0fd5b53/docs/scholze-stix-why-abc-is-still-a-conjecture.md",
+      "line_or_page": "l.661-662 (p.10 by running header)",
+      "supports": "the critic-side claim that a consistent identification of copies of the real line forces omitting the j^2 scalars, which empties the inequality"
     }
   ],
   "commands_run": [
-    "py -3 read-only extraction of LANA text with page markers (9.2, 10.5)",
-    "py -3 read of research/controversies.md for the secondary source routes"
+    "py -3 extract_anchors.py hash  (sha256 of the four primary text inputs)",
+    "py -3 extract_anchors.py show iut3 10498 10528 / 11016 11083 / 6974 7017 / 7247 7271 / 7778 7860 / 8189 8235 / 9304 9400 / 9778 9830 / 11229 11290",
+    "py -3 extract_anchors.py grep rpt2018 'IUAD|j2|real line|copies of'; show rpt2018 1130 1160 / 1195 1225 / 1555 1590",
+    "py -3 extract_anchors.py show lana 2110 2185 / 2195 2214 / 2210 2300",
+    "py -3 extract_anchors.py show ss 145 230 / 533 680; grep ss page headers",
+    "py -3 verify_N02.py  (38 anchor checks: line hit + PDF page) -> 38 PASS, 0 FAIL",
+    "py -3 csv.reader shape check on controversies.csv -> 13 rows (header + 12), all 12 columns",
+    "Get-FileHash -Algorithm SHA256 on every input and output listed above",
+    "web_fetch https://www.math.uni-bonn.de/people/scholze/WhyABCisStillaConjecture.pdf -> error: unsupported content type application/pdf (1 attempt, not retried)"
   ],
   "new_hypotheses": [],
   "unresolved": [
-    "Scholze-Stix / Joshi / Dupuy-Hilado 的原文本地没有，表中内容为二手摘录（SECONDARY_DIGEST），未逐字对校",
-    "IUT IV Step (v) 的原文未定位，K08 无本地反引文",
-    "Θ-link 是否必须是环同态：文本两读皆通，未裁决"
+    "Scholze-Stix official PDF not obtained in this environment (web_fetch refuses application/pdf). All S-S anchors come from a local third-party transcription whose byte-identity to the official report is UNVERIFIED; page numbers for that source are inferred from the transcription's running headers (p.10 cross-checks against LANA's [15, p.10] citation).",
+    "The local Rpt2018.txt has no page markers, so the author's 2018 response is cited by line number only.",
+    "The matrix covers axes (a)-(e) only; Joshi, Dupuy-Hilado and the IUT IV Step (v) objection (Urahigashi) are deliberately not among the 12 items and remain as recorded in research/controversies.md C04-C06; the IUT IV Step (v) source line is still not located (UNRESOLVED).",
+    "C08 and C09 are marked INTERPRETATION_BRIDGE: the quoted sentences are verbatim, but the disputed question (same normalisation? set semantics vs object identification?) is this project's framing, not a sentence either side wrote.",
+    "This table does not claim to exhaust the objections to IUT, does not claim any scholarly consensus, and settles no mathematical point."
   ],
   "lean_run": false,
   "editor_run": false,

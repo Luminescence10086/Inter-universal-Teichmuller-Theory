@@ -12,34 +12,54 @@
       "sha256": "9a9a93d169384376a07e93a8b10ad5871d475d7873ab7ffbf44444cbad586848"
     },
     {
-      "path": "handoffs/non-lean-2026-10-23/N07/pipeline.md",
-      "sha256": "29db3c0471ab4c1fbae08c8455cd018d25c38895ebb8322ec13f0c1b1e10b1f2"
+      "path": "handoffs/non-lean-2026-10-23/N03/obligations.csv",
+      "sha256": "d737c5cba80f539748a01830edc0aa24480cf0e19d2360d0b473e98b01710c76"
     },
     {
-      "path": "handoffs/non-lean-2026-10-23/N08/bridge-plan.md",
-      "sha256": "33a3030d0fcff0da4a110b0b16e1a27a4bed1adff66d5e48f6627833ce244850"
+      "path": "research/core-backward-2026-10-23/PATH.md",
+      "sha256": "f62207d84ce06b98b1164d999a1b2070912dbec68d04797f033125fc141d326e"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/m-i-design.md",
+      "sha256": "219ea2e644c6c57dc00b68a6e360bb6633accb506cb862e508c244d18cdab118"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/m-ii-design.md",
+      "sha256": "eaa613f2a983be27109c62d8c7b6e0f7896057a22e54b4ddc3d9e1d5e0619d95"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c"
     },
     {
       "path": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
       "sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d"
     },
     {
-      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
-      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c"
+      "path": "reviews/core-round/external/iut/Iut/Wall/Constraints.lean",
+      "sha256": "0f111caa7a9f0c732941ce6e90447d94b36141ef5318459a07ea5e71127e7bc4"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/prior-art.sibling-agent.md",
+      "sha256": "b35cb95d857ee4fd07e12f545135ed878de1d18bf0c3563d7c50675e6003dc09"
     }
   ],
   "outputs": [
     {
       "path": "handoffs/non-lean-2026-10-23/N11/SUMMARY.md",
-      "sha256": "2cc6a69a1e0b64cb2624846368fd7773b5856aa8d22a087f78852111d2681537"
+      "sha256": "47fa658a40e5f04ac1bf3f8d24708e3a2419e53f20d248bf98891e226c8dd7e6"
     },
     {
       "path": "handoffs/non-lean-2026-10-23/N11/tool-cards.md",
-      "sha256": "03a9e7a9caf4b0c78b94c5b5bdd3b3382d1cdcab5abdc43d637abac0a571e220"
+      "sha256": "111020894f18a89c08929eff1291e195167d8d54d1f3a0d5e1f838896deccf4b"
     },
     {
       "path": "handoffs/non-lean-2026-10-23/N11/prior-art.md",
-      "sha256": "b35cb95d857ee4fd07e12f545135ed878de1d18bf0c3563d7c50675e6003dc09"
+      "sha256": "d186c398bb9ff121b773f5505b469853a3a8b4fe6c13926382cc81fcba39c08e"
     },
     {
       "path": "handoffs/non-lean-2026-10-23/N11/toy_check.py",
@@ -50,34 +70,46 @@
       "sha256": "f619c3ec267a1fc1de914413285d73013dd159118ce66b69e90f0e88c48d12e4"
     },
     {
-      "path": "handoffs/non-lean-2026-10-23/N11/make_N11_delivery.py",
+      "path": "handoffs/non-lean-2026-10-23/N11/prior-art.sibling-agent.md",
+      "sha256": "b35cb95d857ee4fd07e12f545135ed878de1d18bf0c3563d7c50675e6003dc09"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/make_N11_delivery.py.retired",
       "sha256": "5090b2c206dd48a3837a9d8eece0553910e19f78b95293c9b12a4811e32ee32c"
     }
   ],
   "review_anchors": [
     {
-      "path": "handoffs/non-lean-2026-10-23/N11/toy_check.log",
-      "line_or_page": "Part A rows A2/A3 (NONBOX with explicit separating functional)",
-      "supports": "that a box container can be strictly larger than the log-convex hull, with a witness"
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "line_or_page": "1338-1340 (§5.2(d)); 1333-1337 (§5.2(c)); 1923-1927 (§8.1(f))",
+      "supports": "N08-G2 被劈成两半：§5.2(d) 的 hull 是含 S 的最小 VC(O)-子模（逐 v 乘积 ⇒ 逐坐标 b*O，仓库 scaledIntegral b 忠实实现），§8.1(f) 另取 w.r.t. the ring structure at (1,1) 的环 hull"
     },
     {
-      "path": "handoffs/non-lean-2026-10-23/N11/tool-cards.md",
-      "line_or_page": "section 2.5 (Part B M1/M2)",
-      "supports": "that two objects agreeing on every declared field can differ on attainability, so the answer is UNDETERMINED"
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "line_or_page": "151 (etaAnab_eq_etaQ_iff); 123-125 (realisation); 112 (ind12_acts_on_S)",
+      "supports": "(9-1) 在 Lean 侧化归为实数等式；realisation 只给包含（IsAdelic ∧ InHullOfImage），故卡 2 的缺口正是「包含 ≠ 等式」，且分类在 Ind1/Ind2 轨道上良定义"
     }
   ],
   "commands_run": [
-    "py -3 handoffs/non-lean-2026-10-23/N11/toy_check.py  -> RESULT: ALL PASS (Part A and Part B)",
-    "web_search x2 (6 queries total) for the bounded prior-art check -> prior-art.md"
+    "py -3 handoffs/non-lean-2026-10-23/N11/toy_check.py  ->  RESULT: ALL PASS (Part A 13 checks, Part B 6 checks), exit 0; log toy_check.log",
+    "web_search x2 calls (3 queries + 1 + 1 + 1 = 6 queries) for the bounded prior-art check -> prior-art.md",
+    "Get-FileHash -Algorithm SHA256 over 11 inputs and 7 outputs (PowerShell 5.1; no '>' redirection, no Lean, no editor)",
+    "git rev-parse HEAD  ->  workspace 568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2 ; reviews/core-round/external/iut f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb"
   ],
   "new_hypotheses": [
-    "A2/A3 (the exponent-set reading of vcIComp) are declared PROPOSED_INTERFACE, not proved",
-    "A5 (non-archimedean analogue of the log-convex envelope theorem) has no cited source in this round"
+    "卡 1 A1'(SOURCE_FACT + 推论): 对 LANA §5.2(d) 的模 hull，仓库 hullOf = scaledIntegral b 是忠实实现；未决的是 §8.1(f) 的环 hull，且环 hull ⊆ 模 hull 一般严格更小（后者是 PROPOSED，未证）",
+    "卡 2 Part B (EXPERIMENTAL): 两个在 (T1)/(T2)/(T3) 上一致的 EtaAlg 形状对象可以一个达到目标值、一个不达到 ⇒ 已声明字段的答案是 UNDETERMINED，判定须多声明 sup_S logVol(out iota S)",
+    "卡 1 A3/A5/A6 明确标 PROPOSED_INTERFACE / PROPOSED，不当作已证"
   ],
   "unresolved": [
-    "两张卡都是设计；没有任何一条被 Lean 形式化",
-    "卡 2 的有效性依赖卡 1 的归约，单独引用会失效",
-    "先前工作检索只覆盖 6 次英文查询与摘要级片段，不构成原创性证明"
+    "两张卡都是设计；没有任何一条被 Lean 形式化；A3(指数集可读) 依赖 N04 尚未落定的系数环/order 接口",
+    "环 hull（§8.1(f)）的半群闭包模型本轮没建；§1.5 的耦合闭包用 conv E 作替身，不能当环 hull 的证据",
+    "A5（非阿解析包络 = 对数凸包）在 6 次检索内未引证到来源；A6（整闭包 vs 饱和）只有 txt:1330-1332 一句线索",
+    "N08-G4（Haar→全局权重）与 N06-O6（归一化对齐）完全未做：LANA §5.2(e) txt:1341-1348 把 vol(VC(O))=1、p_v 作用为 p_v^{-1} 钉死，但仓库侧是否对齐未查",
+    "workspace HEAD 为 568e4be9，而任务表写的快照是 1a8515d8（表写于更早时刻）；本轮输入已逐文件哈希固定，故不填 INPUT_DRIFT，但记录在此",
+    "检索只到标题+片段级，未抓任何页面正文；zenodo 两篇（RIG7、Forensic Diagnosis）是未评审灰文献，未核实作者与内容，只作线索登记",
+    "arXiv 2401.13508 (Joshi) 声称证明 Cor 3.12；本轮不评价。若采纳，卡 2 的失败条件 F1（分类恒为同一类 ⇒ 撤回）会提前触发",
+    "目录内曾有并行 agent 的交付：其 prior-art（查询对应路线 1/2）原样保留为 prior-art.sibling-agent.md，不采信；其生成器已改名 make_N11_delivery.py.retired，未执行。两个 agent 合计发生 12 次 web 查询，超出任务卡的 <=6 次约束，如实登记"
   ],
   "lean_run": false,
   "editor_run": false,
