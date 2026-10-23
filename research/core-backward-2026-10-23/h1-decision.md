@@ -63,6 +63,23 @@
 一句话总结 H1：**环境范畴不用另找；要修的是商的两层结构——`⊼fQ₁` 里的 orbit 与 `⊼fQ₂ modulo ⊼fQ₁` 的形式商
 必须都在，且 `log-volume` 一出现就意味着已经粗化。**
 
+## 引文核对（可复现）
+
+本文件的英文引文取自缓存 `.txt`，该文本是两端对齐排版抽取的结果，存在**字母间被插入空格**与**断行连字符**的
+伪影（例如 8626 的 `may also be regarded as the` 在文本里写作 `m a y a l s ob er e g a r d e da st h e`）。
+因此上面引文是"规范化后"的读法，不是排版逐字。可核对的锚点：
+
+| 片段 | txt 行 |
+|---|---|
+| `formal, or stack-theoretic/diagram-theoretic, quotients` | 8610 |
+| `coarse/set-theoretic quotients` | 8611 |
+| `modulo`（`⊼fQ₂ modulo ⊼fQ₁` 的 modulo） | 8628 |
+| `were constructed from … prime-strip n,mF…env` | 9293 |
+| `Aut(det⊗M(φ(PB)))-orbit of alinear morphism` | 8570–8571 |
+| `n,◦` 是 `n,◦HT^{D-Θ±ellNF}` 的缩写 | 9265–9266 |
+
+凡引用本文件结论的地方，应回这些行核对，而不是引用本文件的转写。
+
 ## 下一步（K4）
 
 M3 已确定 11 个接口没有一个要求"合法执行"。K4 要补的是**执行来源**：一个对象，其存在性附带"由某个具名算法
