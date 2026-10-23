@@ -21,7 +21,9 @@ Original main theorems, with the rectangular-product repair below:
                           are the coordinatewise minima of the permuted
                           thresholds, each attained inside `Γ`.
 * `hull_minimal`        (M2.rectangular_hull_minimality) — `H` contains `U`
-                          and is minimal among bounded threshold boxes containing `U`.
+                          and is minimal among bounded threshold boxes containing `U`
+                          (the weaker original interface; superseded below by
+                          `hull_least_coordinateProduct`).
 * `box_cardinality`     (M2.box_cardinality) — `Nat.card (B k) = p ^ ∑ j, (N - k j)`.
 * `enlargement_budget`  (M2.enlargement_integer_budget) — exact integer-exponent
                           budget `|B k| * p ^ e = |B k'|` for `k' ≤ k`.
@@ -39,6 +41,18 @@ The incremental repair adds three main theorems:
 
 `orbitUnion_eq_inverse_images` records the inverse-image convention in Lean.
 The original definitions and counting results are unchanged.
+
+The round-2 increment (2026-10-23) turns minimality into the exact form of the
+task definition and checks that the old interface is an instance of it:
+
+* `hull_least_coordinateProduct` — for every family `S` of arbitrary coordinate
+  subsets, `U ⊆ ∏ j, S j ↔ H ⊆ ∏ j, S j`.  Together with
+  `coordinateProductHull_orbitUnion` (which says `H` *is* such a product) this is
+  the two-sided statement "`H` is the smallest product of coordinate subsets
+  containing `U`".
+* `hull_minimal_from_products` — the earlier bounded-threshold minimality
+  (`k' ≤ N`, `p` prime) follows from the arbitrary-product statement, so the new
+  interface strictly extends the old one instead of replacing it.
 
 Scope statements (deliberate limitations, see the external delivery summary):
 
@@ -314,6 +328,50 @@ theorem hull_minimal_coordinateProduct {p N n : ℕ}
   · intro S hS
     rw [← coordinateProductHull_orbitUnion Γ hΓ k]
     exact (coordinateProductHull_minimal _ S).mpr hS
+
+/-- **M2.hull_least_coordinateProduct.**  The exact Lean form of the task's
+definition of `H` as *the smallest coordinate product set containing `U`*: for
+every family `S` of arbitrary coordinate subsets, `U` is contained in the product
+`∏ j, S j = Set.pi Set.univ S` if and only if the hull `H = B (hullThresh …)` is.
+
+Both directions are needed for "smallest": `→` says no product containing `U`
+can omit a point of `H` (minimality), `←` says `H` itself contains `U` (so `H` is
+an admissible candidate).  The quantification is over *all* coordinate subsets,
+including unconstrained coordinates (`S j = Set.univ`), hence over every product
+of coordinate subsets in the sense of the task statement; no restriction to
+threshold boxes, to `k' ≤ N`, to `p` prime or to a group action is imposed. -/
+theorem hull_least_coordinateProduct {p N n : ℕ}
+    (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty) (k : Fin n → ℕ)
+    (S : Fin n → Set (ZMod (p ^ N))) :
+    (orbitUnion p N n Γ k ⊆ Set.pi Set.univ S) ↔
+      (Box p N n (hullThresh Γ hΓ k) ⊆ Set.pi Set.univ S) := by
+  rw [← coordinateProductHull_orbitUnion (p := p) (N := N) Γ hΓ k]
+  exact (coordinateProductHull_minimal (orbitUnion p N n Γ k) S).symm
+
+/-- **M2.hull_minimal_from_products.**  The formerly exported bounded-threshold
+minimality statement is a *special case* of arbitrary-product minimality: choose
+the coordinate subsets `S j = {y | p ^ (k' j) ∣ y.val}`, whose product is exactly
+the threshold box `B k'`.  Consequently the new interface extends the old one
+rather than replacing it by an incomparable statement.
+
+This version also drops the former hypotheses `p` prime and `k' ≤ N`: the general
+product theorem is purely set-theoretic.  (Those hypotheses are still needed for
+`box_cardinality`, not for containment.) -/
+theorem hull_minimal_from_products {p N n : ℕ}
+    (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty) (k : Fin n → ℕ) :
+    (∀ x, orbitUnion p N n Γ k x → Box p N n (hullThresh Γ hΓ k) x) ∧
+      (∀ k' : Fin n → ℕ,
+        (∀ x, orbitUnion p N n Γ k x → Box p N n k' x) →
+          ∀ x, Box p N n (hullThresh Γ hΓ k) x → Box p N n k' x) := by
+  refine ⟨(hull_minimal_coordinateProduct Γ hΓ k).1, ?_⟩
+  intro k' hU x hx
+  have hS : orbitUnion p N n Γ k ⊆
+      Set.pi Set.univ (fun j => {y : ZMod (p ^ N) | p ^ (k' j) ∣ y.val}) := by
+    intro y hy j _
+    exact hU y hy j
+  have h := (hull_minimal_coordinateProduct Γ hΓ k).2 _ hS hx
+  intro j
+  simpa using h j (Set.mem_univ j)
 
 /-! ## 4. Stage 2: exact cardinality and the integer enlargement budget -/
 

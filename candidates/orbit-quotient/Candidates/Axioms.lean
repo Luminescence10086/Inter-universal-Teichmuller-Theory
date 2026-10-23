@@ -33,6 +33,8 @@ set_option pp.explicit false
 #check @OrbitQuotient.coordinateProductHull_minimal
 #check @OrbitQuotient.coordinateProductHull_orbitUnion
 #check @OrbitQuotient.hull_minimal_coordinateProduct
+#check @OrbitQuotient.hull_least_coordinateProduct
+#check @OrbitQuotient.hull_minimal_from_products
 #check @OrbitQuotient.boxFinEquiv
 #check @OrbitQuotient.box_cardinality
 #check @OrbitQuotient.enlargement_budget
@@ -81,6 +83,8 @@ set_option pp.explicit false
 #print axioms OrbitQuotient.coordinateProductHull_minimal
 #print axioms OrbitQuotient.coordinateProductHull_orbitUnion
 #print axioms OrbitQuotient.hull_minimal_coordinateProduct
+#print axioms OrbitQuotient.hull_least_coordinateProduct
+#print axioms OrbitQuotient.hull_minimal_from_products
 #print axioms OrbitQuotient.boxFinEquiv
 #print axioms OrbitQuotient.box_cardinality
 #print axioms OrbitQuotient.enlargement_budget

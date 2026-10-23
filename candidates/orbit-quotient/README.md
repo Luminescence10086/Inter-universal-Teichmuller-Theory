@@ -78,3 +78,33 @@ The second command exports every declaration's exact type and axiom dependencies
 plus the original and added definition bodies. Evidence is stored outside the
 candidate source in the main workspace's `reviews/repair-round/m2/`. Actual VS Code
 observation is a separate reviewer obligation; this remains candidate-only.
+
+## Round-2 increment (2026-10-23): equivalent form of the task definition
+
+Repair base: `2a13a5bca589bd1100c48282ca30cf0e1e55acce`. Two further main
+theorems make the reviewer's second alternative (“equivalent theorem for the task
+definition of `H`”) explicit; the earlier repair already discharged the first
+alternative (minimality against arbitrary products).
+
+* `hull_least_coordinateProduct` — `U ⊆ Set.pi Set.univ S ↔ H ⊆ Set.pi Set.univ S`
+  for every family `S` of arbitrary coordinate subsets (unconstrained coordinates
+  are the case `S j = Set.univ`). The two sides are the two halves of “`H` is the
+  smallest product containing `U`”: `←` says `H` contains `U`, `→` says every
+  product containing `U` contains `H`. No bounded-threshold, primality or group
+  hypothesis is used.
+* `hull_minimal_from_products` — the older bounded-threshold statement
+  (`hull_minimal`, with `k' ≤ N` and `p` prime) is derived from the
+  arbitrary-product statement, so the new interface contains the old one; the
+  derivation no longer needs primality or `k' ≤ N`.
+
+Direction (`σ`/`σ⁻¹`) is unchanged and stays explicit: `permAct γ x = x ∘ γ`,
+`orbitUnion` uses inverse images, `orbitUnion_eq_inverse_images` proves
+`U = ⋃ γ ∈ Γ, permAct γ.symm '' B k`, and `mem_permAct_box` proves
+`permAct γ x ∈ B k ↔ x ∈ B (j ↦ k (γ.symm j))`. Cardinality
+(`box_cardinality`: `|B k| = p ^ ∑ j, (N - k j)`), the integer enlargement budget
+(`enlargement_budget`, `enlargement_budget_hull`) and the `2/3/4` example
+(`two_three_four`) are unchanged.
+
+Frozen replay commands are the same three as above (or the two `-o`-style commands
+in the previous section, which avoid dependency builds).
+
