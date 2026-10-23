@@ -1,0 +1,23 @@
+{
+  "corrected_rows": 3,
+  "changes": [
+    {
+      "id": "N05-06",
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "old": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2784e05ae6164b715",
+      "new": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
+      "id": "N05-10",
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/IndAut.lean",
+      "old": "3d39b3856f45ca3f0b03648381d34152849673070b64240ee135718f0bf30d9",
+      "new": "3d39b3856f45ca73f0b03648381d34152849673070b64240ee135718f0bf30d9"
+    },
+    {
+      "id": "N05-11",
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/IndAut.lean",
+      "old": "3d39b3856f45ca73f0b03648381d34152849669070b64240ee135718f0bf30d9",
+      "new": "3d39b3856f45ca73f0b03648381d34152849673070b64240ee135718f0bf30d9"
+    }
+  ]
+}

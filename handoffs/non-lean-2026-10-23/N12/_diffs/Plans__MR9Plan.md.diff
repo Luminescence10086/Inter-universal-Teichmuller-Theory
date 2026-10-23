@@ -1,0 +1,125 @@
+--- base/Plans__MR9Plan.md
++++ head/Plans__MR9Plan.md
+@@ -112,5 +112,5 @@
+ |---|---|---|
+ | Thm 1.9(a) | [AbsTopII] Cor 3.7, rel-isom-DGC ([LocAn] Thm A, MR7), weights (MR3) | MR8: group side done (`belyi` mr8: `belyiCusp`, `belyiCusp_transport`); `belyiCusp_spec` (MR8.5) blocked on MR8.3 (chain functor; ⋎ needs quotients of curves by finite groups) |
+-| Thm 1.9(b) | Prop 1.4: `I_x ≅ Ẑ(1)`, maximal cuspidally central quotient, transgression, `H²(Π̂_{g,0}, Ẑ) ≅ Ẑ` | **group side done** (`Cusp/SurfaceH2.lean`: model `Π̂_{g,0} = F̂_{2g}/⟨⟨∏⁅aᵢ,bᵢ⁆⟩⟩`); open: bridge to the geometric `Δ_{U_x} ≃ F̂_{2g}` (cj/pi1) |
++| Thm 1.9(b) | Prop 1.4: `I_x ≅ Ẑ(1)`, maximal cuspidally central quotient, transgression, `H²(Π̂_{g,0}, Ẑ) ≅ Ẑ` | **group side done** (`Cusp/SurfaceH2.lean`: model `Π̂_{g,0} = F̂_{2g}/⟨⟨∏⁅aᵢ,bᵢ⁆⟩⟩`); **bridge to geometry done** (`Cusp/SurfacePi1.lean`, `Cusp/SurfaceGeom.lean`: `exists_fhat_equiv`) |
+ | Thm 1.9(c) | Prop 1.6(ii), (iii): Kummer map into `H¹(Π_U)`, `J^d`, sections `s_x`, Kummer-faithfulness | MR5 (status P, CKT `Plans/MR5Plan.md`): Def 1.5, Prop 1.6(i), the cusp-residue part of 1.6(iii) in CKT main b4003d6; 1.6(ii) and the rest of (iii) open |
+ | Thm 1.9(d) | Prop 1.6(i), Prop 1.8, `s_x^* κ_U(f) = κ(f(x))` | `continuous-kummer-theory` `Specialization.map_section_kummer` (abstract sections); Prop 1.6(i) and Prop 1.8(ii) (`s_x^*κ_U(u) = κ_k(u(x))` given `D_A ↠ Gal(κ(A)/k)`) in CKT main b4003d6 |
+@@ -123,6 +123,6 @@
+ 
+ Inputs from MR8: `belyiCusp_spec`, the NF-point decomposition groups (Cor 3.7(c)), the cusp
+-inertia groups as subgroups, and the iut pin bump. iut pins `belyi` 1d84db9 and `pi1` 7647d28, so
+-iut does not yet see any MR8 work.
++inertia groups as subgroups. Since the pin train of 2026-10-22, iut pins `curves-jacobian`
++a258c15 (MR8.5 `belyiCusp_spec`), `belyi` 5f3a88e and `pi1` 12719c9.
+ 
+ ## 3. What exists
+@@ -165,5 +165,5 @@
+ | K3 | genuine `κ_U : O(U)^× → H¹(Π_U, Ẑ(1))` over non-closed `k`, injective for Kummer-faithful `k` (Prop 1.6(i)); exact sequence of Prop 1.6(iii) | MR5 (cj + CKT) | 2–4k | partly (needs `Π_U` of MR8.3(b)) |
+ | K4 | Prop 1.6(ii) (principal divisors via `t_D` and `π₁(J^d)`, or the [Cusp] Prop 2.2 route through `Π^{c-ab}`) | MR5 | 3–6k | no (needs `J^d` as a scheme and `π₁(J^d)`) |
+-| A1 | Thm 1.9(a) from `belyiCusp_spec` | MR8.5, then iut | 300–600 | no |
++| A1 | Thm 1.9(a) from `belyiCusp_spec` | MR8.5, then iut | 300–600 | **done** as far as MR8 goes (`Cusp/BelyiSpec.lean`; debt `hDGC`; Cor 3.7 (c) is cj `cor37c`) |
+ | T1 | assemble `recFunctionField` (NF-portion) and `recFunctionField_equiv`, functorial in `≃ₜ*` | iut | 1–2k | no (needs A1, C1, K3, K4, U2) |
+ | T2 | IUT I Ex 5.1(i)/(v): `M^⊛(†D^⊚)`, the κ-coric pseudo-monoids, uniqueness of ∞κ-coric structures | iut (MR19) | 2–4k | no |
+@@ -350,2 +350,99 @@
+   see `Plans/MR19Plan.md`). MR9 items stay blocked on the pin train (lead decision: no pin bumps
+   in iut until the coordinated train after MR8.5).
++* 2026-10-22 (pin-train agent): **coordinated pin train done.** pi1 12719c9, belyi 5f3a88e,
++  oka 7f2a624, tempered-fundamental-groups b65b663, orbicurve-cores d08559e, and new direct pins
++  continuous-kummer-theory 1d5194f, formal-schemes e58ecf0, elliptic-curves 8e2b208,
++  curves-jacobian a258c15 (main; MR8.5 `belyiCusp_spec`, MR5 S1b–S1e). All bumps are
++  fast-forwards of the previous pins, and every package's own manifest pins an ancestor of the
++  direct pin. Decision: pin cj now (its oleans are reused from the package build; the bump
++  rebuilt only the iut files that import changed modules), so that MR8.8 and the MR9 K-steps can
++  consume cj directly. Bridge: **`SurfaceH2.surfPi1Equiv : SurfGrp g ≃ₜ* Pi1.ProfiniteSurfaceGroup g 0`**
++  (`Cusp/SurfacePi1.lean`; relabelling `genEquiv`, `discEquiv`, generators to generators).
++* 2026-10-23 (pin-train agent): **MR8.8 done**: `Cusp/BelyiSpec.lean` (`CuspData.ofExt`,
++  `CuspData.Iso.ofExtIso`, `arithCuspData`, `ker_fillMap_eq_closure_kernel`, `BelyiCuspSpec`,
++  `belyiCuspSpec`, `belyiCuspSpec_oncePunctured`); ROADMAP shell #34 removed. **Debt (explicit
++  theorem argument):** `hDGC : ∀ k [NumberField k], RelIsomDGC k` (the rel-isom-DGC, [LocAn]
++  Thm A via [AbsTopI] Def 4.6), milestone MR7. Open: [AbsTopI] Lemma 4.5 (v) (cusp preservation
++  by `Π_X ≃ₜ* Π_{X'}` over `G_K`), so that the functoriality of `belyiCusp` applies to all
++  isomorphisms and not only to isomorphisms of cuspidal extensions. **C1 bridge to geometry
++  done**: `Cusp/SurfaceGeom.lean` (`fhatEquiv : F̂ ≃ₜ* Π̂_{g,1}`, `map_relSub`, `map_relInertia`,
++  `map_cuspCentralKer`, `surfPi1Equiv_surfMap`, **`exists_fhat_equiv`**: for `X` proper over
++  `k = k̄`, char `0`, `U = X ∖ {x}`, the model `F̂ ↠ SurfGrp g` is `π₁(U) ↠ π₁(X)` with `I_x`, the
++  kernel and `cl⁅ker, π₁(U)⁆`). **Import fix:** oka 7f2a624 and tfg b65b663 both declare the
++  instance `AlgebraicGeometry.Scheme.IdealSheafData.isReduced_subscheme_vanishingIdeal`
++  (oka `Modules/Support`, tfg `SemistableReduction/LinearProjectionKer`), so no module can import
++  both; `Iut/Anabelian/Tempered.lean` now imports the three tfg modules it uses instead of the
++  umbrella `TemperedFundamentalGroups`. The MR12 track should drop tfg's copy when it bumps oka.
++  Next: the K-steps against MR5 (cj `Kummer/NFCharacterization`, `ClosedCharacterization`:
++  Prop 1.8 at NF-points; `KummerFaithful`; S1e: `cuspInertiaZHatEquiv`, `TopClass`) and the
++  Schreier/RH debt of `SurfaceIndex.lean` (`φ : H ≃ₜ* Π̂_{g',0}`, `ResCuspInput`).
++* 2026-10-23 (pin-train agent, second bump): belyi 5f3a88e → 7206d78 (`RelIsomDGC.Exists/Unique`),
++  curves-jacobian a258c15 → da434f1 (MR8 round 29 incl. `ellipticCusp_spec_oncePunctured`; MR7
++  uniqueness of the rel-isom-DGC proved; MR5 S1e). `Cusp/BelyiSpec.lean` now takes only
++  **`hDGC : ∀ k [NumberField k], RelIsomDGC.Exists k`** (the debt is the existence half only) and
++  adds `ellipticCuspSpec_oncePunctured` (step (a) of `Cusp/Elliptic.lean` for `X = E ∖ {O}`).
++* 2026-10-23 (MR9 track agent, christian-aa lead): worktree `~/lead-iut-b` rebased onto main 171522b
++  (`wip-mr9-rem1101i` was already merged as a9408f4); its symlinked/old packages replaced by copies
++  of the pinned `~/iut-pins` packages (old ones kept in `.lake/packages-pre-pintrain/`).
++  * **Thm 1.9 (d), Prop 1.8 as equivalences** (`Reconstruction/Thm19/NFKummer.lean`), assembled from
++    cj `NFCharacterization`/`NFCurve`: `RestrictTrivAt`, `RestrictNontrivAt` (restriction
++    `s_x^*` to the decomposition group of an NF-point `x ∈ U(k_x)`, `[k_x : k] < ∞`),
++    `IsNFKummerTest` (the test of (i) for some `η† = η^M`); **`isNFKummerTest_iff`** (Prop 1.8 (i):
++    for `η ∈ P_U`, test ⟺ some positive multiple of `η` is `κ_U(w)` for a nonconstant NF-rational
++    unit `w`), **`exists_restrictClosed_eq_iff`** (Prop 1.8 (ii): `c ∈ (k^×)^∧` is the class of an
++    `IsNFConstant` element ⟺ `κ_U(f)|_x = c|_{G_{k_x}}` for a nonconstant NF unit `f` and an NF-point `x`),
++    and the curve forms (`curveGaloisData k hτ`, `X(k) ≠ ∅`, `k` torally Kummer-faithful):
++    `isNFKummerTest_iff_curve` (debt `hL : JacDivFree X σ hσ L`, `⋂_N N·J(L) = 0` for one
++    extension `L / k`), `isNFKummerTest_iff_curve_numberField`,
++    `isNFKummerTest_iff_curve_of_isKummerFaithful`, and `exists_restrictClosed_eq_iff_curve`
++    (Prop 1.8 (ii): no Jacobian input, so unconditional over number fields / `p`-adic fields).
++    **cj pin bumped da434f1 → 601db27** (MR5 S1f `SyncEquivariant`: `natIsoHatPi`, `h1MXEquiv`,
++    `kummerMapMX`; `JacobianDivExt`; manifest of cj unchanged).
++    *Note (T3 l.2078–2086 re-read):* "η is the Kummer class … iff some positive multiple η† passes the
++    test" is only right up to positive multiples over `k`: `η^M = κ(w)` gives `η = κ(v)·c` with
++    `c ∈ (k^×)^∧`, `c^M ∈ k^×`, and `c` comes from `k'^×` only after `k' = k(c^{1/M})`; Thm 1.9 (d)
++    takes `lim→` over finite `k'`, so the formal statement over `k` is the "positive multiple" one.
++  * **[AbsTopII] Cor 3.7 (c) restated for the cuspidal subgroups** (`Reconstruction/Cusp/Cor37c.lean`):
++    `exists_isCuspPlace_eq_arithInertia` (every cuspidal subgroup of `Π_U` is `I_W` for a cusp place),
++    **`cor37c_cusps`** (one base-point change `α₀` and one `t`: `fillMap(Comm(I)) = t·α₀(D_W(X))·t⁻¹`
++    for every cuspidal subgroup `I = I_W` of `Π_{U_X}`), from cj `cor37c`; the T1(a) input
++    "decomposition groups of the points of `X ∖ U_X`".
++  * **Debts (explicit theorem arguments):** `hL : JacDivFree X σ hσ L` (`⋂_N N·J(L) = 0` for the
++    Jacobian over one extension `L` of `k`, e.g. `p`-adic; MR5 Task B), used only by Prop 1.8 (i)
++    "if"; `hDGC` (MR7, existence half); `φ`, `ResCuspInput` of `SurfaceIndex.lean` (see below).
++  * **Schreier/RH debt of `SurfaceIndex.lean`: cost check (not discharged).** pi1 12719c9 (= pi1
++    master, no newer commits) has Schreier only for subgroups of free groups / covers of punctured
++    spheres (`exists_quotient_cuspSubgroup_mulEquiv_surfaceGroup`,
++    `exists_quotient_sup_mulEquiv_surfaceGroup_zero`), nothing for open subgroups of `Π̂_{g,0}`.
++    Two routes, both multi-thousand-line: (group) finite-index subgroups of the discrete `Π_{g,0}`
++    are `Π_{g',0}` (ribbon graphs for the one-relator presentation) + profinite completion commutes
++    with passage to open subgroups + orientation (`res` on `H²` is multiplication by the index for
++    the induced generator); (geometry) open `H ⊆ π₁ᵉᵗ(X)` ↔ connected finite étale `Y → X`
++    (cj `coverSubgroup`, `coverEquiv`, `coverHypCurve`), `π₁ᵉᵗ(Y) ≅ Π̂_{g',0}` (cj
++    `etaleFundamentalGroup_equiv_profiniteSurfaceGroup_zero_of_isAlgClosed`), but cj has **no**
++    pull-back of `c₁`/divisors along covers (needed for `ResCuspInput`: `f^*c₁(O(x)) = d·c₁(O(y))`
++    via `c1Div_eq_deg_smul`) and no Riemann–Hurwitz equality (only `curveGenus_le_…`). The geometric
++    route is the cheaper one (needs: `c1Div` natural under finite étale pull-back, ~0.5–1k lines in
++    cj; the generic-point bridge between `SurfGrp`/`MXg` (LCFT `ContH2`, `ℕ+`) and cj `MXHat`
++    (pi1 `H2lc`, `KummerIndex`)).
++  * **Thm 1.9 (c) done for curves with rational cusps** (`Reconstruction/Thm19/CuspPrincipal.lean`):
++    `tameGen p` (residue of the Kummer class of a uniformiser at `p = (W, σ)`), `divAt`;
++    **`res_kummerMapZHat`** (`res_p(κ_U(u)) = θ_p^{ord_{P_p} u}`); units of `U` = functions without
++    zeros/poles over `U` (`ord_eq_zero_of_mem_units`, `isIntegral_of_forall_place` via Mathlib
++    `Subring.eq_iInf_of_isIntegrallyClosedIn`, `mem_units_of_ord`); **`mem_PU_iff_principal`**
++    (Prop 1.6 (iii) image part: `η ∈ P_U` ⟺ residues of `η` = those of a principal divisor on the
++    cusps); `sum_eq_zero_of_div_eq`; `eta_eq_one_iff_principal_curve_of_ext` (Prop 1.6 (ii) with
++    debt `JacDivFree`); **`mem_PU_iff_eta_curve`**: `η ∈ P_U` ⟺ `∃ f` on the cusps, `deg f = 0`,
++    `η_f = 1`, `HasResidues η (ratDivF f)`. Still `Ẑ(1)`-coefficients: the transport to
++    `M_X = μ_Ẑ(Π_U)` along cj `h1MXEquiv` (S1f, now pinned) and `syncEquivBar` (the isomorphisms
++    of (b): `θ_p` ↔ the generator of `I_x ≅ M_X`) is the next T1 step.
++* Hand-off 2026-10-23 (MR9 track agent): merged iut 82481d2, 53bf58e, 6e9ce43 (cj pin 601db27),
++  the CuspPrincipal commit and its shell-lint commit (main 72aec4d). No WIP.
++  Next, in order: (1) transport `P_U`, the residues and the Prop 1.8 test to `M_X = μ_Ẑ(Π_U)`
++  coefficients along cj `h1MXEquiv` and identify `tameGen p` with the generator of `I_x` under
++  `syncEquivBar` (the isomorphisms of Thm 1.9 (b); needs the comparison of CKT's `I_W ∩ H` with
++  cj's `cuspInertia` for `barData`, cf. `inertiaCuspEquiv`); (2) Thm 1.9 (d) as the colimit over
++  `V` and finite `k'` (removes the "positive multiple"); (3) (e): feed the NF-portion triple into
++  `Uchida.ofFunctionField` (`addRel_iso_iff`); (4) the Schreier/RH debt via the geometric route
++  (needs `c1Div` under finite étale pull-back in cj); (5) bridge cj's étale-π₁ cusp data
++  (`Cor37c`, MR8) to the Galois-model `Pi D` used by the Kummer side (T1 needs both on one `Π_U`).

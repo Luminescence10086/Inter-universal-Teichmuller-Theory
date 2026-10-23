@@ -1,0 +1,8 @@
+artifact,path_or_url,retrieved_at,bytes,sha256,page_count,pypdf_text_bytes,note
+official_pdf_github,"https://github.com/katobungen/LANA_report_202607/raw/pdf/LANA_report_202607.pdf",2026-10-23,640461,aa53093aa8d69dbce5f8fb4f541069a418650260dee1ef532917aa8db89606c7,50,,
+official_text_pypdf,"(derived from the official pdf, pypdf)",2026-10-23,141891,14c8e378f7f572a058a89ad79cb807df8cf968308370eb7647141a23e19a10ee,50,141891,
+cache_pdf_used_earlier,"local cache from the earlier round",2026-10-23,640457,a368345c1b4f03d9dba439cee7d3b186465b802233392b1fc7727edec8be2f30,50,,
+cache_text_used_earlier,"(derived from the cached pdf, pypdf, earlier round)",2026-10-23,144233,5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e,50,144233,
+ncatlab_mirror_pdf,"ncatlab mirror, fetched this round",2026-10-23,640457,a368345c1b4f03d9dba439cee7d3b186465b802233392b1fc7727edec8be2f30,50,,byte-identical to cache
+zen_page_0717e,"https://zen.ac.jp/news/zmcpostevent0717e",2026-10-23,216349,2a93ac58320cbc9575065643daec1bbcac3c9ebf7fa6b18ec19c8c3afe2f325f,-,,
+zen_page_0331e,"https://zen.ac.jp/news/zmcpostevent0331e",2026-10-23,220537,da2cc91d3b5e2dd4fbee3bcc8f7a278bf24824bd4507f1730a744ba56df05492,-,,

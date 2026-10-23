@@ -1,0 +1,54 @@
+{
+  "task_id": "N09",
+  "status": "EXPERIMENTAL",
+  "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N09/SUMMARY.md",
+      "sha256": "443e382ca88ffb7e16de5dac0f0ef575b0c1c5478f780e6bd7e98e4ed69b6d35"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N09/search.py",
+      "sha256": "980b6ea9f909e5df5b2e60653dcae89751fa7f5384aed30409350aaf6d5048f7"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N09/candidate.json",
+      "sha256": "15c4b5494d3bbc9a7183fb92abeba2366716b78fe0bb96f4b8baadde8645f5e3"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N09/make_N09_delivery.py",
+      "sha256": "5271903f66abd5f18290016e2f12c1edd6fa174c181ff75aee42eff0b0907266"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N09/candidate.json",
+      "line_or_page": "runs[-1].positive_case (Z/9 x Z/9)",
+      "supports": "the one instance where a strictly larger proper common container exists"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N09/candidate.json",
+      "line_or_page": "runs[0].field_scalar_regression (Z/9)",
+      "supports": "the regression the catalog asks for: F_p scalars alone give a strictly smaller orbit"
+    }
+  ],
+  "commands_run": [
+    "py -3 handoffs/non-lean-2026-10-23/N09/search.py --demo  -> candidate.json"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "与原始 IUT 的系数环/order/hull 没有建立任何对应；结论只对所声明的有限模型成立",
+    "未尝试真实系数环（N04 只给出签名，没有给出可枚举的有限商实例）",
+    "饱和计数只在示例层面给出，未系统扫描"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

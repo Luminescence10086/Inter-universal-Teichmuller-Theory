@@ -1,0 +1,320 @@
+ZEN Mathematics Center Announces New Project LANA for Computer-Assisted Verification of IUT Theory | ZEN大学
+学生用ログイン
+JP
+EN
+資料請求
+Web出願
+ZEN大学の魅力
+学部
+カリキュラム
+サポート体制
+出願・入学案内
+社会連携・留学
+研究
+授業料・奨学金
+PICKUPイベント
+個別相談会・オープンキャンパス・授業体験など自分に合ったイベントが見つかる
+オープンキャンパス
+イベント一覧
+Web出願
+資料請求
+学生用ログイン
+ZEN大学の魅力
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部
+カリキュラム
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願時提出書類
+社会連携・留学
+地域・企業連携プログラム
+国際交流・留学
+研究
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+陸上競技部
+すずかんゼミ
+ニュース
+ブログ
+資料請求
+JP
+EN
+PICKUPイベント
+個別相談会・オープンキャンパス・授業体験など自分に合ったイベントが見つかる
+オープンキャンパス
+イベント一覧
+Web出願
+資料請求
+学生用ログイン
+ZEN大学の魅力
+ZEN大学の魅力 トップ
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部 トップ
+カリキュラム
+カリキュラム トップ
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+サポート体制 トップ
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願・入学案内 トップ
+出願時提出書類
+社会連携・留学
+社会連携・留学 トップ
+地域・企業連携プログラム
+国際交流・留学
+研究
+研究 トップ
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+オープンキャンパス トップ
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+授業料・奨学金 トップ
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+学生生活 トップ
+陸上競技部
+すずかんゼミ
+ニュース
+ブログ
+資料請求
+JP
+EN
+トップ
+ニュース
+ZEN Mathematics Center Announces New Project LANA for Computer-Assisted Verification of IUT Theory
+資料請求
+Web出願
+一覧へ戻る
+Tweet
+2026/03/31
+プレスリリース
+ZEN Mathematics Center Announces New Project LANA for Computer-Assisted Verification of IUT Theory
+On Tuesday, March 31, 2026, ZEN Mathematics Center (ZMC), a research institute of ZEN University, announced a new project, LANA. This international joint research initiative brings together scholars from ZEN University (Japan), Utrecht University (the Netherlands), and the University of Alberta (Canada). Its primary objectives are the formalization of anabelian geometry (a critical subfield of arithmetic geometry) and verification of Inter-Universal Teichmüller (IUT) theory, developed by Professor Shinichi Mochizuki of the Research Institute for Mathematical Sciences (RIMS) at Kyoto University.
+At a press conference held in Tokyo on March 31, the project’s inception, objectives, guiding principles, core members, current progress, and future outlook were presented to the public for the first time, following work that has been underway since the autumn of 2023.
+About the LANA Project
+LANA is an acronym for Lean for ANAbelian geometry. Accordingly, the project’s first objective is to use the proof assistant Lean to formalize the major theorems of anabelian geometry, a field in which Japanese researchers have been global pioneers, and to construct a corresponding mathematical library. Its second objective is to formalize and verify IUT theory using Lean.
+Lean is a functional programming language; it does not automatically prove mathematical theorems. Translating mathematical arguments, which are typically written in natural language and standard notation, into Lean requires rewriting them while systematically eliminating ambiguity. For a complex theory like IUT, this task is not a mere mechanical conversion; it requires a profound, specialized understanding of the theory itself.
+Amid ongoing debate among mathematicians worldwide regarding the validity of IUT theory, the LANA Project aims to place the theory within a formalizable framework and assess its validity, while maintaining an objective and neutral stance. In this context, the project plays an important role in clarifying points of contention and presenting them in a transparent and accessible form.
+Background
+The LANA Project was inspired by recent major advancements in mathematical formalization. In particular, the Liquid Tensor Experiment, initiated in response to a challenge from Fields Medalist Peter Scholze, served as a landmark case demonstrating that highly sophisticated arguments in modern mathematics could be verified using Lean. Johan Commelin and Adam Topaz, who spearheaded that project, are also core members of the project.
+Building on this work, ZMC explored how formalization could be applied to pivotal theories in modern mathematics. These efforts culminated in the launch of the LANA Project as an international joint research initiative.
+Core Members
+The LANA Project is led by the following five core members:
+Fumiharu Kato (Professor, ZEN University; Professor Emeritus, Institute of Science Tokyo; Project Leader)
+Johan Commelin (Assistant Professor, Utrecht University)
+Kiran Kedlaya (Professor, University of California, San Diego)
+Yuichiro Hoshi (Associate Professor, Research Institute for Mathematical Sciences, Kyoto University)
+Adam Topaz (Associate Professor, University of Alberta)
+In addition, about seven junior members, including graduate students and postdoctoral researchers from three countries and regions, are participating in the project.
+Current Status and Future Outlook
+For over a year, the LANA Project has worked to understand and verify IUT theory through intensive workshops and research retreats in Japan, Canada, the Netherlands, and the United States. As a result, the research team has gained considerable clarity on which aspects of the theory are currently understood and which remain unresolved. Efforts are also underway to synthesize remaining points of difficulty and articulate them in accessible mathematical terms.
+On Friday, July 17, 2026, the LANA Project will hold a press conference to present an interim progress report, at which detailed findings regarding the verification of IUT theory will be made public.
+Messages from Leadership
+Masato Wakayama, President of ZEN University
+“ZEN University was established in April 2025 with a mission to address severe educational disparities by building a fully fledged online university. By leveraging advanced information technologies, including the internet and artificial intelligence, we aim to develop a new model of higher education that has been difficult to achieve within traditional university frameworks. As an institution of higher learning, we regard academic research, which supports education and enriches the intellectual heritage of humanity, as one of our core pillars. At ZEN University, we are systematically advancing research on themes that have received limited attention from conventional universities. The LANA project at the ZEN Mathematics Center, which builds on advances in computational power and addresses key questions in modern mathematics, is a leading example of this work and represents a new direction for our university.”
+Fumiharu Kato (Professor, ZEN University; Director, ZEN Mathematics Center; LANA Project Leader)
+“The LANA Project is an international joint research initiative that approaches the frontiers of modern mathematics—namely, anabelian geometry and IUT theory—through a novel methodology: formalization using the Lean proof assistant. IUT theory is vast and complex, and mathematicians worldwide remain divided on its validity. We have assembled an exceptional team of experts and have engaged in rigorous discussions over the past year. As a result, we have gained a clearer understanding of what we currently understand and what remains unresolved. However, we have not yet drawn a definitive conclusion as to whether these unresolved points represent genuine mathematical gaps or limitations in our own understanding. For this reason, we will continue our examination from a strictly neutral standpoint and continue dialogue with Professor Mochizuki. In our interim report on July 17, we look forward to sharing our current understanding with the global mathematical community.”
+Conference Archive
+An archive of the press conference held in Tokyo on March 31 is available for viewing on the streaming platforms listed below. In addition to the conference archive, supplementary comments from the core members of the LANA project can be found on the ZMC website.
+【Conference Archive】
+YouTube:
+https://www.youtube.com/live/b9ZV-4T3iUo
+Niconico Live:
+https://live.nicovideo.jp/watch/lv350105847
+About ZMC (ZEN Mathematics Center)
+ZMC（ZEN Mathematics Center) is an international research institute established with the aim of promoting and developing modern mathematics with a focus on arithmetic geometry and the formalization of modern mathematics using computer languages.
+ZMC Website:
+https://zen.ac.jp/zmc
+Tweet
+一覧へ戻る
+CONTACT
+ZEN大学について
+詳しく知りたい方はこちら
+一人ひとりに合ったプランを相談できます
+資料請求
+Web出願
+説明会・オープンキャンパス
+注目のイベント
+今月のオススメPICKUPイベント
+開催日程から探す
+場所・内容から探す
+関連コンテンツ
+関連スクール
+ZEN大学の魅力
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部
+カリキュラム
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願時提出書類
+社会連携・留学
+地域・企業連携プログラム
+国際交流・留学
+研究
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+陸上競技部
+すずかんゼミ
+ZEN大学の魅力
+ZEN大学の魅力 トップ
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部 トップ
+カリキュラム
+カリキュラム トップ
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+サポート体制 トップ
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願・入学案内 トップ
+出願時提出書類
+社会連携・留学
+社会連携・留学 トップ
+地域・企業連携プログラム
+国際交流・留学
+研究
+研究 トップ
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+オープンキャンパス トップ
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+授業料・奨学金 トップ
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+学生生活 トップ
+陸上競技部
+すずかんゼミ
+ニュース
+ブログ
+資料請求
+JP
+EN
+お問い合わせ一覧
+学校法人概要
+個人情報保護方針
+情報公開
+研究における不正行為防止の取り組み
+特定商取引法に基づく表示
+企業・自治体パートナー募集のご案内
+Cookie（クッキー）等の利用ポリシー
+受講に必要な環境
+合理的配慮
+採用情報
+安全保障輸出管理
+ZEN大学出版会
+ご寄付のお願い
+カスタマーハラスメントポリシー
+本学に在籍されていた方へ
+学生用ログイン
+©Educational Institute of The Nippon Foundation and DWANGO

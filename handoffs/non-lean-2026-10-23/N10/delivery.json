@@ -1,0 +1,66 @@
+{
+  "task_id": "N10",
+  "status": "EXPERIMENTAL",
+  "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N03/obligations.csv",
+      "sha256": "d737c5cba80f539748a01830edc0aa24480cf0e19d2360d0b473e98b01710c76"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/evidence.csv",
+      "sha256": "a5f24d28e40798d98b7d26a5558d1803811269ca3fbe639cfb00abaa82b8be8c"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N07/witness-contract.csv",
+      "sha256": "10f7e4f27b7041b0905b2b2b920e0ff25c6209e73e4a7c83b3e259a9a5304b7b"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N10/SUMMARY.md",
+      "sha256": "f1e29b04745e682781b5a523dbd997c22c6f90087490c74d9b5a8b9a7dbab6b9"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N10/constraints.py",
+      "sha256": "fb5884f05cc89642070c21ceed5d8d73daffe8ff083d53c3cd6f7151b74b0a61"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N10/results.json",
+      "sha256": "0b417a25834672d4f8dc88e1ad74a15ca38799921d38d9ae6b5dd6792a6e0a29"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N10/make_N10_delivery.py",
+      "sha256": "bc9cb0b872639cfcbc2f67e3b7764b67ac4df0f02a4482910bda13ad060dea0c"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N10/results.json",
+      "line_or_page": "models[2] (M2b)",
+      "supports": "the joint-unsatisfiability while both families are individually satisfiable"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N10/results.json",
+      "line_or_page": "models[0] (M1)",
+      "supports": "E1 SAT and E2 UNSAT on the same family, i.e. the existential form does not imply invariance"
+    }
+  ],
+  "commands_run": [
+    "py -3 handoffs/non-lean-2026-10-23/N10/constraints.py  -> results.json"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "四个模型都是玩具，与 Ind3/logVol/R^ss 无已建立对应",
+    "没有使用 SAT/SMT 求解器；正因如此也不存在可独立复核的求解器见证，全部为显式枚举",
+    "有限不可满足不构成原始不可满足的证明"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

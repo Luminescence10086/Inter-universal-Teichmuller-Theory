@@ -1,0 +1,21 @@
+ADDED 7
+  A 97c85298d1854939969d54cbbcb34b70565145ac Iut/Reconstruction/Cusp/BelyiSpec.lean
+  A f523dc35756c6998e0c6ab952aec115c34579dbe Iut/Reconstruction/Cusp/Cor37c.lean
+  A 58fbe764ad91b8a2fb8fe1ba29d56fdbd6de541c Iut/Reconstruction/Cusp/SurfaceGeom.lean
+  A 4da80756a8854bcf00754ad8b475cd3c657cee3a Iut/Reconstruction/Cusp/SurfacePi1.lean
+  A 090560884a39ef660aaf2689fec0015e060c730f Iut/Reconstruction/Thm19/CuspPrincipal.lean
+  A 947d4b6a8ab45368fe0bb4b138a2ceacd9083074 Iut/Reconstruction/Thm19/NFKummer.lean
+  A 2e0bb2c540dcdf8ec16e97684a6eeceed66c9518 Plans/MR10Plan.md
+DELETED 0
+MODIFIED 11
+  M 570b2d4da25ff254478bb680148f3bd7dc2da22b -> 0834a833297ac2fee18d644beb9fb59581a41dcd Iut.lean
+  M 6833aaf59dab03cd4c0c21e82a31daad3ca451ab -> 6b4fec71fc4f4211835dc1e23c3ff82c8c887b4e Iut/Anabelian/Tempered.lean
+  M a9c3138e35d7098b2508d49455d9130acd0ee93b -> 575251d10be45c537e0ab39830fbd06a95f92e21 Iut/Anabelian/TemperedAndre.lean
+  M 1ee01274503dcb710985a764e3e49f5808c16403 -> 08f657ff58eda94dbb145549904d9440218e6580 Iut/AutHolomorphic/README.md
+  M 8d13db74533056358074a60815663f35c11c5d66 -> 68abacef9952aea5a08b464b3cbe2c8fad699f10 Iut/Multiradial/ROADMAP.md
+  M 4242b03227c1c8a4ed724f4247620490d6e8af60 -> e50107ffbc91a424b0b58970ec65bc4e3c88a8e7 Iut/Reconstruction/Cusp/Belyi.lean
+  M 1349662010c600992de3ebc194036aeff89a0fde -> 942831ca54b7664a7f1f4e1cb4017d18be2c3131 Iut/Reconstruction/Cusp/Elliptic.lean
+  M 6b7022bc87fffa204beb1a8c5bca56e6327c0b61 -> e7c58031316def8b2bb1ca2069d8024c6c4504db Plans/MR9Plan.md
+  M 2e32d3da7a171d54625b4fa4e5cf217e13e7ae0f -> 98efbffc5363c18243befee94fbcfcf403ed6622 lake-manifest.json
+  M fe38fe423115de09c8170ae3873ac93ecd4c1c7b -> a140c99dea8f8307e5c89f7579a9c4f0a3172d06 lakefile.toml
+  M f29dec54fa7e171dad53ff856289f03844353fb8 -> e94ba172ff7180723a92d37ae7bb64509b1c87b7 scripts/shell_lint_allowlist.txt

@@ -1,0 +1,447 @@
+{
+  "tool": "n09-finite-search",
+  "tag": "EXPERIMENTAL",
+  "runs": [
+    {
+      "ring": "Z/(3^2) = Z/9Z",
+      "p": 3,
+      "k": 2,
+      "elements": 9,
+      "submodules": [
+        [
+          0
+        ],
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      ],
+      "submodule_count": 3,
+      "positive_case": null,
+      "rejection_case": null,
+      "field_scalar_regression": {
+        "x": 1,
+        "orbit_under_units": [
+          1,
+          2,
+          4,
+          5,
+          7,
+          8
+        ],
+        "orbit_under_Fp_scalars": [
+          0,
+          1,
+          2
+        ],
+        "verdict": "testing only F_p scalars would report a strictly smaller orbit"
+      },
+      "saturation_example": {
+        "submodule": [
+          0,
+          3,
+          6
+        ],
+        "saturation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      },
+      "note": "a principal ideal ring has linearly ordered ideals, so the common container of two ideals is one of them: a strictly larger proper container is impossible here, and that is why the multi-factor model below is the one that carries the content"
+    },
+    {
+      "ring": "Z/(3^1) = Z/3Z",
+      "p": 3,
+      "k": 1,
+      "elements": 3,
+      "submodules": [
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "submodule_count": 2,
+      "positive_case": null,
+      "rejection_case": null,
+      "field_scalar_regression": null,
+      "saturation_example": {
+        "submodule": [
+          0,
+          1,
+          2
+        ],
+        "saturation": [
+          0,
+          1,
+          2
+        ]
+      },
+      "note": "a principal ideal ring has linearly ordered ideals, so the common container of two ideals is one of them: a strictly larger proper container is impossible here, and that is why the multi-factor model below is the one that carries the content"
+    },
+    {
+      "ring": "Z/(5^1) = Z/5Z",
+      "p": 5,
+      "k": 1,
+      "elements": 5,
+      "submodules": [
+        [
+          0
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "submodule_count": 2,
+      "positive_case": null,
+      "rejection_case": null,
+      "field_scalar_regression": null,
+      "saturation_example": {
+        "submodule": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "saturation": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "note": "a principal ideal ring has linearly ordered ideals, so the common container of two ideals is one of them: a strictly larger proper container is impossible here, and that is why the multi-factor model below is the one that carries the content"
+    },
+    {
+      "ring": "Z/(3^2) x Z/(3^2) = Z/9 x Z/9",
+      "p": 3,
+      "k": 4,
+      "elements": 81,
+      "submodules": [
+        [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        [
+          [
+            0
+          ],
+          [
+            0,
+            3,
+            6
+          ]
+        ],
+        [
+          [
+            0
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            6
+          ],
+          [
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            6
+          ],
+          [
+            0,
+            3,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            6
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            3,
+            6
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        ]
+      ],
+      "submodule_count": 9,
+      "positive_case": {
+        "A": [
+          [
+            0,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "B": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "container": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "strictly_larger_than_both": true,
+        "proper": true
+      },
+      "rejection_case": {
+        "A": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        "B": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "container_is_whole_ring": true
+      },
+      "field_scalar_regression": null,
+      "saturation_example": null,
+      "note": "here a strictly larger proper common container exists (3x3 inside 9x9), which the one-factor models cannot exhibit"
+    }
+  ],
+  "unknown_demo": {
+    "input": "Z/(3^9)",
+    "outcome": "UNKNOWN",
+    "reason": "ring Z/(3^9) has 19683 elements > cap 4000"
+  },
+  "limits": {
+    "cap_elements": 4000,
+    "cap_submodules": 20000
+  },
+  "not_a_certificate": true
+}

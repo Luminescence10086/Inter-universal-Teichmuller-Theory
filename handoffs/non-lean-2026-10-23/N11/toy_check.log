@@ -1,0 +1,71 @@
+========================================================================
+Part A -- card T3-LAT (N08-G2/G3): coordinate box vs log-convex hull
+========================================================================
+p = 2, n = 2, exponent coordinates v_j = val_2(x_j)
+
+A1 box (2x2 square, E == B(E))
+   box mins m = (0, 0)   =>  B(E) = { v : v1 >= 0, v2 >= 0 }
+   E is itself a box: B(E) = E = conv(E)  ->  BOX
+   mu(B(E)) = 1 ,  mu(conv E) = 1  (no gap)
+  PASS  A-box-closes 
+
+A2 diagonal {(0,0),(1,1)}
+   box mins m = (0, 0)   =>  B(E) = { v : v1 >= 0, v2 >= 0 }
+  PASS  x not in E (so B(E) strictly larger than E) 
+  PASS  separator on E (phi.e = [0, 0], c = 0)
+  PASS  separator at x (phi.x = -1 for x = (0, 1))
+  PASS  => x in B(E) and x not in conv(E) -> NONBOX
+   NONBOX: x = (0, 1) lies in the coordinate box but not in the log-convex hull
+   mu(B(E)) = 1 ,  mu(conv E) = 0  (conv is lower-dimensional)
+   => the log-convex hull is not even admissible here: the two
+      hull conventions are not comparable as regions
+
+A3 anti-diagonal {(0,1),(1,0)}
+   box mins m = (0, 0)   =>  B(E) = { v : v1 >= 0, v2 >= 0 }
+  PASS  x not in E (so B(E) strictly larger than E) 
+  PASS  separator on E (phi.e = [1, 1], c = 1)
+  PASS  separator at x (phi.x = 0 for x = (0, 0))
+  PASS  => x in B(E) and x not in conv(E) -> NONBOX
+   NONBOX: x = (0, 0) lies in the coordinate box but not in the log-convex hull
+   mu(B(E)) = 1 ,  mu(conv E) = 0  (conv is lower-dimensional)
+   => the log-convex hull is not even admissible here: the two
+      hull conventions are not comparable as regions
+
+Reading: `LocalTheory.hull` returns a hull REGION (b*O), i.e. exactly B(E).
+So on a capsule whose exponent set is not a box the coordinate-box hull is
+strictly larger than the log-convex hull; in the two NONBOX cases above the
+latter has Haar measure 0 and is not an admissible region at all.  Hence
+'hull = per-coordinate lambda*O' is a substantive claim about the container,
+not a harmless relaxation -- the deviation is documented at Ind3.lean:32-38.
+That is the precise form of N08-G2: it is a decidable property of E.
+
+========================================================================
+Part B -- card T4-ATT (N07-H1): attainment vs strict certificate
+========================================================================
+M = log-vol(hull(VC(I))) = 1 ,   target t = qPilot.lhs = 3/4
+
+M1 identified-copies shape: mu(out S) = mu(S)
+   T1 yes, T2 yes, T3: mu <= M yes
+   -> WITNESS : 3/4  (S of length 3/4)
+
+M2 same fields, other out: mu(out S) = min(mu(S), M/2)
+   T1 yes, T2 yes, T3: mu <= M yes
+   -> CERTIFICATE : 1/2  (sup of the image is 1/2 < t = 3/4)
+
+  PASS  M1 WITNESS 
+  PASS  M1 witness inside hull 
+  PASS  M2 CERTIFICATE 
+  PASS  M2 certificate is strict 
+  PASS  M2 (T3) still holds 
+  PASS  fields do not decide 
+Reading: the two models agree on every declared field of `EtaAlg D` that
+Part B can see (T1 permutes S, T2 etUnitOnly, T3 'out(S) inside the hull'),
+yet M1 attains the target and M2 does not.  Therefore the declared fields
+alone give UNDETERMINED; a decision needs one more declared item (the
+sup of the log-vol range of `out iota`).  This is exactly N07-H1: `out` is
+a bare field and `realisation` (EtaAlg.lean:123) gives containment only.
+
+========================================================================
+RESULT: ALL PASS
+Scope: finite/rational model only. EXPERIMENTAL, not a proof, not Lean.
+========================================================================

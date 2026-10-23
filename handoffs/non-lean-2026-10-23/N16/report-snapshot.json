@@ -1,0 +1,107 @@
+{
+  "package": "D:\\Inter-universal Teichmüller Theory\\handoffs\\non-lean-2026-10-23",
+  "tasks": [
+    {
+      "task_id": "N01",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N02",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N03",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N04",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N05",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N06",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N07",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N08",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N09",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N10",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N11",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N12",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N13",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N14",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N15",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "task_id": "N16",
+      "ok": true,
+      "errors": [],
+      "warnings": []
+    }
+  ],
+  "summary": {
+    "tasks": 16,
+    "clean": 16,
+    "with_findings": 0,
+    "not_a_math_check": true
+  }
+}

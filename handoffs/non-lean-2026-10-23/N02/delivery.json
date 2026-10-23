@@ -1,0 +1,67 @@
+{
+  "task_id": "N02",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e"
+    },
+    {
+      "path": "research/controversies.md",
+      "sha256": "db547854069c77d9428399dc1b3dfa74d876658c507d42e0944b51f22e33f307"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+      "sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N02/SUMMARY.md",
+      "sha256": "8e84c91559971eddb818f2b39fec197e1773d80d4e07e8f655145967b8f06086"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N02/controversies.csv",
+      "sha256": "36c58b9b248866fac50b11fd3912eb7940752ed856fa8756c2da5d7d46ab9fc5"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N02/notes.md",
+      "sha256": "51dba87ddb5f2d7efa04ba074b03cffb34d724aa3c07caffec203b0cca6c1fbd"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N02/make_N02.py",
+      "sha256": "502a1f85f8df150f95409e1ade85fd846ce5cc77aca22d98434d188bf4991964"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "line_or_page": "2274-2293 (p.49-50)",
+      "supports": "that the LANA assessment accepts the non-commuting diagram, points at (9-1), and states no proof of it exists"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "line_or_page": "2283-2289 (p.49)",
+      "supports": "that the 3.11 -> 3.12 step and the identification of copies of R are named as the shared problem"
+    }
+  ],
+  "commands_run": [
+    "py -3 read-only extraction of LANA text with page markers (9.2, 10.5)",
+    "py -3 read of research/controversies.md for the secondary source routes"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "Scholze-Stix / Joshi / Dupuy-Hilado 的原文本地没有，表中内容为二手摘录（SECONDARY_DIGEST），未逐字对校",
+    "IUT IV Step (v) 的原文未定位，K08 无本地反引文",
+    "Θ-link 是否必须是环同态：文本两读皆通，未裁决"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

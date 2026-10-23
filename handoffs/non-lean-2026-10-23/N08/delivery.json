@@ -1,0 +1,70 @@
+{
+  "task_id": "N08",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "GAP-core-residue-hull-realization.md",
+      "sha256": "a5bf1c1d6140f5915f35e1da1cfa480c54890ed694234d5e208f2fc8cf6bb232"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N06/normalizations.csv",
+      "sha256": "3fb18d67acc21514d099076e7bd27fcc7bce88b14c8f8fbd9ec18200712e563f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/evidence.csv",
+      "sha256": "a5f24d28e40798d98b7d26a5558d1803811269ca3fbe639cfb00abaa82b8be8c"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N08/SUMMARY.md",
+      "sha256": "16dd45d0317ba927165bc88d1df51f870a3ba17b63f160b07d84d30372374129"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N08/bridge-plan.md",
+      "sha256": "33a3030d0fcff0da4a110b0b16e1a27a4bed1adff66d5e48f6627833ce244850"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N08/lemmas.csv",
+      "sha256": "81b00972e68cd64b894f3154fee459580abe434e4824d71e6dce51f5b6b8a36e"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N08/make_N08.py",
+      "sha256": "ed06f5ff65866d4cf80dcb4ff43cdf850460a158a41c425d9c73ef235e40ca80"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N08/lemmas.csv",
+      "line_or_page": "row L2",
+      "supports": "the failure example that kills the naive transfer of the model container to n >= 2"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N08/lemmas.csv",
+      "line_or_page": "row L5",
+      "supports": "that the shared-finite-quotient hypothesis has no source support yet (N05 records UNRESOLVED)"
+    }
+  ],
+  "commands_run": [
+    "py -3 read-only line extraction of GAP-core-residue-hull-realization.md",
+    "cross-read of N05/evidence.csv (shared_finite_quotient column) and N06/normalizations.csv"
+  ],
+  "new_hypotheses": [
+    "L1 的\"参考格与 O^n 互相包含\"是我加的假设，未在原文中核到（需要 III Remark 3.9.5(i) 原文核对）",
+    "L3 的\"每分量非零\"在模型层不成立，作为原始情形的条件需要原文引文支撑"
+  ],
+  "unresolved": [
+    "五条引理均未形式化；L5 的假设目前无来源支持",
+    "L4 与 N06-10 同源：两套 log 之间没有比较映射",
+    "n >= 2 的共同容器形状与原文 λ·O 的关系未定"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

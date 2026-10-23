@@ -1,0 +1,86 @@
+﻿[
+    {
+        "file":  "lakefile.toml",
+        "side":  "_base",
+        "bytes":  5059,
+        "blob_ok":  true,
+        "sha256":  "a69a3daddae54ce80da087b6fb6207c26d18da3055f2a53d1f4e78400faeb667"
+    },
+    {
+        "file":  "lakefile.toml",
+        "side":  "_head",
+        "bytes":  6173,
+        "blob_ok":  true,
+        "sha256":  "ff4aac293ae9a78dd1207d23c0da6cb6eeb58a5b845502a0893916e3ff262d9d"
+    },
+    {
+        "file":  "lake-manifest.json",
+        "side":  "_base",
+        "bytes":  8094,
+        "blob_ok":  true,
+        "sha256":  "1cdcbee570e10ce8905f98bbe73c3987c510ed27d9936b7524c210c4dba88a0d"
+    },
+    {
+        "file":  "lake-manifest.json",
+        "side":  "_head",
+        "bytes":  8456,
+        "blob_ok":  true,
+        "sha256":  "12a9c65868de3e1ec621d8cff51ab8079f8dda21a655aab8deb1e43d2ef72653"
+    },
+    {
+        "file":  "scripts/shell_lint_allowlist.txt",
+        "side":  "_base",
+        "bytes":  47589,
+        "blob_ok":  true,
+        "sha256":  "57d6e5471ab31384137cb01ff92bad790b39eaef625c24d4506975f6a9a2fc18"
+    },
+    {
+        "file":  "scripts/shell_lint_allowlist.txt",
+        "side":  "_head",
+        "bytes":  82556,
+        "blob_ok":  true,
+        "sha256":  "0e31c4dfe6881cc91d6600844fb12fb26181c29e90321e7af32392e44892ce14"
+    },
+    {
+        "file":  "Plans/MR9Plan.md",
+        "side":  "_base",
+        "bytes":  29570,
+        "blob_ok":  true,
+        "sha256":  "9a226a046b3f9bc9fb59f517df44e22d572ec2dce6391e1b9e9501300c3345f8"
+    },
+    {
+        "file":  "Plans/MR9Plan.md",
+        "side":  "_head",
+        "bytes":  38968,
+        "blob_ok":  true,
+        "sha256":  "8c9c622602499951465e4a6dca7a211f8e9b49d0a04c0728472303e3dd47f228"
+    },
+    {
+        "file":  "Iut/Multiradial/ROADMAP.md",
+        "side":  "_base",
+        "bytes":  97600,
+        "blob_ok":  true,
+        "sha256":  "0a60677ea43c8081817e9ca01315f2801cf9ac1f1eeb964a5d6cb1e20ef83272"
+    },
+    {
+        "file":  "Iut/Multiradial/ROADMAP.md",
+        "side":  "_head",
+        "bytes":  101411,
+        "blob_ok":  true,
+        "sha256":  "17810eb337aac80c2ea1d3842065bd95fb3d895bb618a12e9fbe09b1ab180603"
+    },
+    {
+        "file":  "Iut/AutHolomorphic/README.md",
+        "side":  "_base",
+        "bytes":  4566,
+        "blob_ok":  true,
+        "sha256":  "1796e831effd45ae4cbddc1dd826b6781d2334dbaf77ce669e7f0850dfa3f6de"
+    },
+    {
+        "file":  "Iut/AutHolomorphic/README.md",
+        "side":  "_head",
+        "bytes":  4677,
+        "blob_ok":  true,
+        "sha256":  "89ecd3ee9c3504d5360f738eb31b5a781bdd5c59ae11aa7d5bd308f8263e8e9f"
+    }
+]

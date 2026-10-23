@@ -1,0 +1,71 @@
+{
+  "task_id": "N06",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e"
+    },
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
+      "path": "candidates/core-transport/LabelNormalization.lean",
+      "sha256": "5d711c6fe88be8b3b23258eb944a22bda6a68d55f9fbfe262b60b9cb8e5dccb1"
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N06/SUMMARY.md",
+      "sha256": "c982d56d183c46140404d8a920cc1da42dfab60983184dd1c602d6d9b21b4e3f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N06/notes.md",
+      "sha256": "2c3d431849d2bb085124e5fd2417eaadf9cbe14896fba8e8fe45d52e2670613d"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N06/normalizations.csv",
+      "sha256": "3fb18d67acc21514d099076e7bd27fcc7bce88b14c8f8fbd9ec18200712e563f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N06/make_N06.py",
+      "sha256": "e54aa3e0c946a66a704fa6914dd418fdc048d76027c0c172dad5b9a8d2e0dc53"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "line_or_page": "2126-2137 (p.46)",
+      "supports": "that the two pilots are defined separately and no conversion constant is named (N06-01, N06-02)"
+    },
+    {
+      "path": "candidates/core-transport/LabelNormalization.lean",
+      "line_or_page": "165-169",
+      "supports": "that the label/orbit average identity carries hAct, and is therefore conditional (N06-05)"
+    }
+  ],
+  "commands_run": [
+    "py -3 read-only extraction of the LANA and IUT III texts around the cited line ranges",
+    "py -3 (pathlib) line extraction from LabelNormalization.lean and CoreTransport/Basic.lean"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "N06-08 行未给 PadicPrincipalHull 的精确行号（只声明文本），需 N04 类逐行核对补上",
+    "N06-10：两套 log 之间的比较映射在仓库中不存在，属结构性缺口",
+    "全部公式是 UNVERIFIED_MATH 草稿；本任务不产生任何恒等式"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

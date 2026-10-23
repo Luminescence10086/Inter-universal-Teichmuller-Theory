@@ -1,0 +1,187 @@
+{
+  "tool": "n10-finite-constraints",
+  "tag": "EXPERIMENTAL",
+  "models": [
+    {
+      "name": "M1-one-family",
+      "reading": {
+        "0": 1,
+        "1": 2,
+        "2": 3
+      },
+      "target_q": 3,
+      "E1_exists": {
+        "verdict": "SAT",
+        "witnesses": [
+          2
+        ]
+      },
+      "E2_all": {
+        "verdict": "UNSAT",
+        "counterexample": [
+          0,
+          1
+        ]
+      },
+      "conclusion": "E1 holds while E2 fails: the existential form does not imply the family-invariance form",
+      "reading_source": "toy model; the paper-side analogue is N03 O1 vs O5"
+    },
+    {
+      "name": "M2-two-families",
+      "F1": {
+        "a": 1,
+        "b": 2
+      },
+      "F2": {
+        "a": 2,
+        "b": 3
+      },
+      "F1_alone": {
+        "verdict": "SAT",
+        "witnesses": [
+          "a"
+        ]
+      },
+      "F2_alone": {
+        "verdict": "SAT",
+        "witnesses": [
+          "a"
+        ]
+      },
+      "joint": {
+        "verdict": "SAT",
+        "witnesses": [
+          "a"
+        ]
+      },
+      "conclusion": "each family is satisfiable on its own and the joint constraint is satisfiable here, so this model does NOT exhibit the failure; it is the control case. The failure is M2b below.",
+      "reading_source": "toy model; paper-side analogue: two requirements sharing one S (N07 W9)"
+    },
+    {
+      "name": "M2b-two-families-disjoint",
+      "F1": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      },
+      "F2": {
+        "a": 2,
+        "b": 1,
+        "c": 0
+      },
+      "F1_alone": {
+        "verdict": "SAT",
+        "witnesses": [
+          "a"
+        ]
+      },
+      "F2_alone": {
+        "verdict": "SAT",
+        "witnesses": [
+          "b"
+        ]
+      },
+      "joint": {
+        "verdict": "UNSAT",
+        "witnesses": []
+      },
+      "conclusion": "both families are individually satisfiable and jointly unsatisfiable: \"there is an S for each requirement\" does not give \"there is one S for both\"",
+      "reading_source": "toy model; this is the smallest instance of the joint-witness fallacy named in N07"
+    },
+    {
+      "name": "M3-unknown-relation",
+      "known_constraint": "not (x and y and z)",
+      "satisfying_assignments_under_known_constraints_only": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "satisfying_assignments_if_independence_of_x_y_is_assumed": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "conclusion": "the extra assumption removes the assignments with x = y = 1 that satisfy every known constraint, i.e. assuming independence narrows the model without evidence; unknown relations must be reported as UNKNOWN, not silently closed",
+      "reading_source": "catalog N10 instruction: missing relations must stay unknown"
+    }
+  ],
+  "not_a_proof": true,
+  "scope_note": "every verdict is an exhaustive enumeration over the named finite model; finite unsatisfiability is not a statement about IUT",
+  "constraint_provenance": [
+    {
+      "constraint": "E1 exists a choice with reading = q",
+      "source": "LANA §9.2 line 2141 (9-1) as an existential"
+    },
+    {
+      "constraint": "E2 every choice has reading = q",
+      "source": "NOT in the sources; it is the stronger form that the earlier round wrongly treated as necessary"
+    },
+    {
+      "constraint": "J one S for two requirement families",
+      "source": "N07 W9 (joint witness)"
+    },
+    {
+      "constraint": "U unknown relations",
+      "source": "N05: shared_finite_quotient is UNRESOLVED for every item"
+    }
+  ]
+}

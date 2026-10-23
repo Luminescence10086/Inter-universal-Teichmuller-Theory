@@ -1,0 +1,1151 @@
+{
+  "schema": "n15-candidate-graph/1",
+  "task": "N15",
+  "generated_at": "2026-10-23 (date only: the live clock is deliberately not baked in, so that a re-run on an unchanged workspace reproduces this file byte for byte)",
+  "snapshot_note": "the workspace is live: sibling tasks were still being written during this build (N13/delivery.json appeared mid-run). Every node carries the sha256 of the exact delivery.json record it was read from, so a reviewer can tell whether a later edit has moved the ground under this index.",
+  "rules": {
+    "node": "one node per delivered or catalogued item (T1-T4, K4, M1-M4, W1-W12, N01-N16)",
+    "edge_meaning": "A -> B means B is taken to depend on A; edge_status says how that is known",
+    "EXISTING_RECORD": "B's delivery.json inputs[] carries a path that A's delivery.json outputs[] declares, with hashes",
+    "PROPOSED": "an N15 proposal read off a named line of PATH.md / round-report.md / the task catalogue",
+    "no_self_verified_edge": "no edge in this graph was re-verified by running Lean, Lake or an editor"
+  },
+  "nodes": [
+    {
+      "id": "T1",
+      "kind": "static-doc",
+      "declared_status": "STATIC_ONLY",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "MISSING",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-support-2026-10-22/T1/delivery.json",
+      "source_record": "handoffs/core-support-2026-10-22/T1/delivery.json",
+      "source_record_sha256": "356bfc446979a7da0d22796e78338aa00fb9f7369f984e79fbf7fe06fe321f91"
+    },
+    {
+      "id": "T2",
+      "kind": "static-doc",
+      "declared_status": "STATIC_ONLY",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "MISSING",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-support-2026-10-22/T2/delivery.json",
+      "source_record": "handoffs/core-support-2026-10-22/T2/delivery.json",
+      "source_record_sha256": "1dffd4db1f2cb76cf0d82fbb8b9de6b1f5094449115fe945ff5f225f6f929b18"
+    },
+    {
+      "id": "T3",
+      "kind": "lean-experimental",
+      "declared_status": "CLI_CHECKED_EDITOR_PENDING",
+      "cli_verified": "CLAIMED_NO_GATE_BLOCK",
+      "editor_evidence": "SUPPORTED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-support-2026-10-22/T3/delivery.json",
+      "source_record": "handoffs/core-support-2026-10-22/T3/delivery.json",
+      "source_record_sha256": "b764471be8997ff2fd956067e7576adf10f0d8fb5f0e0ce465f4a2f2f2025846"
+    },
+    {
+      "id": "T4",
+      "kind": "lean-experimental",
+      "declared_status": "CLI_CHECKED_EDITOR_PENDING",
+      "cli_verified": "CLAIMED_NO_GATE_BLOCK",
+      "editor_evidence": "MISSING",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-support-2026-10-22/T4/delivery.json",
+      "source_record": "handoffs/core-support-2026-10-22/T4/delivery.json",
+      "source_record_sha256": "4ebc2e7c0a3289d7e8bc4bd58241fd3e41b11452d54c173ce05b355e5d42d842"
+    },
+    {
+      "id": "K4",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "SUPPORTED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/K4/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/K4/delivery.json",
+      "source_record_sha256": "67a692ee780313f6412c3e72c006b45fcde0c353e69ab19ae05fb0c89b93ffdc"
+    },
+    {
+      "id": "M1",
+      "kind": "static-doc",
+      "declared_status": "STATIC_ONLY",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "MISSING",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/M1/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/M1/delivery.json",
+      "source_record_sha256": "f9051e466db33394768bd05869c2898a796fa0ea9c2d8874e1fb931ab8c496a9"
+    },
+    {
+      "id": "M2",
+      "kind": "static-doc",
+      "declared_status": "STATIC_ONLY",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "MISSING",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/M2/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/M2/delivery.json",
+      "source_record_sha256": "8baeb803514a7fb07c73b8c10369f025ade42a7f8214878d8c3655deed0204e9"
+    },
+    {
+      "id": "M3",
+      "kind": "static-doc",
+      "declared_status": "STATIC_ONLY",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "MISSING",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/M3/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/M3/delivery.json",
+      "source_record_sha256": "14dce9c1a281a7ef01eb34d698fb75b0c832d3f69c8bec0a518674892f4f6a1f"
+    },
+    {
+      "id": "M4",
+      "kind": "static-doc",
+      "declared_status": "STATIC_ONLY",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "MISSING",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/M4/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/M4/delivery.json",
+      "source_record_sha256": "e61592614367e9204f01465cf508cede248589f9832abb74f061d5fbfe98b5c2"
+    },
+    {
+      "id": "W1",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "INSUFFICIENT",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W1/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W1/delivery.json",
+      "source_record_sha256": "6d3e9db37e401c2253cb799f31b67d99a8f14d60ef389f3da586244cc50c9df1"
+    },
+    {
+      "id": "W2",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "SUPPORTED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W2/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W2/delivery.json",
+      "source_record_sha256": "3b5fa3ac5a13d529ed20f1452ce42bf2ef49f67fb898080384e25f30005f8db8"
+    },
+    {
+      "id": "W3",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "SUPPORTED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W3/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W3/delivery.json",
+      "source_record_sha256": "13428fb23bcb5bf04cfabd9e37dc08e242ff9f30498933a5190b2de53852b10c"
+    },
+    {
+      "id": "W4",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "INSUFFICIENT",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W4/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W4/delivery.json",
+      "source_record_sha256": "6ae65be09aeb0f3e2fb64af49292b9f3f380c8a19b79e7d6f39995ccbc0d7d2e"
+    },
+    {
+      "id": "W5",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "SUPPORTED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W5/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W5/delivery.json",
+      "source_record_sha256": "a5af33f037906714c28e800edc125ffb3240ec745ca90299bbf1b51f876c5c70"
+    },
+    {
+      "id": "W6",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "SUPPORTED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W6/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W6/delivery.json",
+      "source_record_sha256": "da6a16fdc78648e9d13c4465652489e60bccd8d26b28d591b272e670b5b4196a"
+    },
+    {
+      "id": "W7",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "INSUFFICIENT",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W7/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W7/delivery.json",
+      "source_record_sha256": "b09e89b28abfdd1cfa891108f7ae2ae351619edf1bdbb0cc5f530d6fbff02131"
+    },
+    {
+      "id": "W8",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_PENDING",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "INSUFFICIENT",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W8/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W8/delivery.json",
+      "source_record_sha256": "ead4ef53f8df57e2346b74c288825c9e1594e566508bc7a82ccbcb6111e1963e"
+    },
+    {
+      "id": "W9",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_PENDING",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "STALE",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W9/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W9/delivery.json",
+      "source_record_sha256": "93109960b65a3f0066ee6cd52fb6f6ca0841f0552e5ba27664032529fb31ce68"
+    },
+    {
+      "id": "W10",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "STALE",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W10/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W10/delivery.json",
+      "source_record_sha256": "c852a750fec332d46048d7d9f852d622226d1daba624e2cfbf305d0b9b8af620"
+    },
+    {
+      "id": "W11",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_PENDING",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "INSUFFICIENT",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W11/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W11/delivery.json",
+      "source_record_sha256": "95ad2bf870474a2252c97e69e81e85c7f8a489839b7009828eb051001d9c4e92"
+    },
+    {
+      "id": "W12",
+      "kind": "lean-cli",
+      "declared_status": "CLI_CHECKED_EDITOR_CHECKED",
+      "cli_verified": "PASSED_GATE",
+      "editor_evidence": "INSUFFICIENT",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/core-backward-2026-10-23/W12/delivery.json",
+      "source_record": "handoffs/core-backward-2026-10-23/W12/delivery.json",
+      "source_record_sha256": "58df878d4c225e774725a6440bdc4da3d67a3fef4b522f9e97192c35657c4bcd"
+    },
+    {
+      "id": "N01",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N01/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N01/delivery.json",
+      "source_record_sha256": "a4091530e98bbde30fb3aa1fec3f6d303fef3a1ce83459ca978c2c371ad3a876"
+    },
+    {
+      "id": "N02",
+      "kind": "static-doc",
+      "declared_status": "NOT_DELIVERED",
+      "cli_verified": "NO_RECORD",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N02/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N02/delivery.json",
+      "source_record_sha256": ""
+    },
+    {
+      "id": "N03",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N03/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N03/delivery.json",
+      "source_record_sha256": "7f5afa2acb83e9048444b23f3a1541a93f0276b3cb530b738d0ef6aabedc036a"
+    },
+    {
+      "id": "N04",
+      "kind": "static-doc",
+      "declared_status": "PARTIAL",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N04/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N04/delivery.json",
+      "source_record_sha256": "1fcf1600e5a4dbca8669cf92bfa18df6bb889370a4413f914e92c853bb28298e"
+    },
+    {
+      "id": "N05",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N05/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N05/delivery.json",
+      "source_record_sha256": "49c70344f496933e7caf54494fbfbbd414e3ffc9494927ca6c060b2748e55da6"
+    },
+    {
+      "id": "N06",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N06/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N06/delivery.json",
+      "source_record_sha256": "e7b299dc58484481efc2bb6fde4e3d4c2480c1329169c8cae28ddf47ae8b50f6"
+    },
+    {
+      "id": "N07",
+      "kind": "static-doc",
+      "declared_status": "PARTIAL",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N07/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N07/delivery.json",
+      "source_record_sha256": "703983b9b755776498a7f7fc0ddcc87390dd17c2a1cba3fe5eea5fc0715db34d"
+    },
+    {
+      "id": "N08",
+      "kind": "static-doc",
+      "declared_status": "NO_DELIVERY_RECORD",
+      "cli_verified": "NO_RECORD",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-residue-hull-realization.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N08/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N08/delivery.json",
+      "source_record_sha256": ""
+    },
+    {
+      "id": "N09",
+      "kind": "static-doc",
+      "declared_status": "EXPERIMENTAL",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-residue-hull-realization.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N09/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N09/delivery.json",
+      "source_record_sha256": "65313cd0dc33ab69f5e76441e4dbb2aad97aa30095de0f61f0c064669bb8c97d"
+    },
+    {
+      "id": "N10",
+      "kind": "experimental-tool",
+      "declared_status": "NOT_DELIVERED",
+      "cli_verified": "NO_RECORD",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-native-realization.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N10/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N10/delivery.json",
+      "source_record_sha256": ""
+    },
+    {
+      "id": "N11",
+      "kind": "static-doc",
+      "declared_status": "NOT_DELIVERED",
+      "cli_verified": "NO_RECORD",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N11/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N11/delivery.json",
+      "source_record_sha256": ""
+    },
+    {
+      "id": "N12",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "GAP-core-comparison-reconstruction.md",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N12/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N12/delivery.json",
+      "source_record_sha256": "50e976c177a75d63f37ecd379d6f9861b1c621ef27b799a5785e598d72d49d15"
+    },
+    {
+      "id": "N13",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N13/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N13/delivery.json",
+      "source_record_sha256": "d5851277004287c30296a91d63aa634ecec212a736a62b707129206154af2600"
+    },
+    {
+      "id": "N14",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NOT_APPLICABLE_STATIC",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N14/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N14/delivery.json",
+      "source_record_sha256": "1a142d49bf993cdbec6c2ca80858433b3a0b510d37c5aa5db888c8f75c900404"
+    },
+    {
+      "id": "N15",
+      "kind": "static-doc",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NO_RECORD",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N15/delivery.json; handoffs/non-lean-2026-10-23/N15/status.csv",
+      "source_record": "handoffs/non-lean-2026-10-23/N15/delivery.json",
+      "source_record_sha256": ""
+    },
+    {
+      "id": "N16",
+      "kind": "experimental-tool",
+      "declared_status": "STATIC_COMPLETE",
+      "cli_verified": "NO_RECORD",
+      "editor_evidence": "UNRESOLVED",
+      "native_iut_realized": false,
+      "fact_tree_admitted": false,
+      "gap_ref": "",
+      "evidence_path": "handoffs/non-lean-2026-10-23/N16/delivery.json",
+      "source_record": "handoffs/non-lean-2026-10-23/N16/delivery.json",
+      "source_record_sha256": "6e1315ebad1d0216c06aada2d724339927e8ee92d4718e1a5d3145fcdd691a48"
+    }
+  ],
+  "edges": [
+    {
+      "from": "M3",
+      "to": "K4",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/K4/delivery.json#inputs[path=handoffs/core-backward-2026-10-23/M3/interfaces.json, sha256=5d22fcb2243b4f2a]",
+        "handoffs/core-backward-2026-10-23/M3/delivery.json#outputs[path=handoffs/core-backward-2026-10-23/M3/interfaces.json]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "T1",
+      "to": "M1",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/M1/delivery.json#inputs[path=handoffs/core-support-2026-10-22/T1/source-map.csv, sha256=3fd033b9b69a5f24]",
+        "handoffs/core-support-2026-10-22/T1/delivery.json#outputs[path=handoffs/core-support-2026-10-22/T1/source-map.csv]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "T1",
+      "to": "M2",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/M2/delivery.json#inputs[path=handoffs/core-support-2026-10-22/T1/source-map.csv, sha256=3fd033b9b69a5f24]",
+        "handoffs/core-support-2026-10-22/T1/delivery.json#outputs[path=handoffs/core-support-2026-10-22/T1/source-map.csv]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "T2",
+      "to": "M3",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/M3/delivery.json#inputs[path=handoffs/core-support-2026-10-22/T2/cards.json, sha256=25a28fd7cd25e145]",
+        "handoffs/core-support-2026-10-22/T2/delivery.json#outputs[path=handoffs/core-support-2026-10-22/T2/cards.json]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "M3",
+      "to": "W1",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W1/delivery.json#inputs[path=handoffs/core-backward-2026-10-23/M3/interfaces.json, sha256=5d22fcb2243b4f2a]",
+        "handoffs/core-backward-2026-10-23/M3/delivery.json#outputs[path=handoffs/core-backward-2026-10-23/M3/interfaces.json]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "M3",
+      "to": "W2",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W2/delivery.json#inputs[path=handoffs/core-backward-2026-10-23/M3/interfaces.json, sha256=5d22fcb2243b4f2a]",
+        "handoffs/core-backward-2026-10-23/M3/delivery.json#outputs[path=handoffs/core-backward-2026-10-23/M3/interfaces.json]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "W3",
+      "to": "W5",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W5/delivery.json#inputs[path=research/core-backward-2026-10-23/h3-prerequisites.md, sha256=932d169d9a0e88d5]",
+        "handoffs/core-backward-2026-10-23/W3/delivery.json#outputs[path=research/core-backward-2026-10-23/h3-prerequisites.md]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "W3",
+      "to": "W6",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W6/delivery.json#inputs[path=research/core-backward-2026-10-23/h3-prerequisites.md, sha256=932d169d9a0e88d5]",
+        "handoffs/core-backward-2026-10-23/W3/delivery.json#outputs[path=research/core-backward-2026-10-23/h3-prerequisites.md]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "W11",
+      "to": "N07",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N07/delivery.json#inputs[path=candidates/core-transport/EtaComparison.lean, sha256=330431eddd7e3e72]",
+        "handoffs/core-backward-2026-10-23/W11/delivery.json#outputs[path=candidates/core-transport/EtaComparison.lean]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "W10",
+      "to": "N13",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N13/delivery.json#inputs[path=candidates/core-transport/H3Synthesis.lean, sha256=ffd30a25d4461157]",
+        "handoffs/core-backward-2026-10-23/W10/delivery.json#outputs[path=candidates/core-transport/H3Synthesis.lean]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "W9",
+      "to": "N13",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N13/delivery.json#inputs[path=candidates/core-transport/ExponentUniqueness.lean, sha256=6d3d19036323945b]",
+        "handoffs/core-backward-2026-10-23/W9/delivery.json#outputs[path=candidates/core-transport/ExponentUniqueness.lean]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "W11",
+      "to": "N13",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N13/delivery.json#inputs[path=candidates/core-transport/EtaComparison.lean, sha256=330431eddd7e3e72]",
+        "handoffs/core-backward-2026-10-23/W11/delivery.json#outputs[path=candidates/core-transport/EtaComparison.lean]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "N14",
+      "to": "N15",
+      "edge_status": "EXISTING_RECORD",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N15/delivery.json#inputs[path=handoffs/non-lean-2026-10-23/N14/receipt-review.csv, sha256=1b3c45a4aa2efc7b]",
+        "handoffs/non-lean-2026-10-23/N14/delivery.json#outputs[path=handoffs/non-lean-2026-10-23/N14/receipt-review.csv]"
+      ],
+      "note": "target lists the source's declared output as an input; both records are hashed there"
+    },
+    {
+      "from": "K4",
+      "to": "W1",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "research/core-backward-2026-10-23/round-report.md:56"
+      ],
+      "note": "W1 is the step after K4"
+    },
+    {
+      "from": "W5",
+      "to": "W7",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "research/core-backward-2026-10-23/PATH.md:28"
+      ],
+      "note": "W7 fuses the W5 group orbit with the W6 transition relation into one relation"
+    },
+    {
+      "from": "W6",
+      "to": "W7",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "research/core-backward-2026-10-23/PATH.md:28"
+      ],
+      "note": "W7 fuses the W6 transition relation with the W5 group orbit"
+    },
+    {
+      "from": "W8",
+      "to": "W10",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "research/core-backward-2026-10-23/PATH.md:32"
+      ],
+      "note": "W10 states M-i (W8) and M-ii (W9) are corollaries of one homomorphism fact"
+    },
+    {
+      "from": "W9",
+      "to": "W10",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "research/core-backward-2026-10-23/PATH.md:32"
+      ],
+      "note": "W10 states M-ii (W9) and M-i (W8) are corollaries of one homomorphism fact"
+    },
+    {
+      "from": "W3",
+      "to": "W8",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "research/core-backward-2026-10-23/PATH.md:23,research/core-backward-2026-10-23/PATH.md:29"
+      ],
+      "note": "the divide-back law W8 refines is the toy law of W3"
+    },
+    {
+      "from": "W5",
+      "to": "W12",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "research/core-backward-2026-10-23/PATH.md:35"
+      ],
+      "note": "coord_at_base in W12 recovers W5 as a corollary"
+    },
+    {
+      "from": "M1",
+      "to": "N03",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:74"
+      ],
+      "note": "N03 takes M1-M4 as input"
+    },
+    {
+      "from": "M2",
+      "to": "N03",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:74"
+      ],
+      "note": "N03 takes M1-M4 as input"
+    },
+    {
+      "from": "M3",
+      "to": "N03",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:74"
+      ],
+      "note": "N03 takes M1-M4 as input"
+    },
+    {
+      "from": "M4",
+      "to": "N03",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:74"
+      ],
+      "note": "N03 takes M1-M4 as input"
+    },
+    {
+      "from": "N01",
+      "to": "N02",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:66"
+      ],
+      "note": "N02 takes the N01 version index as input"
+    },
+    {
+      "from": "M2",
+      "to": "N06",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:102"
+      ],
+      "note": "N06 takes M2 as input"
+    },
+    {
+      "from": "N03",
+      "to": "N07",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:110"
+      ],
+      "note": "N07 takes N03-N06 as input"
+    },
+    {
+      "from": "N04",
+      "to": "N07",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:110"
+      ],
+      "note": "N07 takes N03-N06 as input"
+    },
+    {
+      "from": "N05",
+      "to": "N07",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:110"
+      ],
+      "note": "N07 takes N03-N06 as input"
+    },
+    {
+      "from": "N06",
+      "to": "N07",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:110"
+      ],
+      "note": "N07 takes N03-N06 as input"
+    },
+    {
+      "from": "N04",
+      "to": "N08",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:118"
+      ],
+      "note": "N08 takes N04-N07 as input"
+    },
+    {
+      "from": "N05",
+      "to": "N08",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:118"
+      ],
+      "note": "N08 takes N04-N07 as input"
+    },
+    {
+      "from": "N06",
+      "to": "N08",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:118"
+      ],
+      "note": "N08 takes N04-N07 as input"
+    },
+    {
+      "from": "N07",
+      "to": "N08",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:118"
+      ],
+      "note": "N08 takes N04-N07 as input"
+    },
+    {
+      "from": "N04",
+      "to": "N09",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:126"
+      ],
+      "note": "N09 may build a second instance only if N04 supplies a real finite quotient"
+    },
+    {
+      "from": "N07",
+      "to": "N10",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:134"
+      ],
+      "note": "N10 takes the choice relation extracted by N07"
+    },
+    {
+      "from": "N03",
+      "to": "N11",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:142"
+      ],
+      "note": "N11 takes N03/N07/N08 by name"
+    },
+    {
+      "from": "N07",
+      "to": "N11",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:142"
+      ],
+      "note": "N11 takes N03/N07/N08 by name"
+    },
+    {
+      "from": "N08",
+      "to": "N11",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:142"
+      ],
+      "note": "N11 takes N03/N07/N08 by name"
+    },
+    {
+      "from": "N03",
+      "to": "N13",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:161"
+      ],
+      "note": "N13 audits the declarations named by N03/N07"
+    },
+    {
+      "from": "N07",
+      "to": "N13",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-task-catalog-2026-10-23.md:161"
+      ],
+      "note": "N13 audits the declarations named by N03/N07"
+    },
+    {
+      "from": "T1",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-support-2026-10-22/T1/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "T2",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-support-2026-10-22/T2/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "T3",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-support-2026-10-22/T3/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "T4",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-support-2026-10-22/T4/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "K4",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/K4/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "M1",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/M1/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "M2",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/M2/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "M3",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/M3/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "M4",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/M4/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W1",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W1/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W2",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W2/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W3",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W3/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W4",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W4/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W5",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W5/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W6",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W6/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W7",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W7/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W8",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W8/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W9",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W9/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W10",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W10/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W11",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W11/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "W12",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/core-backward-2026-10-23/W12/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "N01",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N01/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "N03",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N03/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "N04",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N04/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "N05",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N05/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "N12",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N12/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "N13",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N13/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    },
+    {
+      "from": "N16",
+      "to": "N15",
+      "edge_status": "PROPOSED",
+      "evidence": [
+        "handoffs/non-lean-2026-10-23/N16/delivery.json"
+      ],
+      "note": "N15 indexes this item's delivery record"
+    }
+  ],
+  "counts": {
+    "nodes": 37,
+    "edges": 69,
+    "EXISTING_RECORD": 13,
+    "PROPOSED": 56,
+    "declared_status": {
+      "STATIC_ONLY": 6,
+      "CLI_CHECKED_EDITOR_PENDING": 5,
+      "CLI_CHECKED_EDITOR_CHECKED": 10,
+      "STATIC_COMPLETE": 9,
+      "NOT_DELIVERED": 3,
+      "PARTIAL": 2,
+      "NO_DELIVERY_RECORD": 1,
+      "EXPERIMENTAL": 1
+    }
+  },
+  "native_iut_realized_any_node": false,
+  "fact_tree_admitted_any_node": false,
+  "core_gap_state": "OPEN (N15 does not close it; no node here is an admission)"
+}

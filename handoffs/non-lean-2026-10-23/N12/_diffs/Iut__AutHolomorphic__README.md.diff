@@ -1,0 +1,9 @@
+--- base/Iut__AutHolomorphic__README.md
++++ head/Iut__AutHolomorphic__README.md
+@@ -41,4 +41,6 @@
+ ## What remains of MR10
+ 
++Plan for [AbsTopIII] Cor 2.7 (holomorphic elliptic cuspidalisation, the part IUT cites): `Plans/MR10Plan.md`.
++
+ * Co-orientations and co-holomorphicizations ([AbsTopIII] Def 2.1(iii), (iv)) via
+   `Orn(Z, p) = lim π₁(W ∖ {p})^ab`.

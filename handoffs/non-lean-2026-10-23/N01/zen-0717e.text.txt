@@ -1,0 +1,307 @@
+"Project LANA" Aiming for Computer Verification of IUT Theory Release of "Project LANA Interim Report on IUT Theory" — Reporting on Current Evaluation, Remaining Issues, and Relationship with the Scholze–Stix Report — | ZEN大学
+学生用ログイン
+JP
+EN
+資料請求
+Web出願
+ZEN大学の魅力
+学部
+カリキュラム
+サポート体制
+出願・入学案内
+社会連携・留学
+研究
+授業料・奨学金
+PICKUPイベント
+個別相談会・オープンキャンパス・授業体験など自分に合ったイベントが見つかる
+オープンキャンパス
+イベント一覧
+Web出願
+資料請求
+学生用ログイン
+ZEN大学の魅力
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部
+カリキュラム
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願時提出書類
+社会連携・留学
+地域・企業連携プログラム
+国際交流・留学
+研究
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+陸上競技部
+すずかんゼミ
+ニュース
+ブログ
+資料請求
+JP
+EN
+PICKUPイベント
+個別相談会・オープンキャンパス・授業体験など自分に合ったイベントが見つかる
+オープンキャンパス
+イベント一覧
+Web出願
+資料請求
+学生用ログイン
+ZEN大学の魅力
+ZEN大学の魅力 トップ
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部 トップ
+カリキュラム
+カリキュラム トップ
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+サポート体制 トップ
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願・入学案内 トップ
+出願時提出書類
+社会連携・留学
+社会連携・留学 トップ
+地域・企業連携プログラム
+国際交流・留学
+研究
+研究 トップ
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+オープンキャンパス トップ
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+授業料・奨学金 トップ
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+学生生活 トップ
+陸上競技部
+すずかんゼミ
+ニュース
+ブログ
+資料請求
+JP
+EN
+トップ
+ニュース
+"Project LANA" Aiming for Computer Verification of IUT Theory Release of "Project LANA Interim Report on IUT Theory" — Reporting on Current Evaluation, Remaining Issues, and Relationship with the Scholze–Stix Report —
+資料請求
+Web出願
+一覧へ戻る
+Tweet
+2026/07/17
+プレスリリース
+"Project LANA" Aiming for Computer Verification of IUT Theory
+Release of "Project LANA Interim Report on IUT Theory" — Reporting on Current Evaluation, Remaining Issues, and Relationship with the Scholze–Stix Report —
+The "ZMC (ZEN Mathematics Center)," a research institute of ZEN University, held an interim report meeting, "LANA Project Interim Report July 2026," on Friday, July 17, 2026, regarding the computer-based verification of Inter-Universal Teichmüller (IUT) theory.
+In this presentation, Project LANA provided an overview of its work and reported on the current evaluation of IUT theory, remaining issues, the relationship with the 2018 Scholze–Stix report, the outlook for future research, and efforts toward forming a Lean formalization community in Japan. In conjunction with the announcement, Project LANA has
+released the document "Project LANA Interim Report on IUT Theory," which summarizes its current progress.
+Overview of the Public Accessible Report "Project LANA Interim Report on IUT Theory"
+This report is an interim update summarizing the progress and future challenges of Project LANA’s ongoing verification of IUT theory. First, it organizes the history and flow of discussions since the announcement of IUT theory and explains the perspective from which Project LANA has conducted its verification. Following this, the report points out that, at least for many of its project members, there are points that remain unclear in the process of deriving Corollary 3.12 from Theorem 3.11 in the third IUT paper.
+Specifically, the original IUT papers do not clearly explain how the two calculations of q-pilot log-volumes are 'tautologically equivalent,' or how one of several possible algorithm outputs is identified with the data determined by the input. While touching upon the relationship with the 2018 Scholze–Stix report, the report states that it aims to organize the points of contention and provide a foundation for future research, international discussion, and formalization work, rather than rushing to a final judgment on the validity of IUT theory
+Full Report ▶︎
+https://github.com/katobungen/LANA_report_202607/blob/pdf/LANA_report_202607.pdf
+Current Status and Future Outlook of IUT Theory Verification
+Since the announcement on March 31, 2026, Project LANA has continued intensive discussions among domestic and international project members regarding IUT theory. Project LANA’s current position remains the same as that expressed at the press conference on March 31: the project continues to suspend judgment on whether a proof of the abc conjecture has been obtained through IUT theory. Project LANA does not exclude the possibility that a mathematical gap exists, but is withholding a final decision on whether it is truly a gap or stems from a lack of sufficiently deep understanding by itsA members.
+Moving forward, Project LANA will further refine the remaining points of contention and ultimately prepare them in a form that can be translated into Lean code. Project LANA will also continue its independent verification while maintaining dialogue with Prof. Mochizuki. Simultaneously, the project will work on building a library for anabelian geometry using Lean and forming a Lean formalization community in Japan.
+Messages
+【Masato Wakayama, President of ZEN University】
+As an online university, ZEN University opens new learning opportunities to society while positioning the underlying academic research as a vital pillar. Project LANA is a symbolic initiative for ZEN University, one that confronts difficult and controversial challenges—which would be hard for traditional university organizations to tackle—with intellectual sincerity and earnestness.
+In the world of mathematics, the methods for verifying and sharing proofs are changing significantly through formalization with Lean and collaboration with AI. However, the foundation remains deep human understanding and thought. I expect this interim report to be an important opportunity not only for the verification of IUT theory but also for the formation of a Lean formalization community in Japan.
+【Fumiharu Kato, Professor at ZEN University, Director of ZMC, Leader of Project LANA】
+Project LANA is an international collaborative research project that tackles the frontiers of modern mathematics—anabelian geometry and IUT theory—using the new method of formalization with Lean. Rather than rushing to a conclusion on the validity of IUT theory, we have prioritized articulating what is understood and what remains misunderstood as frankly and accurately as possible.
+At this stage, we have not been able to conclude whether the abc conjecture has been proven by IUT theory. However, we intend to continue our examination from an unbiased standpoint, making the remaining points of contention mathematically clear while continuing dialogue with Prof. Mochizuki and the Research Institute for Mathematical Sciences (RIMS) at Kyoto University.
+❙ About Project LANA
+LANA stands for "Lean for ANAbelian Geometry". The project has two primary goals:
+To formalize major theorems of anabelian geometry—an important field of arithmetic geometry in which Japanese researchers have led the world—using the proof assistant Lean and to build its library; and to verify Inter-Universal Teichmüller (IUT) theory, proposed by Professor Shinichi Mochizuki of RIMS, Kyoto University, through formalization with Lean.
+Including the preparation period, activities began in the fall of 2023, and the project launched in full scale in September 2024. ZMC aims to prepare IUT theory in a formalizable form, clarify points of contention, and ultimately formalize it while maintaining a neutral perspective without bias toward any specific position.
+Tweet
+一覧へ戻る
+CONTACT
+ZEN大学について
+詳しく知りたい方はこちら
+一人ひとりに合ったプランを相談できます
+資料請求
+Web出願
+説明会・オープンキャンパス
+注目のイベント
+今月のオススメPICKUPイベント
+開催日程から探す
+場所・内容から探す
+関連コンテンツ
+関連スクール
+ZEN大学の魅力
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部
+カリキュラム
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願時提出書類
+社会連携・留学
+地域・企業連携プログラム
+国際交流・留学
+研究
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+陸上競技部
+すずかんゼミ
+ZEN大学の魅力
+ZEN大学の魅力 トップ
+日本財団とドワンゴの連携
+キャンパスライフ
+学部
+学部 トップ
+カリキュラム
+カリキュラム トップ
+単位修得の流れ
+数理
+情報
+文化・思想
+社会・ネットワーク
+経済・マーケット
+デジタル産業
+「pixiv」との提携科目
+社会接続科目・自由科目
+導入科目
+ZEN大学のAI教育
+オンライン学習
+ゲンロン
+第二松尾研
+教員一覧
+サポート体制
+サポート体制 トップ
+学びのサポート
+キャリアサポート
+ICTツール
+ZEN Study
+出願・入学案内
+出願・入学案内 トップ
+出願時提出書類
+社会連携・留学
+社会連携・留学 トップ
+地域・企業連携プログラム
+国際交流・留学
+研究
+研究 トップ
+ZEN数学センター
+コンテンツ産業史アーカイブ研究センター
+HUMAIセンター
+統計論ラボPhiMAS
+オープンキャンパス
+オープンキャンパス トップ
+開催日程から探す
+場所・内容から探す
+授業料・奨学金
+授業料・奨学金 トップ
+日本財団ZEN大学奨学金
+特待奨学生支援制度
+学生生活
+学生生活 トップ
+陸上競技部
+すずかんゼミ
+ニュース
+ブログ
+資料請求
+JP
+EN
+お問い合わせ一覧
+学校法人概要
+個人情報保護方針
+情報公開
+研究における不正行為防止の取り組み
+特定商取引法に基づく表示
+企業・自治体パートナー募集のご案内
+Cookie（クッキー）等の利用ポリシー
+受講に必要な環境
+合理的配慮
+採用情報
+安全保障輸出管理
+ZEN大学出版会
+ご寄付のお願い
+カスタマーハラスメントポリシー
+本学に在籍されていた方へ
+学生用ログイン
+©Educational Institute of The Nippon Foundation and DWANGO

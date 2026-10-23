@@ -1,0 +1,72 @@
+{
+  "task_id": "N03",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/lana-report-assessment.md",
+      "sha256": "fc64b76ab974f1a4627492649e6bb1602925757a0269ef5b7faadd34845d1abc"
+    },
+    {
+      "path": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean",
+      "sha256": "f7252b0ff817320a885e75baaa2565f437c33f9d4d6507926e20fc7f7bb7c5ad"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N03/SUMMARY.md",
+      "sha256": "2d0fce4ee57f9acc7cd36604e10c9f8a40a41a71e752331bd9b72695d7b4d5ec"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N03/target.md",
+      "sha256": "9a9a93d169384376a07e93a8b10ad5871d475d7873ab7ffbf44444cbad586848"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N03/obligations.csv",
+      "sha256": "d737c5cba80f539748a01830edc0aa24480cf0e19d2360d0b473e98b01710c76"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N03/make_N03.py",
+      "sha256": "b43780d4534d51bdeb5b4273397ea6b7185908cdf6f67c8dd2561eb9bbce7c27"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "line_or_page": "lines 2138-2141 (p.45-46)",
+      "supports": "the goal is existential: \"there exists some suitable S such that eta_q = eta_anab_S\""
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "line_or_page": "151",
+      "supports": "the Lean-side form: (9-1) iff logVol(out iota S) = qPilot.lhs"
+    }
+  ],
+  "commands_run": [
+    "py -3 read-only extraction of LANA text, locating 9.2 / 9.3 / 10.5 with page markers",
+    "Select-String over the external repo for etaAnab_eq_etaQ_iff"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "O1 的见证不存在：没有任何构造出来的 S 与算出的 logVol",
+    "O7：qPilot.lhs 是否就是原文的 q，仓库内未建立",
+    "O9：Cor 3.12 到 abc 的算术识别未处理",
+    "未形式化 R^ss 的商结构；target.md 只是规格"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

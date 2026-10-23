@@ -1,0 +1,532 @@
+N14 audit detail  HEAD=568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2 branch=explore/correspondence
+
+====================================================================================================
+K4  status=SUPPORTED_BY_EXISTING_EVIDENCE  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/ExecutionProvenance.lean
+  sha(recorded) : f37a80d6de6872f5ed0a23d9f39c9557a79de8cc5cd05110c148c74d79c53543
+  sha(now)      : f37a80d6de6872f5ed0a23d9f39c9557a79de8cc5cd05110c148c74d79c53543   match=True  bytes=11579
+  mtime(local)  : 2026-10-23T09:22:25.627044+08:00   capture=2026-10-23T09:22:52.1191862+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=0babeb9cbce6a588d304d93c531c6a42df4c1bd6 2026-10-23T09:27:29+08:00
+  receipt       : handoffs/core-backward-2026-10-23/K4/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=95e0bfbb1e96910761981ebe949f4ce4d7c3ff607c8e83074451826622ffcc30 recorded=95e0bfbb1e96910761981ebe949f4ce4d7c3ff607c8e83074451826622ffcc30 match=True
+  window        : ExecutionProvenance.lean - core-transport - Visual Studio Code   ### nodes: 397
+  rows          : axiom=9 (own=5, own_group=False/None) err=0 warn=0 info=9
+  groups        : {"DelegatedLogBridge.lean": 4, "ExecutionProvenance.lean": 10}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  : handoffs/core-backward-2026-10-23/K4/infoview own_nogoals=8 of 9 dumps
+     algorithmRun_eq_partialSums.txt    decl=algorithmRun_eq_partialSums              cursor=64    nogoals=1 owner_now=algorithmRun_eq_partialSums match=True
+     hasSum_logTerm_localLog.txt        decl=hasSum_logTerm_localLog                  cursor=87    nogoals=1 owner_now=hasSum_logTerm_localLog match=True
+     localLog_eq_padicLog.txt           decl=localLog_eq_padicLog                     cursor=79    nogoals=1 owner_now=localLog_eq_padicLog match=True
+     logImage_Q3_eq_closedBall.txt      decl=logImage_Q3_eq_closedBall                cursor=170   nogoals=1 owner_now=logImage_Q3_eq_closedBall match=True
+     norm_four_sub_one.txt              decl=norm_four_sub_one                        cursor=176   nogoals=1 owner_now=norm_four_sub_one match=True
+     value_eq_localLog.txt              decl=value_eq_localLog                        cursor=138   nogoals=1 owner_now=value_eq_localLog match=True
+     value_mem_logImage.txt             decl=value_mem_logImage                       cursor=155   nogoals=0 owner_now=value_mem_logImage match=True
+     value_unique.txt                   decl=value_unique                             cursor=145   nogoals=1 owner_now=value_unique match=True
+     witnessFour.txt                    decl=witnessFour                              cursor=190   nogoals=1 owner_now=witnessFour match=True
+  capture log   : handoffs/core-backward-2026-10-23/K4/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T09:22:06.1718160+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | window: ● DelegatedLogBridge.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 09:22:26 stable=0 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || [Server Startup] Starting Lean language server and cloning missing project dependencies ]
+     | poll 09:22:31 stable=0 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+     | poll 09:22:36 stable=1 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+     | poll 09:22:41 stable=2 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+     | poll 09:22:47 stable=3 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+     | poll 09:22:52 stable=4 status=[DelegatedLogBridge.lean || ExecutionProvenance.lean || Lean InfoView || ExecutionProvenance.lean || ExecutionProvenance.lean || 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details) || ExecutionProvenance.lean:1:0]
+     | tree captured: 397 nodes
+  ACTION        : own-file axiom rows / own-file problem group present at 2026-10-23T09:22:52.1191862+08:00 for f37a80d6de68
+
+====================================================================================================
+W1  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/ReadingInvariance.lean
+  sha(recorded) : c9cb9bcdd40c3dcd3cf1c1c9e2012cf7a9250792410b7b7e09a010c94f16050b
+  sha(now)      : c9cb9bcdd40c3dcd3cf1c1c9e2012cf7a9250792410b7b7e09a010c94f16050b   match=True  bytes=9595
+  mtime(local)  : 2026-10-23T09:47:39.225835+08:00   capture=2026-10-23T09:52:55.0811873+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=b011762d2a2a47076710d22cf2ef7d54fa3bebc2 2026-10-23T09:55:23+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W1/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=861ab9f28c61d2d4d1b49541da79b252c215cf5eda37963e5f7ea8b52b9dc20b recorded=861ab9f28c61d2d4d1b49541da79b252c215cf5eda37963e5f7ea8b52b9dc20b match=True
+  window        : ReadingInvariance.lean - core-transport - Visual Studio Code   ### nodes: 396
+  rows          : axiom=12 (own=0, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "ExecutionProvenance.lean": 10}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  : handoffs/core-backward-2026-10-23/W1/infoview own_nogoals=9 of 9 dumps
+     hasSum_logTerm_localLog.txt        decl=hasSum_logTerm_localLog                  cursor=75    nogoals=1 owner_now=hasSum_logTerm_localLog match=True
+     hasSum_perm.txt                    decl=hasSum_perm                              cursor=100   nogoals=1 owner_now=hasSum_perm match=True
+     localLog_eq_padicLog.txt           decl=localLog_eq_padicLog                     cursor=66    nogoals=1 owner_now=localLog_eq_padicLog match=True
+     logTerm_four_two.txt               decl=logTerm_four_two                         cursor=120   nogoals=1 owner_now=logTerm_four_two match=True
+     logTerm_four_zero.txt              decl=logTerm_four_zero                        cursor=115   nogoals=1 owner_now=logTerm_four_zero match=True
+     norm_nine.txt                      decl=norm_nine                                cursor=127   nogoals=1 owner_now=norm_nine match=True
+     partialSumAlong_one.txt            decl=partialSumAlong_one                      cursor=87    nogoals=1 owner_now=partialSumAlong_one match=True
+     partialSum_not_invariant.txt       decl=partialSum_not_invariant                 cursor=152   nogoals=1 owner_now=partialSum_not_invariant match=True
+     reading_independent_of_enumeration.txt decl=reading_independent_of_enumeration       cursor=108   nogoals=1 owner_now=reading_independent_of_enumeration match=True
+  capture log   : handoffs/core-backward-2026-10-23/W1/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T09:51:59.0055893+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   ReadingInvariance.lean (exists: True)
+     | window: ExecutionProvenance.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 09:52:19 stable=0 status=[未在工作区检测到问题。]
+     | poll 09:52:24 stable=1 status=[未在工作区检测到问题。]
+     | poll 09:52:29 stable=2 status=[未在工作区检测到问题。]
+     | poll 09:52:34 stable=0 status=[]
+     | poll 09:52:39 stable=1 status=[]
+     | poll 09:52:44 stable=2 status=[]
+     | poll 09:52:50 stable=3 status=[]
+     | poll 09:52:55 stable=4 status=[]
+     | tree captured: 396 nodes
+  ACTION        : only per-declaration 'No goals' dumps (own file, 9 declarations); no own-file Problems row and no own-file problem group
+
+====================================================================================================
+W2  status=SUPPORTED_BY_EXISTING_EVIDENCE  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/CollectionProvenance.lean
+  sha(recorded) : cddea79c5df62cd2e3ad999206526d449434798fd741e7e5371e6150fa601422
+  sha(now)      : cddea79c5df62cd2e3ad999206526d449434798fd741e7e5371e6150fa601422   match=True  bytes=31056
+  mtime(local)  : 2026-10-23T10:11:17.145528+08:00   capture=2026-10-23T10:14:59.3785880+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=3e257dc427054b62e1d9c5a1703238270e5c8292 2026-10-23T10:24:01+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W2/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=60bf5e4b05b0ac112a4dd8898d20a42a7e0dca0d06a8b9767bb5361fb7c54f2e recorded=60bf5e4b05b0ac112a4dd8898d20a42a7e0dca0d06a8b9767bb5361fb7c54f2e match=True
+  window        : CollectionProvenance.lean - core-transport - Visual Studio Code   ### nodes: 409
+  rows          : axiom=13 (own=13, own_group=False/None) err=0 warn=0 info=12
+  groups        : {"CollectionProvenance.lean": 32}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W2/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T10:13:58.1700562+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   CollectionProvenance.lean (exists: True)
+     | window: ReadingInvariance.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | CollectionProvenance.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 10:14:18 stable=0 status=[未在工作区检测到问题。]
+     | poll 10:14:23 stable=1 status=[未在工作区检测到问题。]
+     | poll 10:14:29 stable=2 status=[未在工作区检测到问题。]
+     | poll 10:14:34 stable=3 status=[未在工作区检测到问题。]
+     | poll 10:14:39 stable=0 status=[]
+     | poll 10:14:44 stable=1 status=[]
+     | poll 10:14:49 stable=2 status=[]
+     | poll 10:14:54 stable=3 status=[]
+     | poll 10:14:59 stable=4 status=[]
+     | tree captured: 409 nodes
+  ACTION        : own-file axiom rows / own-file problem group present at 2026-10-23T10:14:59.3785880+08:00 for cddea79c5df6
+
+====================================================================================================
+W3  status=SUPPORTED_BY_EXISTING_EVIDENCE  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/DivideBackLaw.lean
+  sha(recorded) : 904cbf9b8c6ff758744b66ee5cb8e80c18954dee6c5d7d7dc31bef5466d4c130
+  sha(now)      : 904cbf9b8c6ff758744b66ee5cb8e80c18954dee6c5d7d7dc31bef5466d4c130   match=True  bytes=14696
+  mtime(local)  : 2026-10-23T10:10:13.890472+08:00   capture=2026-10-23T10:16:00.9052565+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=3e257dc427054b62e1d9c5a1703238270e5c8292 2026-10-23T10:24:01+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W3/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=0b019186ac7465ca2c79a1fbde848e4e49512e59272c705e32b68047bbbe5c39 recorded=0b019186ac7465ca2c79a1fbde848e4e49512e59272c705e32b68047bbbe5c39 match=True
+  window        : DivideBackLaw.lean - core-transport - Visual Studio Code   ### nodes: 409
+  rows          : axiom=12 (own=8, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "DivideBackLaw.lean": 16}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  : handoffs/core-backward-2026-10-23/W3/infoview own_nogoals=10 of 13 dumps
+     algorithmRun_eq_partialSums.txt    decl=algorithmRun_eq_partialSums              cursor=93    nogoals=1 owner_now=algorithmRun_eq_partialSums match=True
+     divide_back.txt                    decl=divide_back                              cursor=139   nogoals=1 owner_now=divide_back match=True
+     divide_back_four_two.txt           decl=divide_back_four_two                     cursor=245   nogoals=0 owner_now= match=False
+     hasSum_logTerm_localLog.txt        decl=hasSum_logTerm_localLog                  cursor=111   nogoals=1 owner_now=hasSum_logTerm_localLog match=True
+     localLog_eq_padicLog.txt           decl=localLog_eq_padicLog                     cursor=103   nogoals=1 owner_now=localLog_eq_padicLog match=True
+     localLog_pow_eq_smul.txt           decl=localLog_pow_eq_smul                     cursor=159   nogoals=1 owner_now=localLog_pow_eq_smul match=True
+     naiveDivideBack_four_two.txt       decl=naiveDivideBack_four_two                 cursor=216   nogoals=1 owner_now=naiveDivideBack_four_two match=True
+     naive_magnitude_divide_back_fails.txt decl=naive_magnitude_divide_back_fails        cursor=209   nogoals=1 owner_now=naive_magnitude_divide_back_fails match=True
+     norm_four_Q3.txt                   decl=norm_four_Q3                             cursor=183   nogoals=1 owner_now=norm_four_Q3 match=True
+     norm_four_sq_Q3.txt                decl=norm_four_sq_Q3                          cursor=189   nogoals=1 owner_now=norm_four_sq_Q3 match=True
+     norm_four_sub_one_Q3.txt           decl=norm_four_sub_one_Q3                     cursor=196   nogoals=1 owner_now=norm_four_sub_one_Q3 match=True
+     norm_pow_sub_one_lt_Q3.txt         decl=norm_pow_sub_one_lt_Q3                   cursor=121   nogoals=0 owner_now=norm_pow_sub_one_lt_Q3 match=True
+     norm_two_Q3.txt                    decl=norm_two_Q3                              cursor=178   nogoals=0 owner_now=norm_two_Q3 match=True
+  capture log   : handoffs/core-backward-2026-10-23/W3/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T10:14:59.9546134+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   DivideBackLaw.lean (exists: True)
+     | window: ReadingInvariance.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 10:15:20 stable=0 status=[未在工作区检测到问题。]
+     | poll 10:15:25 stable=1 status=[未在工作区检测到问题。]
+     | poll 10:15:30 stable=2 status=[未在工作区检测到问题。]
+     | poll 10:15:35 stable=3 status=[未在工作区检测到问题。]
+     | poll 10:15:40 stable=0 status=[]
+     | poll 10:15:45 stable=1 status=[]
+     | poll 10:15:50 stable=2 status=[]
+     | poll 10:15:55 stable=3 status=[]
+     | poll 10:16:00 stable=4 status=[]
+     | tree captured: 409 nodes
+  ACTION        : own-file axiom rows / own-file problem group present at 2026-10-23T10:16:00.9052565+08:00 for 904cbf9b8c6f
+
+====================================================================================================
+W4  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/TransitionCompatibility.lean
+  sha(recorded) : 391bee2f83606ff4de4f8dbc905aceae052383efc5722baacc49e46250874b72
+  sha(now)      : 391bee2f83606ff4de4f8dbc905aceae052383efc5722baacc49e46250874b72   match=True  bytes=39626
+  mtime(local)  : 2026-10-23T11:02:48.824956+08:00   capture=2026-10-23T11:06:13.6815219+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=8a6ada468fb3ae9d683f4f884bcbc868398b5008 2026-10-23T11:07:36+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W4/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=32af677cd7f99eeeb0403b49415b5c4fb72f35cd3a1e4d2c0ad4737972b03f53 recorded=32af677cd7f99eeeb0403b49415b5c4fb72f35cd3a1e4d2c0ad4737972b03f53 match=True
+  window        : TransitionCompatibility.lean - core-transport - Visual Studio Code   ### nodes: 408
+  rows          : axiom=12 (own=0, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "DivideBackLaw.lean": 16}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W4/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T11:05:12.3896926+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   TransitionCompatibility.lean (exists: True)
+     | window: DivideBackLaw.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 11:05:33 stable=0 status=[未在工作区检测到问题。]
+     | poll 11:05:38 stable=1 status=[未在工作区检测到问题。]
+     | poll 11:05:43 stable=2 status=[未在工作区检测到问题。]
+     | poll 11:05:48 stable=3 status=[未在工作区检测到问题。]
+     | poll 11:05:53 stable=0 status=[]
+     | poll 11:05:58 stable=1 status=[]
+     | poll 11:06:03 stable=2 status=[]
+     | poll 11:06:08 stable=3 status=[]
+     | poll 11:06:13 stable=4 status=[]
+     | tree captured: 408 nodes
+  ACTION        : window-level only: every enumerated problem row belongs to another task's file (DelegatedLogBridge.lean, DivideBackLaw.lean); no own-file row or group
+
+====================================================================================================
+W5  status=SUPPORTED_BY_EXISTING_EVIDENCE  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/NormalizationAlignment.lean
+  sha(recorded) : 03b6e50289e4150b8ef98537deab952b14f5e80b0d8ccdc850a8be8ee56b2412
+  sha(now)      : 03b6e50289e4150b8ef98537deab952b14f5e80b0d8ccdc850a8be8ee56b2412   match=True  bytes=23513
+  mtime(local)  : 2026-10-23T11:31:13.581555+08:00   capture=2026-10-23T11:35:09.8545110+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=ae9d90d9822040ff74910d8ec72b406847393086 2026-10-23T11:36:32+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W5/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=4d329523215995d749b732c6747f048d55041b1b126a77059f6f845fc8c176c3 recorded=4d329523215995d749b732c6747f048d55041b1b126a77059f6f845fc8c176c3 match=True
+  window        : NormalizationAlignment.lean - core-transport - Visual Studio Code   ### nodes: 432
+  rows          : axiom=11 (own=7, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "NormalizationAlignment.lean": 31}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W5/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T11:34:08.6460945+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   NormalizationAlignment.lean (exists: True)
+     | window: ReadingFactorization.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | NormalizationAlignment.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 11:34:29 stable=0 status=[未在工作区检测到问题。]
+     | poll 11:34:34 stable=1 status=[未在工作区检测到问题。]
+     | poll 11:34:39 stable=2 status=[未在工作区检测到问题。]
+     | poll 11:34:44 stable=3 status=[未在工作区检测到问题。]
+     | poll 11:34:49 stable=0 status=[]
+     | poll 11:34:54 stable=1 status=[]
+     | poll 11:34:59 stable=2 status=[]
+     | poll 11:35:04 stable=3 status=[]
+     | poll 11:35:09 stable=4 status=[]
+     | tree captured: 432 nodes
+  ACTION        : own-file axiom rows / own-file problem group present at 2026-10-23T11:35:09.8545110+08:00 for 03b6e50289e4
+
+====================================================================================================
+W6  status=SUPPORTED_BY_EXISTING_EVIDENCE  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/ReadingFactorization.lean
+  sha(recorded) : 6a756a88d57eed9892e749eb0c8abea75c1aa289bd0556f44c3e9f8e5fb2716d
+  sha(now)      : 6a756a88d57eed9892e749eb0c8abea75c1aa289bd0556f44c3e9f8e5fb2716d   match=True  bytes=55759
+  mtime(local)  : 2026-10-23T11:30:00.804581+08:00   capture=2026-10-23T11:33:04.4437287+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=ae9d90d9822040ff74910d8ec72b406847393086 2026-10-23T11:36:32+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W6/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=4a0e37f8bec6fa5d957ba02ab4a96f9e40a15bc80d4d7412bcf0c84ff7836171 recorded=4a0e37f8bec6fa5d957ba02ab4a96f9e40a15bc80d4d7412bcf0c84ff7836171 match=True
+  window        : ReadingFactorization.lean - core-transport - Visual Studio Code   ### nodes: 424
+  rows          : axiom=11 (own=7, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "ReadingFactorization.lean": 83}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W6/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T11:32:08.3402500+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   ReadingFactorization.lean (exists: True)
+     | window: TransitionCompatibility.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 11:32:28 stable=0 status=[未在工作区检测到问题。]
+     | poll 11:32:34 stable=1 status=[未在工作区检测到问题。]
+     | poll 11:32:39 stable=2 status=[未在工作区检测到问题。]
+     | poll 11:32:44 stable=0 status=[]
+     | poll 11:32:49 stable=1 status=[]
+     | poll 11:32:54 stable=2 status=[]
+     | poll 11:32:59 stable=3 status=[]
+     | poll 11:33:04 stable=4 status=[]
+     | tree captured: 424 nodes
+  ACTION        : own-file axiom rows / own-file problem group present at 2026-10-23T11:33:04.4437287+08:00 for 6a756a88d57e
+
+====================================================================================================
+W7  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/UnifiedFactorization.lean
+  sha(recorded) : d822480026ea3121b05753dd9160c01d93b57d3a0df66a601970e1caae4f1af9
+  sha(now)      : d822480026ea3121b05753dd9160c01d93b57d3a0df66a601970e1caae4f1af9   match=True  bytes=50694
+  mtime(local)  : 2026-10-23T13:27:21.365791+08:00   capture=2026-10-23T13:31:20.4754369+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=bf859ae1a521cd917d671dfe69cb9db04a056d96 2026-10-23T13:32:19+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W7/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=cac73688abb0d97a2d2236efb2c16aaee074089cdaf3b07278b30c2f69c8730c recorded=cac73688abb0d97a2d2236efb2c16aaee074089cdaf3b07278b30c2f69c8730c match=True
+  window        : UnifiedFactorization.lean - core-transport - Visual Studio Code   ### nodes: 440
+  rows          : axiom=11 (own=0, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "NormalizationAlignment.lean": 31}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W7/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T13:30:19.1903391+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   UnifiedFactorization.lean (exists: True)
+     | window: NormalizationAlignment.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | NormalizationAlignment.lean, 编辑器组1 | UnifiedFactorization.lean, 编辑器组1 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 13:30:39 stable=0 status=[未在工作区检测到问题。]
+     | poll 13:30:44 stable=1 status=[未在工作区检测到问题。]
+     | poll 13:30:50 stable=2 status=[未在工作区检测到问题。]
+     | poll 13:30:55 stable=3 status=[未在工作区检测到问题。]
+     | poll 13:31:00 stable=0 status=[]
+     | poll 13:31:05 stable=1 status=[]
+     | poll 13:31:10 stable=2 status=[]
+     | poll 13:31:15 stable=3 status=[]
+     | poll 13:31:20 stable=4 status=[]
+     | tree captured: 440 nodes
+  ACTION        : window-level only: every enumerated problem row belongs to another task's file (DelegatedLogBridge.lean, NormalizationAlignment.lean); no own-file row or group
+
+====================================================================================================
+W8  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_PENDING  editor_run=False
+  target        : candidates/core-transport/DivideBackTwist.lean
+  sha(recorded) : dd685d61f0e15a1ccebddecfdbfbc66fc377b76ea2315349cbb2b346328532a8
+  sha(now)      : dd685d61f0e15a1ccebddecfdbfbc66fc377b76ea2315349cbb2b346328532a8   match=True  bytes=20415
+  mtime(local)  : 2026-10-23T14:35:54.816263+08:00   capture=2026-10-23T14:39:19.0811389+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=ed3924584df1d97bead2e8dfcb07eba82ee61d81 2026-10-23T14:39:42+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W8/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=ad8b07286082dc342523f073e58d4c437ed287e772e8a506e2e0022add78dd2a recorded=ad8b07286082dc342523f073e58d4c437ed287e772e8a506e2e0022add78dd2a match=True
+  window        : DivideBackTwist.lean - core-transport - Visual Studio Code   ### nodes: 370
+  rows          : axiom=0 (own=0, own_group=False/None) err=0 warn=0 info=0
+  groups        : {}
+  own path in tree=True  No info found=False  server startup text=False
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W8/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T14:38:38.1331347+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   DivideBackTwist.lean (exists: True)
+     | window: UnifiedFactorization.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | NormalizationAlignment.lean, 编辑器组1 | UnifiedFactorization.lean, 编辑器组1 | DivideBackTwist.lean, 编辑器组1 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 14:38:58 stable=0 status=[未在工作区检测到问题。]
+     | poll 14:39:03 stable=1 status=[未在工作区检测到问题。]
+     | poll 14:39:08 stable=2 status=[未在工作区检测到问题。]
+     | poll 14:39:13 stable=3 status=[未在工作区检测到问题。]
+     | poll 14:39:19 stable=4 status=[未在工作区检测到问题。]
+     | tree captured: 370 nodes
+  ACTION        : the cited tree carries no 'depends on axioms' row at all; window-level silence only
+
+====================================================================================================
+W9  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_PENDING  editor_run=False
+  target        : candidates/core-transport/ExponentUniqueness.lean
+  sha(recorded) : 6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98
+  sha(now)      : 6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98   match=True  bytes=21882
+  mtime(local)  : 2026-10-23T15:58:23.296200+08:00   capture=2026-10-23T14:52:50.2620317+08:00   capture_after_source=False  lag_s=3933
+  git tracked   : True   last_commit=3457e072b77354c4b7af176c7abb727334f07e4c 2026-10-23T17:36:00+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W9/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=6db81f77f678fe02a2dae1c0327276715c8e4681f92c32d4036788b39cfaf91d recorded=6db81f77f678fe02a2dae1c0327276715c8e4681f92c32d4036788b39cfaf91d match=True
+  window        : ExponentUniqueness.lean - core-transport - Visual Studio Code   ### nodes: 404
+  rows          : axiom=0 (own=0, own_group=False/None) err=0 warn=0 info=0
+  groups        : {}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W9/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T14:52:09.3524162+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   ExponentUniqueness.lean (exists: True)
+     | window: DivideBackTwist.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | NormalizationAlignment.lean, 编辑器组1 | UnifiedFactorization.lean, 编辑器组1 | DivideBackTwist.lean, 编辑器组1 | ExponentUniqueness.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 14:52:29 stable=0 status=[未在工作区检测到问题。]
+     | poll 14:52:35 stable=1 status=[未在工作区检测到问题。]
+     | poll 14:52:40 stable=2 status=[未在工作区检测到问题。]
+     | poll 14:52:45 stable=3 status=[未在工作区检测到问题。]
+     | poll 14:52:50 stable=4 status=[未在工作区检测到问题。]
+     | tree captured: 404 nodes
+  ACTION        : the cited tree carries no 'depends on axioms' row at all; window-level silence only
+
+====================================================================================================
+W10  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/H3Synthesis.lean
+  sha(recorded) : ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2
+  sha(now)      : ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2   match=True  bytes=20016
+  mtime(local)  : 2026-10-23T15:59:37.311639+08:00   capture=2026-10-23T15:20:51.0978133+08:00   capture_after_source=False  lag_s=2326
+  git tracked   : True   last_commit=3457e072b77354c4b7af176c7abb727334f07e4c 2026-10-23T17:36:00+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W10/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=731b2f8c7fa76cf5fc03dec0b0557da98834a12d5992511c10814eac080062d3 recorded=731b2f8c7fa76cf5fc03dec0b0557da98834a12d5992511c10814eac080062d3 match=True
+  window        : H3Synthesis.lean - core-transport - Visual Studio Code   ### nodes: 451
+  rows          : axiom=11 (own=0, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "ExponentUniqueness.lean": 18}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W10/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T15:19:55.0467606+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   H3Synthesis.lean (exists: True)
+     | window: ExponentUniqueness.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | NormalizationAlignment.lean, 编辑器组1 | UnifiedFactorization.lean, 编辑器组1 | DivideBackTwist.lean, 编辑器组1 | ExponentUniqueness.lean, 编辑器组1 | H3Synthesis.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口 | 聊天 (Ctrl+Alt+I)
+     | poll 15:20:15 stable=0 status=[未在工作区检测到问题。]
+     | poll 15:20:20 stable=1 status=[未在工作区检测到问题。]
+     | poll 15:20:25 stable=2 status=[未在工作区检测到问题。]
+     | poll 15:20:30 stable=0 status=[]
+     | poll 15:20:35 stable=1 status=[]
+     | poll 15:20:40 stable=2 status=[]
+     | poll 15:20:46 stable=3 status=[]
+     | poll 15:20:51 stable=4 status=[]
+     | tree captured: 451 nodes
+  ACTION        : window-level only: every enumerated problem row belongs to another task's file (DelegatedLogBridge.lean, ExponentUniqueness.lean); no own-file row or group
+
+====================================================================================================
+W11  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_PENDING  editor_run=False
+  target        : candidates/core-transport/EtaComparison.lean
+  sha(recorded) : 330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce
+  sha(now)      : 330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce   match=True  bytes=28381
+  mtime(local)  : 2026-10-23T15:31:15.825144+08:00   capture=2026-10-23T15:35:29.0332269+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=023c9a1a0767a842965e026dba0c1e439ebbc437 2026-10-23T15:35:45+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W11/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=79382c5da94c4e1038f79fea611a42fc8f6527285090af95ad9f3d85cc5fe243 recorded= match=False
+  window        : EtaComparison.lean - core-transport - Visual Studio Code   ### nodes: 332
+  rows          : axiom=0 (own=0, own_group=False/None) err=0 warn=0 info=0
+  groups        : {}
+  own path in tree=True  No info found=False  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W11/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T15:34:48.0087423+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   EtaComparison.lean (exists: True)
+     | window: H3Synthesis.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | NormalizationAlignment.lean, 编辑器组1 | UnifiedFactorization.lean, 编辑器组1 | DivideBackTwist.lean, 编辑器组1 | ExponentUniqueness.lean, 编辑器组1 | H3Synthesis.lean, 编辑器组1 | EtaComparison.lean, 编辑器组1 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口
+     | poll 15:35:08 stable=0 status=[未在工作区检测到问题。]
+     | poll 15:35:13 stable=1 status=[未在工作区检测到问题。]
+     | poll 15:35:18 stable=2 status=[未在工作区检测到问题。]
+     | poll 15:35:23 stable=3 status=[未在工作区检测到问题。]
+     | poll 15:35:29 stable=4 status=[未在工作区检测到问题。]
+     | tree captured: 332 nodes
+  ACTION        : the cited tree carries no 'depends on axioms' row at all; window-level silence only
+
+====================================================================================================
+W12  status=INSUFFICIENT  declared=CLI_CHECKED_EDITOR_CHECKED  editor_run=True
+  target        : candidates/core-transport/LabelNormalization.lean
+  sha(recorded) : 5d711c6fe88be8b3b23258eb944a22bda6a68d55f9fbfe262b60b9cb8e5dccb1
+  sha(now)      : 5d711c6fe88be8b3b23258eb944a22bda6a68d55f9fbfe262b60b9cb8e5dccb1   match=True  bytes=21912
+  mtime(local)  : 2026-10-23T15:42:48.018444+08:00   capture=2026-10-23T15:49:29.9484178+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=49b5ea74a5778df0f8397f639120d6e95cf475d7 2026-10-23T15:49:45+08:00
+  receipt       : handoffs/core-backward-2026-10-23/W12/editor/vscode-observation-tree-2.txt
+  receipt sha   : now=aada6a3456f0c9ff48f0dbd3019832f12e781c174a43d396747234a36584b86a recorded=aada6a3456f0c9ff48f0dbd3019832f12e781c174a43d396747234a36584b86a match=True
+  window        : LabelNormalization.lean - core-transport - Visual Studio Code   ### nodes: 383
+  rows          : axiom=11 (own=0, own_group=False/None) err=0 warn=0 info=11
+  groups        : {"DelegatedLogBridge.lean": 4, "EtaComparison.lean": 43}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  :  own_nogoals=0 of 0 dumps
+  capture log   : handoffs/core-backward-2026-10-23/W12/editor/vscode-capture-2.log
+     | === attempt 2 start 2026-10-23T15:48:33.9519418+08:00 ===
+     | folder: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+     | file:   LabelNormalization.lean (exists: True)
+     | window: EtaComparison.lean - core-transport - Visual Studio Code
+     | trusted=True stillRestricted=False
+     | tabs: 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件 | 搜索 (Ctrl+Shift+F) | 源代码管理 (Ctrl+Shift+G) | 运行和调试 (Ctrl+Shift+D) | 远程资源管理器 | 扩展 (Ctrl+Shift+X) | Python | GPT Bridge | 欢迎，预览, 编辑器组1 | DelegatedLogBridge.lean, 编辑器组1 | ExecutionProvenance.lean, 编辑器组1 | ReadingInvariance.lean, 编辑器组1 | DivideBackLaw.lean, 编辑器组1 | TransitionCompatibility.lean, 编辑器组1 | ReadingFactorization.lean, 编辑器组1 | NormalizationAlignment.lean, 编辑器组1 | UnifiedFactorization.lean, 编辑器组1 | DivideBackTwist.lean, 编辑器组1 | ExponentUniqueness.lean, 编辑器组1 | H3Synthesis.lean, 编辑器组1 | EtaComparison.lean, 编辑器组1 | LabelNormalization.lean, 编辑器组1 | Lean InfoView, 编辑器组2 | 问题 (Ctrl+Shift+M) | 输出 (Ctrl+Shift+U) | 调试控制台 (Ctrl+Shift+Y) | 终端 (Ctrl+`) | 端口
+     | poll 15:48:54 stable=0 status=[未在工作区检测到问题。]
+     | poll 15:48:59 stable=1 status=[未在工作区检测到问题。]
+     | poll 15:49:04 stable=2 status=[未在工作区检测到问题。]
+     | poll 15:49:09 stable=0 status=[]
+     | poll 15:49:14 stable=1 status=[]
+     | poll 15:49:19 stable=2 status=[]
+     | poll 15:49:24 stable=3 status=[]
+     | poll 15:49:29 stable=4 status=[]
+     | tree captured: 383 nodes
+  ACTION        : window-level only: every enumerated problem row belongs to another task's file (DelegatedLogBridge.lean, EtaComparison.lean); no own-file row or group
+
+====================================================================================================
+M1  status=MISSING  declared=STATIC_ONLY  editor_run=False
+  target        : 
+  sha(recorded) : 
+  sha(now)      :    match=None  bytes=0
+  mtime(local)  :    capture=   capture_after_source=None  lag_s=None
+  git tracked   : False   last_commit=
+  receipt       : (none)  capture log=
+  ACTION        : no editor receipt: this task is a non-Lean analysis task and cites no editor observation at all
+
+====================================================================================================
+M2  status=MISSING  declared=STATIC_ONLY  editor_run=False
+  target        : 
+  sha(recorded) : 
+  sha(now)      :    match=None  bytes=0
+  mtime(local)  :    capture=   capture_after_source=None  lag_s=None
+  git tracked   : False   last_commit=
+  receipt       : (none)  capture log=
+  ACTION        : no editor receipt: this task is a non-Lean analysis task and cites no editor observation at all
+
+====================================================================================================
+M3  status=MISSING  declared=STATIC_ONLY  editor_run=False
+  target        : 
+  sha(recorded) : 
+  sha(now)      :    match=None  bytes=0
+  mtime(local)  :    capture=   capture_after_source=None  lag_s=None
+  git tracked   : False   last_commit=
+  receipt       : (none)  capture log=
+  ACTION        : no editor receipt: this task is a non-Lean analysis task and cites no editor observation at all
+
+====================================================================================================
+M4  status=MISSING  declared=STATIC_ONLY  editor_run=False
+  target        : 
+  sha(recorded) : 
+  sha(now)      :    match=None  bytes=0
+  mtime(local)  :    capture=   capture_after_source=None  lag_s=None
+  git tracked   : False   last_commit=
+  receipt       : (none)  capture log=
+  ACTION        : no editor receipt: this task is a non-Lean analysis task and cites no editor observation at all
+
+====================================================================================================
+T1  status=MISSING  declared=STATIC_ONLY  editor_run=None
+  target        : 
+  sha(recorded) : 
+  sha(now)      :    match=None  bytes=0
+  mtime(local)  :    capture=   capture_after_source=None  lag_s=None
+  git tracked   : False   last_commit=
+  receipt       : (none)  capture log=
+  ACTION        : no editor receipt: this task is a non-Lean analysis task and cites no editor observation at all
+
+====================================================================================================
+T2  status=MISSING  declared=STATIC_ONLY  editor_run=None
+  target        : 
+  sha(recorded) : 
+  sha(now)      :    match=None  bytes=0
+  mtime(local)  :    capture=   capture_after_source=None  lag_s=None
+  git tracked   : False   last_commit=
+  receipt       : (none)  capture log=
+  ACTION        : no editor receipt: this task is a non-Lean analysis task and cites no editor observation at all
+
+====================================================================================================
+T3  status=SUPPORTED_BY_EXISTING_EVIDENCE  declared=CLI_CHECKED_EDITOR_PENDING  editor_run=None
+  target        : candidates/core-transport/DelegatedLogBridge.lean
+  sha(recorded) : 
+  sha(now)      : 764117e4aae02ccc2ef5eaebc51ae600e24f0e0884d869c72e480b6815f12a90   match=None  bytes=3338
+  mtime(local)  : 2026-10-23T00:05:18.428110+08:00   capture=2026-10-23T00:48:45.3531204+08:00   capture_after_source=True  lag_s=0
+  git tracked   : True   last_commit=f24e1348dce4e2f22df68a82d753d010eff4848e 2026-10-23T00:10:10+08:00
+  receipt       : handoffs/core-support-2026-10-22/T3/after-root/vscode-observation-tree-2.txt
+  receipt sha   : now=2a2489f7b4167aa5bfc1fc54df106eef7b52c534c3cef78c38fc373427b4ceb5 recorded=2a2489f7b4167aa5bfc1fc54df106eef7b52c534c3cef78c38fc373427b4ceb5 match=True
+  window        : DelegatedLogBridge.lean - core-transport - Visual Studio Code   ### nodes: 347
+  rows          : axiom=4 (own=4, own_group=False/None) err=0 warn=0 info=4
+  groups        : {"DelegatedLogBridge.lean": 4}
+  own path in tree=True  No info found=True  server startup text=True
+  infoview dir  : handoffs/core-support-2026-10-22/T3/infoview own_nogoals=3 of 4 dumps
+     hasSum_logTerm_localLog.txt        decl=hasSum_logTerm_localLog                  cursor=50    nogoals=1 owner_now=hasSum_logTerm_localLog match=True
+     localLog_eq_padicLog.txt           decl=localLog_eq_padicLog                     cursor=36    nogoals=1 owner_now=localLog_eq_padicLog match=True
+     logImage_Q3_eq_closedBall.txt      decl=logImage_Q3_eq_closedBall                cursor=64    nogoals=1 owner_now=logImage_Q3_eq_closedBall match=True
+     summable_logTerm.txt               decl=summable_logTerm                         cursor=41    nogoals=0 owner_now=summable_logTerm match=True
+  capture log   : 
+  ACTION        : own-file axiom rows / own-file problem group present at 2026-10-23T00:48:45.3531204+08:00 for 764117e4aae0
+
+====================================================================================================
+T4  status=MISSING  declared=CLI_CHECKED_EDITOR_PENDING  editor_run=None
+  target        : candidates/core-transport/QpThree.lean
+  sha(recorded) : 
+  sha(now)      :    match=None  bytes=0
+  mtime(local)  :    capture=   capture_after_source=None  lag_s=None
+  git tracked   : False   last_commit=
+  receipt       : (none)  capture log=
+  ACTION        : no editor receipt: this task is a non-Lean analysis task and cites no editor observation at all

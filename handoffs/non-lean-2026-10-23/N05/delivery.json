@@ -1,0 +1,89 @@
+{
+  "task_id": "N05",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "handoffs/core-integral-source-2026-10-23.md",
+      "sha256": "57a1b6a92e92763e19431c66222b0a8f3c10c16270e586405ad1e1dff06f4ada"
+    },
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/IndAut.lean",
+      "sha256": "3d39b3856f45ca73f0b03648381d34152849673070b64240ee135718f0bf30d9"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/LogShell.lean",
+      "sha256": "35c6b206b9b09a041979f2de76aa68a0238adfdf9ca8bbd614ecbec9d353ed93"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/Integral.lean",
+      "sha256": "d8240f7847b4d464ade6a69e718a3a53219aca572cf88fb71260d2ac5a8c4cc0"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/SUMMARY.md",
+      "sha256": "725d54e0c2f0329dbdb6c150f4e297cd1288d71bc31e591f8f928a92d6d27d5d"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/evidence.csv",
+      "sha256": "a5f24d28e40798d98b7d26a5558d1803811269ca3fbe639cfb00abaa82b8be8c"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/verify_N05.py",
+      "sha256": "f4acd4ae7445214164f5059860c802b19531eb52636227c9a047870e879bcf54"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/verify-report.json",
+      "sha256": "231007eea9e78a66dfc1ffc0ca07cae0a854cef0b3363b851c2bf122531f090d"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/fix_N05_hashes.py",
+      "sha256": "d053f7ab0ff4531bce5eb49cfbb06b4011824a8074f908aa26b3ed8fef93c8cd"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/hash-corrections.json",
+      "sha256": "272236570dcf49da8aeb5fd2a98e0577ea730a795c6929c20264046144411845"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/make_N05_delivery.py",
+      "sha256": "8e8c39c2c9e1543edbaf4c51f11774a8035c5b673e01f493163aed2d2a173159"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/evidence.csv",
+      "line_or_page": "row N05-01 (Ob1, p.131, lines 8033-8036)",
+      "supports": "that the passage denies O×-stability of the log-shell I_k, so no preserved lattice can be filled in"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N05/evidence.csv",
+      "line_or_page": "row N05-11 (IndAut.indAut, lines 299-301)",
+      "supports": "what the Lean side actually preserves (⊗_j K_{c j} as a set equality) versus the paper's (Ind3)"
+    }
+  ],
+  "commands_run": [
+    "py -3 handoffs/non-lean-2026-10-23/N05/verify_N05.py  -> ALL_QUOTES_VERIFIED (11/11 rows)",
+    "py -3 handoffs/non-lean-2026-10-23/N05/fix_N05_hashes.py -> corrected 3 input_sha256 values",
+    "py -3 handoffs/non-lean-2026-10-23/N16/check_deliveries.py --only N05"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "shared_finite_quotient 整列 UNRESOLVED：原文与源码都没有\"共用同一个有限商\"的陈述；唯一被命名的商是 log-volume 商（非有限）",
+    "Ind1/Ind2 两行整体 UNRESOLVED：原文只说明\"什么在作用\"，没有说明保持了哪个结构",
+    "未读 ArchIndAut.lean；Ind3 在 Lean 侧没有对应对象",
+    "本件是来源台账，不判定原文忠实性，也不判定任何命题真假"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

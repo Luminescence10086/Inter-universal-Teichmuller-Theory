@@ -1,0 +1,64 @@
+{
+  "task_id": "N14",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
+  "inputs": [
+    {
+      "path": "handoffs/core-backward-2026-10-23/fix-delivery.json",
+      "sha256": "3979fd04809e2a628d08ea9b2dc0a49d29a52c38a19df7aeb51d7888ff28090b"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/SUMMARY.md",
+      "sha256": "a5becb1df38bce62ff48889692478117bbc8174380180dcec12749e82312982f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/receipt-review.csv",
+      "sha256": "1b3c45a4aa2efc7b8823e20dced382bdd97cdee19666f46b92f79b6dc51d2f8c"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/audit_n14.py",
+      "sha256": "be40f8594683cd75bb84a7446f2e273baf97c92269434a5bf4741d0cfccc7788"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/audit-data.json",
+      "sha256": "f718cc518399bf6262fc126d7c824c8460db5f80e42aba50f7c05d68cf0821b3"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/audit-detail.txt",
+      "sha256": "ec021097da5e9b93da6a0c64fa40ef57b149bd3ee2d01774f30351e98491d664"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/make_N14.py",
+      "sha256": "14fd914be1fe317eb9f205b07c80ed2f41ea8a2a4d824a27b0da47b7ff97bd6b"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/audit-detail.txt",
+      "line_or_page": "K4 block",
+      "supports": "a worked example of the grading: own axiom rows present, capture after source, hash match"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/receipt-review.csv",
+      "line_or_page": "rows W9 and W10",
+      "supports": "the STALE_HASH verdict, with capture_after_source=false and the matching hash recorded"
+    }
+  ],
+  "commands_run": [
+    "py -3 handoffs/non-lean-2026-10-23/N14/audit_n14.py  (read-only audit of every delivery + receipt)",
+    "py -3 handoffs/non-lean-2026-10-23/N14/make_N14.py   (CSV and JSON assembly)",
+    "py -3 handoffs/non-lean-2026-10-23/N16/check_deliveries.py --only N14"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "本任务不能完成编辑器准入：所有 INSUFFICIENT / STALE_HASH / MISSING 项都需实际编辑器补验",
+    "T3 的 source_sha_match 为 None（其 delivery 未记录源码哈希），因此对 T3 的判定只依据树内本文件公理行与路径",
+    "W9/W10 的抓取时间与源码修改时间的先后依据文件 mtime，不是仓库提交时间；若有人手工改回 mtime 结论会变"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

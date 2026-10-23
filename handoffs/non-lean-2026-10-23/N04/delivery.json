@@ -1,0 +1,97 @@
+{
+  "task_id": "N04",
+  "status": "PARTIAL",
+  "source_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "handoffs/core-principal-hull-2026-10-23.md",
+      "sha256": "e433ce8a9022cf11abd68421675555fbba6959568fc4a37b22163822838338a6"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/Arithmetic.lean",
+      "sha256": "539f2f574edc58c16a6d47378e5d4add3dff1bbf7ae58ceed21db9662430cd64"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/LogShell.lean",
+      "sha256": "35c6b206b9b09a041979f2de76aa68a0238adfdf9ca8bbd614ecbec9d353ed93"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/Integral.lean",
+      "sha256": "d8240f7847b4d464ade6a69e718a3a53219aca572cf88fb71260d2ac5a8c4cc0"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/MaximalOrder.lean",
+      "sha256": "c6a7020dec3c0c45ab55e82862201838dda5a99e1acfb4a2c5b6df7c8f4a13d7"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/ResidueField.lean",
+      "sha256": "7f2501edae724d7cb4e4614f85bb95a2f6a084d3bff5fa1fc6a7a2301f288b32"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/Packet.lean",
+      "sha256": "ff40d3685bd5f7cbc04af4a5305f3d9400a63af22b1424ff65d789baae1c5e42"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N04/SUMMARY.md",
+      "sha256": "e44582ce23dbe338231827ed3d3359a84846cc70bc4ea7408ccb3b7d940e5dae"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N04/signatures.csv",
+      "sha256": "6cfd34d3df943d47b489046c7e647eea9122e6894119cad8a10cdbf772c777ae"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N04/make_N04.py",
+      "sha256": "fcc620d9057c4403318839e43c958be03ebc1da6ac0a1672858262a6a1faa293"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N04/verify_N04.py",
+      "sha256": "a0c5edb8b13b1ca77aabe96023092444821e1e0f0b24261993a2e63f5f30e401"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/Integral.lean",
+      "line_or_page": "206-209",
+      "supports": "tensor order R_I 的真实定义：orderSubmodule = Submodule.span Z_p (integralSet p c)，即整元素基本张量的 Z_p-张成；docstring 声称其为 otimes_{Z_p} O_{c j} 的像，但 Lean 中无与抽象张量积环的同构声明（命名忠实性 UNRESOLVED）"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Concrete/LocalConstruct/MaximalOrder.lean",
+      "line_or_page": "181-185",
+      "supports": "maximal/integral order (R_I)^sim 的真实定义 = integralClosure Z_p (Tensor K (.finite p) c)，即按定义就是 integral closure，与 tensor order 不是同一对象（仅 order_subset_integral, MaximalOrder.lean:191）"
+    }
+  ],
+  "commands_run": [
+    "git -C reviews/core-round/external/iut rev-parse HEAD  -> f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+    "git -C reviews/core-round/external/iut status --porcelain  -> (empty, clean tree)",
+    "Select-String -Path 'Iut/Concrete/LocalConstruct/*.lean' -Pattern 'TensorProduct|tensorOrder|maximalOrder|integralClosure|TensorAlgebra'  (Arithmetic.lean 无匹配)",
+    "Select-String -Path 'Iut/**/*.lean' -Pattern 'tensorOrder|maximalOrder|TensorAlgebra|order'  -> 定位 order/orderSubmodule/integral/tensorLogShell",
+    "Select-String -Pattern 'equivPi|equivProduct|AlgEquiv.*MaximalSpectrum'  -> residueEquiv 为唯一乘积分解",
+    "Select-String -Pattern '≃ₐ' 于 Iut/Concrete/LocalConstruct/*.lean  -> 无 Tensor ≃ ∏_j Factor 的因子乘积分解签名",
+    "Select-String -Pattern 'Module.Finite.*⧸|⧸.*Finite|finite_quotient'  -> 无有限商参考格定义",
+    "Get-Content 各文件前若干行取 import 头 -> 导入链 ResidueField -> MaximalOrder -> Indeterminacy -> Integral；LogShell 直接 import LocalLogShell/ThetaAdmissible/Arithmetic",
+    "Get-FileHash -Algorithm SHA256 于 8 个输入与 4 个输出",
+    "py -3 handoffs/non-lean-2026-10-23/N04/make_N04.py  (逐字抽行生成 signatures.csv)",
+    "py -3 handoffs/non-lean-2026-10-23/N04/verify_N04.py  (按行号重抽比对 + 复算全部 SHA256 + schema/枚举/路径包含)"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "有限商参考格（reference lattice for finite quotients）：本仓库无 Finite (Tensor ⧸ L) 或商计数格定义；最接近者仅 orderSubmodule（Z_p-lattice）、tensorLogShell（LogShell.lean:295-296）、integralAddSubgroup（仅 AddSubgroup, MaximalOrder.lean:323-324）。UNRESOLVED。",
+    "ambient tensor algebra 到“局部域因子乘积 ∏_j K_{c j}”的分解：仓库无此签名；唯一乘积分解 residueEquiv（ResidueField.lean:72-75）是按 MaximalSpectrum 的剩余域分解，不能替代因子乘积分解。UNRESOLVED。",
+    "maximal order 与 tensor order 是否严格不同：仅有 order_subset_integral（MaximalOrder.lean:191）；无 strictness 或 equality 定理。UNRESOLVED。",
+    "maximal order 在分解下的环级对应（乘积环 ≅ 子环）无声明；仅逐点范数判据 mem_integral_iff_forall_resNorm_le_one（ResidueField.lean:193-197）。UNRESOLVED。",
+    "residueEquiv 所依赖的 Mathlib 定理 IsArtinianRing.equivPi 的精确假设未在仓库内给出签名，本任务未读 Mathlib 源码，故其 binder 集合记为未核（仅记录仓库侧实例 isReduced_tensor / isArtinianRing_tensor 存在）。UNRESOLVED。",
+    "与原始 IUT（IV Prop. 1.2、III Prop. 3.2）的文本忠实性：docstring 断言未经独立审阅，本任务不判。源码有定义 ≠ 原文忠实性已证。UNRESOLVED。",
+    "INPUT_DRIFT：任务卡点名的 Arithmetic.lean（f7ed1cc 内唯一同名文件，223 行）不含 tensor order/maximal order/分解/有限商格任何一项；所需材料在 3 个下游文件（Integral/MaximalOrder/ResidueField）。依赖预算（≤2 直接依赖）被超出 1 个文件，另加 Packet.lean 仅用于查 Tensor/Factor abbrev。请主线确认接受此范围扩张。",
+    "INPUT_DRIFT：工作区 HEAD 为 568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2，任务总表记录的快照 HEAD 为 1a8515d88084e5283d02ea918131c7faed38a7da；本任务输入已按文件哈希逐个固定，不受影响。"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

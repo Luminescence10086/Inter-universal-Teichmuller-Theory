@@ -1,0 +1,178 @@
+{
+  "task_id": "N12",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "188ff572b61b748e5606d1419980f1e0b5abb0aa",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/diff_index.txt",
+      "sha256": "89b9975973b179cb06de88fee5723531e7a54a383aea3427be20035a2feb7a72"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_hash_raw.json",
+      "sha256": "b84ca5b5266f337021306b41c430e60bb66ad9acdd3d5ae5d71ff5c0faa4e3f7"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_ls_tree_base.txt",
+      "sha256": "7b75df1633d224b0699a5871b89e0904b8a316f7b88c117155f68287bb99f9c6"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_ls_tree_head.txt",
+      "sha256": "b98ae4667e12a81274e56286a17299e92e8a95790bd1d16c72c7fbaff85846c5"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base_lakefile.toml.txt",
+      "sha256": "50a2e1d4923ed0df954a4a8ced515aba512736a17fbd6bf9fca5cc42ff45180a"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base_lake-manifest.json.txt",
+      "sha256": "fdebc953fe75426f5867659712a0cbbf2471cc193e38a24d088af411fd25f647"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head_lakefile.toml.txt",
+      "sha256": "e55fb4a312305a1058a5b618d96932667d57fc6fb673417fca46e09d2b952d1f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head_lake-manifest.json.txt",
+      "sha256": "4086dde3f8190b88bbaa4ae984e02f1c1b3e81b2432cc46af32bee79f88a01c5"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base/Iut__AutHolomorphic__README.md",
+      "sha256": "1796e831effd45ae4cbddc1dd826b6781d2334dbaf77ce669e7f0850dfa3f6de"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base/Iut__Multiradial__ROADMAP.md",
+      "sha256": "0a60677ea43c8081817e9ca01315f2801cf9ac1f1eeb964a5d6cb1e20ef83272"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base/lake-manifest.json",
+      "sha256": "1cdcbee570e10ce8905f98bbe73c3987c510ed27d9936b7524c210c4dba88a0d"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base/lakefile.toml",
+      "sha256": "a69a3daddae54ce80da087b6fb6207c26d18da3055f2a53d1f4e78400faeb667"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base/Plans__MR10Plan.md",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base/Plans__MR9Plan.md",
+      "sha256": "9a226a046b3f9bc9fb59f517df44e22d572ec2dce6391e1b9e9501300c3345f8"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_base/scripts__shell_lint_allowlist.txt",
+      "sha256": "57d6e5471ab31384137cb01ff92bad790b39eaef625c24d4506975f6a9a2fc18"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head/Iut__AutHolomorphic__README.md",
+      "sha256": "89ecd3ee9c3504d5360f738eb31b5a781bdd5c59ae11aa7d5bd308f8263e8e9f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head/Iut__Multiradial__ROADMAP.md",
+      "sha256": "17810eb337aac80c2ea1d3842065bd95fb3d895bb618a12e9fbe09b1ab180603"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head/lake-manifest.json",
+      "sha256": "12a9c65868de3e1ec621d8cff51ab8079f8dda21a655aab8deb1e43d2ef72653"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head/lakefile.toml",
+      "sha256": "ff4aac293ae9a78dd1207d23c0da6cb6eeb58a5b845502a0893916e3ff262d9d"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head/Plans__MR10Plan.md",
+      "sha256": "09c8aaf02e7938a03928e65a4c860b925bcb9c88580f0411588b72be7dc2eacb"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head/Plans__MR9Plan.md",
+      "sha256": "8c9c622602499951465e4a6dca7a211f8e9b49d0a04c0728472303e3dd47f228"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_head/scripts__shell_lint_allowlist.txt",
+      "sha256": "0e31c4dfe6881cc91d6600844fb12fb26181c29e90321e7af32392e44892ce14"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/Iut__AutHolomorphic__README.md.diff",
+      "sha256": "a1b9757af2f9243627af11ba7002cf34fba14e72156f6b7d433723d2a94fa1a0"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/Iut__Multiradial__ROADMAP.md.diff",
+      "sha256": "5afb4c302d49dce267ee23cff9791d02354f625594951589412bcc9a2db230a3"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/lake-manifest.json.diff",
+      "sha256": "b4f58d4fdd36d187336f8cba3193d3d27d30653525db9bacf05cf65e4643abd0"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/lakefile.toml.diff",
+      "sha256": "8268d2647f7d32f3374f8f6c790fd20f04eb454bc33893d4fac0f97f1163bb8e"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/Plans__MR9Plan.md.diff",
+      "sha256": "72788d986e17da31145a65703fcb7489edde72b7fe2edd1157e41bb8ea08d585"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/scripts__shell_lint_allowlist.txt.diff",
+      "sha256": "86eb7b1455d2ae5a39761a939279c6ad11f18ffca47adccfa758f2417f63e948"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_work_diff.py",
+      "sha256": "9017cef1e2dfbbc592759d68ba89f2cc787d70bcb3640f7e78dc22a759698f34"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_work_diff_index.py",
+      "sha256": "387e05bb06222feb52f5e4785f50e2a791c9e19ef1a50efb46553b60ef26eb3d"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_work_anchors.py",
+      "sha256": "9d938413a3fd207358bfc4bd7b70e1140939ea98ea5fc213ee87c2e38a0897bf"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_work_tags.py",
+      "sha256": "59ce9d3eda03ad1962ef26df8d23e45d02d146f52a4431b410fb74d5ef303c07"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/SUMMARY.md",
+      "sha256": "abdabaaec28e6e4c5c6af96d1cc561a8c096d2ad8644ae5f4d76f6d78a45917f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/delta.csv",
+      "sha256": "1db3ee6e242326a83ce4eb35649a296173f46c973bf21cf8e26c397e74dfe995"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/make_N12.py",
+      "sha256": "49e5f7461b4e72008f0681357f3d16ca998b662f2ac6058d76f621a88aff7945"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/lakefile.toml.diff",
+      "line_or_page": "hunks at requires pi1 / orbicurve-cores",
+      "supports": "the two dependency pin bumps, byte for byte"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N12/_diffs/Iut__Multiradial__ROADMAP.md.diff",
+      "line_or_page": "second hunk, the new [TopSurr] Thm 4.12 row",
+      "supports": "that the rel-isom-DGC source row was added, and its wording"
+    }
+  ],
+  "commands_run": [
+    "git -C reviews/core-round/external/iut rev-parse HEAD -> 188ff572... (base recorded as f7ed1cc8...)",
+    "git -C ... ls-tree -r --name-only <rev>  (base and head) -> _ls_tree_*.txt",
+    "git -C ... diff <base>..<head> --stat   -> diff_index.txt",
+    "git -C ... show <rev>:<path> for the 7 non-Lean-changed paths -> _base/ _head/ + _diffs/",
+    "Get-FileHash -Algorithm SHA256 on every snapshot and diff"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "pin 文本与锁文件不一致：MR9Plan 写 curves-jacobian a258c15 / belyi 5f3a88e，lakefile 钉 601db27c / 7206d783（UNRESOLVED，需主线确认以哪个为准）",
+    "README/ROADMAP 自称\"done\"\"exists\"属于仓库自述，本任务不据此判定任何命题已证",
+    "未在远程重新 fetch：结论只对该克隆的 188ff572 成立；若上游有新 commit，须另固定"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

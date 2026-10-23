@@ -1,0 +1,29 @@
+--- cache(pypdf-default)
++++ official(pypdf-default)
+@@ -41 +41 @@
+-Date: Last Updated: July 16, 2026.
++Date: Last Updated: July 20, 2026.
+@@ -327,11 +327,12 @@
+-Antoine Ducros, Shane Kelly, Minhyong Kim, and Alex Kontrovich, who supported this
+-project either as members of the team or from outside it. Thanks are also due to the many
+-others who, although they declined to contribute formally, we are certain are cheering us
+-on in their hearts. We would further like to thank Utrecht University and the Univer-
+-sity of Alberta for jointly hosting this project. Furthermore, we are grateful to Nobuo
+-Kawakami, who endorsed the concept of this project and was a vital source of support,
+-both financially and morally. Finally but not least, we thank KADOKA W A DW ANGO
+-Educational Institute, which backed us from the very beginning of this project, as well
+-as the Educational Institute of The Nippon Foundation and DW ANGO—the parent or-
+-ganization of ZEN University, Japan’s first full-fledged online university, which opened
+-in April 2025—for their financial investment in this project and their heartfelt support.
++Antoine Ducros, Shane Kelly, Minhyong Kim, and Alex Kontorovich, who supported
++this project either as members of the team or from outside it. Thanks are also due to
++the many others who, although they declined to contribute formally, we are certain are
++cheering us on in their hearts. We would further like to thank Utrecht University and
++the University of Alberta for jointly hosting this project. Furthermore, we are grateful
++to Nobuo Kawakami, who endorsed the concept of this project and was a vital source
++of support, both financially and morally. Finally but not least, we thank KADOKA W A
++DW ANGO Educational Institute, which backed us from the very beginning of this project,
++as well as the Educational Institute of The Nippon Foundation and DW ANGO—the
++parent organization of ZEN University, Japan’s first full-fledged online university, which
++opened in April 2025—for their financial investment in this project and their heartfelt
++support.

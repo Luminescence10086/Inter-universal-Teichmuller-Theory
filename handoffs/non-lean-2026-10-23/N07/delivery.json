@@ -1,0 +1,76 @@
+{
+  "task_id": "N07",
+  "status": "PARTIAL",
+  "source_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
+      "sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Rss.lean",
+      "sha256": "301fe11b08e2d0ff838fc77915768c11c0235eff96801b1515cb89c9bd3d855d"
+    },
+    {
+      "path": "candidates/core-transport/EtaComparison.lean",
+      "sha256": "330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N07/SUMMARY.md",
+      "sha256": "c1cca8aee6eb9bcae2d9de2402cc5be7be04570ad555a2de8c723ce229775bd0"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N07/pipeline.md",
+      "sha256": "29db3c0471ab4c1fbae08c8455cd018d25c38895ebb8322ec13f0c1b1e10b1f2"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N07/witness-contract.csv",
+      "sha256": "10f7e4f27b7041b0905b2b2b920e0ff25c6209e73e4a7c83b3e259a9a5304b7b"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N07/make_N07.py",
+      "sha256": "78ec4b9c0fc6b8fe66e47fb0867be60d5dd6fee84f8d24891a3417c75e58a446"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "line_or_page": "105-109 and 123-125",
+      "supports": "that out is a bare field and realisation is a landing condition, not a construction"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
+      "line_or_page": "213",
+      "supports": "that an Ind3 choice is a subtype with an upper-bound condition, so S is constrained but not built"
+    }
+  ],
+  "commands_run": [
+    "py -3 read-only grep over the external Iut/Wall files for out / Ind3 / Rss.logVol / etaAnab",
+    "py -3 line extraction for the cited ranges"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "W4（产出区域）没有实现：out 是字段，不是算法",
+    "W7 的 tau 没有公式，相容性无法判定",
+    "W9 联合见证不存在",
+    "W10 只是玩具见证，5 条真实条件全部未满足"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

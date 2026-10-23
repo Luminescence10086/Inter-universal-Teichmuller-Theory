@@ -1,0 +1,86 @@
+{
+  "task_id": "N11",
+  "status": "EXPERIMENTAL",
+  "source_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N03/target.md",
+      "sha256": "9a9a93d169384376a07e93a8b10ad5871d475d7873ab7ffbf44444cbad586848"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N07/pipeline.md",
+      "sha256": "29db3c0471ab4c1fbae08c8455cd018d25c38895ebb8322ec13f0c1b1e10b1f2"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N08/bridge-plan.md",
+      "sha256": "33a3030d0fcff0da4a110b0b16e1a27a4bed1adff66d5e48f6627833ce244850"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
+      "sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/SUMMARY.md",
+      "sha256": "2cc6a69a1e0b64cb2624846368fd7773b5856aa8d22a087f78852111d2681537"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/tool-cards.md",
+      "sha256": "03a9e7a9caf4b0c78b94c5b5bdd3b3382d1cdcab5abdc43d637abac0a571e220"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/prior-art.md",
+      "sha256": "b35cb95d857ee4fd07e12f545135ed878de1d18bf0c3563d7c50675e6003dc09"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/toy_check.py",
+      "sha256": "8c2646adc480130a96d63c1c055758af674e8be3eaa3dca00ee9ce2330e25797"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/toy_check.log",
+      "sha256": "f619c3ec267a1fc1de914413285d73013dd159118ce66b69e90f0e88c48d12e4"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/make_N11_delivery.py",
+      "sha256": "5090b2c206dd48a3837a9d8eece0553910e19f78b95293c9b12a4811e32ee32c"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/toy_check.log",
+      "line_or_page": "Part A rows A2/A3 (NONBOX with explicit separating functional)",
+      "supports": "that a box container can be strictly larger than the log-convex hull, with a witness"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N11/tool-cards.md",
+      "line_or_page": "section 2.5 (Part B M1/M2)",
+      "supports": "that two objects agreeing on every declared field can differ on attainability, so the answer is UNDETERMINED"
+    }
+  ],
+  "commands_run": [
+    "py -3 handoffs/non-lean-2026-10-23/N11/toy_check.py  -> RESULT: ALL PASS (Part A and Part B)",
+    "web_search x2 (6 queries total) for the bounded prior-art check -> prior-art.md"
+  ],
+  "new_hypotheses": [
+    "A2/A3 (the exponent-set reading of vcIComp) are declared PROPOSED_INTERFACE, not proved",
+    "A5 (non-archimedean analogue of the log-convex envelope theorem) has no cited source in this round"
+  ],
+  "unresolved": [
+    "两张卡都是设计；没有任何一条被 Lean 形式化",
+    "卡 2 的有效性依赖卡 1 的归约，单独引用会失效",
+    "先前工作检索只覆盖 6 次英文查询与摘要级片段，不构成原创性证明"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

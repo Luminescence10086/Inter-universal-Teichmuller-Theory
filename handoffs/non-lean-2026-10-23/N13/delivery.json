@@ -1,0 +1,84 @@
+{
+  "task_id": "N13",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "candidates/core-transport/H3Synthesis.lean",
+      "sha256": "ffd30a25d44611570fb406705e2b417c7b9f3d292d430fd7f4bc8fe4e1173bf2"
+    },
+    {
+      "path": "candidates/core-transport/ExponentUniqueness.lean",
+      "sha256": "6d3d19036323945b9298b7f8344e388edb726f6d2d7d7a96f7e403fac2828f98"
+    },
+    {
+      "path": "candidates/core-transport/LabelNormalization.lean",
+      "sha256": "5d711c6fe88be8b3b23258eb944a22bda6a68d55f9fbfe262b60b9cb8e5dccb1"
+    },
+    {
+      "path": "candidates/core-transport/EtaComparison.lean",
+      "sha256": "330431eddd7e3e722723338faba0b59c10f649bfd73279c62ccaa9285425cfce"
+    },
+    {
+      "path": "candidates/core-transport/TransitionCompatibility.lean",
+      "sha256": "391bee2f83606ff4de4f8dbc905aceae052383efc5722baacc49e46250874b72"
+    },
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/PATH.md",
+      "sha256": "f62207d84ce06b98b1164d999a1b2070912dbec68d04797f033125fc141d326e"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N13/SUMMARY.md",
+      "sha256": "ec981ac4a538603b0773876c18c0c67d35b0d2fa0d3251db7ffd2ff14621dfac"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N13/risk-cards.md",
+      "sha256": "33bdca888ca36bae838541bb3d0262c2cf7e0625ad02b81efe60fb28945b014c"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N13/declarations.csv",
+      "sha256": "f270cf803dcc99d952e3fe20011c74b84fae3b22bc65cbfa467c4b0af02070d2"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N13/make_N13_delivery.py",
+      "sha256": "3406ab039a2f2dfd85f3cda0ed805d8890ec8a9330c3d811c6758cb770a75d62"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "candidates/core-transport/TransitionCompatibility.lean",
+      "line_or_page": "593-596 versus 632-637",
+      "supports": "the duplicated receipt block and the false comment, both quotable in one diff"
+    },
+    {
+      "path": "candidates/core-transport/H3Synthesis.lean",
+      "line_or_page": "161-163 and 226-227",
+      "supports": "the \"exactly the non-torsion condition\" wording and the trivial reading that refutes it"
+    }
+  ],
+  "commands_run": [
+    "py -3 read-only line extraction (pathlib) over the five .lean files, to quote the exact lines",
+    "Select-String \"sorry|axiom|set_option\" over the five files -> 0 matches each (text count only)",
+    "Select-String \"#print axioms\" -> 54 lines in TransitionCompatibility.lean, 4 of them duplicated"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "未重算任何 #print axioms 的真实依赖闭包；文本搜索不等于公理审计",
+    "未审 Mathlib 与外部仓库（Reconstruction/Cor312/Concrete）侧声明",
+    "C1/C2 的修订建议未编译；它们是需要后续形式化的提案，不是已完成修正"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

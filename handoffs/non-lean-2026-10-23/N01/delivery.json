@@ -1,0 +1,85 @@
+{
+  "task_id": "N01",
+  "status": "STATIC_COMPLETE",
+  "source_commit": "568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2",
+  "inputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/official-LANA_report_202607.pdf",
+      "sha256": "aa53093aa8d69dbce5f8fb4f541069a418650260dee1ef532917aa8db89606c7"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/official-LANA_report_202607.txt",
+      "sha256": "14c8e378f7f572a058a89ad79cb807df8cf968308370eb7647141a23e19a10ee"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/fetched-ncatlab.pdf",
+      "sha256": "a368345c1b4f03d9dba439cee7d3b186465b802233392b1fc7727edec8be2f30"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/zen-0717e.html",
+      "sha256": "2a93ac58320cbc9575065643daec1bbcac3c9ebf7fa6b18ec19c8c3afe2f325f"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/zen-0331e.html",
+      "sha256": "da2cc91d3b5e2dd4fbee3bcc8f7a278bf24824bd4507f1730a744ba56df05492"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/text-diff-same-method.txt",
+      "sha256": "939eb0483703e40dc8201140dfeb7fe8086796bb32c35b945284bc3e3da63eae"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/cache-repro-pypdf-default.txt",
+      "sha256": "2e6c4f99dcbda6292d46c07e8bee6ac36bd419ddb88dab781b7114765a43c05f"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.pdf",
+      "sha256": "a368345c1b4f03d9dba439cee7d3b186465b802233392b1fc7727edec8be2f30"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/SUMMARY.md",
+      "sha256": "f456e8c77b69001a30d0bdc61139f37eed000145f3c8271f9e41b24fe4cb5858"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/versions.csv",
+      "sha256": "f6ce61dd5306d8e4698cac5c3664896a9b36b9f81032a488611c9ae67fe2b315"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/diffs.md",
+      "sha256": "42a7cf483ee38b948645309e502a0a2f1af8d68661fa13b10a1c2a807a77f3b7"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/make_N01.py",
+      "sha256": "086e97d94dbbfdef3c26b447b03cd2dd1921f38142d271e56c55a3a4f2f0e90f"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/diffs.md",
+      "line_or_page": "table rows 1-2",
+      "supports": "the two textual differences between the cached (July 16) and official (July 20) versions"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N01/versions.csv",
+      "line_or_page": "rows official_pdf_github / cache_pdf_used_earlier",
+      "supports": "both sizes and sha256 values, so a reviewer can recompute them independently"
+    }
+  ],
+  "commands_run": [
+    "Invoke-WebRequest https://github.com/katobungen/LANA_report_202607/raw/pdf/LANA_report_202607.pdf",
+    "py -3 (pypdf) page count + default text extraction for both pdfs",
+    "diff of the two pypdf text extractions -> text-diff-same-method.txt",
+    "Get-FileHash -Algorithm SHA256 on all artifacts"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "zen.ac.jp 两个页面只作链接页使用，没有从它们再取到独立第三份 PDF（UNRESOLVED，未再重试）",
+    "7-16 与 7-20 之间是否有数学内容改动：只比对文本层，得到 2 处差异，未逐节重读全文（UNRESOLVED）",
+    "本任务不做数学有效性审查"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false
+}

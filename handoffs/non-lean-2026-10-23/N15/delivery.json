@@ -1,0 +1,107 @@
+{
+  "task_id": "N15",
+  "status": "STATIC_COMPLETE",
+  "source_commit": null,
+  "inputs": [
+    {
+      "path": "research/core-backward-2026-10-23/PATH.md",
+      "sha256": "f62207d84ce06b98b1164d999a1b2070912dbec68d04797f033125fc141d326e"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/round-report.md",
+      "sha256": "f71b4178a4c180a44d28fd9f30a49b9fca7cdb5e01bc23f1547bccd6e7ad180c"
+    },
+    {
+      "path": "handoffs/non-lean-task-catalog-2026-10-23.md",
+      "sha256": "56a3170601b27c8219cac2e91e35e931e0a86ed1ebd6b5eb927fd55cb8b271e4"
+    },
+    {
+      "path": "GAP-core-comparison-reconstruction.md",
+      "sha256": "38fc4a8e1fe48e5276209b6bdadd1c6eacaf185a62dede7a331d0ed0692dd23c"
+    },
+    {
+      "path": "GAP-core-native-realization.md",
+      "sha256": "cb55974b3378355bace43223c6f166292a4cbb6223753d3e199fe81082d8c50a"
+    },
+    {
+      "path": "GAP-core-residue-hull-realization.md",
+      "sha256": "a5bf1c1d6140f5915f35e1da1cfa480c54890ed694234d5e208f2fc8cf6bb232"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/fix-delivery.json",
+      "sha256": "3979fd04809e2a628d08ea9b2dc0a49d29a52c38a19df7aeb51d7888ff28090b"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N14/receipt-review.csv",
+      "sha256": "1b3c45a4aa2efc7b8823e20dced382bdd97cdee19666f46b92f79b6dc51d2f8c"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/SUMMARY.md",
+      "sha256": "fc04991bce7e793b1d39e208c919c97b5e9999040e781a0fdac68d0a244578e8"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/status.csv",
+      "sha256": "6abe7eb8a1c7d42dde906d5335ccf0e56c0e75ec834ee64c3721eec1c38f7656"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/candidate-graph.json",
+      "sha256": "94018500ed0be1a80409105ad78e6a1fc7e4d70906f7344f742b63782b4314bb"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/patch-proposal.md",
+      "sha256": "0c2bfc6974f1a1a3200910ea872f56ee11ba0dd7dc308691cc5c1710c367ff6e"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/make_N15.py",
+      "sha256": "ef9c0c396845a3d039962316bf7ad323fd80566f21e0211d483f2e8f3544e081"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/make_delivery_N15.py",
+      "sha256": "4c3b0e797edb9605f977c398332729f81e341528c3ca3efced90290044d042ba"
+    }
+  ],
+  "review_anchors": [
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/status.csv",
+      "line_or_page": "rows K4, W1, W9, T1, N04",
+      "supports": "the four evidence planes are recorded separately: a delivery may pass its own CLI gate (PASSED_GATE) while its editor receipt is graded INSUFFICIENT, STALE_HASH or absent"
+    },
+    {
+      "path": "handoffs/non-lean-2026-10-23/N15/candidate-graph.json",
+      "line_or_page": "edges W3 -> W5 and W3 -> W6",
+      "supports": "an edge is called EXISTING_RECORD only when the target's inputs[] names a path the source's outputs[] declares, both hashed in their own delivery.json"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/PATH.md",
+      "line_or_page": "lines 49-51 versus 75-82",
+      "supports": "the stale-next-step finding in patch-proposal.md P1-1: one file carries two next steps"
+    }
+  ],
+  "commands_run": [
+    "py -3 handoffs/non-lean-2026-10-23/N15/make_N15.py   (read-only scan of 29 delivery.json; writes status.csv + candidate-graph.json; re-run reproduced both files byte for byte)",
+    "py -3 handoffs/non-lean-2026-10-23/N15/make_delivery_N15.py   (recompute every input/output sha256 from disk and emit this file)",
+    "py -3 -c \"...json.load per delivery.json; collect inputs[]->outputs[] matches...\"   (edge discovery; no Lean, no Lake, no editor)",
+    "py -3 -c \"...csv count over N14/receipt-review.csv...\"   (6 SUPPORTED / 6 INSUFFICIENT / 2 STALE / 7 MISSING over 21 graded items)",
+    "git rev-parse HEAD -> 568e4be9f8b3e4f1d35b5c358e3f3b7836f469c2   (used only to check the catalogue's HEAD line; not used as a pin)"
+  ],
+  "new_hypotheses": [],
+  "unresolved": [
+    "the workspace was live while this index was built: N09, N13 and N16 delivery records were written during the run, so every row pins its own record sha256 instead of a HEAD",
+    "6 items have no delivery at all (N02, N06, N07, N08, N10, N11) and N03 has an empty directory; status.csv records them as NOT_DELIVERED / NO_DELIVERY_RECORD rather than guessing a status",
+    "the per-task gap_ref column is an N15 routing proposal (no delivery.json names a GAP file: 0 hits in 29 records); it is not a source fact and must be re-decided by the main line",
+    "PROPOSED edges are read off named lines of PATH.md / round-report.md / the task catalogue; no edge was verified by running Lean or by any editor observation",
+    "N15 cannot close any GAP, cannot admit a fact-tree node, and cannot convert a window-level editor silence into a per-file verdict",
+    "another writer put a second generator (make_N15_delivery.py, sha256 be6d5e409f4fd9f888da084f997bd80b387fc658dc451284a90465fa7653d057) into this directory at 19:56:28; it was removed because it re-runs make_N15.py and rewrites delivery.json, which would silently replace this record. If it reappears, the two writers must be reconciled before either is trusted"
+  ],
+  "lean_run": false,
+  "editor_run": false,
+  "native_iut_realized": false,
+  "fact_tree_admitted": false,
+  "snapshot_inputs_hashed_elsewhere": {
+    "what": "the 29 delivery.json records this index reads",
+    "where": "handoffs/non-lean-2026-10-23/N15/status.csv, column delivery_json_sha256 (per row), and candidate-graph.json, node field source_record_sha256",
+    "why": "declaring them as inputs here would turn any later edit by another task into a hash failure on this package; the per-row pins keep the snapshot checkable without that coupling"
+  }
+}
