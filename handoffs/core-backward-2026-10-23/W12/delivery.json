@@ -1,0 +1,81 @@
+{
+  "task_id": "W12",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T15:49:41+0800",
+  "design_record": {
+    "path": "research\\core-backward-2026-10-23\\h3-prerequisites.md",
+    "sha256": "932d169d9a0e88d5353437f795690e9c884a6c50756ecead09e844fba9a54cfb",
+    "role": "M-iii: the two normalizations named explicitly, and the identification 0 <-> <F_l^star> from IUT II Cor 4.10(i) turned into a condition on the label set"
+  },
+  "inputs": [
+    {
+      "path": "research\\core-backward-2026-10-23\\h3-prerequisites.md",
+      "sha256": "932d169d9a0e88d5353437f795690e9c884a6c50756ecead09e844fba9a54cfb"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W5/delivery.json",
+      "sha256": "a5af33f037906714c28e800edc125ffb3240ec745ca90299bbf1b51f876c5c70"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates\\core-transport\\LabelNormalization.lean",
+      "sha256": "5d711c6fe88be8b3b23258eb944a22bda6a68d55f9fbfe262b60b9cb8e5dccb1"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W12/check.json",
+      "sha256": "52c58146a6e135badc6c01e149923f9e49cdf818313b45e575c3dcaa8538bc32"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W12/editor/vscode-observation-tree-2.txt",
+      "sha256": "aada6a3456f0c9ff48f0dbd3019832f12e781c174a43d396747234a36584b86a"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 30,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 30,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "5d711c6fe88be8b3b23258eb944a22bda6a68d55f9fbfe262b60b9cb8e5dccb1"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "information": 77,
+      "note": "the first attempt was refused by the folder-name guard because a stale window titled Inter-universal was open; VS Code was killed and the capture re-run",
+      "evidence": "editor/vscode-observation-tree-2.txt"
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "averageOverLabels_eq_averageOverOrbit: the |F_l|-indexed average and the F_l^star orbit average coincide exactly when the labels are the orbit (simple transitivity as a hypothesis)",
+    "coord_at_base recovers W5 as a corollary here, so the identification does its work inside this file",
+    "anti-degeneracy computed: Lab = ZMod 3 with G its units, base 0, reading 1,2,3 gives label average 2 against orbit average 1",
+    "toy_not_bijective shows the hypothesis really fails there, and the orbit half stays exact without it"
+  ],
+  "unresolved": [
+    "a toy on a finite label set: it does not identify the source |F_l| with F_l^star",
+    "nothing about Ind1-3; it shows when the identification would be forced (labels = orbit) and when it can fail (a fixed label)"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

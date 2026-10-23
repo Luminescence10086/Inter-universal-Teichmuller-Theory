@@ -1,0 +1,317 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "LabelNormalization.lean"
+  ],
+  "axiom_free": [
+    "LabelNormalization.ToyLab"
+  ],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "LabelNormalization.InvariantReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.ToyGroup": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.averageOverLabels": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.averageOverLabels_eq_averageOverOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.averageOverLabels_toyReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.averageOverOrbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.averageOverOrbit_eq_base_of_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.averageOverOrbit_eq_value_at_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.averageOverOrbit_toyReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.card_cast_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.card_eq_card_of_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.coord_at_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.sum_orbit_eq_card_mul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.sum_over_labels_eq_sum_over_orbit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyGroup_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyLab_card": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyOrbit_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyReading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyReading_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyReading_sum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyReading_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toyReading_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toy_averages_differ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toy_not_bijective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toy_one_ne_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toy_smul_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toy_univ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toy_zero_ne_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "LabelNormalization.toy_zero_ne_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 30,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "averageOverLabels"
+    },
+    {
+      "kind": "def",
+      "name": "averageOverOrbit"
+    },
+    {
+      "kind": "def",
+      "name": "InvariantReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "card_eq_card_of_bijective"
+    },
+    {
+      "kind": "theorem",
+      "name": "sum_over_labels_eq_sum_over_orbit"
+    },
+    {
+      "kind": "theorem",
+      "name": "averageOverLabels_eq_averageOverOrbit"
+    },
+    {
+      "kind": "theorem",
+      "name": "card_cast_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "sum_orbit_eq_card_mul"
+    },
+    {
+      "kind": "theorem",
+      "name": "averageOverOrbit_eq_base_of_invariant"
+    },
+    {
+      "kind": "theorem",
+      "name": "coord_at_base"
+    },
+    {
+      "kind": "abbrev",
+      "name": "ToyLab"
+    },
+    {
+      "kind": "abbrev",
+      "name": "ToyGroup"
+    },
+    {
+      "kind": "theorem",
+      "name": "toyLab_card"
+    },
+    {
+      "kind": "theorem",
+      "name": "toyGroup_card"
+    },
+    {
+      "kind": "theorem",
+      "name": "toy_smul_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "toy_univ"
+    },
+    {
+      "kind": "theorem",
+      "name": "toy_zero_ne_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "toy_zero_ne_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "toy_one_ne_two"
+    },
+    {
+      "kind": "def",
+      "name": "toyReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "toyReading_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "toyReading_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "toyReading_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "toyReading_sum"
+    },
+    {
+      "kind": "theorem",
+      "name": "toyOrbit_sum"
+    },
+    {
+      "kind": "theorem",
+      "name": "averageOverLabels_toyReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "averageOverOrbit_toyReading"
+    },
+    {
+      "kind": "theorem",
+      "name": "averageOverOrbit_eq_value_at_base"
+    },
+    {
+      "kind": "theorem",
+      "name": "toy_not_bijective"
+    },
+    {
+      "kind": "theorem",
+      "name": "toy_averages_differ"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\LabelNormalization.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "89c7bdc625d735969682dbfd9195276f8fdc9901201bc2b28e03f99a29854776",
+  "stdout_tail": "Classical.choice, Quot.sound]\n'LabelNormalization.toy_univ' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toy_zero_ne_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toy_zero_ne_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toy_one_ne_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toyReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toyReading_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toyReading_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toyReading_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toyReading_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toyOrbit_sum' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.averageOverLabels_toyReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.averageOverOrbit_toyReading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.averageOverOrbit_eq_value_at_base' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toy_not_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'LabelNormalization.toy_averages_differ' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}
