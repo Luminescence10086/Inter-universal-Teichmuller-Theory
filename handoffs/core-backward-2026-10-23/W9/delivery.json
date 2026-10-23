@@ -1,0 +1,85 @@
+{
+  "task_id": "W9",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T14:53:00+0800",
+  "design_record": {
+    "path": "research\\core-backward-2026-10-23\\m-ii-design.md",
+    "sha256": "eaa613f2a983be27109c62d8c7b6e0f7896057a22e54b4ddc3d9e1d5e0619d95",
+    "role": "the M-ii design this file implements: M is determined exactly when the probe reading is non-zero"
+  },
+  "inputs": [
+    {
+      "path": "research\\core-backward-2026-10-23\\m-ii-design.md",
+      "sha256": "eaa613f2a983be27109c62d8c7b6e0f7896057a22e54b4ddc3d9e1d5e0619d95"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W8/delivery.json",
+      "sha256": "6ddbd1a6c2d97a005167f247e3cd7f6f64a890c1ff1afc0698ffcac998eafc4c"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates\\core-transport\\ExponentUniqueness.lean",
+      "sha256": "7857ad77b04ba3926a90da1cda3b51b32bc1c69fda4c80fd13c0d93dcf3cc52d"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W9/README.md",
+      "sha256": "e1e4539e4a601212579f9625a363876a3be780aed23c48fd9af2769a841bb147"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W9/check.json",
+      "sha256": "303d0940431e064526567dc86a722a02a9ff65b45c7212460f330e82a034d9ba"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W9/editor/vscode-observation-tree-2.txt",
+      "sha256": "6db81f77f678fe02a2dae1c0327276715c8e4681f92c32d4036788b39cfaf91d"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 18,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 18,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "7857ad77b04ba3926a90da1cda3b51b32bc1c69fda4c80fd13c0d93dcf3cc52d"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "status_bar": "no problems detected in the workspace",
+      "evidence": "editor/vscode-observation-tree-2.txt"
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "power_reading_injective_on_probe: on the non-torsion probe 4 the exponent is injective, by cancelling the non-zero reading log4",
+    "exponent_determined: agreement on every probe forces M = N",
+    "not_determined_by_torsion_probe: a zero-reading probe (1) equalises every exponent, which is why Ob3-2 bare cf. N_E cannot pin M",
+    "log4_ne_zero proved inside this file from the norm 1/3, so the engine is a theorem here rather than a quotation"
+  ],
+  "unresolved": [
+    "the coincidence of the source three M is untouched: Q_3 has no probe, no tensor power, no arithmetic line bundle here",
+    "how sufficiently large interacts with uniqueness is not modelled",
+    "which probe the source actually uses (N_E, the q-pilot -|log q|, or a 1-column invariant) is not decided"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

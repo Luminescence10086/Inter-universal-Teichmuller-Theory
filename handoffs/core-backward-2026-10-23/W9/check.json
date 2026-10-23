@@ -1,0 +1,212 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "ExponentUniqueness.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "ExponentUniqueness.algorithmRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.algorithmRun_eq_partialSums": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.exponent_determined": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.hasSum_logTerm_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.localLog_eq_padicLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.localLog_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.localLog_pow_eq_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.log4_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.log_eq_zero_of_pow_eq_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.norm_four_sub_one_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.norm_localLog_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.norm_logTerm_four_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.norm_three_sq_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.not_determined_by_torsion_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.not_determined_by_zero_reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.power_reading_injective_on_probe": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.reading_pow_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "ExponentUniqueness.torsion_probe_determines_nothing": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 18,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "algorithmRun"
+    },
+    {
+      "kind": "theorem",
+      "name": "algorithmRun_eq_partialSums"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_eq_padicLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_logTerm_localLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_pow_eq_smul"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_sub_one_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_three_sq_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_logTerm_four_le"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_localLog_four"
+    },
+    {
+      "kind": "theorem",
+      "name": "log4_ne_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_pow_four"
+    },
+    {
+      "kind": "theorem",
+      "name": "power_reading_injective_on_probe"
+    },
+    {
+      "kind": "theorem",
+      "name": "exponent_determined"
+    },
+    {
+      "kind": "theorem",
+      "name": "not_determined_by_torsion_probe"
+    },
+    {
+      "kind": "theorem",
+      "name": "log_eq_zero_of_pow_eq_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "not_determined_by_zero_reading"
+    },
+    {
+      "kind": "theorem",
+      "name": "torsion_probe_determines_nothing"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\ExponentUniqueness.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "49659d87b487f94dcda2488eede722f2675f2cfa3ba5ae177a08655c9f81d3d9",
+  "stdout_tail": "og' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.localLog_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.localLog_pow_eq_smul' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_four_sub_one_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_three_sq_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_logTerm_four_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.norm_localLog_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.log4_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.reading_pow_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.power_reading_injective_on_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.exponent_determined' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.not_determined_by_torsion_probe' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.log_eq_zero_of_pow_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.not_determined_by_zero_reading' depends on axioms: [propext, Classical.choice, Quot.sound]\n'ExponentUniqueness.torsion_probe_determines_nothing' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

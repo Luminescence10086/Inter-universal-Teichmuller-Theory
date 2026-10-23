@@ -1,0 +1,6 @@
+command: lake env lean -DwarningAsError=true ExponentUniqueness.lean
+workdir: D:\Inter-universal Teichmüller Theory\candidates\core-transport
+round 1 exit: 1   (linter.unusedVariables on hMN — warning made fatal)
+round 2 exit: 0   (after `set_option linter.unusedVariables false in` before the docstring)
+final compile.stdout.log bytes: 1843
+final compile.stderr.log bytes: 0
