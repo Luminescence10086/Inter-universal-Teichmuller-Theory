@@ -32,15 +32,30 @@
 
 ## M-iii：两处归一化被使用但从未写出公式
 
-- **〔已核〕(xi-d)**，txt 11022：`[suitably normalized, with respect to j ∈ |F_l|] log-volume`——**只给限定语，
-  没给公式**。
-- **〔M2〕** Step (x)（p.181）用的是 `j ∈ F_l^⋆` 上的**平均**；两处是否同一个归一化，原文未声明。
-  本轮未独立复核该处，**不可**据本文件宣称二者不同或相同。
-- **〔已核〕Prop 3.9(iii)**，txt 7080–7090：全局 log-volume 等于由 `J` 决定的 arithmetic line bundle 的 degree，
-  但仅「relative to a **suitable normalization**」，该归一化全文未写。
-- **要补的证明**：把 `j ∈ |F_l|` 的归一化写成显式函数（或显式的平均），并证明
-  (i) 它与 Step (x) 所用的是同一个；(ii) 它与 Prop 3.9(iii) 的"suitable normalization"相容。
-  在这两条之前，`vQ = q₀` 这类陈述**没有确定的含义**（换归一化会改数值）。
+- **〔已核〕Step (x) 尾部**，txt 10904–10922：原文自称的归一化是
+  「the **procession-normalized** mono-analytic log-volumes [i.e., **where the average is taken over
+  `j ∈ F_l^⋆`**] of Theorem 3.11, (i), (a), (c)」，其性质被明写为：
+  (i) 对 **(Ind1)、(Ind2) 不变**；(ii) 把 **(Ind3) 化为一个"inequality [from above]"**；
+  (iii) 这些平均来自 `F_l^⋆` 在 theta 值标签上的对称作用（10917–10922）。
+  **这条对 H3 的含义**：原文自己的"粗化"读数就是一个**平均**，而且它在 Ind3 下只有**上界**而非等式——
+  这与 `design-h1-h3.md` 里"形式商 vs coarse 影子"的分层完全吻合，也解释了为什么 xi-f 是估计而 xi-d 要求
+  "suitably normalized"。
+- **〔已核〕Remark 3.1.1(ii)**，txt 5512–5529：这是原文**真的写出**的归一化——单点权重
+  `[K_v : (F_mod)_v]^{-1}`（5514），以及求和时的归一化权重
+  `1/([K_v:(F_mod)_v]) · ∑_{V_mod ∋ w | v_Q} [(F_mod)_w : Q_{v_Q}]`（5519–5524），并给出原则：
+  「normalized so that multiplication by `p_{v_Q}` affects log-volumes by addition or subtraction …
+  of the quantity `log(p_{v_Q})`」（5525–5529）。
+  **注意**：这是 `E/N` 侧的权重，**不是** (xi-d) 的 `j` 归一化；两者不可混用。
+- **〔已核〕(xi-d)**，txt 11022：`[suitably normalized, with respect to j ∈ |F_l|] log-volume`——
+  索引是 **`|F_l|`**（集合），与 Step (x) 的 **`F_l^⋆`**（群）**不同**；"suitably" 始终未被指定。
+  两处是否为同一个归一化，原文**没有**声明。
+- **〔已核〕Prop 3.9(iii)**，txt 7080–7090：全局 log-volume 等于由 `J` 决定的 arithmetic line bundle 的
+  degree，但仅「relative to a **suitable normalization**」；Remark 3.1.1(ii) 的公式是**候选**，但原文没说是同一个。
+- **要补的证明**（三条，按难度）：
+  1. 把 (xi-d) 的 `j ∈ |F_l|` 归一化写成显式函数，并证明它与 Step (x) 的 `F_l^⋆` 平均**相容**
+     （或给出二者差的显式界）——这是 `vQ = q₀` 有确定含义的前提；
+  2. 证明 Prop 3.9(iii) 的"suitable normalization"就是 Remark 3.1.1(ii) 那条（给出公式即可，但要引用对齐）；
+  3. 在 1、2 之后，才谈得上"同一对象的 native 读数 = 输出读数"这类陈述。
 
 ## 玩具能说什么、不能说什么
 
@@ -58,3 +73,9 @@ twist 不定性的行为；以及 M-iii 的任何一条。`ℚ_[3]` 是完备离
 
 这三条是 H3 的**前置**，不是可选项：只要它们没被证明，(Ob4) 的"无害"与 (xi-d) 的"精确 log-volume"之间的桥
 就只有文字、没有对象。**核心 GAP 保持 OPEN**；本文件不构成对任何 IUT 主张的支持或反驳。
+
+本轮新增的一条实质结论：原文**并非没有归一化**——它写出的那条是 **procession-normalized（对 `j ∈ F_l^⋆`
+取平均）**，且明说该体积对 (Ind1)(Ind2) 不变、把 (Ind3) 化为**上界不等式**（10904–10922）。这说明原文的
+"coarse 读数"本身就是一种**平均意义上的读数**，而不是某个被指定的单点值。于是 (xi-d) 的
+`[suitably normalized, w.r.t. j ∈ |F_l|]` 所缺的不是"随便一个约定"，而是**与这个平均的相容性证明**——
+这正是上面的第 1 条义务。
