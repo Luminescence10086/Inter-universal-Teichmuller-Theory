@@ -63,6 +63,33 @@
 一句话总结 H1：**环境范畴不用另找；要修的是商的两层结构——`⊼fQ₁` 里的 orbit 与 `⊼fQ₂ modulo ⊼fQ₁` 的形式商
 必须都在，且 `log-volume` 一出现就意味着已经粗化。**
 
+## 结论一′：`(n,◦)` 的读法——单对象，且"只到同构为止"
+
+先前把 `(n,◦)` 的读法留作 `UNRESOLVED`。原文 8869–8873 其实给了定义：
+
+> "For each n ∈ Z, write `n,◦HT^{D-Θ±ellNF}` for the D-Θ±ellNF-Hodge theater **determined, up to
+> isomorphism**, by the various `n,mHT^{Θ±ellNF}`, where m ∈ Z, via the vertical coricity of
+> Theorem 1.5, (i)."
+
+三点据此定下：
+
+1. **是单个对象，不是以 m 为参数的族。** 短语是 "the … Hodge theater determined … by the various
+   `n,m`-theaters"，即由整条纵线**确定一个**对象。故 W1 的索引槽取"单对象"读法，`(n,m)` 与 `(n,◦)`
+   是同一范畴（`F⊩▶×μ-prime-strips`）里的两类索引，不构成两个范畴。
+2. **"只到同构为止"必须成为类型的一部分。** 原文不是"存在唯一对象"，而是"determined, up to
+   isomorphism"——对象只在同构类层面被确定。这正是 W1 需要的义务：任何基于该对象的构造（含诱导出的
+   `F⊩▶×μ`-prime-strip 与读数）都必须证明**与所选同构无关**，否则读数就没有落在对象上，而落在呈现上。
+3. **这条义务与 M3 的接口事实吻合**：`external/iut` 的 11 个接口里没有任何字段承担这条不变性（F3 全 false），
+   所以 W1 的不变性不能从接口继承，只能自己证。
+
+**仍未定、也不该由本轮定的**：vertical coricity（Theorem 1.5(i)）具体给出哪一类同构（是
+`F⊩▶×μ`-prime-strip 层的同构，还是 Hodge theater 层的），以及"由整条纵线确定"是否要求一个选择（若有，
+则该选择的不变性并入第 2 条）。这两点需要读 Theorem 1.5(i) 与 Remark 3.8.2，本轮未做。
+
+**玩具层面可立即检验的类比**：读数对"算法步骤的枚举顺序"不变（无条件收敛级数的重排不变）。这是
+Ind1–Ind3 的类比而非其本身，但形状相同：**呈现可换，读数不变**；且它有一个可证伪的对照——有限部分和
+**不**具此不变性，因而"读数"不能是部分和。
+
 ## 引文核对（可复现）
 
 本文件的英文引文取自缓存 `.txt`，该文本是两端对齐排版抽取的结果，存在**字母间被插入空格**与**断行连字符**的
@@ -77,6 +104,7 @@
 | `were constructed from … prime-strip n,mF…env` | 9293 |
 | `Aut(det⊗M(φ(PB)))-orbit of alinear morphism` | 8570–8571 |
 | `n,◦` 是 `n,◦HT^{D-Θ±ellNF}` 的缩写 | 9265–9266 |
+| `determined, up to isomorphism, by the various n,m…theaters`（`(n,◦)` 的定义） | 8869–8873 |
 
 凡引用本文件结论的地方，应回这些行核对，而不是引用本文件的转写。
 
