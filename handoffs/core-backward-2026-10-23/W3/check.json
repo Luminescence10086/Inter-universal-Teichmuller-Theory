@@ -1,0 +1,194 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "DivideBackLaw.lean"
+  ],
+  "axiom_free": [],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "DivideBackLaw.algorithmRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.algorithmRun_eq_partialSums": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.divide_back": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.divide_back_four_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.hasSum_logTerm_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.localLog_eq_padicLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.localLog_pow_eq_smul": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.naiveDivideBack": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.naiveDivideBack_four_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.naiveMagnitude": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.naive_magnitude_divide_back_fails": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.norm_four_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.norm_four_sq_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.norm_four_sub_one_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.norm_pow_sub_one_lt_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "DivideBackLaw.norm_two_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 16,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "algorithmRun"
+    },
+    {
+      "kind": "theorem",
+      "name": "algorithmRun_eq_partialSums"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_eq_padicLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_logTerm_localLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_pow_sub_one_lt_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "divide_back"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_pow_eq_smul"
+    },
+    {
+      "kind": "def",
+      "name": "naiveMagnitude"
+    },
+    {
+      "kind": "def",
+      "name": "naiveDivideBack"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_two_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_sq_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_sub_one_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "naive_magnitude_divide_back_fails"
+    },
+    {
+      "kind": "theorem",
+      "name": "naiveDivideBack_four_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "divide_back_four_two"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\DivideBackLaw.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "7b26409361bcd98e21a73620cf5ad4fc0ac9768144802e4762022c282a60f001",
+  "stdout_tail": "algorithmRun' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.algorithmRun_eq_partialSums' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.localLog_eq_padicLog' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.hasSum_logTerm_localLog' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.norm_pow_sub_one_lt_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.localLog_pow_eq_smul' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.divide_back' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.naiveMagnitude' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.naiveDivideBack' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.norm_two_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.norm_four_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.norm_four_sq_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.norm_four_sub_one_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.naive_magnitude_divide_back_fails' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.naiveDivideBack_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'DivideBackLaw.divide_back_four_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

@@ -1,0 +1,32 @@
+﻿[
+    {
+        "name":  "hasSum_logTerm_localLog",
+        "line":  "111",
+        "nodes":  498,
+        "goal_text":  "No goals | Goals accomplished!"
+    },
+    {
+        "name":  "norm_pow_sub_one_lt_Q3",
+        "line":  "121",
+        "nodes":  426,
+        "goal_text":  ""
+    },
+    {
+        "name":  "localLog_pow_eq_smul",
+        "line":  "159",
+        "nodes":  435,
+        "goal_text":  "No goals"
+    },
+    {
+        "name":  "norm_two_Q3",
+        "line":  "178",
+        "nodes":  426,
+        "goal_text":  ""
+    },
+    {
+        "name":  "divide_back_four_two",
+        "line":  "245",
+        "nodes":  410,
+        "goal_text":  ""
+    }
+]

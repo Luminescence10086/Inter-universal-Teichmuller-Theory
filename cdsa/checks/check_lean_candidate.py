@@ -151,7 +151,10 @@ def check(project: Path, source: Path, allowed: tuple[str, ...], min_declaration
     # looks unreported and the strict mode becomes a false alarm.
     reported_short = {name.rsplit('.', 1)[-1] for name in reported}
     unlisted = sorted(a for name in axioms for a in axioms[name] if a not in allowed)
-    decls = declarations(text)
+    # Declarations must be enumerated from code, not from prose: a docstring line that happens to
+    # begin with "theorem is ..." would otherwise be counted as a declaration and then reported as
+    # missing an axiom report. W2 hit exactly that false alarm.
+    decls = declarations('\n'.join(strip_comments(text)))
     unreported = [d['name'] for d in decls
                   if d['kind'] in ('theorem', 'lemma') and d['name'] not in reported_short]
     forbidden = scan_forbidden(text)

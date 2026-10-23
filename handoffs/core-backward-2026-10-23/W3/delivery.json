@@ -1,0 +1,146 @@
+{
+  "task_id": "W3",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes; this value names exactly what was run",
+  "started_at": "2026-10-23T10:23:23+0800",
+  "inputs": [
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447"
+    },
+    {
+      "path": "candidates/core-log/CoreLog/QpThree.lean",
+      "sha256": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/h3-prerequisites.md",
+      "sha256": "ebb9bf3984fc8da5e1ddf92783c77a669c030c7ef561e70acd6e53bb45c2c5ac"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates/core-transport/DivideBackLaw.lean",
+      "sha256": "904cbf9b8c6ff758744b66ee5cb8e80c18954dee6c5d7d7dc31bef5466d4c130"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W3/check.json",
+      "sha256": "880ab8c637b69c49e62aec68a391d67a546f6d27b45b155480bfc69aa0a8c57d"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W3/editor-check.md",
+      "sha256": "98943d8d86f1f0e8aec0e43af066fce794847cb4e233b30963045d182b956466"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/h3-prerequisites.md",
+      "sha256": "ebb9bf3984fc8da5e1ddf92783c77a669c030c7ef561e70acd6e53bb45c2c5ac"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W3/editor/vscode-observation-tree-2.txt",
+      "sha256": "0b019186ac7465ca2c79a1fbde848e4e49512e59272c705e32b68047bbbe5c39"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 16,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 16,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "904cbf9b8c6ff758744b66ee5cb8e80c18954dee6c5d7d7dc31bef5466d4c130"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "info_items": 11,
+      "status_bar": [
+        "ControlType.Group | 信息: 30 条",
+        "ControlType.Button | 信息: 30 条"
+      ]
+    },
+    "infoview": {
+      "attempted": true,
+      "hit": {
+        "algorithmRun_eq_partialSums": {
+          "line": 93,
+          "text": "No goals"
+        },
+        "localLog_eq_padicLog": {
+          "line": 103,
+          "text": "No goals"
+        },
+        "hasSum_logTerm_localLog": {
+          "line": 111,
+          "text": "No goals / Goals accomplished!"
+        },
+        "divide_back": {
+          "line": 139,
+          "text": "No goals"
+        },
+        "localLog_pow_eq_smul": {
+          "line": 159,
+          "text": "No goals"
+        },
+        "norm_four_Q3": {
+          "line": 183,
+          "text": "No goals"
+        },
+        "norm_four_sq_Q3": {
+          "line": 189,
+          "text": "No goals"
+        },
+        "norm_four_sub_one_Q3": {
+          "line": 196,
+          "text": "No goals"
+        },
+        "naive_magnitude_divide_back_fails": {
+          "line": 209,
+          "text": "No goals"
+        },
+        "naiveDivideBack_four_two": {
+          "line": 216,
+          "text": "No goals"
+        }
+      },
+      "not_read": {
+        "norm_pow_sub_one_lt_Q3": {
+          "line": 121,
+          "why": "cursor line computed off by one or two by the helper; not a Lean failure"
+        },
+        "norm_two_Q3": {
+          "line": 178,
+          "why": "cursor line computed off by one or two by the helper; not a Lean failure"
+        },
+        "divide_back_four_two": {
+          "line": 245,
+          "why": "cursor line computed off by one or two by the helper; not a Lean failure"
+        }
+      }
+    }
+  },
+  "completed": [
+    "divide_back: the reading of x is recovered from the reading of x^M by dividing by the scalar M, derived from the quoted padicLog_pow (not re-proved)",
+    "anti-degeneracy at the same x and M: the naive magnitude reading does not divide back (1/2 against 1), so \"divide by M\" is not a content-free step",
+    "h3-prerequisites.md records the three accounting obligations with source locators, each verified against the text or explicitly marked as quoted from M2"
+  ],
+  "unresolved": [
+    "the law is a toy: x |-> x^M stands in for det^{tensor M}, and Q_3 is not the localisation of an arithmetic line bundle",
+    "M-i (no divide-back map in the source) is only given its shape here; the tensor-power Frobenioid statement is untouched",
+    "M-ii (the three M are the same) and M-iii (the two unnamed normalizations) are documented as obligations, not discharged"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false,
+  "note": "the builder corrected an arithmetic error in my own task brief: 16 = 2^4 is a unit, so the norm is 1 and not 1/9; the separation still holds (1/2 against 1)"
+}

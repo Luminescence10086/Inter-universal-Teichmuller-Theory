@@ -1,0 +1,91 @@
+{
+  "task_id": "W2",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes; this value names exactly what was run",
+  "started_at": "2026-10-23T10:23:23+0800",
+  "inputs": [
+    {
+      "path": "candidates/core-transport/CoreTransport/Basic.lean",
+      "sha256": "8b1893bfaed402a0b3308b01833719fa7458db72b46899c44ed99764252d6447"
+    },
+    {
+      "path": "candidates/core-log/CoreLog/QpThree.lean",
+      "sha256": "c9f1dab7633731eb14b0510484e10c22ac268fd7d249b104b873695b82a32e53"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/M3/interfaces.json",
+      "sha256": "5d22fcb2243b4f2ae0bf40126836c288ee81bfe29457498733254d6045d4de8e"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates/core-transport/CollectionProvenance.lean",
+      "sha256": "cddea79c5df62cd2e3ad999206526d449434798fd741e7e5371e6150fa601422"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W2/check.json",
+      "sha256": "17ba9be80bd1befcf50cfcd0ac2672146905c6283f3fc781cf679901af5c7113"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W2/editor-check.md",
+      "sha256": "1b984555e81da7e8c850d1aa6eb0e18da6d208db3a37e823366505a24eedf7f0"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W2/README.md",
+      "sha256": "b6fbf14adbf2032155e720d74ecbe8b9b53d1cefe68d52897d88e818ac29a5da"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W2/editor/vscode-observation-tree-2.txt",
+      "sha256": "60bf5e4b05b0ac112a4dd8898d20a42a7e0dca0d06a8b9767bb5361fb7c54f2e"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 33,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 32,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "cddea79c5df62cd2e3ad999206526d449434798fd741e7e5371e6150fa601422"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0,
+      "info_items": 12,
+      "status_bar": [
+        "ControlType.Group | 信息: 46 条",
+        "ControlType.Button | 信息: 46 条"
+      ]
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not run for this file; the goal requires CLI + axiom whitelist + editor zero diagnostics, all three of which are recorded here"
+    }
+  },
+  "completed": [
+    "provenance lifted from one element to a local-global collection: every local piece is pinned to algorithmRun by steps_eq, and the reading of each piece is derived, not assumed",
+    "the anti-degeneracy statement took its preferred form: two collections with the same n, all local values in the log image, different global readings",
+    "the builder also recorded why the stronger form is impossible in this toy: identical localInput forces identical readings (both_readings_unique)"
+  ],
+  "unresolved": [
+    "the localization here is a toy equality (global = local), not IUT localization data",
+    "the collection is a Fin n indexed family over Q_3, not an adelic or hull object",
+    "this file says nothing about Theta-links, Ism, prime-strips or Cor 3.12"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false,
+  "note": "the builder reported two defects that my own checker had to be repaired for twice (declaration scan over docstring prose, and the set_option placement); see the commit log"
+}

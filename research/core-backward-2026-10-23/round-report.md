@@ -84,6 +84,34 @@ W1 的第一次编辑器抓取被**拒绝**（exit 3）——新启动的 VS Cod
 **Lean 4 状态项与 InfoView 的存在**（受限模式下这两者都不出现），故那些观测仍成立，但旧脚本内的信任检查
 不可靠、现已修好。这条注记写下，是为了以后读收据的人不必猜哪个版本产出了哪份证据。
 
+## W2 / W3：两项 Lean 与一项文档（目标三项的收尾）
+
+**W2 — `candidates/core-transport/CollectionProvenance.lean`**（sha `cddea79c…`，526 行）：把 provenance 从单个
+元素抬到 **local-global collection**：每个局部件的轨迹由 `steps_eq : steps = algorithmRun input` 按定义钉死，
+局部读数由极限唯一性**推出**，全局读数经一个 toy localization 与局部相连。反退化取了**首选形式**——两个同为
+`n = 1` 的 collection、局部读数全部落在 `logImage ℚ_[3]`、全局读数不同；执行者还记录了使更强形式在本 toy
+中**不可能**的那条（`both_readings_unique`：相同 `localInput` 强制相同读数）。
+
+**W3 — `candidates/core-transport/DivideBackLaw.lean`**（sha `904cbf9b…`，243 行）+ `h3-prerequisites.md`：
+玩具层面的"除回 M 次 tensor power"法则（由既有 `padicLog_pow` 导出，不重证），以及同一 `x = 4, M = 2` 处
+**范数读数失败**的反例（`1/2` 对 `1`）。文档把 M2 的三条账面发现写成义务，每条带定位，并标注哪条是我自己
+回原文核过的（〔已核〕）还是转引 M2 的（〔M2〕）。
+
+三关：两者 CLI `lake env lean -DwarningAsError=true` **exit 0 / stderr 0 字节**（严格门禁 W2 33 声明、W3 16 声明，
+全 0 error / 0 warning，公理仅三标准条，无 `sorryAx`）；两者编辑器 **0 error / 0 warning**。Infoview：W3 读到
+10/13 零目标，3 处未读（原因是我自己的光标行号助手偏一两行，落在 docstring 上，**不是** Lean 失败，已在
+`W3/editor-check.md` 写明）；W2 未做 Infoview（目标要求的三关已满足）。
+
+## 本轮又修掉两处我自己的工具缺陷
+
+1. **检查器把 docstring 当代码**：`theorem is …` 这类正文行被计为声明，导致"未报告公理"的假警报。已在枚举声明
+   前先剥注释，并用"植入 `sorry`"的负对照复校准（仍 FAIL）。
+2. **Infoview 光标行号助手**：原先把 `/-! … -/` 段注释算进上一块的块体，使光标越过声明落到注释上；已改为
+   "任何注释区都不算块体"。改后仍有 3 处偏一两行，如实留作未读项。
+
+另有一处**执行者纠正了我**：我在任务书里写 `‖16‖ = ‖3‖²`-style，但 `16 = 2⁴` 是单位，`‖16‖ = 1`（不是 `1/9`）；
+分离仍成立（`1/2 ≠ 1`）。这条错误按原样记下，不修饰。
+
 ## 下一步（不属本批次的机械任务）
 
 1. 按 M1 的端点在原文层面定下"环境范畴"与商类型，再决定 W2/W3 的层（H1）。
