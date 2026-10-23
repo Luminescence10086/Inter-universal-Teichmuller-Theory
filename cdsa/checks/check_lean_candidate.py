@@ -156,7 +156,8 @@ def check(project: Path, source: Path, allowed: tuple[str, ...], min_declaration
     # missing an axiom report. W2 hit exactly that false alarm.
     decls = declarations('\n'.join(strip_comments(text)))
     unreported = [d['name'] for d in decls
-                  if d['kind'] in ('theorem', 'lemma') and d['name'] not in reported_short]
+                  if d['kind'] in ('theorem', 'lemma')
+                  and d['name'].rsplit('.', 1)[-1] not in reported_short]
     forbidden = scan_forbidden(text)
     verdicts = VERDICT.findall(text)
 

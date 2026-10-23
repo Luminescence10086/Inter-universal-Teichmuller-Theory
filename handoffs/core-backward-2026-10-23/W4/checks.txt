@@ -1,0 +1,87 @@
+# W2 upgrade — `TransitionCompatibility.lean` (build + hygiene record)
+
+Date: 2026-10-23. Deliverable: `candidates/core-transport/TransitionCompatibility.lean` (new file;
+nothing else in the workspace was modified).
+
+## Build
+
+Command, run from `D:\Inter-universal Teichmüller Theory\candidates\core-transport`:
+
+```
+lake env lean -DwarningAsError=true TransitionCompatibility.lean
+```
+
+| item | value |
+|---|---|
+| exit code | 0 |
+| stderr bytes | 0 |
+| stdout bytes | 10342 |
+| sha256 | `3fb9783ac84702383fe2369e000dd815fb3087fe584c3e6e3cfa9f25b1184cc4` |
+| bytes | 39140 |
+| lines | 619 |
+| `toolchain` | `leanprover/lean4:v4.34.0-rc2` (as pinned by `lean-toolchain`) |
+| extra build artifacts | none (no `.olean`/`.ilean` left behind; tree otherwise unchanged) |
+
+Raw console output: `build.log` (`build.stdout.log` + `build.stderr.log`); the dependency-footprint
+block verbatim: `axioms.txt`.
+
+## Dependency footprint
+
+50 `#print` lines, one per declaration (50 declarations + 1 anonymous `example`). Distinct forms, verbatim:
+
+```
+'TransitionCompatibility.algorithmRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.base' depends on axioms: [propext]
+'TransitionCompatibility.i0' does not depend on any axioms
+```
+
+So the union over the file is `{propext, Classical.choice, Quot.sound}` — as required; no declaration
+exceeds it, and no declaration depends on anything else.
+
+## Forbidden-substring scan (installed file, counts of matching lines)
+
+| substring | count |
+|---|---|
+| `sorry` | 0 |
+| `admit` | 0 |
+| `opaque` | 0 |
+| `native_decide` | 0 |
+| `axiom` outside lines beginning `#print axioms` | 0 |
+
+(The mandated `#print axioms` block is the only place the substring `axiom` occurs; the prose was written
+to avoid it.)
+
+## Declaration coverage
+
+`^(def|theorem|structure)` yields 51 matches; one of them is a prose line inside a docstring that begins
+`theorem and fails for ...`, so the file has **50 declarations, all 50 covered by a `#print` line**
+(checked mechanically: no declared name missing from the print block, no printed name undeclared).
+
+## Design, in one paragraph
+
+`PresentationChain k` (`k ≥ 1`, `NeZero k`; `base = ⟨0, _⟩`) carries `input : Fin k → ℚ_[3]` with
+`‖input i - 1‖ < 1`, transitions `step i j h` for every pair `i ≤ j` that are *functions* on `ℚ_[3]`
+(`step_eq : step i j h y = y * unit i j h`, `stepInv` the inverse, `stepInv_step` the isomorphism law),
+`unit_mem` (units are principal units), `unit_refl` (the identity transition multiplies by `1`), and
+`step_input` (the **elementary** transition `i → i+1` really carries `input i` to `input (i+1)`).
+`IsCompatible c` is the **cocycle law** `unit i l = unit i j * unit j l` for `i ≤ j ≤ l`, a hypothesis,
+not a field. The reading at `i` is `localLog` of `input i` transported back to the base frame by the
+inverse of the recorded transition `base → i` (`relativeInput`); it is a genuine limit
+(`reading_hasSum`, `reading_is_limit_of_algorithm`, and `relativeInput_mem` keeps it in the domain).
+`input_transport` (induction, cocycle used once per step) gives `input i = input base * unit base i`;
+`reading_eq_base` and `reading_compatible` then give that all readings agree.
+
+## Anti-degeneracy witness (explicit numbers)
+
+`chainCompat` and `chainBroken`: three presentations `4, 16, 64 = 4^1, 4^2, 4^3`; units `4 ^ (j - i)`
+versus `4 ^ (j - i + (j - i) / 2)`, i.e. `4` for every elementary step in both, and `4^2 = 16` versus
+`4^3 = 64` for the comparison transition `0 → 2`.
+
+* `chainCompat_isCompatible`, `chainCompat_reading` — all readings are `localLog 4`.
+* `chainBroken_not_compatible` — the cocycle at `(0,1,2)` would need `64 = 16`.
+* `chainBroken_reading_zero = localLog 4`, `chainBroken_reading_two = 0` (`= localLog 1`), hence
+  `chainBroken_readings_differ : chainBroken.reading i0 ≠ chainBroken.reading i2` (via
+  `localLog_four_ne_zero`).
+* `difference_lies_in_the_direct_transition` — same presentations, same elementary units, different
+  comparison unit `0 → 2`: the disagreement is caused by the transition data alone.
+* `exists_incompatible_chain_with_differing_readings` — the existential package.

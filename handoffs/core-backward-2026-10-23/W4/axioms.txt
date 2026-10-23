@@ -1,0 +1,56 @@
+'TransitionCompatibility.algorithmRun' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.algorithmRun_eq_partialSums' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.localLog_eq_padicLog' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.hasSum_logTerm_localLog' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.base' depends on axioms: [propext]
+'TransitionCompatibility.base_le' depends on axioms: [propext]
+'TransitionCompatibility.PresentationChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.PresentationChain.stepInv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.PresentationChain.relativeInput' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.PresentationChain.reading' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.IsCompatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.PresentationChain.relativeInput_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.PresentationChain.reading_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.PresentationChain.reading_is_limit_of_algorithm' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TransitionCompatibility.PresentationChain.stepInv_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.input_transport_aux' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.input_transport' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.reading_eq_base' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.reading_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.norm_four_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.norm_two_Q3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.norm_two_mul_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.norm_three_le_two_mul_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.norm_logRem_three_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.localLog_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.localLog_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.localLog_four_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.i0' does not depend on any axioms
+'TransitionCompatibility.i1' does not depend on any axioms
+'TransitionCompatibility.i2' does not depend on any axioms
+'TransitionCompatibility.expCompat' does not depend on any axioms
+'TransitionCompatibility.expBroken' does not depend on any axioms
+'TransitionCompatibility.norm_four_pow_sub_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainCompat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainCompat_isCompatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainCompat_readings_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainCompat_reading' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainCompat_unit_02' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_unit_02' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_unit_01' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_unit_12' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_not_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_relativeInput_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_relativeInput_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_reading_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_reading_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.chainBroken_readings_differ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'TransitionCompatibility.difference_lies_in_the_direct_transition' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'TransitionCompatibility.exists_incompatible_chain_with_differing_readings' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,80 @@
+{
+  "task_id": "W4",
+  "status": "CLI_CHECKED_EDITOR_CHECKED",
+  "vocabulary_note": "the batch vocabulary has no value for a Lean task verified in both planes",
+  "started_at": "2026-10-23T11:07:06+0800",
+  "inputs": [
+    {
+      "path": "handoffs/core-backward-2026-10-23/W2/delivery.json",
+      "sha256": "3b5fa3ac5a13d529ed20f1452ce42bf2ef49f67fb898080384e25f30005f8db8"
+    },
+    {
+      "path": "research/core-backward-2026-10-23/h1-decision.md",
+      "sha256": "fa1c259578d4d80dfc8c4d844aeb6eac7219ea698c8348fbe9b13eab476a39b2"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "candidates\\core-transport\\TransitionCompatibility.lean",
+      "sha256": "391bee2f83606ff4de4f8dbc905aceae052383efc5722baacc49e46250874b72"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W4/README.md",
+      "sha256": "a7ea54ab40d1a070399fb58dc58a7a7d4cf4ed1783bf7cae79b7a14bc13df642"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W4/check.json",
+      "sha256": "42bf3fb999bbf27672d27b6f6c4d5f2b25c547e230639db43031ea715bd0f996"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W4/editor-check.md",
+      "sha256": "3c9416cb92d2d333c0e3d8a9b313cc63d964dec97e2ec5db2b06404e88c4313b"
+    },
+    {
+      "path": "handoffs/core-backward-2026-10-23/W4/editor/vscode-observation-tree-2.txt",
+      "sha256": "32af677cd7f99eeeb0403b49415b5c4fb72f35cd3a1e4d2c0ad4737972b03f53"
+    }
+  ],
+  "gates": {
+    "cli": {
+      "exit": 0,
+      "stderr_bytes": 0,
+      "diagnostics": {
+        "declarations": 50,
+        "errors": 0,
+        "warnings": 0
+      },
+      "theorems_with_axiom_report": 50,
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "forbidden_terms": 0,
+      "source_sha256": "391bee2f83606ff4de4f8dbc905aceae052383efc5722baacc49e46250874b72"
+    },
+    "editor": {
+      "product": "Visual Studio Code 1.143.0",
+      "lean_extension": "leanprover.lean4-0.0.240",
+      "errors": 0,
+      "warnings": 0
+    },
+    "infoview": {
+      "attempted": false,
+      "reason": "not required by the three gates for this batch"
+    }
+  },
+  "completed": [
+    "transitions with a cocycle law replace W2's toy equality; compatible chains force equal readings",
+    "the anti-degeneracy is a broken chain whose elementary units agree and whose direct transition does not",
+    "main line completed the axiom audit (4 missing #print lines, no proof touched) and re-gated"
+  ],
+  "unresolved": [
+    "Fin k is an index set, not places; transitions are multiplication by powers of 4, not localization morphisms",
+    "nothing here touches pibar-fQ1 / pibar-fQ2, log-volumes, Theta-links, Ism or Cor 3.12"
+  ],
+  "core_gap": "OPEN",
+  "lean_run": true,
+  "editor_run": true,
+  "fact_tree_admitted": false
+}

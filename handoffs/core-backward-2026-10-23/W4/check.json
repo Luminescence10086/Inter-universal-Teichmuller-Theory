@@ -1,0 +1,477 @@
+{
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "argv": [
+    "lake",
+    "env",
+    "lean",
+    "TransitionCompatibility.lean"
+  ],
+  "axiom_free": [
+    "TransitionCompatibility.i0",
+    "TransitionCompatibility.i1",
+    "TransitionCompatibility.i2",
+    "TransitionCompatibility.expCompat",
+    "TransitionCompatibility.expBroken"
+  ],
+  "axiom_probe_stdout_sha256": "",
+  "axiom_source": "",
+  "axioms": {
+    "TransitionCompatibility.IsCompatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain.reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain.reading_hasSum": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain.reading_is_limit_of_algorithm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain.relativeInput": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain.relativeInput_mem": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain.stepInv": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.PresentationChain.stepInv_step": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.algorithmRun": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.algorithmRun_eq_partialSums": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.base": [
+      "propext"
+    ],
+    "TransitionCompatibility.base_le": [
+      "propext"
+    ],
+    "TransitionCompatibility.chainBroken": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_not_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_reading_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_reading_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_readings_differ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_relativeInput_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_relativeInput_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_unit_01": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_unit_02": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainBroken_unit_12": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainCompat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainCompat_isCompatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainCompat_reading": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainCompat_readings_agree": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.chainCompat_unit_02": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.difference_lies_in_the_direct_transition": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.exists_incompatible_chain_with_differing_readings": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.hasSum_logTerm_localLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.input_transport": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.input_transport_aux": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.localLog_eq_padicLog": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.localLog_four": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.localLog_four_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.localLog_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.norm_four_pow_sub_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.norm_four_sub_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.norm_logRem_three_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.norm_three_le_two_mul_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.norm_two_Q3": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.norm_two_mul_three": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.reading_compatible": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "TransitionCompatibility.reading_eq_base": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "build": {
+    "argv": [
+      "lake",
+      "build",
+      "CoreTransport"
+    ],
+    "exit": 0,
+    "stdout_tail": "Build completed successfully (2672 jobs).\n"
+  },
+  "build_lib": "CoreTransport",
+  "counts": {
+    "declarations": 50,
+    "errors": 0,
+    "warnings": 0
+  },
+  "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport",
+  "declarations": [
+    {
+      "kind": "def",
+      "name": "algorithmRun"
+    },
+    {
+      "kind": "theorem",
+      "name": "algorithmRun_eq_partialSums"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_eq_padicLog"
+    },
+    {
+      "kind": "theorem",
+      "name": "hasSum_logTerm_localLog"
+    },
+    {
+      "kind": "def",
+      "name": "base"
+    },
+    {
+      "kind": "theorem",
+      "name": "base_le"
+    },
+    {
+      "kind": "structure",
+      "name": "PresentationChain"
+    },
+    {
+      "kind": "def",
+      "name": "PresentationChain.stepInv"
+    },
+    {
+      "kind": "def",
+      "name": "PresentationChain.relativeInput"
+    },
+    {
+      "kind": "def",
+      "name": "PresentationChain.reading"
+    },
+    {
+      "kind": "def",
+      "name": "IsCompatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_sub_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "PresentationChain.relativeInput_mem"
+    },
+    {
+      "kind": "theorem",
+      "name": "PresentationChain.reading_hasSum"
+    },
+    {
+      "kind": "theorem",
+      "name": "PresentationChain.reading_is_limit_of_algorithm"
+    },
+    {
+      "kind": "theorem",
+      "name": "PresentationChain.stepInv_step"
+    },
+    {
+      "kind": "theorem",
+      "name": "input_transport_aux"
+    },
+    {
+      "kind": "theorem",
+      "name": "input_transport"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_eq_base"
+    },
+    {
+      "kind": "theorem",
+      "name": "reading_compatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_two_Q3"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_two_mul_three"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_three_le_two_mul_three"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_logRem_three_le"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_one"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_four"
+    },
+    {
+      "kind": "theorem",
+      "name": "localLog_four_ne_zero"
+    },
+    {
+      "kind": "def",
+      "name": "i0"
+    },
+    {
+      "kind": "def",
+      "name": "i1"
+    },
+    {
+      "kind": "def",
+      "name": "i2"
+    },
+    {
+      "kind": "def",
+      "name": "expCompat"
+    },
+    {
+      "kind": "def",
+      "name": "expBroken"
+    },
+    {
+      "kind": "theorem",
+      "name": "norm_four_pow_sub_one"
+    },
+    {
+      "kind": "def",
+      "name": "chainCompat"
+    },
+    {
+      "kind": "def",
+      "name": "chainBroken"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_isCompatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_readings_agree"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_reading"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainCompat_unit_02"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_unit_02"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_unit_01"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_unit_12"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_not_compatible"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_relativeInput_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_relativeInput_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_reading_zero"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_reading_two"
+    },
+    {
+      "kind": "theorem",
+      "name": "chainBroken_readings_differ"
+    },
+    {
+      "kind": "theorem",
+      "name": "difference_lies_in_the_direct_transition"
+    },
+    {
+      "kind": "theorem",
+      "name": "exists_incompatible_chain_with_differing_readings"
+    }
+  ],
+  "diagnostics": [],
+  "exit": 0,
+  "failures": [],
+  "file": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-transport\\TransitionCompatibility.lean",
+  "forbidden": [],
+  "ok": true,
+  "readme_verdicts": [],
+  "require_all_axioms": true,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "75dfbb2c694b11aa57e2b28d6af1458b0b9b434c5253045f6b1425f093fbe2e5",
+  "stdout_tail": "n_unit_12' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.chainBroken_not_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.chainBroken_relativeInput_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.chainBroken_relativeInput_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.chainBroken_reading_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.chainBroken_reading_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.chainBroken_readings_differ' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.difference_lies_in_the_direct_transition' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TransitionCompatibility.exists_incompatible_chain_with_differing_readings' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n'TransitionCompatibility.PresentationChain.stepInv_step' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.PresentationChain.relativeInput_mem' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.PresentationChain.reading_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]\n'TransitionCompatibility.PresentationChain.reading_is_limit_of_algorithm' depends on axioms: [propext,\n Classical.choice,\n Quot.sound]\n",
+  "toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "unlisted_axioms": [],
+  "unreported_theorems": []
+}

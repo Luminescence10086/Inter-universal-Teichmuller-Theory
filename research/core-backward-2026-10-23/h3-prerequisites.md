@@ -79,21 +79,40 @@
 它**不**说：`M` 的取值（M-ii）；(Ob4-1)/(Ob4-2)/(Ob4-3) 的 tensor-power Frobenioid 上的除回映射；
 twist 不定性的行为；以及 M-iii 的任何一条。`ℚ_[3]` 是完备离散值域，`x ↦ x^M` 不是 `det^{⊗M}`。
 
-## 阻塞项：对齐义务所需的 [IUTchII] 不在本地缓存
+## 对齐义务：IUT II 已取得，`0 ↔ ⟨F_l^⋆⟩` 的认同确实存在
 
-第 1 条义务（把 (xi-d) 的 `|F_l|` 归一化识别为 procession 平均）的关键依据是
-**[IUTchII], Corollary 4.10, (i)** 中符号"`△`"的定义（原文在 10922–10924 就指向那里，并提到把符号
-"`0`" 与 "`⟨F_l^⋆⟩`" 认同）。但本工作区 `research/round2-source-cache/` 只有 **IUT I、III、IV**，
-**没有 IUT II**；IUT I 只给出 capsule 的抽象定义（`iut-I` txt 1722–1735：带指标集 `J` 的有限族），
-不涉及 `F_l^⋆` 与 `|F_l|` 的关系；IUT IV 是集合论基础，无关。
+先前记为阻塞的那条引文，已在取到 IUT II 后核实。**来源与取证**：
 
-因此：**该对齐无法从现有来源闭合**。两条可选路径（需主线决定）：
+| 项 | 值 |
+|---|---|
+| URL | `https://www.kurims.kyoto-u.ac.jp/~motizuki/Inter-universal%20Teichmuller%20Theory%20II.pdf` |
+| PDF SHA256 | `180bfa6aaddc4ae37af37acaad51f61e0a47b33b8255ad3169e28a970ae39b7c`（1,203,855 B，`%PDF-` 头） |
+| 页面标题页版本 | "December 2020"（首页文本：`INTER-UNIVERSAL TEICHMÜLLER THEORY II: HODGE-ARAKELOV-THEORETIC EVALUATION`） |
+| 页数 | 174 |
+| 文本化 `.txt` SHA256 | `7d5b7bd7d4e53c4d96b1ed24a05dffa1f9a5fae539b1129a9a12f0b7665e7fab`（479,196 B，分页标记 `===== PDF PAGE n =====`，与 I/III/IV 同格式） |
+| 文本化方式 | `pypdf 6.21.2`（`research/round2-source-cache/extract_iut2.py`）；抽取时有 fontTools 缺失的告警，属 CFF Type1 字体编码，不影响正文可读性 |
 
-1. 取得**固定版本**的 IUT II（记录 SHA256 与页码/图号），再回 Cor 4.10(i) 核对 `△` 的定义；
-2. 不引入新来源，把"`|F_l|` 索引 = procession 平均"作为**显式约定**写进类型，并把"该约定下的读数与
-   Step (x) 的 `F_l^⋆` 平均一致"作为一条**待证命题**（而不是默认成立）。
+**〔已核〕IUT II Corollary 4.10, (i)**，txt 7003–7010（PDF 第 158–159 页）：
 
-本文件不擅自选其一；核心 GAP 与 H3 前置均保持 OPEN。
+> "(i) (Constant Prime-Strips) … Then, for each `t ∈ LabCusp^±(†D≻)`, the collection of data
+> `Ψcns(†F≻)_t` determines, in a natural way, an F-prime-strip … **Let us identify the collections of
+> data `Ψcns(†F≻)_0` and `Ψcns(†F≻)_{⟨F_l^⋆⟩}`** via the isomorphism of the second display of
+> Corollary 4.6, (iii), and denote by `†F⊩_△ = (†C⊩_△, Prime(†C⊩_△) ≅ V, †F⊣_△, {†ρ_△,v}_{v∈V})`
+> the resulting F⊩-prime-strip …"
+
+即：IUT III 10922–10924 所指的那处认同（符号"`△`"由把 **`0`** 与 **`⟨F_l^⋆⟩`** 认同而来）**确实存在**，
+且它把"标签 `0`"与"群 `F_l^⋆` 生成的那份数据"等同起来。
+
+**这对第 1 条义务意味着什么**（区分已确立与仍属推断）：
+
+- **已确立**：标签集里确实有 `0 ≡ ⟨F_l^⋆⟩` 这一认同；因此"对 `j ∈ F_l^⋆` 取平均"与"按标签（含 0）索引"在
+  **标签层面是同一套索引**，不是两套互不相干的约定。
+- **仍属推断**：(xi-d) 的 `[suitably normalized, with respect to j ∈ |F_l|]` 并**没有明写**它采用的就是这个
+  认同下的 procession 归一化。所以义务从"取一个缺失的约定"降级为"**引用 Cor 4.10(i) 的认同，把 (xi-d) 的
+  `|F_l|` 索引对齐到 procession 归一化**"——一条**定义对齐**，其依据现在在手上（II 7010 + III 7005–7010）。
+- **未解决**：`coricity`/`Θ-link` 层面的同构类问题与本条无关；本条只谈归一化的索引。
+
+先前"必须下载 IUT II 才能推进"的判断成立；**未**把这条对齐当成已证命题写进任何 Lean 文件。
 
 ## 结论
 
