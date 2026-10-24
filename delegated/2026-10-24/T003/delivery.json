@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "task_id": "T003",
+  "task_card_sha256": "55edaf3d8f47973e68772a18296a56ca3c1d711f1e0f259078d66f9e3cabcbdb",
+  "baseline_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+  "status": "RESEARCH_ONLY",
+  "lean_run": false,
+  "lean_run_note": "No Lean source file, no lake invocation, no `lake env lean`, no build and no editor replay. This task is source retrieval (proof_mode SOURCE_OR_ENGINEERING); the pinned Mathlib checkout has no .olean for RingTheory/PowerSeries/Substitution, so no compile evidence exists or is claimed.",
+  "summary_file": "SUMMARY.md",
+  "gap_file": null,
+  "replay_file": "replay.ps1",
+  "base_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+  "returned_commit": null,
+  "artifacts": [
+    {
+      "path": "SUMMARY.md",
+      "sha256": "91e9798f985d99f051344f549b476788be5f7dcfeac92384a8c655e26443db96",
+      "role": "summary"
+    },
+    {
+      "path": "api-map.json",
+      "sha256": "23364fc10d178cac02e9176eaa1072054db45c1d6132faa9b54fdc1709567fa6",
+      "role": "api_map"
+    },
+    {
+      "path": "replay.ps1",
+      "sha256": "352a0b954b081ebeddd2d659afdd0d92cfdd5b50b1ad2613ac443f69464611e9",
+      "role": "replay"
+    },
+    {
+      "path": "tools/targets.json",
+      "sha256": "9de20c31bd01466a3dbba3d1e46dcbf89a2600b71875b5faacb55de080f2e6df",
+      "role": "retrieval_targets"
+    },
+    {
+      "path": "tools/extract.py",
+      "sha256": "5b1bb54f9dca7afec14b0cfa4fa528ad809f1d4e1fdf434b5a702f89b6e0eeac",
+      "role": "tool_extract"
+    },
+    {
+      "path": "tools/sigs.py",
+      "sha256": "e475c91e7072d1204a4faf7d9f001ad328d03122dcd8aecbaa400637983bcf48",
+      "role": "tool_signatures"
+    },
+    {
+      "path": "tools/build_api_map.py",
+      "sha256": "d612aa7f2a5265841ff578fefa8cd099f7abb62a98eef2d6f4d3db1dc4d174ca",
+      "role": "tool_build_api_map"
+    },
+    {
+      "path": "tools/verify_gaps.py",
+      "sha256": "51e8af2bdc31d8f7e813529d0275f686ebdf2d2019d069537122f836b4718625",
+      "role": "tool_verify_gaps"
+    },
+    {
+      "path": "tools/run_records.py",
+      "sha256": "9d128f735694f59e55e449c64ffe7c6383cca2fd60595dd2a99cda2e13db9900",
+      "role": "tool_run_records"
+    },
+    {
+      "path": "tools/spotcheck.py",
+      "sha256": "13cf238f68f950b3f601e17c08864e2772e4f41d3b299b8c968c5328467f8596",
+      "role": "tool_spotcheck"
+    },
+    {
+      "path": "tools/make_delivery.py",
+      "sha256": "41f1a0925dd8e0c1c74a0b8c2046f2efc9e29e3ba936c182b33630f30fc3a876",
+      "role": "tool_make_delivery"
+    },
+    {
+      "path": "logs/extract.stdout.log",
+      "sha256": "2b4fe0036460d832a344bbb1c7af9302fe76a1415f6aa66c57985626763ecd84",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/extract.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/sigs.stdout.log",
+      "sha256": "790e7e960246646fdffa7aec10e23b7243cbff5d7e618b3b4b598b7f36792f94",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/sigs.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/build_api_map.stdout.log",
+      "sha256": "bd53e15b988475b6d679d9f10d25a83a8c93c478d00b299a800f3e4d90e90c19",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/build_api_map.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/verify_gaps.stdout.log",
+      "sha256": "5019b2308801d6e9e174f288659f0f1c09c2207dc7e02a92331a5a474748acaf",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/verify_gaps.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "evidence/runs.json",
+      "sha256": "b38843ab9d934302e0d454a6cdbfe15e5c7901c3a2c9e6aed0acada72f576c61",
+      "role": "run_receipts"
+    },
+    {
+      "path": "evidence/decls_dump.txt",
+      "sha256": "4c444710fb4fa74460999ae480eedde7a73f18f717b0cb7f15dead3c89c3332b",
+      "role": "extracted_declarations"
+    },
+    {
+      "path": "evidence/sigs.txt",
+      "sha256": "43f147b66d658288b31f023efbb536c57449a3bd1ae9447c32842c2896660c78",
+      "role": "extracted_signatures"
+    },
+    {
+      "path": "evidence/gapcheck.json",
+      "sha256": "a54e24c7f5e9161232d8f4ba1de4c6e82b4730c30dd2cb2ef972e0629700d1cc",
+      "role": "gap_negative_search"
+    },
+    {
+      "path": "evidence/spotcheck.json",
+      "sha256": "873b790759ac21bdac420490dd24edf65982239d92980b82418b6ba9071b8db6",
+      "role": "declaration_spotcheck"
+    }
+  ],
+  "declarations": [],
+  "declarations_note": "Empty by design. RESEARCH_ONLY read-only retrieval authors no Lean declaration; the Lean names quoted in SUMMARY.md are Mathlib declarations that were read, not produced. Their existence and file:line are re-verified in evidence/spotcheck.json (\"checked\": 6, \"all_quoted_lines_verified\": true) and again by replay.ps1 step 9, instead of by a compiled axiom receipt.",
+  "runs": [
+    {
+      "kind": "source_retrieval",
+      "name": "extract",
+      "argv": [
+        "python",
+        "-B",
+        "tools/extract.py",
+        "tools/targets.json",
+        "evidence/decls_dump.txt"
+      ],
+      "argv_resolved": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "tools/extract.py",
+        "tools/targets.json",
+        "evidence/decls_dump.txt"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+      "exit_code": 0,
+      "duration_seconds": 0.123,
+      "stdout": "logs/extract.stdout.log",
+      "stderr": "logs/extract.stderr.log",
+      "inputs": [
+        {
+          "path": "tools/extract.py",
+          "sha256": "5b1bb54f9dca7afec14b0cfa4fa528ad809f1d4e1fdf434b5a702f89b6e0eeac"
+        },
+        {
+          "path": "tools/targets.json",
+          "sha256": "9de20c31bd01466a3dbba3d1e46dcbf89a2600b71875b5faacb55de080f2e6df"
+        }
+      ]
+    },
+    {
+      "kind": "source_retrieval",
+      "name": "sigs",
+      "argv": [
+        "python",
+        "-B",
+        "tools/sigs.py",
+        "evidence/decls_dump.txt",
+        "evidence/sigs.txt"
+      ],
+      "argv_resolved": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "tools/sigs.py",
+        "evidence/decls_dump.txt",
+        "evidence/sigs.txt"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+      "exit_code": 0,
+      "duration_seconds": 0.077,
+      "stdout": "logs/sigs.stdout.log",
+      "stderr": "logs/sigs.stderr.log",
+      "inputs": [
+        {
+          "path": "tools/sigs.py",
+          "sha256": "e475c91e7072d1204a4faf7d9f001ad328d03122dcd8aecbaa400637983bcf48"
+        },
+        {
+          "path": "evidence/decls_dump.txt",
+          "sha256": "4c444710fb4fa74460999ae480eedde7a73f18f717b0cb7f15dead3c89c3332b"
+        }
+      ]
+    },
+    {
+      "kind": "source_retrieval",
+      "name": "build_api_map",
+      "argv": [
+        "python",
+        "-B",
+        "tools/build_api_map.py",
+        "evidence/sigs.txt",
+        "api-map.json"
+      ],
+      "argv_resolved": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "tools/build_api_map.py",
+        "evidence/sigs.txt",
+        "api-map.json"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+      "exit_code": 0,
+      "duration_seconds": 0.095,
+      "stdout": "logs/build_api_map.stdout.log",
+      "stderr": "logs/build_api_map.stderr.log",
+      "inputs": [
+        {
+          "path": "tools/build_api_map.py",
+          "sha256": "d612aa7f2a5265841ff578fefa8cd099f7abb62a98eef2d6f4d3db1dc4d174ca"
+        },
+        {
+          "path": "evidence/sigs.txt",
+          "sha256": "43f147b66d658288b31f023efbb536c57449a3bd1ae9447c32842c2896660c78"
+        }
+      ]
+    },
+    {
+      "kind": "source_retrieval",
+      "name": "verify_gaps",
+      "argv": [
+        "python",
+        "-B",
+        "tools/verify_gaps.py",
+        "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+        "evidence/gapcheck.json"
+      ],
+      "argv_resolved": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "-B",
+        "tools/verify_gaps.py",
+        "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+        "evidence/gapcheck.json"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+      "exit_code": 0,
+      "duration_seconds": 10.933,
+      "stdout": "logs/verify_gaps.stdout.log",
+      "stderr": "logs/verify_gaps.stderr.log",
+      "inputs": [
+        {
+          "path": "tools/verify_gaps.py",
+          "sha256": "51e8af2bdc31d8f7e813529d0275f686ebdf2d2019d069537122f836b4718625"
+        }
+      ]
+    }
+  ],
+  "dependency_deliveries": [],
+  "upstream_inputs": [
+    {
+      "path": "handoffs/agent-batch-2026-10-24/baseline.json",
+      "sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf"
+    },
+    {
+      "path": "handoffs/agent-batch-2026-10-24/tasks.json",
+      "sha256": "40f74f37ecb8008897200171fb4e7dd0506c8a12c9dc25a17e16b23eb75932ab"
+    },
+    {
+      "path": "handoffs/agent-batch-2026-10-24/cards/T003.md",
+      "sha256": "55edaf3d8f47973e68772a18296a56ca3c1d711f1e0f259078d66f9e3cabcbdb"
+    },
+    {
+      "path": "handoffs/agent-batch-2026-10-24/PROTOCOL.md",
+      "sha256": "dd0a4d07173ef21bd08fadff37b06dd631be3846d2df5ba099944a9991f6aed1"
+    }
+  ],
+  "mathlib": {
+    "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+    "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "commit_verified_by": "git -C <path> rev-parse HEAD",
+    "read_only": true,
+    "files_read": 7
+  },
+  "editor": {
+    "performed": false,
+    "evidence_file": null,
+    "source_sha256": null
+  },
+  "manifest_self_hash": "Not embedded: a manifest cannot contain its own SHA256 and stay consistent. The SHA256 of delivery.json as written by .tmp/make_delivery.py is recorded out-of-band in evidence/delivery.self_sha256 (a note file, deliberately not listed in artifacts).",
+  "scope_note": "Read-only Mathlib PowerSeries substitution API retrieval. No mainline source, Boundary or fact-tree change. PACKAGE_COMPLETE (if reported) describes material and hashes only; it is not Lean, editor or mathematical verification."
+}

@@ -1,0 +1,138 @@
+{
+  "mathlib_root": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+  "queries": [
+    {
+      "id": "G1",
+      "claim": "no PowerSeries.comp composition operation",
+      "patterns": [
+        "^def comp",
+        "^theorem comp_assoc",
+        "PowerSeries\\.comp\\b"
+      ],
+      "scope_dirs": [
+        "Mathlib/RingTheory/PowerSeries",
+        "Mathlib/RingTheory/MvPowerSeries",
+        "Mathlib/RingTheory/FormalGroup"
+      ],
+      "hit_count": 0,
+      "hits": [],
+      "expect_zero": true,
+      "verdict": "CONFIRMED",
+      "contrast": {
+        "why": "Polynomial.comp does exist; the asymmetry is the citable fact",
+        "path": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+        "pattern": "^def comp \\(p q : R\\[X\\]\\)",
+        "hit_count": 1,
+        "hits": [
+          {
+            "file": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+            "line": 381,
+            "text": "def comp (p q : R[X]) : R[X] :="
+          }
+        ]
+      }
+    },
+    {
+      "id": "G2",
+      "claim": "no SubstEquiv / substitution group packaging",
+      "patterns": [
+        "substEquiv",
+        "SubstEquiv",
+        "IsSubstEquiv",
+        "substMonoid"
+      ],
+      "scope_dirs": [
+        "Mathlib"
+      ],
+      "hit_count": 0,
+      "hits": [],
+      "expect_zero": true,
+      "verdict": "CONFIRMED"
+    },
+    {
+      "id": "G3",
+      "claim": "no Rˣ ≃* (R⟦X⟧)ˣ unit isomorphism; only IsUnit-level bridge",
+      "patterns": [
+        "def unitsEquiv",
+        "≃\\* .*⟦X⟧ˣ",
+        "MvPowerSeries\\.unitsEquiv"
+      ],
+      "scope_dirs": [
+        "Mathlib/RingTheory/PowerSeries"
+      ],
+      "hit_count": 0,
+      "hits": [],
+      "expect_zero": true,
+      "verdict": "CONFIRMED",
+      "contrast": {
+        "why": "the actual bridges that DO exist",
+        "path": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+        "pattern": "^theorem isUnit_iff_constantCoeff",
+        "hit_count": 1,
+        "hits": [
+          {
+            "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+            "line": 111,
+            "text": "theorem isUnit_iff_constantCoeff {φ : R⟦X⟧} :"
+          }
+        ]
+      }
+    },
+    {
+      "id": "G4",
+      "claim": "no Tate/theta/q-expansion power-series layer",
+      "patterns": [
+        "TateParameter",
+        "thetaFunction",
+        "ThetaGroup"
+      ],
+      "scope_dirs": [
+        "Mathlib"
+      ],
+      "hit_count": 0,
+      "hits": [],
+      "expect_zero": true,
+      "verdict": "CONFIRMED",
+      "contrast": {
+        "why": "qExpansion exists only in modular forms, unrelated to PowerSeries.subst",
+        "path": "Mathlib/NumberTheory/ModularForms",
+        "pattern": "qExpansion",
+        "hit_count": 245,
+        "hits": [
+          {
+            "file": "Mathlib/NumberTheory/ModularForms/Bounds.lean",
+            "line": 21,
+            "pattern": "qExpansion",
+            "text": "* `ModularFormClass.qExpansion_isBigO`: for a a modular form of weight `k` (for an arithmetic"
+          },
+          {
+            "file": "Mathlib/NumberTheory/ModularForms/Bounds.lean",
+            "line": 23,
+            "pattern": "qExpansion",
+            "text": "* `CuspFormClass.qExpansion_isBigO`: **Hecke's bound** for a a cusp form of weight `k` (for"
+          },
+          {
+            "file": "Mathlib/NumberTheory/ModularForms/Bounds.lean",
+            "line": 254,
+            "pattern": "qExpansion",
+            "text": "lemma qExpansion_coeff_isBigO_of_norm_isBigO {k : ℤ} {Γ : Subgroup (GL (Fin 2) ℝ)}"
+          },
+          {
+            "file": "Mathlib/NumberTheory/ModularForms/Bounds.lean",
+            "line": 257,
+            "pattern": "qExpansion",
+            "text": "(fun n ↦ (qExpansion Γ.strictWidthInfty f).coeff n) =O[atTop] fun n ↦ (n : ℝ) ^ e := by"
+          },
+          {
+            "file": "Mathlib/NumberTheory/ModularForms/Bounds.lean",
+            "line": 268,
+            "pattern": "qExpansion",
+            "text": "rw [ModularFormClass.qExpansion_coeff_eq_intervalIntegral (t := 1 / n) f hh hΓ _ (by positivity),"
+          }
+        ]
+      }
+    }
+  ],
+  "failures": [],
+  "result": "ALL_GAPS_CONFIRMED"
+}

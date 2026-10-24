@@ -139,7 +139,7 @@
       "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
       "line": 158,
       "signature": "noncomputable def subst (a : MvPowerSeries τ S) (f : PowerSeries R) :\n    MvPowerSeries τ S",
-      "ambient_context": "{A} [CommRing A] {R} [CommRing R] [Algebra A R] {τ} {S} [CommRing S}",
+      "ambient_context": "{A} [CommRing A] {R} [CommRing R] [Algebra A R] {τ} {S} [CommRing S]",
       "minimal_call_draft": "PowerSeries.subst (a : MvPowerSeries τ S) (f : R⟦X⟧) : MvPowerSeries τ S\n-- 平方代换：a := PowerSeries.X ^ 2，即 PowerSeries.subst (PowerSeries.X ^ 2) f",
       "notes": "单变量→多变量。a 不满足 HasSubst 时不报错：MvPowerSeries.subst 定义体即 eval₂ (algebraMap _ _) a，退化情形给 0，不会静默给出错误等式。"
     },

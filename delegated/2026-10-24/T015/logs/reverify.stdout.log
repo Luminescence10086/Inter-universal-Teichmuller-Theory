@@ -1,0 +1,123 @@
+== T015 re-verification :: read-only re-check ==
+root=D:\Inter-universal Teichmüller Theory
+when=2026-10-24T14:16:27+08:00
+
+[ OK ] baseline.json sha256 = e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf
+$ git -C <root> rev-parse HEAD   # exit=0
+aa4a320676f707770358cfc0afaa655f9b36662e
+
+$ git -C <root> rev-parse --abbrev-ref HEAD   # exit=0
+explore/correspondence
+
+[INFO] current HEAD   = aa4a320676f707770358cfc0afaa655f9b36662e
+[INFO] current branch = explore/correspondence
+$ git -C <root> merge-base --is-ancestor 8d60456043e30a3da79cc838d03a19b80675dc98 HEAD   # exit=0
+
+[INFO] baseline 8d6045604 is ancestor of HEAD: True (exit=0)
+$ git -C <root> status --porcelain --untracked-files=no   # exit=0
+ M delegated/2026-10-24/T003/SUMMARY.md
+ M delegated/2026-10-24/T003/api-map.json
+ M delegated/2026-10-24/T003/logs/build_api_map.stdout.log
+ M delegated/2026-10-24/T003/logs/extract.stdout.log
+ M delegated/2026-10-24/T003/logs/sigs.stdout.log
+ M delegated/2026-10-24/T003/logs/verify_gaps.stdout.log
+ M delegated/2026-10-24/T003/replay.ps1
+ M delegated/2026-10-24/_review/B-semantics/ROLLUP.md
+ M delegated/2026-10-24/_review/C-redteam/REPORT.md
+ M fact-tree/registry.json
+ M handoffs/core-support-2026-10-22.md
+ M research/core-backward-2026-10-23/PATH.md
+ M research/core-backward-2026-10-23/round-report.md
+
+[INFO] tracked dirty files now = 13 (replay.ps1 pinned the 2026-10-24T13:27 state: 4)
+
+$ git -C <root> rev-parse d3c5599668aa57c5c00244117abd26787fcd559e^{commit}   # exit=0
+d3c5599668aa57c5c00244117abd26787fcd559e
+
+[ OK ] reviewed commit = d3c5599668aa57c5c00244117abd26787fcd559e
+$ git -C <root> rev-parse d3c5599668aa57c5c00244117abd26787fcd559e^{tree}   # exit=0
+731cdae8a42f46a13d38a47f3cd5be0d06bad580
+
+[ OK ] reviewed tree = 731cdae8a42f46a13d38a47f3cd5be0d06bad580
+$ git -C <root> rev-parse d3c5599668aa57c5c00244117abd26787fcd559e:research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md   # exit=0
+adc280bef846ca1e49b3a7b7071caaa725221797
+
+[ OK ] layer5 blob oid = adc280bef846ca1e49b3a7b7071caaa725221797
+$ git -C <root> cat-file -s d3c5599668aa57c5c00244117abd26787fcd559e:research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md   # exit=0
+9132
+
+[ OK ] layer5 blob size (bytes) = 9132
+$ git -C <root> rev-parse refs/heads/research/backward-paths   # exit=0
+d3c5599668aa57c5c00244117abd26787fcd559e
+
+[ OK ] local refs/heads/research/backward-paths = d3c5599668aa57c5c00244117abd26787fcd559e
+$ git -C <root> rev-parse refs/remotes/origin/research/backward-paths   # exit=0
+d3c5599668aa57c5c00244117abd26787fcd559e
+
+[ OK ] remote-tracking origin/research/backward-paths = d3c5599668aa57c5c00244117abd26787fcd559e
+$ git -C <root> for-each-ref --points-at d3c5599668aa57c5c00244117abd26787fcd559e --format=%(refname)   # exit=0
+refs/heads/research/backward-paths
+refs/remotes/origin/research/backward-paths
+
+[INFO] refs pointing at reviewed commit: refs/heads/research/backward-paths, refs/remotes/origin/research/backward-paths
+$ git -C <root> rev-list --count refs/heads/research/backward-paths..refs/remotes/origin/research/backward-paths   # exit=0
+0
+
+[ OK ] new commits remote-tracking-side (reviewed..origin) = 0
+$ git -C <root> rev-list --count refs/remotes/origin/research/backward-paths..refs/heads/research/backward-paths   # exit=0
+0
+
+[ OK ] new commits reviewed-side (origin..reviewed) = 0
+$ git -C <root> diff --stat refs/remotes/origin/research/backward-paths refs/heads/research/backward-paths   # exit=0
+
+[ OK ] diff --stat origin vs reviewed = 
+$ git -C <root> diff refs/remotes/origin/research/backward-paths refs/heads/research/backward-paths   # exit=0
+
+[ OK ] full diff origin vs reviewed (bytes) = 0
+
+$ git -C <root> ls-remote origin refs/heads/research/backward-paths   # exit=0
+d3c5599668aa57c5c00244117abd26787fcd559e	refs/heads/research/backward-paths
+
+[ OK ] remote HEAD (live) == reviewed commit = d3c5599668aa57c5c00244117abd26787fcd559e
+[INFO] remote live status = LIVE (d3c5599668aa57c5c00244117abd26787fcd559e)
+
+$ git -C <root> diff --stat d3c5599668aa57c5c00244117abd26787fcd559e^ d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+ .../backward-paths-layer5-2026-10-23.md            | 145 +++++++++++++++++++++
+ 1 file changed, 145 insertions(+)
+
+[INFO] reviewed commit own diff --stat:  .../backward-paths-layer5-2026-10-23.md            | 145 +++++++++++++++++++++
+ 1 file changed, 145 insertions(+)
+$ git -C <root> diff-tree -r --no-commit-id --name-status d3c5599668aa57c5c00244117abd26787fcd559e^ d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+A	research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md
+
+[INFO] reviewed commit own diff-tree (-r): A	research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md
+$ git -C <root> diff-tree -r --no-commit-id --numstat d3c5599668aa57c5c00244117abd26787fcd559e^ d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+145	0	research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md
+
+[INFO] reviewed commit own numstat: 145	0	research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md
+$ git -C <root> log -1 --format=%H%n%an%n%ad%n%s --date=iso d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+d3c5599668aa57c5c00244117abd26787fcd559e
+DSH Research Agent
+2026-10-24 10:59:28 +0800
+core backward: layer 5 execution units, the measured build facts, and the re-ranked comparison with the six paths
+
+[INFO] reviewed commit meta:
+         d3c5599668aa57c5c00244117abd26787fcd559e
+         DSH Research Agent
+         2026-10-24 10:59:28 +0800
+         core backward: layer 5 execution units, the measured build facts, and the re-ranked comparison with the six paths
+$ git -C <root> diff --stat 8d60456043e30a3da79cc838d03a19b80675dc98 d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+ .../backward-paths-2026-10-23.md                   | 215 +++++++++++++++++++++
+ .../backward-paths-layer2-2026-10-23.md            | 176 +++++++++++++++++
+ .../backward-paths-layer34-2026-10-23.md           | 155 +++++++++++++++
+ .../backward-paths-layer5-2026-10-23.md            | 145 ++++++++++++++
+ 4 files changed, 691 insertions(+)
+
+[INFO] baseline..reviewed diff --stat:  .../backward-paths-2026-10-23.md                   | 215 +++++++++++++++++++++
+ .../backward-paths-layer2-2026-10-23.md            | 176 +++++++++++++++++
+ .../backward-paths-layer34-2026-10-23.md           | 155 +++++++++++++++
+ .../backward-paths-layer5-2026-10-23.md            | 145 ++++++++++++++
+ 4 files changed, 691 insertions(+)
+
+
+T015_REVERIFY_PASS: remote research/backward-paths == d3c5599668aa57c5c00244117abd26787fcd559e (0 new commits; empty diff)

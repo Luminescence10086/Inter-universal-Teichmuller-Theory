@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "task_id": "T015",
+  "task_card_sha256": "69200d7ecf4bf232c72894dece910355e0a6223ae1a30434cfa96cdb6b459c27",
+  "baseline_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+  "status": "RESEARCH_ONLY",
+  "summary_file": "SUMMARY.md",
+  "gap_file": null,
+  "replay_file": "replay.ps1",
+  "base_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+  "returned_commit": null,
+  "artifacts": [
+    {
+      "path": "SUMMARY.md",
+      "sha256": "00f7707347f77ac512539ed35b45c9bbb6636aa932bbf2982fb22f7ffdf6a40a",
+      "role": "summary"
+    },
+    {
+      "path": "replay.ps1",
+      "sha256": "ca3b0690ef638c0e36b40870c7cae41797709b61bed008f797f92d5b893e5904",
+      "role": "replay"
+    },
+    {
+      "path": "reverify.py",
+      "sha256": "2771fd6278fecaea7267186e6c0a5a68b9015995890fa41e0fbc18c0e33e4b06",
+      "role": "reverify_source"
+    },
+    {
+      "path": "build_delivery.py",
+      "sha256": "e30aed5a19f24737c79e10fbbea0589d1974981df1a4cfa47660e9b03114e384",
+      "role": "delivery_builder"
+    },
+    {
+      "path": "logs/_replay.trace.log",
+      "sha256": "823d7b6233aa12a48703880a7be676a792ba89e519bffc9e10359b8367990256",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/baseline.sha256.log",
+      "sha256": "b4d2df7db34ad3306ef5d52b2ddc9114dd6ae167d2383c25cf105f50cefb9415",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/check_delivery.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/check_delivery.stdout.log",
+      "sha256": "d7eb4a8d23e256070836da63dcb74754feef37d03c63b7710ab1587d98a8b6a1",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-count-backward.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-count-backward.stdout.log",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-count-forward.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-count-forward.stdout.log",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-diff-stat-reviewed-commit.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-diff-stat-reviewed-commit.stdout.log",
+      "sha256": "d2baac57102bf389625196f5fd7f4d1a2230c38b8f2501707d9b780d7528273e",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-diff-stat-reviewed-vs-baseline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-diff-stat-reviewed-vs-baseline.stdout.log",
+      "sha256": "b67bf42a06a03a7782c6675cc04ad9a3b3330290259cdddf62e9c34bf60484c2",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-diff-stat.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-diff-stat.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-difftree-reviewed-commit.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-difftree-reviewed-commit.stdout.log",
+      "sha256": "81dd36e7d8d874f488923ebd2393f38f38de2d4f7f618d8102a63b64bd627a9a",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-fetch-dry-run.stderr.log",
+      "sha256": "bfed3556b757a6c56fa548673d3ad9f8a6da20cd398cf915c8b9e87db4016b6c",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-fetch-dry-run.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-head.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-head.stdout.log",
+      "sha256": "6b3acba99a442da6222b9d9c023a8b8cee2aea4ad1ceb81728b84f795be87f15",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-layer5-blob-size.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-layer5-blob-size.stdout.log",
+      "sha256": "154d72099fb9641c2a1c8bc2017471fea8e697fbcad6b1861534f8ea499ac2eb",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-layer5-blob.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-layer5-blob.stdout.log",
+      "sha256": "f97a0b7be40c9e699e4ee5abda3b071a4ebfae07add8394cddb9de2bc3aa54a0",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-local-branch.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-local-branch.stdout.log",
+      "sha256": "6a595faf8ca8ba65b2041ee01d8ce5148f14b3335e65591fcb5b8145f046cdfa",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-log-oneline.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-log-oneline.stdout.log",
+      "sha256": "2f7968d5ee2299b34d2325b05c46a730bc8e503e60b56055af8203e4693947c2",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-ls-remote.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-ls-remote.stdout.log",
+      "sha256": "c7028c3dfc0148eee0a2e7f2dfcaddf72f46d1e65c8b6e970980f20ee083700c",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-reviewed-commit.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-reviewed-commit.stdout.log",
+      "sha256": "6a595faf8ca8ba65b2041ee01d8ce5148f14b3335e65591fcb5b8145f046cdfa",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-reviewed-tree.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-reviewed-tree.stdout.log",
+      "sha256": "eef5445cc17a0092fb5e79bbf20831e985eccfe46a72eae6c98fdde0106032f9",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-status-porcelain.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-status-porcelain.stdout.log",
+      "sha256": "907a4ee3afeb9154b5b07aa9026aec42f86178a3cfa85d215693183d06e0ed2f",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-toplevel.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-toplevel.stdout.log",
+      "sha256": "cd01a82eca9c8d3d9e11191ebfa1dc6340315b9d4e477b656e731c4c20b7e7da",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/git-track-branch.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/git-track-branch.stdout.log",
+      "sha256": "6a595faf8ca8ba65b2041ee01d8ce5148f14b3335e65591fcb5b8145f046cdfa",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/replay.full.log",
+      "sha256": "9161727799a6cc3b4455de6cef4f939ba8a128e4f95f92dc6423f281d11bc9a3",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/reverify-history.log",
+      "sha256": "c006b99de467b1bcca4f8c87cab6f7808926f03b71bd4d7353bdc84cea446bd0",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/reverify.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/reverify.stdout.log",
+      "sha256": "e79bcb42f08df85acbe69392df82e5334d0870f5817321a29ee329f01d350fdf",
+      "role": "stdout"
+    }
+  ],
+  "declarations": [],
+  "runs": [
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-toplevel.stdout.log",
+      "stderr": "logs/git-toplevel.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-head.stdout.log",
+      "stderr": "logs/git-head.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-parse",
+        "d3c5599668aa57c5c00244117abd26787fcd559e^{commit}"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-reviewed-commit.stdout.log",
+      "stderr": "logs/git-reviewed-commit.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-parse",
+        "d3c5599668aa57c5c00244117abd26787fcd559e^{tree}"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-reviewed-tree.stdout.log",
+      "stderr": "logs/git-reviewed-tree.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "cat-file",
+        "-s",
+        "d3c5599668aa57c5c00244117abd26787fcd559e:research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-layer5-blob-size.stdout.log",
+      "stderr": "logs/git-layer5-blob-size.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "ls-remote",
+        "origin",
+        "refs/heads/research/backward-paths"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/replay.full.log",
+      "stdout": "logs/git-ls-remote.stdout.log",
+      "stderr": "logs/git-ls-remote.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "fetch",
+        "origin",
+        "research/backward-paths",
+        "--dry-run"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/replay.full.log",
+      "stdout": "logs/git-fetch-dry-run.stdout.log",
+      "stderr": "logs/git-fetch-dry-run.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-parse",
+        "refs/heads/research/backward-paths"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-local-branch.stdout.log",
+      "stderr": "logs/git-local-branch.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-parse",
+        "refs/remotes/origin/research/backward-paths"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-track-branch.stdout.log",
+      "stderr": "logs/git-track-branch.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "log",
+        "--oneline",
+        "-8",
+        "refs/remotes/origin/research/backward-paths"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-log-oneline.stdout.log",
+      "stderr": "logs/git-log-oneline.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-list",
+        "--count",
+        "refs/heads/research/backward-paths..refs/remotes/origin/research/backward-paths"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-count-forward.stdout.log",
+      "stderr": "logs/git-count-forward.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-list",
+        "--count",
+        "refs/remotes/origin/research/backward-paths..refs/heads/research/backward-paths"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-count-backward.stdout.log",
+      "stderr": "logs/git-count-backward.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "diff",
+        "--stat",
+        "refs/remotes/origin/research/backward-paths",
+        "refs/heads/research/backward-paths"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-diff-stat.stdout.log",
+      "stderr": "logs/git-diff-stat.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "diff",
+        "--stat",
+        "d3c5599668aa57c5c00244117abd26787fcd559e^",
+        "d3c5599668aa57c5c00244117abd26787fcd559e"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-diff-stat-reviewed-commit.stdout.log",
+      "stderr": "logs/git-diff-stat-reviewed-commit.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "diff-tree",
+        "--no-commit-id",
+        "--name-status",
+        "d3c5599668aa57c5c00244117abd26787fcd559e^",
+        "d3c5599668aa57c5c00244117abd26787fcd559e"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-difftree-reviewed-commit.stdout.log",
+      "stderr": "logs/git-difftree-reviewed-commit.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "diff",
+        "--stat",
+        "8d60456043e30a3da79cc838d03a19b80675dc98",
+        "d3c5599668aa57c5c00244117abd26787fcd559e"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-diff-stat-reviewed-vs-baseline.stdout.log",
+      "stderr": "logs/git-diff-stat-reviewed-vs-baseline.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "rev-parse",
+        "d3c5599668aa57c5c00244117abd26787fcd559e:research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-layer5-blob.stdout.log",
+      "stderr": "logs/git-layer5-blob.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "git",
+        "-C",
+        "D:\\Inter-universal Teichmüller Theory",
+        "status",
+        "--porcelain",
+        "--untracked-files=no"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.0,
+      "duration_measured": false,
+      "exit_code_source": "logs/_replay.trace.log",
+      "stdout": "logs/git-status-porcelain.stdout.log",
+      "stderr": "logs/git-status-porcelain.stderr.log",
+      "inputs": []
+    },
+    {
+      "kind": "git",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "reverify.py"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 2.818,
+      "duration_measured": true,
+      "exit_code_source": "captured by this session",
+      "exit_code_note": "0 = all LOCAL assertions hold. The live network check may report UNRESOLVED in this run; see logs/reverify-history.log for the per-run remote status.",
+      "stdout": "logs/reverify.stdout.log",
+      "stderr": "logs/reverify.stderr.log",
+      "inputs": [
+        {
+          "path": "reverify.py",
+          "sha256": "2771fd6278fecaea7267186e6c0a5a68b9015995890fa41e0fbc18c0e33e4b06"
+        }
+      ]
+    },
+    {
+      "kind": "preflight",
+      "argv": [
+        "C:\\msys64\\ucrt64\\bin\\python.exe",
+        "check_delivery.py",
+        "--delivery",
+        "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T015\\delivery.json"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\handoffs\\agent-batch-2026-10-24",
+      "exit_code": 0,
+      "duration_seconds": 0.366,
+      "duration_measured": true,
+      "exit_code_source": "captured by this session",
+      "stdout": "logs/check_delivery.stdout.log",
+      "stderr": "logs/check_delivery.stderr.log",
+      "inputs": []
+    }
+  ],
+  "dependency_deliveries": [],
+  "upstream_inputs": [
+    {
+      "path": "handoffs/agent-batch-2026-10-24/baseline.json",
+      "sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf"
+    },
+    {
+      "path": "handoffs/agent-batch-2026-10-24/cards/T015.md",
+      "sha256": "69200d7ecf4bf232c72894dece910355e0a6223ae1a30434cfa96cdb6b459c27"
+    }
+  ],
+  "editor": {
+    "performed": false,
+    "evidence_file": null,
+    "source_sha256": null
+  },
+  "notes": [
+    "duration_measured=false (duration_seconds=0.0): replay.ps1 did not record durations; argv and exit_code are the real values, with exit_code_source naming the file each code came from.",
+    "logs/_replay.trace.log is truncated by Set-Content at the start of each replay.ps1 run, so it retains only the last pass: 16 git invocations at 2026-10-24T13:27. The two network commands (git-ls-remote, git-fetch-dry-run) are from the earlier 13:13:28 pass; their exit=0 is attested in logs/replay.full.log and their stdout/stderr logs are preserved. All 18 exit codes are 0.",
+    "READ-ONLY: the only network commands are git ls-remote and git fetch --dry-run. No fetch that writes, no checkout, reset, merge or branch switch.",
+    "Written by build_delivery.py: every sha256 recomputed from bytes at build time, then re-verified after the final write.",
+    "Workspace HEAD has advanced to aa4a320676f707770358cfc0afaa655f9b36662e since replay.ps1 ran at 8d60456. This does not affect the branch-vs-commit comparison (see SUMMARY.md).",
+    "The main worktree is concurrently active (other agents writing inside delegated/2026-10-24/T003 and delegated/2026-10-24/_review), so the tracked-dirty count varies between snapshots. None of those files were touched by T015.",
+    "STATUS OF THE LIVE NETWORK CHECK: it succeeded once during this session (remote == d3c5599) and then became unreachable: git ls-remote exit 128, 'Failed to connect to github.com:443', DNS resolves to 20.205.243.166 but TCP 443 refuses. See logs/reverify-history.log. The local refs still agree with the reviewed commit."
+  ],
+  "scope_note": "RESEARCH_ONLY consistency check of a remote branch ref against a reviewed commit. Not a mathematical result; not a Lean or editor receipt."
+}

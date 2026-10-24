@@ -1,0 +1,69 @@
+{
+  "mathlib_root": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+  "checked": 6,
+  "all_quoted_lines_verified": true,
+  "results": [
+    {
+      "declaration": "PowerSeries.HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "quoted_line": 40,
+      "actual_text": "abbrev HasSubst (a : MvPowerSeries τ S) : Prop :=",
+      "text_matches_quoted_line": true,
+      "all_lines_with_token": [
+        40
+      ]
+    },
+    {
+      "declaration": "PowerSeries.subst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "quoted_line": 158,
+      "actual_text": "noncomputable def subst (a : MvPowerSeries τ S) (f : PowerSeries R) :",
+      "text_matches_quoted_line": true,
+      "all_lines_with_token": [
+        158,
+        171
+      ]
+    },
+    {
+      "declaration": "PowerSeries.substAlgHom",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "quoted_line": 171,
+      "actual_text": "noncomputable def substAlgHom (ha : HasSubst a) :",
+      "text_matches_quoted_line": true,
+      "all_lines_with_token": [
+        171
+      ]
+    },
+    {
+      "declaration": "PowerSeries.HasSubst.of_constantCoeff_zero'",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "quoted_line": 67,
+      "actual_text": "theorem HasSubst.of_constantCoeff_zero' {a : PowerSeries S}",
+      "text_matches_quoted_line": true,
+      "all_lines_with_token": [
+        61,
+        67
+      ]
+    },
+    {
+      "declaration": "PowerSeries.subst_comp_subst_apply",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "quoted_line": 390,
+      "actual_text": "theorem subst_comp_subst_apply (ha : HasSubst a) (hb : HasSubst b) (f : PowerSeries R) :",
+      "text_matches_quoted_line": true,
+      "all_lines_with_token": [
+        390
+      ]
+    },
+    {
+      "declaration": "PowerSeries.subst_substInvOfIsUnit_right",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "quoted_line": 587,
+      "actual_text": "lemma subst_substInvOfIsUnit_right : P.subst (substInvOfIsUnit P hP') = X := by",
+      "text_matches_quoted_line": true,
+      "all_lines_with_token": [
+        587
+      ]
+    }
+  ]
+}

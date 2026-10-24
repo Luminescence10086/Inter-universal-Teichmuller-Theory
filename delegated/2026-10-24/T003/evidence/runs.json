@@ -1,0 +1,94 @@
+[
+  {
+    "kind": "source_retrieval",
+    "name": "extract",
+    "argv": [
+      "python",
+      "-B",
+      "tools/extract.py",
+      "tools/targets.json",
+      "evidence/decls_dump.txt"
+    ],
+    "argv_resolved": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "tools/extract.py",
+      "tools/targets.json",
+      "evidence/decls_dump.txt"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+    "exit_code": 0,
+    "duration_seconds": 0.123,
+    "stdout": "logs/extract.stdout.log",
+    "stderr": "logs/extract.stderr.log"
+  },
+  {
+    "kind": "source_retrieval",
+    "name": "sigs",
+    "argv": [
+      "python",
+      "-B",
+      "tools/sigs.py",
+      "evidence/decls_dump.txt",
+      "evidence/sigs.txt"
+    ],
+    "argv_resolved": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "tools/sigs.py",
+      "evidence/decls_dump.txt",
+      "evidence/sigs.txt"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+    "exit_code": 0,
+    "duration_seconds": 0.077,
+    "stdout": "logs/sigs.stdout.log",
+    "stderr": "logs/sigs.stderr.log"
+  },
+  {
+    "kind": "source_retrieval",
+    "name": "build_api_map",
+    "argv": [
+      "python",
+      "-B",
+      "tools/build_api_map.py",
+      "evidence/sigs.txt",
+      "api-map.json"
+    ],
+    "argv_resolved": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "tools/build_api_map.py",
+      "evidence/sigs.txt",
+      "api-map.json"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+    "exit_code": 0,
+    "duration_seconds": 0.095,
+    "stdout": "logs/build_api_map.stdout.log",
+    "stderr": "logs/build_api_map.stderr.log"
+  },
+  {
+    "kind": "source_retrieval",
+    "name": "verify_gaps",
+    "argv": [
+      "python",
+      "-B",
+      "tools/verify_gaps.py",
+      "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+      "evidence/gapcheck.json"
+    ],
+    "argv_resolved": [
+      "C:\\msys64\\ucrt64\\bin\\python.exe",
+      "-B",
+      "tools/verify_gaps.py",
+      "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+      "evidence/gapcheck.json"
+    ],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T003",
+    "exit_code": 0,
+    "duration_seconds": 10.933,
+    "stdout": "logs/verify_gaps.stdout.log",
+    "stderr": "logs/verify_gaps.stderr.log"
+  }
+]

@@ -13,7 +13,47 @@
 
 ## 0. 一页结论
 
-**最严重的一条：`check_delivery.py` 对 `sorry` / `sorryAx` 完全无感——而本轮就有一个交付把 `sorryAx` 写在自己的日志里。**
+**一句话：`check_delivery.py` 是一台合格的「材料完整性」校验器，不是「证据真实性／结论强度」校验器。它守得住"文件有没有被改过"，守不住"这个通过是不是真的"。**
+
+三部分共 **104 例实测**：`HELD 61` / `BYPASSED 42` / `NOT_APPLICABLE 1`。
+
+**最严重的一条（贯穿全部三轮，且在四份真实交付上 4/4 复现）：`exit_code` 纯属自报，日志内容零解析。**
+
+- 把失败改成 0（隐瞒）**和**把成功改成 1（伪造失败）**都返回 `PACKAGE_COMPLETE`**；
+- 在四份真实交付（T003/T008/T066/T097）上做同样篡改，**全部放行，无一例外**；
+- 在 T008 的真实交付上，把唯一那条**如实登记的失败**（`discarded_attempt`, `exit_code: 1`）改成 `0`，预检器输出**与改之前逐字相同**。
+
+**换句话说：门禁对"诚实披露失败"与"隐瞒失败"给出完全一样的评语。它恰好把激励放反了。**
+
+第二条同级问题：**`sorry` / `sorryAx` / 公理白名单完全不检查**——我用 T049 自己产出的、未改一字节的真实证据（日志里含 3 处 `declaration uses sorry`、12 处 `sorryAx`）组装 `delivery.json`，预检器照样 `PACKAGE_COMPLETE`。
+
+第三条（父线程重点，已实测证实）：**预检器没有任何机制能发现"标错强度"**。T008 的 `18 constructed / 5 hypothesis / 6 with extra hypotheses` 改成 `23 constructed / 0 hypothesis / 无条件`、并加上"closes the IUT core gap"，**exit=0，毫无反应**。
+
+### 三条最该被记住的话
+
+1. **改一个字节它一定拒绝**（8/8 实测），**改 exit_code 它一定放行**（8/8 实测）。
+2. **`PACKAGE_COMPLETE` 只证明"材料齐、哈希对"**，不证明数学、不证明公理、不证明命令真的跑过、不证明结论强度标对了。它的 `scope` 字段其实写得很诚实，**问题是流程上极易被读成"通过验收"**。
+3. **T008 是材料层最硬、且唯一如实披露失败的一份，而它与"把它的诚实改掉之后的它"拿到的评语完全相同。** 门禁目前无法区分诚实与隐瞒。
+
+---
+
+### 分节索引
+
+| 部分 | 内容 | 判定 |
+|---|---|---|
+| §1 | 六类坏输入（自建 fixture） | (a)(d)(e) HELD；(b)(c)(f) 部分 BYPASSED |
+| §2 | 空构建检测 | `lake build` 无参实测 **exit=0**（"Nothing to build"），2a/2b/3 BYPASSED；(2c) HELD |
+| §3 | 证据可回放性 | T015 replay **REPLAYABLE/PASS**；其余 NOT_REPLAYABLE |
+| §4 | 时间/一致性 | 预检器**无时间维度**，mtime 攻击 BYPASSED |
+| §5 | 洗白路径 8 例 | **8/8 BYPASSED** |
+| **§C** | **以真实 T008 为靶（六类 + 强度 + provenance + replay）** | 强度错标 **无感**；T008 Lean replay **PASS** |
+| **§D** | **四份真实交付复查 + 真破坏** | 一字节篡改 **8/8 HELD**；exit_code／删 runs **12/12 BYPASSED** |
+
+---
+
+## 0.1 旧版一页结论（保留：T049 真实证据实验，仍有效）
+
+**`check_delivery.py` 对 `sorry` / `sorryAx` 完全无感——而本轮就有一个交付把 `sorryAx` 写在自己的日志里。**
 
 我用 **T049 自己产出的、未改一个字节的真实证据**组装了一份 `delivery.json`（`status=RESEARCH_ONLY`，`argv` 就是它日志里的 `lake build T049`，附上真实的 `logs/build01.log`），预检器给出：
 
@@ -570,3 +610,142 @@ error lines in replay: 0
 - HELD：1 字节篡改、路径逃逸 ×2、`status=VERIFIED`、`status=PASS`、注入 sorry 但漏刷 inputs 哈希（**偶然拦住**）、`RESEARCH_ONLY`→`CLI_CANDIDATE`（因存有 exit=1 记录）。
 
 **累计（第一 + 二部分）**：`BYPASSED 30` / `HELD 28` / `NOT_APPLICABLE 1`。
+
+---
+
+# 第三部分：四份**真实**交付的复查 + 真破坏（按父线程第二轮指令，14:11）
+
+> 对象：`T003`、`T008`、`T066`、`T097` 四份**真实** `delivery.json`。
+> 破坏只在 `%TEMP%\c-redteam\l7\`、`l8\` 的副本上做，**仓库原件一个字节未改**。
+> 脚本：`redteam4.py`（审计）、`redteam5.py` / `redteam5_t003.py`（破坏）；结果 `redteam-round5.json`。
+
+## D.1 四份交付的逐项审计（回答父线程四个问题）
+
+```
+T003  9209B  status=RESEARCH_ONLY  artifacts=21  runs=4  declarations=0   -> PACKAGE_COMPLETE
+T008 17003B  status=RESEARCH_ONLY  artifacts=12  runs=3  declarations=4   -> PACKAGE_COMPLETE
+T066  8975B  status=RESEARCH_ONLY  artifacts= 7  runs=2  declarations=0   -> PACKAGE_COMPLETE
+T097  7167B  status=RESEARCH_ONLY  artifacts=11  runs=1  declarations=0   -> PACKAGE_COMPLETE
+```
+
+| 父线程问的问题 | 实测结果 |
+|---|---|
+| **① 有别的任务把 `delivery.json` / 自产出 manifest 自引用进哈希表？** | **没有。** 四份 `artifacts` 均不含自身。我另做**间接**自引用扫描（在每个 artifact 内文搜 `delivery.json` 的 sha256 与自身 sha256）：**0 命中**。4 处命中全是**良性引用**——T003 `SUMMARY.md` L98 明写"`delivery.json` 自身不在 `artifacts` 内（清单不能包含自己的 SHA256）；其当前 SHA256 记在 `.tmp/…`"；T097 `quantifiers.json` 仅把 `delivery.json` 列为交付物名。**父线程修掉后未再复现。** |
+| **② 有 run 声称 exit 0 但日志实为空构建/空输出？** | **没有空构建。** 全部日志 **0 处**出现 `no targets specified` / `Nothing to build`。详见 D.2。 |
+| **③ 有 artifact 路径逃逸或指向 `delegated/` 之外？** | **没有。** 四份共 51 个 artifact，解析后全部落在各自任务目录内。 |
+| **④ 有 `status` 写成白名单外？** | **没有。** 四份全为 `RESEARCH_ONLY`。 |
+
+### D.2 逐 run 日志内容核查
+
+| 任务 | run | exit | 日志实况 | 判定 |
+|---|---|---|---|---|
+| T003 | 4 条 `source_retrieval` | 全 0 | `OK .tmp/decls_dump.txt`(24B)、`OK .tmp/sigs.txt`(18B)、`entries=106 gaps=5 files=7`(245B)、`result=ALL_GAPS_CONFIRMED failures=none`(41B) | 内容真实非空；**非编译证据**（任务自己声明"未构建、未 `lake env lean`"，属诚实自限） |
+| T066 | 2 条 `source_pin_check` | 全 0 | 两次各 9972B，**逐字节相同**（`T066 REPLAY: source pin verification (read-only)` + `PASS <sha> handoffs/a…`） | 真跑、可复现，且**主动做了两次确定性复跑** |
+| T097 | 1 条 `audit` | 0 | `{"verdict":"ALL_ANCHORS_VERIFIED","checks_run":197,"checks_failed":0,"failures":[]}` | 内容真实；"failed"来自 `checks_failed:0` 字段名，**非错误** |
+| T008 | 3 条 | 0 / 0 / **1** | run2 日志含 `HAS_ERROR,HAS_SORRY` | **唯一非零日志，且是交付方自己如实登记的失败**（见 §C.1） |
+
+**需注意（非缺陷，但门禁看不见）**：T066/T097 的 `runs` 只是**脚本自检**（pin 校验／转写审计），**没有任何 Lean 编译动作**。二者都正确自限于 `RESEARCH_ONLY`，未越界宣称——若将来写成 `CLI_CANDIDATE`，门禁会要求"有带 `-DwarningAsError=true` 的 lean run"，它们没有，**那道门拦得住**。
+
+## D.3 真破坏测试（父线程指定：改一字节 / 改 exit_code）
+
+每份都**先确认副本本身可通过**，再破坏：
+
+```
+T003  [baseline ] unmodified copy                     exit=0 PACKAGE_COMPLETE
+      [HELD     ] +1 byte on SUMMARY.md               exit=2  artifact SHA mismatch: SUMMARY.md
+      [HELD     ] +1 byte on run[0].stdout            exit=2  artifact SHA mismatch: logs/extract.stdout.log
+      [BYPASSED ] set 0 nonzero exit_code -> 0        exit=0
+      [BYPASSED ] run[0].exit_code 0 -> 1             exit=0
+      [BYPASSED ] delete all 4 runs (commands_run)    exit=0
+      [HELD     ] summary_file -> ../../../../Windows/win.ini  exit=2  path escapes delivery
+      [HELD     ] status -> VERIFIED                  exit=2  invalid status
+      [HELD     ] status -> PASS                      exit=2  invalid status
+      [HELD     ] self-reference: add delivery.json to artifacts  exit=2  artifact SHA mismatch: delivery.json
+```
+
+**T008 / T066 / T097 三份结果完全同型**（各 9 例，`HELD 6 / BYPASSED 3`），`BYPASSED` 的永远是这同一组：
+
+```
+[BYPASSED ] set <n> nonzero exit_code -> 0        (T008 n=1；T066/T097 本无失败可隐瞒，仍通过)
+[BYPASSED ] run[0].exit_code 0 -> 1 (recorded failure)
+[BYPASSED ] delete all <n> runs (commands_run)
+```
+
+**结论（父线程问题的正面回答）**：
+
+1. **"改一个字节"——预检器真的拒绝。** 四份 × 2 类目标（普通 artifact + run 引用的日志），**8/8 全部 `HELD`**，错误信息精确到文件（`artifact SHA mismatch: logs/extract.stdout.log`）。**这道门很硬，可以为它签字。**
+2. **"改 exit_code"——预检器完全不拒。** 两个方向都过：把失败改成 0（隐瞒）**和**把成功改成 1（伪造失败）**都返回 `PACKAGE_COMPLETE`**。四份 × 2 方向 = **8/8 BYPASSED**。
+3. **"删掉整段 runs"——完全不拒。** 四份 **4/4 BYPASSED**。`RESEARCH_ONLY` 下 `runs` 是**可选字段**（`data.get("runs", [])`，line 125）。
+4. **"重新引入 T003 自引用"——正确拒绝**（`artifact SHA mismatch: delivery.json`）。说明那个坑**门禁本能拦**，T003 当初只是没在交付前跑预检。
+5. **路径逃逸 / status 白名单——四份 8/8 全拦。**
+
+## D.4 第三部分发现的**新**问题
+
+### 新问题 1：T003 的 `delivery.json` 是生成器脚本产物，期间出现过"陈旧包"
+
+T003 目录有 `.tmp/make_delivery.py`（14:10:48）、`.tmp/run_records.py`（14:10:00）。14:09 我第一次跑四份审计时，T003 **恰好**因 `replay.ps1`（14:10:27 重写）与 `delivery.json`（14:09:25 生成）不同步而失败：
+
+```
+14:09:25  delivery.json 生成
+14:10:27  replay.ps1 被重写（未同步刷新 delivery.json）
+          checker -> PACKAGE_INCOMPLETE: artifact SHA mismatch: replay.ps1
+14:11:18  delivery.json 重新生成 -> PACKAGE_COMPLETE
+```
+
+**不是 T003 的错，而是流程警告**：只要存在"先生成 `delivery.json`、后又改产物"的时序，包就会静默变陈旧。**预检器是唯一能发现这件事的工具，这次它确实发现了。**
+
+**这个现象在我写报告期间复发了第二次**（14:13:18 复查）：
+
+```
+14:11:18  重新生成 -> PACKAGE_COMPLETE
+14:13:18  再查     -> PACKAGE_INCOMPLETE: artifact SHA mismatch: replay.ps1   (又被重写)
+```
+
+即**同一个"生成器写清单 → 之后又改产物"的回路在 2 分钟内触发两次**。**建议：把 `check_delivery.py` 定为收尾的强制最后一条命令（且必须是"最后一次修改产物之后"），并发给生成型流程一条硬规则——产物落盘完成前不得先写 `delivery.json`。**
+
+### 新问题 2：自产出 manifest 的**间接**自引用尚无实例，但协议没堵
+
+四份都没有把自产 manifest 列进 `artifacts` 形成环；T003 把 `.tmp/runs.json`、`.tmp/gapcheck.json` 等列进 artifacts 属合法（不由 `delivery.json` 派生）。**风险在 `make_delivery.py` 这类生成器**：一旦形成"生成器 → 清单 → 生成器读清单"回路，会出现比 T003 那次更难查的自引用（不直接列自己，而是列一个**内容包含** `delivery.json` 哈希的文件）。**本轮无实例，仅作原理提示。**
+
+### 新问题 3（**影响父线程结论**）：`764c7b3` 这个"构建图修复"**不在 HEAD 上**
+
+父线程 pitfalls 文档称"提交 `764c7b3` 补全 roots，`lake build Boundary` 从零构建 exit 0（8789 jobs / 504.2 s），`DecompositionBridge.olean` 首次生成"。实测：
+
+```
+$ git merge-base --is-ancestor 764c7b3 HEAD        -> exit=1   (NOT an ancestor)
+$ git branch -a --contains 764c7b3                 -> + fix/portable-mathlib
+$ git show HEAD:candidates/core-kummer/lakefile.lean        -> 1 line  (!)
+$ git show 764c7b3:candidates/core-kummer/lakefile.lean     -> 69 lines
+$ git status --porcelain -- candidates/core-kummer/lakefile.lean -> ?? (untracked)
+$ HEAD = aa4a320
+```
+
+即：**当前在用的 `candidates/core-kummer/lakefile.lean`（694B，只声明 `ContinuousKummerTheory` 4 roots + `ValuationSupport` + `CoreKummer` 2 roots）在 HEAD 里根本不存在**；`764c7b3` 挂在 `fix/portable-mathlib` 旁支。而那个 `DecompositionBridge.olean` **只存在于 `.wt/portable/…` 这个可移植工作树里**，不在 `candidates/core-kummer/.lake`。
+
+**实测当前缺口**（32 模块 vs 26 olean）：
+
+```
+lean modules: 32    oleans: 26
+NO OLEAN (7):  Boundary/DecompositionBridge, Boundary/LaurentPoint,
+               ExportAnchoredComparison, ExportFrontier,
+               ExportProjectiveComparison, ExportThetaGermTransport, lakefile
+```
+
+→ **父线程缺陷 3 的"处置"结论目前不成立**：修复未进主线，olean 也只在游离 worktree。**T008 的 A21 仍无法在主工作区核验，其"记为假设"的处理依然正确且必要。** 建议确认 `fix/portable-mathlib` 是否该合入 `HEAD`，否则后续所有依赖 `Boundary.*` 的核验都会踩同一坑。
+
+### 新问题 4（我自己的更正）：T008 `scope_statement` 的"强断言"是**误报**
+
+我的自动扫描一度把 T008 `scope_statement` 标为 `STATUS_SMUGGLE`。复核原文：
+
+> "Type ledger only. No new mathematics, no new Lean declaration, no axiom, no sorry. 23 arrows: 18 constructed …, 5 still hypotheses. **A PASS in this package is NOT a fact-tree admission and does not address the IUT core dispute, Corollary 3.12 or abc.**"
+
+**这是带完整否定的自限陈述，不是抬高。撤回该条指控。** 记此以免父线程误读——也说明"自由文本扫描"本身会误报，这正是不能让门禁去猜语义的理由。
+
+## D.5 第三部分判定汇总
+
+`round5` 共 **45 例**（四份各 9 例，T003 因测期间被改写而整套重跑）：
+
+- **`HELD` 33**：改一字节 ×8、路径逃逸 ×4、status 白名单 ×8、自引用重引入 ×4，及 T003 首次跑的连带拦截。
+- **`BYPASSED` 12**：`exit_code` 双向篡改 ×8、删除 `runs` ×4。**四份交付全部命中，无一例外。**
+
+**累计（一 + 二 + 三部分）**：`BYPASSED 42` / `HELD 61` / `NOT_APPLICABLE 1`。

@@ -1,0 +1,407 @@
+### HasSubst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:40]
+abbrev HasSubst (a : MvPowerSeries τ S) : Prop
+
+### hasSubst_iff  [Mathlib/RingTheory/PowerSeries/Substitution.lean:43]
+theorem hasSubst_iff {a : MvPowerSeries τ S} :
+    HasSubst a ↔ MvPowerSeries.HasSubst (Function.const Unit a)
+
+### HasSubst.of_constantCoeff_zero  [Mathlib/RingTheory/PowerSeries/Substitution.lean:61]
+theorem HasSubst.of_constantCoeff_zero {a : MvPowerSeries τ S}
+    (ha : MvPowerSeries.constantCoeff a = 0) : HasSubst a
+
+### HasSubst.of_constantCoeff_zero'  [Mathlib/RingTheory/PowerSeries/Substitution.lean:67]
+theorem HasSubst.of_constantCoeff_zero' {a : PowerSeries S}
+    (ha : PowerSeries.constantCoeff a = 0) : HasSubst a
+
+### HasSubst.X'  [Mathlib/RingTheory/PowerSeries/Substitution.lean:78]
+protected theorem HasSubst.X' : HasSubst (X : R⟦X⟧)
+
+### HasSubst.X_pow  [Mathlib/RingTheory/PowerSeries/Substitution.lean:81]
+protected theorem HasSubst.X_pow {n : ℕ} (hn : n ≠ 0) : HasSubst (X ^ n : R⟦X⟧)
+
+### HasSubst.comp  [Mathlib/RingTheory/PowerSeries/Substitution.lean:371]
+theorem HasSubst.comp
+    {a : PowerSeries S} (ha : HasSubst a) {b : MvPowerSeries υ T} (hb : HasSubst b) :
+    HasSubst (substAlgHom hb a)
+
+### HasSubst.zero  [Mathlib/RingTheory/PowerSeries/Substitution.lean:96]
+theorem HasSubst.zero : HasSubst (0 : MvPowerSeries τ R)
+
+### HasSubst.zero'  [Mathlib/RingTheory/PowerSeries/Substitution.lean:101]
+theorem HasSubst.zero' : HasSubst (0 : PowerSeries R)
+
+### HasSubst.add  [Mathlib/RingTheory/PowerSeries/Substitution.lean:106]
+theorem HasSubst.add (hf : HasSubst f) (hg : HasSubst g) :
+    HasSubst (f + g)
+
+### HasSubst.mul_right  [Mathlib/RingTheory/PowerSeries/Substitution.lean:116]
+theorem HasSubst.mul_right (hf : HasSubst f) :
+    HasSubst (g * f)
+
+### HasSubst.smul_X  [Mathlib/RingTheory/PowerSeries/Substitution.lean:138]
+theorem HasSubst.smul_X (a : A) (t : τ) :
+    HasSubst (a • (MvPowerSeries.X t) : MvPowerSeries τ R)
+
+### HasSubst.smul_X'  [Mathlib/RingTheory/PowerSeries/Substitution.lean:142]
+theorem HasSubst.smul_X' (a : A) : HasSubst (a • X : R⟦X⟧)
+
+### HasSubst.eventually_coeff_pow_eq_zero  [Mathlib/RingTheory/PowerSeries/Substitution.lean:145]
+lemma HasSubst.eventually_coeff_pow_eq_zero {f : A⟦X⟧} (hf : HasSubst f) (n : ℕ) :
+    ∀ᶠ m in .atTop, ∀ n' ≤ n, coeff n' (f ^ m) = 0
+
+### subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:158]
+noncomputable def subst (a : MvPowerSeries τ S) (f : PowerSeries R) :
+    MvPowerSeries τ S
+
+### subst_def  [Mathlib/RingTheory/PowerSeries/Substitution.lean:162]
+lemma subst_def (a : MvPowerSeries τ S) (f : PowerSeries R) :
+    subst a f = MvPowerSeries.subst (fun _ ↦ a) f
+
+### substAlgHom  [Mathlib/RingTheory/PowerSeries/Substitution.lean:171]
+noncomputable def substAlgHom (ha : HasSubst a) :
+    PowerSeries R →ₐ[R] MvPowerSeries τ S
+
+### coe_substAlgHom  [Mathlib/RingTheory/PowerSeries/Substitution.lean:175]
+theorem coe_substAlgHom (ha : HasSubst a) :
+    ⇑(substAlgHom ha) = subst (R := R) a
+
+### subst_add  [Mathlib/RingTheory/PowerSeries/Substitution.lean:191]
+theorem subst_add (ha : HasSubst a) (f g : PowerSeries R) :
+    subst a (f + g) = subst a f + subst a g
+
+### subst_mul  [Mathlib/RingTheory/PowerSeries/Substitution.lean:212]
+theorem subst_mul (ha : HasSubst a) (f g : PowerSeries R) :
+    subst a (f * g) = subst a f * subst a g
+
+### subst_pow  [Mathlib/RingTheory/PowerSeries/Substitution.lean:208]
+theorem subst_pow (ha : HasSubst a) (f : PowerSeries R) (n : ℕ) :
+    subst a (f ^ n) = (subst a f) ^ n
+
+### subst_X  [Mathlib/RingTheory/PowerSeries/Substitution.lean:324]
+theorem subst_X (ha : HasSubst a) :
+    subst a (X : R⟦X⟧) = a
+
+### subst_C  [Mathlib/RingTheory/PowerSeries/Substitution.lean:322]
+theorem subst_C (r : S) : (C r).subst a = MvPowerSeries.C r
+
+### X_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:297]
+theorem X_subst (f : R⟦X⟧) : f.subst (X : R⟦X⟧) = f
+
+### coeff_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:236]
+theorem coeff_subst (ha : HasSubst a) (f : PowerSeries R) (e : τ →₀ ℕ) :
+    MvPowerSeries.coeff e (subst a f) =
+      finsum (fun (d : ℕ) ↦
+        coeff d f • (MvPowerSeries.coeff e (a ^ d)))
+
+### coeff_subst'  [Mathlib/RingTheory/PowerSeries/Substitution.lean:247]
+theorem coeff_subst' {b : S⟦X⟧} (hb : HasSubst b) (f : R⟦X⟧) (e : ℕ) :
+    coeff e (f.subst b) =
+      finsum (fun (d : ℕ) ↦
+        coeff d f • PowerSeries.coeff e (b ^ d))
+
+### constantCoeff_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:253]
+theorem constantCoeff_subst (ha : HasSubst a) (f : PowerSeries R) :
+    MvPowerSeries.constantCoeff (subst a f) =
+      finsum (fun d ↦ coeff d f • MvPowerSeries.constantCoeff (a ^ d))
+
+### constantCoeff_subst_eq_zero  [Mathlib/RingTheory/PowerSeries/Substitution.lean:280]
+theorem constantCoeff_subst_eq_zero (ha : a.constantCoeff = 0) (f : PowerSeries R)
+    (hf : f.constantCoeff = 0) : MvPowerSeries.constantCoeff (subst a f) = 0
+
+### coeff_subst_X_pow  [Mathlib/RingTheory/PowerSeries/Substitution.lean:259]
+theorem coeff_subst_X_pow {k : ℕ} (hk : k ≠ 0) (f : PowerSeries R) (n : ℕ) :
+    coeff n (subst (X ^ k) f) = ite (k ∣ n) (algebraMap R S (coeff (n / k) f)) 0
+
+### constantCoeff_subst_X_pow  [Mathlib/RingTheory/PowerSeries/Substitution.lean:275]
+theorem constantCoeff_subst_X_pow {k : ℕ} (hk : k ≠ 0) (f : PowerSeries R) :
+    constantCoeff (subst (X ^ k) f) = algebraMap R S f.constantCoeff
+
+### map_algebraMap_eq_subst_X  [Mathlib/RingTheory/PowerSeries/Substitution.lean:286]
+theorem map_algebraMap_eq_subst_X (f : R⟦X⟧) :
+    map (algebraMap R S) f = subst X f
+
+### subst_coe  [Mathlib/RingTheory/PowerSeries/Substitution.lean:317]
+theorem subst_coe (ha : HasSubst a) (p : Polynomial R) :
+    subst a (p : PowerSeries R) = (Polynomial.aeval a p)
+
+### substAlgHom_coe  [Mathlib/RingTheory/PowerSeries/Substitution.lean:305]
+theorem substAlgHom_coe (ha : HasSubst a) (p : Polynomial R) :
+    substAlgHom ha (p : PowerSeries R) = ↑(Polynomial.aeval a p)
+
+### substAlgHom_X  [Mathlib/RingTheory/PowerSeries/Substitution.lean:313]
+theorem substAlgHom_X (ha : HasSubst a) :
+    substAlgHom ha (X : R⟦X⟧) = a
+
+### substAlgHom_eq_aeval  [Mathlib/RingTheory/PowerSeries/Substitution.lean:184]
+theorem substAlgHom_eq_aeval
+    [UniformSpace R] [DiscreteUniformity R] [UniformSpace S] [DiscreteUniformity S]
+    (ha : HasSubst a) :
+    (substAlgHom ha : R⟦X⟧ →ₐ[R] MvPowerSeries τ S) = PowerSeries.aeval ha.hasEval
+
+### subst_comp_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:386]
+theorem subst_comp_subst (ha : HasSubst a) (hb : HasSubst b) :
+    (subst b) ∘ (subst a) = subst (R := R) (subst b a)
+
+### subst_comp_subst_apply  [Mathlib/RingTheory/PowerSeries/Substitution.lean:390]
+theorem subst_comp_subst_apply (ha : HasSubst a) (hb : HasSubst b) (f : PowerSeries R) :
+    subst b (subst a f) = subst (subst b a) f
+
+### substAlgHom_comp_substAlgHom  [Mathlib/RingTheory/PowerSeries/Substitution.lean:378]
+theorem substAlgHom_comp_substAlgHom (ha : HasSubst a) (hb : HasSubst b) :
+    ((substAlgHom hb).restrictScalars R).comp (substAlgHom ha) = substAlgHom (ha.comp hb)
+
+### substAlgHom_comp_substAlgHom_apply  [Mathlib/RingTheory/PowerSeries/Substitution.lean:382]
+theorem substAlgHom_comp_substAlgHom_apply (ha : HasSubst a) (hb : HasSubst b) (f : PowerSeries R) :
+    (substAlgHom hb) (substAlgHom ha f) = substAlgHom (ha.comp hb) f
+
+### le_order_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:344]
+theorem le_order_subst (a : MvPowerSeries τ S) (ha : HasSubst a) (f : PowerSeries R) :
+    a.order * f.order ≤ (f.subst a).order
+
+### le_order_subst_left'  [Mathlib/RingTheory/PowerSeries/Substitution.lean:359]
+theorem le_order_subst_left' {f φ : PowerSeries R} (hf : f.constantCoeff = 0) :
+    φ.order ≤ PowerSeries.order (φ.subst f)
+
+### le_order_subst_right'  [Mathlib/RingTheory/PowerSeries/Substitution.lean:364]
+theorem le_order_subst_right' {f φ : PowerSeries R} (hf : f.constantCoeff = 0)
+    (hφ : φ.constantCoeff = 0) : f.order ≤ PowerSeries.order (φ.subst f)
+
+### map_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:329]
+theorem map_subst {a : MvPowerSeries τ R} (ha : HasSubst a) {h : R →+* S} (f : PowerSeries R) :
+    (f.subst a).map h = (f.map h).subst (a.map h)
+
+### rescale_eq_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:402]
+lemma rescale_eq_subst (r : R) (f : PowerSeries R) :
+    PowerSeries.rescale r f = PowerSeries.subst (r • X : R⟦X⟧) f
+
+### rescaleAlgHom  [Mathlib/RingTheory/PowerSeries/Substitution.lean:407]
+noncomputable abbrev rescaleAlgHom (r : R) : R⟦X⟧ →ₐ[R] R⟦X⟧
+
+### substInv  [Mathlib/RingTheory/PowerSeries/Substitution.lean:455]
+def substInv : PowerSeries R
+
+### substInvFun  [Mathlib/RingTheory/PowerSeries/Substitution.lean:444]
+def substInvFun : ℕ → R
+
+### subst_substInv_right  [Mathlib/RingTheory/PowerSeries/Substitution.lean:509]
+lemma subst_substInv_right :
+    P.subst (substInv P) = X
+
+### subst_substInv_left  [Mathlib/RingTheory/PowerSeries/Substitution.lean:541]
+lemma subst_substInv_left : P.substInv.subst P = X
+
+### substInvOfIsUnit  [Mathlib/RingTheory/PowerSeries/Substitution.lean:565]
+def substInvOfIsUnit : PowerSeries R
+
+### subst_substInvOfIsUnit_right  [Mathlib/RingTheory/PowerSeries/Substitution.lean:587]
+lemma subst_substInvOfIsUnit_right : P.subst (substInvOfIsUnit P hP') = X
+
+### subst_substInvOfIsUnit_left  [Mathlib/RingTheory/PowerSeries/Substitution.lean:592]
+lemma subst_substInvOfIsUnit_left : (P.substInvOfIsUnit hP').subst P = X
+
+### eq_substInvOfIsUnit_of_subst_eq_X  [Mathlib/RingTheory/PowerSeries/Substitution.lean:598]
+lemma eq_substInvOfIsUnit_of_subst_eq_X {Q : R⟦X⟧} (hQ : HasSubst Q) (hPQ : P.subst Q = X) :
+    Q = P.substInvOfIsUnit hP'
+
+### subst_eq_X_of_subst_eq_X  [Mathlib/RingTheory/PowerSeries/Substitution.lean:607]
+lemma subst_eq_X_of_subst_eq_X {Q : R⟦X⟧} (hQ : HasSubst Q) (hPQ : P.subst Q = X) :
+    Q.subst P = X
+
+### constantCoeff_substInv  [Mathlib/RingTheory/PowerSeries/Substitution.lean:528]
+lemma constantCoeff_substInv : P.substInv.constantCoeff = 0
+
+### HasSubst.substInv  [Mathlib/RingTheory/PowerSeries/Substitution.lean:531]
+lemma HasSubst.substInv : HasSubst P.substInv
+
+### coeff_one_substInvOfIsUnit  [Mathlib/RingTheory/PowerSeries/Substitution.lean:581]
+lemma coeff_one_substInvOfIsUnit : (P.substInvOfIsUnit hP').coeff 1 = hP'.unit⁻¹
+
+### subst_tsum  [Mathlib/RingTheory/PowerSeries/Substitution.lean:622]
+lemma subst_tsum (hx : Summable x) (ha : HasSubst a) :
+    (∑' i, x i).subst a = ∑' i, ((x i).subst a)
+
+### summable_subst  [Mathlib/RingTheory/PowerSeries/Substitution.lean:627]
+lemma summable_subst (hx : Summable x) (ha : HasSubst a) :
+    Summable fun i ↦ (x i).subst a
+
+### isUnit_iff_constantCoeff  [Mathlib/RingTheory/PowerSeries/Inverse.lean:111]
+theorem isUnit_iff_constantCoeff {φ : R⟦X⟧} :
+    IsUnit φ ↔ IsUnit (constantCoeff φ)
+
+### invOfUnit  [Mathlib/RingTheory/PowerSeries/Inverse.lean:84]
+def invOfUnit (φ : R⟦X⟧) (u : Rˣ) : R⟦X⟧
+
+### constantCoeff_invOfUnit  [Mathlib/RingTheory/PowerSeries/Inverse.lean:97]
+theorem constantCoeff_invOfUnit (φ : R⟦X⟧) (u : Rˣ) :
+    constantCoeff (invOfUnit φ u) = ↑u⁻¹
+
+### invOfUnit_mul  [Mathlib/RingTheory/PowerSeries/Inverse.lean:107]
+theorem invOfUnit_mul (φ : R⟦X⟧) (u : Rˣ) (h : constantCoeff φ = u) :
+    invOfUnit φ u * φ = 1
+
+### invOfUnit_eq  [Mathlib/RingTheory/PowerSeries/Inverse.lean:157]
+theorem invOfUnit_eq (φ : k⟦X⟧) (h : constantCoeff φ ≠ 0) :
+    invOfUnit φ (Units.mk0 _ h) = φ⁻¹
+
+### Unit_of_divided_by_X_pow_order  [Mathlib/RingTheory/PowerSeries/Inverse.lean:228]
+def Unit_of_divided_by_X_pow_order (f : k⟦X⟧) : k⟦X⟧ˣ
+
+### isUnit_divided_by_X_pow_order  [Mathlib/RingTheory/PowerSeries/Inverse.lean:236]
+theorem isUnit_divided_by_X_pow_order {f : k⟦X⟧} (hf : f ≠ 0) :
+    IsUnit (divXPowOrder f)
+
+### order_ne_zero_iff_constCoeff_eq_zero  [Mathlib/RingTheory/PowerSeries/Order.lean:222]
+theorem order_ne_zero_iff_constCoeff_eq_zero {φ : R⟦X⟧} :
+    φ.order ≠ 0 ↔ φ.constantCoeff = 0
+
+### le_order_pow_of_constantCoeff_eq_zero  [Mathlib/RingTheory/PowerSeries/Order.lean:226]
+theorem le_order_pow_of_constantCoeff_eq_zero (n : ℕ) (hf : φ.constantCoeff = 0) :
+    n ≤ (φ ^ n).order
+
+### constantCoeff_divXPowOrder  [Mathlib/RingTheory/PowerSeries/Order.lean:300]
+lemma constantCoeff_divXPowOrder {f : R⟦X⟧} :
+    constantCoeff (divXPowOrder f) = coeff f.order.toNat f
+
+### HasEval  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:61]
+abbrev HasEval (a : S)
+
+### hasEval_def  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:63]
+theorem hasEval_def (a : S) : HasEval a ↔ IsTopologicallyNilpotent a
+
+### aeval  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:211]
+noncomputable def aeval (ha : HasEval a) :
+    PowerSeries R →ₐ[R] S
+
+### coe_aeval  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:215]
+theorem coe_aeval (ha : HasEval a) :
+    ↑(aeval ha) = eval₂ (algebraMap R S) a
+
+### eval₂  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:132]
+noncomputable def eval₂ : PowerSeries R → S
+
+### comp_aeval  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:241]
+theorem comp_aeval (ha : HasEval a)
+    {T : Type*} [CommRing T] [UniformSpace T] [IsUniformAddGroup T]
+    [IsTopologicalRing T] [IsLinearTopology T T]
+    [T2Space T] [Algebra R T] [ContinuousSMul R T] [CompleteSpace T]
+    {ε : S →ₐ[R] T} (hε : Continuous ε) :
+    ε.comp (aeval ha) = aeval (ha.map hε)
+
+### aeval_unique  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:228]
+theorem aeval_unique {ε : PowerSeries R →ₐ[R] S} (hε : Continuous ε) :
+    aeval (HasEval.X.map hε) = ε
+
+### eval₂_eq_tsum  [Mathlib/RingTheory/PowerSeries/Evaluation.lean:186]
+theorem eval₂_eq_tsum (hφ : Continuous φ) (ha : HasEval a) (f : PowerSeries R) :
+    PowerSeries.eval₂ φ a f =
+      ∑' d : ℕ, φ (coeff d f) * a ^ d
+
+### constantCoeff  [Mathlib/RingTheory/PowerSeries/Basic.lean:143]
+def constantCoeff : R⟦X⟧ →+* R
+
+### constantCoeff_eq  [Mathlib/RingTheory/PowerSeries/Basic.lean:146]
+theorem constantCoeff_eq (f : R⟦X⟧) :
+    constantCoeff f = MvPowerSeries.constantCoeff f
+
+### coeff_zero_eq_constantCoeff  [Mathlib/RingTheory/PowerSeries/Basic.lean:176]
+theorem coeff_zero_eq_constantCoeff : ⇑(coeff (R := R) 0) = constantCoeff
+
+### constantCoeff_C  [Mathlib/RingTheory/PowerSeries/Basic.lean:313]
+theorem constantCoeff_C (a : R) : constantCoeff (C a) = a
+
+### constantCoeff_X  [Mathlib/RingTheory/PowerSeries/Basic.lean:329]
+theorem constantCoeff_X : constantCoeff (R := R) X = 0
+
+### map  [Mathlib/RingTheory/PowerSeries/Basic.lean:450]
+def map : R⟦X⟧ →+* S⟦X⟧
+
+### map_comp  [Mathlib/RingTheory/PowerSeries/Basic.lean:457]
+theorem map_comp : map (g.comp f) = (map g).comp (map f)
+
+### coeff_map  [Mathlib/RingTheory/PowerSeries/Basic.lean:461]
+theorem coeff_map (n : ℕ) (φ : R⟦X⟧) : coeff n (map f φ) = f (coeff n φ)
+
+### mapAlgHom  [Mathlib/RingTheory/PowerSeries/Basic.lean:733]
+def mapAlgHom (φ : A →ₐ[R] B) :
+    PowerSeries A →ₐ[R] PowerSeries B
+
+### isUnit_constantCoeff  [Mathlib/RingTheory/PowerSeries/Basic.lean:425]
+theorem isUnit_constantCoeff (φ : R⟦X⟧) (h : IsUnit φ) : IsUnit (constantCoeff φ)
+
+### expand  [Mathlib/RingTheory/PowerSeries/Expand.lean:33]
+noncomputable def expand : PowerSeries R →ₐ[R] PowerSeries R
+
+### expand_apply  [Mathlib/RingTheory/PowerSeries/Expand.lean:36]
+theorem expand_apply (f : PowerSeries R) : expand p hp f = subst (X ^ p) f
+
+### expand_subst  [Mathlib/RingTheory/PowerSeries/Expand.lean:75]
+theorem expand_subst {f : MvPowerSeries τ S} (hf : HasSubst f) (φ : PowerSeries S) :
+    (subst f φ).expand p hp = subst (f.expand p hp) φ
+
+### constantCoeff_expand  [Mathlib/RingTheory/PowerSeries/Expand.lean:92]
+theorem constantCoeff_expand (φ : PowerSeries R) :
+    (φ.expand p hp).constantCoeff = φ.constantCoeff
+
+### expand_X  [Mathlib/RingTheory/PowerSeries/Expand.lean:56]
+theorem expand_X : expand p hp (X (R := R)) = X ^ p
+
+### coeff_expand  [Mathlib/RingTheory/PowerSeries/Expand.lean:110]
+theorem coeff_expand {n : ℕ} :
+    (φ.expand p hp).coeff n = if p ∣ n then φ.coeff (n / p) else 0
+
+### HasSubst  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:78]
+structure HasSubst (a : σ → MvPowerSeries τ S) : Prop
+
+### subst  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:190]
+noncomputable def subst (a : σ → MvPowerSeries τ S) (f : MvPowerSeries σ R) :
+    MvPowerSeries τ S
+
+### substAlgHom  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:210]
+noncomputable def substAlgHom (ha : HasSubst a) :
+    MvPowerSeries σ R →ₐ[R] MvPowerSeries τ S
+
+### coe_substAlgHom  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:229]
+theorem coe_substAlgHom (ha : HasSubst a) :
+    ⇑(substAlgHom ha) = subst (R := R) a
+
+### coeff_subst  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:310]
+theorem coeff_subst (ha : HasSubst a) (f : MvPowerSeries σ R) (e : τ →₀ ℕ) :
+    coeff e (subst a f) =
+      finsum (fun d ↦ coeff d f • (coeff e (d.prod fun s e => (a s) ^ e)))
+
+### constantCoeff_subst  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:319]
+theorem constantCoeff_subst (ha : HasSubst a) (f : MvPowerSeries σ R) :
+    constantCoeff (subst a f) =
+      finsum (fun d ↦ coeff d f • (constantCoeff (d.prod fun s e => (a s) ^ e)))
+
+### constantCoeff_subst_eq_zero  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:324]
+theorem constantCoeff_subst_eq_zero (ha : HasSubst a) (ha' : ∀ i, (a i).constantCoeff = 0)
+    {f : MvPowerSeries σ R} (hf : f.constantCoeff = 0) :
+    MvPowerSeries.constantCoeff (subst a f) = 0
+
+### subst_comp_subst_apply  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:477]
+theorem subst_comp_subst_apply (ha : HasSubst a) (hb : HasSubst b) (f : MvPowerSeries σ R) :
+    subst b (subst a f) = subst (fun s ↦ subst b (a s)) f
+
+### subst_eq_eval₂  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:196]
+theorem subst_eq_eval₂
+    [UniformSpace R] [DiscreteUniformity R] [UniformSpace S] [DiscreteUniformity S] :
+    (subst : (σ → MvPowerSeries τ S) → (MvPowerSeries σ R) → _) = eval₂ (algebraMap _ _)
+
+### IsNilpotent_subst  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:429]
+lemma IsNilpotent_subst (ha : HasSubst a)
+    {f : MvPowerSeries σ R} (hf : IsNilpotent f.constantCoeff) :
+    IsNilpotent (constantCoeff (f.subst a))
+
+### hasSubst_of_constantCoeff_zero  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:155]
+theorem hasSubst_of_constantCoeff_zero [Finite σ]
+    {a : σ → MvPowerSeries τ S} (ha : ∀ s, constantCoeff (a s) = 0) :
+    HasSubst a
+
+### subst_self  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:235]
+theorem subst_self : subst (MvPowerSeries.X : σ → MvPowerSeries σ R) = id
+
+### map_subst  [Mathlib/RingTheory/MvPowerSeries/Substitution.lean:349]
+theorem map_subst {a : σ → MvPowerSeries τ R} (ha : HasSubst a) {h : R →+* S}
+    (f : MvPowerSeries σ R) :
+    (f.subst a).map h = (f.map h).subst (fun i => (a i).map h)

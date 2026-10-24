@@ -11,9 +11,11 @@
 | 任务 | 判定 | 最硬的一条语义问题 |
 |---|---|---|
 | **T002** | **UNDECIDABLE**（实质 `NOT_YET`） | `.tmp/nodes.json` 与 `fact-tree/core-germ-2026-10-24.json` **逐字段完全相同**（25 节点、42 边、18 selected 全一致），字节 SHA 差异仅序列化格式。任务卡要的「18 行类型摘要」根本不存在，无 `SUMMARY.md`/`delivery.json`/`replay`。内容层面无语义缺陷。 |
-| **T008** | **UNDECIDABLE**（1 条实质错误） | `letI` 论述**反向**：`ARROW-TABLE.md:87` 与 `SUMMARY.md:29` 称忘写 `letI` 会「静默落到另一个作用实例」。独立探针实测：省 `letI` 是 **hard error**（`failed to synthesize MulDistribMulAction ↥(decompositionSubgroup) (Mu n κ)`、`HSMul` 合成失败），不是静默替换。全工程只有 `Basic.lean:86`（作用群 = `Gal(Ω/K)`，**不是** `Gal(κ/k)`）与 `Decomposition.lean:140`（`def`，不入实例搜索）两处，**不存在可供误落的目标实例**。 |
-| T001 T005 T066 | **NOT_YET** | 目录不存在 |
-| T003 T015 T021 T049 T065 T097 | **未审（本轮）** | 目录已有内容（T003 有 `SUMMARY.md`；T097 有 `SUMMARY.md`+`delivery.json`），待下轮 |
+| **T008** | **UNDECIDABLE**（1 条实质错误） | `letI` 论述**反向**：`ARROW-TABLE.md:87-90` 与 `SUMMARY.md:29` 称忘写 `letI` 会「静默落到另一个作用实例」。独立探针实测：省 `letI` 是 **hard error**（`failed to synthesize MulDistribMulAction ↥(decompositionSubgroup) (Mu n κ)`、`HSMul` 合成失败），不是静默替换。全工程只有 `Basic.lean:86`（作用群 = `Gal(Ω/K)`，**不是** `Gal(κ/k)`）与 `Decomposition.lean:140`（`def`，不入实例搜索）两处，**不存在可供误落的目标实例**。 |
+| **T097** | **PASS** | 量词形状逐字正确（`EtaAlg.lean:173-175`：∀ 外、∃ 内、`ι` 先于 `S`）；禁式 `for all/every/any S` 等在三份来源独立复算**全 0**；U2「不读回 IUT」经核为**保守**（显式留痕＋归属到 Cor. 3.12 的 proof Step (xi)＋不裁定争议），非回避。无可判错误。 |
+| **T066** | **PASS** | 「4 字段皆假设」经核成立（`Thm311Rest.lean:272/274/276/279` 为裸 `structure` 字段）；唯一居民 `const`（`:290-294`）确为退化，独立全扫确认；`IsCyc`（`CyclotomicRigidity.lean:112`）确为 `def … : Prop` 关系而非 `≃+`，其「不能说该同构」的使用禁令**必要且准确**。四项可证伪声明（baseline 未钉、两文件 SHA、字节相同副本、5320 字节异文件）全部独立命中。 |
+| T001 T005 | **NOT_YET** | 目录不存在 |
+| T003 T015 T021 T049 T065 | **未审（本轮）** | 目录已有内容（T003 有 `SUMMARY.md`），待下轮 |
 
 ---
 
@@ -67,12 +69,27 @@
 5. **实例/`def` 的消费方式**：`@[implicit_reducible] noncomputable def` 形式的「实例」
    **默认不参与实例合成**，故不是「会静默选错」，而是「根本合成不出来」。判此类论断须实测
    `#synth` / 省略测试，不能凭印象。
+6. **正确范式（T097）——「外部重构 vs 原命题」的处置**：LANA 的 S 版 (9-1) 是**重构**，
+   Mochizuki 的 Cor. 3.12 只是 `−|log Θ| ≥ −|log q|` 的成员关系。T097 的处理是三层同时给出：
+   ① 逐字引原文并锚行号；② 显式列 U2 声明「不把 S 版读回 IUT」；③ 不裁定 LANA 与 Scholze–Stix 之争。
+   **「不读回」不等于「回避」**：回避是沉默，保守是留痕。判此类须看是否 (a) 显式留缺口、(b) 归属精确到
+   proof 步骤而非定理陈述、(c) 拒绝用外部争议为自己加分。
+7. **正确范式（T066）——「已构造」的两层要分开说**：`horizMap`（`Thm311Rest.lean:298-300`）确是 `def`，
+   但它的值完全由 `kum`/`perm`（两个**假设字段**）复合而成。正确记法是同时说
+   「`horizMap` 已构造」**与**「它的来源未构造」，即 `source-audit.json` 的
+   `CONSTRUCTED from given data` 这一档 + 「none of them is a source for the corresponding parameter」。
+   只报前者＝把结构当来源；只报后者＝否认已有工作。两档都在才算准确。
+8. **`Prop` 关系冒充映射**：`Env.IsCyc`（`CyclotomicRigidity.lean:112`）是
+   `def IsCyc (t m) : Prop := t ∈ taut ∧ m ∈ mu ∧ t + m ∈ thetaSplit`，**不是** `≃+`。
+   凡来源里的「同构」只以关系形式形式化时，引用必须写「该同构的**图**」，不能写「该同构」。
 
 ---
 
 ## 5. 未决与下一轮
 
-- **待审**：T003、T015、T021、T049、T065、T097（目录已有内容）。优先 T003 与 T097（均已有 `SUMMARY.md`）。
-- **待出现**：T001、T005、T066（`NOT_YET`）；后续新增目录按同样口径审。
+- **待审**：T003、T015、T021、T049、T065（目录已有内容）。优先 T003（已有 `SUMMARY.md`）。
+- **待出现**：T001、T005（`NOT_YET`）；后续新增目录按同样口径审。
+- **T002 待复检**：若作者补交 `SUMMARY.md` + 18 行类型摘要 + `delivery.json` + `replay`，可升为可判定。
+- **T008 待复检**：若作者按 `T008.md` §7 修正 `letI` 一处表述，可升为 `PASS`（其余 4/5 自述与本官核验一致）。
 - **审查边界**：本官只审数学断言与语义。`delivery.json` 字段完整性、命令 argv/退出码链条
   属 A 类/手续类审查范围，本报告不对其下结论。

@@ -1,0 +1,69 @@
+{
+  "counts": {
+    "FIELD": 13,
+    "DEF_GEN": 7
+  },
+  "struct_fields": {
+    "StripKummer": [
+      "strip",
+      "coric",
+      "link",
+      "kum",
+      "scale"
+    ],
+    "RigidDGalStrip": [
+      "strip",
+      "kappa"
+    ],
+    "GalKummer": [
+      "kum",
+      "gal"
+    ],
+    "LatticeKummer": [
+      "kum",
+      "unit"
+    ]
+  },
+  "files_present": true,
+  "def_gen_producers_are_decls": [
+    {
+      "producer": "GalKummer.toAnabelianKummer",
+      "ok": true,
+      "occurrences": 5
+    },
+    {
+      "producer": "GalKummer.toLatticeKummer",
+      "ok": true,
+      "occurrences": 20
+    },
+    {
+      "producer": "StripKummer.toGalKummer",
+      "ok": true,
+      "occurrences": 6
+    },
+    {
+      "producer": "StripKummer.gal",
+      "ok": true,
+      "occurrences": 7
+    },
+    {
+      "producer": "StripKummer.liftIso",
+      "ok": true,
+      "occurrences": 6
+    },
+    {
+      "producer": "StripScaling.galInduced",
+      "ok": false,
+      "occurrences": 5
+    },
+    {
+      "producer": "StripScaling.shift_eq_zero",
+      "ok": false,
+      "occurrences": 3
+    }
+  ],
+  "consumers_found": 13,
+  "consumers_total": 13,
+  "scaling_producers_found": 5,
+  "scaling_producers_total": 5
+}

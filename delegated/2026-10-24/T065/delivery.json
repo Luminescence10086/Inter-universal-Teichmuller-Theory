@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "task_id": "T065",
+  "task_card_sha256": "6c293e0c5f509ad5c7884561be054199601ffa2398515538dde31727cef3d1c2",
+  "baseline_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+  "status": "RESEARCH_ONLY",
+  "summary_file": "SUMMARY.md",
+  "gap_file": null,
+  "replay_file": "replay.py",
+  "base_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+  "returned_commit": null,
+  "artifacts": [
+    {
+      "path": "SUMMARY.md",
+      "sha256": "ebdf28889f60f9cc9d4ed62f03877799e826763bfd757244f2f9794130e723c2",
+      "role": "summary"
+    },
+    {
+      "path": "replay.py",
+      "sha256": "712470258abf75e2b6b6021dbc8aebaa1d4c84f65aaedc03ea44d48eb4244f78",
+      "role": "replay"
+    },
+    {
+      "path": "trace_fields.py",
+      "sha256": "67ae812be62428ae7c64d2ffd059480469577935e1ff133c3eced3895d3a022b",
+      "role": "tracer"
+    },
+    {
+      "path": "verify_pins.py",
+      "sha256": "929c113739116ff4280ceea568be0c08903b262001ab0ee29035d085235e775d",
+      "role": "line_pin_verifier"
+    },
+    {
+      "path": "logs/fields.json",
+      "sha256": "8df95be56ed8a4cfc11e8938c1b626fa5ce971e4db9d8d6fe52004e641bb08b2",
+      "role": "provenance_rows"
+    },
+    {
+      "path": "logs/pins.json",
+      "sha256": "ac37767537c4108ed05638a0cdd40ddf8b06138a37bd3cae58e6ec2aa3741c0d",
+      "role": "source_line_pins"
+    },
+    {
+      "path": "logs/replay.run1.stdout.log",
+      "sha256": "940c7f86727919e7d71b3f379abdafa4e97a80cf181997e6fd26146b983d5e92",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/replay.run2.stdout.log",
+      "sha256": "940c7f86727919e7d71b3f379abdafa4e97a80cf181997e6fd26146b983d5e92",
+      "role": "stdout_repeat_determinism"
+    },
+    {
+      "path": "logs/trace_fields.stdout.log",
+      "sha256": "e3291282c6d49249b9098bb6c2b2fd9430697048731bafdaefb7846969424072",
+      "role": "stdout_inner_tracer"
+    },
+    {
+      "path": "logs/trace_fields.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr_inner_tracer"
+    },
+    {
+      "path": "logs/verify_pins.stdout.log",
+      "sha256": "ac37767537c4108ed05638a0cdd40ddf8b06138a37bd3cae58e6ec2aa3741c0d",
+      "role": "stdout_inner_verifier"
+    },
+    {
+      "path": "logs/verify_pins.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr_inner_verifier"
+    },
+    {
+      "path": "logs/trace.stdout.log",
+      "sha256": "98559bf7acd7f68233c9de286ffcec6b6a5f4c13e7219f1d0f93ece6105c82ca",
+      "role": "stdout_prior_run_utf16"
+    },
+    {
+      "path": "logs/trace.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr_prior_run"
+    },
+    {
+      "path": "logs/preflight.stdout.log",
+      "sha256": "4e73ff6ea4a3eb4112b2e0d4fc017074319c9b41f86c450359d6fbe7e2aa02be",
+      "role": "official_preflight_stdout"
+    },
+    {
+      "path": "logs/preflight.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "official_preflight_stderr"
+    },
+    {
+      "path": "preflight.py",
+      "sha256": "58d13fe5f98d9357c7405ffe12489201209efabfd66f2c61293f504654616aec",
+      "role": "preflight_driver"
+    }
+  ],
+  "declarations": [],
+  "declarations_note": "Empty on purpose. This task is a source-provenance audit, not a Lean export; PROTOCOL.md requires declarations and #print axioms only for exported Lean results. Every Lean type quoted in SUMMARY.md is the SOURCE's type at the line and file SHA256 named there, not a result of this task.",
+  "runs": [
+    {
+      "kind": "source_provenance_replay",
+      "argv": [
+        "python",
+        "delegated/2026-10-24/T065/replay.py",
+        "--root",
+        ".",
+        "--out",
+        "delegated/2026-10-24/T065/logs"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.628,
+      "stdout": "logs/replay.run1.stdout.log",
+      "stderr": "logs/trace_fields.stderr.log",
+      "inputs": [
+        {
+          "path": "replay.py",
+          "sha256": "712470258abf75e2b6b6021dbc8aebaa1d4c84f65aaedc03ea44d48eb4244f78"
+        }
+      ],
+      "result_line": "RESULT: PINS_OK",
+      "checks_passed": 9,
+      "checks_failed": 0,
+      "checks_detail": "9 upstream Lean files re-hashed to the pinned SHA256 and line count; both inner scripts exit 0; fields.json and pins.json regenerated with stable hashes",
+      "stderr_note": "replay.py itself writes no stderr; the recorded file logs/trace_fields.stderr.log is the inner tracer's stderr and is empty (SHA256 e3b0c442...7852b855)."
+    },
+    {
+      "kind": "source_provenance_replay",
+      "argv": [
+        "python",
+        "delegated/2026-10-24/T065/replay.py",
+        "--root",
+        ".",
+        "--out",
+        "delegated/2026-10-24/T065/logs"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.627,
+      "stdout": "logs/replay.run2.stdout.log",
+      "stderr": "logs/trace_fields.stderr.log",
+      "inputs": [
+        {
+          "path": "replay.py",
+          "sha256": "712470258abf75e2b6b6021dbc8aebaa1d4c84f65aaedc03ea44d48eb4244f78"
+        }
+      ],
+      "result_line": "RESULT: PINS_OK",
+      "checks_passed": 9,
+      "checks_failed": 0,
+      "repeat_of": "run 1",
+      "determinism": "run-2 stdout is byte-identical to run-1 stdout (both SHA256 940c7f86727919e7d71b3f379abdafa4e97a80cf181997e6fd26146b983d5e92); logs/fields.json and logs/pins.json were overwritten with unchanged hashes."
+    },
+    {
+      "kind": "official_preflight",
+      "argv": [
+        "python",
+        "handoffs/agent-batch-2026-10-24/check_delivery.py",
+        "--delivery",
+        "delegated/2026-10-24/T065/delivery.json"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.5,
+      "stdout": "logs/preflight.stdout.log",
+      "stderr": "logs/preflight.stderr.log",
+      "inputs": [],
+      "result_line": "RESULT: PACKAGE_COMPLETE",
+      "scope_note": "check_delivery.py verifies material and hashes only; it does not execute the delivery and does not check mathematical semantics. PACKAGE_COMPLETE is not a Lean or core-gap pass. Its output is a fixed 4-key JSON object that echoes no hash, so registering this log as an artifact is not self-referential."
+    }
+  ],
+  "dependency_deliveries": [],
+  "upstream_inputs": [
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "lines": 252,
+      "note": "Defines `StripScaling` (l.127), `StripKummer` (l.168; fields l.170-178), `StripKummer.gal` (l.185), `toGalKummer` (l.189), `toLatticeKummer` (l.192), `liftIso` (l.206), `trivial` (l.218). Recomputed, not read from baseline."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55",
+      "lines": 460,
+      "note": "`exists_factorGalInduced_of_linear` (l.215) is the only real per-factor scaling producer and is CONDITIONAL; `AnabelianKummer` (l.361), `GalKummer` (l.368), `toLatticeKummer` (l.379/415), `toAnabelianKummer` (l.412), `trivial` (l.428)."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "sha256": "c250443ede2e12be428f7e84ec7b61aab82eab724a1134358152eccdb877e4e4",
+      "lines": 312,
+      "note": "`LatticeKummer` (l.248; fields l.250,252); degenerate scalings `factorUnitInduced_one` (l.158) / `factorUnitInduced_neg_one` (l.162); `trivial` (l.294), `alt` (l.300)."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/HodgeTheater/StripLift.lean",
+      "sha256": "cd8fe6448d3a6d96e9988b38618ceefb0518baf6d0a93b8d73f261c229bd21b4",
+      "lines": 533,
+      "note": "`RigidDGalStrip` (l.428; fields l.430,432), `taut` (l.438) degenerate only, `gal` (l.443), `DGalStrip` abbrev (l.373)."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/GalKummerAll.lean",
+      "sha256": "990ec0689c1b54164becdad7ba3eb22a9d8bd486b762243625db46706f60ed29",
+      "lines": 676,
+      "note": "`FullKummer` (l.535) / `FullGalKummer` (l.544) with fields l.537-539 and l.546-550; `FullKummer.kum` (l.557), `toLatticeKummer` (l.560); `FullGalKummer.toFullKummer` (l.635); `ArcScaling` is an abbrev (l.408). NOT in baseline.json -- identity established by recomputed SHA256."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Thm311Rest.lean",
+      "sha256": "01d439345e489cc92be6e19db7e2b30a9a9536f788244aaa69a2066de3a69a2d",
+      "lines": 585,
+      "note": "`BiCoricKummer` (l.164) with 4 fields; `ofLattice` (l.181) fills `kum` with `(PrimeStrip.nonempty_iso _ _).some` -- arbitrary choice, not construction."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/HodgeTheater/PrimeStrip.lean",
+      "sha256": "90653fa9c7e5efba402134a079b1267373affb22a8ee89264b15dffa796cb598",
+      "lines": 531,
+      "note": "`tautological` (l.224) degenerate; `nonempty_iso` (l.227) proves ANY two prime-strips are isomorphic, which is why `StripKummer.link` is fillable but carries no source information."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Scaling.lean",
+      "sha256": "1624cabcd42c0a25f43898b0015fba1fc4517e0c2424fd7e22b4a8147330d4a4",
+      "lines": 439,
+      "note": "`Scaling` (l.121) -- `u` (l.123) is arbitrary at the definition site; the ultimate source every `kum` field copies from."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/MultiContainer.lean",
+      "sha256": "a1aef71ec5fefbd4fe809eae537ff9e258bdb9297ce9319c06d3efed89960597",
+      "lines": 513,
+      "note": "`MultiContainer` (l.114) mirrors the same pattern one level up: `kum` (l.118) is a structure field."
+    },
+    {
+      "path": "research/core-next-2026-10-23/native-source-square.md",
+      "sha256": null,
+      "note": "Task-card input; NOT re-read or re-hashed by this task. T066 (same batch) audited the neighbouring `MonoThetaKummer`/`BiCoricKummer` pattern and reached the same typed-negative shape; this task reaches it independently at FIELD level."
+    },
+    {
+      "path": "research/core-comparison-2026-10-24/GAP-shared-anchor-source.md",
+      "sha256": null,
+      "note": "Task-card input; NOT re-read by this task. Prior OPEN gap already forbids treating environment fields as constructed sources; this audit confirms it field by field."
+    }
+  ],
+  "environment": {
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc2 (from baseline.json; NOT invoked by this task)",
+    "lean_build_performed": false,
+    "python": "3.14.5",
+    "powershell": "5.1.26100.9711",
+    "os": "Windows",
+    "notes": "Static reading plus byte-level hashing only. No Lean file was compiled; no axiom log exists because no declaration is exported. No dependency delivery is claimed: T065's dependency list is empty."
+  },
+  "editor": {
+    "performed": false,
+    "evidence_file": null,
+    "source_sha256": null,
+    "note": "No VS Code / editor admission claimed or implied."
+  },
+  "fact_tree": {
+    "admission_requested": false,
+    "note": "This card grants no fact-tree admission; no Boundary file and no main-line source was modified."
+  },
+  "write_scope": {
+    "allowed": "delegated/2026-10-24/T065/",
+    "written": [
+      "delegated/2026-10-24/T065/SUMMARY.md",
+      "delegated/2026-10-24/T065/delivery.json",
+      "delegated/2026-10-24/T065/replay.py",
+      "delegated/2026-10-24/T065/verify_pins.py",
+      "delegated/2026-10-24/T065/logs/fields.json",
+      "delegated/2026-10-24/T065/logs/pins.json",
+      "delegated/2026-10-24/T065/logs/replay.run1.stdout.log",
+      "delegated/2026-10-24/T065/logs/replay.run2.stdout.log",
+      "delegated/2026-10-24/T065/logs/trace_fields.stdout.log",
+      "delegated/2026-10-24/T065/logs/trace_fields.stderr.log",
+      "delegated/2026-10-24/T065/logs/verify_pins.stdout.log",
+      "delegated/2026-10-24/T065/logs/verify_pins.stderr.log",
+      "delegated/2026-10-24/T065/logs/preflight.stdout.log",
+      "delegated/2026-10-24/T065/logs/preflight.stderr.log"
+    ],
+    "pre_existing_untouched": [
+      "delegated/2026-10-24/T065/trace_fields.py",
+      "delegated/2026-10-24/T065/logs/trace.stdout.log",
+      "delegated/2026-10-24/T065/logs/trace.stderr.log"
+    ],
+    "outside_scope_touched": []
+  },
+  "scope_note": "RESEARCH_ONLY field-level provenance audit. The load-bearing result is NEGATIVE and typed: across the 8 Kummer/strip environments examined (StripKummer, GalKummer, AnabelianKummer, LatticeKummer, RigidDGalStrip, FullKummer, FullGalKummer, BiCoricKummer) every one of the 19 fields is supplied by a structure field, and ZERO is generated by a definition. The 7 DEF_GEN declarations in the repository produce DOWNSTREAM fields of a DIFFERENT structure while copying `kum` verbatim. The only place a per-factor scaling `b` is actually computed is `exists_factorGalInduced_of_linear`, and it takes linearity as a hypothesis; every other inhabitant is degenerate (b = 1 or b = -1). Fields whose producer could not be established are marked UNRESOLVED in SUMMARY.md rather than matched by similar name. This task does not claim any mathematical advance, does not close Step (xi) or Corollary 3.12, and does not address abc."
+}

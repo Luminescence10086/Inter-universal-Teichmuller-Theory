@@ -1,0 +1,378 @@
+{
+  "files": [
+    {
+      "file": "Iut/LogLink/StripKummer.lean",
+      "present": true,
+      "bytes": 12590,
+      "lines": 252,
+      "sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "pins": [
+        {
+          "line": 127,
+          "text": "def StripScaling (φ : ∀ w : Vnon D, LocGal (D.V.sectFin w) ≃ₜ* LocGal (D.V.sectFin w))",
+          "ok": true
+        },
+        {
+          "line": 138,
+          "text": "theorem StripScaling.galInduced {φ : ∀ w : Vnon D, LocGal (D.V.sectFin w) ≃ₜ* _}",
+          "ok": true
+        },
+        {
+          "line": 145,
+          "text": "theorem StripScaling.unitInduced {φ : ∀ w : Vnon D, LocGal (D.V.sectFin w) ≃ₜ* _}",
+          "ok": true
+        },
+        {
+          "line": 150,
+          "text": "theorem StripScaling.shift_eq_zero {φ : ∀ w : Vnon D, LocGal (D.V.sectFin w) ≃ₜ* _}",
+          "ok": true
+        },
+        {
+          "line": 168,
+          "text": "structure StripKummer (L : LogThetaLattice D) where",
+          "ok": true
+        },
+        {
+          "line": 170,
+          "text": "  strip : ℤ × ℤ → RigidDGalStrip D",
+          "ok": true
+        },
+        {
+          "line": 172,
+          "text": "  coric : RigidDGalStrip D",
+          "ok": true
+        },
+        {
+          "line": 174,
+          "text": "  link : ∀ a, (strip a).strip.Iso coric.strip",
+          "ok": true
+        },
+        {
+          "line": 176,
+          "text": "  kum : ℤ × ℤ → Scaling D",
+          "ok": true
+        },
+        {
+          "line": 178,
+          "text": "  scale : ∀ a, StripScaling D (RigidDGalStrip.gal (link a)) (kum a)",
+          "ok": true
+        },
+        {
+          "line": 185,
+          "text": "def gal (a : ℤ × ℤ) (w : Vnon D) : LocGal (D.V.sectFin w) ≃ₜ* LocGal (D.V.sectFin w) :=",
+          "ok": true
+        },
+        {
+          "line": 189,
+          "text": "def toGalKummer : GalKummer L := ⟨K.kum, fun a => (K.scale a).galInduced⟩",
+          "ok": true
+        },
+        {
+          "line": 192,
+          "text": "def toLatticeKummer : LatticeKummer L := K.toGalKummer.toLatticeKummer",
+          "ok": true
+        },
+        {
+          "line": 206,
+          "text": "def liftIso (a : ℤ × ℤ) : (K.strip a).toF.Iso K.coric.toF :=",
+          "ok": true
+        },
+        {
+          "line": 218,
+          "text": "def trivial : StripKummer L where",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/LogLink/GalKummer.lean",
+      "present": true,
+      "bytes": 22657,
+      "lines": 460,
+      "sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55",
+      "pins": [
+        {
+          "line": 215,
+          "text": "theorem exists_factorGalInduced_of_linear (hov : IsOver K p v)",
+          "ok": true
+        },
+        {
+          "line": 231,
+          "text": "theorem factorGalInduced_one : FactorGalInduced (1 : Factor K p v) :=",
+          "ok": true
+        },
+        {
+          "line": 238,
+          "text": "theorem factorUnitsAut_neg_one : FactorUnitsAut (-1 : Factor K p v) :=",
+          "ok": true
+        },
+        {
+          "line": 361,
+          "text": "structure AnabelianKummer (L : LogThetaLattice D) where",
+          "ok": true
+        },
+        {
+          "line": 363,
+          "text": "  kum : ℤ × ℤ → Scaling D",
+          "ok": true
+        },
+        {
+          "line": 365,
+          "text": "  anab : ∀ a, AnabelianScaling D (kum a)",
+          "ok": true
+        },
+        {
+          "line": 368,
+          "text": "structure GalKummer (L : LogThetaLattice D) where",
+          "ok": true
+        },
+        {
+          "line": 370,
+          "text": "  kum : ℤ × ℤ → Scaling D",
+          "ok": true
+        },
+        {
+          "line": 372,
+          "text": "  gal : ∀ a, GalInducedScaling D (kum a)",
+          "ok": true
+        },
+        {
+          "line": 379,
+          "text": "def toLatticeKummer : LatticeKummer L := ⟨K.kum, fun a => (K.anab a).unitInduced⟩",
+          "ok": true
+        },
+        {
+          "line": 396,
+          "text": "def alt : AnabelianKummer L :=",
+          "ok": true
+        },
+        {
+          "line": 412,
+          "text": "def toAnabelianKummer : AnabelianKummer L := ⟨K.kum, fun a => (K.gal a).anabelian⟩",
+          "ok": true
+        },
+        {
+          "line": 415,
+          "text": "def toLatticeKummer : LatticeKummer L := K.toAnabelianKummer.toLatticeKummer",
+          "ok": true
+        },
+        {
+          "line": 428,
+          "text": "def trivial : GalKummer L := ⟨fun _ => 1, fun _ => galInducedScaling_one D⟩",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/LogLink/Kummer.lean",
+      "present": true,
+      "bytes": 15226,
+      "lines": 312,
+      "sha256": "c250443ede2e12be428f7e84ec7b61aab82eab724a1134358152eccdb877e4e4",
+      "pins": [
+        {
+          "line": 158,
+          "text": "theorem factorUnitInduced_one : FactorUnitInduced (1 : Factor K p v) :=",
+          "ok": true
+        },
+        {
+          "line": 162,
+          "text": "theorem factorUnitInduced_neg_one : FactorUnitInduced (-1 : Factor K p v) := by",
+          "ok": true
+        },
+        {
+          "line": 248,
+          "text": "structure LatticeKummer (L : LogThetaLattice D) where",
+          "ok": true
+        },
+        {
+          "line": 250,
+          "text": "  kum : ℤ × ℤ → Scaling D",
+          "ok": true
+        },
+        {
+          "line": 252,
+          "text": "  unit : ∀ a, UnitInducedScaling D (kum a)",
+          "ok": true
+        },
+        {
+          "line": 294,
+          "text": "def trivial : LatticeKummer L := ⟨fun _ => 1, fun _ => unitInducedScaling_one D⟩",
+          "ok": true
+        },
+        {
+          "line": 300,
+          "text": "def alt : LatticeKummer L :=",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/HodgeTheater/StripLift.lean",
+      "present": true,
+      "bytes": 26190,
+      "lines": 533,
+      "sha256": "cd8fe6448d3a6d96e9988b38618ceefb0518baf6d0a93b8d73f261c229bd21b4",
+      "pins": [
+        {
+          "line": 428,
+          "text": "structure RigidDGalStrip where",
+          "ok": true
+        },
+        {
+          "line": 430,
+          "text": "  strip : DGalStrip D",
+          "ok": true
+        },
+        {
+          "line": 432,
+          "text": "  kappa : ∀ w, (strip.obj w : Kind.TGrp.{u}).carrier ≃ₜ* LocGal (D.V.sectFin w)",
+          "ok": true
+        },
+        {
+          "line": 438,
+          "text": "noncomputable def taut : RigidDGalStrip D :=",
+          "ok": true
+        },
+        {
+          "line": 443,
+          "text": "def gal {P Q : RigidDGalStrip D} (f : P.strip.Iso Q.strip) (w : Vnon D) :",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/LogLink/GalKummerAll.lean",
+      "present": true,
+      "bytes": 32312,
+      "lines": 676,
+      "sha256": "990ec0689c1b54164becdad7ba3eb22a9d8bd486b762243625db46706f60ed29",
+      "pins": [
+        {
+          "line": 535,
+          "text": "structure FullKummer (L : LogThetaLattice D) where",
+          "ok": true
+        },
+        {
+          "line": 537,
+          "text": "  non : AnabelianKummer L",
+          "ok": true
+        },
+        {
+          "line": 539,
+          "text": "  arc : ℤ × ℤ → ArcScaling D",
+          "ok": true
+        },
+        {
+          "line": 544,
+          "text": "structure FullGalKummer (L : LogThetaLattice D) where",
+          "ok": true
+        },
+        {
+          "line": 546,
+          "text": "  non : GalKummer L",
+          "ok": true
+        },
+        {
+          "line": 548,
+          "text": "  arc : ℤ × ℤ → ArcScaling D",
+          "ok": true
+        },
+        {
+          "line": 550,
+          "text": "  gal : ∀ a i c j, (arc a i c).2 j = 1",
+          "ok": true
+        },
+        {
+          "line": 557,
+          "text": "def kum (a : ℤ × ℤ) : FullScaling D := (K.non.kum a, K.arc a)",
+          "ok": true
+        },
+        {
+          "line": 560,
+          "text": "def toLatticeKummer : LatticeKummer L := K.non.toLatticeKummer",
+          "ok": true
+        },
+        {
+          "line": 635,
+          "text": "def toFullKummer : FullKummer L := ⟨K.non.toAnabelianKummer, K.arc⟩",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/LogLink/Thm311Rest.lean",
+      "present": true,
+      "bytes": 34328,
+      "lines": 585,
+      "sha256": "01d439345e489cc92be6e19db7e2b30a9a9536f788244aaa69a2066de3a69a2d",
+      "pins": [
+        {
+          "line": 164,
+          "text": "structure BiCoricKummer (L : LogThetaLattice D) where",
+          "ok": true
+        },
+        {
+          "line": 181,
+          "text": "def ofLattice (L : LogThetaLattice D) : BiCoricKummer L where",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/HodgeTheater/PrimeStrip.lean",
+      "present": true,
+      "bytes": 22988,
+      "lines": 531,
+      "sha256": "90653fa9c7e5efba402134a079b1267373affb22a8ee89264b15dffa796cb598",
+      "pins": [
+        {
+          "line": 227,
+          "text": "theorem nonempty_iso (P Q : PrimeStrip K M) : Nonempty (P.Iso Q) :=",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/Wall/Scaling.lean",
+      "present": true,
+      "bytes": 19256,
+      "lines": 439,
+      "sha256": "1624cabcd42c0a25f43898b0015fba1fc4517e0c2424fd7e22b4a8147330d4a4",
+      "pins": [
+        {
+          "line": 121,
+          "text": "structure Scaling where",
+          "ok": true
+        },
+        {
+          "line": 123,
+          "text": "  u : ∀ (i : Fin (nC D)) (p : Nat.Primes)",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "file": "Iut/Wall/MultiContainer.lean",
+      "present": true,
+      "bytes": 26267,
+      "lines": 513,
+      "sha256": "a1aef71ec5fefbd4fe809eae537ff9e258bdb9297ce9319c06d3efed89960597",
+      "pins": [
+        {
+          "line": 114,
+          "text": "structure MultiContainer where",
+          "ok": true
+        },
+        {
+          "line": 118,
+          "text": "  kum : alg.Side → Scaling D",
+          "ok": true
+        }
+      ]
+    }
+  ],
+  "files_present": true,
+  "pins_total": 58,
+  "files_missing": 0
+}
