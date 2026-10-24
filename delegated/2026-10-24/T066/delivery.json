@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "task_id": "T066",
+  "task_card_sha256": "e57fe2507b74b040958573c8982c494f6698323fc7129848bc0b8c31314d2d50",
+  "baseline_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+  "status": "RESEARCH_ONLY",
+  "summary_file": "SUMMARY.md",
+  "gap_file": null,
+  "replay_file": "replay.ps1",
+  "base_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+  "returned_commit": null,
+  "artifacts": [
+    {
+      "path": "SUMMARY.md",
+      "sha256": "e00dfc22eacdc23a8136c297e645801d587e61260637b1aed926678565a1fb80",
+      "role": "summary"
+    },
+    {
+      "path": "source-audit.json",
+      "sha256": "64c8aa033241d5b128ab9a0ea31cecde31afd0a1b8ab9b0894cf847241b3384f",
+      "role": "audit_report"
+    },
+    {
+      "path": "replay.ps1",
+      "sha256": "cab2f054897ec5e48934c67a0562054f859953c151e1cec4dcb3516707e06ede",
+      "role": "replay"
+    },
+    {
+      "path": "logs/replay.stdout.log",
+      "sha256": "01a94619d73701f27e6a42f788d63778a3f25d4448f4ab64e559282b35b04411",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/replay.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/replay.run2.stdout.log",
+      "sha256": "01a94619d73701f27e6a42f788d63778a3f25d4448f4ab64e559282b35b04411",
+      "role": "stdout_repeat_determinism"
+    },
+    {
+      "path": "logs/replay.run2.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr_repeat_determinism"
+    }
+  ],
+  "declarations": [],
+  "declarations_note": "Empty on purpose. This task produces a source audit, not Lean declarations; PROTOCOL.md requires declarations and #print axioms only for exported Lean results. Every Lean type quoted in source-audit.json is the SOURCE's type, attributed to the SHA256 of the file it was read from -- it is not a claim of this task.",
+  "runs": [
+    {
+      "kind": "source_pin_check",
+      "argv": [
+        "powershell",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".\\delegated\\2026-10-24\\T066\\replay.ps1"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.903,
+      "stdout": "logs/replay.stdout.log",
+      "stderr": "logs/replay.stderr.log",
+      "inputs": [
+        {
+          "path": "replay.ps1",
+          "sha256": "cab2f054897ec5e48934c67a0562054f859953c151e1cec4dcb3516707e06ede"
+        }
+      ],
+      "shell": "Windows PowerShell 5.1.26100.9711",
+      "result_line": "RESULT: ALL_PINS_OK",
+      "checks_passed": 43,
+      "checks_failed": 0,
+      "checks_detail": "32 file SHA256+byte pins, 1 upstream HEAD, 1 upstream worktree-clean, 9 declaration line-position markers"
+    },
+    {
+      "kind": "source_pin_check",
+      "argv": [
+        "powershell",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".\\delegated\\2026-10-24\\T066\\replay.ps1"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.811,
+      "stdout": "logs/replay.run2.stdout.log",
+      "stderr": "logs/replay.run2.stderr.log",
+      "inputs": [
+        {
+          "path": "replay.ps1",
+          "sha256": "cab2f054897ec5e48934c67a0562054f859953c151e1cec4dcb3516707e06ede"
+        }
+      ],
+      "shell": "Windows PowerShell 5.1.26100.9711",
+      "result_line": "RESULT: ALL_PINS_OK",
+      "checks_passed": 43,
+      "checks_failed": 0,
+      "repeat_of": "run 1",
+      "determinism": "run-2 stdout is byte-identical to run-1 stdout (same SHA256 01a94619...b04411)"
+    }
+  ],
+  "dependency_deliveries": [],
+  "upstream_inputs": [
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Thm311Rest.lean",
+      "sha256": "01d439345e489cc92be6e19db7e2b30a9a9536f788244aaa69a2066de3a69a2d",
+      "note": "DEFINES `MonoThetaKummer` (l.270). NOT pinned by baseline.json -- identity established by direct SHA256 and by git blob 9b50d6eb... at f7ed1cc8."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/CyclotomicRigidity.lean",
+      "sha256": "69205310b880ecc3637b5951095d54c791dcc19450c1d0921171767d33a9152f",
+      "note": "Pinned by baseline.json; matches. Defines `Env`, `Env.Iso`, `Env.IsCyc`, `model`; proves `cyclotomicRigidity`."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/MonoTheta.lean",
+      "sha256": "a9694735eaa0e55d76f4bd88c02bb8b78eb8230cf2b967b9ed45f68396a8ebd1",
+      "note": "NOT pinned by baseline.json. Defines the nonabelian `MonoThetaEnv`, which has zero external uses and is not what `MonoThetaKummer` consumes."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "note": "Pinned by baseline.json; matches. Cross-reference: same PARAMETER pattern one level down."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/ArithEnv.lean",
+      "sha256": "95ec45e061e07db5a463669579c595a8c3ff094d02f8843f8fc6bcb41cbad457",
+      "note": "Arithmetic model with Kummer twists; `prop214`. Not in baseline.json; has zero importers."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/README.md",
+      "sha256": "d690abb46816166553e8bc163f85f32312611739697fb53d667dc8fa9fa446e1",
+      "note": "Authors' own scope decisions S1-S5 / S1'-S5'; the authoritative statement of what is not constructed."
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/HodgeTheater/StripLift.lean",
+      "sha256": "cd8fe6448d3a6d96e9988b38618ceefb0518baf6d0a93b8d73f261c229bd21b4",
+      "note": "`RigidDGalStrip.kappa`, `gal`, `liftIso`."
+    },
+    {
+      "path": "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt",
+      "sha256": "7d5b7bd7d4e53c4d96b1ed24a05dffa1f9a5fae539b1129a9a12f0b7665e7fab",
+      "note": "Primary source [IUTchII] Def. 1.1, Remark 1.1.1, Prop. 3.3/3.4. Pinned by baseline.json."
+    },
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715",
+      "note": "Primary source [IUTchIII] Prop. 2.1(ii)(iii), Remark 2.1.1, Thm. 3.11. Pinned by baseline.json."
+    },
+    {
+      "path": "research/core-next-2026-10-23/native-source-square.md",
+      "sha256": "7859ec31035b9ddf64dd70c2a72846ab45143a3d812739082d385c9be9c24163",
+      "note": "Prior audit of the StripKummer factor square; agrees."
+    },
+    {
+      "path": "research/core-comparison-2026-10-24/GAP-shared-anchor-source.md",
+      "sha256": "7c795ff18102f1809e9d564d7caa64f085bbae0a8f14f379b358329583c2cb8c",
+      "note": "OPEN gap; already forbids treating `MonoThetaKummer` fields as constructed sources. This audit confirms at field level."
+    }
+  ],
+  "environment": {
+    "lean_toolchain": "leanprover/lean4:v4.34.0-rc2 (from baseline.json; NOT invoked by this task)",
+    "lean_build_performed": false,
+    "python": "3.14.5",
+    "powershell": "5.1.26100.9711",
+    "upstream_iut_head": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+    "upstream_iut_branch": "main",
+    "upstream_iut_worktree": "clean"
+  },
+  "editor": {
+    "performed": false,
+    "evidence_file": null,
+    "source_sha256": null,
+    "note": "No VS Code / editor admission claimed or implied."
+  },
+  "fact_tree": {
+    "admission_requested": false,
+    "note": "This card grants no fact-tree admission; no Boundary file and no main-line source was modified."
+  },
+  "write_scope": {
+    "allowed": "delegated/2026-10-24/T066/",
+    "written": [
+      "delegated/2026-10-24/T066/SUMMARY.md",
+      "delegated/2026-10-24/T066/source-audit.json",
+      "delegated/2026-10-24/T066/delivery.json",
+      "delegated/2026-10-24/T066/replay.ps1",
+      "delegated/2026-10-24/T066/logs/replay.stdout.log",
+      "delegated/2026-10-24/T066/logs/replay.stderr.log",
+      "delegated/2026-10-24/T066/logs/replay.run2.stdout.log",
+      "delegated/2026-10-24/T066/logs/replay.run2.stderr.log"
+    ],
+    "outside_scope_touched": []
+  },
+  "scope_note": "RESEARCH_ONLY source audit. Static reading of the pinned Lean checkout plus byte-level identity checks; no Lean was built or run, no axiom log exists because no Lean declaration is exported, and no editor observation is claimed. The audit's load-bearing result is negative and typed: every field of `MonoThetaKummer` (4/4) and of `BiCoricKummer` (4/4), and the isomorphism argument `f` of `cyclotomicRigidity`, are HYPOTHESES; the only inhabitant of `MonoThetaKummer D` in the repository is the degenerate `const`, and no declaration constructs `envF`/`envD`/`kum`/`perm` from `InitialThetaData`. This task does not claim any mathematical advance, does not close Step (xi) or Corollary 3.12, and does not address abc."
+}

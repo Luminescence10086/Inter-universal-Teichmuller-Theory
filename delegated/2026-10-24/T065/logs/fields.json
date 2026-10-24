@@ -1,0 +1,373 @@
+{
+  "rows": [
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "strip",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "ℤ×ℤ → RigidDGalStrip D. Vnon/DGalStrip/rigidification exist, but no declaration has result type `ℤ×ℤ → RigidDGalStrip D`; LogThetaLattice.H : ℤ×ℤ → ThetaPmEllNFHT D is a different endpoint (theaters, not strips).",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "coric",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "RigidDGalStrip D. Only `RigidDGalStrip.taut D` (degenerate) produces one; no coric strip of a column/vertex is constructed.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "link",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "∀ a, (strip a).strip.Iso coric.strip. PrimeStrip.nonempty_iso proves inhabitation of P.Iso Q for ANY two strips, so this field is *provably fillable but arbitrary* -- it carries no source information.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "kum",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "ℤ×ℤ → Scaling D. No producer: Scaling is itself a structure whose `u` field is arbitrary.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "scale",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "∀ a, StripScaling D (RigidDGalStrip.gal (link a)) (kum a). This is the *coupling* equation: it ties kum to gal(link). It is an input, not derived from strip/coric/link/kum.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/HodgeTheater/StripLift.lean",
+      "structure": "RigidDGalStrip",
+      "field": "strip",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "DGalStrip D := PrimeStrip (dGalKind D) (locGalModel D). `PrimeStrip.tautological` produces the degenerate member only; no theater-derived strip is constructed.",
+      "file_present": true,
+      "file_sha256": "cd8fe6448d3a6d96e9988b38618ceefb0518baf6d0a93b8d73f261c229bd21b4"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/HodgeTheater/StripLift.lean",
+      "structure": "RigidDGalStrip",
+      "field": "kappa",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "∀ w, carrier ≃ₜ* LocGal (D.V.sectFin w). The rigidification κ_v is the Kummer structure; only `taut` supplies `ContinuousMulEquiv.refl`.",
+      "file_present": true,
+      "file_sha256": "cd8fe6448d3a6d96e9988b38618ceefb0518baf6d0a93b8d73f261c229bd21b4"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "structure": "GalKummer",
+      "field": "kum",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "identical field name and type as StripKummer.kum; no producer.",
+      "file_present": true,
+      "file_sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "structure": "GalKummer",
+      "field": "gal",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "∀ a, GalInducedScaling D (kum a). Existential in the inducing φ (FactorGalInduced). Filled only by `galInducedScaling_one` (degenerate).",
+      "file_present": true,
+      "file_sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "structure": "AnabelianKummer",
+      "field": "kum",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "no producer.",
+      "file_present": true,
+      "file_sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "structure": "AnabelianKummer",
+      "field": "anab",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "no producer beyond `unitInducedScaling_one` / `anabelianScaling_negScale`.",
+      "file_present": true,
+      "file_sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "structure": "LatticeKummer",
+      "field": "kum",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "no producer.",
+      "file_present": true,
+      "file_sha256": "c250443ede2e12be428f7e84ec7b61aab82eab724a1134358152eccdb877e4e4"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "structure": "LatticeKummer",
+      "field": "unit",
+      "kind": "FIELD",
+      "producer": "-",
+      "note": "∀ a, UnitInducedScaling D (kum a). The whole point of GalKummer/StripKummer is to supply this field from an origin; in LatticeKummer itself it is an input.",
+      "file_present": true,
+      "file_sha256": "c250443ede2e12be428f7e84ec7b61aab82eab724a1134358152eccdb877e4e4"
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "structure": "GalKummer",
+      "field": "<toAnabelianKummer>",
+      "kind": "DEF_GEN",
+      "producer": "GalKummer.toAnabelianKummer",
+      "note": "DEF_GEN: `anab` of the produced AnabelianKummer is built from `(K.gal a).anabelian` (theorem GalInducedScaling.anabelian).",
+      "file_present": true,
+      "file_sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55",
+      "producer_is_decl": true,
+      "producer_occurrences": 5
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "structure": "GalKummer",
+      "field": "<toLatticeKummer>",
+      "kind": "DEF_GEN",
+      "producer": "GalKummer.toLatticeKummer",
+      "note": "DEF_GEN: `unit` discharged via AnabelianScaling.unitInduced; but `kum` is copied, not built.",
+      "file_present": true,
+      "file_sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55",
+      "producer_is_decl": true,
+      "producer_occurrences": 20
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "<toGalKummer>",
+      "kind": "DEF_GEN",
+      "producer": "StripKummer.toGalKummer",
+      "note": "DEF_GEN: `gal` built from `(K.scale a).galInduced` (StripScaling.galInduced). The Galois witness stops being existential; `kum` is still copied from field `kum`.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "producer_is_decl": true,
+      "producer_occurrences": 6
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "<gal>",
+      "kind": "DEF_GEN",
+      "producer": "StripKummer.gal",
+      "note": "DEF_GEN: `gal a w = RigidDGalStrip.gal (K.link a) w` -- genuinely computed from the strip isomorphism + rigidifications. This is the one real read-off in the file.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "producer_is_decl": true,
+      "producer_occurrences": 7
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "StripKummer",
+      "field": "<liftIso>",
+      "kind": "DEF_GEN",
+      "producer": "StripKummer.liftIso",
+      "note": "DEF_GEN: RigidDGalStrip.liftIso (K.link a); Frobenioid part = galFrobAt D w (gal (link a)).",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "producer_is_decl": true,
+      "producer_occurrences": 6
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "<StripScaling>",
+      "field": "<galInduced>",
+      "kind": "DEF_GEN",
+      "producer": "StripScaling.galInduced",
+      "note": "DEF_GEN: from the *given* per-factor b with compGalLogEquiv φ = scale b, rebuilds the existential GalInducedScaling. Pure repackaging: no new construction of b.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "producer_is_decl": false,
+      "producer_occurrences": 5
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "structure": "<StripScaling>",
+      "field": "<shift_eq_zero>",
+      "kind": "DEF_GEN",
+      "producer": "StripScaling.shift_eq_zero",
+      "note": "DEF_GEN: distortion vanishing follows from galInduced.anabelian.shift_eq_zero; does NOT produce the scalings.",
+      "file_present": true,
+      "file_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "producer_is_decl": false,
+      "producer_occurrences": 3
+    }
+  ],
+  "scaling_producers": [
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "decl": "exists_factorGalInduced_of_linear",
+      "kind": "CONDITIONAL",
+      "note": "Given hov : IsOver K p v, φ : CompGal ≃ₜ*, and hlin : the induced ψ is K_v-linear, produces b := Units.mk0 (ψ 1) with ψ = scale b. The linearity hlin is the real input: it says the identification induced by φ is a scaling at all.",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "decl": "factorGalInduced_one",
+      "kind": "TAUT",
+      "note": "b = 1, φ = refl.",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "decl": "factorUnitsAut_neg_one",
+      "kind": "TAUT",
+      "note": "b = -1, β = MulEquiv.inv (the alien x ↦ -x).",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "decl": "factorUnitInduced_one",
+      "kind": "TAUT",
+      "note": "b = 1.",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "decl": "factorUnitInduced_neg_one",
+      "kind": "TAUT",
+      "note": "b = -1.",
+      "found_in_source": true
+    }
+  ],
+  "consumers": [
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "gal",
+      "fields_read": "K.link",
+      "note": "reads link -> RigidDGalStrip.gal",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "toGalKummer",
+      "fields_read": "K.kum, K.scale",
+      "note": "copies kum, converts scale",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "toLatticeKummer",
+      "fields_read": "via toGalKummer",
+      "note": "unit field discharged",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "kum_ne_qScale_zpow",
+      "fields_read": "K.kum",
+      "note": "uses kum through toGalKummer's anabelian obstruction",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "liftIso",
+      "fields_read": "K.link",
+      "note": "lifts to F^⊢",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "liftIso_functor",
+      "fields_read": "K.link via gal",
+      "note": "Frobenioid functor equality, rfl",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "trivial",
+      "fields_read": "RigidDGalStrip.taut + Iso.refl + 1",
+      "note": "degenerate exhibit only",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "forget_liftIso",
+      "fields_read": "K.link",
+      "note": "rfl",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "decl": "xi_iff_ss",
+      "fields_read": "K.toGalKummer",
+      "note": "statement only, via SSIneq",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "decl": "model",
+      "fields_read": "K.kum",
+      "note": "builds MultiContainer",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "decl": "distortion_eq_zero",
+      "fields_read": "K.unit via model",
+      "note": "volume neutrality",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "decl": "toLinkedChain",
+      "fields_read": "K.kum, K.logShellCompat",
+      "note": "row restriction",
+      "found_in_source": true
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/LogLink/Thm311.lean",
+      "decl": "XiPrinciple",
+      "fields_read": "K.toLatticeKummer",
+      "note": "statement only",
+      "found_in_source": true
+    }
+  ],
+  "struct_fields": {
+    "StripKummer": [
+      "strip",
+      "coric",
+      "link",
+      "kum",
+      "scale"
+    ],
+    "RigidDGalStrip": [
+      "strip",
+      "kappa"
+    ],
+    "GalKummer": [
+      "kum",
+      "gal"
+    ],
+    "LatticeKummer": [
+      "kum",
+      "unit"
+    ]
+  },
+  "counts": {
+    "FIELD": 13,
+    "DEF_GEN": 7
+  }
+}

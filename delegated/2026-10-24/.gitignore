@@ -1,0 +1,11 @@
+# 构建缓存与临时目录不属交付物
+
+详见上一级 `delegated/.gitignore`。此处再放一份，确保只拷贝本任务目录时规则仍然生效。
+
+.lake/
+build/
+.tmp/
+__pycache__/
+*.olean
+*.ilean
+*.trace

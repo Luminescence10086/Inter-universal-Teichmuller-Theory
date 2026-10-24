@@ -1,0 +1,22 @@
+negative-control exit=2 verdict=ANCHORS_FAILED failed=2
+[
+  {
+    "check": "anchor_needle",
+    "id": "A11",
+    "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+    "line": 174,
+    "needle": "THIS-NEEDLE-DOES-NOT-EXIST",
+    "actual": "  ∀ (h₁ h₂ : A.Side) (_gl : BPS.Iso (A.thetaBPS h₁) (A.qBPS h₂)),\r"
+  },
+  {
+    "check": "span_needle",
+    "id": "S01",
+    "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+    "span": [
+      2138,
+      2141
+    ],
+    "needle": "ALSO-ABSENT",
+    "detail": "absent, or out of order"
+  }
+]

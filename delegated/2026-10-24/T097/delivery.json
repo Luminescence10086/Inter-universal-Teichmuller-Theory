@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "task_id": "T097",
+  "task_card_sha256": "4f2d1b1a581d9fb26e6191e3cccc4c090dd25295fcac707529b438364a2a0265",
+  "baseline_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+  "status": "RESEARCH_ONLY",
+  "summary_file": "SUMMARY.md",
+  "gap_file": null,
+  "replay_file": "replay.ps1",
+  "base_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+  "returned_commit": null,
+  "artifacts": [
+    {
+      "path": "SUMMARY.md",
+      "sha256": "01e05bea43e0425090f49c3c9363a003ead75cc3088a3cb94cb155b3e19bc9fc",
+      "role": "summary"
+    },
+    {
+      "path": "quantifiers.json",
+      "sha256": "676b5648427c5ec7fff081baedae70bba22274029012b29993c444ab93ebf0c4",
+      "role": "source_ledger"
+    },
+    {
+      "path": "T097_audit.py",
+      "sha256": "8c56ab6240206482acc22a778b83faac5e04e422ebaf563db8dd3a51dd1a05a3",
+      "role": "verifier"
+    },
+    {
+      "path": "replay.ps1",
+      "sha256": "8ce6eb6e69e31c37d522afca0a233d0186e8fe21cf725cf6492ff71163b01e97",
+      "role": "replay"
+    },
+    {
+      "path": "sources.v1-draft.json.superseded",
+      "sha256": "4d8ceb76b7b87732a2248dd516161fcfbaeacc4873d16f99ceb1c25b30ab672a",
+      "role": "superseded_draft_marker"
+    },
+    {
+      "path": "logs/audit.stdout.log",
+      "sha256": "1040658ab533c10293c7c3c1a519d64733b1fffb8496ede52e93ce559d0ef11c",
+      "role": "stdout"
+    },
+    {
+      "path": "logs/audit.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "stderr"
+    },
+    {
+      "path": "logs/audit.run.json",
+      "sha256": "cc183bdfdc2c03fa7afb336a82966d80d449e834922f38c5b8cc3131846a7426",
+      "role": "run_record"
+    },
+    {
+      "path": "logs/replay.argv.log",
+      "sha256": "0e81f39d4ce3536365cfd8452ef34fe2643d103ea7a992c64ec189d2e5864d8f",
+      "role": "argv"
+    },
+    {
+      "path": "logs/replay.pins.log",
+      "sha256": "d7aa1f0f6de8c496ab05a5eec2a7b1ff7a2a3f1ac47a687efaf65ca2e7ef7cdf",
+      "role": "replay_pins"
+    },
+    {
+      "path": "logs/negative_control.log",
+      "sha256": "7dc867c2c331babb00a236e0a4a4eb228769802749f1ede6c8b65c3dbc8b7834",
+      "role": "negative_control"
+    }
+  ],
+  "declarations": [],
+  "runs": [
+    {
+      "kind": "audit",
+      "argv": [
+        "python",
+        "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T097\\T097_audit.py",
+        "--root",
+        "D:\\Inter-universal Teichmüller Theory",
+        "--ledger",
+        "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T097\\quantifiers.json"
+      ],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 0.189,
+      "stdout": "logs/audit.stdout.log",
+      "stderr": "logs/audit.stderr.log",
+      "inputs": [
+        {
+          "path": "T097_audit.py",
+          "sha256": "8c56ab6240206482acc22a778b83faac5e04e422ebaf563db8dd3a51dd1a05a3"
+        },
+        {
+          "path": "quantifiers.json",
+          "sha256": "676b5648427c5ec7fff081baedae70bba22274029012b29993c444ab93ebf0c4"
+        }
+      ]
+    }
+  ],
+  "dependency_deliveries": [],
+  "upstream_inputs": [
+    {
+      "path": "research/core-backward-2026-10-23/PATH.md",
+      "sha256": "dbef8b559a0f89ba8eedb069596a44509d4b21609c30f9bf40fe838cc7e7b7ea"
+    },
+    {
+      "path": "research/core-projective-2026-10-24/backward-delivery-review.md",
+      "sha256": "efdfae278ac149de2716936d50422fe8a24b6e39ed245163713f744a71290d36"
+    },
+    {
+      "path": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean",
+      "sha256": "f7252b0ff817320a885e75baaa2565f437c33f9d4d6507926e20fc7f7bb7c5ad"
+    },
+    {
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e"
+    },
+    {
+      "path": "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt",
+      "sha256": "7d5b7bd7d4e53c4d96b1ed24a05dffa1f9a5fae539b1129a9a12f0b7665e7fab"
+    },
+    {
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+    },
+    {
+      "path": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt",
+      "sha256": "97033613e950d48c4af493403d730f43e1493713cc1fbaadf35746df981c5ef2"
+    },
+    {
+      "path": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Comments_Scholze_Stix.txt",
+      "sha256": "efaef7c2295bd6dceff348557295f7965c4385f7531e5dc42b1d260cb6875696"
+    },
+    {
+      "path": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Scholze_Stix.txt",
+      "sha256": "d67c63c008c057d946258b12785694a9bd9542ed1570210fa7bd8a0bdf35cdc6"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/BPS.lean",
+      "sha256": "9635772d13099d49ff68bd2a4c285f1e492c1908807902d3b08c47db69a1f2c8"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Checks.lean",
+      "sha256": "22bf9a72da1a41fa051ef8f7530d1602a54d97e566b0edd4f73a9d1b1770fad7"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Constraints.lean",
+      "sha256": "0f111caa7a9f0c732941ce6e90447d94b36141ef5318459a07ea5e71127e7bc4"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
+      "sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/MultiConstraints.lean",
+      "sha256": "e2e093b5262feaa90fd9f18f44b91aa5f2461732b6d40a7970ed7e38f16e8106"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Pilots.lean",
+      "sha256": "506e78c0273ba1a3cbfdf95c9431583b77d38301478ec749fffe10c04a55644b"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/QPilotRegion.lean",
+      "sha256": "c9ac7201afb61870e933ea9dbc26e2de9fe11aae5babdce0d488708e42bbf373"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/README.md",
+      "sha256": "e41c1cdce90cc63ce5f173fedf78fc962c198c0cffe42a3126ab8ed49b804a24"
+    },
+    {
+      "path": "reviews/core-round/external/iut/Iut/Wall/Rss.lean",
+      "sha256": "301fe11b08e2d0ff838fc77915768c11c0235eff96801b1515cb89c9bd3d855d"
+    }
+  ],
+  "editor": {
+    "performed": false,
+    "evidence_file": null,
+    "source_sha256": null
+  },
+  "lean": {
+    "performed": false,
+    "reason": "T097 is SOURCE_OR_ENGINEERING. The Lean signatures are quoted as text from the baseline-pinned files; no lake/lean invocation was made, so no compilation, axiom or editor claim is made here."
+  },
+  "scope_note": "RESEARCH_ONLY source transcription. The recorded run re-checks that every quoted sentence really sits at the cited file/line/page of the pinned sources. It does NOT prove (9-1), does NOT verify Corollary 3.12 or abc, and is NOT a Lean or editor acceptance. The source itself states it has no proof of (9-1) (LANA p.49)."
+}

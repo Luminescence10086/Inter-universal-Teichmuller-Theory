@@ -1,0 +1,208 @@
+== reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean (230 lines)
+  92   | variable (D : InitialThetaData.{0})
+  96   | structure EtaAlg where
+  105  |   /-- **The output** `LGP·S` of the η-algorithm, read in the concrete container ([LANA], §9.1,
+  108  |   out : ∀ {B : BPS model D.bpsDegrees.bad} {h : Side},
+  109  |     BPS.Iso B ⟨etUnit h, D.thetaValD⟩ → Ind3 D → Region D
+  110  |   /-- **(T1)** (Ind1), (Ind2) — automorphisms of the étale-unit portion of the input — act on
+  112  |   ind12_acts_on_S : ∀ {B : BPS model D.bpsDegrees.bad} {h : Side} (α : EtUnitIso B.et B.et)
+  114  |       out ((BPS.Iso.mk α (ValBPS.Iso.refl _)).trans ι) S = out ι (τ S)
+  117  |   etUnitOnly : ∃ f : ∀ {E : EtUnitBPS model} {h : Side}, EtUnitIso E (etUnit h) → Ind3 D →
+  119  |       (ι : BPS.Iso B ⟨etUnit h, D.thetaValD⟩) (S : Ind3 D), out ι S = f ι.et S
+  120  |   /-- **(T3) realisation**: every output is an adelic region in the holomorphic hull of a
+  125  |       IsAdelic D (out ι S) ∧ InHullOfImage D (out ι S)
+  132  | abbrev BPSA := BPS A.model D.bpsDegrees.bad
+  135  | noncomputable def qBPS (h : A.Side) : A.BPSA := ⟨A.etUnit h, qVal D.bpsDegrees⟩
+  138  | noncomputable def thetaBPS (h : A.Side) : A.BPSA := ⟨A.etUnit h, D.thetaValD⟩
+  141  | abbrev Choice (B : A.BPSA) (h : A.Side) := BPS.Iso B (A.thetaBPS h)
+  143  | /-- **`η^anab_{ι,S} : R_val → R_ss ≅ ℝ`** ([LANA], §9.2): the pointed map sending the pilot of
+  145  | noncomputable def etaAnab {B : A.BPSA} {h : A.Side} (ι : A.Choice B h) (S : Ind3 D) :
+  147  |   B.val.eta (logVol D (A.out ι S))
+  149  | /-- **(9-1) for `(ι, S)` is an equation of real numbers**: `η^anab_{ι,S} = η_q` iff the output
+  151  | theorem etaAnab_eq_etaQ_iff {h₁ h₂ : A.Side} (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D) :
+  153  |   ValBPS.eta_eq_eta_iff _ _ _
+  157  | theorem nonempty_thetaLink (h₁ h₂ : A.Side) : Nonempty (BPS.Iso (A.thetaBPS h₁) (A.qBPS h₂)) :=
+  161  | theorem nonempty_choice (h₁ h₂ : A.Side) : Nonempty (A.Choice (A.qBPS h₂) h₁) :=
+  168  | open Wall in
+  173  | def Wall (D : InitialThetaData.{0}) (A : Wall.EtaAlg D) : Prop :=
+  175  |     ∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D), A.etaAnab ι S = etaQ D
+  181  | /-- **The Θ-link data in `Wall` are vacuous** ([LANA], Remark 8.2.1): Θ-links always exist
+  183  | theorem wall_iff_forall (A : EtaAlg D) :
+  186  |   ⟨fun h h₁ h₂ => h h₁ h₂ (A.nonempty_thetaLink h₁ h₂).some, fun h h₁ h₂ _ => h h₁ h₂⟩
+  189  | theorem exists_out_of_wall (A : EtaAlg D) (hW : Wall D A) :
+  195  |     (A.etaAnab_eq_etaQ_iff ι S).mp hη⟩
+  201  | theorem variant_of_wall (A : EtaAlg D) (hW : Wall D A) :
+  204  |   exact (corollary312Variant_iff _).mpr (hvol ▸ logVol_le_rhs D hU hI)
+  207  | theorem literal_of_wall (A : EtaAlg D) (hW : Wall D A) :
+  209  |   (variant_of_wall A hW).trans D.rhs_le_rhsLit
+  212  | theorem cor312VariantHolds_of_wall (A : ∀ D : InitialThetaData.{0}, EtaAlg D)
+  214  |   fun D => variant_of_wall (A D) (hW D)
+  217  | theorem cor312LiteralHolds_of_wall (A : ∀ D : InitialThetaData.{0}, EtaAlg D)
+  219  |   fun D => literal_of_wall (A D) (hW D)
+  223  | theorem classicalABC_of_wall (A : ∀ D : InitialThetaData.{0}, EtaAlg D)
+  225  |   classicalABC_of_variant (cor312VariantHolds_of_wall A hW)
+== reviews/core-round/external/iut/Iut/Wall/Ind3.lean (294 lines)
+  32   | **Deviation (deliberate): (Ind3) ranges over the hull.** [LANA], §6 takes `S ⊆ VC(I)`. Here
+  38   | Szpiro-record curves); the no-hull reading is kept as `Wall.SSIneqNoHull`.
+  209  | /-- **The (Ind3)-choices** ([LANA], §6 (Ind3), §9.2; IUT III, Corollary 3.12,
+  213  | def Ind3 : Type _ := {S : Region D // IsAdelic D S ∧ ∀ i, S i ≤ hullOf D (vcI D) i}
+  216  | noncomputable def Ind3.top : Ind3 D :=
+  220  | noncomputable def Ind3.base : Ind3 D := ⟨vcI D, isAdelic_vcI D, vcI_le_hullOf D⟩
+  222  | instance : Nonempty (Ind3 D) := ⟨Ind3.top D⟩
+  243  | /-- **An (Ind3)-choice has log-volume at most that of `hull(VC(I))`.** -/
+  245  |   logVol_le_logVol_hullOf D (isAdelic_vcI D) S.2.1 S.2.2
+  251  | /-- **The log-volumes of the (Ind3)-choices are exactly `ℝ_{≤ log-vol(hull(VC(I)))}`**
+  266  |     ring
+== reviews/core-round/external/iut/Iut/Wall/Checks.lean (185 lines)
+  54   | /-- **The numerical form of (9-1)**: an adelic region in the hull of a single (Ind1)-image of
+  57   |   ∃ U : Region D, IsAdelic D U ∧ InHullOfImage D U ∧ (qVal D.bpsDegrees).eta (logVol D U) = etaQ D
+  59   | /-- **The shadow lemma**: the numerical form of (9-1) is equivalent to the Corollary 3.12
+  65   |   rfl
+  67   | /-- The numerical form of (9-1) in terms of classes in `R_ss`: the class of the output is the
+  73   |   exact ⟨fun ⟨U, hU, hI, h⟩ => ⟨U, hU, hI, h⟩, fun ⟨U, hU, hI, h⟩ => ⟨U, hU, hI, h⟩⟩
+  81   | /-- **The trivial instance** "`etaAnab := etaQ`": for every input `B` and every choice
+  85   |     A.etaAnab ι S = B.val.eta (concreteVariantData D).qPilot.lhs
+  87   | /-- A trivial instance satisfies the wall. -/
+  89   |   ⟨(A.nonempty_choice h₁ h₂).some, Ind3.top D, hT _ _⟩
+  91   | /-- **(T4) The LGP law**: the output is the image of `S` under multiplication by the theta
+  95   |     logVol D (A.out ι S) = κ + logVol D S.1
+  97   | /-- **Under the LGP law the trivial instance is excluded.** -/
+  108  |   linarith
+  110  | /-- **Under the LGP law the wall is a numerical condition on the shifts `κ_ι`**:
+  121  |   exact ⟨fun ⟨S, hS⟩ => ⟨S, by linarith⟩, fun ⟨S, hS⟩ => ⟨S, by linarith⟩⟩
+  141  | /-- **The trivial η-algorithm**: one Hodge theater, and the same output `U` for every choice. -/
+  151  |   realisation _ _ := ⟨hU, hI⟩
+  161  | /-- **The interface (T1)–(T3) has a trivial instance iff the variant holds.** -/
+  169  |     exact ⟨trivialAlg D U hU hI, trivialAlg_isTrivial D U hU hI hvol⟩
+  171  | /-- **The existence of an η-algorithm satisfying the wall is equivalent to the variant**: as an
+  174  |     (∃ A : EtaAlg D, Wall D A) ↔ Corollary312Variant (concreteVariantData D) := by
+== reviews/core-round/external/iut/Iut/Wall/Constraints.lean (342 lines)
+  94   | /-- **(C1) The input prime-strip link (IPL)** (IUT III, Remark 3.11.1(iii); [LANA], §8.2): for
+  100  |       e.val.toLinearEquiv (A.thetaBPS h₁).val.pilot = (A.qBPS h₂).val.pilot
+  103  | theorem ipl : A.IPL := fun _ _ ι _ => ⟨ι.symm, ValBPS.Iso.map_pilot _⟩
+  107  | /-- **(C2) Simultaneous holomorphic expressibility, two-sided form** (IUT III,
+  112  |     (S : Ind3 D), A.out ι S = F h₁ S ∧ A.out ι S = G h₂ S
+  116  | theorem sheSides_iff : A.SHESides ↔ ∃ g : Ind3 D → Region D, ∀ (h₁ h₂ : A.Side)
+  125  |     exact ⟨fun _ => g, fun _ => g, fun h₁ h₂ ι S => ⟨hg h₁ h₂ ι S, hg h₁ h₂ ι S⟩⟩
+  129  | /-- **(C3) (SHE) in the form of IUT III, Corollary 3.12, Step (xi-e)**: the construction is
+  134  |     Rss.mk D (A.out ι S) (A.realisation ι S).1 = Rss.mk D (qRegion D) (isAdelic_qRegion D)
+  137  | theorem sheq_iff_wall : A.SHEq ↔ Wall D A := by
+  140  |   rw [Rss.mk_eq_mk_iff, etaAnab_eq_etaQ_iff, logVol_qRegion]
+  144  | /-- **(C4) There are distinct Hodge theaters** (IUT III, Theorem 3.11; [LANA], §7.1(b)). -/
+  145  | def DistinctSides : Prop := Nontrivial A.Side
+  149  | /-- **(C6) Multiradiality** (IUT III, Theorem 3.11(i); [LANA], §8.1(d)): the outputs computed
+  153  |     ∃ τ : Ind3 D ≃ Ind3 D, ∀ S, A.out ι S = A.out ι' (τ S)
+  155  | /-- **(C7) Side-dependence** ([LANA], §10.3: `η^anab` is produced from the Θ-side): for some
+  159  |     Set.range (A.out ι) ≠ Set.range (A.out ι')
+  171  | /-- **(C8) The output depends on the value-group portion of the input** ([LANA],
+  177  |       ι.et = ι'.et ∧ ∃ S, A.out ι S ≠ A.out ι' S
+  191  | def SetTransport : Prop :=
+  193  |     A.out ι S = φ S.1
+  198  | /-- **The wall depends only on the log-volumes of the outputs**: every `EtaAlg` whose outputs
+  204  |     Wall D A ↔ (sFactor (nC D) - 1) * D.qPilot.absLogQ ≤ logVol D (hullOf D (vcI D)) := by
+  220  | /-- **(C5) The wall restricted to Θ-links between distinct Hodge theaters** ([LANA], §7.1(b):
+  224  |     ∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D), A.etaAnab ι S = etaQ D
+== reviews/core-round/external/iut/Iut/Wall/BPS.lean (412 lines)
+  264  | /-- **[LANA], Lemma 4.1.7, for value-group BPSs**: two value-group BPSs are isomorphic if and
+  266  | theorem nonempty_iso_iff (B B' : ValBPS V bad) : Nonempty (Iso B B') ↔ B.PF = B'.PF := by
+  296  | theorem valIso_subsingleton (B B' : ValBPS V bad) : Subsingleton (Iso B B') := by
+  302  |   rfl
+  335  | theorem eta_eq_eta_iff (B : ValBPS V bad) (x y : ℝ) : B.eta x = B.eta y ↔ x = y := by
+  340  |     rfl
+== reviews/core-round/external/iut/Iut/Wall/Rss.lean (518 lines)
+  445  | /-- **`R_ss`** ([LANA], §9.2): adelic measurable regions modulo equal log-volume. -/
+  450  | noncomputable def Rss.mk (U : Region D) (hU : IsAdelic D U) : Rss D := Quotient.mk _ ⟨U, hU⟩
+  459  | /-- Two classes agree iff the log-volumes agree. -/
+  462  |   Quotient.eq
+  485  | /-- **`R_ss` is a real line**: the log-volume is a bijection `R_ss ≃ ℝ` ([LANA], §9.3). -/
+  489  |     exact ⟨Rss.mk D U hU, h⟩⟩
+  497  | /-- **The map `η_q : R_val → R_ss`** ([LANA], §9.2) of the `q`-pilot BPS of `D`, with `R_ss`
+  502  |   (qVal D.bpsDegrees).eta D.qPilot.lhs
+  512  | theorem etaQ_bijective : Function.Bijective (etaQ D) :=
+  513  |   (qVal D.bpsDegrees).eta_bijective D.lhs_neg.ne
+== reviews/core-round/external/iut/Iut/Wall/Pilots.lean (351 lines)
+  106  | noncomputable def qVal : ValBPS V L.bad where
+  111  |   pilot_ne_zero := L.sum_bad_pos.ne'
+  308  | theorem pilot_qVal : (qVal D.bpsDegrees).pilot = D.qPilot.absLogQ := by
+== reviews/core-round/external/iut/Iut/Wall/QPilotRegion.lean (371 lines)
+  314  | noncomputable def qRegion : Region D := pow D (fun _ => 1) (labOne D) (integralRegion D)
+  321  | theorem logVol_qRegion : logVol D (qRegion D) = (concreteVariantData D).qPilot.lhs := by
+  343  | noncomputable def etaQReg : (qVal D.bpsDegrees).C →ₗ[ℝ] ℝ :=
+  347  | theorem etaQReg_eq_etaQ : etaQReg D = etaQ D := by
+== reviews/core-round/external/iut/Iut/Wall/README.md (436 lines)
+  4    | PDF page numbers equal printed page numbers): the equation **(9-1)**
+  6    | > there exists some suitable `S` such that `η_q = η^anab_S` ([LANA], §9.2, pp. 45–46),
+  96   | `EtaAlg.etaAnab ι S` is the pointed map sending the pilot to `log-vol(out ι S)` ([LANA], §9.2).
+  101  |     ∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D), A.etaAnab ι S = etaQ D
+  152  | ## Deviations from [LANA] and modelling choices
+  181  |    represents `LGP·S`"); it is not a field of `EtaAlg` and nothing in M1c depends on it.
+  413  | ## The hull switch (container volume `log-vol(hull(VC(I)))`)
+  427  |   `VC(I)`; `exists_le_vcI_logVol_iff` keeps the no-hull volumes.
+== research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean (44 lines)
+  23   | theorem exact_choice_exists : ∃ b, candidate b = target := by
+  27   |   simp [reading]
+  34   | theorem existence_does_not_force_invariance :
+  37   |   exact choice_reading_not_invariant (h exact_choice_exists)
+== research/core-backward-2026-10-23/PATH.md (95 lines)
+  54   | 它把我们的问题**精确命名**为 (9-1)：两条同构 `η_q : R^val ≅→ R^ss`（q-pilot 侧）与
+  56   | **`η_q = η_anab_S`**；而报告自陈 "we, the LANA project, **do not have a proof of (9-1)** at this time"。
+  62   | 2. (9-1) 断言的是**两条同构本身相等**（在"计算 degree 之前"比较，txt 2236–2239），且只要求**存在一个 `S`**
+  66   |    因此 W5/W7 的"沿轨道不变"**不是** (9-1) 的必要条件，而是**另一条更强/不同的族条件**；此前写法是错的。
+== research/core-projective-2026-10-24/backward-delivery-review.md (83 lines)
+  24   | 初稿明确定义 P6 为把 (9-1) 当 `ASSUMED_INPUT`，并在边界说结论相对假设成立（`backward-paths-2026-10-23.md:165-180, 211-215`）。layer2 也说 P6 不消费上游叶子、O8/O9 仍开放（`backward-paths-lay
+  32   | 接口把 `etaAnab` 定义为将 pilot 送到 `logVol (out ι S)` 的线性映射（`:142-147`），并证明
+  33   | `etaAnab ι S = etaQ D ↔ logVol D (out ι S) = qPilot.lhs`（`:151-153`）。`exists_out_of_wall` 将 witness、realisation 和这个等式组合起来，`variant_of_wall` 再用 hull 上界
+  55   | **需要数学/来源突破**：从原始输入实际构造 `J` 或 `Jε`；证明 (9-1) witness 存在而不是将其字段化；构造真实算法执行并证明输出属于原文允许族；同步 native q 与同一输出的 `logVol`（含 local/global、tensor/determinant/log-
+  59   | 若目标是**只交一个诚实可检验的中间产物**，最短路径是 P6：显式加入 `hWall : Wall D A`，调用源码已有的 `variant_of_wall`；验收该定理只是条件推论，标题/摘要标明 `(9-1) assumed`，不标作 G0 已证。这几乎纯机械，而且源接口已给出实际条件链（`
+  64   | 实际来源构造 (ι,S) 属于原文允许的 η 执行
+  66   |         + 对同一输出证明 logVol(out ι S) ≤ B
+  76   | - **OPEN — 真实 η 执行来源：** 从原始输入构造实际 `(ι,S)` 与合法 algorithm run，不能以 `EtaAlg.out` 或 `realisation` 字段代替。
+== research/round2-source-cache/LANA-interim-report-2026-07.txt (2341 lines)
+  2055 | essentially simplified. We believe that if the problem described in the “main goal” below
+  2056 | is solved, then Corollary 3.12 (and thus, in particular, the abc conjecture) will follow.
+  2060 | 9.1.Theηalgorithm.We start with a BPS, sayB= ({G v ↷M v},C). We proceed as
+  2061 | follows:
+  2062 | 9.1 (a).Step 1.Choose an isomorphism between the given BPS and the Θ-pilot BPS
+  2067 | generator ofNacting on the right-hand monoid by “powers.”
+  2109 | 9.1 (i).Step 9.Relate the log-shellsI v,t to those constructed from the original BPS, and
+  2116 | with Ind3-ambiguity.
+  2117 | 9.2.The main goal.In the discussion above, we have explained how to construct an
+  2120 | indeterminacies Ind1 and Ind2).
+  2123 | Once we fixS⊂VC(I v), this provides an isomorphism between theCpart of the
+  2132 | as discussed above.
+  2138 | The main goal now is to relate these two kinds of isomorphisms: the one arising from
+  2141 | ηq =η anabS .(9-1)
+  2142 | 9.3.Minimal structure of theη-algorithm.The input of theη-algorithm is a BPS,
+  2157 | Mochizuki’s strategy to obtain the desired inequality between the log-volumes.
+  2265 | The wording in [15] further suggests that Ind 1, Ind2, and Ind 3 act directly on the real
+  2267 | the indeterminacies create ambiguities in the choice of the setSin (9-1). These ambigui-
+  2280 | the elaboration of theη-algorithm shows that the proof of the final numerical inequality
+  2282 | project, do not have a proof of (9-1) at this time.
+== research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt (11854 lines)
+  10498| Corollary 3.12. (Log-volume Estimates for Θ-Pilot Objects) Suppose
+  10528| — i.e.,CΘ≥−1 for any real numberCΘ∈R such that−|log(Θ)|≤CΘ·|log(q)|.
+  10520| (Ind3) described in Theorem 3.11, (i), (ii). Here, we recall the deﬁnition of the
+  10524| [cf. [IUTchII], Corollary 4.10, (i)]. In particular,|log(q)| > 0 is easily computed
+  10933| (xi-a) Consider aq-pilot objectat (1,0), which we think of — relative to the
+  10943| (i); the discussion of Remark 3.12.2, (ii), below].
+  10944| (xi-b) On the other hand, the multiradial construction algorithm of Theorem
+  10956| 
+  11007| (xi-d) The discussion of (xi-c) thus yields the following conclusion:
+  11047| packets of log-shellsthat constitute1,◦U.
+  11048| (xi-e) Next, let us recall that the relationship, i.e., that arises by applying the
+  11063| F⊩▶-prime-strips!] be equal to theﬁxed value−|log(q)|∈R”.
+  11073| (xi-f) Thus, we conclude from (xi-e) that
+  11083| CΘ·|log(q)| — in the statement of Corollary 3.12, then follows formally.
+  11084| (xi-g) Thus, in summary,
+  11088| of theq-pilot object at(1,0) — cf. Fig. 3.8 below.
+  9596 | (Ind3) as one varies m ∈Z, the isomorphisms of (a) are “upper semi-
+  9603 | details.
+== research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt (4635 lines)
+  1278 | Theorem 1.10. (Log-volume Estimates for Θ-Pilot Objects) Fix a col-
+  1280 | in the situation of [IUTchIII], Corollary 3.12, and that the elliptic curveEF has
+  1387 | in [IUTchI], Example 3.2, (iv)]. Then one may take the constant “CΘ ∈ R”o f
+  1400 | and hence, by applying the inequality “CΘ ≥−1” of [IUTchIII], Corollary 3.12,
+  1410 | Proof. For ease of reference, we divide our discussion intosteps, as follows.
+== research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt (7697 lines)
+  6996 | Corollary 4.10. (Frobenius-pictures of Θ±ellNF-Hodge Theaters) Fix
+  7002 | Θ±ellNF-Hodge theaters — cf. [IUTchI], Deﬁnition 6.13, (ii). Then:

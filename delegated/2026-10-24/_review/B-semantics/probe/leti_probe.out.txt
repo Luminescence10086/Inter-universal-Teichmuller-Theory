@@ -1,0 +1,9 @@
+﻿D:\Inter-universal Teichmüller Theory\delegated\2026-10-24\_review\B-semantics\probe\BLetIProbe.lean:31:0: error: failed to synthesize
+  MulDistribMulAction (↥(ValuationSubring.decompositionSubgroup F A)) (Mu n (ResidueField ↥A))
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+D:\Inter-universal Teichmüller Theory\delegated\2026-10-24\_review\B-semantics\probe\BLetIProbe.lean:35:66: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  HSMul (↥(ValuationSubring.decompositionSubgroup F A)) (Mu n (ResidueField ↥A)) ?m.66
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+

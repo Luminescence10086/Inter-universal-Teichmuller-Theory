@@ -1,0 +1,1295 @@
+{
+  "schema_version": 1,
+  "task_id": "T003",
+  "status": "RESEARCH_ONLY",
+  "scope": "Read-only Mathlib API retrieval. No Lean build, no editor replay, no change to mainline sources / Boundary / fact-tree.",
+  "mathlib": {
+    "path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+    "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "commit_verified_by": "git -C <path> rev-parse HEAD",
+    "read_only": true,
+    "built_oleans_present": false
+  },
+  "totals": {
+    "entries": 106,
+    "by_category": {
+      "A2_coefficient_formula": 7,
+      "A_substitution_core": 14,
+      "B2_constant_preservation": 2,
+      "B_zero_const_HasSubst": 12,
+      "C_unit_maps": 8,
+      "D2_inverse_substitution": 12,
+      "D_composition": 25,
+      "E_support": 26
+    },
+    "gaps": 5
+  },
+  "mathlib_files": [
+    {
+      "path": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "sha256": "2ca0a611c90e3775af568d33b4237418d0247b1f432e03cf8159f90207a83a20"
+    },
+    {
+      "path": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "sha256": "710f094da0a07e8578f5eaf5ab48d9ca470189af602126ecdfd94251ca4be40c"
+    },
+    {
+      "path": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "sha256": "9e0aed32ee8720e5e7357b723ee1948ed7f4fba18d9bfdf2bc50ab2f509a39d1"
+    },
+    {
+      "path": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+      "sha256": "8e928c3d884b0a272cc84b70036a5632309f97ae9482162bea2e439cada16743"
+    },
+    {
+      "path": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "sha256": "2338c4358a4ae2ecc73d8a83ef69faf2de3892dcd6847e6d3d096af8b2b9638e"
+    },
+    {
+      "path": "Mathlib/RingTheory/PowerSeries/Order.lean",
+      "sha256": "15594e057ad8a9b77cc39d2dbed142db53fcdcf0fcc39fe9c266fa90ed75b34b"
+    },
+    {
+      "path": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "sha256": "3daa75bc382a51ae5f602b84dfea62cb266e5024066b2fc0d54a156bc10a5c43"
+    }
+  ],
+  "entries": [
+    {
+      "name": "coeff_subst",
+      "full_name": "PowerSeries.coeff_subst",
+      "category": "A2_coefficient_formula",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 236,
+      "signature": "theorem coeff_subst (ha : HasSubst a) (f : PowerSeries R) (e : τ →₀ ℕ) :\n    MvPowerSeries.coeff e (subst a f) =\n      finsum (fun (d : ℕ) ↦\n        coeff d f • (MvPowerSeries.coeff e (a ^ d)))",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "右侧是 finsum（无限和）而非 Finset.sum；要真正算系数必须再配 coeff_subst_finite。"
+    },
+    {
+      "name": "coeff_subst'",
+      "full_name": "PowerSeries.coeff_subst'",
+      "category": "A2_coefficient_formula",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 247,
+      "signature": "theorem coeff_subst' {b : S⟦X⟧} (hb : HasSubst b) (f : R⟦X⟧) (e : ℕ) :\n    coeff e (f.subst b) =\n      finsum (fun (d : ℕ) ↦\n        coeff d f • PowerSeries.coeff e (b ^ d))",
+      "ambient_context": "{S} [CommRing S] {b : S⟦X⟧} {R} [CommRing R] [Algebra R S] {f : R⟦X⟧}",
+      "minimal_call_draft": null,
+      "notes": "单变量版（带撇）。同样是 finsum。"
+    },
+    {
+      "name": "constantCoeff_subst",
+      "full_name": "PowerSeries.constantCoeff_subst",
+      "category": "A2_coefficient_formula",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 253,
+      "signature": "theorem constantCoeff_subst (ha : HasSubst a) (f : PowerSeries R) :\n    MvPowerSeries.constantCoeff (subst a f) =\n      finsum (fun d ↦ coeff d f • MvPowerSeries.constantCoeff (a ^ d))",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "coeff_subst_X_pow",
+      "full_name": "PowerSeries.coeff_subst_X_pow",
+      "category": "A2_coefficient_formula",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 259,
+      "signature": "theorem coeff_subst_X_pow {k : ℕ} (hk : k ≠ 0) (f : PowerSeries R) (n : ℕ) :\n    coeff n (subst (X ^ k) f) = ite (k ∣ n) (algebraMap R S (coeff (n / k) f)) 0",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.coeff_subst_X_pow hk]",
+      "notes": "@[simp]；k ≠ 0 是硬前提（k = 0 时等式不成立，X^0 = 1 代换是恒等）。"
+    },
+    {
+      "name": "constantCoeff_subst_X_pow",
+      "full_name": "PowerSeries.constantCoeff_subst_X_pow",
+      "category": "A2_coefficient_formula",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 275,
+      "signature": "theorem constantCoeff_subst_X_pow {k : ℕ} (hk : k ≠ 0) (f : PowerSeries R) :\n    constantCoeff (subst (X ^ k) f) = algebraMap R S f.constantCoeff",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "@[simp]；这就是\"平方代换保常数项（经 algebraMap）\"。k ≠ 0 必需。"
+    },
+    {
+      "name": "map_algebraMap_eq_subst_X",
+      "full_name": "PowerSeries.map_algebraMap_eq_subst_X",
+      "category": "A2_coefficient_formula",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 286,
+      "signature": "theorem map_algebraMap_eq_subst_X (f : R⟦X⟧) :\n    map (algebraMap R S) f = subst X f",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "系数环映射 = 代入 X。"
+    },
+    {
+      "name": "map_subst",
+      "full_name": "PowerSeries.map_subst",
+      "category": "A2_coefficient_formula",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 329,
+      "signature": "theorem map_subst {a : MvPowerSeries τ R} (ha : HasSubst a) {h : R →+* S} (f : PowerSeries R) :\n    (f.subst a).map h = (f.map h).subst (a.map h)",
+      "ambient_context": "局部 omit [Algebra R S]，只需 [CommRing R] [CommRing S]",
+      "minimal_call_draft": null,
+      "notes": "系数环自然性：subst 与 map 交换。"
+    },
+    {
+      "name": "subst",
+      "full_name": "PowerSeries.subst",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 158,
+      "signature": "noncomputable def subst (a : MvPowerSeries τ S) (f : PowerSeries R) :\n    MvPowerSeries τ S",
+      "ambient_context": "{A} [CommRing A] {R} [CommRing R] [Algebra A R] {τ} {S} [CommRing S}",
+      "minimal_call_draft": "PowerSeries.subst (a : MvPowerSeries τ S) (f : R⟦X⟧) : MvPowerSeries τ S\n-- 平方代换：a := PowerSeries.X ^ 2，即 PowerSeries.subst (PowerSeries.X ^ 2) f",
+      "notes": "单变量→多变量。a 不满足 HasSubst 时不报错：MvPowerSeries.subst 定义体即 eval₂ (algebraMap _ _) a，退化情形给 0，不会静默给出错误等式。"
+    },
+    {
+      "name": "subst_def",
+      "full_name": "PowerSeries.subst_def",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 162,
+      "signature": "lemma subst_def (a : MvPowerSeries τ S) (f : PowerSeries R) :\n    subst a f = MvPowerSeries.subst (fun _ ↦ a) f",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.subst_def]   -- rfl 级展开到 MvPowerSeries.subst",
+      "notes": null
+    },
+    {
+      "name": "substAlgHom",
+      "full_name": "PowerSeries.substAlgHom",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 171,
+      "signature": "noncomputable def substAlgHom (ha : HasSubst a) :\n    PowerSeries R →ₐ[R] MvPowerSeries τ S",
+      "ambient_context": "同 subst，且需要 [Algebra R S]",
+      "minimal_call_draft": "PowerSeries.substAlgHom (ha : HasSubst a) : R⟦X⟧ →ₐ[R] MvPowerSeries τ S",
+      "notes": "有 ha 才成 AlgHom。其 coe 由 coe_substAlgHom 给出。"
+    },
+    {
+      "name": "coe_substAlgHom",
+      "full_name": "PowerSeries.coe_substAlgHom",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 175,
+      "signature": "theorem coe_substAlgHom (ha : HasSubst a) :\n    ⇑(substAlgHom ha) = subst (R := R) a",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.coe_substAlgHom]   -- ⇑(substAlgHom ha) = subst a",
+      "notes": null
+    },
+    {
+      "name": "substAlgHom_eq_aeval",
+      "full_name": "PowerSeries.substAlgHom_eq_aeval",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 184,
+      "signature": "theorem substAlgHom_eq_aeval\n    [UniformSpace R] [DiscreteUniformity R] [UniformSpace S] [DiscreteUniformity S]\n    (ha : HasSubst a) :\n    (substAlgHom ha : R⟦X⟧ →ₐ[R] MvPowerSeries τ S) = PowerSeries.aeval ha.hasEval",
+      "ambient_context": "需要 [UniformSpace R] [DiscreteUniformity R] [UniformSpace S] [DiscreteUniformity S]",
+      "minimal_call_draft": null,
+      "notes": "文件自带 docstring：不鼓励使用，会引入拓扑导致 awkward comparison。日常复合请走 subst_comp_subst_apply 而非此条。"
+    },
+    {
+      "name": "subst_add",
+      "full_name": "PowerSeries.subst_add",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 191,
+      "signature": "theorem subst_add (ha : HasSubst a) (f g : PowerSeries R) :\n    subst a (f + g) = subst a f + subst a g",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "subst_pow",
+      "full_name": "PowerSeries.subst_pow",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 208,
+      "signature": "theorem subst_pow (ha : HasSubst a) (f : PowerSeries R) (n : ℕ) :\n    subst a (f ^ n) = (subst a f) ^ n",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "subst_mul",
+      "full_name": "PowerSeries.subst_mul",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 212,
+      "signature": "theorem subst_mul (ha : HasSubst a) (f g : PowerSeries R) :\n    subst a (f * g) = subst a f * subst a g",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "X_subst",
+      "full_name": "PowerSeries.X_subst",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 297,
+      "signature": "theorem X_subst (f : R⟦X⟧) : f.subst (X : R⟦X⟧) = f",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.X_subst]   -- f.subst X = f",
+      "notes": "@[simp]"
+    },
+    {
+      "name": "substAlgHom_coe",
+      "full_name": "PowerSeries.substAlgHom_coe",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 305,
+      "signature": "theorem substAlgHom_coe (ha : HasSubst a) (p : Polynomial R) :\n    substAlgHom ha (p : PowerSeries R) = ↑(Polynomial.aeval a p)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "substAlgHom_X",
+      "full_name": "PowerSeries.substAlgHom_X",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 313,
+      "signature": "theorem substAlgHom_X (ha : HasSubst a) :\n    substAlgHom ha (X : R⟦X⟧) = a",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "subst_coe",
+      "full_name": "PowerSeries.subst_coe",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 317,
+      "signature": "theorem subst_coe (ha : HasSubst a) (p : Polynomial R) :\n    subst a (p : PowerSeries R) = (Polynomial.aeval a p)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "多项式层与 Polynomial.aeval 对表。"
+    },
+    {
+      "name": "subst_C",
+      "full_name": "PowerSeries.subst_C",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 322,
+      "signature": "theorem subst_C (r : S) : (C r).subst a = MvPowerSeries.C r",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.subst_C]",
+      "notes": "注意书写方向：(C r).subst a，subst 的 a 是隐式由 section 变量给出的。"
+    },
+    {
+      "name": "subst_X",
+      "full_name": "PowerSeries.subst_X",
+      "category": "A_substitution_core",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 324,
+      "signature": "theorem subst_X (ha : HasSubst a) :\n    subst a (X : R⟦X⟧) = a",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "subst a X = a —— 代换的定义性公理。"
+    },
+    {
+      "name": "HasSubst.eventually_coeff_pow_eq_zero",
+      "full_name": "PowerSeries.HasSubst.eventually_coeff_pow_eq_zero",
+      "category": "B2_constant_preservation",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 145,
+      "signature": "lemma HasSubst.eventually_coeff_pow_eq_zero {f : A⟦X⟧} (hf : HasSubst f) (n : ℕ) :\n    ∀ᶠ m in .atTop, ∀ n' ≤ n, coeff n' (f ^ m) = 0",
+      "ambient_context": "{A} [CommRing A] {f : A⟦X⟧}",
+      "minimal_call_draft": null,
+      "notes": "幂零的\"最终消失\"形式；是 coeff_subst / derivative_subst 里 finsum 有限化的引擎。"
+    },
+    {
+      "name": "constantCoeff_subst_eq_zero",
+      "full_name": "PowerSeries.constantCoeff_subst_eq_zero",
+      "category": "B2_constant_preservation",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 280,
+      "signature": "theorem constantCoeff_subst_eq_zero (ha : a.constantCoeff = 0) (f : PowerSeries R)\n    (hf : f.constantCoeff = 0) : MvPowerSeries.constantCoeff (subst a f) = 0",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "需要 a 与 f 两条零常数项；返回的是 MvPowerSeries.constantCoeff。"
+    },
+    {
+      "name": "HasSubst",
+      "full_name": "PowerSeries.HasSubst",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 40,
+      "signature": "abbrev HasSubst (a : MvPowerSeries τ S) : Prop",
+      "ambient_context": "{τ} {S} [CommRing S]",
+      "minimal_call_draft": "example (a : MvPowerSeries τ S) :\n    PowerSeries.HasSubst a ↔ IsNilpotent (MvPowerSeries.constantCoeff a) := Iff.rfl",
+      "notes": "**abbrev**，定义体 = IsNilpotent (constantCoeff a)。**不是** constantCoeff a = 0。幂零条件；系数环整环时幂零⇔为零（IsNilpotent.eq_zero）。"
+    },
+    {
+      "name": "hasSubst_iff",
+      "full_name": "PowerSeries.hasSubst_iff",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 43,
+      "signature": "theorem hasSubst_iff {a : MvPowerSeries τ S} :\n    HasSubst a ↔ MvPowerSeries.HasSubst (Function.const Unit a)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "与 MvPowerSeries.HasSubst 的桥；依赖 Function.const Unit a。"
+    },
+    {
+      "name": "HasSubst.of_constantCoeff_zero",
+      "full_name": "PowerSeries.HasSubst.of_constantCoeff_zero",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 61,
+      "signature": "theorem HasSubst.of_constantCoeff_zero {a : MvPowerSeries τ S}\n    (ha : MvPowerSeries.constantCoeff a = 0) : HasSubst a",
+      "ambient_context": "{τ} {S} [CommRing S]",
+      "minimal_call_draft": null,
+      "notes": "多变量版。"
+    },
+    {
+      "name": "HasSubst.of_constantCoeff_zero'",
+      "full_name": "PowerSeries.HasSubst.of_constantCoeff_zero'",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 67,
+      "signature": "theorem HasSubst.of_constantCoeff_zero' {a : PowerSeries S}\n    (ha : PowerSeries.constantCoeff a = 0) : HasSubst a",
+      "ambient_context": "{S} [CommRing S]",
+      "minimal_call_draft": "have hf : PowerSeries.HasSubst (f : PowerSeries S) :=\n  PowerSeries.HasSubst.of_constantCoeff_zero' hf0",
+      "notes": "带撇版专为 PowerSeries 避免 Unit 展开。\"零常数项 ⇒ 可代换\"的最小入口。"
+    },
+    {
+      "name": "HasSubst.X'",
+      "full_name": "PowerSeries.HasSubst.X'",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 78,
+      "signature": "protected theorem HasSubst.X' : HasSubst (X : R⟦X⟧)",
+      "ambient_context": "{R} [CommRing R]",
+      "minimal_call_draft": null,
+      "notes": "X 自身可代换。文件注释：加此条是因为 simp 从 HasSubst.X 找不到它。"
+    },
+    {
+      "name": "HasSubst.X_pow",
+      "full_name": "PowerSeries.HasSubst.X_pow",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 81,
+      "signature": "protected theorem HasSubst.X_pow {n : ℕ} (hn : n ≠ 0) : HasSubst (X ^ n : R⟦X⟧)",
+      "ambient_context": "{R} [CommRing R]",
+      "minimal_call_draft": "have hX2 : PowerSeries.HasSubst (PowerSeries.X ^ 2 : R⟦X⟧) :=\n  PowerSeries.HasSubst.X_pow (by decide : (2 : ℕ) ≠ 0)",
+      "notes": "**平方代换的可代入性就是这一条。**n ≠ 0 必需：X^0 = 1，常数项为 1 非幂零。"
+    },
+    {
+      "name": "HasSubst.zero",
+      "full_name": "PowerSeries.HasSubst.zero",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 96,
+      "signature": "theorem HasSubst.zero : HasSubst (0 : MvPowerSeries τ R)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "MvPowerSeries 目标下的 0 可代换。"
+    },
+    {
+      "name": "HasSubst.zero'",
+      "full_name": "PowerSeries.HasSubst.zero'",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 101,
+      "signature": "theorem HasSubst.zero' : HasSubst (0 : PowerSeries R)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "PowerSeries 版（带撇）。"
+    },
+    {
+      "name": "HasSubst.add",
+      "full_name": "PowerSeries.HasSubst.add",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 106,
+      "signature": "theorem HasSubst.add (hf : HasSubst f) (hg : HasSubst g) :\n    HasSubst (f + g)",
+      "ambient_context": "需要 {f g : MvPowerSeries τ R}",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "HasSubst.mul_right",
+      "full_name": "PowerSeries.HasSubst.mul_right",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 116,
+      "signature": "theorem HasSubst.mul_right (hf : HasSubst f) :\n    HasSubst (g * f)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "命名反直觉：mul_right 证的是 HasSubst (g * f)，即\"被乘侧\"。姊妹 HasSubst.mul_left (:111) 证 HasSubst (f * g)。"
+    },
+    {
+      "name": "HasSubst.smul_X",
+      "full_name": "PowerSeries.HasSubst.smul_X",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 138,
+      "signature": "theorem HasSubst.smul_X (a : A) (t : τ) :\n    HasSubst (a • (MvPowerSeries.X t) : MvPowerSeries τ R)",
+      "ambient_context": "{A} [CommRing A] [Algebra A R]",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "HasSubst.smul_X'",
+      "full_name": "PowerSeries.HasSubst.smul_X'",
+      "category": "B_zero_const_HasSubst",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 142,
+      "signature": "theorem HasSubst.smul_X' (a : A) : HasSubst (a • X : R⟦X⟧)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "单变量版。"
+    },
+    {
+      "name": "isUnit_constantCoeff",
+      "full_name": "PowerSeries.isUnit_constantCoeff",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 425,
+      "signature": "theorem isUnit_constantCoeff (φ : R⟦X⟧) (h : IsUnit φ) : IsUnit (constantCoeff φ)",
+      "ambient_context": "{R} [Semiring R]（section Semiring, :75-512）",
+      "minimal_call_draft": null,
+      "notes": "单向（IsUnit φ → IsUnit (constantCoeff φ)）；已被 isUnit_iff_constantCoeff 覆盖，一般用 iff 版。"
+    },
+    {
+      "name": "invOfUnit",
+      "full_name": "PowerSeries.invOfUnit",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "line": 84,
+      "signature": "def invOfUnit (φ : R⟦X⟧) (u : Rˣ) : R⟦X⟧",
+      "ambient_context": "{R} [Ring R]（section Ring）",
+      "minimal_call_draft": "PowerSeries.invOfUnit φ u : R⟦X⟧   -- u : Rˣ 指定常数项的逆",
+      "notes": null
+    },
+    {
+      "name": "constantCoeff_invOfUnit",
+      "full_name": "PowerSeries.constantCoeff_invOfUnit",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "line": 97,
+      "signature": "theorem constantCoeff_invOfUnit (φ : R⟦X⟧) (u : Rˣ) :\n    constantCoeff (invOfUnit φ u) = ↑u⁻¹",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "@[simp]。"
+    },
+    {
+      "name": "invOfUnit_mul",
+      "full_name": "PowerSeries.invOfUnit_mul",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "line": 107,
+      "signature": "theorem invOfUnit_mul (φ : R⟦X⟧) (u : Rˣ) (h : constantCoeff φ = u) :\n    invOfUnit φ u * φ = 1",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "@[simp]；需 h : constantCoeff φ = u。姊妹 mul_invOfUnit (:102) 给 φ * invOfUnit φ u = 1。"
+    },
+    {
+      "name": "isUnit_iff_constantCoeff",
+      "full_name": "PowerSeries.isUnit_iff_constantCoeff",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "line": 111,
+      "signature": "theorem isUnit_iff_constantCoeff {φ : R⟦X⟧} :\n    IsUnit φ ↔ IsUnit (constantCoeff φ)",
+      "ambient_context": "{R} [Ring R]（section Ring, :47-124）",
+      "minimal_call_draft": "have hu : IsUnit (φ.constantCoeff) := PowerSeries.isUnit_iff_constantCoeff.mp hφ",
+      "notes": "**唯一双向桥**：IsUnit φ ↔ IsUnit (constantCoeff φ)。"
+    },
+    {
+      "name": "invOfUnit_eq",
+      "full_name": "PowerSeries.invOfUnit_eq",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "line": 157,
+      "signature": "theorem invOfUnit_eq (φ : k⟦X⟧) (h : constantCoeff φ ≠ 0) :\n    invOfUnit φ (Units.mk0 _ h) = φ⁻¹",
+      "ambient_context": "{k} [Field k]（section Field, :126-257）",
+      "minimal_call_draft": null,
+      "notes": "需 constantCoeff φ ≠ 0。"
+    },
+    {
+      "name": "Unit_of_divided_by_X_pow_order",
+      "full_name": "PowerSeries.Unit_of_divided_by_X_pow_order",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "line": 228,
+      "signature": "def Unit_of_divided_by_X_pow_order (f : k⟦X⟧) : k⟦X⟧ˣ",
+      "ambient_context": "{k} [Field k]（section IsDiscreteValuationRing 之前的 Field section）",
+      "minimal_call_draft": null,
+      "notes": "k⟦X⟧ → k⟦X⟧ˣ；剥掉 X^order 得到的单位。不是常数项单位。"
+    },
+    {
+      "name": "isUnit_divided_by_X_pow_order",
+      "full_name": "PowerSeries.isUnit_divided_by_X_pow_order",
+      "category": "C_unit_maps",
+      "file": "Mathlib/RingTheory/PowerSeries/Inverse.lean",
+      "line": 236,
+      "signature": "theorem isUnit_divided_by_X_pow_order {f : k⟦X⟧} (hf : f ≠ 0) :\n    IsUnit (divXPowOrder f)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "substInvFun",
+      "full_name": "PowerSeries.substInvFun",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 444,
+      "signature": "def substInvFun : ℕ → R",
+      "ambient_context": "同 section Invertible",
+      "minimal_call_draft": null,
+      "notes": "系数的递归定义。"
+    },
+    {
+      "name": "substInv",
+      "full_name": "PowerSeries.substInv",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 455,
+      "signature": "def substInv : PowerSeries R",
+      "ambient_context": "(P : R⟦X⟧) (hP : P.constantCoeff = 0) [Invertible (coeff 1 P)]",
+      "minimal_call_draft": null,
+      "notes": "Invertible 版；section substInv / section Invertible (:433-553)。"
+    },
+    {
+      "name": "subst_substInv_right",
+      "full_name": "PowerSeries.subst_substInv_right",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 509,
+      "signature": "lemma subst_substInv_right :\n    P.subst (substInv P) = X",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "P.subst (P.substInv) = X。"
+    },
+    {
+      "name": "constantCoeff_substInv",
+      "full_name": "PowerSeries.constantCoeff_substInv",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 528,
+      "signature": "lemma constantCoeff_substInv : P.substInv.constantCoeff = 0",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "@[simp]。"
+    },
+    {
+      "name": "HasSubst.substInv",
+      "full_name": "PowerSeries.HasSubst.substInv",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 531,
+      "signature": "lemma HasSubst.substInv : HasSubst P.substInv",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "逆代换自身可代换。"
+    },
+    {
+      "name": "subst_substInv_left",
+      "full_name": "PowerSeries.subst_substInv_left",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 541,
+      "signature": "lemma subst_substInv_left : P.substInv.subst P = X",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "P.substInv.subst P = X。"
+    },
+    {
+      "name": "substInvOfIsUnit",
+      "full_name": "PowerSeries.substInvOfIsUnit",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 565,
+      "signature": "def substInvOfIsUnit : PowerSeries R",
+      "ambient_context": "(P : R⟦X⟧) (hP : P.constantCoeff = 0) (hP' : IsUnit (P.coeff 1))",
+      "minimal_call_draft": "PowerSeries.substInvOfIsUnit (P : R⟦X⟧) (hP' : IsUnit (P.coeff 1)) : R⟦X⟧",
+      "notes": "IsUnit 版，比 substInv 实用（不需显式 Invertible 实例）。"
+    },
+    {
+      "name": "coeff_one_substInvOfIsUnit",
+      "full_name": "PowerSeries.coeff_one_substInvOfIsUnit",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 581,
+      "signature": "lemma coeff_one_substInvOfIsUnit : (P.substInvOfIsUnit hP').coeff 1 = hP'.unit⁻¹",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "@[simp]；(substInvOfIsUnit P hP').coeff 1 = hP'.unit⁻¹。"
+    },
+    {
+      "name": "subst_substInvOfIsUnit_right",
+      "full_name": "PowerSeries.subst_substInvOfIsUnit_right",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 587,
+      "signature": "lemma subst_substInvOfIsUnit_right : P.subst (substInvOfIsUnit P hP') = X",
+      "ambient_context": null,
+      "minimal_call_draft": "have h : P.subst (P.substInvOfIsUnit hP') = PowerSeries.X :=\n  P.subst_substInvOfIsUnit_right hP hP'",
+      "notes": "需 hP : P.constantCoeff = 0 **且** hP' : IsUnit (P.coeff 1) 两条。"
+    },
+    {
+      "name": "subst_substInvOfIsUnit_left",
+      "full_name": "PowerSeries.subst_substInvOfIsUnit_left",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 592,
+      "signature": "lemma subst_substInvOfIsUnit_left : (P.substInvOfIsUnit hP').subst P = X",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "eq_substInvOfIsUnit_of_subst_eq_X",
+      "full_name": "PowerSeries.eq_substInvOfIsUnit_of_subst_eq_X",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 598,
+      "signature": "lemma eq_substInvOfIsUnit_of_subst_eq_X {Q : R⟦X⟧} (hQ : HasSubst Q) (hPQ : P.subst Q = X) :\n    Q = P.substInvOfIsUnit hP'",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "**唯一性**：任何 HasSubst Q 满足 P.subst Q = X 都等于 substInvOfIsUnit。"
+    },
+    {
+      "name": "subst_eq_X_of_subst_eq_X",
+      "full_name": "PowerSeries.subst_eq_X_of_subst_eq_X",
+      "category": "D2_inverse_substitution",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 607,
+      "signature": "lemma subst_eq_X_of_subst_eq_X {Q : R⟦X⟧} (hQ : HasSubst Q) (hPQ : P.subst Q = X) :\n    Q.subst P = X",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "**右逆即左逆**：单侧逆即可推出另一侧 —— 这是最接近\"群结构\"的地方，但仍不是 MulEquiv / Subgroup。"
+    },
+    {
+      "name": "HasSubst",
+      "full_name": "MvPowerSeries.HasSubst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 78,
+      "signature": "structure HasSubst (a : σ → MvPowerSeries τ S) : Prop",
+      "ambient_context": "{σ} {A} [CommSemiring A] {R} [CommRing R] [Algebra A R] {τ} {S} [CommRing S] [Algebra A S] [Algebra R S] [IsScalarTower A R S]",
+      "minimal_call_draft": null,
+      "notes": "**structure**（非 abbrev）：字段 const_coeff 与 coeff_zero。"
+    },
+    {
+      "name": "hasSubst_of_constantCoeff_zero",
+      "full_name": "MvPowerSeries.hasSubst_of_constantCoeff_zero",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 155,
+      "signature": "theorem hasSubst_of_constantCoeff_zero [Finite σ]\n    {a : σ → MvPowerSeries τ S} (ha : ∀ s, constantCoeff (a s) = 0) :\n    HasSubst a",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "[Finite σ] 必需。"
+    },
+    {
+      "name": "subst",
+      "full_name": "MvPowerSeries.subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 190,
+      "signature": "noncomputable def subst (a : σ → MvPowerSeries τ S) (f : MvPowerSeries σ R) :\n    MvPowerSeries τ S",
+      "ambient_context": null,
+      "minimal_call_draft": "PowerSeries.subst_def 展开到此",
+      "notes": "定义体就是 eval₂ (algebraMap _ _) a。"
+    },
+    {
+      "name": "subst_eq_eval₂",
+      "full_name": "MvPowerSeries.subst_eq_eval₂",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 196,
+      "signature": "theorem subst_eq_eval₂\n    [UniformSpace R] [DiscreteUniformity R] [UniformSpace S] [DiscreteUniformity S] :\n    (subst : (σ → MvPowerSeries τ S) → (MvPowerSeries σ R) → _) = eval₂ (algebraMap _ _)",
+      "ambient_context": "需要 [UniformSpace R] [DiscreteUniformity R] [UniformSpace S] [DiscreteUniformity S]",
+      "minimal_call_draft": null,
+      "notes": "进入 API 的正式入口：把 subst 归约为 eval₂（不依赖具体 uniformity）。"
+    },
+    {
+      "name": "substAlgHom",
+      "full_name": "MvPowerSeries.substAlgHom",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 210,
+      "signature": "noncomputable def substAlgHom (ha : HasSubst a) :\n    MvPowerSeries σ R →ₐ[R] MvPowerSeries τ S",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "coe_substAlgHom",
+      "full_name": "MvPowerSeries.coe_substAlgHom",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 229,
+      "signature": "theorem coe_substAlgHom (ha : HasSubst a) :\n    ⇑(substAlgHom ha) = subst (R := R) a",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "subst_self",
+      "full_name": "MvPowerSeries.subst_self",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 235,
+      "signature": "theorem subst_self : subst (MvPowerSeries.X : σ → MvPowerSeries σ R) = id",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "subst X = id。"
+    },
+    {
+      "name": "coeff_subst",
+      "full_name": "MvPowerSeries.coeff_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 310,
+      "signature": "theorem coeff_subst (ha : HasSubst a) (f : MvPowerSeries σ R) (e : τ →₀ ℕ) :\n    coeff e (subst a f) =\n      finsum (fun d ↦ coeff d f • (coeff e (d.prod fun s e => (a s) ^ e)))",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "finsum 形式，多元版本。"
+    },
+    {
+      "name": "constantCoeff_subst",
+      "full_name": "MvPowerSeries.constantCoeff_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 319,
+      "signature": "theorem constantCoeff_subst (ha : HasSubst a) (f : MvPowerSeries σ R) :\n    constantCoeff (subst a f) =\n      finsum (fun d ↦ coeff d f • (constantCoeff (d.prod fun s e => (a s) ^ e)))",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "constantCoeff_subst_eq_zero",
+      "full_name": "MvPowerSeries.constantCoeff_subst_eq_zero",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 324,
+      "signature": "theorem constantCoeff_subst_eq_zero (ha : HasSubst a) (ha' : ∀ i, (a i).constantCoeff = 0)\n    {f : MvPowerSeries σ R} (hf : f.constantCoeff = 0) :\n    MvPowerSeries.constantCoeff (subst a f) = 0",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "map_subst",
+      "full_name": "MvPowerSeries.map_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 349,
+      "signature": "theorem map_subst {a : σ → MvPowerSeries τ R} (ha : HasSubst a) {h : R →+* S}\n    (f : MvPowerSeries σ R) :\n    (f.subst a).map h = (f.map h).subst (fun i => (a i).map h)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "IsNilpotent_subst",
+      "full_name": "MvPowerSeries.IsNilpotent_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 429,
+      "signature": "lemma IsNilpotent_subst (ha : HasSubst a)\n    {f : MvPowerSeries σ R} (hf : IsNilpotent f.constantCoeff) :\n    IsNilpotent (constantCoeff (f.subst a))",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "可代入性的传递：HasSubst a + 幂零常数项 ⇒ 结果幂零。"
+    },
+    {
+      "name": "subst_comp_subst_apply",
+      "full_name": "MvPowerSeries.subst_comp_subst_apply",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/MvPowerSeries/Substitution.lean",
+      "line": 477,
+      "signature": "theorem subst_comp_subst_apply (ha : HasSubst a) (hb : HasSubst b) (f : MvPowerSeries σ R) :\n    subst b (subst a f) = subst (fun s ↦ subst b (a s)) f",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "多元复合：subst b (subst a f) = subst (fun s ↦ subst b (a s)) f。"
+    },
+    {
+      "name": "le_order_subst",
+      "full_name": "PowerSeries.le_order_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 344,
+      "signature": "theorem le_order_subst (a : MvPowerSeries τ S) (ha : HasSubst a) (f : PowerSeries R) :\n    a.order * f.order ≤ (f.subst a).order",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "阶的下界：a.order * f.order ≤ (f.subst a).order。"
+    },
+    {
+      "name": "le_order_subst_left'",
+      "full_name": "PowerSeries.le_order_subst_left'",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 359,
+      "signature": "theorem le_order_subst_left' {f φ : PowerSeries R} (hf : f.constantCoeff = 0) :\n    φ.order ≤ PowerSeries.order (φ.subst f)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "零常数项时 φ.order ≤ (φ.subst f).order。"
+    },
+    {
+      "name": "le_order_subst_right'",
+      "full_name": "PowerSeries.le_order_subst_right'",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 364,
+      "signature": "theorem le_order_subst_right' {f φ : PowerSeries R} (hf : f.constantCoeff = 0)\n    (hφ : φ.constantCoeff = 0) : f.order ≤ PowerSeries.order (φ.subst f)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "HasSubst.comp",
+      "full_name": "PowerSeries.HasSubst.comp",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 371,
+      "signature": "theorem HasSubst.comp\n    {a : PowerSeries S} (ha : HasSubst a) {b : MvPowerSeries υ T} (hb : HasSubst b) :\n    HasSubst (substAlgHom hb a)",
+      "ambient_context": "{R} [CommRing R] [Algebra R S] {υ} {T} [CommRing T] [Algebra R T] [Algebra S T]",
+      "minimal_call_draft": null,
+      "notes": "可代入性在复合下封闭：HasSubst (substAlgHom hb a)。"
+    },
+    {
+      "name": "substAlgHom_comp_substAlgHom",
+      "full_name": "PowerSeries.substAlgHom_comp_substAlgHom",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 378,
+      "signature": "theorem substAlgHom_comp_substAlgHom (ha : HasSubst a) (hb : HasSubst b) :\n    ((substAlgHom hb).restrictScalars R).comp (substAlgHom ha) = substAlgHom (ha.comp hb)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "AlgHom 层；用 restrictScalars R 对齐标量。"
+    },
+    {
+      "name": "substAlgHom_comp_substAlgHom_apply",
+      "full_name": "PowerSeries.substAlgHom_comp_substAlgHom_apply",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 382,
+      "signature": "theorem substAlgHom_comp_substAlgHom_apply (ha : HasSubst a) (hb : HasSubst b) (f : PowerSeries R) :\n    (substAlgHom hb) (substAlgHom ha f) = substAlgHom (ha.comp hb) f",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "subst_comp_subst",
+      "full_name": "PowerSeries.subst_comp_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 386,
+      "signature": "theorem subst_comp_subst (ha : HasSubst a) (hb : HasSubst b) :\n    (subst b) ∘ (subst a) = subst (R := R) (subst b a)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "函数层：(subst b) ∘ (subst a) = subst (subst b a)。"
+    },
+    {
+      "name": "subst_comp_subst_apply",
+      "full_name": "PowerSeries.subst_comp_subst_apply",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 390,
+      "signature": "theorem subst_comp_subst_apply (ha : HasSubst a) (hb : HasSubst b) (f : PowerSeries R) :\n    subst b (subst a f) = subst (subst b a) f",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.subst_comp_subst_apply ha hb]",
+      "notes": "**复合核心引理**：subst b (subst a f) = subst (subst b a) f。需要 ha、hb 两个 HasSubst 同时在。"
+    },
+    {
+      "name": "rescale_eq_subst",
+      "full_name": "PowerSeries.rescale_eq_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 402,
+      "signature": "lemma rescale_eq_subst (r : R) (f : PowerSeries R) :\n    PowerSeries.rescale r f = PowerSeries.subst (r • X : R⟦X⟧) f",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.rescale_eq_subst]",
+      "notes": "rescale r f = subst (r • X) f —— 线性代换是 subst 的特例。"
+    },
+    {
+      "name": "rescaleAlgHom",
+      "full_name": "PowerSeries.rescaleAlgHom",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 407,
+      "signature": "noncomputable abbrev rescaleAlgHom (r : R) : R⟦X⟧ →ₐ[R] R⟦X⟧",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "subst_tsum",
+      "full_name": "PowerSeries.subst_tsum",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 622,
+      "signature": "lemma subst_tsum (hx : Summable x) (ha : HasSubst a) :\n    (∑' i, x i).subst a = ∑' i, ((x i).subst a)",
+      "ambient_context": "需要 [UniformSpace R] [DiscreteUniformity R] [UniformSpace S] [DiscreteUniformity S]",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "summable_subst",
+      "full_name": "PowerSeries.summable_subst",
+      "category": "D_composition",
+      "file": "Mathlib/RingTheory/PowerSeries/Substitution.lean",
+      "line": 627,
+      "signature": "lemma summable_subst (hx : Summable x) (ha : HasSubst a) :\n    Summable fun i ↦ (x i).subst a",
+      "ambient_context": "同上拓扑前提",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "constantCoeff",
+      "full_name": "PowerSeries.constantCoeff",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 143,
+      "signature": "def constantCoeff : R⟦X⟧ →+* R",
+      "ambient_context": "{R} [Semiring R]（section Semiring, :75-512）",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "constantCoeff_eq",
+      "full_name": "PowerSeries.constantCoeff_eq",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 146,
+      "signature": "theorem constantCoeff_eq (f : R⟦X⟧) :\n    constantCoeff f = MvPowerSeries.constantCoeff f",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "coeff_zero_eq_constantCoeff",
+      "full_name": "PowerSeries.coeff_zero_eq_constantCoeff",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 176,
+      "signature": "theorem coeff_zero_eq_constantCoeff : ⇑(coeff (R := R) 0) = constantCoeff",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "constantCoeff_C",
+      "full_name": "PowerSeries.constantCoeff_C",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 313,
+      "signature": "theorem constantCoeff_C (a : R) : constantCoeff (C a) = a",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "constantCoeff_X",
+      "full_name": "PowerSeries.constantCoeff_X",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 329,
+      "signature": "theorem constantCoeff_X : constantCoeff (R := R) X = 0",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "map",
+      "full_name": "PowerSeries.map",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 450,
+      "signature": "def map : R⟦X⟧ →+* S⟦X⟧",
+      "ambient_context": "{S} {T} [Semiring S] [Semiring T] (f : R →+* S)（section Map, :444-489）",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "map_comp",
+      "full_name": "PowerSeries.map_comp",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 457,
+      "signature": "theorem map_comp : map (g.comp f) = (map g).comp (map f)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "coeff_map",
+      "full_name": "PowerSeries.coeff_map",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 461,
+      "signature": "theorem coeff_map (n : ℕ) (φ : R⟦X⟧) : coeff n (map f φ) = f (coeff n φ)",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "mapAlgHom",
+      "full_name": "PowerSeries.mapAlgHom",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Basic.lean",
+      "line": 733,
+      "signature": "def mapAlgHom (φ : A →ₐ[R] B) :\n    PowerSeries A →ₐ[R] PowerSeries B",
+      "ambient_context": "{A} [CommSemiring A] {B} [CommSemiring B] [Algebra R A] [Algebra R B]",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "HasEval",
+      "full_name": "PowerSeries.HasEval",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 61,
+      "signature": "abbrev HasEval (a : S)",
+      "ambient_context": "{R S} [CommRing R] [CommRing S] [TopologicalSpace R] [TopologicalSpace S]",
+      "minimal_call_draft": null,
+      "notes": "abbrev，定义体 = IsTopologicallyNilpotent a。"
+    },
+    {
+      "name": "hasEval_def",
+      "full_name": "PowerSeries.hasEval_def",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 63,
+      "signature": "theorem hasEval_def (a : S) : HasEval a ↔ IsTopologicallyNilpotent a",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "eval₂",
+      "full_name": "PowerSeries.eval₂",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 132,
+      "signature": "noncomputable def eval₂ : PowerSeries R → S",
+      "ambient_context": "{φ : R →+* S}",
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "eval₂_eq_tsum",
+      "full_name": "PowerSeries.eval₂_eq_tsum",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 186,
+      "signature": "theorem eval₂_eq_tsum (hφ : Continuous φ) (ha : HasEval a) (f : PowerSeries R) :\n    PowerSeries.eval₂ φ a f =\n      ∑' d : ℕ, φ (coeff d f) * a ^ d",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "aeval",
+      "full_name": "PowerSeries.aeval",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 211,
+      "signature": "noncomputable def aeval (ha : HasEval a) :\n    PowerSeries R →ₐ[R] S",
+      "ambient_context": "{φ : R →+* S} (ha : HasEval a)",
+      "minimal_call_draft": null,
+      "notes": "拓扑版代入 AlgHom。"
+    },
+    {
+      "name": "coe_aeval",
+      "full_name": "PowerSeries.coe_aeval",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 215,
+      "signature": "theorem coe_aeval (ha : HasEval a) :\n    ↑(aeval ha) = eval₂ (algebraMap R S) a",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "aeval_unique",
+      "full_name": "PowerSeries.aeval_unique",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 228,
+      "signature": "theorem aeval_unique {ε : PowerSeries R →ₐ[R] S} (hε : Continuous ε) :\n    aeval (HasEval.X.map hε) = ε",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "comp_aeval",
+      "full_name": "PowerSeries.comp_aeval",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Evaluation.lean",
+      "line": 241,
+      "signature": "theorem comp_aeval (ha : HasEval a)\n    {T : Type*} [CommRing T] [UniformSpace T] [IsUniformAddGroup T]\n    [IsTopologicalRing T] [IsLinearTopology T T]\n    [T2Space T] [Algebra R T] [ContinuousSMul R T] [CompleteSpace T]\n    {ε : S →ₐ[R] T} (hε : Continuous ε) :\n    ε.comp (aeval ha) = aeval (ha.map hε)",
+      "ambient_context": "需 [CommRing T] [UniformSpace T] [IsUniformAddGroup T] [IsTopologicalRing T] [IsLinearTopology T T] [T2Space T] [Algebra R T] [ContinuousSMul R T] [CompleteSpace T]",
+      "minimal_call_draft": null,
+      "notes": "拓扑完备性前提一长串；非拓扑路线请用 subst_comp_subst_apply。"
+    },
+    {
+      "name": "expand",
+      "full_name": "PowerSeries.expand",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+      "line": 33,
+      "signature": "noncomputable def expand : PowerSeries R →ₐ[R] PowerSeries R",
+      "ambient_context": "{R S τ} [CommRing R] [CommRing S] (p : ℕ) (hp : p ≠ 0)",
+      "minimal_call_draft": "PowerSeries.expand (p := 2) (by decide) : R⟦X⟧ →ₐ[R] R⟦X⟧",
+      "notes": "p = 2 即\"平方代换\"的 AlgHom 形态。"
+    },
+    {
+      "name": "expand_apply",
+      "full_name": "PowerSeries.expand_apply",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+      "line": 36,
+      "signature": "theorem expand_apply (f : PowerSeries R) : expand p hp f = subst (X ^ p) f",
+      "ambient_context": null,
+      "minimal_call_draft": "rw [PowerSeries.expand_apply]   -- expand p hp f = subst (X ^ p) f",
+      "notes": "**关键桥**：把 expand 完全归约到 subst。"
+    },
+    {
+      "name": "expand_X",
+      "full_name": "PowerSeries.expand_X",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+      "line": 56,
+      "signature": "theorem expand_X : expand p hp (X (R := R)) = X ^ p",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "@[simp]。"
+    },
+    {
+      "name": "expand_subst",
+      "full_name": "PowerSeries.expand_subst",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+      "line": 75,
+      "signature": "theorem expand_subst {f : MvPowerSeries τ S} (hf : HasSubst f) (φ : PowerSeries S) :\n    (subst f φ).expand p hp = subst (f.expand p hp) φ",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "constantCoeff_expand",
+      "full_name": "PowerSeries.constantCoeff_expand",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+      "line": 92,
+      "signature": "theorem constantCoeff_expand (φ : PowerSeries R) :\n    (φ.expand p hp).constantCoeff = φ.constantCoeff",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": "@[simp]；expand 保常数项。"
+    },
+    {
+      "name": "coeff_expand",
+      "full_name": "PowerSeries.coeff_expand",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Expand.lean",
+      "line": 110,
+      "signature": "theorem coeff_expand {n : ℕ} :\n    (φ.expand p hp).coeff n = if p ∣ n then φ.coeff (n / p) else 0",
+      "ambient_context": null,
+      "minimal_call_draft": null,
+      "notes": null
+    },
+    {
+      "name": "order_ne_zero_iff_constCoeff_eq_zero",
+      "full_name": "PowerSeries.order_ne_zero_iff_constCoeff_eq_zero",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Order.lean",
+      "line": 222,
+      "signature": "theorem order_ne_zero_iff_constCoeff_eq_zero {φ : R⟦X⟧} :\n    φ.order ≠ 0 ↔ φ.constantCoeff = 0",
+      "ambient_context": "**section OrderZeroNeOne（:349-390）：[Semiring R] [Nontrivial R]**",
+      "minimal_call_draft": null,
+      "notes": "需要 [Nontrivial R]，比文件顶部 [Semiring R] 更强；引用时别漏。"
+    },
+    {
+      "name": "le_order_pow_of_constantCoeff_eq_zero",
+      "full_name": "PowerSeries.le_order_pow_of_constantCoeff_eq_zero",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Order.lean",
+      "line": 226,
+      "signature": "theorem le_order_pow_of_constantCoeff_eq_zero (n : ℕ) (hf : φ.constantCoeff = 0) :\n    n ≤ (φ ^ n).order",
+      "ambient_context": "同上：section OrderZeroNeOne，[Semiring R] [Nontrivial R]",
+      "minimal_call_draft": null,
+      "notes": "零常数项 ⇒ order 至少 n 次幂。"
+    },
+    {
+      "name": "constantCoeff_divXPowOrder",
+      "full_name": "PowerSeries.constantCoeff_divXPowOrder",
+      "category": "E_support",
+      "file": "Mathlib/RingTheory/PowerSeries/Order.lean",
+      "line": 300,
+      "signature": "lemma constantCoeff_divXPowOrder {f : R⟦X⟧} :\n    constantCoeff (divXPowOrder f) = coeff f.order.toNat f",
+      "ambient_context": "需要 divXPowOrder",
+      "minimal_call_draft": null,
+      "notes": null
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G1",
+      "claim": "不存在名为 PowerSeries.comp 的复合操作（也不存在任何 cp-alg 意义上的 comp）",
+      "severity": "blocking_for_downstream_naming",
+      "grep_terms": [
+        "^def comp",
+        "^theorem comp_assoc",
+        "PowerSeries\\.comp\\b",
+        "def comp\\b.*PowerSeries"
+      ],
+      "scope": "Mathlib/RingTheory/PowerSeries/*.lean, Mathlib/RingTheory/MvPowerSeries/*.lean, Mathlib/RingTheory/FormalGroup/*.lean",
+      "result": "0 hits. 复合只能经 PowerSeries.subst 表达。对照：Polynomial.comp 存在（Mathlib/Algebra/Polynomial/Eval/Defs.lean:381），故\"多项式有 comp、幂级数没有\"是可引用的不对称事实。",
+      "workaround": "PowerSeries.subst b (PowerSeries.subst a f) + PowerSeries.subst_comp_subst_apply"
+    },
+    {
+      "id": "G2",
+      "claim": "不存在 SubstEquiv / 代换群 / 可逆代换的 MulEquiv 打包",
+      "severity": "blocking_for_group_structure",
+      "grep_terms": [
+        "substEquiv",
+        "SubstEquiv",
+        "IsSubstEquiv",
+        "substMonoid",
+        "compUnit"
+      ],
+      "scope": "whole Mathlib tree (Get-ChildItem -Recurse -Filter *.lean | Select-String)",
+      "result": "0 hits. 可逆代换只有单向见证（subst_substInvOfIsUnit_left/_right）+ 唯一性（eq_substInvOfIsUnit_of_subst_eq_X）+ 单侧可推双侧（subst_eq_X_of_subst_eq_X），**没有**打包成 Group / MulEquiv / Subgroup。",
+      "workaround": "按需自建 structure 或用 subst_eq_X_of_subst_eq_X 单独取双向；若要群结构需在 delegated 目录自建并送审。"
+    },
+    {
+      "id": "G3",
+      "claim": "不存在 Rˣ ≃* (R⟦X⟧)ˣ 形式的单位-常数项同构",
+      "severity": "partial",
+      "grep_terms": [
+        "Units\\.map",
+        "unitOf",
+        "units_",
+        "ˣ"
+      ],
+      "scope": "Mathlib/RingTheory/PowerSeries/*.lean",
+      "result": "只有 IsUnit 层的双向（isUnit_iff_constantCoeff）与构造性的 invOfUnit / Unit_of_divided_by_X_pow_order。从 h : IsUnit (constantCoeff φ) 造 φ 的 unit 需手工拼 IsUnit.unit（Mathlib/Algebra/Group/Units/Defs.lean:503）+ invOfUnit（Inverse.lean:84），无现成单条引理。仓库内既有做法是 Units.map（见 candidates/core-kummer/Boundary/ThetaGermTransport.lean:70 的 coordinateUnit）。",
+      "workaround": "Units.map (PowerSeries.map f).toMonoidHom u，或手工 IsUnit.unit + invOfUnit。"
+    },
+    {
+      "id": "G4",
+      "claim": "不存在 q-展开 / theta / Tate 参数层的幂级数 API",
+      "severity": "scope_boundary",
+      "grep_terms": [
+        "qExp|q_expansion|qParameter",
+        "TateParameter|thetaFunction|ThetaGroup"
+      ],
+      "scope": "whole Mathlib tree",
+      "result": "qExpansion 只在 NumberTheory/ModularForms/{Bounds,Basic}.lean 出现，与形式幂级数代换无关（是模形式的 Fourier 系数接口）。TateParameter / thetaFunction / ThetaGroup 全部 0 hits。",
+      "workaround": "这些结构在 Mathlib 无对应物；主线若要\"q 平移下的 theta germ\"必须自建（不得声称为 Mathlib 已有）。"
+    },
+    {
+      "id": "G5",
+      "claim": "subst 与 derivative 之外的代数结构的自然性覆盖不全",
+      "severity": "informational",
+      "grep_terms": [
+        "derivative.*subst",
+        "subst.*derivative",
+        "map_subst"
+      ],
+      "scope": "Mathlib/RingTheory/PowerSeries/*.lean",
+      "result": "链式法则存在（PowerSeries.derivative_subst, Derivative.lean:140）；系数环自然性存在（map_subst, Substitution.lean:329；MvPowerSeries 版 :349）。但 expand / rescale 之外没有通用函子性定理。",
+      "workaround": "用 map_subst + expand_apply 组合。"
+    }
+  ]
+}

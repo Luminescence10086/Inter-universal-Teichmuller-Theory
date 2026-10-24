@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "task_id": "T008",
+  "task_card_sha256": "48ce6a8adae3703db2e1c4d2161963b6cb633d63c46ccd2b6b5a3563e2a2d5eb",
+  "baseline_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+  "status": "RESEARCH_ONLY",
+  "summary_file": "SUMMARY.md",
+  "gap_file": "GAP.md",
+  "replay_file": "replay.ps1",
+  "base_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+  "returned_commit": null,
+  "protocol_sha256": "dd0a4d07173ef21bd08fadff37b06dd631be3846d2df5ba099944a9991f6aed1",
+  "scope_statement": "Type ledger only. No new mathematics, no new Lean declaration, no axiom, no sorry. 23 arrows: 18 constructed (each with the exact Lean type and source line recorded in ARROW-TABLE.md), 5 still hypotheses. A PASS in this package is NOT a fact-tree admission and does not address the IUT core dispute, Corollary 3.12 or abc.",
+  "artifacts": [
+    { "path": "SUMMARY.md", "sha256": "8f5084de7b98bf6a5236aca5b0b6bd0df8248f2dfeb9cae71067c9bfcb3f486a", "role": "summary" },
+    { "path": "ARROW-TABLE.md", "sha256": "887fc8aa7dc7c323a02595b26e3e87bf7d5a5353d3ca40f2e014cb407c0c024f", "role": "arrow_table" },
+    { "path": "GAP.md", "sha256": "9a9eacfa2da7bea684bfc9c36ce2f7032ac533dbb89c8ba796d9cbe590f7d18b", "role": "gap" },
+    { "path": "replay.ps1", "sha256": "b0ba7d118fe736b438cdd984e125cae10c5a71fbd5b9ae7102a7a16f138f67b9", "role": "replay" },
+    { "path": "probe/T008Probe.lean", "sha256": "9035c0b9025607f85ed622df0f4b2357e6ea0ed212d5abeb7ae841bf331d2727", "role": "probe_source" },
+    { "path": "logs/probe.stdout.log", "sha256": "29166b5f6f01949a69ddbdbc14345b95d5c8248f7fc0314cc679c1d7f609fac6", "role": "stdout" },
+    { "path": "logs/probe.stderr.log", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "role": "stderr" },
+    { "path": "logs/replay.stdout.log", "sha256": "29166b5f6f01949a69ddbdbc14345b95d5c8248f7fc0314cc679c1d7f609fac6", "role": "stdout" },
+    { "path": "logs/replay.stderr.log", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "role": "stderr" },
+    { "path": "logs/replay.console.log", "sha256": "e6810321be4e50bfdb3f0313d6344d2bcc7c308295c4f6769c016b950d34cd96", "role": "replay_console" },
+    { "path": "logs/attempt1.stdout.log", "sha256": "2c385cd32ad0631e84f446646b62235afc88308e6d056256649a95128d3cbc0f", "role": "discarded_attempt_log" },
+    { "path": "logs/attempt1.stderr.log", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "role": "discarded_attempt_log" }
+  ],
+  "declarations": [
+    {
+      "name": "KummerTheory.Decomposition.decompositionMap",
+      "type": "∀ {k : Type u_4} (F : Type u_5) {Ω : Type u_6} [inst : Field k] [inst_1 : Field F] [inst_2 : Field Ω] [inst_3 : Algebra k F] [inst_4 : Algebra F Ω] [inst_5 : Algebra k Ω] [inst_6 : IsScalarTower k F Ω] (A : ValuationSubring Ω) (hk : ∀ (c : k), (algebraMap k Ω) c ∈ A) [inst_7 : Algebra k (ResidueField ↥A)] (hkres : ∀ (c : k), (residue ↥A) ⟨(algebraMap k Ω) c, ⋯⟩ = (algebraMap k (ResidueField ↥A)) c), ↥(ValuationSubring.decompositionSubgroup F A) →* Gal(ResidueField ↥A/k)",
+      "source_file": "probe/T008Probe.lean",
+      "source_sha256": "9035c0b9025607f85ed622df0f4b2357e6ea0ed212d5abeb7ae841bf331d2727",
+      "defined_in": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Decomposition.lean",
+      "direct_dependencies": [
+        "ValuationSubring.decompositionSubgroup",
+        "IsLocalRing.ResidueField",
+        "IsLocalRing.residue",
+        "KummerTheory.Decomposition.smul_algebraMap"
+      ],
+      "axioms_log": "logs/probe.stdout.log",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "KummerTheory.Decomposition.muAction",
+      "type": "∀ {k : Type u_4} (F : Type u_5) {Ω : Type u_6} [inst : Field k] [inst_1 : Field F] [inst_2 : Field Ω] [inst_3 : Algebra k F] [inst_4 : Algebra F Ω] [inst_5 : Algebra k Ω] [inst_6 : IsScalarTower k F Ω] (A : ValuationSubring Ω) (hk : ∀ (c : k), (algebraMap k Ω) c ∈ A) [inst_7 : Algebra k (ResidueField ↥A)] (hkres : ∀ (c : k), (residue ↥A) ⟨(algebraMap k Ω) c, ⋯⟩ = (algebraMap k (ResidueField ↥A)) c) (n : ℕ), MulDistribMulAction (↥(ValuationSubring.decompositionSubgroup F A)) (KummerTheory.Mu n (ResidueField ↥A))",
+      "source_file": "probe/T008Probe.lean",
+      "source_sha256": "9035c0b9025607f85ed622df0f4b2357e6ea0ed212d5abeb7ae841bf331d2727",
+      "defined_in": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Decomposition.lean",
+      "direct_dependencies": ["KummerTheory.Decomposition.decompositionMap", "MulDistribMulAction.compHom"],
+      "axioms_log": "logs/probe.stdout.log",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "KummerTheory.Decomposition.reduceMu",
+      "type": "∀ {Ω : Type u_4} [inst : Field Ω] (A : ValuationSubring Ω) (n : ℕ), n ≠ 0 → KummerTheory.Mu n Ω →* KummerTheory.Mu n (IsLocalRing.ResidueField ↥A)",
+      "source_file": "probe/T008Probe.lean",
+      "source_sha256": "9035c0b9025607f85ed622df0f4b2357e6ea0ed212d5abeb7ae841bf331d2727",
+      "defined_in": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Decomposition.lean",
+      "direct_dependencies": [
+        "KummerTheory.specMu",
+        "KummerTheory.Decomposition.mem_of_pow_mem_toSubring",
+        "ValuationSubring.mem_of_pow_mem"
+      ],
+      "axioms_log": "logs/probe.stdout.log",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    },
+    {
+      "name": "KummerTheory.Decomposition.decomposition_kummer",
+      "type": "∀ {k} (F) {Ω} [Field k] [Field F] [Field Ω] [Algebra k F] [Algebra F Ω] [Algebra k Ω] [IsScalarTower k F Ω] (A : ValuationSubring Ω) (hk : ∀ c : k, algebraMap k Ω c ∈ A) [Algebra k (ResidueField A)] (hkres : …) (n : ℕ) (hn : n ≠ 0) [Algebra.IsIntegral F Ω] [Algebra.IsIntegral k (ResidueField A)] [HasKummerRoots n F Ω] [HasKummerRoots n k (ResidueField A)] (f : Fˣ) (a : kˣ) (hf : algebraMap F Ω ↑f ∈ A), algebraMap F Ω ↑f⁻¹ ∈ A → residue A ⟨_, hf⟩ = algebraMap k (ResidueField A) ↑a → (ContH1.map (decompositionSubgroup F A).subtype _ (reduceMu A n hn) _ _) (kummer n F Ω f) = (ContH1.map (decompositionMap F A hk hkres) _ (MonoidHom.id _) _ _) (kummer n k (ResidueField A) a)",
+      "type_note": "Full un-elided type is in logs/probe.stdout.log at the line starting '@decomposition_kummer :'; this field elides the instance witnesses the elaborator prints as '⋯'.",
+      "source_file": "probe/T008Probe.lean",
+      "source_sha256": "9035c0b9025607f85ed622df0f4b2357e6ea0ed212d5abeb7ae841bf331d2727",
+      "defined_in": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Decomposition.lean",
+      "direct_dependencies": [
+        "KummerTheory.map_kummer_eq_map_kummer",
+        "KummerTheory.Decomposition.reduceMu_smul",
+        "KummerTheory.Decomposition.continuous_decompositionMap",
+        "KummerTheory.Decomposition.residue_smul_eq"
+      ],
+      "axioms_log": "logs/probe.stdout.log",
+      "axioms": ["propext", "Classical.choice", "Quot.sound"]
+    }
+  ],
+  "runs": [
+    {
+      "kind": "lean",
+      "argv": ["lake", "env", "lean", "-DwarningAsError=true", "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T008\\probe\\T008Probe.lean"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer",
+      "exit_code": 0,
+      "duration_seconds": 49.06,
+      "stdout": "logs/probe.stdout.log",
+      "stderr": "logs/probe.stderr.log",
+      "inputs": [
+        { "path": "probe/T008Probe.lean", "sha256": "9035c0b9025607f85ed622df0f4b2357e6ea0ed212d5abeb7ae841bf331d2727" }
+      ],
+      "note": "Zero errors, zero warnings, zero sorry. 23 #check lines and 11 #print axioms lines all emitted."
+    },
+    {
+      "kind": "replay",
+      "argv": ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T008\\replay.ps1"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory",
+      "exit_code": 0,
+      "duration_seconds": 48.92,
+      "stdout": "logs/replay.stdout.log",
+      "stderr": "logs/replay.stderr.log",
+      "console": "logs/replay.console.log",
+      "inputs": [
+        { "path": "probe/T008Probe.lean", "sha256": "9035c0b9025607f85ed622df0f4b2357e6ea0ed212d5abeb7ae841bf331d2727" },
+        { "path": "replay.ps1", "sha256": "b0ba7d118fe736b438cdd984e125cae10c5a71fbd5b9ae7102a7a16f138f67b9" }
+      ],
+      "note": "Independent end-to-end invocation of the delivered replay script; it re-verified the five pinned input hashes as 'ok' before running Lean, and its stdout is byte-identical to logs/probe.stdout.log."
+    },
+    {
+      "kind": "discarded_attempt",
+      "argv": ["lake", "env", "lean", "-DwarningAsError=true", "<attempt-1 T008Probe.lean, since replaced>"],
+      "cwd": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer",
+      "exit_code": 1,
+      "duration_seconds": 52.85,
+      "stdout": "logs/attempt1.stdout.log",
+      "stderr": "logs/attempt1.stderr.log",
+      "inputs": [],
+      "note": "PRESERVED AS A NEGATIVE RECORD, NOT AS EVIDENCE. Attempt 1 wrapped the two legs of the decomposition square in local defs; the elaborator replaced their values with sorry and dropped hk/hkres from the printed signature, and the file exited 1. It was discarded rather than repaired because a repaired version would still be a declaration authored by this task. `inputs` is deliberately empty: the attempt-1 probe source was replaced and is not retained, so no SHA can honestly be bound to this log. Do not use this run for any claim."
+    }
+  ],
+  "dependency_deliveries": [],
+  "preflight": {
+    "produced_by": "handoffs/agent-batch-2026-10-24/check_delivery.py",
+    "argv": ["python", "check_delivery.py", "--delivery", "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T008\\delivery.json"],
+    "cwd": "D:\\Inter-universal Teichmüller Theory\\handoffs\\agent-batch-2026-10-24",
+    "exit_code": 0,
+    "duration_seconds": 0.367,
+    "result": "PACKAGE_COMPLETE",
+    "stdout": null,
+    "stderr": null,
+    "note": "Material and hash preflight only. Per its own scope string it executes no reported command and checks no mathematics. PACKAGE_COMPLETE is not a Lean, editor or core-gap pass. The preflight's own console output is deliberately NOT listed as an artifact: check_delivery.py rewrites that file while hashing, so binding a SHA to it would make the package self-inconsistent (observed once: PACKAGE_INCOMPLETE / 'artifact SHA mismatch: logs/check_delivery.stdout.log'). Reproduce with: python check_delivery.py --delivery <this file> from handoffs/agent-batch-2026-10-24."
+  },
+  "upstream_inputs": [
+    { "path": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Decomposition.lean", "sha256": "b7a67da60e61998d631201b3053aadea387993c68984dd1e14a3f5d9d446b7a6", "matches_baseline": true },
+    { "path": "candidates/core-kummer/ContinuousKummerTheory/Kummer/DecompositionSurjective.lean", "sha256": "88f59d79f06050aaa6a2838eb8c33fe5fd94b6426034f582259a934d9ec3e3f8", "matches_baseline": true },
+    { "path": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Specialization.lean", "sha256": "a3852b0e12e7f0af7f87341f904df7914a32fd0b550f79bb0d4de4a3ec2a876a", "matches_baseline": true },
+    { "path": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Basic.lean", "sha256": "ba0299ee3b07c5dc57c64b521d202e63099cc9f26fb7a83fc2044eaff8faf177", "matches_baseline": true },
+    { "path": "candidates/core-kummer/ContinuousKummerTheory/ContH1/Basic.lean", "sha256": "a0c0e0ada763df8c664bd5f11d548c30025e4a3855c8c7e9aa53eacb4e41a59c", "matches_baseline": true },
+    { "path": "candidates/core-kummer/CohomologyReflection.lean", "sha256": "0c5476c9993fcf960a7748c0b4643386bf9291640bd03582483b217f0b55d8a3", "matches_baseline": true },
+    { "path": "candidates/core-kummer/Boundary/ReducedComparison.lean", "sha256": "40b6c22138ffeff4b6c78b58a28ef54d90779b980c8f7e6735f5d9ae24219edf", "matches_baseline": true },
+    { "path": "candidates/core-kummer/Boundary/DecompositionBridge.lean", "sha256": "1bc8a3e3986ce953e7b2f3d378119c0e6baed7366ba12c2bb4ee819027d4984a", "matches_baseline": true, "note": "Read only. NOT verifiable by this task: no Boundary/DecompositionBridge.olean exists, so its declarations are recorded as hypotheses (arrow A21). See GAP.md G1." },
+    { "path": "reviews/core-round/external/iut/Iut/EtaleTheta/Theta.lean", "sha256": "f9c0bb16beb84c9abf0c198772b7ddc66e97b03cbf1062ba78b98e0191d2fdb1", "matches_baseline": true },
+    { "path": "reviews/core-round/external/iut/Iut/EtaleTheta/KummerClass.lean", "sha256": "9b583a7a497b0a9e09c819957f2e6396fd4d953a96e8df4921751d88815ae7ab", "matches_baseline": true },
+    { "path": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c", "matches_baseline": true },
+    { "path": "research/core-projective-2026-10-24/backward-delivery-review.md", "sha256": "efdfae278ac149de2716936d50422fe8a24b6e39ed245163713f744a71290d36", "matches_baseline": true },
+    { "path": "research/round2-source-cache/iut-I-official-retrieved-2026-10-16.txt", "sha256": "5acfb4aec6fcb42264c4e41dd5739024ef8f56f3b279e8dbb358a61c1c1167c6", "matches_baseline": true, "note": "SHA-verified only; not used as evidence in this task's conclusions." },
+    { "path": "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt", "sha256": "7d5b7bd7d4e53c4d96b1ed24a05dffa1f9a5fae539b1129a9a12f0b7665e7fab", "matches_baseline": true, "note": "SHA-verified only; not used as evidence in this task's conclusions." },
+    { "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715", "matches_baseline": true, "note": "SHA-verified only; not used as evidence in this task's conclusions." },
+    { "path": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt", "sha256": "97033613e950d48c4af493403d730f43e1493713cc1fbaadf35746df981c5ef2", "matches_baseline": true, "note": "SHA-verified only; not used as evidence in this task's conclusions." },
+    { "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e", "matches_baseline": true, "note": "SHA-verified only; not used as evidence in this task's conclusions." },
+    { "path": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Scholze_Stix.txt", "sha256": "d67c63c008c057d946258b12785694a9bd9542ed1570210fa7bd8a0bdf35cdc6", "matches_baseline": true, "note": "SHA-verified only; not used as evidence in this task's conclusions." },
+    { "path": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Comments_Scholze_Stix.txt", "sha256": "efaef7c2295bd6dceff348557295f7965c4385f7531e5dc42b1d260cb6875696", "matches_baseline": true, "note": "SHA-verified only; not used as evidence in this task's conclusions." }
+  ],
+  "toolchain": {
+    "lean": "leanprover/lean4:v4.34.0-rc2",
+    "mathlib_local_path": "C:\\Users\\18746\\Desktop\\数竞屠宰场\\.lake\\packages\\mathlib",
+    "mathlib_commit_claimed_by_baseline": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "mathlib_commit_verified_this_task": false,
+    "note": "Mathlib commit was NOT re-verified by this task; it is reported as the baseline value only. The build used existing .olean files, so no Mathlib rebuild happened."
+  },
+  "build_cache_note": "This task deliberately ran `lake env lean <file>` and NOT `lake build`, so candidates/core-kummer/.lake was not written and no main-line build artifact was disturbed. All .olean inputs were pre-existing and newer than their sources at run time.",
+  "arrow_counts": {
+    "total": 23,
+    "constructed": 18,
+    "hypothesis": 5,
+    "constructed_with_extra_hypotheses": 6,
+    "constructed_ids": ["A01","A02","A03","A04","A05","A06","A07","A08","A09","A10","A11","A12","A13","A14","A15","A16","A17","A18"],
+    "hypothesis_ids": ["A19","A20","A21","A22","A23"],
+    "constructed_with_extra_hypotheses_ids": ["A06","A13","A14","A15","A16","A17"]
+  },
+  "editor": {
+    "performed": false,
+    "evidence_file": null,
+    "source_sha256": null,
+    "note": "No VS Code / Lean editor observation was performed. Per PROTOCOL, nothing in this package is an EDITOR_CANDIDATE."
+  },
+  "not_claimed": [
+    "IUT core dispute, Corollary 3.12, or abc",
+    "fact-tree admission of any node",
+    "TateCurvesTheta.TateParameter.decomposition_kummer_thetaGerm (source read only; project not built)",
+    "Boundary/DecompositionBridge.lean declarations (no .olean; arrow A21 stays a hypothesis)",
+    "invertibility of reduceMu (no such declaration exists; arrow A19)",
+    "surjectivity of decompositionMap outside the algebraically-closed rational-point case (arrow A20)"
+  ]
+}

@@ -1,0 +1,84 @@
+# T021 isolated replay project.
+#
+# Every dependency is pinned to an ABSOLUTE path so that Lake never touches the
+# network and never writes into the pinned packages. `mathlib` and its eight
+# transitive dependencies are the exact checkout recorded in
+#   handoffs/agent-batch-2026-10-24/baseline.json
+#     mathlib local_path : C:\Users\18746\Desktop\閺佹壆鐝电仦鐘差唶閸︾.lake\packages\mathlib
+#     mathlib commit     : 85e3a25e006c35636f0e53b0e9296caca2685bc0
+# and their build artefacts were already complete, so this project only compiles
+# the snapshot sources plus the task module. Nothing outside
+# delegated/2026-10-24/T021/ is written.
+name = "t021replay"
+defaultTargets = ["T021Lib"]
+
+[[require]]
+name = "mathlib"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/mathlib"
+
+[[require]]
+name = "batteries"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/batteries"
+
+[[require]]
+name = "aesop"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/aesop"
+
+[[require]]
+name = "Qq"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/Qq"
+
+[[require]]
+name = "proofwidgets"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/proofwidgets"
+
+[[require]]
+name = "importGraph"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/importGraph"
+
+[[require]]
+name = "Cli"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/Cli"
+
+[[require]]
+name = "plausible"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/plausible"
+
+[[require]]
+name = "LeanSearchClient"
+path = "C:/Users/18746/Desktop/閺佹壆鐝电仦鐘差唶閸?.lake/packages/LeanSearchClient"
+
+# Verbatim baseline sources (candidates/core-kummer), re-declared with per-directory
+# globs so only the modules T021 actually imports get compiled.
+# Root-level modules of the snapshot (`candidates/core-kummer/*.lean`) that the task module
+# transitively imports.
+[[lean_lib]]
+name = "SnapshotRoot"
+srcDir = "core-kummer-snapshot"
+roots = ["CohomologyReflection"]
+moreLeanArgs = ["-DwarningAsError=true"]
+
+[[lean_lib]]
+name = "ContinuousKummerTheory"
+srcDir = "core-kummer-snapshot"
+globs = ["ContinuousKummerTheory", "ContinuousKummerTheory.+"]
+moreLeanArgs = ["-DwarningAsError=true"]
+
+[[lean_lib]]
+name = "TateCurvesTheta"
+srcDir = "core-kummer-snapshot"
+globs = ["TateCurvesTheta", "TateCurvesTheta.+"]
+moreLeanArgs = ["-DwarningAsError=true"]
+
+[[lean_lib]]
+name = "Boundary"
+srcDir = "core-kummer-snapshot"
+globs = ["Boundary", "Boundary.+"]
+moreLeanArgs = ["-DwarningAsError=true"]
+
+# The task module itself: a single root-level file, `T021.lean`.
+[[lean_lib]]
+name = "T021Lib"
+roots = ["T021"]
+moreLeanArgs = ["-DwarningAsError=true"]
+

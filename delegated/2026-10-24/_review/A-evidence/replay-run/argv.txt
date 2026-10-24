@@ -1,0 +1,2 @@
+cwd=D:\Inter-universal Teichmuller Theory\candidates\core-kummer
+argv=lake env lean --json -DwarningAsError=true Boundary/ThetaGermTransport.lean

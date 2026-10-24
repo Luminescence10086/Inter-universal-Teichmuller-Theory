@@ -1,0 +1,8 @@
+d3c5599 core backward: layer 5 execution units, the measured build facts, and the re-ranked comparison with the six paths
+2acc516 core backward: verification fixes (V2-V5), the layer-3 atomic actions and the layer-4 deliverables with mechanical acceptance
+82bbc0a core backward: decompose G4 to atomic leaves and name the four irreducible blockers
+a811a6d core backward: six backward-derived routes to G0, with the shared G3 precondition and the cross-veto table
+8d60456 non-lean package: adopt the stronger N02 and N11 versions, keep the retired generators as evidence
+48af4be non-lean handoff N01-N16: sixteen static deliveries, all hashes recomputed from disk
+568e4be handoffs: make the fix applier idempotent and drop the duplicated review_fixes entries
+1a8515d core backward R3: the relabelling of the remaining ten editor gates is deferred to Astra

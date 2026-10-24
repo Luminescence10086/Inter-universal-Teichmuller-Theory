@@ -1,0 +1,17 @@
+﻿
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-parse --show-toplevel   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-parse HEAD   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-parse d3c5599668aa57c5c00244117abd26787fcd559e^{commit}   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-parse d3c5599668aa57c5c00244117abd26787fcd559e^{tree}   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" cat-file -s d3c5599668aa57c5c00244117abd26787fcd559e:research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-parse refs/heads/research/backward-paths   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-parse refs/remotes/origin/research/backward-paths   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" log --oneline -8 refs/remotes/origin/research/backward-paths   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-list --count refs/heads/research/backward-paths..refs/remotes/origin/research/backward-paths   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-list --count refs/remotes/origin/research/backward-paths..refs/heads/research/backward-paths   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" diff --stat refs/remotes/origin/research/backward-paths refs/heads/research/backward-paths   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" diff --stat d3c5599668aa57c5c00244117abd26787fcd559e^ d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" diff-tree --no-commit-id --name-status d3c5599668aa57c5c00244117abd26787fcd559e^ d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" diff --stat 8d60456043e30a3da79cc838d03a19b80675dc98 d3c5599668aa57c5c00244117abd26787fcd559e   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" rev-parse d3c5599668aa57c5c00244117abd26787fcd559e:research/core-backward-2026-10-23/backward-paths-layer5-2026-10-23.md   # exit=0
+$ git -C "D:\Inter-universal Teichmüller Theory" status --porcelain --untracked-files=no   # exit=0

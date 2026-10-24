@@ -1,0 +1,15 @@
+﻿{
+    "argv":  [
+                 "python",
+                 "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T097\\T097_audit.py",
+                 "--root",
+                 "D:\\Inter-universal Teichmüller Theory",
+                 "--ledger",
+                 "D:\\Inter-universal Teichmüller Theory\\delegated\\2026-10-24\\T097\\quantifiers.json"
+             ],
+    "cwd":  "D:\\Inter-universal Teichmüller Theory",
+    "exit_code":  0,
+    "duration_seconds":  0.189,
+    "stdout":  "logs/audit.stdout.log",
+    "stderr":  "logs/audit.stderr.log"
+}

@@ -1,0 +1,39 @@
+﻿== T015 replay :: read-only consistency check ==
+root=D:\Inter-universal Teichmüller Theory
+[ OK ] baseline.json sha256 = e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf
+[ OK ] rev-parse --show-toplevel (git exit 0)
+[ OK ] toplevel = D:\Inter-universal Teichmüller Theory
+[ OK ] rev-parse HEAD (git exit 0)
+[ OK ] HEAD = 8d60456043e30a3da79cc838d03a19b80675dc98
+[ OK ] rev-parse reviewed (git exit 0)
+[ OK ] reviewed commit = d3c5599668aa57c5c00244117abd26787fcd559e
+[ OK ] rev-parse reviewed tree (git exit 0)
+[ OK ] reviewed tree = 731cdae8a42f46a13d38a47f3cd5be0d06bad580
+[ OK ] cat-file -s layer5 (git exit 0)
+[ OK ] layer5 blob size (bytes) = 9132
+[ OK ] ls-remote (git exit 0)
+[ OK ] remote ls-remote = d3c5599668aa57c5c00244117abd26787fcd559e	refs/heads/research/backward-paths
+[ OK ] fetch --dry-run (git exit 0)
+[ OK ] fetch --dry-run made no ref update (dry run; stderr in logs/git-fetch-dry-run.stderr.log)
+[ OK ] rev-parse local branch (git exit 0)
+[ OK ] local refs/heads/research/backward-paths = d3c5599668aa57c5c00244117abd26787fcd559e
+[ OK ] rev-parse tracking (git exit 0)
+[ OK ] remote-tracking origin/research/backward-paths = d3c5599668aa57c5c00244117abd26787fcd559e
+[ OK ] log --oneline -8 (git exit 0)
+[ OK ] rev-list count forward (git exit 0)
+[ OK ] rev-list count backward (git exit 0)
+[ OK ] new commits remote-side (reviewed..origin) = 0
+[ OK ] new commits reviewed-side (origin..reviewed) = 0
+[ OK ] diff --stat origin vs reviewed (git exit 0)
+[ OK ] diff --stat origin vs reviewed = 
+[ OK ] diff --stat reviewed commit (git exit 0)
+[ OK ] reviewed commit = 1 file changed, 145 insertions(+)
+[ OK ] diff-tree reviewed commit (git exit 0)
+[ OK ] reviewed commit touches = M	research
+[ OK ] diff --stat baseline..reviewed (git exit 0)
+[ OK ] rev-parse layer5 blob (git exit 0)
+[ OK ] layer5 blob oid = adc280bef846ca1e49b3a7b7071caaa725221797
+[ OK ] status --porcelain (git exit 0)
+[ OK ] tracked dirty file count = 4
+
+T015_REPLAY_PASS: remote research/backward-paths == d3c5599668aa57c5c00244117abd26787fcd559e (0 new commits; empty diff)

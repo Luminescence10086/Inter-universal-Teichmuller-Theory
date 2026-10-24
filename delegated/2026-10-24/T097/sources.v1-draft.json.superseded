@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "task_id": "T097",
+  "purpose": "Flat, mechanically checkable citation table for T097. Every row is (file, sha256, locator). locator is either 'L<n>' for a 1-based line of a retrieved .txt/.lean file, or 'L<a>-L<b>' for a range. Page numbers are the printed page of the paper, recovered from the 'PDF PAGE n' / 'PAGE n' markers embedded in the .txt caches.",
+  "repo": {
+    "root": "D:/Inter-universal Teichmüller Theory",
+    "root_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+    "nested_iut_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+    "nested_iut_clean": true,
+    "date": "2026-10-24"
+  },
+  "sources": [
+    {
+      "id": "S-LANA",
+      "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e",
+      "bytes": 144233,
+      "lines_total": 2341,
+      "role": "primary formulation of (9-1)",
+      "citations": [
+        {
+          "locator": "L1433-L1437",
+          "page": "p.31",
+          "topic": "(Ind3) is the root of the existential: only an adelic measurable subset is known, so all such subsets must be considered"
+        },
+        {
+          "locator": "L1688-L1692",
+          "page": "p.36",
+          "topic": "Step 8: possible regions LGP·U for U ranging over suitable subsets of VC(I) - a family, not a fixed value"
+        },
+        {
+          "locator": "L2060-L2061",
+          "page": "p.44",
+          "topic": "9.1 'We start with a BPS' - the input is fixed before any choice"
+        },
+        {
+          "locator": "L2062-L2067",
+          "page": "p.44",
+          "topic": "9.1(a) Step 1 'Choose an isomorphism between the given BPS and the Theta-pilot BPS'"
+        },
+        {
+          "locator": "L2117-L2120",
+          "page": "p.45",
+          "topic": "9.2 'after fixing an isomorphism between a given BPS and the Theta-BPS'"
+        },
+        {
+          "locator": "L2123-L2132",
+          "page": "p.46",
+          "topic": "9.2 'Once we fix S subset VC(I_v) ... the isomorphism eta^anab_S : R_val -> R_ss ... depends on S'"
+        },
+        {
+          "locator": "L2126",
+          "page": "p.46",
+          "topic": "R_ss defined as adelic measurable T / ~ with equal volume"
+        },
+        {
+          "locator": "L2133-L2136",
+          "page": "p.46",
+          "topic": "eta_q exists on the fixed q-side input; pilot = class of {q_v O_v}"
+        },
+        {
+          "locator": "L2138-L2141",
+          "page": "p.46",
+          "topic": "THE (9-1): 'there exists some suitable S such that eta_q = eta^anab_S .(9-1)'"
+        },
+        {
+          "locator": "L2236-L2239",
+          "page": "p.48",
+          "topic": "the comparison is of the two constructions before computing degrees"
+        },
+        {
+          "locator": "L2265-L2267",
+          "page": "p.49",
+          "topic": "Ind1/Ind2 'create ambiguities in the choice of the set S in (9-1)' - they enlarge the exists, not the reals"
+        },
+        {
+          "locator": "L2274-L2282",
+          "page": "p.49",
+          "topic": "status: '(9-1) which is not manifestly false. However, we, the LANA project, do not have a proof of (9-1) at this time'"
+        }
+      ]
+    },
+    {
+      "id": "S-IUT3",
+      "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715",
+      "bytes": 570037,
+      "lines_total": 11854,
+      "role": "the source the S-form is a reconstruction of: Corollary 3.12 and Step (xi)",
+      "citations": [
+        {
+          "locator": "L890-L908",
+          "page": "p.16",
+          "topic": "-|log(q)| is the log-volume of the q-pilot object; -|log(Theta)| is that of the holomorphic hull of the union of the possible images"
+        },
+        {
+          "locator": "L9596-L9603",
+          "page": "p.156",
+          "topic": "(Ind3): 'as one varies m in Z, the isomorphisms of (a) are upper semi-compatible' - one-sided inclusions/surjections"
+        },
+        {
+          "locator": "L10498-L10528",
+          "page": "p.173-174",
+          "topic": "Corollary 3.12 statement: hull of the union of the possible images; subject to (Ind1),(Ind2),(Ind3); conclusion -|log(Theta)| >= -|log(q)|"
+        },
+        {
+          "locator": "L10506-L10513",
+          "page": "p.173-174",
+          "topic": "measured object = holomorphic hull of the UNION of the possible images (a sup, hence one-sided)"
+        },
+        {
+          "locator": "L10549-L10577",
+          "page": "p.174",
+          "topic": "n,circ U = the collection of subsets; n,circ U = the holomorphic hulls of them"
+        },
+        {
+          "locator": "L10965-L10981",
+          "page": "p.182",
+          "topic": "Step (xi): ('some' algorithm) that transforms input data into output data and satisfies (IPL), (SHE)"
+        },
+        {
+          "locator": "L11007-L11047",
+          "page": "p.183",
+          "topic": "(xi-d) collection of possibilities of output data in the hull; R_{<=-|log(Theta)|} vs the fixed -|log(q)|"
+        },
+        {
+          "locator": "L11048-L11072",
+          "page": "p.183-184",
+          "topic": "(xi-e) 'the relationship ... between the pilot-object log-volume -|log(q)| and the input data' is fixed by the 1-column structure"
+        },
+        {
+          "locator": "L11073-L11083",
+          "page": "p.184",
+          "topic": "(xi-f) THE QUANTIFIER: 'The inclusion -|log(q)| in R_{<=-|log(Theta)|}, hence also the inequality ... then follows formally' - membership, with 'perhaps only up to some sort of approximation'"
+        },
+        {
+          "locator": "L11084-L11088",
+          "page": "p.184",
+          "topic": "(xi-g) 'two tautologically equivalent ways to compute the log-volume of the q-pilot object at (1,0)'"
+        },
+        {
+          "locator": "L9720-L9724",
+          "page": "p.157-158",
+          "topic": "Theorem 3.11 compatibility 'up to the indeterminacies (Ind1), (Ind2), (Ind3)'"
+        }
+      ]
+    },
+    {
+      "id": "S-IUT4",
+      "file": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt",
+      "sha256": "97033613e950d48c4af493403d730f43e1493713cc1fbaadf35746df981c5ef2",
+      "bytes": 247177,
+      "lines_total": 4635,
+      "role": "the bound on the hull that makes the comparison one-sided",
+      "citations": [
+        {
+          "locator": "L1278-L1280",
+          "page": "p.22",
+          "topic": "Theorem 1.10: 'Suppose that we are in the situation of [IUTchIII], Corollary 3.12' - the input situation is fixed first"
+        },
+        {
+          "locator": "L1387-L1400",
+          "page": "p.23",
+          "topic": "the constant C_Theta and the application of 'C_Theta >= -1' of Corollary 3.12"
+        }
+      ]
+    },
+    {
+      "id": "S-IUT1",
+      "file": "research/round2-source-cache/iut-I-official-retrieved-2026-10-16.txt",
+      "sha256": "5acfb4aec6fcb42264c4e41dd5739024ef8f56f3b279e8dbb358a61c1c1167c6",
+      "bytes": 510816,
+      "lines_total": 10927,
+      "role": "initial Theta-data / Hodge theaters (the L0 layer: the fixed ambient data)",
+      "citations": [
+        {
+          "locator": "n/a",
+          "page": "n/a",
+          "topic": "KEYWORD SCAN PERFORMED, 0 HITS for 'multiradial representation', 'holomorphic hull of the union', 'possible images'. The IUT I side of the citation chain is NOT pinned in this audit; see quantifiers.json unresolved U2b."
+        }
+      ]
+    },
+    {
+      "id": "S-IUT2",
+      "file": "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt",
+      "sha256": "7d5b7bd7d4e53c4d96b1ed24a05dffa1f9a5fae539b1129a9a12f0b7665e7fab",
+      "bytes": 486892,
+      "lines_total": 7697,
+      "role": "prime-strips / F-prime-strip vocabulary used by the BPS model (candidate S3 note)",
+      "citations": [
+        {
+          "locator": "L455-L724",
+          "page": "passim",
+          "topic": "F-prime-strip / F^{indicator}x mu-prime-strip terminology confirmed present (file is genuinely IUT II, December 2020)"
+        },
+        {
+          "locator": "n/a",
+          "page": "n/a",
+          "topic": "The specific IUT II passage behind LANA's BPS definition (Definition 4.9(viii)) was NOT located by keyword; recorded as not pinned (quantifiers.json U2b)."
+        }
+      ]
+    },
+    {
+      "id": "S-LEAN-EtaAlg",
+      "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean",
+      "sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c",
+      "bytes": 12439,
+      "lines_total": 229,
+      "role": "the Lean wall (9-1): declaration site",
+      "citations": [
+        {
+          "locator": "L105-L109",
+          "page": null,
+          "topic": "out : forall {B} {h}, BPS.Iso B <etUnit h, thetaValD> -> Ind3 D -> Region D - the output is a bare structure field"
+        },
+        {
+          "locator": "L112-L114",
+          "page": null,
+          "topic": "T1 ind12_acts_on_S: exists tau, FORALL S, out (...) S = out iota (tau S) - the only legitimate forall-over-S in the interface"
+        },
+        {
+          "locator": "L117-L119",
+          "page": null,
+          "topic": "T2 etUnitOnly"
+        },
+        {
+          "locator": "L143-L147",
+          "page": null,
+          "topic": "etaAnab iota S := B.val.eta (logVol D (A.out iota S))"
+        },
+        {
+          "locator": "L151-L153",
+          "page": null,
+          "topic": "etaAnab_eq_etaQ_iff: etaAnab iota S = etaQ D <-> logVol (out iota S) = qPilot.lhs"
+        },
+        {
+          "locator": "L169-L175",
+          "page": null,
+          "topic": "def Wall D A := forall (h1 h2) (_gl), exists (iota) (S), etaAnab iota S = etaQ D - THE quantifier order"
+        },
+        {
+          "locator": "L183-L186",
+          "page": null,
+          "topic": "wall_iff_forall: the Theta-link datum is vacuous, the forall over the pair remains outside the exists"
+        },
+        {
+          "locator": "L211-L219",
+          "page": null,
+          "topic": "the global forall over D belongs to Cor312VariantHolds, not to (9-1) for fixed D"
+        }
+      ]
+    },
+    {
+      "id": "S-LEAN-Ind3",
+      "file": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean",
+      "sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d",
+      "bytes": 15358,
+      "lines_total": 293,
+      "role": "the type of S-choices",
+      "citations": [
+        {
+          "locator": "L32-L38",
+          "page": null,
+          "topic": "documented deviation: S subset hull(VC(I)) instead of S subset VC(I)"
+        },
+        {
+          "locator": "L209-L213",
+          "page": null,
+          "topic": "def Ind3 := {S : Region D // IsAdelic D S and forall i, S i <= hullOf D (vcI D) i} - the forall here is over the capsule index i, NOT over S"
+        },
+        {
+          "locator": "L215-L224",
+          "page": null,
+          "topic": "Ind3.top (the hull) and Ind3.base (VC(I)); instance Nonempty"
+        },
+        {
+          "locator": "L253-L266",
+          "page": null,
+          "topic": "exists_ind3_logVol_iff: the attainable log-volumes are exactly R_{<= log-vol(hull(VC(I)))} - this is why an exists over S is a one-sided condition"
+        }
+      ]
+    },
+    {
+      "id": "S-LEAN-Checks",
+      "file": "reviews/core-round/external/iut/Iut/Wall/Checks.lean",
+      "sha256": "22bf9a72da1a41fa051ef8f7530d1602a54d97e566b0edd4f73a9d1b1770fad7",
+      "bytes": 8938,
+      "lines_total": 184,
+      "role": "the only forall-over-S that looks like (9-1) but is not (the T4 strengthening)",
+      "citations": [
+        {
+          "locator": "L54-L57",
+          "page": null,
+          "topic": "def NumericalWall: exists U, ... - the numerical shadow, again exists"
+        },
+        {
+          "locator": "L93-L95",
+          "page": null,
+          "topic": "def LGPLaw := forall {B} {h} iota, exists kappa, FORALL S, logVol (out iota S) = kappa + logVol S.1 - T4, NOT a field of EtaAlg"
+        },
+        {
+          "locator": "L110-L121",
+          "page": null,
+          "topic": "wall_iff_of_lgpLaw: under T4 the wall is 'forall h1 h2, EXISTS iota, -|log(q)| - kappa iota <= log-vol(hull)' - no forall S in the conclusion"
+        }
+      ]
+    },
+    {
+      "id": "S-LEAN-Constraints",
+      "file": "reviews/core-round/external/iut/Iut/Wall/Constraints.lean",
+      "sha256": "0f111caa7a9f0c732941ce6e90447d94b36141ef5318459a07ea5e71127e7bc4",
+      "bytes": 18300,
+      "lines_total": 341,
+      "role": "other forall-over-S occurrences, none of which is (9-1)",
+      "citations": [
+        {
+          "locator": "L110-L112",
+          "page": null,
+          "topic": "C2 SHESides"
+        },
+        {
+          "locator": "L137-L140",
+          "page": null,
+          "topic": "C3 sheq_iff_wall: SHEq (exists iota, S ...) <-> Wall"
+        },
+        {
+          "locator": "L151-L153",
+          "page": null,
+          "topic": "C6 Multiradial: exists tau, forall S"
+        },
+        {
+          "locator": "L191-L193",
+          "page": null,
+          "topic": "C9 SetTransport: exists phi, forall iota S"
+        },
+        {
+          "locator": "L220-L224",
+          "page": null,
+          "topic": "C5 WallDistinct: same exists over (iota,S), restricted relation"
+        }
+      ]
+    },
+    {
+      "id": "S-LEAN-Rss",
+      "file": "reviews/core-round/external/iut/Iut/Wall/Rss.lean",
+      "sha256": "301fe11b08e2d0ff838fc77915768c11c0235eff96801b1515cb89c9bd3d855d",
+      "bytes": 27139,
+      "lines_total": 517,
+      "role": "eta_q and R_ss",
+      "citations": [
+        {
+          "locator": "L497-L502",
+          "page": null,
+          "topic": "noncomputable def etaQ : (qVal D.bpsDegrees).C ->_l[R] R := (qVal D.bpsDegrees).eta D.qPilot.lhs - fixed by D, not chosen"
+        },
+        {
+          "locator": "L504-L510",
+          "page": null,
+          "topic": "logVol_etaQ_pilot"
+        },
+        {
+          "locator": "L374",
+          "page": null,
+          "topic": "logVol_le_rhs: the hull bound that makes the conclusion one-sided"
+        },
+        {
+          "locator": "L446-L486",
+          "page": null,
+          "topic": "Rss as a quotient by equal log-volume; rssEquiv : Rss D ~ R"
+        }
+      ]
+    },
+    {
+      "id": "S-LEAN-Readme",
+      "file": "reviews/core-round/external/iut/Iut/Wall/README.md",
+      "sha256": "e41c1cdce90cc63ce5f173fedf78fc962c198c0cffe42a3126ab8ed49b804a24",
+      "bytes": 33539,
+      "lines_total": 435,
+      "role": "the Lean authors' own statement of the quantifier order and of the deviations",
+      "citations": [
+        {
+          "locator": "L4-L6",
+          "page": null,
+          "topic": "'there exists some suitable S such that eta_q = eta^anab_S ([LANA], 9.2, pp. 45-46)'"
+        },
+        {
+          "locator": "L99-L101",
+          "page": null,
+          "topic": "the wall definition restated"
+        },
+        {
+          "locator": "L176-L179",
+          "page": null,
+          "topic": "deviation 8: quantifies over all pairs of Hodge theaters and all Theta-links; the existential over (iota,S) is inside"
+        },
+        {
+          "locator": "L180-L181",
+          "page": null,
+          "topic": "(T4) is a strengthening, not a field of EtaAlg"
+        },
+        {
+          "locator": "L413-L435",
+          "page": null,
+          "topic": "the hull switch and its justification"
+        }
+      ]
+    },
+    {
+      "id": "S-LEAN-MultiContainer",
+      "file": "reviews/core-round/external/iut/Iut/Wall/MultiContainer.lean",
+      "sha256": "a1aef71ec5fefbd4fe809eae537ff9e258bdb9297ce9319c06d3efed89960597",
+      "bytes": 26267,
+      "lines_total": 513,
+      "role": "the M3 multi-container form of the same quantifier order",
+      "citations": [
+        {
+          "locator": "L295-L298",
+          "page": null,
+          "topic": "def WallOn L := forall h1 h2, L h1 h2 -> forall _gl, exists (iota) (S), ... - same forall-then-exists shape"
+        },
+        {
+          "locator": "L305-L313",
+          "page": null,
+          "topic": "wallOn_iff_rss"
+        }
+      ]
+    },
+    {
+      "id": "S-REG",
+      "file": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean",
+      "sha256": "f7252b0ff817320a885e75baaa2565f437c33f9d4d6507926e20fc7f7bb7c5ad",
+      "bytes": 1616,
+      "lines_total": 43,
+      "role": "prior regression witness that exists does not entail forall (toy level)",
+      "citations": [
+        {
+          "locator": "L23-L27",
+          "page": null,
+          "topic": "exact_choice_exists : exists b, candidate b = target"
+        },
+        {
+          "locator": "L34-L37",
+          "page": null,
+          "topic": "existence_does_not_force_invariance"
+        }
+      ]
+    },
+    {
+      "id": "S-PATH",
+      "file": "research/core-backward-2026-10-23/PATH.md",
+      "sha256": "dbef8b559a0f89ba8eedb069596a44509d4b21609c30f9bf40fe838cc7e7b7ea",
+      "bytes": 9910,
+      "role": "in-repo prior statement of the same quantifier reading",
+      "citations": [
+        {
+          "locator": "L54-L56",
+          "page": null,
+          "topic": "names (9-1) as 'exists S with eta_q = eta_anab_S'; cites LANA's lack of proof"
+        },
+        {
+          "locator": "L62-L66",
+          "page": null,
+          "topic": "explicitly: (9-1) does NOT require invariance along the whole choice family; cites the regression witness"
+        }
+      ],
+      "lines_total": 94
+    },
+    {
+      "id": "S-REVIEW",
+      "file": "research/core-projective-2026-10-24/backward-delivery-review.md",
+      "sha256": "efdfae278ac149de2716936d50422fe8a24b6e39ed245163713f744a71290d36",
+      "bytes": 12792,
+      "role": "in-repo prior review of the wall's conditionality",
+      "citations": [
+        {
+          "locator": "L24",
+          "page": null,
+          "topic": "reads EtaAlg.lean:169-177 as forall-theater/Theta-link then exists iota,S"
+        },
+        {
+          "locator": "L32-L33",
+          "page": null,
+          "topic": "variant_of_wall takes hW : Wall D A explicitly; the equivalence is not a proof of the equation"
+        },
+        {
+          "locator": "L55, L64-L66, L76",
+          "page": null,
+          "topic": "the real eta-execution provenance remains OPEN"
+        }
+      ],
+      "lines_total": 82
+    },
+    {
+      "id": "S-SS",
+      "file": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Scholze_Stix.txt",
+      "sha256": "d67c63c008c057d946258b12785694a9bd9542ed1570210fa7bd8a0bdf35cdc6",
+      "bytes": 32912,
+      "role": "position paper: also reads the argument as 'up to indeterminacies'",
+      "citations": [
+        {
+          "locator": "L571-L583",
+          "page": "p.9",
+          "topic": "reads Theorem 3.11 as giving an identification 'up to certain indeterminacies (Ind1,2,3)'"
+        },
+        {
+          "locator": "L626-L632",
+          "page": "p.10",
+          "topic": "the 'blurring' must be by a factor at least O(l^2) to make the diagram commute"
+        }
+      ],
+      "lines_total": 652
+    },
+    {
+      "id": "S-MOCH",
+      "file": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Comments_Scholze_Stix.txt",
+      "sha256": "efaef7c2295bd6dceff348557295f7965c4385f7531e5dc42b1d260cb6875692",
+      "bytes": 21790,
+      "role": "author's reply: 'a certain collection of its subsets', single log-volume",
+      "citations": [
+        {
+          "locator": "L260-L270",
+          "page": "p.6",
+          "topic": "embedding 'at the expense of introducing certain indeterminacies' into a common container with 'a single well-defined log-volume function on a certain collection of its subsets'"
+        }
+      ],
+      "lines_total": 324
+    }
+  ]
+}

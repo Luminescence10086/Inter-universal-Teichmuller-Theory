@@ -1,0 +1,2 @@
+elapsed_seconds=54.4
+note=Stopwatch around the cmd /c invocation

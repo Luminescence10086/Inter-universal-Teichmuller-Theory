@@ -1,0 +1,39 @@
+== research/round2-source-cache/LANA-interim-report-2026-07.txt  L2123-L2132
+  2123| Once we fixS⊂VC(I v), this provides an isomorphism between theCpart of the
+  2124| original BPS (which we denote byR val 9) and theCconstructed using the action andS
+  2125| as the integral structure, which we denote byR ss 10; more precisely,
+  2126| Rss ={T⊂VC(I v)|adelic and measurable}/∼,
+  2127| whereT∼T ′ if and only if the volume ofTcoincides with that ofT ′; we defineM= 1·S
+  2128| (the action of 1∈N), which represents “LGP·S” (cf.§6.2 (h)), and put the class ofM
+  2129| inR ss to be the pilot. Thus the isomorphism
+  2130| ηanabS :R val ∼− →Rss
+  2131| of the pointed real vector spaces depends onS, and is constructed via anabelian methods
+  2132| as discussed above.
+== research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt  L11080-L11083
+ 11080| The inclusion−|log(q)|∈R≤−|log(Θ)|, hence also the inequality
+ 11081| −|log(q)|≤−|log(Θ)|∈R
+ 11082| — i.e., the conclusion thatCΘ ≥−1 for any CΘ ∈R such that−|log(Θ)|≤
+ 11083| CΘ·|log(q)| — in the statement of Corollary 3.12, then follows formally.
+== bare-S scan in iut-III L10498-10597
+ 10553| = IQ(S±
+ 10574| j,vQ =IQ(S±
+ 10581| n,◦Uj,vQ ⊆IQ(S±
+bare-S hits: 3
+LANA     for all\s+S\b          -> 0
+LANA     for every\s+S\b        -> 0
+LANA     for any\s+S\b          -> 0
+LANA     any such\s+S\b         -> 0
+LANA     all such subsets       -> 1
+LANA     every suitable         -> 0
+LANA     arbitrary\s+S\b        -> 0
+LANA     invariant              -> 4
+LANA     invariance             -> 1
+IUT-III  for all\s+S\b          -> 0
+IUT-III  for every\s+S\b        -> 0
+IUT-III  for any\s+S\b          -> 0
+IUT-III  any such\s+S\b         -> 0
+IUT-III  all such subsets       -> 0
+IUT-III  every suitable         -> 0
+IUT-III  arbitrary\s+S\b        -> 0
+IUT-III  invariant              -> 44
+IUT-III  invariance             -> 5

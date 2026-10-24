@@ -1,0 +1,43 @@
+== research/round2-source-cache/LANA-interim-report-2026-07.txt  (2341 lines)
+  L2060   page=44    markerL=2041   | 9.1.Theηalgorithm.We start with a BPS, sayB= ({G v ↷M v},C). We proceed as
+  L2061   page=44    markerL=2041   | follows:
+  L2062   page=44    markerL=2041   | 9.1 (a).Step 1.Choose an isomorphism between the given BPS and the Θ-pilot BPS
+  L2067   page=44    markerL=2041   | generator ofNacting on the right-hand monoid by “powers.”
+  L2117   page=45    markerL=2079   | 9.2.The main goal.In the discussion above, we have explained how to construct an
+  L2120   page=45    markerL=2079   | indeterminacies Ind1 and Ind2).
+  L2123   page=46    markerL=2122   | Once we fixS⊂VC(I v), this provides an isomorphism between theCpart of the
+  L2132   page=46    markerL=2122   | as discussed above.
+  L2133   page=46    markerL=2122   | On the other hand, when we work with a BPS that was constructed as theq-BPS of a
+  L2136   page=46    markerL=2122   | where the pilot of the targetR ss is given by the class of{q vOv}embedded “diagonally”
+  L2138   page=46    markerL=2122   | The main goal now is to relate these two kinds of isomorphisms: the one arising from
+  L2140   page=46    markerL=2122   | exists some suitableSsuch that
+  L2141   page=46    markerL=2122   | ηq =η anabS .(9-1)
+  L2236   page=48    markerL=2215   | The analysis of Scholze-Stix compresses these construction processes down to abstract
+  L2239   page=48    markerL=2215   | been established can one pass to a common volume container where one can compare
+  L2265   page=49    markerL=2264   | The wording in [15] further suggests that Ind 1, Ind2, and Ind 3 act directly on the real
+  L2267   page=49    markerL=2264   | the indeterminacies create ambiguities in the choice of the setSin (9-1). These ambigui-
+  L2280   page=49    markerL=2264   | the elaboration of theη-algorithm shows that the proof of the final numerical inequality
+  L2282   page=49    markerL=2264   | project, do not have a proof of (9-1) at this time.
+  L1433   page=31    markerL=1421   | (Ind3) In a log-shell version of the volume container (§5.2) constructed in an anabelian
+  L1437   page=31    markerL=1421   | of just VC(O), we must take into account all such subsets.
+  L1688   page=36    markerL=1653   | 6.2 (i). Step 8: “Possible regions” in the volume container.When the local action of
+  L1692   page=36    markerL=1653   | whereUranges over suitable subsets of the large volume container VC(I).
+== research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt  (11854 lines)
+  L10498  page=173   markerL=10457  | Corollary 3.12. (Log-volume Estimates for Θ-Pilot Objects) Suppose
+  L10506  page=173   markerL=10457  | (i), (ii); Theorem 3.11, (i), (a)] of theholomorphic hull[cf. Remark 3.9.5, (i)]
+  L10513  page=174   markerL=10509  | the indeterminacies (Ind1), (Ind2), (Ind3) described in Theorem 3.11, (i), (ii).
+  L10526  page=174   markerL=10509  | Deﬁnition 3.1, (b)] atv∈Vbad (̸=∅). Then it holds that−|log(Θ)|∈R,a n d
+  L10527  page=174   markerL=10509  | −|log(Θ)|≥−|log(q)|
+  L10528  page=174   markerL=10509  | — i.e.,CΘ≥−1 for any real numberCΘ∈R such that−|log(Θ)|≤CΘ·|log(q)|.
+  L10598  page=175   markerL=10579  | (i) In the following discussion, we concentrate on asingle arrow— i.e., asingle
+  L10604  page=175   markerL=10579  | — of the [LGP-Gaussian] log-theta-lattice under consideration. This arrow consists
+  L11007  page=183   markerL=11005  | (xi-d) The discussion of (xi-c) thus yields the following conclusion:
+  L11047  page=183   markerL=11005  | packets of log-shellsthat constitute1,◦U.
+  L11048  page=183   markerL=11005  | (xi-e) Next, let us recall that the relationship, i.e., that arises by applying the
+  L11063  page=184   markerL=11054  | F⊩▶-prime-strips!] be equal to theﬁxed value−|log(q)|∈R”.
+  L11073  page=184   markerL=11054  | (xi-f) Thus, we conclude from (xi-e) that
+  L11083  page=184   markerL=11054  | CΘ·|log(q)| — in the statement of Corollary 3.12, then follows formally.
+  L11084  page=184   markerL=11054  | (xi-g) Thus, in summary,
+  L11088  page=184   markerL=11054  | of theq-pilot object at(1,0) — cf. Fig. 3.8 below.
+  L9596   page=156   markerL=9563   | (Ind3) as one varies m ∈Z, the isomorphisms of (a) are “upper semi-
+  L9603   page=156   markerL=9563   | details.

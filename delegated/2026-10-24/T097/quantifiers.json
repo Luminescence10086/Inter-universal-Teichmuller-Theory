@@ -1,0 +1,489 @@
+{
+  "schema_version": 2,
+  "task_id": "T097",
+  "status": "RESEARCH_ONLY",
+  "task_kind": "SOURCE_TRANSCRIPTION",
+  "deliverable": "quantifiers.json + SUMMARY.md + delivery.json + replay.ps1",
+  "revision_note": "v2 supersedes the v1 draft staged in this directory before the audit ran. v1 cited line windows that do not carry the sentences quoted for them (see corrected_claims) and asserted a single page mapping for the whole IUT III Cor. 3.12 statement that the page markers contradict. Every citation below was re-derived by T097_audit.py against the bytes on disk.",
+
+  "scope_and_honesty": {
+    "what_this_is": "A transcription of the quantifier order of Wall (9-1) as it is literally written in the pinned source cache and in the pinned Lean interface, with file/line/page for every item. It is a source audit.",
+    "what_this_is_not": [
+      "not a proof, a disproof, or an advance of (9-1)",
+      "not a claim that Corollary 3.12, the Corollary 3.12 variant, or abc holds",
+      "not a Lean compilation receipt (no Lean was run: see unresolved U5)",
+      "not a fact-tree / Boundary / main-line change"
+    ],
+    "labels": ["RESEARCH_ONLY"],
+    "binding": "All line numbers are 1-based lines of the retrieved .txt caches / of the nested iut worktree at its pinned commit; all PDF page numbers are taken from the '===== PAGE n =====' / '===== PDF PAGE n =====' markers in those caches, not from printed-page reasoning."
+  },
+
+  "provenance": {
+    "repo_root_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+    "repo_root_branch": "explore/correspondence",
+    "nested_iut_path": "reviews/core-round/external/iut",
+    "nested_iut_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+    "nested_iut_status_porcelain_count": 0,
+    "baseline_json_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+    "task_card_sha256": "4f2d1b1a581d9fb26e6191e3cccc4c090dd25295fcac707529b438364a2a0265",
+    "date": "2026-10-24",
+    "nested_worktree_note": "The nested repo is clean at its pinned commit, so the .lean line numbers below are stable for f7ed1cc8. It was not re-cloned; a same-named file from another worktree is not the same version, which is why every file below carries its own SHA256."
+  },
+
+  "the_canonical_sentence": {
+    "id": "Q0",
+    "source": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+    "span": [2138, 2141],
+    "page": 46,
+    "verbatim": "The main goal now is to relate these two kinds of isomorphisms: the one arising from q and the one arising from anabelian methods. Concretely, we wish to show that there exists some suitable S such that / eta_q = eta^anab_S . (9-1)",
+    "reading": "Q(9-1)  ==  [D and the input BPS fixed]  ->  EXISTS S  ( eta_q = eta^anab_S ).",
+    "why_this_is_the_canonical_one": "It is the only place in the fixed cache where (9-1) is written as a sentence with an explicit existential. Everything else in the ledger is stated relative to this sentence."
+  },
+
+  "quantifier_chain": {
+    "order": ["FIX_INPUT", "EXISTS_iota", "EXISTS_S", "EQ"],
+    "order_sentence": "first fix the initial Theta-data and the input BPS (and, in the Lean form, the pair of Hodge theaters together with the Theta-link); only then EXISTS the isomorphism iota of Step 1; only then EXISTS the (Ind3)-choice S; the goal is the equation eta_q = eta^anab_S for that one pair (iota, S).",
+    "hard_requirement": "The order must be 'fix input/iota, then exists S'. 'There exists an S' must not be restated as 'invariant for all S'.",
+    "hard_requirement_verdict": "SATISFIED_IN_BOTH_LAYERS",
+    "hard_requirement_evidence": [
+      "LANA p.46: 'there exists some suitable S such that' - explicit existential plus the restrictive qualifier 'suitable'.",
+      "LANA p.45-46: the Step 1 isomorphism is fixed BEFORE the S-dependent construction ('after fixing an isomorphism between a given BPS and the Theta-BPS' / 'Once we fix S'), so iota precedes S and S precedes the equation.",
+      "Lean: Iut/Wall/EtaAlg.lean:174-175 has binder order forall (h1 h2 gl), exists (iota) (S), etaAnab iota S = etaQ D - the forall is OUTSIDE the exists, and iota is bound before S.",
+      "The rejected reading does not even occur in the paper: in the Cor. 3.12 statement of IUT III pp.173-174 the letter S does not occur at all (bare-capital-S scan over L10498-10597 returns only the 'S^{+-}_{j+1}' inside IQ(...) at L10553, L10574, L10581), so the paper cannot be quoted for a forall over S either."
+    ],
+    "layers": [
+      {
+        "layer": "L0",
+        "role": "FIX_INPUT (parameters, neither forall nor exists)",
+        "what_is_fixed": [
+          "the initial Theta-data (IUT I, Def. 3.1); in Lean the parameter D",
+          "the EtaAlg A itself (the algorithm is supplied, not existentially quantified inside Wall)",
+          "the bad locus, the labels j in |F_l|, the prime l"
+        ],
+        "evidence": [{"anchor": "A01"}, {"anchor": "A02"}, {"anchor": "A03"}, {"anchor": "A11"}]
+      },
+      {
+        "layer": "L1",
+        "role": "FIX_INPUT (the input of the eta-algorithm: the BPS / the q-pilot BPS; fixed FIRST)",
+        "what_is_fixed": [
+          "an abstract BPS B = ({G_v acting on M_v}, C) - 'We start with a BPS'",
+          "in Lean: the q-pilot BPS of h2, A.qBPS h2 = <etUnit h2, qVal D.bpsDegrees>",
+          "the fixed pilot log-volume -|log(q)| of the q-pilot object at (1,0)"
+        ],
+        "evidence": [{"anchor": "A12"}, {"anchor": "A14"}, {"anchor": "A20"}, {"anchor": "A22"}, {"anchor": "A23"}, {"anchor": "A24"}]
+      },
+      {
+        "layer": "L2",
+        "role": "EXISTS iota (Step 1 of the eta-algorithm; inner with respect to the input, outer with respect to S)",
+        "what_is_chosen": [
+          "an isomorphism between the GIVEN BPS and the Theta-pilot BPS of a Hodge theater (Step 1)",
+          "the indeterminacies (Ind1), (Ind2) act on this choice and on the resulting choice of S"
+        ],
+        "evidence": [{"anchor": "A13"}, {"anchor": "A16"}, {"anchor": "A17"}, {"anchor": "A19"}, {"anchor": "A15"}, {"anchor": "A26"}],
+        "note": "The paper 'chooses' iota at Step 1 (an instruction to the reader, i.e. an existence that is then fixed); the Lean wall makes the same step an explicit exists that is still INSIDE the forall over the input."
+      },
+      {
+        "layer": "L3",
+        "role": "EXISTS S (the (Ind3)-choice; inner with respect to iota)",
+        "what_is_chosen": [
+          "LANA: S subset VC(I_v), an adelic measurable subset of the log-shell version of the large volume container",
+          "Lean: Ind3 D = {S : Region D // IsAdelic D S and forall i, S i <= hullOf D (vcI D) i}"
+        ],
+        "evidence": [{"anchor": "A18"}, {"anchor": "A17"}, {"anchor": "A19"}, {"anchor": "A27"}, {"anchor": "A28"}, {"anchor": "A29"}]
+      },
+      {
+        "layer": "L4",
+        "role": "EQ (the target equation; quantifier-free, stated for the chosen pair)",
+        "what_is_equated": [
+          "eta_q = eta^anab_S as an equation of isomorphisms of pointed real lines (before computing degrees)",
+          "Lean: A.etaAnab iota S = etaQ D, and the reduction lemma to a single scalar equation logVol D (A.out iota S) = (concreteVariantData D).qPilot.lhs"
+        ],
+        "evidence": [{"anchor": "A20"}, {"anchor": "A21"}, {"anchor": "A11"}, {"anchor": "A30"}, {"anchor": "A31"}],
+        "note": "etaAnab_eq_etaQ_iff is an IFF, so it asserts neither side; it only says the map equation is the same statement as the scalar equation."
+      },
+      {
+        "layer": "L5",
+        "role": "FORALL (outer layer that is the 'fix the input' layer written as a universal quantifier; NOT part of (9-1) proper)",
+        "what_is_quantified": [
+          "Lean: forall (h1 h2 : A.Side) (_gl : BPS.Iso (A.thetaBPS h1) (A.qBPS h2))",
+          "Lean: the Theta-link datum gl is provably vacuous (wall_iff_forall), leaving forall h1 h2",
+          "Lean: forall D in the global Corollary 3.12 form, which is a different statement"
+        ],
+        "evidence": [{"anchor": "A11"}, {"anchor": "A32"}, {"anchor": "A33"}],
+        "scoping_warning": "Reading 'exists S working for all h1 h2' would swap the two scopes and is exactly the wrong reading this task must exclude. The existential is NESTED INSIDE the universal."
+      }
+    ]
+  },
+
+  "target_eta_equation": {
+    "paper_form": "eta_q = eta^anab_S   (LANA (9-1), p.46)",
+    "paper_objects": {
+      "eta_q": "the isomorphism R^val -> R^ss attached to the q-BPS of a Hodge theater, whose target pilot is the class of {q_v O_v} embedded diagonally into VC(I_v)",
+      "eta_anab_S": "the isomorphism R^val -> R^ss built by anabelian methods with S as the integral structure; it depends on S ('Thus the isomorphism ... depends on S')",
+      "R_ss": "{T subset VC(I_v) | adelic and measurable}/~, with T ~ T' iff their volumes coincide"
+    },
+    "lean_form": "A.etaAnab ι S = etaQ D",
+    "lean_equivalent_scalar_form": "logVol D (A.out ι S) = (concreteVariantData D).qPilot.lhs",
+    "lean_types": {
+      "etaAnab": "(ι : A.Choice B h) (S : Ind3 D) -> B.val.C →ₗ[ℝ] ℝ",
+      "etaAnab_body": "B.val.eta (logVol D (A.out ι S))",
+      "etaQ": "(qVal D.bpsDegrees).C →ₗ[ℝ] ℝ  :=  (qVal D.bpsDegrees).eta D.qPilot.lhs"
+    },
+    "equivalence_anchor": "A30",
+    "equation_is_one_scalar_equation": "Because a value-group BPS is a pointed real line, a pointed linear map out of it is determined by the image of the pilot (BPS.lean:329-332 eta_unique, BPS.lean:335-340 eta_eq_eta_iff). So (9-1) is equivalent to ONE real-number equation, not to a family of equations."
+  },
+
+  "allowed_choice_S": {
+    "paper_type": "S subset VC(I_v): an adelic, measurable subset of the log-shell version of the large volume container",
+    "paper_type_anchor": "A17",
+    "paper_root_of_the_existential": {
+      "anchor": "A18",
+      "wording": "(Ind3) ... it is not possible to reconstruct VC(O) ... All we can say is that this is an adelic measurable subset of the log-shell version of the volume container (upper-semi compatibility). Therefore, instead of just VC(O), we must take into account all such subsets.",
+      "why_it_matters": "'All we can say' is a bound on what is known, so the goal can only ask for ONE such subset to work. It is a limitation, not an invariance claim."
+    },
+    "paper_family_form": {
+      "anchor": "A19",
+      "wording": "the possible images of the Theta-pilot object are obtained as LGP·U subset VC(I) x Q, where U ranges over suitable subsets of the large volume container VC(I)",
+      "why_it_matters": "The possible images form a family indexed by U; (9-1) asks whether some member of that family matches eta_q."
+    },
+    "lean_type": "{S : Region D // IsAdelic D S ∧ ∀ i, S i ≤ hullOf D (vcI D) i}",
+    "lean_type_anchor": "A27",
+    "deviation_from_paper": {
+      "stated_in_source": "Lean takes S inside the HOLOMORPHIC HULL of VC(I); LANA takes S inside VC(I)",
+      "source_anchors": ["A28", "A29"],
+      "source_wording": "**Deviation (deliberate): (Ind3) ranges over the hull.** [LANA], §6 takes `S ⊆ VC(I)`. Here `S ⊆ hull(VC(I))`.",
+      "quantifier_effect": "Under the hull reading the candidate family is LARGER, so 'exists S' is a STRONGER requirement (harder), not a weaker one. Both readings keep the shape EXISTS S; neither becomes a FORALL. This audit records the deviation and does not adjudicate which reading the original proof uses (see unresolved U3)."
+    },
+    "inhabitedness": {
+      "fact": "Nonempty (Ind3 D) holds; Ind3.top is the hull and Ind3.base is VC(I).",
+      "anchor": "A29",
+      "what_it_does_not_say": "It says the type of candidates is nonempty. It says nothing about whether a *suitable* S exists - that is exactly (9-1), and it is open (U1)."
+    },
+    "logVolume_range": {
+      "fact": "the log-volumes of the (Ind3)-choices are exactly {x | x <= logVol(hull(VC(I)))}",
+      "anchor": "A34"
+    }
+  },
+
+  "paper_level_reading_of_the_same_step": {
+    "claim": "Corollary 3.12 fixes the input and concludes that the FIXED value -|log(q)| lies in the set of POSSIBLE output log-volumes - a membership / existential over the output family, not an equality on all outputs.",
+    "caveat": "Corollary 3.12 does not itself contain the letter S, nor the equation eta_q = eta^anab_S. The S-form is LANA's reconstruction of the step from Theorem 3.11 to Corollary 3.12. Reading the S-form back into Mochizuki's text would be an over-attribution (U2).",
+    "evidence": [{"anchor": "A35"}, {"anchor": "A36"}, {"anchor": "A37"}, {"anchor": "A38"}, {"anchor": "A39"}, {"anchor": "A40"}]
+  },
+
+  "forbidden_forms": {
+    "statement": "'There exists an S' must not be written as 'invariant for all S'.",
+    "forbidden_form_1": "∀ S : Ind3 D, etaAnab ι S = etaQ D",
+    "forbidden_form_2": "∀ S, logVol D (out ι S) = -|log(q)|",
+    "why_forbidden": "The paper says 'exists some suitable S'; (Ind3) is an upper-semi-compatibility limitation, so only SOME S is claimed. The Lean wall has exists where the forbidden forms have forall.",
+    "scanned_files": [
+      "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean"
+    ],
+    "regexes": [
+      "for all\\s+S\\b",
+      "for every\\s+S\\b",
+      "for any\\s+S\\b",
+      "any such\\s+S\\b",
+      "every suitable\\s+S\\b",
+      "arbitrary\\s+S\\b"
+    ],
+    "scan_result": "0 hits in all three files (run by T097_audit.py; see logs/). The forbidden prose form does not occur in the pinned cache.",
+    "where_a_forall_over_S_legitimately_appears_but_is_NOT_the_wall": [
+      {"anchor": "A41", "what": "EtaAlg.LGPLaw (T4): ∃ κ, ∀ S, logVol (out ι S) = κ + logVol S.1 - a strengthening about the whole family; the wall derived from it is still ∃ ι, not ∀ S."},
+      {"anchor": "A25", "what": "T1 ind12_acts_on_S: ∃ τ, ∀ S, out ((mk α).trans ι) S = out ι (τ S) - a symmetry of the family, no equation with etaQ."},
+      {"anchor": "A26", "what": "T2 etUnitOnly: ∃ f, ∀ ..., out ι S = f ι.et S - a structural field."},
+      {"anchor": "A42", "what": "C2 SHESides: ∀ (h1 h2 ι S), out ι S = F h1 S ∧ out ι S = G h2 S - expressibility, no equation with etaQ."},
+      {"anchor": "A43", "what": "C6 Multiradial: ∃ τ, ∀ S, out ι S = out ι' (τ S) - relabelling of S, no equation with etaQ."},
+      {"anchor": "A44", "what": "C9 SetTransport: ∃ φ, ∀ ι S, out ι S = φ S.1 - set-theoretic transport, no equation with etaQ."},
+      {"anchor": "A40", "what": "IUT III p.156 (Ind3): 'as one varies m in Z, the isomorphisms of (a) are upper semi-compatible ... involves certain natural inclusions' - one-sided, hence membership/inequality rather than equality over all choices."}
+    ]
+  },
+
+  "recorded_regression": {
+    "file": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean",
+    "sha256": "f7252b0ff817320a885e75baaa2565f437c33f9d4d6507926e20fc7f7bb7c5ad",
+    "claims": [
+      {"anchor": "A45", "text": "theorem exact_choice_exists : ∃ b, candidate b = target"},
+      {"anchor": "A46", "text": "theorem existence_does_not_force_invariance : ¬ ((∃ b, candidate b = target) → ∀ b, reading (!b) = reading b)"}
+    ],
+    "status": "Read as text only. NOT recompiled in T097 (no Lean run in this task).",
+    "what_it_is": "A toy-level, Bool-indexed witness that an existence statement does not entail an invariance statement. It is a witness about the SHAPE of the quantifier step.",
+    "what_it_is_not": "Not an IUT counterexample, not a disproof of (9-1), and not evidence about whether a suitable S exists."
+  },
+
+  "cross_document_consistency": [
+    {
+      "file": "research/core-backward-2026-10-23/PATH.md",
+      "sha256": "dbef8b559a0f89ba8eedb069596a44509d4b21609c30f9bf40fe838cc7e7b7ea",
+      "anchors": ["A47", "A48", "A49"],
+      "content": "names (9-1) as 'exists S with eta_q = eta_anab_S' and records that it does 'NOT require the reading to be invariant along the whole choice family', citing ChoiceExistenceRegression.existence_does_not_force_invariance; also records LANA's self-declared lack of proof.",
+      "agreement": "AGREES with this audit's quantifier verdict."
+    },
+    {
+      "file": "research/core-projective-2026-10-24/backward-delivery-review.md",
+      "sha256": "efdfae278ac149de2716936d50422fe8a24b6e39ed245163713f744a71290d36",
+      "anchors": ["A50", "A51", "A52", "A53"],
+      "content": "reads EtaAlg.lean:169-177 as 'forall theater/Theta-link, exists iota,S with etaAnab iota S = etaQ'; notes variant_of_wall takes hW : Wall D A as an explicit parameter; lists the real eta-execution provenance as OPEN.",
+      "agreement": "AGREES on the quantifier order and on the conditional status. No claim of a proof of (9-1)."
+    },
+    {
+      "file": "reviews/core-round/external/iut/Iut/Wall/README.md",
+      "sha256": "e41c1cdce90cc63ce5f173fedf78fc962c198c0cffe42a3126ab8ed49b804a24",
+      "anchors": ["A54", "A55", "A56"],
+      "content": "quotes (9-1) as 'there exists some suitable S such that eta_q = eta^anab_S ([LANA], 9.2, pp. 45-46)' and states deviation 8 ('Wall quantifies over all pairs of Hodge theaters and all Theta-links') with the existential over (iota, S) inside.",
+      "agreement": "AGREES."
+    },
+    {
+      "file": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Scholze_Stix.txt",
+      "sha256": "d67c63c008c057d946258b12785694a9bd9542ed1570210fa7bd8a0bdf35cdc6",
+      "anchors": ["A57", "A58"],
+      "content": "Scholze-Stix read the same step as an 'identification of concrete Theta-pilot objects and concrete q-pilot objects' obtained 'up to certain indeterminacies', and object that the blurring must be by a factor of at least O(l^2).",
+      "agreement": "NEITHER AGREES NOR DISAGREES on the quantifier order: Scholze-Stix collapse the constructions ('abstract generators, concrete divisors, and trivialized real lines', LANA p.48) rather than transcribing an exists S. They are cited only as the opposing reading of the same step, not as a source for the quantifier order.",
+      "audit_note": "This is a scope statement. T097 does not adjudicate the Scholze-Stix vs LANA dispute."
+    }
+  ],
+
+  "one_sentence_verdict": {
+    "verdict": "SATISFIED_IN_BOTH_LAYERS",
+    "sentence": "Both layers put the existential over S INSIDE the fixed input (and inside the exists over iota), and neither layer states 'exists S' as 'invariant for all S'; the only forall-over-S occurrences in the pinned Lean tree are structural fields (T1, T2, C2, C6, C9) and the T4 LGP law, none of which is (9-1)."
+  },
+
+  "unresolved": [
+    {
+      "id": "U1",
+      "issue": "(9-1) is unproved in its own source.",
+      "evidence_anchor": "A21",
+      "quote": "However, we, the LANA project, do not have a proof of (9-1) at this time.",
+      "status": "OPEN"
+    },
+    {
+      "id": "U2",
+      "issue": "No source in the cache writes, in Mochizuki's own words, an equation 'exists S with eta_q = eta^anab_S'. The S-form is LANA's reconstruction; Corollary 3.12's own wording is the membership '-|log(q)| in R_{<= -|log(Theta)|}' and its statement does not contain a bare capital S at all.",
+      "evidence_anchors": ["A35", "A36", "A40", "Q0"],
+      "status": "OPEN - attribution boundary. This audit does not read the S-form into IUT."
+    },
+    {
+      "id": "U3",
+      "issue": "Range of the (Ind3)-choice: LANA says S subset VC(I_v); Lean says S subset hull(VC(I)). Which one the original proof uses is asserted by the Lean authors via Step (xi-d)-(xi-f) and IUT IV Theorem 1.10 but is not independently checked here.",
+      "evidence_anchors": ["A17", "A27", "A28", "A29"],
+      "status": "OPEN - recorded, not adjudicated"
+    },
+    {
+      "id": "U4",
+      "issue": "Provenance of the eta-execution: EtaAlg.out is a bare structure field, not a constructed algorithm, so the Lean interface does not exhibit an actual allowed (iota, S) coming from the original argument.",
+      "evidence_anchors": ["A22", "A50", "A53"],
+      "status": "OPEN"
+    },
+    {
+      "id": "U5",
+      "issue": "No Lean compilation in this task. The Lean signatures are quoted as text from the baseline-pinned files; 'the file says X' must not be read as 'X compiles'.",
+      "evidence": "T097 is SOURCE_OR_ENGINEERING; baseline.json verification_scope_this_turn = 'Handoff generation and structural checks only; no Lean or editor replay.'",
+      "status": "BY_DESIGN"
+    },
+    {
+      "id": "U6",
+      "issue": "The retrieved .txt caches are lossy text extractions of the PDFs: glyph mapping is imperfect (e.g. 'S subset VC(I_v)' appears as 'S⊂VC(I v)'; ligatures degrade, so 'definition' appears as 'de铿乶ition' in some views). Quotes are therefore reproduced as extracted and anchored by line + needle rather than by PDF glyph.",
+      "status": "BY_DESIGN - recorded so that no downstream reader treats the extraction as the PDF"
+    },
+    {
+      "id": "U7",
+      "issue": "The v1 draft in this directory cited IUT III pp.173-174 for the 'q-pilot / input prime-strip is fixed' layer and quoted L10498-10528 / L11048-11063 as if they carried those sentences. The fixed-input wording of Step (xi-e) is on pp.183-184, while pp.173-174 carry the Corollary statement with no S at all.",
+      "status": "CORRECTED_IN_V2 - see corrected_claims"
+    }
+  ],
+
+  "corrected_claims": [
+    {
+      "id": "C1",
+      "v1_claimed": "LANA p.44 '9.1 The eta algorithm' starts at line 2060 and Step 1 at 2062.",
+      "v2_action": "RETAINED and verified: L2060 'We start with a BPS, say B = ({G_v \\curvearrowright M_v}, C). We proceed as', L2062 '9.1 (a). Step 1. Choose an isomorphism between the given BPS and the Theta-pilot BPS'."
+    },
+    {
+      "id": "C2",
+      "v1_claimed": "L2123-2132 quoted as one continuous sentence containing 'we define M = 1.S' and 'put the class of M in R_ss to be the pilot'.",
+      "v2_action": "SPLIT. L2123, L2127 and L2129-2132 are separate sentences; the quote is now reproduced as extracted and anchored per line (span S02), not spliced."
+    },
+    {
+      "id": "C3",
+      "v1_claimed": "LANA L1688-1692 quoted as '6.2 (i). Step 8: Possible regions ... where U ranges over suitable subsets of the large volume container VC(I)'.",
+      "v2_action": "RETAINED with exact text: L1692 reads 'whereUranges over suitable subsets of the large volume container VC(I).'"
+    },
+    {
+      "id": "C4",
+      "v1_claimed": "IUT III L10498-10528 page = 'PDF p.173-174' for the whole Corollary 3.12 statement.",
+      "v2_action": "CORRECTED. L10498-10506 are on PDF page 173; L10509-10528 are on PDF page 174. The evidence list now splits A35 (p.173) and A36 (p.174), and the page_anchors table records both."
+    },
+    {
+      "id": "C5",
+      "v1_claimed": "IUT III L10598-10604 and L11048-11063 as the fixed-input evidence for layer L1.",
+      "v2_action": "CORRECTED. L10598-10604 (p.175) is the '(i) we concentrate on a single arrow' passage and is kept as A37 only for the single-arrow scope, not for 'the input is fixed'. The fixed-value wording is Step (xi-e) at L11048-11063 (pp.183-184), now A38 and A39. That passage does NOT say '-|log(q)| is fixed before the existence discussion'; it says the construction must be expressible subject to the condition that the pilot-object log-volume of the input data BE EQUAL to the fixed value -|log(q)|. v1's paraphrase was stronger than the text."
+    },
+    {
+      "id": "C6",
+      "v1_claimed": "IUT III Cor. 3.12 '-|log(q)| in R_{<= -|log(Theta)|}' quoted at L11073-11083 (p.184).",
+      "v2_action": "RETAINED, verified verbatim at those lines (span S07)."
+    },
+    {
+      "id": "C7",
+      "v1_claimed": "EtaAlg.lean:173-175 for def Wall and :183-186 for wall_iff_forall.",
+      "v2_action": "RETAINED, verified (spans S10, S11)."
+    },
+    {
+      "id": "C8",
+      "v1_claimed": "Ind3.lean:209-213 for Ind3 and :216-222 for top/base/Nonempty.",
+      "v2_action": "RETAINED, verified."
+    },
+    {
+      "id": "C9",
+      "v1_claimed": "PATH.md lines 54-56 and 62-66.",
+      "v2_action": "CORRECTED to per-line anchors A47 (=L54), A48 (=L56), A49 (=L62) because the two halves of the 'exists S / not invariant' sentence sit on different lines with unquoted text between them."
+    },
+    {
+      "id": "C10",
+      "v1_claimed": "backward-delivery-review.md lines 24, 32-33, 55, 59, 64-66, 76.",
+      "v2_action": "RETAINED as line anchors A50-A53; each quoted fragment was re-checked against the file on disk."
+    },
+    {
+      "id": "C11",
+      "v1_claimed": "Scholze_Stix.txt listed in the consistency table without a line anchor.",
+      "v2_action": "CORRECTED: anchors A57 (L580) and A58 (L630) added, and the entry downgraded from 'AGREES/AGREES' framing to 'NEITHER AGREES NOR DISAGREES'."
+    },
+    {
+      "id": "C12",
+      "v1_claimed": "iut-II was listed as a task input but never cited.",
+      "v2_action": "ADDED A59 (iut-II Corollary 4.10, L6996, PDF p.158) because Cor. 3.12 itself leans on the identification of '0' with '<F_l^⋆>' via [IUTchII] Cor. 4.10(i)."
+    }
+  ],
+
+  "input_hashes": {
+    "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean": {"sha256": "393ca2997810338b272b17ccdcc4690d819ff9fe4474fb47fe77ceb4e53fb05c", "bytes": 12439},
+    "reviews/core-round/external/iut/Iut/Wall/Ind3.lean": {"sha256": "08475765c02c2bad10f54eea282ffbcce4191b015d0bbc5712c932e1cb4db30d", "bytes": 15358},
+    "reviews/core-round/external/iut/Iut/Wall/Constraints.lean": {"sha256": "0f111caa7a9f0c732941ce6e90447d94b36141ef5318459a07ea5e71127e7bc4", "bytes": 18300},
+    "reviews/core-round/external/iut/Iut/Wall/Checks.lean": {"sha256": "22bf9a72da1a41fa051ef8f7530d1602a54d97e566b0edd4f73a9d1b1770fad7", "bytes": 8938},
+    "reviews/core-round/external/iut/Iut/Wall/BPS.lean": {"sha256": "9635772d13099d49ff68bd2a4c285f1e492c1908807902d3b08c47db69a1f2c8", "bytes": 17808},
+    "reviews/core-round/external/iut/Iut/Wall/Rss.lean": {"sha256": "301fe11b08e2d0ff838fc77915768c11c0235eff96801b1515cb89c9bd3d855d", "bytes": 27139},
+    "reviews/core-round/external/iut/Iut/Wall/README.md": {"sha256": "e41c1cdce90cc63ce5f173fedf78fc962c198c0cffe42a3126ab8ed49b804a24", "bytes": 33539},
+    "reviews/core-round/external/iut/Iut/Wall/MultiConstraints.lean": {"sha256": "e2e093b5262feaa90fd9f18f44b91aa5f2461732b6d40a7970ed7e38f16e8106", "bytes": 16588},
+    "reviews/core-round/external/iut/Iut/Wall/Pilots.lean": {"sha256": "506e78c0273ba1a3cbfdf95c9431583b77d38301478ec749fffe10c04a55644b", "bytes": 15681},
+    "reviews/core-round/external/iut/Iut/Wall/QPilotRegion.lean": {"sha256": "c9ac7201afb61870e933ea9dbc26e2de9fe11aae5babdce0d488708e42bbf373", "bytes": 18068},
+    "research/round2-source-cache/LANA-interim-report-2026-07.txt": {"sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e", "bytes": 144233},
+    "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt": {"sha256": "7d5b7bd7d4e53c4d96b1ed24a05dffa1f9a5fae539b1129a9a12f0b7665e7fab", "bytes": 486892},
+    "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt": {"sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715", "bytes": 570037},
+    "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt": {"sha256": "97033613e950d48c4af493403d730f43e1493713cc1fbaadf35746df981c5ef2", "bytes": 247177},
+    "research/core-backward-2026-10-23/PATH.md": {"sha256": "dbef8b559a0f89ba8eedb069596a44509d4b21609c30f9bf40fe838cc7e7b7ea", "bytes": 9910},
+    "research/core-projective-2026-10-24/backward-delivery-review.md": {"sha256": "efdfae278ac149de2716936d50422fe8a24b6e39ed245163713f744a71290d36", "bytes": 12792},
+    "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean": {"sha256": "f7252b0ff817320a885e75baaa2565f437c33f9d4d6507926e20fc7f7bb7c5ad", "bytes": 1616},
+    "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Scholze_Stix.txt": {"sha256": "d67c63c008c057d946258b12785694a9bd9542ed1570210fa7bd8a0bdf35cdc6", "bytes": 32912},
+    "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Comments_Scholze_Stix.txt": {"sha256": "efaef7c2295bd6dceff348557295f7965c4385f7531e5dc42b1d260cb6875696", "bytes": 21790}
+  },
+
+  "anchors": [
+    {"id": "A01", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10498, "page": 173, "needle": "Corollary 3.12. (Log-volume Estimates for Θ-Pilot Objects) Suppose", "note": "the whole statement is conditional on a previously fixed situation"},
+    {"id": "A02", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 92, "needle": "variable (D : InitialThetaData.{0})", "note": "D is a parameter"},
+    {"id": "A03", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 173, "needle": "def Wall (D : InitialThetaData.{0}) (A : Wall.EtaAlg D) : Prop :=", "note": "both D and the algorithm A are parameters of Wall; neither is existentially quantified inside it"},
+    {"id": "A11", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 174, "needle": "∀ (h₁ h₂ : A.Side) (_gl : BPS.Iso (A.thetaBPS h₁) (A.qBPS h₂)),", "note": "the OUTER forall = the 'fix the input' layer"},
+    {"id": "A12", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2060, "page": 44, "needle": "We start with a BPS, sayB= ({G v ↷M v},C)", "note": "the input is given before any choice"},
+    {"id": "A13", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2062, "page": 44, "needle": "Step 1.Choose an isomorphism between the given BPS and the Θ-pilot BPS", "note": "Step 1: the choice presupposes 'the given BPS', so iota is inner"},
+    {"id": "A14", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2133, "page": 46, "needle": "when we work with a BPS that was constructed as theq-BPS of a", "note": "eta_q is attached to the fixed q-side input; it is not chosen"},
+    {"id": "A15", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2118, "page": 45, "needle": "after fixing an isomorphism between a given", "note": "'after fixing' - the Step 1 isomorphism is fixed before the S-dependent construction"},
+    {"id": "A16", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2120, "page": 45, "needle": "indeterminacies Ind1 and Ind2)", "note": "the action so constructed is subject to Ind1/Ind2"},
+    {"id": "A17", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2123, "page": 46, "needle": "Once we fixS⊂VC(I v), this provides an isomorphism between theCpart of the", "note": "S is a free parameter of eta^anab -> the source of the EXISTS"},
+    {"id": "A18", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 1437, "page": 31, "needle": "of just VC(O), we must take into account all such subsets", "note": "(Ind3) limitation - the root of the EXISTS"},
+    {"id": "A19", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 1692, "page": 36, "needle": "whereUranges over suitable subsets of the large volume container VC(I)", "note": "the possible images form a family indexed by U"},
+    {"id": "A20", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2140, "page": 46, "needle": "exists some suitableSsuch that", "note": "THE canonical existential"},
+    {"id": "A21", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2282, "page": 49, "needle": "do not have a proof of (9-1) at this time", "note": "status of the source itself: unproved"},
+    {"id": "A22", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 108, "needle": "out : ∀ {B : BPS model D.bpsDegrees.bad} {h : Side},", "note": "out is a bare field: no algorithm is constructed"},
+    {"id": "A23", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 135, "needle": "noncomputable def qBPS (h : A.Side) : A.BPSA := ⟨A.etUnit h, qVal D.bpsDegrees⟩", "note": "the input BPS"},
+    {"id": "A24", "file": "reviews/core-round/external/iut/Iut/Wall/Rss.lean", "line": 501, "needle": "noncomputable def etaQ : (qVal D.bpsDegrees).C →ₗ[ℝ] ℝ :=", "note": "etaQ is a fixed function of D"},
+    {"id": "A25", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 113, "needle": "(ι : BPS.Iso B ⟨etUnit h, D.thetaValD⟩), ∃ τ : Ind3 D ≃ Ind3 D, ∀ S,", "note": "T1: forall over S, but no equation with etaQ"},
+    {"id": "A26", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 119, "needle": "(ι : BPS.Iso B ⟨etUnit h, D.thetaValD⟩) (S : Ind3 D), out ι S = f ι.et S", "note": "T2: structural field"},
+    {"id": "A27", "file": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean", "line": 213, "needle": "def Ind3 : Type _ := {S : Region D // IsAdelic D S ∧ ∀ i, S i ≤ hullOf D (vcI D) i}", "note": "the type of (Ind3)-choices"},
+    {"id": "A28", "file": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean", "line": 32, "needle": "**Deviation (deliberate): (Ind3) ranges over the hull.**", "note": "documented deviation from LANA"},
+    {"id": "A29", "file": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean", "line": 222, "needle": "instance : Nonempty (Ind3 D) := ⟨Ind3.top D⟩", "note": "the candidate type is inhabited (says nothing about a suitable S)"},
+    {"id": "A30", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 152, "needle": "A.etaAnab ι S = etaQ D ↔ logVol D (A.out ι S) = (concreteVariantData D).qPilot.lhs", "note": "the map equation is the scalar equation (iff)"},
+    {"id": "A31", "file": "reviews/core-round/external/iut/Iut/Wall/BPS.lean", "line": 335, "needle": "theorem eta_eq_eta_iff (B : ValBPS V bad) (x y : ℝ) : B.eta x = B.eta y ↔ x = y", "note": "a pointed map out of a pointed real line is determined by the pilot image"},
+    {"id": "A32", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 184, "needle": "Wall D A ↔ ∀ h₁ h₂ : A.Side, ∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D),", "note": "the Theta-link datum gl is vacuous; forall h1 h2 remains outside the exists"},
+    {"id": "A33", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "line": 212, "needle": "theorem cor312VariantHolds_of_wall (A : ∀ D : InitialThetaData.{0}, EtaAlg D)", "note": "the forall over D belongs to the global form, a different statement"},
+    {"id": "A34", "file": "reviews/core-round/external/iut/Iut/Wall/Ind3.lean", "line": 254, "needle": "(∃ S : Ind3 D, logVol D S.1 = x) ↔ x ≤ logVol D (hullOf D (vcI D))", "note": "the log-volume range of the (Ind3)-choices"},
+    {"id": "A35", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10506, "page": 173, "needle": "of theholomorphic hull[cf. Remark 3.9.5, (i)]", "note": "the measured object is the hull of the union of possible images"},
+    {"id": "A36", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10527, "page": 174, "needle": "−|log(Θ)|≥−|log(q)|", "note": "the conclusion of Cor. 3.12 is an inequality, not an equality on all choices"},
+    {"id": "A37", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10598, "page": 175, "needle": "(i) In the following discussion, we concentrate on asingle arrow", "note": "single Theta-link scope"},
+    {"id": "A38", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 11048, "page": 183, "needle": "(xi-e) Next, let us recall that the relationship, i.e., that arises by applying the", "note": "Step (xi-e): the pilot log-volume -|log(q)| and the input prime-strip"},
+    {"id": "A39", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 11063, "page": 184, "needle": "be equal to theﬁxed value−|log(q)|∈R”.", "note": "the fixed value; the candidate family is the output side"},
+    {"id": "A40", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 11080, "page": 184, "needle": "The inclusion−|log(q)|∈R≤−|log(Θ)|, hence also the inequality", "note": "membership of the fixed value in the set of POSSIBLE output log-volumes"},
+    {"id": "A41", "file": "reviews/core-round/external/iut/Iut/Wall/Checks.lean", "line": 94, "needle": "∀ {B : A.BPSA} {h : A.Side} (ι : A.Choice B h), ∃ κ : ℝ, ∀ S : Ind3 D,", "note": "T4 LGP law: a forall over S that is NOT the wall"},
+    {"id": "A42", "file": "reviews/core-round/external/iut/Iut/Wall/Constraints.lean", "line": 112, "needle": "(S : Ind3 D), A.out ι S = F h₁ S ∧ A.out ι S = G h₂ S", "note": "C2 SHESides"},
+    {"id": "A43", "file": "reviews/core-round/external/iut/Iut/Wall/Constraints.lean", "line": 153, "needle": "∃ τ : Ind3 D ≃ Ind3 D, ∀ S, A.out ι S = A.out ι' (τ S)", "note": "C6 Multiradial"},
+    {"id": "A44", "file": "reviews/core-round/external/iut/Iut/Wall/Constraints.lean", "line": 192, "needle": "∃ φ : Region D → Region D, ∀ {B : A.BPSA} {h : A.Side} (ι : A.Choice B h) (S : Ind3 D),", "note": "C9 SetTransport"},
+    {"id": "A45", "file": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean", "line": 23, "needle": "theorem exact_choice_exists : ∃ b, candidate b = target := by", "note": "toy: existence of a correct choice"},
+    {"id": "A46", "file": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean", "line": 34, "needle": "theorem existence_does_not_force_invariance :", "note": "toy: existence does not entail invariance"},
+    {"id": "A47", "file": "research/core-backward-2026-10-23/PATH.md", "line": 54, "needle": "它把我们的问题**精确命名**为 (9-1)", "note": "cross-document: names (9-1)"},
+    {"id": "A48", "file": "research/core-backward-2026-10-23/PATH.md", "line": 56, "needle": "**`η_q = η_anab_S`**", "note": "cross-document: the equation and LANA's self-declared lack of proof"},
+    {"id": "A49", "file": "research/core-backward-2026-10-23/PATH.md", "line": 62, "needle": "且只要求**存在一个 `S`**", "note": "cross-document: 'only requires EXISTS one S'"},
+    {"id": "A50", "file": "research/core-projective-2026-10-24/backward-delivery-review.md", "line": 24, "needle": "`Iut/Wall/EtaAlg.lean:169-177` 将 `Wall` 定义为对所有 theater / Θ-link 存在 `ι,S`", "note": "cross-document: independent read of the same quantifier order"},
+    {"id": "A51", "file": "research/core-projective-2026-10-24/backward-delivery-review.md", "line": 32, "needle": "接口把 `etaAnab` 定义为将 pilot 送到 `logVol (out ι S)` 的线性映射", "note": "cross-document"},
+    {"id": "A52", "file": "research/core-projective-2026-10-24/backward-delivery-review.md", "line": 64, "needle": "实际来源构造 (ι,S) 属于原文允许的 η 执行", "note": "cross-document: provenance remains OPEN"},
+    {"id": "A53", "file": "research/core-projective-2026-10-24/backward-delivery-review.md", "line": 76, "needle": "OPEN — 真实 η 执行来源", "note": "cross-document: out/realisation are not an execution source"},
+    {"id": "A54", "file": "reviews/core-round/external/iut/Iut/Wall/README.md", "line": 6, "needle": "there exists some suitable `S` such that", "note": "the Lean package quotes the same sentence"},
+    {"id": "A55", "file": "reviews/core-round/external/iut/Iut/Wall/README.md", "line": 101, "needle": "∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D), A.etaAnab ι S = etaQ D", "note": "the exists binder, reproduced in the README"},
+    {"id": "A56", "file": "reviews/core-round/external/iut/Iut/Wall/README.md", "line": 176, "needle": "**Strength of `Wall`**: it quantifies over all pairs of Hodge theaters and all", "note": "the authors' own scoping statement"},
+    {"id": "A57", "file": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Scholze_Stix.txt", "line": 580, "needle": "3.11]12 implies that up to certain indeterminacies", "note": "the opposing reading of the same step; not a source for the quantifier order"},
+    {"id": "A58", "file": "reviews/core-round/external/MoheetBrain--iut-bridge-audit/tmp/Scholze_Stix.txt", "line": 630, "needle": "he claimed that up to the “blurring” given by certain indeterminacies the diagram", "note": "opposing reading"},
+    {"id": "A59", "file": "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt", "line": 6996, "page": 158, "needle": "Corollary 4.10. (Frobenius-pictures of Θ±ellNF-Hodge Theaters) Fix", "note": "the identification '0' with '<F_l^⋆>' that Cor. 3.12 leans on"}
+  ],
+
+  "page_anchors": [
+    {"id": "P01", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2060, "page": 44},
+    {"id": "P02", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2062, "page": 44},
+    {"id": "P03", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2117, "page": 45},
+    {"id": "P04", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2120, "page": 45},
+    {"id": "P05", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2123, "page": 46},
+    {"id": "P06", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2130, "page": 46},
+    {"id": "P07", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2141, "page": 46},
+    {"id": "P08", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2267, "page": 49},
+    {"id": "P09", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 2282, "page": 49},
+    {"id": "P10", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 1433, "page": 31},
+    {"id": "P11", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "line": 1692, "page": 36},
+    {"id": "P12", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10498, "page": 173},
+    {"id": "P13", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10506, "page": 173},
+    {"id": "P14", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10527, "page": 174},
+    {"id": "P15", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 10933, "page": 181},
+    {"id": "P16", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 11007, "page": 183},
+    {"id": "P17", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 11048, "page": 183},
+    {"id": "P18", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 11063, "page": 184},
+    {"id": "P19", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 11080, "page": 184},
+    {"id": "P20", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "line": 9596, "page": 156},
+    {"id": "P21", "file": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt", "line": 1278, "page": 22},
+    {"id": "P22", "file": "research/round2-source-cache/iut-IV-official-retrieved-2026-10-16.txt", "line": 1400, "page": 23},
+    {"id": "P23", "file": "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt", "line": 6996, "page": 158}
+  ],
+
+  "span_anchors": [
+    {"id": "S01", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "start": 2138, "end": 2141, "page": 46, "needles": ["The main goal now is to relate these two kinds of isomorphisms", "exists some suitableSsuch that", "ηq =η anabS .(9-1)"], "note": "(9-1) itself"},
+    {"id": "S02", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "start": 2123, "end": 2132, "page": 46, "needles": ["Once we fixS⊂VC(I v)", "we defineM= 1·S", "depends onS"], "note": "eta^anab depends on the fixed S"},
+    {"id": "S03", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "start": 2117, "end": 2120, "page": 45, "needles": ["after fixing an isomorphism between a given", "indeterminacies Ind1 and Ind2"], "note": "Step 1 is fixed before the S-construction"},
+    {"id": "S04", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "start": 1433, "end": 1437, "page": 31, "needles": ["(Ind3) In a log-shell version of the volume container", "not possible to reconstruct VC(O)", "we can say is that this is an adelic measurable subset", "take into account all such subsets"], "note": "the root of the existential; 'All we can say' is split across L1434/L1435 in the extraction, so it is anchored by its two in-line halves"},
+    {"id": "S05", "file": "research/round2-source-cache/LANA-interim-report-2026-07.txt", "start": 2152, "end": 2155, "page": 46, "needles": ["(9-1) indicates that the", "belongs to an orbit", "of the formation ofη anabS"], "note": "the orbit reading: exists S, not invariance"},
+    {"id": "S06", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "start": 11064, "end": 11072, "page": 184, "needles": ["collection ofpossible log-volumes of pilot-object output data", "R≤−|log(Θ)| ⊆R", "of theinput data (F⊩▶×μ-)prime-strip"], "note": "paper-level candidate family vs the fixed value"},
+    {"id": "S07", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "start": 11073, "end": 11083, "page": 184, "needles": ["(xi-f) Thus, we conclude from (xi-e) that", "subject to thecondition that this con-", "The inclusion−|log(q)|∈R≤−|log(Θ)|", "−|log(q)|≤−|log(Θ)|∈R", "then follows formally"], "note": "the conclusion is a membership/inequality"},
+    {"id": "S08", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "start": 11007, "end": 11015, "page": 183, "needles": ["(xi-d)", "yields a collection of possibilities of out-", "(IPL)", "(SHE)"], "note": "collection of possibilities, i.e. a family"},
+    {"id": "S09", "file": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt", "start": 9596, "end": 9603, "page": 156, "needles": ["as one varies m", "upper semi-", "natural inclusions"], "note": "(Ind3) is one-sided"},
+    {"id": "S10", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "start": 173, "end": 175, "needles": ["def Wall (D : InitialThetaData.{0}) (A : Wall.EtaAlg D) : Prop :=", "∀ (h₁ h₂ : A.Side)", "∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D), A.etaAnab ι S = etaQ D"], "note": "the Lean quantifier chain, in order"},
+    {"id": "S11", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "start": 183, "end": 186, "needles": ["theorem wall_iff_forall (A : EtaAlg D) :", "∀ h₁ h₂ : A.Side, ∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D),", "A.etaAnab ι S = etaQ D"], "note": "gl is vacuous; forall h1 h2 stays outside"},
+    {"id": "S12", "file": "reviews/core-round/external/iut/Iut/Wall/EtaAlg.lean", "start": 145, "end": 153, "needles": ["noncomputable def etaAnab", "B.val.eta (logVol D (A.out ι S))", "theorem etaAnab_eq_etaQ_iff", "logVol D (A.out ι S) = (concreteVariantData D).qPilot.lhs"], "note": "the target equation and its scalar form"},
+    {"id": "S13", "file": "reviews/core-round/external/iut/Iut/Wall/Checks.lean", "start": 110, "end": 121, "needles": ["theorem wall_iff_of_lgpLaw", "Wall D A ↔ ∀ h₁ h₂ : A.Side, ∃ ι : A.Choice (A.qBPS h₂) h₁,", "≤ logVol D (hullOf D (vcI D))"], "note": "even under the T4 forall-over-S law the wall stays exists iota"},
+    {"id": "S14", "file": "reviews/core-round/external/iut/Iut/Wall/Constraints.lean", "start": 220, "end": 224, "needles": ["def WallDistinct", "h₁ ≠ h₂", "∃ (ι : A.Choice (A.qBPS h₂) h₁) (S : Ind3 D), A.etaAnab ι S = etaQ D"], "note": "the distinct-side form keeps forall outside, exists inside"},
+    {"id": "S15", "file": "research/lana-link-acceptance-2026-10-23/ChoiceExistenceRegression.lean", "start": 23, "end": 37, "needles": ["theorem exact_choice_exists : ∃ b, candidate b = target := by", "theorem existence_does_not_force_invariance :", "¬ ((∃ b, candidate b = target) → ∀ b, reading (!b) = reading b)"], "note": "toy witness of the quantifier gap"}
+  ],
+
+  "status_summary": {
+    "quantifier_order": "TRANSCRIBED",
+    "target_equation": "TRANSCRIBED",
+    "allowed_S": "TRANSCRIBED (with the paper/Lean range difference recorded)",
+    "proof_of_9_1": "NOT_ATTEMPTED - the source itself says it has none (U1)",
+    "lean_compilation": "NOT_RUN (U5)",
+    "fact_tree_or_boundary_change": "NONE"
+  }
+}

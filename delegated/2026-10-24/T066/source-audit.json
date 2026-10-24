@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "task_id": "T066",
+  "status": "RESEARCH_ONLY",
+  "generated": "2026-10-24",
+  "title": "MonoThetaKummer and cyclotomicRigidity: given environment, given isomorphisms, unconstructed inputs",
+  "scope": {
+    "question": "Which environments and isomorphisms does the source ACTUALLY construct, which does it receive as parameters, and which inputs are never constructed at all?",
+    "hard_constraint": "An already-given isomorphism parameter must not be re-reported as a constructed source. Every PARAM/GIVEN entry below is a hypothesis of the cited declaration, not its conclusion.",
+    "method": "Static source read of the workspace files at their recorded SHA256, plus a `git` blob check of the pinned upstream checkout. NO Lean was built or run in this task; no `lake build`, no `#print axioms`, no editor replay.",
+    "verification_scope": "Byte-exact file identity and declaration line positions only. Nothing here is a proof, a compilation receipt, or a mathematics claim.",
+    "not_in_scope": "Fact-tree admission, Boundary changes, main-line source edits, Step (xi), Corollary 3.12, abc."
+  },
+  "baseline": {
+    "root_commit": "8d60456043e30a3da79cc838d03a19b80675dc98",
+    "baseline_json_sha256": "e24e6801c2eac58f7d97cfe5f3f7a95deeaf05852231006a0085290eecd126cf",
+    "task_card_sha256": "e57fe2507b74b040958573c8982c494f6698323fc7129848bc0b8c31314d2d50",
+    "upstream_iut_commit": "f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb",
+    "upstream_iut_branch": "main",
+    "upstream_iut_worktree": "clean",
+    "basis": "CURRENT_WORKSPACE_BYTES_INCLUDING_UNTRACKED_FILES"
+  },
+  "baseline_coverage_finding": {
+    "claim": "baseline.json does NOT pin the files this task audits, with two exceptions.",
+    "detail": "baseline.json lists 100 file entries. Of the audited tree, only two appear: `reviews/core-round/external/iut/Iut/EtaleTheta/CyclotomicRigidity.lean` (69205310...18108) and `reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean` (a7b091c5...12590). `Iut/LogLink/Thm311Rest.lean` -- the file that DEFINES `MonoThetaKummer` -- and `Iut/EtaleTheta/MonoTheta.lean` are NOT pinned by baseline.json. Their identity in this audit is therefore established separately: SHA256 computed here and `git rev-parse HEAD:<path>` blob SHAs from the pinned checkout.",
+    "task_card_instruction": "The T066 card already warned: `文件名相同不算版本相同` (same filename is not the same version) and `前序的实际源码与收据SHA必须另行取得`. This audit supplies those SHAs.",
+    "consequence": "Any downstream re-use must cite the per-file SHA256 in `sources[]` below, not the baseline entry -- there is none for the defining file."
+  },
+  "sources": [
+    {
+      "id": "S-T311REST",
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Thm311Rest.lean",
+      "sha256": "01d439345e489cc92be6e19db7e2b30a9a9536f788244aaa69a2066de3a69a2d",
+      "bytes": 34328,
+      "git_blob_sha1": "9b50d6eb7abf61a58ba15e9cc09c83e3a332ec38",
+      "in_baseline_json": false,
+      "role": "defines `MonoThetaKummer` and `BiCoricKummer`; proves `isCyc_horizMap`, `isCyc_horizMap_aut`, `isCyc_vertMap`, `isCyc_of_rigid`, `thm311iii_model`"
+    },
+    {
+      "id": "S-CYCRIG",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/CyclotomicRigidity.lean",
+      "sha256": "69205310b880ecc3637b5951095d54c791dcc19450c1d0921171767d33a9152f",
+      "bytes": 18108,
+      "git_blob_sha1": "bc475672050b6fd83daf72c510be75893fc035ed",
+      "in_baseline_json": true,
+      "role": "defines `Env`, `Env.Iso`, `Env.IsCyc`, `model`, and proves `cyclotomicRigidity`, `cyclotomicRigidity_aut`, `model_isCyc`, `model_taut`, `model_mu`, `model_L`, `model_thetaSplit`"
+    },
+    {
+      "id": "S-MONOTHETA",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/MonoTheta.lean",
+      "sha256": "a9694735eaa0e55d76f4bd88c02bb8b78eb8230cf2b967b9ed45f68396a8ebd1",
+      "bytes": 13354,
+      "git_blob_sha1": "f7c29f9998f6ec5b364dd32864cb391ac07ad472",
+      "in_baseline_json": false,
+      "role": "defines `IsCocycle`, `sectionOf`, `MonoThetaEnv`, `MonoThetaEnv.Iso` ([EtTh] Def. 2.13(ii) at the nonabelian level)"
+    },
+    {
+      "id": "S-ARITHENV",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/ArithEnv.lean",
+      "sha256": "95ec45e061e07db5a463669579c595a8c3ff094d02f8843f8fc6bcb41cbad457",
+      "bytes": 10427,
+      "git_blob_sha1": "aa3aa45eafa22ee27dd4bc6f102a9d80eced98ff",
+      "in_baseline_json": false,
+      "role": "arithmetic model `Arith = (mu x Delta_Theta x (Delta_Y)^ell) semidirect G` with Kummer twists; `prop214` ([EtTh] Prop. 2.14(i)) for center-free `G`"
+    },
+    {
+      "id": "S-MODELAUT",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/ModelAut.lean",
+      "sha256": "4e56fee8a2ca13f065e0feba49170eae30f0ecfdc7e41ab472b7e583388646ef",
+      "bytes": 26435,
+      "git_blob_sha1": "536bb12cd1162b2243c8aa0fcb03e839f075a058",
+      "in_baseline_json": false,
+      "role": "`redN`, `modelN N l := model Z l (ZMod N) (redN N) 0`, `Aut(modelN)` computation ([EtTh] Cor. 2.18(iv) for the model)"
+    },
+    {
+      "id": "S-MODELTOWER",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/ModelTower.lean",
+      "sha256": "3bd3fce413f783c51a75b996f0e9f10979360bbf489a125da0c38a292976bb42",
+      "bytes": 15013,
+      "git_blob_sha1": "d5d5967b904d4ce5093a2e8f981b8a98dfceed20",
+      "in_baseline_json": false,
+      "role": "`Env.red` (mod-N reduction), `redIso`, `redModel`, `discreteRigidity` ([EtTh] Cor. 2.19(ii)) instantiating `RigidSystems.Tower.discreteRigidity`"
+    },
+    {
+      "id": "S-THETACLASS",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/ThetaClass.lean",
+      "sha256": "b89f8dc0987d002021a5259b06263e9c9d8414eb27073bb4c2bb75579e1fea79",
+      "bytes": 8740,
+      "git_blob_sha1": "262540ac917d8b4a7f485add3358707f545ef70c",
+      "in_baseline_json": false,
+      "role": "model etale theta class `eta(c,a') = red c + rho a'`; `thetaSection_eq` (`s^Theta = s^taut - eta`); `model_isCyc_eq_neg_thetaClass`"
+    },
+    {
+      "id": "S-TEMPCov",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/TemperedCovering.lean",
+      "sha256": "436df768ffa6c5657ad0d00759c885004b6ee963cf086d7b6e7f435945630ba8",
+      "bytes": 11861,
+      "git_blob_sha1": "07475a6dad2938e76c15e663e414c357dc1ba3f3",
+      "in_baseline_json": false,
+      "role": "`Pi^tp_Y = ker chi` as an open normal subgroup of the actual tempered `Pi^tp_X` (`tate-fundamental-groups` dependency)"
+    },
+    {
+      "id": "S-TEMPSLIM",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/TempSlimPiY.lean",
+      "sha256": "5be36a1fedef755c38d01091ae4c69bcd9253e52f0301fcf7c6840b9085f249a",
+      "bytes": 4247,
+      "git_blob_sha1": "8b0fb955ac839da89f6b7c0be17c5b460c31d6e5",
+      "in_baseline_json": false,
+      "role": "`tempSlim_piY : VerticialTempSlim -> TempSlim Pi^tp_Y`; `apply_mem_range_inl_iff_piY` ([EtTh] Cor. 2.19(i) first step, conditional on `VerticialTempSlim`)"
+    },
+    {
+      "id": "S-CYCENV",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/CyclotomicEnvelope.lean",
+      "sha256": "1ac98e3ac3f5bafeb69ddcd64b82c839022f3d8cef4db92ec0741a9ca567b394",
+      "bytes": 12946,
+      "git_blob_sha1": "564add52735a61f53e77d398a046e7d66082abd3",
+      "in_baseline_json": false,
+      "role": "cyclotomic envelope `Pi[mu_N] = mu_N semidirect Pi`; `TempSlim`; `Envelope.mem_range_inl_iff` ([EtTh] Prop. 2.11(ii))"
+    },
+    {
+      "id": "S-RIGIDSYS",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/RigidSystems.lean",
+      "sha256": "31afb86bd6561e3ce416d5805c6652fbbe3dfa74f23f7ad9629d4bf92743b88b",
+      "bytes": 9698,
+      "git_blob_sha1": "4ca6c1bf8c38bc2d4728caed26eeda63d65a9ef2",
+      "in_baseline_json": false,
+      "role": "`Tower.System`, `Tower.discreteRigidity` -- the formal part of [EtTh] Cor. 2.19(ii)"
+    },
+    {
+      "id": "S-ETTH-README",
+      "path": "reviews/core-round/external/iut/Iut/EtaleTheta/README.md",
+      "sha256": "d690abb46816166553e8bc163f85f32312611739697fb53d667dc8fa9fa446e1",
+      "bytes": 26064,
+      "git_blob_sha1": "34494fc22623f192686262feff36fdae4397c9fb",
+      "in_baseline_json": false,
+      "role": "the authors' own scope decisions S1-S5, S1'-S5' -- the authoritative statement of what is NOT constructed"
+    },
+    {
+      "id": "S-TEMPFROB",
+      "path": "reviews/core-round/external/iut/Iut/Frobenioid/Tempered.lean",
+      "sha256": "3fb8b3da4bed2ae831e13aedf24eaf18527650e92232b6b15c53999cd91f3b2f",
+      "bytes": 18968,
+      "git_blob_sha1": "33f79b75e49a84c34882d22d50d7c343d198d836",
+      "in_baseline_json": false,
+      "role": "`TemperedFrobenioidData`, `thetaData chi`, `tateThetaData` -- the tempered Frobenioids from which IUT II builds the Frobenius-like environments"
+    },
+    {
+      "id": "S-STRIPKUMMER",
+      "path": "reviews/core-round/external/iut/Iut/LogLink/StripKummer.lean",
+      "sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+      "bytes": 12590,
+      "git_blob_sha1": "5af58bbc22d35345ba0f6ac50941ae4e3b23b565",
+      "in_baseline_json": true,
+      "role": "the D^|-strip analogue: `StripScaling`, `StripKummer` fields `strip/coric/link/kum/scale`, `galMult_coe_units`, `compGalLogEquiv_eq_units`"
+    },
+    {
+      "id": "S-GALKUMMER",
+      "path": "reviews/core-round/external/iut/Iut/LogLink/GalKummer.lean",
+      "sha256": "1dd1a56eff40a021f1de9835d7172706a6240495d7e27ef9cb1db7beec4f2e55",
+      "bytes": 22657,
+      "git_blob_sha1": "f49cf83b3e03832f4315de002d7d981f21bad367",
+      "in_baseline_json": false,
+      "role": "`AnabelianScaling`, `GalInducedScaling`, `AnabelianKummer`, `GalKummer` -- the existential-`phi` predecessor of `StripKummer`"
+    },
+    {
+      "id": "S-KUMMER",
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Kummer.lean",
+      "sha256": "c250443ede2e12be428f7e84ec7b61aab82eab724a1134358152eccdb877e4e4",
+      "bytes": 15226,
+      "git_blob_sha1": "36eb0aa6f2e2178973dc3b13965b2f9c5d86cfe5",
+      "in_baseline_json": false,
+      "role": "`FactorUnitInduced`, `UnitInducedScaling`, `LatticeKummer` fields `kum/unit`"
+    },
+    {
+      "id": "S-LATTICE",
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Lattice.lean",
+      "sha256": "715a331ddf1846b9164edddcd668cc26aa28a259aad925a6ae05904992ee125f",
+      "bytes": 8047,
+      "git_blob_sha1": "2a58da4723527d4a94dda122b8d8a6efc29e7e10",
+      "in_baseline_json": false,
+      "role": "`LogThetaLattice` fields `H/vert/horiz/loc`; `ofData` (tautological lattice)"
+    },
+    {
+      "id": "S-THM311LGP",
+      "path": "reviews/core-round/external/iut/Iut/LogLink/Thm311LGP.lean",
+      "sha256": "862eaed70b1588eaf198ae9114d9897d5811f73c4904bc2d56076103c1014aaf",
+      "bytes": 11358,
+      "git_blob_sha1": "6d695520e8ed320bd8eabd879e0cba0086b58e9e",
+      "in_baseline_json": false,
+      "role": "`LGPLattice` field `kum_gen`; `Thm311LGP.splitCoric/splitCompat/splitDeg`"
+    },
+    {
+      "id": "S-HTHEATER",
+      "path": "reviews/core-round/external/iut/Iut/HodgeTheater/HodgeTheater.lean",
+      "sha256": "b5c54b4f2fa563fbfc70e1270003dea59197733090a7dafcc316e7f31d64a387",
+      "bytes": 11032,
+      "git_blob_sha1": "325575cfd093e69391a069d17e67f60ade4a379f",
+      "in_baseline_json": false,
+      "role": "`ThetaPmEllNFHT` fields `labels/F/Fsucc/Fgt/Dcirc/DcircPm/Frlf/Fmu` -- note: NO environment field"
+    },
+    {
+      "id": "S-STRIPLIFT",
+      "path": "reviews/core-round/external/iut/Iut/HodgeTheater/StripLift.lean",
+      "sha256": "cd8fe6448d3a6d96e9988b38618ceefb0518baf6d0a93b8d73f261c229bd21b4",
+      "bytes": 26190,
+      "git_blob_sha1": "4c55ba8e9af2e6d050dcadcfa797c338191c258a",
+      "in_baseline_json": false,
+      "role": "`RigidDGalStrip` field `kappa`; `gal f w = kappa^Q o f o (kappa^P)^-1`; `liftIso` (IUT I Cor. 5.3(ii) in the model)"
+    },
+    {
+      "id": "S-FSTARMOD",
+      "path": "reviews/core-round/external/iut/Iut/HodgeTheater/FStarMod.lean",
+      "sha256": "69abb16448fe0b9d42931f545c0ef033e6228d966ef56818f984e73deada395c",
+      "bytes": 6192,
+      "git_blob_sha1": "a39df7e12853f603dfffb32671a4d034e0d1cb45",
+      "in_baseline_json": false,
+      "role": "`Fmod D = fieldOfModuli D.F D.E` -- the field whose finite places `VBad` indexes the environments"
+    },
+    {
+      "id": "S-THETADATA",
+      "path": "reviews/core-round/external/iut/Iut/Cor312/ThetaData/Basic.lean",
+      "sha256": "c375bbf39ad8a5767637743d2efc7e73fab78fa0c8065b8d3ff18929cf4748f5",
+      "bytes": 14626,
+      "git_blob_sha1": "3556f9ad4aabb8ddce25118bce777da9b950cffc",
+      "in_baseline_json": false,
+      "role": "`InitialThetaData` fields incl. `VBad : Set (FinitePlace (fieldOfModuli F E))` -- the only genuine binding of `VBad`"
+    },
+    {
+      "id": "S-NONDERIV",
+      "path": "reviews/core-round/external/iut/Iut/WallEquiv/NonDerivable.lean",
+      "sha256": "c6f0e46e5a5a4badd78792ad498b1bc05ebca3a92c4d78e0bdf3fb964bb4aca9",
+      "bytes": 27825,
+      "git_blob_sha1": "e1823a9206071c057911764dc7a591495574c733",
+      "in_baseline_json": false,
+      "role": "`Thm311Package.structural` quantifies over an ARBITRARY `M : MonoThetaKummer D`; `family`/`counterexample` supply trivial `kum := 1`"
+    },
+    {
+      "id": "S-IUT-README",
+      "path": "reviews/core-round/external/iut/README.md",
+      "sha256": "d00a19dcb22099bf9d219277b12845e4f92c879ea1387e20bd47ee2194f1d8cd",
+      "bytes": 85397,
+      "git_blob_sha1": "c5557bd4bfeaafe2b9a69c5f0e540b836bb192d3",
+      "in_baseline_json": false,
+      "role": "repository-level scope statement"
+    },
+    {
+      "id": "S-WALLEQUIV-README",
+      "path": "reviews/core-round/external/iut/Iut/WallEquiv/README.md",
+      "sha256": "034a907afb395db70774a4b90d7e3db57e90b6f7e075dc678eb51f6d39205189",
+      "bytes": 20016,
+      "git_blob_sha1": "9c23f21d0571e45a1890ab357374c3224e42dffd",
+      "in_baseline_json": false,
+      "role": "the modelling inputs of the Thm311Package abstraction"
+    },
+    {
+      "id": "S-IUT2",
+      "path": "research/round2-source-cache/iut-II-official-retrieved-2026-10-23.txt",
+      "sha256": "7d5b7bd7d4e53c4d96b1ed24a05dffa1f9a5fae539b1129a9a12f0b7665e7fab",
+      "bytes": 486892,
+      "in_baseline_json": true,
+      "role": "primary source: [IUTchII] Def. 1.1 (interior/exterior cyclotome, Cyclotomic Rigidity Isomorphism), Def. 1.1(ii), Remark 1.1.1(iii)-(iv), Prop. 3.3, Prop. 3.4"
+    },
+    {
+      "id": "S-IUT3",
+      "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+      "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715",
+      "bytes": 570037,
+      "in_baseline_json": true,
+      "role": "primary source: [IUTchIII] Prop. 2.1(ii)(iii) (Kummer Theory at Bad Primes), Remark 2.1.1, Thm. 1.5, Thm. 3.11"
+    },
+    {
+      "id": "S-LANA",
+      "path": "research/round2-source-cache/LANA-interim-report-2026-07.txt",
+      "sha256": "5fc6185d6642e70ba58c6ce637ef6e0448e2761b9d57b5e40545aea3d6ee040e",
+      "bytes": 144233,
+      "in_baseline_json": true,
+      "role": "secondary: LANA interim report, cyclotomic synchronization discussion (explanatory, not a term-level construction)"
+    },
+    {
+      "id": "S-NATIVE-SQUARE",
+      "path": "research/core-next-2026-10-23/native-source-square.md",
+      "sha256": "7859ec31035b9ddf64dd70c2a72846ab45143a3d812739082d385c9be9c24163",
+      "bytes": 6726,
+      "in_baseline_json": true,
+      "role": "prior audit of the StripKummer factor square; anchors A1-A6"
+    },
+    {
+      "id": "S-GAP-ANCHOR",
+      "path": "research/core-comparison-2026-10-24/GAP-shared-anchor-source.md",
+      "sha256": "7c795ff18102f1809e9d564d7caa64f085bbae0a8f14f379b358329583c2cb8c",
+      "bytes": 1755,
+      "in_baseline_json": true,
+      "role": "OPEN gap: same-source theta/q joint action; explicitly forbids treating `MonoThetaKummer` fields as constructions"
+    }
+  ],
+  "correction": {
+    "id": "none-open",
+    "note": "All git blob ids in `sources[]` were read with `git -C reviews/core-round/external/iut rev-parse HEAD:<path>` at HEAD f7ed1cc8ea33234ec66b1f49fb9e12212742cdcb. The earlier placeholder for `S-NONDERIV` has been replaced by the measured value e1823a9206071c057911764dc7a591495574c733."
+  },
+  "tier_legend": {
+    "CONSTRUCTED": "The source DEFINES the object from data already present in the same file or its imports; a term of that type exists.",
+    "PARAMETER": "The object is a HYPOTHESIS -- a field, a variable, or a quantified argument. No term of that type is produced by the source. Must never be reported as constructed.",
+    "NOT_CONSTRUCTED": "The source states the notion but has no term of that type anywhere; the file/docstring says so explicitly.",
+    "PARTIAL": "A term exists only under additional hypotheses that are themselves PARAMETER or NOT_CONSTRUCTED."
+  },
+  "cyclotomicRigidity": {
+    "source": "S-CYCRIG",
+    "source_sha256": "69205310b880ecc3637b5951095d54c791dcc19450c1d0921171767d33a9152f",
+    "primary_source_claim": "[EtTh] Cor. 2.19(i): a functorial algorithm reconstructing, from the environment alone, the subquotients `mu_N`, `(l*Delta_Theta)[mu_N]`, the two splittings, hence the cyclotome isomorphism `(l*Delta_Theta) (x) Z/N ~= mu_N`.",
+    "formalized_scope": "The abelian case only: the geometric theta quotient `(Delta^tp_Y)^Theta[mu_N]`, written additively. The file states this in its own docstring (lines 21-23) and `Iut/EtaleTheta/README.md` S3'/S4 confirm `Pi^tp_Y[mu_N]` itself is not covered.",
+    "given_environment": {
+      "type": "Iut.EtaleTheta.Env.{u}",
+      "line": 81,
+      "definition_verbatim_structure": "carrier : Type u; [grp : AddCommGroup carrier]; D : Set (carrier ≃+ carrier); S : AddSubgroup carrier",
+      "tier": "PARAMETER",
+      "detail": "In every theorem of the file the environment arrives as a variable `(E : Env.{u})` or as an explicit argument `{E : Env.{u}}`. The file never builds an `Env` from curve-theoretic data. The only `Env`-valued definitions in the file are `model` (line 227), which is the MODELE, not an instance of the theory.",
+      "significance": "This is exactly the point the T066 hard constraint protects: `E` is the given thing. `cyclotomicRigidity` CONSUMES `E`; it does not produce it."
+    },
+    "given_isomorphism": {
+      "type": "Iut.EtaleTheta.Env.Iso E (model M l mu red rho)",
+      "line": 365,
+      "signature_verbatim": "theorem cyclotomicRigidity (hmu : AddMonoid.IsTorsion mu) {E : Env.{u}} (f : Env.Iso E (model M l mu red rho)) : E.mu.map f.e.toAddMonoidHom = (AddMonoidHom.inl mu (M x M)).range /\\ E.taut.map f.e.toAddMonoidHom = (tautHom M l mu).range /\\ E.L.map f.e.toAddMonoidHom = (lHom M l mu).range /\\ E.thetaSplit.map f.e.toAddMonoidHom = (thetaHom M l mu red).range /\\ forall t m, E.IsCyc t m <-> exists y : M, f.e t = (0, l * y, 0) /\\ f.e m = (-red (l * y), 0, 0)",
+      "tier": "PARAMETER",
+      "detail": "`f` is a HYPOTHESIS. The statement is conditional: GIVEN an isomorphism of `E` with the model, the algorithm's outputs are carried onto the model's. The source does NOT construct `f`, and does NOT construct `E` either. Therefore the theorem cannot be cited as 'the environment is reconstructed up to isomorphism' -- it asserts only that the algorithm is natural.",
+      "warning": "`cyclotomicRigidity_aut` (line 379) is the same shape for `f : Iso (model ...) (model ...)`: again an input."
+    },
+    "constructed_by_the_source": [
+      {
+        "name": "Iut.EtaleTheta.Env.mu",
+        "line": 97,
+        "type": "Env.{u} -> AddSubgroup E.carrier",
+        "value": "AddCommGroup.torsion E.carrier",
+        "tier": "CONSTRUCTED"
+      },
+      {
+        "name": "Iut.EtaleTheta.Env.taut",
+        "line": 101,
+        "type": "Env.{u} -> AddSubgroup E.carrier",
+        "value": "AddSubgroup.closure {x | exists gamma in E.D, exists beta, x = gamma beta - beta}",
+        "tier": "CONSTRUCTED"
+      },
+      {
+        "name": "Iut.EtaleTheta.Env.L",
+        "line": 105,
+        "type": "Env.{u} -> AddSubgroup E.carrier",
+        "value": "E.mu sup E.taut",
+        "tier": "CONSTRUCTED"
+      },
+      {
+        "name": "Iut.EtaleTheta.Env.thetaSplit",
+        "line": 108,
+        "type": "Env.{u} -> AddSubgroup E.carrier",
+        "value": "E.S inf E.L",
+        "tier": "CONSTRUCTED"
+      },
+      {
+        "name": "Iut.EtaleTheta.Env.IsCyc",
+        "line": 112,
+        "type": "Env.{u} -> E.carrier -> E.carrier -> Prop",
+        "value": "t in E.taut /\\ m in E.mu /\\ t + m in E.thetaSplit",
+        "tier": "CONSTRUCTED",
+        "type_warning": "This is a RELATION, not a function. The docstring itself says 'The isomorphism of cyclotomes AS A RELATION'. There is no `Env.mu ->+ Env.taut` map and no `(l*Delta_Theta) (x) Z/N ~= mu_N` term anywhere in the repository. Anyone who cites IsCyc as an *isomorphism of cyclotomes* must say 'the graph of the isomorphism', not 'the isomorphism'."
+      }
+    ],
+    "constructed_model_side": [
+      {"name": "gammaK", "line": 208, "type": "(k : Z) -> (mu x M x M) ≃+ (mu x M x M)"},
+      {"name": "thetaSection", "line": 218, "type": "M x M →+ mu x M x M", "value": "(c,a') |-> (-red c - rho a', c, 2 a')"},
+      {"name": "model", "line": 227, "type": "Env.{u}", "value": "carrier := mu x M x M; D := range (gammaK M l mu); S := range (thetaSection M mu red rho)"},
+      {"name": "tautSection / tautHom / lHom / thetaHom", "lines": [233, 239, 245, 251], "note": "auxiliary: c|->(0,c,0); y|->(0,l y,0); (m,y)|->(m,l y,0); y|->(-red(l y), l y, 0)"}
+    ],
+    "model_facts_proved": [
+      {"name": "model_taut", "line": 274, "claim": "[EtTh] Prop. 2.14(i) in the model: the subgroup generated by gamma(beta)-beta is im(l*Delta_Theta) under the tautological section", "hypotheses": "none beyond the definitions"},
+      {"name": "model_mu", "line": 291, "claim": "torsion of mu x M x M is mu", "hypotheses": "AddMonoid.IsTorsion mu, IsAddTorsionFree M"},
+      {"name": "model_L", "line": 306, "hypotheses": "AddMonoid.IsTorsion mu"},
+      {"name": "model_thetaSplit", "line": 322, "hypotheses": "AddMonoid.IsTorsion mu"},
+      {"name": "model_isCyc", "line": 344, "hypotheses": "AddMonoid.IsTorsion mu + IsAddTorsionFree M", "claim": "IsCyc t m iff t=(0,l y,0) and m=(-red(l y),0,0)"}
+    ],
+    "functoriality_proved": [
+      {"name": "Iso.map_mu", "line": 126}, {"name": "Iso.map_taut", "line": 137},
+      {"name": "Iso.map_L", "line": 154}, {"name": "Iso.map_thetaSplit", "line": 157},
+      {"name": "Iso.isCyc_iff", "line": 166, "note": "the functoriality of the cyclotome relation"}
+    ],
+    "unconstructed_in_this_module": [
+      {
+        "id": "CR-G1",
+        "what": "The environment `E` itself as an object built from a curve / tempered group.",
+        "type": "Iut.EtaleTheta.Env.{u}",
+        "status": "NOT_CONSTRUCTED",
+        "evidence": "no term of type `Env` is produced from curve data anywhere in `Iut/`. The only `Env`-valued terms in the repository are `model`, `modelN`, `Env.red` and `Env.mu`-style projections; a repository-wide search for `: Env` returns only variables, the `Iso` structure and `model`.",
+        "authors_statement": "EtaleTheta/README.md S3: 'the identification of the model group with `Pi^tp_Y[mu_N]` is not [proved]'. S3': cyclotomic rigidity is proved 'for environments on the abelian geometric theta quotient', not for `Pi^tp_Y[mu_N]`."
+      },
+      {
+        "id": "CR-G2",
+        "what": "The isomorphism `f : E ~= model`.",
+        "type": "Iut.EtaleTheta.Env.Iso E (model M l mu red rho)",
+        "status": "PARAMETER",
+        "evidence": "line 365, argument position. Not returned by any declaration."
+      },
+      {
+        "id": "CR-G3",
+        "what": "The cyclotome isomorphism as an actual map `(l*Delta_Theta) (x) Z/N -> mu_N`.",
+        "type": "(would be) AddEquiv or AddMonoidHom between subquotients",
+        "status": "NOT_CONSTRUCTED",
+        "evidence": "only the relation `IsCyc` exists. The docstring is explicit ('as a relation'); no `≃+` between `Env.taut`- and `Env.mu`-type objects occurs in the file.",
+        "reading_rule": "Citing `IsCyc` as 'the reconstructed cyclotome isomorphism' overstates the formal content only in the word 'isomorphism'; the relational form does capture the graph, and `isCyc_iff` does give functoriality. Report it as 'the graph of the cyclotomic rigidity isomorphism, formalized relationally'."
+      },
+      {
+        "id": "CR-G4",
+        "what": "Cyclotomic rigidity for the nonabelian `Pi^tp_Y[mu_N]`.",
+        "status": "NOT_CONSTRUCTED",
+        "evidence": "EtaleTheta/README.md, section 'Research-level, not formalized': needs Cor. 2.18(i) (tempered anabelian reconstruction of the theta quotient and of `Pi^tp_Yddot`), temp-slimness, and `Pi^tp_Yddot`."
+      },
+      {
+        "id": "CR-G5",
+        "what": "The genuine etale theta class `eta^Theta in H^1(Pi^tp_Yddot, Delta_Theta)`.",
+        "status": "NOT_CONSTRUCTED",
+        "evidence": "EtaleTheta/README.md S2': `Theta`-double-dot is not a function on any finite level; `tempered-fundamental-groups` has no structure sheaf on infinite coverings. Only point/germ restrictions and the model class `thetaClass` exist (`ThetaClass.lean` line 94)."
+      }
+    ]
+  },
+  "monoThetaKummer": {
+    "source": "S-T311REST",
+    "source_sha256": "01d439345e489cc92be6e19db7e2b30a9a9536f788244aaa69a2066de3a69a2d",
+    "structure_line": 270,
+    "namespace_line": 282,
+    "verbatim_fields": [
+      {"field": "envF", "line": 272, "type": "(Z x Z) -> forall w : FinitePlace D.Fmod, w in D.VBad -> Env.{0}", "docstring": "The Frobenius-like mono-theta environments of `n,mHT` at `w in V^bad`."},
+      {"field": "envD", "line": 274, "type": "Z -> forall w : FinitePlace D.Fmod, w in D.VBad -> Env.{0}", "docstring": "The etale-like mono-theta environments of `n,oHT^{D-Theta^{+-ell}NF}`."},
+      {"field": "kum", "line": 276, "type": "forall (n m : Z) (w : FinitePlace D.Fmod) (hw : w in D.VBad), Env.Iso (envF (n, m) w hw) (envD n w hw)", "docstring": "The Kummer isomorphisms of mono-theta environments."},
+      {"field": "perm", "line": 279, "type": "forall (n : Z) (w : FinitePlace D.Fmod) (hw : w in D.VBad), Env.Iso (envD n w hw) (envD (n + 1) w hw)", "docstring": "The isomorphisms induced by the permutation symmetries of the etale-picture."}
+    ],
+    "tier": "PARAMETER -- all four fields",
+    "hard_constraint_compliance": "All four fields are HYPOTHESES of `structure MonoThetaKummer`. `kum` and `perm` are `Env.Iso` values supplied by the caller. They are NOT constructions and MUST NOT be reported as constructed isomorphisms. This is precisely the failure mode T066 forbids (`不得把已有同构参数当作已构造的来源`).",
+    "only_constructor_in_repository": {
+      "name": "Iut.LogLink.MonoThetaKummer.const",
+      "line": 290,
+      "type": "(D : InitialThetaData.{0}) -> (E : Env.{0}) -> MonoThetaKummer D",
+      "value": "envF := fun _ _ _ => E; envD := fun _ _ _ => E; kum := fun _ _ _ _ => envIsoRefl E; perm := fun _ _ _ => envIsoRefl E",
+      "tier": "CONSTRUCTED but DEGENERATE",
+      "assessment": "This is the ONLY term of type `MonoThetaKummer D` in the entire repository. It makes every environment the same object `E` and every Kummer/permutation isomorphism the identity. Its own docstring says the data are `not vacuous` -- true, the type is inhabited, but it witnesses nothing about `n,mHT`: it is the constant construction, not the one IUT II Prop. 3.3/(3.4) and IUT III Prop. 2.1(iii) describe. Using `const` to claim 'the mono-theta Kummer data exist for a genuine lattice' is a type-level existence claim only.",
+      "supporting_use": "`WallEquiv/NonDerivable.lean` line 208 quantifies `Thm311Package.structural` over an ARBITRARY `M : MonoThetaKummer D`, and `family` (line 408) discharges it with `kum := 1` for the abstract package. So the non-derivability result is deliberately insensitive to which `MonoThetaKummer` is supplied -- further evidence that the structure is a parameter, not a source."
+    },
+    "what_the_source_actually_proves_about_it": [
+      {
+        "name": "horizMap",
+        "line": 298,
+        "type": "(n m : Z) -> (w) -> (hw) -> (M.envF (n,m) w hw).carrier -> (M.envF (n+1,m) w hw).carrier",
+        "value": "fun t => (M.kum (n+1) m w hw).e.symm ((M.perm n w hw).e ((M.kum n m w hw).e t))",
+        "note": "COMPOSES the three given isomorphisms. It constructs a FUNCTION; it does not construct any of its three inputs."
+      },
+      {"name": "vertMap", "line": 304, "note": "same, through `kum` alone"},
+      {"name": "isCyc_symm", "line": 309, "note": "transport of `IsCyc` through an inverse isomorphism"},
+      {"name": "isCyc_horizMap", "line": 316, "claim": "the transport along a horizontal arrow carries the cyclotomic rigidity relation of `n,mHT` exactly onto that of `n+1,mHT`"},
+      {"name": "isCyc_horizMap_aut", "line": 325, "claim": "the same after composing with ARBITRARY automorphisms alpha, beta of domain and codomain -- this is the [IUTchIII] Thm 3.11(iii)(c) 'stabilized with respect to arbitrary automorphisms' clause"},
+      {"name": "isCyc_vertMap", "line": 335},
+      {"name": "isCyc_of_rigid", "line": 345, "claim": "if the etale-like environment is rigidified by `r : Env.Iso (M.envD n w hw) (model Mg l mu red rho)`, the output is the natural isomorphism `l c |-> -red(l c)`, INDEPENDENT of the Kummer class rho of the coordinate", "hypotheses": "`r` is again a PARAMETER; `hmu : AddMonoid.IsTorsion mu`; `IsAddTorsionFree Mg`"}
+    ],
+    "what_is_transported_vs_what_is_constructed": "The whole (c)-part of Thm 3.11(iii) as formalized is a TRANSPORT statement: given four fields, `IsCyc` is transported along `horizMap`. No step of the argument constructs `envF`, `envD`, `kum` or `perm` from `D`, from a Hodge theater, or from a tempered Frobenioid. The authors say so in the module docstring (line 92): 'the mono-theta environments are **data** of `BiCoricKummer` / `MonoThetaKummer`, not constructed from the `D^|-prime-strips` or from the tempered Frobenioids of the theaters'.",
+    "downstream": {
+      "used_by": ["Iut.LogLink.Thm311iii (line 519)", "Iut.LogLink.thm311iii_model (line 560)", "Iut.LogLink.thm311_full_model (line 576)", "Iut.WallEquiv.NonDerivable.Thm311Package.structural (line 206-209)"],
+      "single_import": "`Iut/LogLink/Thm311Rest.lean` is imported only by `Iut/WallEquiv/NonDerivable.lean` in the repository"
+    }
+  },
+  "biCoricKummer_context": {
+    "source": "S-T311REST",
+    "structure_line": 164,
+    "note": "Included because `MonoThetaKummer` is defined in the same file and the two structures are cited together. Not the task's primary target.",
+    "fields": [
+      {"field": "cor", "line": 166, "type": "Z -> FMuStrip D", "tier": "PARAMETER"},
+      {"field": "kum", "line": 168, "type": "forall n m : Z, (L.H (n, m)).Fmu.Iso (cor n)", "tier": "PARAMETER"},
+      {"field": "env", "line": 170, "type": "Z -> FMuStrip D", "tier": "PARAMETER"},
+      {"field": "envIso", "line": 173, "type": "forall n : Z, (cor n).Iso (env n)", "tier": "PARAMETER"}
+    ],
+    "only_constructor": {
+      "name": "BiCoricKummer.ofLattice",
+      "line": 181,
+      "value": "cor := PrimeStrip.tautological; kum := (PrimeStrip.nonempty_iso _ _).some; env := PrimeStrip.tautological; envIso := PrimeStrip.Iso.refl",
+      "assessment": "Again a tautological witness. `kum` is an ARBITRARY chosen isomorphism from `nonempty_iso`; the structure proves nothing about which one it is."
+    }
+  },
+  "stripKummer_cross_reference": {
+    "why_included": "The T066 card lists `Iut/LogLink/StripKummer.lean` among the first-read files. It is the closest sibling of `MonoThetaKummer` and shows the same pattern one level down; the prior audit `research/core-next-2026-10-23/native-source-square.md` already established this and is cross-checked here.",
+    "source": "S-STRIPKUMMER",
+    "source_sha256": "a7b091c5cd076112ce3ea1151dcc4137a81ebd2e4d746781ec36ada953368049",
+    "structure_line": 168,
+    "fields": [
+      {"field": "strip", "line": 170, "type": "Z x Z -> RigidDGalStrip D", "tier": "PARAMETER"},
+      {"field": "coric", "line": 172, "type": "RigidDGalStrip D", "tier": "PARAMETER"},
+      {"field": "link", "line": 174, "type": "forall a, (strip a).strip.Iso coric.strip", "tier": "PARAMETER"},
+      {"field": "kum", "line": 176, "type": "Z x Z -> Scaling D", "tier": "PARAMETER"},
+      {"field": "scale", "line": 178, "type": "forall a, StripScaling D (RigidDGalStrip.gal (link a)) (kum a)", "tier": "PARAMETER"}
+    ],
+    "only_constructor": {"name": "StripKummer.trivial", "line": 218, "assessment": "tautological strips, identity isomorphisms, kum := 1"},
+    "agreement_with_prior_audit": "Matches native-source-square.md section 4 and its anchor A6: '`StripKummer` 将三者直接作为字段' and '不能用 `StripKummer.trivial` 代替原始箭头'.",
+    "constructed_alongside": [
+      {"name": "RigidDGalStrip.gal", "file": "S-STRIPLIFT", "line": 443, "type": "(f : P.strip.Iso Q.strip) -> (w : Vnon D) -> LocGal(D.V.sectFin w) ≃t* LocGal(D.V.sectFin w)", "value": "(kappa^P w)^-1 ; f w ; (kappa^Q w)", "hypotheses": "`f` and both `kappa`s are data of `RigidDGalStrip`"},
+      {"name": "RigidDGalStrip.liftIso / FGalStrip.forget_liftIso", "file": "S-STRIPLIFT", "lines": [491, 496], "tier": "CONSTRUCTED from given data"},
+      {"name": "galMult_coe_units / compGalLogEquiv_eq_units", "file": "S-STRIPKUMMER", "lines": [73, 84], "tier": "CONSTRUCTED"},
+      {"name": "factorGal / sectFin_fiberPlace_eq", "file": "S-STRIPKUMMER", "lines": [95, 104], "tier": "CONSTRUCTED from a given family `phi`"}
+    ]
+  },
+  "counting": {
+    "note": "The numbers below count DISTINCT typed items this audit isolates. They are computed from the tables above; the arithmetic is reproducible by inspection.",
+    "given_inputs_parameter": {
+      "count": 12,
+      "items": [
+        "CR-G2  Env.Iso E (model M l mu red rho)  [cyclotomicRigidity, l.365]",
+        "Env (given environment type)  [cyclotomicRigidity, l.364 `{E : Env.{u}}`]",
+        "MTK-envF  (Z x Z) -> VBad -> Env  [Thm311Rest l.272]",
+        "MTK-envD  Z -> VBad -> Env  [l.274]",
+        "MTK-kum  Env.Iso (envF (n,m) w hw) (envD n w hw)  [l.276]",
+        "MTK-perm  Env.Iso (envD n w hw) (envD (n+1) w hw)  [l.279]",
+        "BCK-cor  Z -> FMuStrip D  [l.166]",
+        "BCK-kum  (L.H (n,m)).Fmu.Iso (cor n)  [l.168]",
+        "BCK-env  Z -> FMuStrip D  [l.170]",
+        "BCK-envIso  (cor n).Iso (env n)  [l.173]",
+        "SK-strip/coric/link/kum/scale (5 fields, counted as the StripKummer parameter block)  [StripKummer l.170-178]",
+        "RigidDGalStrip.kappa (rigidification `kappa_v : G_v ~= Gal(Kbar_v/K_v)`)  [StripLift l.432]"
+      ],
+      "caveat": "The last two are one structure each but several fields; the count is a navigational aid, not a theorem. The defensible statement is: EVERY field of `MonoThetaKummer` (4/4) and of `BiCoricKummer` (4/4) is a hypothesis, and so is the isomorphism argument of `cyclotomicRigidity`."
+    },
+    "unconstructed_inputs": {
+      "count": 6,
+      "items": [
+        "N1  Env built from a curve/tempered group  (CR-G1)  -- no term of type `Env` from data anywhere in `Iut/`",
+        "N2  Env.Iso E model  (CR-G2) -- only ever a parameter",
+        "N3  cyclotome isomorphism as a map (l*Delta_Theta)(x)Z/N -> mu_N  (CR-G3) -- only the relation `IsCyc` exists",
+        "N4  cyclotomic rigidity for nonabelian Pi^tp_Y[mu_N]  (CR-G4) -- README: research-level",
+        "N5  genuine etale theta class eta^Theta in H^1(Pi^tp_Yddot, Delta_Theta)  (CR-G5) -- README S2'",
+        "N6  envF/envD from tempered Frobenioids of n,mHT, and kum/perm from the permutation symmetries of the etale-picture  -- the (c)-part source of [IUTchIII] Prop. 2.1(iii); the docstring says `data`, not constructed"
+      ]
+    },
+    "constructed_terms": {
+      "count": 9,
+      "note": "Distinct CONSTRUCTED declarations in the two target modules: `Env.mu`, `Env.taut`, `Env.L`, `Env.thetaSplit`, `Env.IsCyc` (5, relation incl.); `MonoThetaKummer.const` (1, degenerate); `horizMap`, `vertMap` (2, functions built by composing given isomorphisms); plus `envIsoRefl` (1, identity isomorphism). Each is CONSTRUCTED, but none of them is a source for the corresponding parameter.",
+      "explicitly": "Only ONE term of type `MonoThetaKummer D` exists: `MonoThetaKummer.const`, and it is degenerate (all environments equal, all isomorphisms identity)."
+    }
+  },
+  "key_gap": {
+    "id": "GAP-T066-1",
+    "statement": "The Frobenius-like and etale-like mono-theta environments, and the Kummer/permutation isomorphisms between them, are never constructed from the initial Theta-data. In the Lean source they are four fields of `MonoThetaKummer`; the single inhabitant is the degenerate `const`, whose environments are all one fixed `E` and whose isomorphisms are the identity.",
+    "typed_statement": "MISSING: a function  buildMonoThetaKummer : (D : InitialThetaData.{0}) -> (L : LogThetaLattice D) -> MonoThetaKummer D  whose `envF` agrees with the projective system of mono-theta environments arising from the tempered Frobenioids of `n,mHT` ([IUTchII] Prop. 3.3/3.4) and whose `kum`/`perm` are the isomorphisms of [IUTchIII] Prop. 2.1(iii). No such declaration occurs in `reviews/core-round/external/iut` at f7ed1cc.",
+    "what_it_would_take": [
+      "The genuine etale theta class eta^Theta in H^1(Pi^tp_Yddot, Delta_Theta) (README S2': blocked on structure sheaves on infinite tempered coverings).",
+      "The identification of `Env` (abelian, additive, torsion-subgroup cyclotome) with `Pi^tp_Y[mu_N]` (README S3), i.e. Cor. 2.18(i) tempered anabelian reconstruction.",
+      "The projective system / discrete rigidity for the actual environments (README: research-level), not just the model tower `ModelTower.lean`.",
+      "The identification of the tempered Frobenioid monoids with the actual theta divisors (README S5; `Frobenioid/Tempered.lean` says `B_0 -> Phi_0^gp` is injective here while in [EtTh] its kernel is `O^×`)."
+    ],
+    "not_a_gap": "`Env.mu`, `Env.taut`, `Env.L`, `Env.thetaSplit`, `Env.IsCyc`, `horizMap`, `vertMap`, `gal`, `liftIso`, `factorGal` ARE constructed, and `map_mu/map_taut/map_L/map_thetaSplit/isCyc_iff/isCyc_horizMap/isCyc_horizMap_aut/isCyc_vertMap/isCyc_of_rigid` ARE proved. The audit does not deny these; it denies only that they supply their own inputs.",
+    "effect_on_core_question": "This is the same gap the prior audit `research/core-comparison-2026-10-24/GAP-shared-anchor-source.md` records as item 1-2 of its '尚未构造' list. T066 does not close it and does not change the OPEN status of Step (xi), Corollary 3.12 or abc."
+  },
+  "cross_checks_performed": [
+    {"check": "baseline.json pins the defining file of `MonoThetaKummer`?", "result": "NO -- `Thm311Rest.lean` absent; only `CyclotomicRigidity.lean` and `StripKummer.lean` are pinned.", "method": "regex scan of all 100 `path`/`sha256` pairs in baseline.json"},
+    {"check": "the workspace `Thm311Rest.lean` is at the pinned upstream commit?", "result": "YES -- `git -C <iut> rev-parse HEAD` = f7ed1cc8..., `git status --porcelain` empty, blob = 9b50d6eb...", "method": "git"},
+    {"check": "is there another copy of the audited files with a different SHA?", "result": "`reviews/core-round/external/lana-agents--iut/` holds byte-identical copies (same SHA256) of both `Thm311Rest.lean` and `CyclotomicRigidity.lean`. `Takkun-kohinata--IUT_LEAN/IutLean/Anabelian/CyclotomicRigidity.lean` is a DIFFERENT, 5320-byte file (sha 2a7f29de...) and must not be conflated.", "method": "recursive file hash"},
+    {"check": "does `MonoThetaEnv` (the nonabelian [EtTh] Def. 2.13(ii) structure) connect to `MonoThetaKummer`?", "result": "NO -- `MonoThetaEnv` is referenced only inside `MonoTheta.lean` itself; zero external uses. `MonoThetaKummer` uses `EtaleTheta.Env`, the abelian additive structure.", "method": "repository-wide grep"},
+    {"check": "is `IsCyc` ever given as a function/map?", "result": "NO -- declared `def IsCyc (t m : E.carrier) : Prop`; every use in `Thm311Rest.lean` is inside a `↔`.", "method": "grep for `≃+`, `→+`, `Bijective` in the two files"},
+    {"check": "primary-source anchor for the (c)-part", "result": "[IUTchIII] Prop. 2.1(iii) at cache line 3471ff describes the (c)-part as Kummer classes in mono-theta environments arising from tempered Frobenioids, composed with the full poly-isomorphism of projective systems. The Lean file records only the composite effect, not the projective system.", "method": "read of the retrieved official text"},
+    {"check": "prior audits agree?", "result": "`native-source-square.md` (StripKummer: fields are inputs) and `GAP-shared-anchor-source.md` ('已有 MonoThetaKummer 等结构的字段是输入，不能当作第1–2项的来源构造') both agree with this audit.", "method": "read"},
+    {"check": "Lean executed?", "result": "NO -- explicitly out of scope for this card's deliverable set; the audit is static. No `#print axioms`, no build log, no editor replay is claimed.", "method": "self"}
+  ],
+  "axioms_and_compilation": {
+    "lean_run": false,
+    "axioms_log": null,
+    "reason": "This task delivers a source audit (`RESEARCH_ONLY`). PROTOCOL.md requires axiom logs only for exported Lean results; no Lean file is produced or compiled here. Any downstream use that needs compilation evidence must obtain it separately.",
+    "declarations_reported": "None are reported as proved by this task. The `type` strings recorded above are copied from the source; they are the source's types, not this task's claims."
+  },
+  "editor": {"performed": false, "note": "No VS Code admission is claimed or implied."},
+  "fact_tree": {"admitted": false, "note": "This card grants no fact-tree admission."},
+  "limits": [
+    "Static read only. Whether the theorems in these files actually compile at f7ed1cc is not re-established here; the pinned checkout is clean, which is necessary but not sufficient.",
+    "The count of 12 given / 6 unconstructed inputs is a navigational summary over the tables, not a derived invariant. The load-bearing statements are the per-field tiers.",
+    "`WallEquiv/NonDerivable.lean` git blob SHA is e1823a92..., measured with `git rev-parse` at the pinned commit.",
+    "Where the source docstrings and the Lean terms disagree, the terms are used and the disagreement is noted (e.g. `const` being called `not vacuous`)."
+  ]
+}

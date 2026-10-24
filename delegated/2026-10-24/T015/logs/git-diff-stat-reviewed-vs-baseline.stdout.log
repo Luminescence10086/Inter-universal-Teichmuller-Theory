@@ -1,0 +1,5 @@
+ .../backward-paths-2026-10-23.md                   | 215 +++++++++++++++++++++
+ .../backward-paths-layer2-2026-10-23.md            | 176 +++++++++++++++++
+ .../backward-paths-layer34-2026-10-23.md           | 155 +++++++++++++++
+ .../backward-paths-layer5-2026-10-23.md            | 145 ++++++++++++++
+ 4 files changed, 691 insertions(+)
