@@ -1,0 +1,169 @@
+{
+  "date": "2026-10-23",
+  "status": "CLI_VERIFIED_CANDIDATE",
+  "source": {
+    "path": "candidates/core-normalization/RelativeDeterminant.lean",
+    "sha256": "481edefdc5e42767e259288d8dd7b4ad47cb6da2f314e472099d0424b1203846"
+  },
+  "log": {
+    "path": "candidates/core-normalization/last-build.log",
+    "sha256": "e9136c46e11c94c6485ca8220d2a90eb15375085a909ed44bbadda54845ba0cf"
+  },
+  "log_origin": "Captured final tools.write_stdin output for exec session 43446; persisted without rerunning Lean.",
+  "command": "lake env lean -DwarningAsError=true ../core-normalization/RelativeDeterminant.lean",
+  "working_directory": "candidates/core-compactness",
+  "exit_code": 0,
+  "errors": 0,
+  "warnings": 0,
+  "selected_axiom_audit_count": 16,
+  "selected_axiom_audits": [
+    {
+      "declaration": "CoreNormalization.relativeLogDet_common_left",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.relativeLogDet_left_defect",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.relativeLogDet_defect_invariant_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.relativeLogDet_kronecker",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.normalized_kronecker",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.poweredRead_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.torsion_logNorm_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.torsion_twist_invariant",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.logNorm_eq_of_pow_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.packetWeight_mul",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.weightedDet_normalized",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.weightedDet_power_normalized",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.relativeLogDet_scalar",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.sectionUnitBall_eq_inverse",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.q3_sign_calibration",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "declaration": "CoreNormalization.q3_balls_different",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "environment_files": [
+    {
+      "path": "candidates/core-compactness/lean-toolchain",
+      "sha256": "b563246bde88bad741a3fe1c6b126ad8dab470340d55ac3e97cca9b3f200878b"
+    },
+    {
+      "path": "candidates/core-compactness/lakefile.lean",
+      "sha256": "a7849496c007044eed521312661c7ad61656a91550c1d9ee706b7357dc8c8d82"
+    },
+    {
+      "path": "candidates/core-compactness/lake-manifest.json",
+      "sha256": "23f692cc9cd000861e4d50c7668e654bd27fe9715eab44a34d4d93d68afe3217"
+    }
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "editor_run": false,
+  "fact_tree_admitted": false,
+  "iut_instantiated": false,
+  "novelty_claim": false,
+  "limitations": "Finite-dimensional/category model. No original IUT hull/output realization or formal quotient comparison supplied."
+}

@@ -1,0 +1,265 @@
+{
+  "date": "2026-10-23",
+  "status": "CLI_VERIFIED_CANDIDATE",
+  "command": [
+    "lake",
+    "build",
+    "CoreLocalGlobal"
+  ],
+  "cwd": "candidates/core-local-global",
+  "warning_as_error": "Configured as moreLeanArgs in lakefile.lean for all root modules",
+  "exit_code": 0,
+  "errors": 0,
+  "warnings": 0,
+  "session_id": 39113,
+  "log_origin": "Concatenated initial exec_command output and final write_stdin output of successful session 39113; no truncation reported.",
+  "selected_export_count": 41,
+  "new_selected_export_count": 24,
+  "new_selected_exports": [
+    {
+      "name": "CoreCollections.forget",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreCollections.exists_lift_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreCollections.transportIso",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreCollections.transportIso_lies_over",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreCollections.liftIso",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreCollections.iso_lift_exists_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreCollections.base_identity_need_not_lift",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreCollections.bool_forget_not_full",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.automorphism_norm_one",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.normOneIso",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.orbit_eq_iff_norm_eq",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.logNormRead",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.logNormRead_precomp",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.logNormRead_nonpos",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.logNormRead_zero_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.three_read",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralOrbit.three_orbit_not_identity",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralMatrix.det_extend",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralMatrix.integral_automorphism_det_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralMatrix.determinantFunctor",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralMatrix.determinantCharacter_norm",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralMatrix.determinantCharacter_read_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralMatrix.integral_left_preserves_det_read",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "name": "CoreIntegralMatrix.integral_right_preserves_det_read",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ],
+  "pins": [
+    {
+      "path": "candidates/core-local-global/NativeFiber.lean",
+      "sha256": "bf60c3638944a8ec9adbde3eb256c0662887cbe9394bbf4204f60d6a10b0565e"
+    },
+    {
+      "path": "candidates/core-local-global/IPLCoherence.lean",
+      "sha256": "375f276217f05fc7e7ceb98179f441ab0e7568f941efa06dbe278968839d10f5"
+    },
+    {
+      "path": "candidates/core-local-global/Collections.lean",
+      "sha256": "ed69ddc907c601f33dc120f5884f9cd0ec983dca910c9b1e0a6d74454f84c5fa"
+    },
+    {
+      "path": "candidates/core-local-global/IntegralScalarOrbit.lean",
+      "sha256": "a1bc937f5bc5982250e6b89f97274a09808cfbdee55289a8997dc1304efd9160"
+    },
+    {
+      "path": "candidates/core-local-global/IntegralMatrixCharacter.lean",
+      "sha256": "fddee547c8f571fbf2ee03ec6a45a51dcdf34b13ece044e7838fc52a3e133daa"
+    },
+    {
+      "path": "candidates/core-local-global/lakefile.lean",
+      "sha256": "138b8dfc06f96de3e76021b0ecf473bfb6a43dd585371983cd465b65bd35db1c"
+    },
+    {
+      "path": "candidates/core-local-global/lean-toolchain",
+      "sha256": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88"
+    },
+    {
+      "path": "candidates/core-local-global/lake-manifest.json",
+      "sha256": "23f692cc9cd000861e4d50c7668e654bd27fe9715eab44a34d4d93d68afe3217"
+    },
+    {
+      "path": "candidates/core-local-global/collections-integral-build.log",
+      "sha256": "a3c118b928416f7f1905b221a41cd1576d7a5eaf2c89cc6d9d1081ee6b3fbc9f"
+    }
+  ],
+  "source_text": {
+    "path": "research/round2-source-cache/iut-III-official-retrieved-2026-10-16.txt",
+    "sha256": "70a618ada5e5039b84283c21fc1b947db9dced559d46ecb2786e05ae6164b715"
+  },
+  "mathlib": {
+    "commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "path": "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/mathlib"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "editor_run": false,
+  "fact_tree_admitted": false,
+  "original_IUT_instantiated": false,
+  "formal_stack_quotient_constructed": false,
+  "core_gap": "OPEN",
+  "novelty_claim": false
+}

@@ -1,0 +1,48 @@
+{
+  "client_date": "2026-10-23",
+  "status": "CLI_CHECKED_EDITOR_PENDING",
+  "source": {
+    "path": "candidates/core-local-global/NativeFiber.lean",
+    "sha256": "bf60c3638944a8ec9adbde3eb256c0662887cbe9394bbf4204f60d6a10b0565e"
+  },
+  "build": {
+    "log": "candidates/core-local-global/last-build.log",
+    "sha256": "2edbd6efccee3df647e5c8c5d2d29d3e6b3737cada83c8f1451e4c67c96a8973",
+    "cwd": "candidates/core-compactness",
+    "argv": [
+      "lake",
+      "env",
+      "lean",
+      "-DwarningAsError=true",
+      "../core-local-global/NativeFiber.lean"
+    ],
+    "exit_code": 0,
+    "observed_tool_session": 17813
+  },
+  "checked_exports": [
+    "CoreLocalGlobal.precomp_comp",
+    "CoreLocalGlobal.nativeFiber_nonempty_iff",
+    "CoreLocalGlobal.localMap_forced",
+    "CoreLocalGlobal.normalized_eq_of_hom",
+    "CoreLocalGlobal.iso_nonempty_iff_normalized",
+    "CoreLocalGlobal.canonicalIso",
+    "CoreLocalGlobal.globallyRealized_iso_iff",
+    "CoreLocalGlobal.ofGlobalArrow_realized",
+    "CoreLocalGlobal.realizedFiber_exists_iff",
+    "CoreLocalGlobal.local_representations_do_not_force_descent",
+    "CoreLocalGlobal.constant_not_identity_poly",
+    "CoreLocalGlobal.frameChange_map_forced",
+    "CoreLocalGlobal.normalized_of_frameChange",
+    "CoreLocalGlobal.frameChange_exists_iff"
+  ],
+  "axiom_whitelist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "diagnostic_hits": 0,
+  "prototype_only": true,
+  "IUT_instance_constructed": false,
+  "formal_quotient_implemented": false,
+  "fact_tree_admitted": false
+}

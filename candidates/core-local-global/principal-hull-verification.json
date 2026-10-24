@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-23",
+  "status": "CLI_VERIFIED_CANDIDATE",
+  "command": [
+    "lake",
+    "build",
+    "CoreLocalGlobal"
+  ],
+  "cwd": "candidates/core-local-global",
+  "session": 39115,
+  "exit_code": 0,
+  "errors": 0,
+  "warnings": 0,
+  "warnings_as_errors": true,
+  "new_selected_exports": 23,
+  "selected_exports": 127,
+  "axiom_reports": {
+    "CorePrincipalProduct.span_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePrincipalProduct.generator_components_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePrincipalProduct.carrier_eq_generator_image": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePrincipalProduct.exists_full_principal_shape": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.mem_principalLattice": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.image_ideal_generator": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.uniformWitness_ne_zero": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.uniformWitness_mem_comap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.residue_container_principal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.span_image_minimal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.embed_openEmbedding": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.coe_integralCompact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.ambientHaar_integral": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.pulledHaar_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.ambient_image_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.residue_container_volume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.principalLattice_compact": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.residue_container_positive": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.principal_container_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.principal_container_of_cover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.saturation_principal_container": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.minimal_hull_volume_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicPrincipalHull.cylinder_least_principal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "sha256": {
+    "candidates/core-local-global/Collections.lean": "ed69ddc907c601f33dc120f5884f9cd0ec983dca910c9b1e0a6d74454f84c5fa",
+    "candidates/core-local-global/IntegralMatrixCharacter.lean": "fddee547c8f571fbf2ee03ec6a45a51dcdf34b13ece044e7838fc52a3e133daa",
+    "candidates/core-local-global/IntegralScalarOrbit.lean": "a1bc937f5bc5982250e6b89f97274a09808cfbdee55289a8997dc1304efd9160",
+    "candidates/core-local-global/IPLCoherence.lean": "375f276217f05fc7e7ceb98179f441ab0e7568f941efa06dbe278968839d10f5",
+    "candidates/core-local-global/lakefile.lean": "2895bcaeabe58f00b0d83b0a118ebe9b76c4384734fb0fdcdde602a0c004cfcf",
+    "candidates/core-local-global/LatticeStabilizer.lean": "168bc323fcf976ec742650bd5088a87c3ed10a7a54ea2d844955dc46c46effcc",
+    "candidates/core-local-global/NativeFiber.lean": "bf60c3638944a8ec9adbde3eb256c0662887cbe9394bbf4204f60d6a10b0565e",
+    "candidates/core-local-global/PadicPrincipalHull.lean": "6123e74f8406a9b2107dc2b016fb37425b1e8cd780b1f8e44e0b89e802a4cb28",
+    "candidates/core-local-global/PadicSaturation.lean": "f75a27f947a90e0954dd552d9a4c224016f7dec9f3b15e41134e80afcde8d5a3",
+    "candidates/core-local-global/PrincipalProduct.lean": "b66414a072da75b0bbb1e98cd95c5c0b3e5ed3f6775f17a54535f2e9331ff055",
+    "candidates/core-local-global/ResidueHaar.lean": "42ed8effa5001b421266b7cc9e0a5ed047b1af79e3adee1fd5d4be9a378fe4ec",
+    "candidates/core-local-global/ResidueHull.lean": "d99954f8049eaa7e61071b43041c16c3c441f0348d5d01f661b168ae9c35b97a",
+    "candidates/core-local-global/ResidueModule.lean": "79ab6d9d67d48a9a354796a4dc926ae79dea7a6fae8d94836cc71a7b94cb84cb",
+    "candidates/core-local-global/SaturationGrowth.lean": "70a8f6fd4aa959cbca8243b7eb38f51694448db4ffa06697c8a47147ff33de0d",
+    "candidates/core-local-global/lean-toolchain": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88",
+    "candidates/core-local-global/lake-manifest.json": "23f692cc9cd000861e4d50c7668e654bd27fe9715eab44a34d4d93d68afe3217",
+    "candidates/core-local-global/principal-hull-build.log": "a9c6185af3d946e8940ba0785e706604b5837e347953d01f7a1f56a588649516"
+  },
+  "root_head_observed": "6a11f5bd26303fc1aa4460026fc7d063f4dc387f",
+  "mathlib_commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+  "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "vscode_observed_this_round": false,
+  "fact_tree_admitted": false,
+  "native_iut_realized": false,
+  "corollary_3_12_proved": false,
+  "abc_proved": false,
+  "scope": "Actual Q_p^n with the split coefficient order Z_p^n; finite quotient principal containers and ambient Haar.",
+  "resource_note": "cylinder_least_principal has a local maxHeartbeats 800000; no linter was disabled.",
+  "limitations": [
+    "No identification with the original IUT coefficient rings, allowed choices or native q.",
+    "Finite extensions and common fractional reference scaling remain to be adapted.",
+    "Ambient Haar normalization is not the global arithmetic degree normalization."
+  ]
+}

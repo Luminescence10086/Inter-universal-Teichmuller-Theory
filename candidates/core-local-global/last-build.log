@@ -1,0 +1,18 @@
+WORKDIR: candidates/core-compactness
+COMMAND: lake env lean -DwarningAsError=true ../core-local-global/NativeFiber.lean
+CAPTURE: final unified exec session 17813
+'CoreLocalGlobal.precomp_comp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.nativeFiber_nonempty_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.localMap_forced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.normalized_eq_of_hom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.iso_nonempty_iff_normalized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.canonicalIso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.globallyRealized_iso_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.ofGlobalArrow_realized' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.realizedFiber_exists_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.local_representations_do_not_force_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.constant_not_identity_poly' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.frameChange_map_forced' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.normalized_of_frameChange' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLocalGlobal.frameChange_exists_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+EXIT_CODE=0

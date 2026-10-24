@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-23",
+  "status": "CLI_VERIFIED_CANDIDATE",
+  "command": [
+    "lake",
+    "build",
+    "CoreLocalGlobal"
+  ],
+  "cwd": "candidates/core-local-global",
+  "session": 85378,
+  "exit_code": 0,
+  "errors": 0,
+  "warnings": 0,
+  "warnings_as_errors": true,
+  "selected_exports": 104,
+  "new_selected_exports": 40,
+  "new_files": [
+    "ResidueHaar.lean",
+    "PadicSaturation.lean",
+    "ResidueHull.lean",
+    "ResidueModule.lean"
+  ],
+  "axiom_reports": {
+    "CoreResidueHaar.fiber_measure_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHaar.cylinder_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHaar.continuous_reduction": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHaar.reduction_surjective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHaar.reduction_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHaar.residue_cylinder_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.image_cylinder": [
+      "propext",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.reduction_shear": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.shear_continuous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.shear_measurePreserving": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.shear_det_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.shear_image_cylinder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.shear_image_A": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.cylinder_volume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.original_volume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.moved_volume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.saturated_volume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.original_is_ideal": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.original_hull": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.one_mem_moved": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.moved_hull_top": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.hull_volume": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.strict_saturation_growth": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CorePadicSaturation.hull_log_gain": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.span_cylinder_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.coe_idealResidues": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.comap_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.hull_measure_le_of_residue_cover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.saturation_hull_measure_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.coe_hullResidues": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.quotient_hull_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueHull.padic_hull_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.span_cylinder_eq": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.coe_submoduleResidues": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.comap_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.hull_measure_le_of_residue_cover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.log_hull_measure_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.saturation_hull_measure_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.quotient_hull_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "CoreResidueModule.padic_module_hull_measure": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "sha256": {
+    "candidates/core-local-global/Collections.lean": "ed69ddc907c601f33dc120f5884f9cd0ec983dca910c9b1e0a6d74454f84c5fa",
+    "candidates/core-local-global/IntegralMatrixCharacter.lean": "fddee547c8f571fbf2ee03ec6a45a51dcdf34b13ece044e7838fc52a3e133daa",
+    "candidates/core-local-global/IntegralScalarOrbit.lean": "a1bc937f5bc5982250e6b89f97274a09808cfbdee55289a8997dc1304efd9160",
+    "candidates/core-local-global/IPLCoherence.lean": "375f276217f05fc7e7ceb98179f441ab0e7568f941efa06dbe278968839d10f5",
+    "candidates/core-local-global/lakefile.lean": "91399522d6b9ce1daf03a3bac0f4d790166ffb103debbe2396107dd121063df2",
+    "candidates/core-local-global/LatticeStabilizer.lean": "168bc323fcf976ec742650bd5088a87c3ed10a7a54ea2d844955dc46c46effcc",
+    "candidates/core-local-global/NativeFiber.lean": "bf60c3638944a8ec9adbde3eb256c0662887cbe9394bbf4204f60d6a10b0565e",
+    "candidates/core-local-global/PadicSaturation.lean": "f75a27f947a90e0954dd552d9a4c224016f7dec9f3b15e41134e80afcde8d5a3",
+    "candidates/core-local-global/ResidueHaar.lean": "42ed8effa5001b421266b7cc9e0a5ed047b1af79e3adee1fd5d4be9a378fe4ec",
+    "candidates/core-local-global/ResidueHull.lean": "d99954f8049eaa7e61071b43041c16c3c441f0348d5d01f661b168ae9c35b97a",
+    "candidates/core-local-global/ResidueModule.lean": "79ab6d9d67d48a9a354796a4dc926ae79dea7a6fae8d94836cc71a7b94cb84cb",
+    "candidates/core-local-global/SaturationGrowth.lean": "70a8f6fd4aa959cbca8243b7eb38f51694448db4ffa06697c8a47147ff33de0d",
+    "candidates/core-local-global/lean-toolchain": "8190e75a201741065fe508b28955dd64dd72d090babe5f70ce6848879d68ae88",
+    "candidates/core-local-global/lake-manifest.json": "23f692cc9cd000861e4d50c7668e654bd27fe9715eab44a34d4d93d68afe3217",
+    "candidates/core-local-global/residue-hull-build.log": "27ab178255d49a4941ae82a4f6bb7c97a2793b02f6ca3794acdf315e94185397"
+  },
+  "lean_version": "Lean (version 4.34.0-rc2, x86_64-w64-windows-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+  "mathlib_commit": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+  "root_head_observed": "d06298cbf6fa6167cdce85e9645ef2028b6a9121",
+  "vscode_observed_this_round": false,
+  "fact_tree_admitted": false,
+  "native_iut_realized": false,
+  "corollary_3_12_proved": false,
+  "abc_proved": false,
+  "limitations": [
+    "Haar measures are normalized on compact additive reference lattices.",
+    "The true coefficient rings and semilinear quotient must be supplied.",
+    "Finite residue span carriers are noncomputable definitions; no general executable solver is claimed.",
+    "The original holomorphic hull admissibility of the proposed container is not proved.",
+    "Positivity is explicit in the logarithmic upper bound."
+  ]
+}
