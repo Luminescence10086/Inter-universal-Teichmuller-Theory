@@ -9,6 +9,3 @@ name = "Candidates"
 name = "iut_bridge"
 path = "../../bridge"
 
-[[require]]
-name = "mathlib"
-path = "C:/Users/18746/Desktop/数竞屠宰场/.lake/packages/mathlib"
