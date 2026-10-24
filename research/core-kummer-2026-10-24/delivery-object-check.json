@@ -1,0 +1,120 @@
+{
+  "delivery_commit": "53f6062edeb6563e0a5e357f558f51502eb94403",
+  "tasks": [
+    {
+      "task": "p0",
+      "head": "eff68757c84f3183bb0f8bed240a12dab2bc4039",
+      "head_matches": true,
+      "changed_since_base": [
+        "audit/acceptance/README.md",
+        "audit/acceptance/plan.json",
+        "audit/acceptance/probe.py",
+        "audit/acceptance/run.py",
+        "audit/acceptance/tests/test_run.py"
+      ],
+      "scope_base": "8c78025",
+      "scoped_changed_paths": [
+        "audit/acceptance/README.md",
+        "audit/acceptance/run.py",
+        "audit/acceptance/tests/test_run.py"
+      ],
+      "declared_paths_match": true,
+      "checked_logs": 4,
+      "log_hash_mismatches": [],
+      "worktree_source_mismatches": []
+    },
+    {
+      "task": "e1",
+      "head": "24f42c645ba6ec61a693926d7956268e955a5b15",
+      "head_matches": true,
+      "changed_since_base": [
+        "audit/mutation_harness.py",
+        "audit/tests/test_mutation_probe_exit.py"
+      ],
+      "scope_base": "484127185878e65b10795d20568bd3714eebc798",
+      "scoped_changed_paths": [
+        "audit/mutation_harness.py",
+        "audit/tests/test_mutation_probe_exit.py"
+      ],
+      "declared_paths_match": true,
+      "checked_logs": 10,
+      "log_hash_mismatches": [],
+      "worktree_source_mismatches": []
+    },
+    {
+      "task": "e2",
+      "head": "7d3b66d25a5de9aaa4083d99b964fad65fa16ff4",
+      "head_matches": true,
+      "changed_since_base": [
+        "audit/affected.py",
+        "audit/tests/test_affected.py",
+        "audit/tests/test_affected_snapshot_membership.py"
+      ],
+      "scope_base": "484127185878e65b10795d20568bd3714eebc798",
+      "scoped_changed_paths": [
+        "audit/affected.py",
+        "audit/tests/test_affected.py",
+        "audit/tests/test_affected_snapshot_membership.py"
+      ],
+      "declared_paths_match": true,
+      "checked_logs": 5,
+      "log_hash_mismatches": [],
+      "worktree_source_mismatches": []
+    },
+    {
+      "task": "e3",
+      "head": "6707684c8b6d7d521bb4cc803bc9a83ab0f0fb47",
+      "head_matches": true,
+      "changed_since_base": [
+        "audit/tcb_manifest.py",
+        "audit/tests/test_tcb_negative_closure.py"
+      ],
+      "scope_base": "484127185878e65b10795d20568bd3714eebc798",
+      "scoped_changed_paths": [],
+      "declared_paths_match": true,
+      "checked_logs": 3,
+      "log_hash_mismatches": [],
+      "worktree_source_mismatches": []
+    },
+    {
+      "task": "m1",
+      "head": "80967748f03e0545834d1cae3ffcfe4bcc7c4dac",
+      "head_matches": true,
+      "changed_since_base": [
+        "candidates/restricted-ledger/Candidates/Axioms.lean",
+        "candidates/restricted-ledger/Candidates/RestrictedLedger.lean",
+        "candidates/restricted-ledger/README.md"
+      ],
+      "scope_base": "063ce7bf12b5d94dae94da446982b4762435a8d1",
+      "scoped_changed_paths": [
+        "candidates/restricted-ledger/Candidates/Axioms.lean",
+        "candidates/restricted-ledger/Candidates/RestrictedLedger.lean",
+        "candidates/restricted-ledger/README.md"
+      ],
+      "declared_paths_match": true,
+      "checked_logs": 7,
+      "log_hash_mismatches": [],
+      "worktree_source_mismatches": []
+    },
+    {
+      "task": "m2",
+      "head": "e0b5294a3ef86674b14ccf18eb30949854752374",
+      "head_matches": true,
+      "changed_since_base": [
+        "candidates/orbit-quotient/Candidates/Axioms.lean",
+        "candidates/orbit-quotient/Candidates/OrbitQuotient.lean",
+        "candidates/orbit-quotient/README.md"
+      ],
+      "scope_base": "2a13a5bca589bd1100c48282ca30cf0e1e55acce",
+      "scoped_changed_paths": [
+        "candidates/orbit-quotient/Candidates/Axioms.lean",
+        "candidates/orbit-quotient/Candidates/OrbitQuotient.lean",
+        "candidates/orbit-quotient/README.md"
+      ],
+      "declared_paths_match": true,
+      "checked_logs": 24,
+      "log_hash_mismatches": [],
+      "worktree_source_mismatches": []
+    }
+  ]
+}

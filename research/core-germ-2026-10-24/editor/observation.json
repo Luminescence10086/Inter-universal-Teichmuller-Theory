@@ -1,0 +1,12 @@
+{
+  "source_sha256": "0c7af1cda76e5b21a4e9cc79675de47aadc1988b6055078da16c8692067f631a",
+  "information_messages": 18,
+  "errors": 0,
+  "warnings": 0,
+  "last_message": "CoreThetaGermTransport.principal_eq_iff_zero_automorphy_exponent",
+  "last_message_line": 254,
+  "window_id": 69418,
+  "global_information_messages": 152,
+  "observed_at_utc": "2026-10-24T04:09:48.616Z",
+  "method": "Actual VS Code Lean extension: file-filtered Problems count 18, terminal axiom report at line 254, screenshot status errors 0 warnings 0"
+}

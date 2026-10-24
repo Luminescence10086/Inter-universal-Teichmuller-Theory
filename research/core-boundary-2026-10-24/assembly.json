@@ -1,0 +1,24 @@
+{
+  "purpose": "Single Lean/editor entry, preserving source-section theorem text",
+  "input_sha256": {
+    "candidates/core-kummer/Boundary/DiscreteValuation.lean": "68b9286f28daa8b7b306be80ffa148634448509c5fac5dd3452b5bcae1d920cb",
+    "candidates/core-kummer/Boundary/FinitePlace.lean": "325861c2109c72e4fb4c57476fff50c062b4ec94cfd4902c924c9704c9dec2f4",
+    "candidates/core-kummer/Boundary/ReducedComparison.lean": "40b6c22138ffeff4b6c78b58a28ef54d90779b980c8f7e6735f5d9ae24219edf",
+    "candidates/core-kummer/Boundary/PrecisionLoss.lean": "af77ba68b1a23abda1e43bcb028fd385cef290e6f05920a7365ea450110bbe0a",
+    "candidates/core-kummer/Boundary/DecompositionBridge.lean": "1bc8a3e3986ce953e7b2f3d378119c0e6baed7366ba12c2bb4ee819027d4984a",
+    "candidates/core-kummer/Boundary/LaurentPoint.lean": "091343c1c112eecf55a8422b05c82e7b4d62bc98379a9a3b81749d9f9101306d"
+  },
+  "imports": [
+    "ContinuousKummerTheory.Kummer.Equiv",
+    "Mathlib.RingTheory.Valuation.ValuationSubring",
+    "Mathlib.Algebra.Group.Pointwise.Set.Scalar",
+    "Mathlib.Tactic",
+    "Mathlib.NumberTheory.NumberField.Completion.FinitePlace",
+    "CohomologyReflection",
+    "ContinuousKummerTheory.Kummer.DecompositionSurjective",
+    "Mathlib.RingTheory.LaurentSeries",
+    "Mathlib.RingTheory.KrullDimension.PID"
+  ],
+  "output": "candidates/core-kummer/Boundary/Frontier.lean",
+  "output_sha256": "fd4f79dc79d1a32f9f31c0e9363418559945909fdbe67169b04f7a50c893e0f9"
+}

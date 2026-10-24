@@ -1,0 +1,10 @@
+{
+  "method": "Actual VS Code Lean extension; computer-use @oai/sky; accessibility and screenshots",
+  "observed_at": "2026-10-24T02:42:26.501Z",
+  "file": "candidates/core-kummer/Boundary/Frontier.lean",
+  "source_sha256": "fd4f79dc79d1a32f9f31c0e9363418559945909fdbe67169b04f7a50c893e0f9",
+  "information_messages": 36,
+  "errors": 0,
+  "warnings": 0,
+  "last_message": "CoreLaurentPoint.principal_eq_of_powerSeries_comparison"
+}

@@ -1,0 +1,54 @@
+{
+  "upstream_repository": "reviews/core-round/external/tate-curves-theta",
+  "upstream_commit": "d1fba94861c886b671f4137ab35e24b7474c9e00",
+  "license_source": "LICENSE",
+  "license_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+  "license_candidate": "candidates/core-kummer/TateCurvesTheta/LICENSE.upstream",
+  "license_candidate_sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+  "files": [
+    {
+      "mode": "verbatim-copy",
+      "candidate_path": "candidates/core-kummer/TateCurvesTheta/QParameter/Basic.lean",
+      "source_sha256": "735371b28f6efc1bb53cbe48b7c6eaa8ed458a7c44d3fe944e5e9530071d30c3",
+      "candidate_sha256": "735371b28f6efc1bb53cbe48b7c6eaa8ed458a7c44d3fe944e5e9530071d30c3",
+      "source_path": "TateCurvesTheta/QParameter/Basic.lean"
+    },
+    {
+      "mode": "verbatim-copy",
+      "candidate_path": "candidates/core-kummer/TateCurvesTheta/Theta/Basic.lean",
+      "source_sha256": "a8043ff56c0da029d7d075d92a40e87324bbeec7fa6fae8320cfbb8d858df67e",
+      "candidate_sha256": "a8043ff56c0da029d7d075d92a40e87324bbeec7fa6fae8320cfbb8d858df67e",
+      "source_path": "TateCurvesTheta/Theta/Basic.lean"
+    },
+    {
+      "mode": "verbatim-copy",
+      "candidate_path": "candidates/core-kummer/TateCurvesTheta/Theta/Periodicity.lean",
+      "source_sha256": "3ded70114a5ffc4aa9ece6da6984b2b7a82952839860f4c16e5e781a9983d110",
+      "candidate_sha256": "3ded70114a5ffc4aa9ece6da6984b2b7a82952839860f4c16e5e781a9983d110",
+      "source_path": "TateCurvesTheta/Theta/Periodicity.lean"
+    },
+    {
+      "mode": "prefix-extraction",
+      "candidate_path": "candidates/core-kummer/TateCurvesTheta/Kummer/ThetaGermCore.lean",
+      "source_sha256": "147a2988023ce7a983614da4f30d66dc12cad636621825224c5502b0a7cb6267",
+      "candidate_sha256": "7a0bfa86fab04ac7eb841928b174257551f791ff0cf4945cb8c2677c37da8a68",
+      "source_path": "TateCurvesTheta/Kummer/ThetaGerm.lean"
+    }
+  ],
+  "core_extraction": {
+    "source": "TateCurvesTheta/Kummer/ThetaGerm.lean",
+    "included_lines": "1-233 inclusive",
+    "cut_before_line": 235,
+    "cut_marker": "/-- The point `X ↦ 0`",
+    "imports_preserved": [
+      "ContinuousKummerTheory.Kummer.Decomposition",
+      "Mathlib.RingTheory.Valuation.LocalSubring"
+    ],
+    "single_import_replacement": {
+      "removed": "TateCurvesTheta.Kummer.ThetaValues",
+      "added": "TateCurvesTheta.Theta.Periodicity"
+    },
+    "appended": "end TateCurvesTheta",
+    "claim": "Extracted same-name same-body germ definitions and supporting lemmas only; not a port of the full ThetaGerm module."
+  }
+}

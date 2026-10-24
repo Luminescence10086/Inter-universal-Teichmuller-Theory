@@ -1,0 +1,45 @@
+ℹ [8762/8770] Replayed KummerValuationSeparation
+info: ../core-local-global/KummerValuationSeparation.lean:131:0: 'CoreKummerValuationSeparation.valuation_sub_dvd_of_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:132:0: 'CoreKummerValuationSeparation.valuation_eq_of_bounded_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:133:0: 'CoreKummerValuationSeparation.valuation_eq_of_unbounded_powers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:134:0: 'CoreKummerValuationSeparation.valuation_eq_of_all_powers' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:135:0: 'CoreKummerValuationSeparation.valuation_eq_of_power_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:136:0: 'CoreKummerValuationSeparation.integerRegion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:137:0: 'CoreKummerValuationSeparation.mem_integerRegion' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:138:0: 'CoreKummerValuationSeparation.mem_principal_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:139:0: 'CoreKummerValuationSeparation.principal_eq_of_valuation_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:140:0: 'CoreKummerValuationSeparation.principal_eq_of_bounded_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:141:0: 'CoreKummerValuationSeparation.principal_eq_of_unbounded_powers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:142:0: 'CoreKummerValuationSeparation.principal_eq_of_power_and_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: ../core-local-global/KummerValuationSeparation.lean:143:0: 'CoreKummerValuationSeparation.principal_eq_of_power_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8768/8770] Replayed CohomologyReflection
+info: CohomologyReflection.lean:43:0: 'CoreCohomologyReflection.map_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: CohomologyReflection.lean:44:0: 'CoreCohomologyReflection.map_eq_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8769/8770] Built KummerClassValuationBridge (28s)
+info: KummerClassValuationBridge.lean:112:0: 'KummerTheory.ker_kummer' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KummerClassValuationBridge.lean:113:0: 'KummerTheory.kummerEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KummerClassValuationBridge.lean:114:0: 'CoreKummerClassValuationBridge.power_ratio_of_kummer_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KummerClassValuationBridge.lean:115:0: 'CoreKummerClassValuationBridge.valuation_eq_of_kummer_eq_and_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: KummerClassValuationBridge.lean:116:0: 'CoreKummerClassValuationBridge.principal_eq_of_kummer_eq_and_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: KummerClassValuationBridge.lean:117:0: 'CoreKummerClassValuationBridge.principal_eq_of_kummer_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KummerClassValuationBridge.lean:118:0: 'CoreKummerClassValuationBridge.level_power_is_trivial' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: KummerClassValuationBridge.lean:119:0: 'CoreKummerClassValuationBridge.kummer_eq_of_coprime_power_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: KummerClassValuationBridge.lean:120:0: 'CoreKummerClassValuationBridge.principal_eq_of_coprime_power_class_and_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: KummerClassValuationBridge.lean:121:0: 'CoreKummerClassValuationBridge.principal_eq_of_normalized_kummer_tower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (8770 jobs).

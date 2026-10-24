@@ -1,0 +1,2 @@
+'CoreKummerPrecision.exponent_sub_dvd_of_raised_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreKummerPrecision.principal_eq_of_raised_level_and_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

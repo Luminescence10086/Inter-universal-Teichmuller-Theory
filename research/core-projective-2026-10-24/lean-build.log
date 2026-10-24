@@ -1,0 +1,19 @@
+'CoreProjectiveComparison.dvd_cross_determinant' depends on axioms: [propext, Quot.sound]
+'CoreProjectiveComparison.cross_determinant_dvd_of_classes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreProjectiveComparison.cross_determinant_eq_zero_of_finite_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreProjectiveComparison.cross_determinant_eq_zero_of_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreProjectiveComparison.principal_eq_of_calibrated_cross_determinant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreProjectiveComparison.quadratic_labels_eq_of_cross_determinant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreProjectiveComparison.quadratic_determinant_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreProjectiveComparison.quadratic_labels_eq_of_finite_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreProjectiveComparison.unequal_anchors_lose_absolute_scale' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

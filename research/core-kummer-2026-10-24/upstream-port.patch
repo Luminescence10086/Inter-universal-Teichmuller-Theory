@@ -1,0 +1,35 @@
+--- upstream/Hilbert90.lean
++++ ported/Hilbert90.lean
+@@ -65,8 +65,8 @@
+       (Function.surjInv_eq hsurj₁ _)]
+   -- Step 2: a finite Galois subextension `E₂` containing `E` and all values of `c`.
+   set S := Set.range fun σ => (c σ : Ω)
+-  haveI : Finite S := hfin.to_subtype
+-  haveI : FiniteDimensional K (adjoin K S) :=
++  have : Finite S := hfin.to_subtype
++  have : FiniteDimensional K (adjoin K S) :=
+     finiteDimensional_adjoin fun x _ => (Algebra.IsIntegral.isIntegral (R := K) x)
+   set F := E ⊔ adjoin K S
+   set E₂ := normalClosure K F Ω
+--- upstream/Kummer/Basic.lean
++++ ported/Kummer/Basic.lean
+@@ -179,7 +179,7 @@
+ instance [IsSepClosed Ω] [NeZero (n : K)] : HasKummerRoots n K Ω where
+   exists_pow_eq a := by
+     have hn : (n : K) ≠ 0 := NeZero.ne _
+-    haveI : NeZero (n : Ω) := ⟨by
++    have : NeZero (n : Ω) := ⟨by
+       rw [← map_natCast (algebraMap K Ω)]
+       exact (map_ne_zero _).2 hn⟩
+     obtain ⟨z, hz⟩ := IsSepClosed.exists_pow_nat_eq (algebraMap K Ω a) n
+--- upstream/Kummer/Equiv.lean
++++ ported/Kummer/Equiv.lean
+@@ -105,7 +105,7 @@
+ noncomputable def kummerEquivSepClosure (n : ℕ) (K Ω : Type*) [Field K] [Field Ω] [Algebra K Ω]
+     [IsSepClosure K Ω] [NeZero (n : K)] :
+     Kˣ ⧸ (powMonoidHom n : Kˣ →* Kˣ).range ≃* ContH1 Gal(Ω/K) (Mu n Ω) :=
+-  haveI : IsSepClosed Ω := IsSepClosure.sep_closed K
++  have : IsSepClosed Ω := IsSepClosure.sep_closed K
+   kummerEquiv n K Ω
+ 
+ /-- **Kummer theory** for a perfect field and its algebraic closure: if `K` is perfect and `n` is

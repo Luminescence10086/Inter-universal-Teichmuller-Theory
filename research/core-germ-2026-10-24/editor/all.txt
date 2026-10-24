@@ -1,0 +1,495 @@
+Window: "ThetaGermTransport.lean - core-transport - Visual Studio Code", App: Code.exe.
+	0 窗口 ThetaGermTransport.lean - core-transport - Visual Studio Code Secondary Actions: Raise
+		1 窗格 (disabled)
+		2 区域 ThetaGermTransport.lean - core-transport - Visual Studio Code
+			3 区域
+				4 区域
+					5 区域
+						6 按钮 最小化
+						7 按钮 最大化
+						8 按钮 关闭
+					9 区域
+						10 区域
+							11 区域
+								12 区域
+									13 文档 ThetaGermTransport.lean - core-transport - Visual Studio Code Value: vscode-file://vscode-app/c:/Users/18746/AppData/Local/Programs/Microsoft%20VS%20Code/e646868227/resources/app/out/vs/code/electron-browser/workbench/workbench.html ID: RootWebArea
+										14 组
+											15 应用程序
+												16 组
+												17 组
+												18 组
+												19 菜单栏
+													20 菜单项 文件
+													21 菜单项 编辑
+													22 菜单项 选择
+													23 菜单项 查看
+													24 菜单项 转到
+													25 菜单项 更多
+												26 工具栏
+													27 按钮 返回 (Alt+LeftArrow)
+													28 按钮 (disabled) 前进 (Alt+RightArrow)
+													29 工具栏 智能体状态
+														30 按钮 打开快速访问
+														31 组
+															32 按钮 切换聊天
+																33 按钮 切换聊天
+															34 组
+																35 组
+																	36 按钮 更多操作
+												37 工具栏
+													38 按钮 Try Agents Window (Ctrl+Shift+Alt+A)
+												39 工具栏 标题操作
+													40 切换按钮 切换主侧栏 (Ctrl+B)
+														696 文本 
+													42 按钮 自定义布局...
+													43 切换按钮 切换面板 (Ctrl+J)
+														697 文本 
+													45 切换按钮 切换辅助侧栏 (Ctrl+Alt+B)
+														698 文本 
+												47 组
+												48 组
+												49 组
+												50 选项卡 活动视图切换器
+													51 选项卡项目 (selectable) 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件
+														52 组 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件
+														53 组 资源管理器 (Ctrl+Shift+E) - 1 个未保存的文件
+													54 选项卡项目 (selectable) 搜索 (Ctrl+Shift+F)
+														55 组 搜索 (Ctrl+Shift+F)
+													56 选项卡项目 (selectable) 源代码管理 (Ctrl+Shift+G)
+														57 组 源代码管理 (Ctrl+Shift+G)
+													58 选项卡项目 (selectable) 运行和调试 (Ctrl+Shift+D)
+														59 组 运行和调试 (Ctrl+Shift+D)
+													60 选项卡项目 (selectable) 远程资源管理器
+														61 组 远程资源管理器
+													62 选项卡项目 (selectable) 扩展 (Ctrl+Shift+X) - 1 需要重启
+														63 组 扩展 (Ctrl+Shift+X) - 1 需要重启
+														64 组 扩展 (Ctrl+Shift+X) - 1 需要重启
+													65 选项卡项目 (selectable) Python
+														66 组 Python
+													67 选项卡项目 (selectable) GPT Bridge
+														68 组 GPT Bridge
+												69 工具栏 管理
+													70 按钮 帐户
+														71 组 帐户
+															699 文本 
+													73 按钮 管理
+														74 组 管理
+															700 文本 
+												76 标题 资源管理器
+												77 工具栏 资源管理器操作
+													78 组
+														79 组
+															80 按钮 视图和更多操作…
+												81 工具栏
+												82 组
+												83 组
+												84 组
+												85 按钮 打开的编辑器部分
+													86 标题 打开的编辑器
+													87 按钮 1 unsaved, open unsaved editor
+												88 列表 打开的编辑器
+													93 列表项目 编辑器组2 ID: list_id_2_16
+														701 文本 第 2 组
+													95 列表项目 IntegralActionDescent.lean, D:\Inter-universal Teichmüller Theory\candidates\core-local-global ID: list_id_2_17
+														96 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\IntegralActionDescent.lean
+															702 文本 
+															98 文本 IntegralActionDescent.lean
+															99 文本 D:\Inter-universal Teichmüller Theory\candidates\core-local-global
+													100 列表项目 IntegralActionFrame.lean, D:\Inter-universal Teichmüller Theory\candidates\core-local-global ID: list_id_2_18
+														101 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\IntegralActionFrame.lean
+															703 文本 
+															103 文本 IntegralActionFrame.lean
+															104 文本 D:\Inter-universal Teichmüller Theory\candidates\core-local-global
+													105 列表项目 TorsionHullStability.lean, D:\Inter-universal Teichmüller Theory\candidates\core-local-global ID: list_id_2_19
+														106 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\TorsionHullStability.lean
+															704 文本 
+															108 文本 TorsionHullStability.lean
+															109 文本 D:\Inter-universal Teichmüller Theory\candidates\core-local-global
+													110 列表项目 KummerClassValuationBridge.lean, D:\Inter-universal Teichmüller Theory\candidates\core-kummer ID: list_id_2_20
+														111 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\KummerClassValuationBridge.lean
+															705 文本 
+															113 文本 KummerClassValuationBridge.lean
+															114 文本 D:\Inter-universal Teichmüller Theory\candidates\core-kummer
+													115 列表项目 Frontier.lean, D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary ID: list_id_2_21
+														116 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\Frontier.lean
+															706 文本 
+															118 文本 Frontier.lean
+															119 文本 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary
+													120 列表项目 AnchoredComparison.lean, D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary ID: list_id_2_22
+														121 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\AnchoredComparison.lean
+															707 文本 
+															123 文本 AnchoredComparison.lean
+															124 文本 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary
+													125 列表项目 ProjectiveComparison.lean, D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary ID: list_id_2_23
+														128 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\ProjectiveComparison.lean
+															708 文本 
+															130 文本 ProjectiveComparison.lean
+															131 文本 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary
+													89 列表项目 ThetaGermTransport.lean, D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary ID: list_id_2_24
+														709 工具栏
+															710 按钮 关闭编辑器 (Ctrl+F4)
+														90 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\ThetaGermTransport.lean
+															711 文本 
+															712 文本 ThetaGermTransport.lean
+															713 文本 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary
+												132 按钮 资源管理器部分: core-transport
+													133 标题 资源管理器部分: core-transport
+												134 树 文件资源管理器
+													135 树项目 (selectable) .lake ID: list_id_3_0
+														136 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\.lake
+													137 树项目 (selectable) CoreTransport ID: list_id_3_1
+														138 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\CoreTransport
+													139 树项目 (selectable) CollectionProvenance.lean ID: list_id_3_2
+														140 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\CollectionProvenance.lean
+													141 树项目 (selectable) CoreTransport.lean ID: list_id_3_3
+														142 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\CoreTransport.lean
+													143 树项目 (selectable) DelegatedLogBridge.lean ID: list_id_3_4
+														144 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\DelegatedLogBridge.lean
+													145 树项目 (selectable) DivideBackLaw.lean ID: list_id_3_5
+														146 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackLaw.lean
+													147 树项目 (selectable) DivideBackTwist.lean ID: list_id_3_6
+														148 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackTwist.lean
+													149 树项目 (selectable) EtaComparison.lean ID: list_id_3_7
+														150 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\EtaComparison.lean
+													151 树项目 (selectable) ExecutionProvenance.lean ID: list_id_3_8
+														152 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ExecutionProvenance.lean
+													153 树项目 (selectable) ExponentUniqueness.lean ID: list_id_3_9
+														154 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ExponentUniqueness.lean
+													155 树项目 (selectable) H3Synthesis.lean ID: list_id_3_10
+														156 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\H3Synthesis.lean
+													157 树项目 (selectable) LabelNormalization.lean ID: list_id_3_11
+														158 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\LabelNormalization.lean
+													159 树项目 (selectable) lake-manifest.json ID: list_id_3_12
+														160 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\lake-manifest.json
+													161 树项目 (selectable) lakefile.lean ID: list_id_3_13
+														162 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\lakefile.lean
+													163 树项目 (selectable) lean-toolchain ID: list_id_3_14
+														164 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\lean-toolchain
+													165 树项目 (selectable) NormalizationAlignment.lean ID: list_id_3_15
+														166 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\NormalizationAlignment.lean
+													167 树项目 (selectable) ReadingFactorization.lean ID: list_id_3_16
+														168 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingFactorization.lean
+													169 树项目 (selectable) ReadingInvariance.lean ID: list_id_3_17
+														170 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingInvariance.lean
+												171 按钮 大纲部分
+													172 标题 大纲
+												173 按钮 时间线部分
+													174 标题 时间线
+												175 组
+												176 主要 ID: workbench.parts.editor
+													177 组
+													178 组
+													179 组
+														180 选项卡
+															181 选项卡项目 (selectable) 欢迎，预览
+																182 组 欢迎
+																183 工具栏 选项卡操作
+																	184 按钮 关闭 (Ctrl+F4)
+															185 选项卡项目 (selectable) DelegatedLogBridge.lean
+																186 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\DelegatedLogBridge.lean
+																187 工具栏 选项卡操作
+																	188 按钮 关闭 (Ctrl+F4)
+															189 选项卡项目 (selectable) ExecutionProvenance.lean
+																190 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ExecutionProvenance.lean
+																191 工具栏 选项卡操作
+																	192 按钮 关闭 (Ctrl+F4)
+															193 选项卡项目 (selectable) ReadingInvariance.lean
+																194 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingInvariance.lean
+																195 工具栏 选项卡操作
+																	196 按钮 关闭 (Ctrl+F4)
+															197 选项卡项目 (selectable) DivideBackLaw.lean
+																198 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackLaw.lean
+																199 工具栏 选项卡操作
+																	200 按钮 关闭 (Ctrl+F4)
+															201 选项卡项目 (selectable) TransitionCompatibility.lean
+																202 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\TransitionCompatibility.lean
+																203 工具栏 选项卡操作
+																	204 按钮 关闭 (Ctrl+F4)
+															205 选项卡项目 (selectable) ReadingFactorization.lean
+																206 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ReadingFactorization.lean
+																207 工具栏 选项卡操作
+																	208 按钮 关闭 (Ctrl+F4)
+															209 选项卡项目 (selectable) NormalizationAlignment.lean
+																210 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\NormalizationAlignment.lean
+																211 工具栏 选项卡操作
+																	212 按钮 关闭 (Ctrl+F4)
+															213 选项卡项目 (selectable) UnifiedFactorization.lean
+																214 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\UnifiedFactorization.lean
+																215 工具栏 选项卡操作
+																	216 按钮 关闭 (Ctrl+F4)
+															217 选项卡项目 (selectable) DivideBackTwist.lean
+																218 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\DivideBackTwist.lean
+																219 工具栏 选项卡操作
+																	220 按钮 关闭 (Ctrl+F4)
+															221 选项卡项目 (selectable) ExponentUniqueness.lean
+																222 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\ExponentUniqueness.lean
+																223 工具栏 选项卡操作
+																	224 按钮 关闭 (Ctrl+F4)
+															225 选项卡项目 (selectable) H3Synthesis.lean
+																226 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\H3Synthesis.lean
+																227 工具栏 选项卡操作
+																	228 按钮 关闭 (Ctrl+F4)
+															229 选项卡项目 (selectable) EtaComparison.lean
+																230 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\EtaComparison.lean
+																231 工具栏 选项卡操作
+																	232 按钮 关闭 (Ctrl+F4)
+															233 选项卡项目 (selectable) IntegralProductBridge.lean
+																234 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\IntegralProductBridge.lean
+																235 工具栏 选项卡操作
+																	236 按钮 关闭 (Ctrl+F4)
+															237 选项卡项目 (selectable) LabelNormalization.lean
+																238 组 D:\Inter-universal Teichmüller Theory\candidates\core-transport\LabelNormalization.lean
+																239 工具栏 选项卡操作
+																	240 按钮 关闭 (Ctrl+F4)
+														241 工具栏 编辑器操作
+															242 组
+																243 组
+																	244 按钮 更多操作...
+																		714 文本 
+														246 列表
+															247 列表项目 D:
+																248 组 D:\
+																	249 文本 D:
+																715 文本 
+															251 列表项目 Inter-universal Teichmüller Theory
+																252 组 D:\Inter-universal Teichmüller Theory
+																	253 文本 Inter-universal Teichmüller Theory
+																716 文本 
+															255 列表项目 candidates
+																256 组 D:\Inter-universal Teichmüller Theory\candidates
+																	257 文本 candidates
+																717 文本 
+															259 列表项目 core-local-global
+																260 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global
+																	261 文本 core-local-global
+																718 文本 
+															263 列表项目 IntegralProductBridge.lean
+																264 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\IntegralProductBridge.lean
+																	719 文本 
+																	266 文本 IntegralProductBridge.lean
+																720 文本 
+															268 列表项目 …
+													269 组 IntegralProductBridge.lean, 编辑器组1
+														270 代码
+															271 编辑器 (settable, string) 现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1
+													272 组
+														273 选项卡
+															274 选项卡项目 (selectable) IntegralActionDescent.lean, 编辑器组2
+																275 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\IntegralActionDescent.lean
+																276 工具栏 选项卡操作
+																	277 按钮 关闭 (Ctrl+F4)
+															278 选项卡项目 (selectable) IntegralActionFrame.lean, 编辑器组2
+																279 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\IntegralActionFrame.lean
+																280 工具栏 选项卡操作
+																	281 按钮 关闭 (Ctrl+F4)
+															282 选项卡项目 (selectable) TorsionHullStability.lean, 编辑器组2
+																283 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\TorsionHullStability.lean
+																284 工具栏 选项卡操作
+																	285 按钮 关闭 (Ctrl+F4)
+															286 选项卡项目 (selectable) KummerClassValuationBridge.lean, 编辑器组2
+																287 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\KummerClassValuationBridge.lean
+																288 工具栏 选项卡操作
+																	289 按钮 关闭 (Ctrl+F4)
+															290 选项卡项目 (selectable) Frontier.lean, 编辑器组2
+																291 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\Frontier.lean
+																292 工具栏 选项卡操作
+																	293 按钮 关闭 (Ctrl+F4)
+															294 选项卡项目 (selectable) AnchoredComparison.lean, 编辑器组2
+																295 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\AnchoredComparison.lean
+																296 工具栏 选项卡操作
+																	297 按钮 关闭 (Ctrl+F4)
+															298 选项卡项目 (selectable) ProjectiveComparison.lean, 编辑器组2
+																299 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\ProjectiveComparison.lean
+																300 工具栏 选项卡操作
+																	301 按钮 关闭 (Ctrl+F4)
+															302 选项卡项目 (selectable) ThetaGermTransport.lean, 编辑器组2
+																303 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\ThetaGermTransport.lean
+																304 工具栏 选项卡操作
+																	305 按钮 关闭 (Ctrl+F4)
+															306 选项卡项目 (selectable) CohomologyReflection.lean, 编辑器组2
+																307 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\CohomologyReflection.lean
+																308 工具栏 选项卡操作
+																	309 按钮 关闭 (Ctrl+F4)
+															721 选项卡项目 (selectable) KummerValuationSeparation.lean, 编辑器组2
+																722 组 D:\Inter-universal Teichmüller Theory\candidates\core-local-global\KummerValuationSeparation.lean
+																723 工具栏 选项卡操作
+																	724 按钮 关闭 (Ctrl+F4)
+														310 工具栏 编辑器操作
+															973 按钮 Run Code (Ctrl+Alt+N)
+															974 组
+																975 组
+																	976 按钮 Lean 4
+															977 按钮 Paperproof: Toggle
+															978 按钮 向右拆分编辑器 (Ctrl+\) [Alt] 向下拆分编辑器
+															979 组
+																980 组
+																	981 按钮 更多操作...
+																		982 文本 
+														321 列表
+															322 列表项目 D:
+																734 组 D:\
+																	735 文本 D:
+																736 文本 
+															326 列表项目 Inter-universal Teichmüller Theory
+																737 组 D:\Inter-universal Teichmüller Theory
+																	738 文本 Inter-universal Teichmüller Theory
+																739 文本 
+															330 列表项目 candidates
+																740 组 D:\Inter-universal Teichmüller Theory\candidates
+																	741 文本 candidates
+																742 文本 
+															334 列表项目 core-kummer
+																743 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer
+																	744 文本 core-kummer
+																745 文本 
+															338 列表项目 Boundary
+																746 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary
+																	747 文本 Boundary
+																748 文本 
+															342 列表项目 ThetaGermTransport.lean
+																749 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\ThetaGermTransport.lean
+																	924 文本 
+																	751 文本 ThetaGermTransport.lean
+																925 文本 
+															926 列表项目 …
+													348 组 ThetaGermTransport.lean, 编辑器组2
+														765 代码
+															766 编辑器 (settable, string) 现在无法访问编辑器。 若要启用屏幕阅读器优化模式，请使用 Shift+Alt+F1
+													351 组
+														352 选项卡
+															353 选项卡项目 (selectable) Lean InfoView, 编辑器组3
+																354 组 Lean InfoView
+																355 工具栏 选项卡操作
+																	356 按钮 关闭 (Ctrl+F4)
+														357 工具栏 编辑器操作
+															358 组
+																359 组
+																	360 按钮 更多操作...
+																		752 文本 
+													362 组 ID: webview-editor-element-308e885c-e717-420b-a7a5-d6b2c3015a5f
+												363 选项卡 活动视图切换器
+													364 选项卡项目 (selectable) 问题 (Ctrl+Shift+M) - 总计 152 个问题
+														365 组 问题 (Ctrl+Shift+M) - 总计 152 个问题
+														366 组 问题 (Ctrl+Shift+M) - 总计 152 个问题
+													367 选项卡项目 (selectable) 输出 (Ctrl+Shift+U)
+														368 组 输出 (Ctrl+Shift+U)
+													369 选项卡项目 (selectable) 调试控制台 (Ctrl+Shift+Y)
+														370 组 调试控制台 (Ctrl+Shift+Y)
+													371 选项卡项目 (selectable) 终端 (Ctrl+`)
+														372 组 终端 (Ctrl+`)
+													373 选项卡项目 (selectable) 端口
+														374 组 端口
+												375 工具栏 问题操作
+													376 编辑 (settable, string) 筛选器问题 Description: 筛选器(例如 text、**/*.ts、!**/node_modules/**、@source:ts) 或使用 ⇅ 以查看历史记录 Value: ThetaGermTransport.lean
+													985 文本 正在显示第 18 页(共 152 页)
+													378 工具栏
+														379 组
+															380 组
+																381 按钮 更多筛选器...
+													382 按钮 全部折叠
+													383 按钮 以表形式查看
+													384 组 (disabled)
+												385 工具栏
+													386 切换按钮 最大化面板
+														753 文本 
+													388 按钮 隐藏面板 (Ctrl+J)
+												389 组 显示第 18 个 (共 152 个) 问题 ID: markers-panel-arialabel
+												390 树 显示第 18 个 (共 152 个) 问题
+													391 树项目 (selectable) 在文件夹 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary 的文件 ThetaGermTransport.lean 中有 18 个问题 ID: list_id_1_0
+														392 组 D:\Inter-universal Teichmüller Theory\candidates\core-kummer\Boundary\ThetaGermTransport.lean
+													986 树项目 (selectable) 信息: 行 237 和字符 1 处的 'CoreThetaGermTransport.summable_germ_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_1
+														987 组
+															988 工具栏
+													989 树项目 (selectable) 信息: 行 238 和字符 1 处的 'CoreThetaGermTransport.thetaTerm_q_shift' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_2
+														990 组
+															991 工具栏
+													992 树项目 (selectable) 信息: 行 239 和字符 1 处的 'CoreThetaGermTransport.thetaGerm_q_mul' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_3
+														993 组
+															994 工具栏
+													995 树项目 (selectable) 信息: 行 240 和字符 1 处的 'CoreThetaGermTransport.theta_q_mul_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_4
+														996 组
+															997 工具栏
+													998 树项目 (selectable) 信息: 行 241 和字符 1 处的 'CoreThetaGermTransport.coordinateUnit' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_5
+														999 组
+															1000 工具栏
+													1001 树项目 (selectable) 信息: 行 242 和字符 1 处的 'CoreThetaGermTransport.coe_coordinateUnit' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_6
+														1002 组
+															1003 工具栏
+													1004 树项目 (selectable) 信息: 行 243 和字符 1 处的 'CoreThetaGermTransport.constantUnit' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_7
+														1005 组
+															1006 工具栏
+													1007 树项目 (selectable) 信息: 行 244 和字符 1 处的 'CoreThetaGermTransport.coe_constantUnit' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_8
+														1008 组
+															1009 工具栏
+													1010 树项目 (selectable) 信息: 行 245 和字符 1 处的 'CoreThetaGermTransport.thetaGermUnit_q_mul' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_9
+														1011 组
+															1012 工具栏
+													1013 树项目 (selectable) 信息: 行 246 和字符 1 处的 'CoreThetaGermTransport.map_thetaGermUnit_q_mul' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_10
+														1014 组
+															1015 工具栏
+													1016 树项目 (selectable) 信息: 行 247 和字符 1 处的 'CoreThetaGermTransport.toFieldUnits' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_11
+														1017 组
+															1018 工具栏
+													393 树项目 (selectable) 信息: 行 248 和字符 1 处的 'CoreThetaGermTransport.kummer_thetaGermUnit_q_mul' depends on axioms: [propext, Classical.choice, Quot.sound]。Lean 4 生成的 ID: list_id_1_12
+														394 组
+															1019 工具栏
+												397 状态 ID: workbench.parts.statusbar
+													398 组 remote ID: status.host
+														399 按钮 remote
+													400 组 信息: 152 条 ID: status.problems
+														401 按钮 信息: 152 条
+													402 组 通知 ID: status.notifications
+														403 按钮 通知
+													404 组 circle-slash GPT Bridge, **GPT Bridge** — Stopped Click to open the panel. ID: local.gpt-bridge.gptBridge.status
+														405 按钮 circle-slash GPT Bridge, **GPT Bridge** — Stopped Click to open the panel.
+													406 组 Copilot 状态 ID: chat.statusBarEntry
+														407 按钮 Copilot 状态
+													408 组 lean4 ID: status.editor.mode
+														409 按钮 lean4
+													767 组 编辑器语言状态: $(copilot) 无内联建议可用，内联建议 ID: status.languageStatus
+														768 按钮 编辑器语言状态: $(copilot) 无内联建议可用，内联建议
+													412 组 CRLF ID: status.editor.eol
+														413 按钮 CRLF
+													414 组 UTF-8 ID: status.editor.encoding
+														415 按钮 UTF-8
+													416 组 空格: 2 ID: status.editor.indentation
+														417 按钮 空格: 2
+													418 组 行 1，列 1 ID: status.editor.selection
+														419 按钮 行 1，列 1
+												420 警报
+													421 文本 信息: [Server Startup] Starting Lean language server and cloning missing project dependencies (Click for details)
+												422 警报
+												423 组
+												424 组
+												425 组 ID: ee75d98e-a4bd-4f9c-8528-1eb0d3514cbf
+													426 文档 Value: vscode-webview://07mijtfnj3q9895lpfmk1479jqhstc9phm02ghr98lo2mslihmfn/index.html?id=ee75d98e-a4bd-4f9c-8528-1eb0d3514cbf&parentId=1&origin=1f01733c-2059-4fbf-9ab1-f28752a93658&swVersion=6&extensionId=leanprover.lean4&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&mountId=22518f4e-e5b8-4365-a9ac-2db051620a36 ID: RootWebArea
+														427 文档
+															428 文档 Lean InfoView Description: Lean InfoView ID: active-frame
+																429 文档 Infoview Value: vscode-webview://07mijtfnj3q9895lpfmk1479jqhstc9phm02ghr98lo2mslihmfn/index.html?id=ee75d98e-a4bd-4f9c-8528-1eb0d3514cbf&parentId=1&origin=1f01733c-2059-4fbf-9ab1-f28752a93658&swVersion=6&extensionId=leanprover.lean4&platform=electron&vscode-resource-base-authority=vscode-resource.vscode-cdn.net&parentOrigin=vscode-file%3A%2F%2Fvscode-app&mountId=22518f4e-e5b8-4365-a9ac-2db051620a36 ID: RootWebArea
+																	430 文档
+																		431 组 ID: react_root
+																			432 详细信息
+																				433 开合三角标记 ThetaGermTransport.lean:1:0   
+																					434 文本 ThetaGermTransport.lean:1:0
+																					435 组 Description: Updating ...
+																						1137 文本 
+																					437 组
+																						438 链接  Description: Pin state to top
+																						439 链接  Description: Pause state
+																				440 文本 No info found.
+																			441 详细信息
+																				442 开合三角标记 All Messages (  18)  
+																					443 文本 All Messages
+																					931 文本 (
+																					932 文本 
+																					933 文本 18
+																					934 文本 )
+																					448 组
+																						449 链接  Description: Sort by message location
+																						450 链接  Description: Pause 'All Messages'
+																			451 按钮 Restart File Description: Restarts this file, rebuilding all of its outdated dependencies.
+								452 区域
+
+Document text: ```
+ThetaGermTransport.lean
+```

@@ -1,0 +1,111 @@
+--- upstream/ContinuousKummerTheory/Kummer/DecompositionSurjective.lean
++++ candidates/core-kummer/ContinuousKummerTheory/Kummer/DecompositionSurjective.lean
+@@ -58,12 +58,12 @@
+   have hcoeff : ∀ j, j ≤ n → p.coeff j = ⟨c j, hc j⟩ := by
+     intro j hj
+     simp only [p, finsetSum_coeff, coeff_monomial]
+-    rw [Finset.sum_eq_single j (fun b _ hb => if_neg hb)
+-      (fun h' => absurd (Finset.mem_range.mpr (Nat.lt_succ_of_le hj)) h'), if_pos rfl]
++    rw [Finset.sum_eq_single j (fun b _ hb => ite_eq_right hb)
++      (fun h' => absurd (Finset.mem_range.mpr (Nat.lt_succ_of_le hj)) h'), ite_eq_left rfl]
+   have hzero : ∀ j, n < j → p.coeff j = 0 := by
+     intro j hj
+     simp only [p, finsetSum_coeff, coeff_monomial]
+-    refine Finset.sum_eq_zero fun b hb => if_neg ?_
++    refine Finset.sum_eq_zero fun b hb => ite_eq_right ?_
+     have := Finset.mem_range.mp hb
+     omega
+   have hdeg : p.natDegree = n := by
+@@ -443,26 +443,26 @@
+   set V := A.comap (algebraMap F Ω)
+   set B := integralClosure V Ω
+   set Q := centre F A
+-  letI : TopologicalSpace B := ⊥
+-  haveI : DiscreteTopology B := ⟨rfl⟩
+-  haveI : ContinuousSMul (Ω ≃ₐ[F] Ω) B := by
++  let _ : TopologicalSpace B := ⊥
++  have : DiscreteTopology B := ⟨rfl⟩
++  have : ContinuousSMul (Ω ≃ₐ[F] Ω) B := by
+     refine continuousSMul_iff_stabilizer_isOpen.mpr fun b => ?_
+     convert stabilizer_isOpen_of_isIntegral (K := F) (b : Ω) using 2
+     ext g
+     simp only [MulAction.mem_stabilizer_iff, Subtype.ext_iff]
+     rfl
+-  haveI : Algebra.IsInvariant V B (Ω ≃ₐ[F] Ω) := by
++  have : Algebra.IsInvariant V B (Ω ≃ₐ[F] Ω) := by
+     refine ⟨fun b hb => ?_⟩
+     obtain ⟨f, hf⟩ := (InfiniteGalois.mem_range_algebraMap_iff_fixed (b : Ω)).mpr fun g =>
+       congrArg Subtype.val (hb g)
+     have hfint : IsIntegral V f := by
+-      rw [← isIntegral_algebraMap_iff (algebraMap F Ω).injective, hf]
++      rw [← isIntegral_algebraMap_iff (R := V) (A := F) (B := Ω), hf]
+       exact b.2
+     obtain ⟨v, hv⟩ := IsIntegrallyClosed.algebraMap_eq_of_integral hfint
+     refine ⟨v, Subtype.ext ?_⟩
+     rw [← hf, ← hv]
+     rfl
+-  haveI : Q.LiesOver (Q.under V) := ⟨rfl⟩
++  have : Q.LiesOver (Q.under V) := ⟨rfl⟩
+   -- the identification `B ⧸ Q ≃ κ(A)`
+   let ψ : B ⧸ Q →+* ResidueField A := Ideal.Quotient.lift Q
+     ((residue A).comp (integralClosureToA F A)) fun b hb => (residue_eq_zero_iff _).mpr hb
+@@ -483,7 +483,7 @@
+       rw [he]
+       have : residue A (integralClosureToA F A (algebraMap V B v)) =
+           residue A ⟨_, v.2⟩ := rfl
+-      rw [this, hτ, ← this, ← he, RingEquiv.symm_apply_apply]
++      erw [this, hτ, ← this, ← he, RingEquiv.symm_apply_apply]
+       rfl
+   obtain ⟨⟨σ, hσ⟩, hστ⟩ :=
+     Ideal.Quotient.stabilizerHom_surjective_of_profinite (G := Ω ≃ₐ[F] Ω) (Q.under V) Q τ'
+--- upstream/ContinuousKummerTheory/Kummer/Corestriction.lean
++++ candidates/core-kummer/ContinuousKummerTheory/Kummer/Corestriction.lean
+@@ -69,7 +69,7 @@
+     ((corRep (galIncl L) x).toAlgHom.comp L.val)
+ 
+ theorem cosetEmbedding_bijective : Function.Bijective (cosetEmbedding L) := by
+-  haveI : Algebra.IsSeparable K L := Algebra.isSeparable_tower_bot_of_isSeparable K L Ω
++  have : Algebra.IsSeparable K L := Algebra.isSeparable_tower_bot_of_isSeparable K L Ω
+   rw [Nat.bijective_iff_injective_and_card]
+   refine ⟨fun x y h => ?_, ?_⟩
+   · rw [← mk_corRep (galIncl L) x, ← mk_corRep (galIncl L) y, QuotientGroup.eq, range_galIncl,
+@@ -88,7 +88,7 @@
+ theorem prod_corRep_eq_norm (a : L) :
+     ∏ x : Gal(Ω/K) ⧸ (galIncl L).range, corRep (galIncl L) x (a : Ω) =
+       algebraMap K Ω (Algebra.norm K a) := by
+-  haveI : Algebra.IsSeparable K L := Algebra.isSeparable_tower_bot_of_isSeparable K L Ω
++  have : Algebra.IsSeparable K L := Algebra.isSeparable_tower_bot_of_isSeparable K L Ω
+   apply FaithfulSMul.algebraMap_injective Ω (AlgebraicClosure Ω)
+   rw [map_prod, ← IsScalarTower.algebraMap_apply, Algebra.norm_eq_prod_embeddings K _ a]
+   exact Fintype.prod_bijective _ (cosetEmbedding_bijective L) _ _ fun x => rfl
+@@ -105,8 +105,8 @@
+   obtain ⟨t, htfin, hadj⟩ := IntermediateField.fg_def.1 (E.fg_of_fg_toSubalgebra
+     (Subalgebra.fg_of_fg_toSubmodule ((Submodule.fg_iff_finiteDimensional _).2 hE)))
+   -- a finite Galois extension `E'/K` containing `L` and `t`
+-  haveI : Finite t := htfin.to_subtype
+-  haveI : FiniteDimensional K (adjoin K t) :=
++  have : Finite t := htfin.to_subtype
++  have : FiniteDimensional K (adjoin K t) :=
+     finiteDimensional_adjoin fun x _ => Algebra.IsIntegral.isIntegral (R := K) x
+   set E' := normalClosure K (L ⊔ adjoin K t : IntermediateField K Ω) Ω
+   have hLE' : ∀ x ∈ L, x ∈ E' := fun x hx => le_normalClosure _ (le_sup_left (b := adjoin K t) hx)
+@@ -156,7 +156,8 @@
+     rw [hα, Units.coe_prod]
+     simp only [AlgEquiv.smul_units_def, Units.coe_map, MonoidHom.coe_coe]
+     exact prod_corRep_eq_norm L (a : L)
+-  rw [kummer_eq a α hα, kummer_eq _ β hβ, corestriction, cor_mk]
++  rw [kummer_eq a α hα, kummer_eq _ β hβ, corestriction]
++  erw [cor_mk]
+   congr 1
+   apply Subtype.ext
+   funext g
+@@ -164,7 +165,8 @@
+   have h1 := congrFun (corFun_map (φ := galIncl L) (hφ := galIncl_injective L) Mu.val
+     (fun _ _ => rfl) (kummerCocycle α (smul_pow_of_pow_eq hα) : Gal(Ω/L) → Mu n Ω)) g
+   simp only [kummerCocycle_apply, val_kummerFun] at h1
+-  rw [corCocycles_apply, ← h1, corFun_coboundary (M := Ωˣ) (fun _ _ => rfl)]
++  erw [corCocycles_apply]
++  rw [← h1, corFun_coboundary (M := Ωˣ) (fun _ _ => rfl)]
+   rfl
+ 
+ end KummerTheory

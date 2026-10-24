@@ -1,0 +1,162 @@
+OrbitQuotient.Box : (p N n : ℕ) → (Fin n → ℕ) → Set (Fin n → ZMod (p ^ N))
+OrbitQuotient.IdealBox : (p N n : ℕ) → (Fin n → ℕ) → Set (Fin n → ZMod (p ^ N))
+OrbitQuotient.permAct : (p N : ℕ) → {n : ℕ} → Equiv.Perm (Fin n) → (Fin n → ZMod (p ^ N)) → Fin n → ZMod (p ^ N)
+OrbitQuotient.orbitUnion : (p N n : ℕ) → Finset (Equiv.Perm (Fin n)) → (Fin n → ℕ) → Set (Fin n → ZMod (p ^ N))
+@OrbitQuotient.orbitUnion_eq_inverse_images : ∀ {p N n : ℕ} (Γ : Finset (Equiv.Perm (Fin n))) (k : Fin n → ℕ),
+  OrbitQuotient.orbitUnion p N n Γ k = ⋃ γ ∈ Γ, OrbitQuotient.permAct p N (Equiv.symm γ) '' OrbitQuotient.Box p N n k
+@OrbitQuotient.hullThresh : {n : ℕ} → (Γ : Finset (Equiv.Perm (Fin n))) → Γ.Nonempty → (Fin n → ℕ) → Fin n → ℕ
+@OrbitQuotient.pow_mul_pow_sub : ∀ {p k N : ℕ}, k ≤ N → p ^ k * p ^ (N - k) = p ^ N
+@OrbitQuotient.le_of_pow_dvd_pow : ∀ {p a b : ℕ}, 1 < p → p ^ a ∣ p ^ b → a ≤ b
+@OrbitQuotient.val_pow_natCast : ∀ {p N k : ℕ}, (↑p ^ k).val = p ^ k % p ^ N
+@OrbitQuotient.dvd_iff_val_dvd : ∀ {p N : ℕ},
+  Nat.Prime p → ∀ {k : ℕ}, k ≤ N → ∀ (x : ZMod (p ^ N)), ↑p ^ k ∣ x ↔ p ^ k ∣ x.val
+@OrbitQuotient.IdealBox_eq_Box : ∀ {p N n : ℕ},
+  Nat.Prime p → ∀ (k : Fin n → ℕ), (∀ (j : Fin n), k j ≤ N) → OrbitQuotient.IdealBox p N n k = OrbitQuotient.Box p N n k
+@OrbitQuotient.box_mono : ∀ {p N n : ℕ} {k k' : Fin n → ℕ},
+  (∀ (j : Fin n), k' j ≤ k j) → OrbitQuotient.Box p N n k ⊆ OrbitQuotient.Box p N n k'
+@OrbitQuotient.mem_permAct_box : ∀ {p N n : ℕ} (γ : Equiv.Perm (Fin n)) (k : Fin n → ℕ) (x : Fin n → ZMod (p ^ N)),
+  OrbitQuotient.permAct p N γ x ∈ OrbitQuotient.Box p N n k ↔ x ∈ OrbitQuotient.Box p N n fun j => k ((Equiv.symm γ) j)
+@OrbitQuotient.le_of_box_subset : ∀ {p N n : ℕ},
+  Nat.Prime p →
+    ∀ {k k' : Fin n → ℕ},
+      (∀ (j : Fin n), k j ≤ N) →
+        (∀ (j : Fin n), k' j ≤ N) → OrbitQuotient.Box p N n k ⊆ OrbitQuotient.Box p N n k' → ∀ (j : Fin n), k' j ≤ k j
+@OrbitQuotient.hull_thresholds : ∀ {n : ℕ} (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty) (k : Fin n → ℕ),
+  (∀ (j : Fin n), ∀ γ ∈ Γ, OrbitQuotient.hullThresh Γ hΓ k j ≤ k ((Equiv.symm γ) j)) ∧
+    ∀ (j : Fin n), ∃ γ ∈ Γ, OrbitQuotient.hullThresh Γ hΓ k j = k ((Equiv.symm γ) j)
+@OrbitQuotient.hull_minimal : ∀ {p N n : ℕ},
+  Nat.Prime p →
+    ∀ (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty) (k : Fin n → ℕ),
+      (∀ (j : Fin n), k j ≤ N) →
+        (∀ (x : Fin n → ZMod (p ^ N)),
+            OrbitQuotient.orbitUnion p N n Γ k x → OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k) x) ∧
+          ∀ (k' : Fin n → ℕ),
+            (∀ (j : Fin n), k' j ≤ N) →
+              (∀ (x : Fin n → ZMod (p ^ N)), OrbitQuotient.orbitUnion p N n Γ k x → OrbitQuotient.Box p N n k' x) →
+                ∀ (x : Fin n → ZMod (p ^ N)),
+                  OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k) x → OrbitQuotient.Box p N n k' x
+@OrbitQuotient.coordinateProductHull : {ι : Type u_1} → {α : ι → Type u_2} → Set ((j : ι) → α j) → Set ((j : ι) → α j)
+@OrbitQuotient.coordinateProductHull_minimal : ∀ {ι : Type u_1} {α : ι → Type u_2} (U : Set ((j : ι) → α j))
+  (S : (j : ι) → Set (α j)), OrbitQuotient.coordinateProductHull U ⊆ Set.univ.pi S ↔ U ⊆ Set.univ.pi S
+@OrbitQuotient.coordinateProductHull_orbitUnion : ∀ {p N n : ℕ} (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty)
+  (k : Fin n → ℕ),
+  OrbitQuotient.coordinateProductHull (OrbitQuotient.orbitUnion p N n Γ k) =
+    OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k)
+@OrbitQuotient.hull_minimal_coordinateProduct : ∀ {p N n : ℕ} (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty)
+  (k : Fin n → ℕ),
+  OrbitQuotient.orbitUnion p N n Γ k ⊆ OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k) ∧
+    ∀ (S : Fin n → Set (ZMod (p ^ N))),
+      OrbitQuotient.orbitUnion p N n Γ k ⊆ Set.univ.pi S →
+        OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k) ⊆ Set.univ.pi S
+@OrbitQuotient.hull_least_coordinateProduct : ∀ {p N n : ℕ} (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty)
+  (k : Fin n → ℕ) (S : Fin n → Set (ZMod (p ^ N))),
+  OrbitQuotient.orbitUnion p N n Γ k ⊆ Set.univ.pi S ↔
+    OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k) ⊆ Set.univ.pi S
+@OrbitQuotient.hull_minimal_from_products : ∀ {p N n : ℕ} (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty)
+  (k : Fin n → ℕ),
+  (∀ (x : Fin n → ZMod (p ^ N)),
+      OrbitQuotient.orbitUnion p N n Γ k x → OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k) x) ∧
+    ∀ (k' : Fin n → ℕ),
+      (∀ (x : Fin n → ZMod (p ^ N)), OrbitQuotient.orbitUnion p N n Γ k x → OrbitQuotient.Box p N n k' x) →
+        ∀ (x : Fin n → ZMod (p ^ N)),
+          OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k) x → OrbitQuotient.Box p N n k' x
+OrbitQuotient.boxFinEquiv : (p N n : ℕ) →
+  Nat.Prime p →
+    (k : Fin n → ℕ) → (∀ (j : Fin n), k j ≤ N) → ↑(OrbitQuotient.Box p N n k) ≃ ((j : Fin n) → Fin (p ^ (N - k j)))
+@OrbitQuotient.box_cardinality : ∀ {p N n : ℕ},
+  Nat.Prime p → ∀ (k : Fin n → ℕ), (∀ (j : Fin n), k j ≤ N) → Nat.card ↑(OrbitQuotient.Box p N n k) = p ^ ∑ j, (N - k j)
+@OrbitQuotient.enlargement_budget : ∀ {p N n : ℕ},
+  Nat.Prime p →
+    ∀ (k k' : Fin n → ℕ),
+      (∀ (j : Fin n), k j ≤ N) →
+        (∀ (j : Fin n), k' j ≤ N) →
+          (∀ (j : Fin n), k' j ≤ k j) →
+            Nat.card ↑(OrbitQuotient.Box p N n k) * p ^ ∑ j, (k j - k' j) = Nat.card ↑(OrbitQuotient.Box p N n k')
+@OrbitQuotient.enlargement_budget_hull : ∀ {p N n : ℕ},
+  Nat.Prime p →
+    ∀ (Γ : Finset (Equiv.Perm (Fin n))) (hΓ : Γ.Nonempty),
+      1 ∈ Γ →
+        ∀ (k : Fin n → ℕ),
+          (∀ (j : Fin n), k j ≤ N) →
+            Nat.card ↑(OrbitQuotient.Box p N n k) * p ^ ∑ j, (k j - OrbitQuotient.hullThresh Γ hΓ k j) =
+              Nat.card ↑(OrbitQuotient.Box p N n (OrbitQuotient.hullThresh Γ hΓ k))
+OrbitQuotient.kTwo : Fin 2 → ℕ
+OrbitQuotient.gammaTwo : Finset (Equiv.Perm (Fin 2))
+OrbitQuotient.gammaTwo_nonempty : OrbitQuotient.gammaTwo.Nonempty
+OrbitQuotient.gammaTwo_one_mem : 1 ∈ OrbitQuotient.gammaTwo
+OrbitQuotient.gammaTwo_swap_mem : Equiv.swap 0 1 ∈ OrbitQuotient.gammaTwo
+OrbitQuotient.kTwo_zero : OrbitQuotient.kTwo 0 = 0
+OrbitQuotient.kTwo_one : OrbitQuotient.kTwo 1 = 1
+OrbitQuotient.fin_two_cases : ∀ (j : Fin 2), j = 0 ∨ j = 1
+OrbitQuotient.zmod_two_two_dvd_iff : ∀ (x : ZMod 2), 2 ∣ x.val ↔ x = 0
+@OrbitQuotient.zmod_two_eq_one_of_ne_zero : ∀ {x : ZMod 2}, x ≠ 0 → x = 1
+OrbitQuotient.mem_box_kTwo : ∀ (x : Fin 2 → ZMod (2 ^ 1)), x ∈ OrbitQuotient.Box 2 1 2 OrbitQuotient.kTwo ↔ x 1 = 0
+OrbitQuotient.mem_box_kTwo_swap : ∀ (x : Fin 2 → ZMod (2 ^ 1)),
+  OrbitQuotient.permAct 2 1 (Equiv.swap 0 1) x ∈ OrbitQuotient.Box 2 1 2 OrbitQuotient.kTwo ↔ x 0 = 0
+OrbitQuotient.orbitUnion_gammaTwo : OrbitQuotient.orbitUnion 2 1 2 OrbitQuotient.gammaTwo OrbitQuotient.kTwo =
+  {x | x 0 = 0 ∨ x 1 = 0}
+OrbitQuotient.union_halfspaces_eq_ne : {x | x 0 = 0 ∨ x 1 = 0} = {x | x ≠ fun x => 1}
+OrbitQuotient.hullThresh_gammaTwo : OrbitQuotient.hullThresh OrbitQuotient.gammaTwo OrbitQuotient.gammaTwo_nonempty
+    OrbitQuotient.kTwo =
+  fun x => 0
+OrbitQuotient.two_three_four : Nat.card ↑(OrbitQuotient.Box 2 1 2 OrbitQuotient.kTwo) = 2 ∧
+  Nat.card ↑(OrbitQuotient.orbitUnion 2 1 2 OrbitQuotient.gammaTwo OrbitQuotient.kTwo) = 3 ∧
+    Nat.card
+        ↑(OrbitQuotient.Box 2 1 2
+            (OrbitQuotient.hullThresh OrbitQuotient.gammaTwo OrbitQuotient.gammaTwo_nonempty OrbitQuotient.kTwo)) =
+      4
+def OrbitQuotient.Box : (p N n : ℕ) → (Fin n → ℕ) → Set (Fin n → ZMod (p ^ N)) :=
+fun p N n k => {x | ∀ (j : Fin n), p ^ k j ∣ (x j).val}
+def OrbitQuotient.IdealBox : (p N n : ℕ) → (Fin n → ℕ) → Set (Fin n → ZMod (p ^ N)) :=
+fun p N n k => {x | ∀ (j : Fin n), x j ∈ Ideal.span {↑p ^ k j}}
+def OrbitQuotient.permAct : (p N : ℕ) → {n : ℕ} → Equiv.Perm (Fin n) → (Fin n → ZMod (p ^ N)) → Fin n → ZMod (p ^ N) :=
+fun p N {n} γ x j => x (γ j)
+def OrbitQuotient.orbitUnion : (p N n : ℕ) → Finset (Equiv.Perm (Fin n)) → (Fin n → ℕ) → Set (Fin n → ZMod (p ^ N)) :=
+fun p N n Γ k => {x | ∃ γ ∈ Γ, OrbitQuotient.permAct p N γ x ∈ OrbitQuotient.Box p N n k}
+def OrbitQuotient.hullThresh : {n : ℕ} → (Γ : Finset (Equiv.Perm (Fin n))) → Γ.Nonempty → (Fin n → ℕ) → Fin n → ℕ :=
+fun {n} Γ hΓ k j => (Finset.image (fun γ => k ((Equiv.symm γ) j)) Γ).min' ⋯
+def OrbitQuotient.coordinateProductHull.{u_1, u_2} : {ι : Type u_1} →
+  {α : ι → Type u_2} → Set ((j : ι) → α j) → Set ((j : ι) → α j) :=
+fun {ι} {α} U => Set.univ.pi fun j => (fun x => x j) '' U
+'OrbitQuotient.Box' depends on axioms: [propext]
+'OrbitQuotient.IdealBox' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.permAct' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.orbitUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.orbitUnion_eq_inverse_images' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.hullThresh' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.pow_mul_pow_sub' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.le_of_pow_dvd_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.val_pow_natCast' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.dvd_iff_val_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.IdealBox_eq_Box' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.box_mono' depends on axioms: [propext]
+'OrbitQuotient.mem_permAct_box' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.le_of_box_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.hull_thresholds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.hull_minimal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.coordinateProductHull' does not depend on any axioms
+'OrbitQuotient.coordinateProductHull_minimal' does not depend on any axioms
+'OrbitQuotient.coordinateProductHull_orbitUnion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.hull_minimal_coordinateProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.hull_least_coordinateProduct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.hull_minimal_from_products' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.boxFinEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.box_cardinality' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.enlargement_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.enlargement_budget_hull' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.kTwo' depends on axioms: [propext]
+'OrbitQuotient.gammaTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.gammaTwo_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.gammaTwo_one_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.gammaTwo_swap_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.kTwo_zero' depends on axioms: [propext]
+'OrbitQuotient.kTwo_one' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.fin_two_cases' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.zmod_two_two_dvd_iff' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.zmod_two_eq_one_of_ne_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.mem_box_kTwo' depends on axioms: [propext, Quot.sound]
+'OrbitQuotient.mem_box_kTwo_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.orbitUnion_gammaTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.union_halfspaces_eq_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.hullThresh_gammaTwo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OrbitQuotient.two_three_four' depends on axioms: [propext, Classical.choice, Quot.sound]

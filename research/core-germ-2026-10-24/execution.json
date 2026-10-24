@@ -1,0 +1,21 @@
+{
+  "build": {
+    "exit_code": 0,
+    "source_sha256": "0c7af1cda76e5b21a4e9cc79675de47aadc1988b6055078da16c8692067f631a",
+    "output_sha256": "fd05e7045c828a9f86a078bbf9eb0803cf59b4ee04c09451dc64ef6a71bcd28c",
+    "command": "lake env lean -DwarningAsError=true -o .lake/build/lib/lean/Boundary/ThetaGermTransport.olean Boundary/ThetaGermTransport.lean",
+    "exit_evidence": "parent observed exec session 38398 exit_code 0"
+  },
+  "port_build": {
+    "exit_code": 0,
+    "results_sha256": "74cee1767a6d679e83c0542de5015726bc4816604658e58481358613ed32415d",
+    "exit_evidence": "parent observed exec session 50991 exit_code 0; all four explicit modules reported exit 0"
+  },
+  "export": {
+    "exit_code": 0,
+    "source_sha256": "893a60d9d92004700b99a9face9e651711024d65b33b35575f15976a1fc52cb6",
+    "output_sha256": "1bb7fae3f0cc3dbb543a72a0688a2cad7b1cb660da66b6c244f5bb5249ceff08",
+    "command": "lake env lean -DwarningAsError=true ExportThetaGermTransport.lean",
+    "exit_evidence": "parent observed exec session 30184 exit_code 0"
+  }
+}

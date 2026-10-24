@@ -1,0 +1,16 @@
+{
+  "build": {
+    "exit_code": 0,
+    "source_sha256": "62bd620cd4d62395d7d14706c56c8efec111b1f4a6bcf8c3e3d2002b5fbbe660",
+    "output_sha256": "265564d04acd4ad674b77924b9367ed5ca50915a752e0fd36a5518824a869fab",
+    "command": "lake env lean -DwarningAsError=true -o .lake/build/lib/lean/Boundary/ProjectiveComparison.olean Boundary/ProjectiveComparison.lean",
+    "exit_evidence": "parent observed exec session 75545 exit_code 0; preceding redirect failure did not run Lean and was not counted"
+  },
+  "export": {
+    "exit_code": 0,
+    "source_sha256": "b36c3ea8bddfa1f3f6640f20af35a6e2ef5fe67afd5d9c3ac2e747bd3a409088",
+    "output_sha256": "71e1e39e33e153e13a717078dc4ab21388a8c527044038d09ba29020e12be3c1",
+    "command": "lake env lean -DwarningAsError=true ExportProjectiveComparison.lean",
+    "exit_evidence": "parent observed exec session 77714 exit_code 0"
+  }
+}

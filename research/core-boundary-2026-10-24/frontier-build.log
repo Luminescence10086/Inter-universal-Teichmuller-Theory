@@ -1,0 +1,44 @@
+'CoreDiscreteKummer.exponent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.exponent_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.exponent_sub_dvd_of_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.exponent_eq_of_bounded_power' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.exponent_eq_of_power_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.valuation_eq_of_exponent_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.integerRegion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.mem_principal_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.principal_eq_of_exponent_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.power_ratio_of_kummer_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.principal_eq_of_kummer_eq_and_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDiscreteKummer.principal_eq_of_normalized_kummer_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreFinitePlaceKummer.fieldAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreFinitePlaceKummer.localValuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreFinitePlaceKummer.integerRegion_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreFinitePlaceKummer.integerRing_isDVR' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreFinitePlaceKummer.mem_principal_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreFinitePlaceKummer.principal_eq_of_normalized_kummer_tower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreReducedComparison.pullback_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreReducedComparison.residue_classes_eq_of_specialization_squares' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreKummerPrecision.exponent_sub_dvd_of_raised_level' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreKummerPrecision.principal_eq_of_raised_level_and_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'KummerTheory.Decomposition.decompositionMap_surjective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDecompositionBridge.reducedClass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreDecompositionBridge.residue_kummer_eq_of_reduced_restrictions_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreDecompositionBridge.principal_eq_of_reduced_comparison_and_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreLaurentPoint.constants_compatible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.constantsAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.constantsSMul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.coefficientAlgebra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.coefficientTower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.residue_powerSeries' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.comap_eq_powerSeries_valuationSubring' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.rational_residues' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.decompositionMap_surjective_at_germ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreLaurentPoint.principal_eq_of_powerSeries_comparison' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,16 @@
+{
+  "build": {
+    "exit_code": 0,
+    "source_sha256": "3ac26c67eaa5defd1ddb68d832d6d6a924922e53da198765a9ed595fc7ba7c95",
+    "output_sha256": "ae17e37e60b564ec60cb095f8f0214d97d2b5592913895819da5081cf75ecdcc",
+    "command": "lake env lean -DwarningAsError=true -o .lake/build/lib/lean/Boundary/AnchoredComparison.olean Boundary/AnchoredComparison.lean",
+    "exit_evidence": "parent observed exec session 65358 exit_code 0"
+  },
+  "export": {
+    "exit_code": 0,
+    "source_sha256": "26c24294ccdf5314e3405249cbd606cb5d7e5b0b6a18d6b1dc9d623b9f762902",
+    "output_sha256": "2a4c3264937bcb78b97133a4fd3b8aa7e31f5fd55a45c46955bda72e8fbe32a6",
+    "command": "lake env lean -DwarningAsError=true ExportAnchoredComparison.lean",
+    "exit_evidence": "parent observed exec session 10169 exit_code 0"
+  }
+}

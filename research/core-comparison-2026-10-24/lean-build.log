@@ -1,0 +1,23 @@
+'CoreAnchoredComparison.dvd_determinant' depends on axioms: [propext, Quot.sound]
+'CoreAnchoredComparison.cancel_anchor_precision' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.coefficientPower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.coefficientPower_eq_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.exponent_mul_units' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.cross_difference_dvd_of_unit_corrected_classes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreAnchoredComparison.principal_eq_of_unit_corrected_anchored_classes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreAnchoredComparison.cross_difference_dvd_of_classes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.exponent_sub_dvd_of_anchored_classes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.principal_eq_of_anchored_classes_and_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'CoreAnchoredComparison.principal_eq_of_anchored_tower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.exponent_eq_of_principal_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.unanchored_unit_power_fails' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredComparison.quadratic_label_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreAnchoredDecomposition.residue_kummer_pow_of_reduced_comparison' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

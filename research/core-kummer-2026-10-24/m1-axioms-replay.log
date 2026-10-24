@@ -1,0 +1,211 @@
+'Candidates.RestrictedLedger.dot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.dot_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.dot_sub' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.dot_smul' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.dot_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.dot_single' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.integer_span_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.weightedLedger_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.restricted_ledger_criterion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.swapWeights' depends on axioms: [propext]
+'Candidates.RestrictedLedger.equalValuationDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.equalValuationDomain_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.vprofile_of_equal_valuation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.vprofile_one_tuple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.vprofile_pTuple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.equalValuationDomain_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.equalValuationDomain_realises_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Candidates.RestrictedLedger.swapWeights_not_invariant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.equal_valuation_two_slot_example' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Candidates.RestrictedLedger.domain_not_preserved_by_slotwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Candidates.RestrictedLedger.nonzeroDomain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.nonzeroDomain_one_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.nonzeroDomain_span' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.nonzeroDomain_realises_generator' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Candidates.RestrictedLedger.full_domain_specialization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.swapWeights_budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.empty_domain_vacuous' depends on axioms: [propext, Classical.choice, Quot.sound]
+@integer_combination_criterion : ∀ {n r : ℕ} (d e₀ : Fin n → ℤ) (c : ℤ) (b : Fin r → Fin n → ℤ)
+  (S : Set.{0} (Fin n → ℤ)),
+  Membership.mem.{0, 0} S e₀ →
+    (∀ (e : Fin n → ℤ),
+        Membership.mem.{0, 0} S e →
+          ∃ lam, Eq.{1} (HSub.hSub.{0, 0, 0} e e₀) (∑ i, HSMul.hSMul.{0, 0, 0} (lam i) (b i))) →
+      (∀ (i : Fin r),
+          ∃ m e lam,
+            (∀ (k : Fin m), Membership.mem.{0, 0} S (e k)) ∧
+              Eq.{1} (b i) (∑ k, HSMul.hSMul.{0, 0, 0} (lam k) (HSub.hSub.{0, 0, 0} (e k) e₀))) →
+        ((∀ (e : Fin n → ℤ), Membership.mem.{0, 0} S e → Eq.{1} (HAdd.hAdd.{0, 0, 0} (dot d e) c) 0) ↔
+          Eq.{1} (HAdd.hAdd.{0, 0, 0} (dot d e₀) c) 0 ∧ ∀ (i : Fin r), Eq.{1} (dot d (b i)) 0)
+restricted_ledger_combination_criterion : ∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n r : ℕ}
+  (Ω : Set.{0} (IUTBridge.Slots.Tuple p n)),
+  (∀ (x : IUTBridge.Slots.Tuple p n), Membership.mem.{0, 0} Ω x → ∀ (j : Fin n), Ne.{1} (x j) 0) →
+    ∀ (w : Fin n → ℤ) (σ : Equiv.Perm.{1} (Fin n)) (a : Fin n → ℚ_[p]),
+      (∀ (j : Fin n), Ne.{1} (a j) 0) →
+        ∀ (x₀ : IUTBridge.Slots.Tuple p n),
+          Membership.mem.{0, 0} Ω x₀ →
+            ∀ (b : Fin r → Fin n → ℤ),
+              (∀ (x : IUTBridge.Slots.Tuple p n),
+                  Membership.mem.{0, 0} Ω x →
+                    ∃ lam,
+                      Eq.{1}
+                        (HSub.hSub.{0, 0, 0} (IUTBridge.WeightedLedger.vprofile p x)
+                          (IUTBridge.WeightedLedger.vprofile p x₀))
+                        (∑ i, HSMul.hSMul.{0, 0, 0} (lam i) (b i))) →
+                (∀ (i : Fin r),
+                    ∃ m x lam,
+                      (∀ (k : Fin m), Membership.mem.{0, 0} Ω (x k)) ∧
+                        Eq.{1} (b i)
+                          (∑ k,
+                            HSMul.hSMul.{0, 0, 0} (lam k)
+                              (HSub.hSub.{0, 0, 0} (IUTBridge.WeightedLedger.vprofile p (x k))
+                                (IUTBridge.WeightedLedger.vprofile p x₀)))) →
+                  ((∀ (x : IUTBridge.Slots.Tuple p n),
+                      Membership.mem.{0, 0} Ω x →
+                        Eq.{1}
+                          (IUTBridge.WeightedLedger.weightedLedger p w
+                            (IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x)))
+                          (IUTBridge.WeightedLedger.weightedLedger p w x)) ↔
+                    Eq.{1}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (dot (fun j => HSub.hSub.{0, 0, 0} (w (σ j)) (w j)) (IUTBridge.WeightedLedger.vprofile p x₀))
+                          (∑ j, HMul.hMul.{0, 0, 0} (w (σ j)) (a j).valuation))
+                        0 ∧
+                      ∀ (i : Fin r), Eq.{1} (dot (fun j => HSub.hSub.{0, 0, 0} (w (σ j)) (w j)) (b i)) 0)
+full_domain_iff : ∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (w : Fin n → ℤ) (σ : Equiv.Perm.{1} (Fin n))
+  (a : Fin n → ℚ_[p]),
+  (∀ (j : Fin n), Ne.{1} (a j) 0) →
+    ((∀ (x : IUTBridge.Slots.Tuple p n),
+        (∀ (j : Fin n), Ne.{1} (x j) 0) →
+          Eq.{1}
+            (IUTBridge.WeightedLedger.weightedLedger p w (IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x)))
+            (IUTBridge.WeightedLedger.weightedLedger p w x)) ↔
+      (∀ (j : Fin n), Eq.{1} (w (σ j)) (w j)) ∧ Eq.{1} (∑ j, HMul.hMul.{0, 0, 0} (w (σ j)) (a j).valuation) 0)
+finite_integer_span_membership_example : (Membership.mem.{0, 0} finiteIntegerDomain fun x => 0) ∧
+  (∀ (e : Fin 1 → ℤ),
+      Membership.mem.{0, 0} finiteIntegerDomain e →
+        ∃ lam,
+          Eq.{1} (HSub.hSub.{0, 0, 0} e fun x => 0) (∑ i, HSMul.hSMul.{0, 0, 0} (lam i) (integerUnitGenerator i))) ∧
+    (∀ (i : Fin 1),
+        ∃ m e lam,
+          (∀ (k : Fin m), Membership.mem.{0, 0} finiteIntegerDomain (e k)) ∧
+            Eq.{1} (integerUnitGenerator i)
+              (∑ k, HSMul.hSMul.{0, 0, 0} (lam k) (HSub.hSub.{0, 0, 0} (e k) fun x => 0))) ∧
+      (¬∃ e,
+            Membership.mem.{0, 0} finiteIntegerDomain e ∧
+              Eq.{1} (HSub.hSub.{0, 0, 0} e fun x => 0) (integerUnitGenerator 0)) ∧
+        ∀ (d : Fin 1 → ℤ) (c : ℤ),
+          (∀ (e : Fin 1 → ℤ),
+              Membership.mem.{0, 0} finiteIntegerDomain e → Eq.{1} (HAdd.hAdd.{0, 0, 0} (dot d e) c) 0) ↔
+            Eq.{1} c 0 ∧ ∀ (i : Fin 1), Eq.{1} (dot d (integerUnitGenerator i)) 0
+def Candidates.RestrictedLedger.finiteIntegerDomain : Set.{0} (Fin 1 → ℤ) :=
+Set.ofPred.{0} fun e => (Eq.{1} e fun x => 0) ∨ (Eq.{1} e fun x => 2) ∨ Eq.{1} e fun x => 3
+def Candidates.RestrictedLedger.integerUnitGenerator : Fin 1 → Fin 1 → ℤ :=
+fun x x_1 => 1
+'Candidates.RestrictedLedger.integer_combination_criterion' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Candidates.RestrictedLedger.restricted_ledger_combination_criterion' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Candidates.RestrictedLedger.full_domain_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Candidates.RestrictedLedger.finiteIntegerDomain' does not depend on any axioms
+'Candidates.RestrictedLedger.integerUnitGenerator' does not depend on any axioms
+'Candidates.RestrictedLedger.finite_integer_span_membership_example' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+restricted_ledger_span_criterion : ∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n r : ℕ} (Ω : Set (IUTBridge.Slots.Tuple p n)),
+  (∀ x ∈ Ω, ∀ (j : Fin n), x j ≠ 0) →
+    ∀ (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]),
+      (∀ (j : Fin n), a j ≠ 0) →
+        ∀ x₀ ∈ Ω,
+          ∀ (b : Fin r → Fin n → ℤ),
+            (∀ x ∈ Ω,
+                ∃ lam,
+                  IUTBridge.WeightedLedger.vprofile p x - IUTBridge.WeightedLedger.vprofile p x₀ = ∑ i, lam i • b i) →
+              (∀ (i : Fin r), MemDiffSpanOn p Ω x₀ (b i)) →
+                ((∀ x ∈ Ω,
+                    IUTBridge.WeightedLedger.weightedLedger p w
+                        (IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x)) =
+                      IUTBridge.WeightedLedger.weightedLedger p w x) ↔
+                  dot (fun j => w (σ j) - w j) (IUTBridge.WeightedLedger.vprofile p x₀) +
+                        ∑ j, w (σ j) * (a j).valuation =
+                      0 ∧
+                    ∀ (i : Fin r), dot (fun j => w (σ j) - w j) (b i) = 0)
+restricted_ledger_criterion : ∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n r : ℕ} (Ω : Set (IUTBridge.Slots.Tuple p n)),
+  (∀ x ∈ Ω, ∀ (j : Fin n), x j ≠ 0) →
+    ∀ (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]),
+      (∀ (j : Fin n), a j ≠ 0) →
+        ∀ x₀ ∈ Ω,
+          ∀ (b : Fin r → Fin n → ℤ),
+            (∀ x ∈ Ω,
+                ∃ lam,
+                  IUTBridge.WeightedLedger.vprofile p x - IUTBridge.WeightedLedger.vprofile p x₀ = ∑ i, lam i • b i) →
+              (∀ (i : Fin r),
+                  ∃ x ∈ Ω, IUTBridge.WeightedLedger.vprofile p x - IUTBridge.WeightedLedger.vprofile p x₀ = b i) →
+                ((∀ x ∈ Ω,
+                    IUTBridge.WeightedLedger.weightedLedger p w
+                        (IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x)) =
+                      IUTBridge.WeightedLedger.weightedLedger p w x) ↔
+                  dot (fun j => w (σ j) - w j) (IUTBridge.WeightedLedger.vprofile p x₀) +
+                        ∑ j, w (σ j) * (a j).valuation =
+                      0 ∧
+                    ∀ (i : Fin r), dot (fun j => w (σ j) - w j) (b i) = 0)
+restricted_ledger_criterion_of_combination : ∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n r : ℕ}
+  (Ω : Set (IUTBridge.Slots.Tuple p n)),
+  (∀ x ∈ Ω, ∀ (j : Fin n), x j ≠ 0) →
+    ∀ (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n)) (a : Fin n → ℚ_[p]),
+      (∀ (j : Fin n), a j ≠ 0) →
+        ∀ x₀ ∈ Ω,
+          ∀ (b : Fin r → Fin n → ℤ),
+            (∀ x ∈ Ω,
+                ∃ lam,
+                  IUTBridge.WeightedLedger.vprofile p x - IUTBridge.WeightedLedger.vprofile p x₀ = ∑ i, lam i • b i) →
+              (∀ (i : Fin r),
+                  ∃ x ∈ Ω, IUTBridge.WeightedLedger.vprofile p x - IUTBridge.WeightedLedger.vprofile p x₀ = b i) →
+                ((∀ x ∈ Ω,
+                    IUTBridge.WeightedLedger.weightedLedger p w
+                        (IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x)) =
+                      IUTBridge.WeightedLedger.weightedLedger p w x) ↔
+                  dot (fun j => w (σ j) - w j) (IUTBridge.WeightedLedger.vprofile p x₀) +
+                        ∑ j, w (σ j) * (a j).valuation =
+                      0 ∧
+                    ∀ (i : Fin r), dot (fun j => w (σ j) - w j) (b i) = 0)
+full_domain_iff : ∀ (p : ℕ) [hp : Fact (Nat.Prime p)] {n : ℕ} (w : Fin n → ℤ) (σ : Equiv.Perm (Fin n))
+  (a : Fin n → ℚ_[p]),
+  (∀ (j : Fin n), a j ≠ 0) →
+    ((∀ (x : IUTBridge.Slots.Tuple p n),
+        (∀ (j : Fin n), x j ≠ 0) →
+          IUTBridge.WeightedLedger.weightedLedger p w (IUTBridge.Slots.relabel p σ (IUTBridge.Slots.slotwise p a x)) =
+            IUTBridge.WeightedLedger.weightedLedger p w x) ↔
+      (∀ (j : Fin n), w (σ j) = w j) ∧ ∑ j, w (σ j) * (a j).valuation = 0)
+def Candidates.RestrictedLedger.MemDiffSpan : {n : ℕ} → Set (Fin n → ℤ) → (Fin n → ℤ) → (Fin n → ℤ) → Prop :=
+fun {n} S e₀ v => ∃ m e lam, (∀ (k : Fin m), e k ∈ S) ∧ v = ∑ k, lam k • (e k - e₀)
+def Candidates.RestrictedLedger.MemDiffSpanOn : (p : ℕ) →
+  [hp : Fact (Nat.Prime p)] →
+    {n : ℕ} → Set (IUTBridge.Slots.Tuple p n) → IUTBridge.Slots.Tuple p n → (Fin n → ℤ) → Prop :=
+fun p [Fact (Nat.Prime p)] {n} Ω x₀ v =>
+  ∃ m x lam,
+    (∀ (k : Fin m), x k ∈ Ω) ∧
+      v = ∑ k, lam k • (IUTBridge.WeightedLedger.vprofile p (x k) - IUTBridge.WeightedLedger.vprofile p x₀)
+'Candidates.RestrictedLedger.MemDiffSpan' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.MemDiffSpanOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.memDiffSpan_of_realised' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.memDiffSpanOn_of_realised' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Candidates.RestrictedLedger.integer_span_criterion_of_combination' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Candidates.RestrictedLedger.restricted_ledger_span_criterion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Candidates.RestrictedLedger.restricted_ledger_criterion_of_combination' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

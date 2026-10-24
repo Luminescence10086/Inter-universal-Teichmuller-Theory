@@ -1,0 +1,22 @@
+✖ [8763/8767] Building ContinuousKummerTheory.Hilbert90 (57s)
+trace: .> LEAN_PATH=C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\Cli\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\batteries\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\Qq\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\aesop\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\proofwidgets\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\importGraph\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\LeanSearchClient\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\plausible\.lake\build\lib\lean;C:\Users\18746\Desktop\数竞屠宰场\.lake\packages\mathlib\.lake\build\lib\lean;D:\Inter-universal Teichmüller Theory\candidates\core-kummer\.lake\build\lib\lean c:\Users\18746\.elan\toolchains\leanprover--lean4---v4.34.0-rc2\bin\lean.exe -DwarningAsError=true D:\Inter-universal Teichmüller Theory\candidates\core-kummer\ContinuousKummerTheory\Hilbert90.lean -o D:\Inter-universal Teichmüller Theory\candidates\core-kummer\.lake\build\lib\lean\ContinuousKummerTheory\Hilbert90.olean -i D:\Inter-universal Teichmüller Theory\candidates\core-kummer\.lake\build\lib\lean\ContinuousKummerTheory\Hilbert90.ilean -c D:\Inter-universal Teichmüller Theory\candidates\core-kummer\.lake\build\ir\ContinuousKummerTheory\Hilbert90.c --setup D:\Inter-universal Teichmüller Theory\candidates\core-kummer\.lake\build\ir\ContinuousKummerTheory\Hilbert90.setup.json --json
+error: ContinuousKummerTheory/Hilbert90.lean:68:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+error: ContinuousKummerTheory/Hilbert90.lean:69:2: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+✔ [8764/8767] Built ContinuousKummerTheory.ContH1.Basic (57s)
+Some required targets logged failures:
+- ContinuousKummerTheory.Hilbert90
+error: build failed

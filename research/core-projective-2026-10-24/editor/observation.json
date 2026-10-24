@@ -1,0 +1,12 @@
+{
+  "source_sha256": "62bd620cd4d62395d7d14706c56c8efec111b1f4a6bcf8c3e3d2002b5fbbe660",
+  "information_messages": 9,
+  "errors": 0,
+  "warnings": 0,
+  "last_message": "CoreProjectiveComparison.unequal_anchors_lose_absolute_scale",
+  "last_message_line": 169,
+  "window_id": 69418,
+  "global_information_messages": 134,
+  "observed_at_utc": "2026-10-24T03:34:58.302Z",
+  "method": "Actual VS Code Lean extension: file-filtered Problems count 9, terminal axiom report at line 169; screenshot status errors 0 warnings 0"
+}

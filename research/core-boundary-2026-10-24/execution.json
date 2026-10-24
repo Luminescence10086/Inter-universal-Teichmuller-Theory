@@ -1,0 +1,16 @@
+{
+  "frontier": {
+    "exit_code": 0,
+    "recorded_at_utc": "2026-10-24T02:36:56.636933+00:00",
+    "source_sha256": "fd4f79dc79d1a32f9f31c0e9363418559945909fdbe67169b04f7a50c893e0f9",
+    "output_sha256": "b1188d670fa34c91c852ce96b0dd8aaf1fc01539a063be19cbd6271676f17706",
+    "basis": "Exit code returned by the parent execution tool, explicitly recorded by parent"
+  },
+  "export": {
+    "exit_code": 0,
+    "recorded_at_utc": "2026-10-24T02:38:09.647258+00:00",
+    "source_sha256": "6f6356c2806c84192911a637b7ad277e5cb7ba62d72b436a9e8ac33dc84be823",
+    "output_sha256": "58dd21c24880f38f3f10e2930ce2517d8683b34894e859d33677541e656d7f24",
+    "basis": "Exit code returned by the parent execution tool, explicitly recorded by parent"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "source_sha256": "3ac26c67eaa5defd1ddb68d832d6d6a924922e53da198765a9ed595fc7ba7c95",
+  "information_messages": 15,
+  "errors": 0,
+  "warnings": 0,
+  "last_message": "CoreAnchoredDecomposition.residue_kummer_pow_of_reduced_comparison",
+  "last_message_line": 292,
+  "window_id": 69418,
+  "global_information_messages": 125,
+  "observed_at_utc": "2026-10-24T03:19:14.110Z",
+  "method": "Actual VS Code Lean extension, file-filtered Problems count 15 and terminal axiom report, screenshot status errors 0 warnings 0"
+}

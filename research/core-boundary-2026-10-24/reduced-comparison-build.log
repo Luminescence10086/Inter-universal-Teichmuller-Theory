@@ -1,0 +1,4 @@
+'CoreReducedComparison.pullback_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'CoreReducedComparison.residue_classes_eq_of_specialization_squares' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

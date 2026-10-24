@@ -1,0 +1,75 @@
+{
+  "note": "Source and destination SHA-256 values; copied modules only, no Lean run.",
+  "files": [
+    {
+      "sourceSha256": "78a64446548c8b8e1e0d4bec787cfce99cded4543353182093fc13a850f56899",
+      "identical": true,
+      "targetSha256": "78a64446548c8b8e1e0d4bec787cfce99cded4543353182093fc13a850f56899",
+      "targetRelativePath": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Values.lean",
+      "sourceRepository": "continuous-kummer-pin",
+      "sourceCommit": "98b67dfe9c82415aa17caa633d93960b6829af2e",
+      "sourceRelativePath": "ContinuousKummerTheory/Kummer/Values.lean",
+      "name": "Values.lean"
+    },
+    {
+      "sourceSha256": "a3852b0e12e7f0af7f87341f904df7914a32fd0b550f79bb0d4de4a3ec2a876a",
+      "identical": true,
+      "targetSha256": "a3852b0e12e7f0af7f87341f904df7914a32fd0b550f79bb0d4de4a3ec2a876a",
+      "targetRelativePath": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Specialization.lean",
+      "sourceRepository": "continuous-kummer-pin",
+      "sourceCommit": "98b67dfe9c82415aa17caa633d93960b6829af2e",
+      "sourceRelativePath": "ContinuousKummerTheory/Kummer/Specialization.lean",
+      "name": "Specialization.lean"
+    },
+    {
+      "sourceSha256": "b7a67da60e61998d631201b3053aadea387993c68984dd1e14a3f5d9d446b7a6",
+      "identical": true,
+      "targetSha256": "b7a67da60e61998d631201b3053aadea387993c68984dd1e14a3f5d9d446b7a6",
+      "targetRelativePath": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Decomposition.lean",
+      "sourceRepository": "continuous-kummer-pin",
+      "sourceCommit": "98b67dfe9c82415aa17caa633d93960b6829af2e",
+      "sourceRelativePath": "ContinuousKummerTheory/Kummer/Decomposition.lean",
+      "name": "Decomposition.lean"
+    },
+    {
+      "sourceSha256": "ac1e91c8594522d6d981283bf959cd59a4652891bdf090a5890b3a58979247f5",
+      "identical": true,
+      "targetSha256": "ac1e91c8594522d6d981283bf959cd59a4652891bdf090a5890b3a58979247f5",
+      "targetRelativePath": "candidates/core-kummer/ContinuousKummerTheory/Kummer/DecompositionSurjective.lean",
+      "sourceRepository": "continuous-kummer-theory",
+      "sourceCommit": "1d5194fcc63ddeb7a8cdb6c98d59452503db60fa",
+      "sourceRelativePath": "ContinuousKummerTheory/Kummer/DecompositionSurjective.lean",
+      "name": "DecompositionSurjective.lean"
+    },
+    {
+      "name": "Restriction.lean",
+      "sourceRepository": "continuous-kummer-pin",
+      "sourceCommit": "98b67dfe9c82415aa17caa633d93960b6829af2e",
+      "sourceRelativePath": "ContinuousKummerTheory/Kummer/Restriction.lean",
+      "targetRelativePath": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Restriction.lean",
+      "sourceSha256": "a3cb72802180576ed19c3ea02a3f5118685969c66647789c5fa0bc6121fd395e",
+      "targetSha256": "a3cb72802180576ed19c3ea02a3f5118685969c66647789c5fa0bc6121fd395e",
+      "identical": true
+    },
+    {
+      "name": "Corestriction.lean",
+      "sourceRepository": "continuous-kummer-pin",
+      "sourceCommit": "98b67dfe9c82415aa17caa633d93960b6829af2e",
+      "sourceRelativePath": "ContinuousKummerTheory/Kummer/Corestriction.lean",
+      "targetRelativePath": "candidates/core-kummer/ContinuousKummerTheory/Kummer/Corestriction.lean",
+      "sourceSha256": "363f9ca8e7ba6c6407e295f7b6aab745fb94a7c4ea0ecd18016ad5cc57f03144",
+      "targetSha256": "363f9ca8e7ba6c6407e295f7b6aab745fb94a7c4ea0ecd18016ad5cc57f03144",
+      "identical": true
+    },
+    {
+      "name": "Corestriction.lean",
+      "sourceRepository": "continuous-kummer-pin",
+      "sourceCommit": "98b67dfe9c82415aa17caa633d93960b6829af2e",
+      "sourceRelativePath": "ContinuousKummerTheory/ContH1/Corestriction.lean",
+      "targetRelativePath": "candidates/core-kummer/ContinuousKummerTheory/ContH1/Corestriction.lean",
+      "sourceSha256": "fe54a09e994e1ba99a73ab66aa9e6305a2037e7213b1e13126d44e8533916ddf",
+      "targetSha256": "fe54a09e994e1ba99a73ab66aa9e6305a2037e7213b1e13126d44e8533916ddf",
+      "identical": true
+    }
+  ]
+}

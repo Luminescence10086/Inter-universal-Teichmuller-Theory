@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "method": "actual VS Code Lean extension via computer-use @oai/sky; diagnostic tree plus screenshots",
+  "files": [
+    {
+      "file": "candidates/core-kummer/KummerClassValuationBridge.lean",
+      "sha256": "25108673aa0a6fd5f03e03c28138a2962811e1059a76d7c09cb7232fa3444660",
+      "observedAt": "2026-10-23T18:31:41.815Z",
+      "informationMessages": 10,
+      "lastMessage": "principal_eq_of_normalized_kummer_tower",
+      "errors": 0,
+      "warnings": 0,
+      "finalTree": "bridge-final.txt"
+    },
+    {
+      "file": "candidates/core-kummer/CohomologyReflection.lean",
+      "sha256": "0c5476c9993fcf960a7748c0b4643386bf9291640bd03582483b217f0b55d8a3",
+      "observedAt": "2026-10-23T18:31:41.816Z",
+      "informationMessages": 2,
+      "lastMessage": "map_eq_iff",
+      "errors": 0,
+      "warnings": 0,
+      "finalTree": "reflection.txt"
+    },
+    {
+      "file": "candidates/core-local-global/KummerValuationSeparation.lean",
+      "sha256": "88e4c5eb62086172a1527499b4d79f2f333421c0b7cf8b8ec08b2d25c79ee236",
+      "observedAt": "2026-10-23T18:31:41.816Z",
+      "informationMessages": 13,
+      "lastMessage": "principal_eq_of_power_tower",
+      "errors": 0,
+      "warnings": 0,
+      "finalTree": "valuation-final.txt"
+    }
+  ]
+}

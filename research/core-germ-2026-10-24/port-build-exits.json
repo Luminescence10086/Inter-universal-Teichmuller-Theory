@@ -1,0 +1,18 @@
+[
+  {
+    "module": "TateCurvesTheta/QParameter/Basic",
+    "exit_code": 0
+  },
+  {
+    "module": "TateCurvesTheta/Theta/Basic",
+    "exit_code": 0
+  },
+  {
+    "module": "TateCurvesTheta/Theta/Periodicity",
+    "exit_code": 0
+  },
+  {
+    "module": "TateCurvesTheta/Kummer/ThetaGermCore",
+    "exit_code": 0
+  }
+]

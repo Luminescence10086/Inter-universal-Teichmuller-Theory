@@ -1,0 +1,66 @@
+{
+  "project": "candidates/core-kummer",
+  "sourceSelection": "Six modules are from pin 98b67dfe9c82415aa17caa633d93960b6829af2e; DecompositionSurjective is from continuous-kummer-theory HEAD 1d5194fcc63ddeb7a8cdb6c98d59452503db60fa.",
+  "command": "lake env lean -DwarningAsError=true -o <module.olean> <module.lean>",
+  "startedAtUtc": "2026-10-23T18:48:43.9395813Z",
+  "finishedAtUtc": "2026-10-23T18:50:17.8988696Z",
+  "exitCode": 1,
+  "modules": [
+    {
+      "module": "ContinuousKummerTheory.ContH1.Corestriction",
+      "source": "ContinuousKummerTheory\\ContH1\\Corestriction.lean",
+      "output": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer\\.lake\\build\\lib\\lean\\ContinuousKummerTheory\\ContH1\\Corestriction.olean",
+      "log": "D:\\Inter-universal Teichmüller Theory\\research\\core-boundary-2026-10-24\\build-import-logs\\ContinuousKummerTheory.ContH1.Corestriction.log",
+      "status": "passed",
+      "exitCode": 0
+    },
+    {
+      "module": "ContinuousKummerTheory.Kummer.Restriction",
+      "source": "ContinuousKummerTheory\\Kummer\\Restriction.lean",
+      "output": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer\\.lake\\build\\lib\\lean\\ContinuousKummerTheory\\Kummer\\Restriction.olean",
+      "log": "D:\\Inter-universal Teichmüller Theory\\research\\core-boundary-2026-10-24\\build-import-logs\\ContinuousKummerTheory.Kummer.Restriction.log",
+      "status": "passed",
+      "exitCode": 0
+    },
+    {
+      "module": "ContinuousKummerTheory.Kummer.Corestriction",
+      "source": "ContinuousKummerTheory\\Kummer\\Corestriction.lean",
+      "output": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer\\.lake\\build\\lib\\lean\\ContinuousKummerTheory\\Kummer\\Corestriction.olean",
+      "log": "D:\\Inter-universal Teichmüller Theory\\research\\core-boundary-2026-10-24\\build-import-logs\\ContinuousKummerTheory.Kummer.Corestriction.log",
+      "status": "failed",
+      "exitCode": 1
+    },
+    {
+      "module": "ContinuousKummerTheory.Kummer.Values",
+      "source": "ContinuousKummerTheory\\Kummer\\Values.lean",
+      "output": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer\\.lake\\build\\lib\\lean\\ContinuousKummerTheory\\Kummer\\Values.olean",
+      "log": "D:\\Inter-universal Teichmüller Theory\\research\\core-boundary-2026-10-24\\build-import-logs\\ContinuousKummerTheory.Kummer.Values.log",
+      "status": "not_run_after_failure",
+      "exitCode": null
+    },
+    {
+      "module": "ContinuousKummerTheory.Kummer.Specialization",
+      "source": "ContinuousKummerTheory\\Kummer\\Specialization.lean",
+      "output": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer\\.lake\\build\\lib\\lean\\ContinuousKummerTheory\\Kummer\\Specialization.olean",
+      "log": "D:\\Inter-universal Teichmüller Theory\\research\\core-boundary-2026-10-24\\build-import-logs\\ContinuousKummerTheory.Kummer.Specialization.log",
+      "status": "not_run_after_failure",
+      "exitCode": null
+    },
+    {
+      "module": "ContinuousKummerTheory.Kummer.Decomposition",
+      "source": "ContinuousKummerTheory\\Kummer\\Decomposition.lean",
+      "output": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer\\.lake\\build\\lib\\lean\\ContinuousKummerTheory\\Kummer\\Decomposition.olean",
+      "log": "D:\\Inter-universal Teichmüller Theory\\research\\core-boundary-2026-10-24\\build-import-logs\\ContinuousKummerTheory.Kummer.Decomposition.log",
+      "status": "not_run_after_failure",
+      "exitCode": null
+    },
+    {
+      "module": "ContinuousKummerTheory.Kummer.DecompositionSurjective",
+      "source": "ContinuousKummerTheory\\Kummer\\DecompositionSurjective.lean",
+      "output": "D:\\Inter-universal Teichmüller Theory\\candidates\\core-kummer\\.lake\\build\\lib\\lean\\ContinuousKummerTheory\\Kummer\\DecompositionSurjective.olean",
+      "log": "D:\\Inter-universal Teichmüller Theory\\research\\core-boundary-2026-10-24\\build-import-logs\\ContinuousKummerTheory.Kummer.DecompositionSurjective.log",
+      "status": "not_run_after_failure",
+      "exitCode": null
+    }
+  ]
+}
