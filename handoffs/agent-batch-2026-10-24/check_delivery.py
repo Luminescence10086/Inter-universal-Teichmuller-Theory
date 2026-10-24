@@ -164,6 +164,27 @@ def delivery_check(path, tasks):
                     "Lean run recorded an empty stdout; exit 0 is not evidenced")
     declarations = data.get("declarations", [])
     require(isinstance(declarations, list), "declarations must be a list")
+
+    # Axiom hygiene. The protocol forbids sorry, admit and ad-hoc axioms, but the
+    # checker never looked. The red team assembled a PACKAGE_COMPLETE delivery
+    # whose own logs contained three "declaration uses sorry" lines and twelve
+    # sorryAx occurrences, using T049's untouched evidence. Any axioms log that
+    # mentions sorryAx, or any declaration whose axioms list escapes the accepted
+    # whitelist, now fails here.
+    ACCEPTED_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
+    for decl in declarations:
+        log_entry = registered(decl.get("axioms_log"))
+        log_path = local_file(root, log_entry["path"])
+        log_text = log_path.read_text(encoding="utf-8", errors="replace")
+        require("sorryAx" not in log_text,
+                f"axioms log contains sorryAx for {decl.get('name')}")
+        declared_axioms = decl.get("axioms")
+        if isinstance(declared_axioms, list):
+            extra = {a for a in declared_axioms if a not in ACCEPTED_AXIOMS}
+            require(not extra,
+                    f"declaration {decl.get('name')} depends on axioms outside the "
+                    f"accepted set: {sorted(extra)}")
+
     for decl in declarations:
         require(isinstance(decl.get("name"), str) and decl["name"], "declaration name required")
         require(isinstance(decl.get("type"), str) and decl["type"] and
