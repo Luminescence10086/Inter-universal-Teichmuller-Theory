@@ -24,17 +24,30 @@ Corollary 3.12, the abc consequence, or admission into the project's fact tree.
 Run from this directory:
 
 ```powershell
-lake env lean PadicLogVolume/PadicLog.lean -o .lake/build/lib/lean/PadicLogVolume/PadicLog.olean
-lake env lean CoreLog/QpThree.lean -o .lake/build/lib/lean/CoreLog/QpThree.olean
-lake env lean CoreLog/Audit.lean
+lake build
+lake env lean -DwarningAsError=true CoreLog/Precision.lean
+lake env lean -DwarningAsError=true CoreLog/PrecisionQpThree.lean
+lake env lean -DwarningAsError=true CoreLog/Audit.lean
 ```
 
 Evidence, source diff, and current status are under `../../reviews/core-round/log/`.
 The initial full `import Mathlib` attempt was interrupted because of a loading
 bottleneck; the narrowed full port is the version actually checked.
 
-OPEN: a finite-sum truncation error theorem. The separately verified arithmetic
-helper was copied to `CoreLog/PrecisionArithmetic.lean`, but has not yet been joined
-to the analytic tail in this project. No claim of a verified numerical certificate
-or truncation theorem is made.
+`CoreLog/Precision.lean` joins the integer valuation helper to the analytic
+logarithm tail. If `r ≥ 1`, `‖x - 1‖ ≤ ‖p‖ ^ r`, and `2 * M ≤ N`, then
+
+```text
+‖padicLog x - ∑ n in Finset.range N, logTerm x n‖ ≤ ‖p‖ ^ M.
+```
+
+`CoreLog/PrecisionQpThree.lean` specializes this to actual principal units of
+`ℚ_[3]`: the `2 * M`-term truncation has error at most `(3 : ℝ)⁻¹ ^ M`.
+All four new theorems have passed strict Lean CLI checking with
+`-DwarningAsError=true`; their printed axioms are contained in `propext`,
+`Classical.choice`, and `Quot.sound`. No `sorry` or new axiom is used.
+
+This closes the former finite-sum truncation gap at CLI level. It is a uniform
+analytic error bound, not an executable interval-arithmetic numerical
+certificate. No new editor observation or fact-tree admission is claimed.
 
