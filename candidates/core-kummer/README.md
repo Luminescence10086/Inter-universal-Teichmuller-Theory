@@ -59,3 +59,33 @@ The minimal build from a clean checkout completes 2758 jobs with
 fact-tree admission, export bridge, original tempered realization, primitive
 deck identification, Corollary 3.12 or abc claim is made here. The same-frame
 and fixed Tate-coordinate hypotheses remain substantive inputs.
+
+## Unconditional Jacobi triple product
+
+`TateCurvesTheta/Theta/Durfee.lean` closes the product/series comparison for
+the Tate theta function. Over every complete nonarchimedean normed field it
+proves, with no normalization or Laurent-representation hypothesis left:
+
+* `TateCurvesTheta.TateParameter.theta_eq_thetaProd` :
+  `t.theta u = t.thetaProd u` for all `u : Kˣ`;
+* `TateCurvesTheta.TateParameter.theta_eq_zero_iff` :
+  `t.theta u = 0 ↔ ∃ k : ℤ, (u : K) = -q^k`.
+
+The proof chain is the fixed upstream chain at
+`tate-curves-theta@d1fba94861c886b671f4137ab35e24b7474c9e00`:
+Euler q-binomial expansion (`FactorSeries`) → global nonarchimedean Laurent
+convolution (`ThetaProdGlobalLaurent`) → Laurent coefficient uniqueness
+(`LaurentUnitSphere`) → closed normalization (`Normalization`) → Durfee-square
+identity (`Durfee`). The seven ported files retain the Apache-2.0 header and
+`LICENSE.upstream`.
+
+An explicit `#print axioms` audit is in
+`TateCurvesTheta/Theta/AuditTripleProduct.lean`:
+
+```powershell
+lake build TateCurvesTheta.Theta.AuditTripleProduct
+```
+
+The port is a verified integration of the pinned upstream proof, not a claim
+of new mathematics. No editor observation, fact-tree admission, original
+tempered line-bundle realization, Corollary 3.12 or abc claim is made.

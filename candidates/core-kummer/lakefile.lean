@@ -58,10 +58,18 @@ lean_lib TateCurvesTheta where
     `TateCurvesTheta.Theta.Basic,
     `TateCurvesTheta.Theta.Periodicity,
     `TateCurvesTheta.Theta.Product,
+    `TateCurvesTheta.Theta.QBinomial,
+    `TateCurvesTheta.Theta.FactorSeries,
+    `TateCurvesTheta.Theta.Divisor,
     `TateCurvesTheta.Theta.Uniqueness,
+    `TateCurvesTheta.Theta.ThetaProdLaurent,
+    `TateCurvesTheta.Theta.ThetaProdGlobalLaurent,
     `TateCurvesTheta.Theta.LaurentSphere,
     `TateCurvesTheta.Theta.LaurentSphereReduce,
     `TateCurvesTheta.Theta.LaurentUnitSphere,
+    `TateCurvesTheta.Theta.Normalization,
+    `TateCurvesTheta.Theta.Durfee,
+    `TateCurvesTheta.Theta.AuditTripleProduct,
     `TateCurvesTheta.Kummer.ThetaGermCore]
   moreLeanArgs := #["-DwarningAsError=true"]
 

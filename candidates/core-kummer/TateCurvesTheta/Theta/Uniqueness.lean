@@ -33,11 +33,11 @@ so `aₙ = 0` for `n ≠ 0` and `f` collapses to its constant term `a₀`.
 The only nonelementary input is the **Laurent coefficient uniqueness principle**
 `LaurentCoeffUnique`: over a complete nonarchimedean field, a convergent two-sided Laurent
 series is determined by its values on `Kˣ`. This is the nonarchimedean analogue of the identity
-theorem for Laurent expansions (its proof is a Newton-polygon / ultrametric maximum-modulus
-argument that is not yet in this tree); the engine below is proved **conditionally** on it,
-`sorry`-free, taking it as an explicit hypothesis. Everything else — the reduction of
-`q`-invariance to the coefficient relation and the collapse to `a₀` — is elementary and proved
-here in full, so the recurring project seam is reduced to this single named principle.
+theorem for Laurent expansions. The engine below is stated conditionally on it, `sorry`-free;
+the principle itself is discharged unconditionally in
+`TateCurvesTheta.Theta.LaurentUnitSphere` via the Strassmann sphere theorem. Everything else —
+the reduction of `q`-invariance to the coefficient relation and the collapse to `a₀` — is
+elementary and proved here in full.
 
 ## Main definitions
 
@@ -56,18 +56,15 @@ here in full, so the recurring project seam is reduced to this single named prin
   `q`-invariant (its automorphy factors `(q·u)⁻¹` cancel), the precise hypothesis to which the
   engine applies to close `theta = thetaProd`.
 
-## Closing `theta = thetaProd` (the remaining seams)
+## Closing `theta = thetaProd`
 
-With the engine in hand, `theta = thetaProd` follows once two further inputs are supplied:
-
-1. `LaurentCoeffUnique K` — the coefficient-uniqueness principle above;
-2. a **Laurent representation of the ratio** `theta u / thetaProd u = ∑' n, cₙ uⁿ` (division of
-   two convergent products), the one genuinely analytic step flagged in `Theta/Product.lean`.
-
-Given both, `thetaDiv_q_smul` makes the ratio `q`-invariant, `const_of_qinvariant_laurent`
-makes it the constant `c₀`, and matching the leading term pins `c₀ = 1`. Steps 1–2 and the
-`c₀ = 1` normalization are left as precisely-stated seams; the reusable engine and the ratio's
-`q`-invariance are delivered here in full.
+This file supplies the reusable `q`-difference engine and the ratio
+invariance. The identity is closed unconditionally in
+`TateCurvesTheta.Theta.Durfee` through the global Laurent development of
+`thetaProd` and the Durfee-square identity. `LaurentCoeffUnique` is proved in
+`TateCurvesTheta.Theta.LaurentUnitSphere`; the earlier `RatioLaurentRepr`
+route is retained only as a historical reduction and is no longer the route
+used for the final theorem.
 
 ## References
 
@@ -122,10 +119,9 @@ theorem tsum_eq_coeff_zero_of_qinv (a : ℤ → K) (hcoeff : ∀ n : ℤ, a n * 
 series is determined by its values on `Kˣ`. If two coefficient families `a, b : ℤ → K` give
 summable Laurent series with `∑' n, aₙ uⁿ = ∑' n, bₙ uⁿ` for every `u : Kˣ`, then `a = b`.
 
-This is the nonarchimedean identity theorem for Laurent expansions. Its proof (a Newton-polygon
-/ ultrametric maximum-modulus argument) is not yet in this tree; it is the single analytic input
-to the `q`-difference engine below and is carried as an explicit hypothesis rather than
-`sorry`-ed. -/
+This is the nonarchimedean identity theorem for Laurent expansions. It is discharged
+unconditionally in `TateCurvesTheta.Theta.LaurentUnitSphere`; here it is carried as an explicit
+hypothesis so that the reusable `q`-difference engine can be stated before that module. -/
 def _root_.TateCurvesTheta.LaurentCoeffUnique (K : Type*) [NormedField K] : Prop :=
   ∀ a b : ℤ → K,
     (∀ u : Kˣ, Summable fun n : ℤ => a n * (u : K) ^ n) →

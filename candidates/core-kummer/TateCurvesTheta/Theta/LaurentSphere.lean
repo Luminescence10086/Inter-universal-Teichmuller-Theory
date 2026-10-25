@@ -56,13 +56,12 @@ on the unit sphere. Feeding `LaurentSphereZerosFinite` gives `LaurentCoeffUnique
 * `TateCurvesTheta.TateParameter.const_of_qinvariant_laurent_of_sphereZerosFinite` : the #119
   engine with its `LaurentCoeffUnique` hypothesis replaced by `LaurentSphereZerosFinite`.
 
-## The residual seam
+## Discharge of the seam
 
-`LaurentSphereZerosFinite K` is *not* proved here: it is Strassmann's theorem for the sphere,
-absent from Mathlib (no Newton-polygon / Weierstrass-preparation machinery over nonarchimedean
-fields as of 2026-07). It is stated precisely so a follow-up can discharge it — via the ultrametric
-Newton polygon of `c` restricted to a sphere — and thereby settle `LaurentCoeffUnique` for the
-project's `K`, including the discrete case `ℚₚ` that `LaurentStrictDom` cannot reach.
+`LaurentSphereZerosFinite K` is not proved in this file. It is discharged one
+module later in `TateCurvesTheta.Theta.LaurentUnitSphere`, using the
+two-sided Strassmann theorem, and that gives `LaurentCoeffUnique` for this
+project's `K`, including the discrete case `ℚₚ`.
 
 ## References
 

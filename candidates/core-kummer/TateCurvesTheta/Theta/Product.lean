@@ -58,17 +58,15 @@ This file **fixes this normalization** as the definitive product form for downst
   functional equation as the series, `thetaProd q (q · u) = (q · u)⁻¹ · thetaProd q u`
   (compare `theta_q_smul`).
 
-## The identity `θ = thetaProd` (documented seam)
+## The identity `θ = thetaProd`
 
-The full Jacobi triple product identity `theta q u = thetaProd q u` is **not** proved here.
-Its standard proof observes that both sides satisfy the same `q`-difference equation
-`f (q·u) = (q·u)⁻¹ · f u` (established here for `thetaProd` as `thetaProd_q_smul`, and for the
-series as `theta_q_smul`), so their ratio is `qᶻ`-invariant, i.e. descends to a nowhere-zero
-"holomorphic" function on the compact quotient `Kˣ/qᶻ` and is therefore constant; matching the
-constant term closes the identity. The closing uniqueness step requires a nonarchimedean
-Liouville/properness input for `Kˣ/qᶻ` that is not yet in this tree, so it is left as a
-documented seam. Everything *claimed proved* below is `sorry`-free; the two sides are shown to
-obey the identical functional equation, which is the substantive analytic agreement.
+This module sets up the product form and its automorphy. The identity
+`theta q u = thetaProd q u` is proved unconditionally in
+`TateCurvesTheta.Theta.Durfee`: the Euler q-binomial expansion and the
+nonarchimedean Cauchy product give a global Laurent development of
+`thetaProd`, Laurent coefficient uniqueness pins it to a constant multiple of
+`theta`, and the Durfee-square identity `thetaProdNormConst = 1` pins the
+constant. No hypothesis is left at the final theorem.
 
 ## References
 
