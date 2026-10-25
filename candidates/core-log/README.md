@@ -30,7 +30,9 @@ lake env lean -DwarningAsError=true CoreLog/PrecisionQpThree.lean
 lake env lean -DwarningAsError=true CoreLog/Audit.lean
 ```
 
-Evidence, source diff, and current status are under `../../reviews/core-round/log/`.
+This branch contains the verified sources and the replay commands above.
+Historical evidence that is not tracked on this branch is described in the
+parent research workspace; it is not required to reproduce these CLI checks.
 The initial full `import Mathlib` attempt was interrupted because of a loading
 bottleneck; the narrowed full port is the version actually checked.
 
