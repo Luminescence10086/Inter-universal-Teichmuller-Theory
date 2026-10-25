@@ -30,3 +30,32 @@ remain unchanged; the new entry is compiled with `lake env lean` explicitly.
 Do not import Frontier together with its source-section modules: they use the
 same declaration names. This extension still does not reconstruct tempered Pi
 or close the original IUT comparison.
+
+## Annular deck-constant synchronization
+
+`Boundary/LocalDeckSynchronization.lean` closes the per-annulus constant twist
+question left open by the annular-descent round. It consumes the same-frame
+closed q-annular atlas, its endpoint summability and sphere overlaps, one
+nonzero local Laurent value, and local deck equations with **possibly different**
+constants `α m`. It proves:
+
+* `CoreLocalDeckSynchronization.constants_eq_succ` : `α (m + 1) = α m`;
+* `constants_eq_zero` : every `α m` equals `α 0`;
+* `global_twisted_law` / `exists_common_twist` : the common twist is an output,
+  not a global input;
+* `locally_twisted_curvature_eq_q` : `B 0 (n+2) * B 0 n / B 0 (n+1)^2 = q`.
+
+`Boundary/SphereNonvanishing.lean` supplies the shared nonzero point from
+sphere coefficient uniqueness; `Boundary/AnnularOverlap.lean` supplies the
+q-annulus overlap geometry. The target is a Lake root:
+
+```powershell
+lake build Boundary.LocalDeckSynchronization
+```
+
+The minimal build from a clean checkout completes 2758 jobs with
+`-DwarningAsError=true`; all seven new declarations print only
+`propext`, `Classical.choice` and `Quot.sound`. No editor observation,
+fact-tree admission, export bridge, original tempered realization, primitive
+deck identification, Corollary 3.12 or abc claim is made here. The same-frame
+and fixed Tate-coordinate hypotheses remain substantive inputs.

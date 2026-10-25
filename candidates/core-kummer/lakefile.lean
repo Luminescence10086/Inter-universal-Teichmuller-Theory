@@ -51,22 +51,39 @@ lean_lib ValuationSupport where
 
 lean_lib TateCurvesTheta where
   roots := #[`TateCurvesTheta.QParameter.Basic,
+    `TateCurvesTheta.Analysis.UltrametricSum,
+    `TateCurvesTheta.Analysis.MaxTerm,
+    `TateCurvesTheta.Analysis.Strassmann,
+    `TateCurvesTheta.Analysis.StrassmannSphere,
     `TateCurvesTheta.Theta.Basic,
     `TateCurvesTheta.Theta.Periodicity,
+    `TateCurvesTheta.Theta.Product,
+    `TateCurvesTheta.Theta.Uniqueness,
+    `TateCurvesTheta.Theta.LaurentSphere,
+    `TateCurvesTheta.Theta.LaurentSphereReduce,
+    `TateCurvesTheta.Theta.LaurentUnitSphere,
     `TateCurvesTheta.Kummer.ThetaGermCore]
   moreLeanArgs := #["-DwarningAsError=true"]
 
 lean_lib Boundary where
   roots := #[`Boundary.AnchoredComparison,
+    `Boundary.AnnularConvergence,
+    `Boundary.AnnularOverlap,
+    `Boundary.AnnularThetaDescent,
     `Boundary.DecompositionBridge,
     `Boundary.DiscreteValuation,
     `Boundary.FinitePlace,
     `Boundary.Frontier,
+    `Boundary.GlobalThetaRigidity,
     `Boundary.LaurentPoint,
+    `Boundary.LocalDeckSynchronization,
     `Boundary.PrecisionLoss,
     `Boundary.ProjectiveComparison,
     `Boundary.ReducedComparison,
-    `Boundary.ThetaGermTransport]
+    `Boundary.SphereCoefficientDescent,
+    `Boundary.SphereNonvanishing,
+    `Boundary.ThetaGermTransport,
+    `Boundary.TwistedThetaCurvature]
   moreLeanArgs := #["-DwarningAsError=true"]
 
 lean_lib Export where
