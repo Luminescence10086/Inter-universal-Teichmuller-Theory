@@ -86,6 +86,7 @@ lean_lib Boundary where
     `Boundary.LaurentPoint,
     `Boundary.LocalDeckSynchronization,
     `Boundary.PrecisionLoss,
+    `Boundary.PrimitiveDeck,
     `Boundary.ProjectiveComparison,
     `Boundary.ReducedComparison,
     `Boundary.SphereCoefficientDescent,
