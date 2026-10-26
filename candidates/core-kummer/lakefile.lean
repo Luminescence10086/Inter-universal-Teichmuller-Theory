@@ -119,6 +119,7 @@ lean_lib Boundary where
     `Boundary.Frontier,
     `Boundary.GlobalThetaRigidity,
     `Boundary.KummerCharts,
+    `Boundary.KummerFiniteEtale,
     `Boundary.KummerDoubleCover,
     `Boundary.LaurentPoint,
     `Boundary.LocalDeckSynchronization,
