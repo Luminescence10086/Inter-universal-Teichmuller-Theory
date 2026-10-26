@@ -121,6 +121,7 @@ lean_lib Boundary where
     `Boundary.KummerCharts,
     `Boundary.KummerFiniteEtale,
     `Boundary.KummerFiniteEtale2,
+    `Boundary.KummerIsSeparable,
     `Boundary.KummerDoubleCover,
     `Boundary.LaurentPoint,
     `Boundary.LocalDeckSynchronization,
