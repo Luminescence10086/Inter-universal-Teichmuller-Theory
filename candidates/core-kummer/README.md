@@ -125,3 +125,26 @@ trivialization `τ_N`; those need a structure sheaf on infinite rigid-analytic
 covers that the current dependency layer does not provide. It also does not
 identify this model's `q` with the original IUT deck generator. See
 `research/core-primitive-deck-2026-10-25/round-report.md`.
+
+## Defect seam discharged; nontrivial 2-torsion Tate point
+
+`TateCurvesTheta/TateCurve/TatePointOnCurve.lean` proves the Weierstrass
+defect vanishes off the `q`-orbit (`tateDefect_eq_zero`), so the former
+conditional seam `DefectLaurentRepr` holds with the zero coefficient family
+(`defectLaurentRepr`) and `tatePoint_mem'` is unconditional.
+
+`Boundary/KummerDoubleCover.lean` then proves that for a square root `s` of `q`
+the Tate point of `s` is a nontrivial `2`-torsion point:
+
+* `deck_sq_eq_one` : `tatePointHom s * tatePointHom s = 1`;
+* `deck_sq_ne_one` : `tatePointHom s ≠ 1`.
+
+```powershell
+lake build Boundary.KummerDoubleCover
+```
+
+Boundaries: characteristic `2` is excluded (`TameResidueChar` requires
+`‖2‖ = 1`); the membership argument is still an explicit parameter (`memArg`
+fills it); analytic Tate model only, with no `L_N`, no `Π^tp_Y` and no original
+IUT double-isogeny comparison. See
+`research/core-defect-seam-2026-10-25/round-report.md`.
